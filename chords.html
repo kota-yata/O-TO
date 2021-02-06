@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+
+  <!-- Vue を読み込む -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <!--文字エンコーディングの指定-->
+  <meta charset="utf-8">
+
+  <!--ページタイトル-->
+  <title>O-TO</title>
+  <meta property="og:title" content="O-TO" />
+  <meta property="og:type" content="website">
+
+  <!--ページの概要-->
+  <meta name="description" content="は音楽理論の学習や楽曲制作の補助を目的としたサービスです。コードの構成音や、音符の長さなどの情報が分かりやすく理解できます。">
+
+  <!--サイト情報-->
+  <meta property="og:site_name" content="O-TO" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content="image\o-to site title.png" />
+
+  <!--Internet Explorer用の設定-->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!--viewport設定(レスポンシブデザイン対応)-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!--OGPタグ/twitterカード-->
+  <meta property="og:url" content="index.html" />
+
+  <!--twitterカード-->
+  <meta name="twitter:card" content="Summary Card" />
+  <meta name="twitter:site" content="@khufrudamonotes" />
+
+  <!--サイトアイコンの指定-->
+  <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="image\icon\site-tile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="image\icon\site-tile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="image\icon\site-tile-310x310.png">
+  <meta name="msapplication-TileColor" content="#0078d7">
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="image\icon\favicon.ico">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="image\icon\favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="image\icon\apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="image\icon\apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="image\icon\apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="image\icon\apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="image\icon\apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="image\icon\apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="image\icon\apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="image\icon\apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="image\icon\apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="image\icon\android-chrome-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="image\icon\android-chrome-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="image\icon\android-chrome-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="image\icon\android-chrome-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="image\icon\android-chrome-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="image\icon\android-chrome-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="image\icon\android-chrome-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image\icon\android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="image\icon\android-chrome-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="image\icon\android-chrome-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="image\icon\android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="image\icon\icon-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="image\icon\icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="image\icon\icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="image\icon\icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="image\icon\icon-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="image\icon\icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="image\icon\icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="image\icon\icon-160x160.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image\icon\icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="image\icon\icon-196x196.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="image\icon\icon-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="image\icon\icon-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="image\icon\icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="image\icon\icon-16x16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="image\icon\icon-24x24.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="image\icon\icon-32x32.png">
+  <link rel="manifest" href="image\icon\manifest.json">
+
+  <!-- headのコンポーネントを読み込む -->
+  <div id="head">
+    <head-template></head-template>
+  </div>
+
+  <!--bootstrap を読み込む-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ヘッダー -->
+    <header id="header">
+      <header-template></header-template>
+    </header>
+
+    <!-- メイン -->
+    <main>
+
+      <!-- 見出し -->
+      <div id="display">
+        <title-display></title-display>
+      </div>
+
+      <!-- 左(メインコンテンツ) -->
+
+      <p class="pt-3 pb-3">コードの構成音が分かりませんか？
+        <br><br>———それも今日までです。
+      </p>
+
+
+      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なコードの構成音を調べる</h3>
+      <p class="pb-3">ドロップダウンリストから調べたいトニックとコードネームを選んでください。</p>
+
+
+      <div class="text-right">
+
+        <label for="chord_root_name" class="box1 col-md-10 col-xl-2 py-2 mx-2">トニック
+          <select id="chord_root_name" class="form-select my-1" aria-label="Default select example"
+            onchange="keySignatureNames()">
+            <option value=0>C</option>
+            <option value=1>C#/D♭</option>
+            <option value=2>D</option>
+            <option value=3>D#/E♭</option>
+            <option value=4>E</option>
+            <option value=5>F</option>
+            <option value=6>F#/G♭</option>
+            <option value=7>G</option>
+            <option value=8>G#/A♭</option>
+            <option value=9>A</option>
+            <option value=10>A#/B♭</option>
+            <option value=11>B</option>
+          </select>
+        </label>
+
+        <label for="chord_name" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">コードネーム
+          <select id="chord_name" class="form-select my-1" aria-label="Default select example"
+            onchange="ChangeChords()">
+            <option value=100010010000>Major</option>
+            <option value=100100010000>Minor</option>
+            <option value=100010001000>aug</option>
+            <option value=100100100000>m(♭5)</option>
+            <option value=100001010000>sus4</option>
+            <option value=101000010000>sus2</option>
+            <option value=100010010010>7</option>
+            <option value=100010010001>Maj7</option>
+            <option value=100100010010>m7</option>
+            <option value=100100010001>mMaj7</option>
+            <option value=100100100010>m7(♭5)</option>
+            <option value=100100100100>dim7</option>
+            <option value=100001010010>7sus4</option>
+            <option value=100010010100>6</option>
+            <option value=100100010100>m6</option>
+            <option value=100010001010>aug7</option>
+            <option value=100010001001>augMaj7</option>
+            <option value=101000100010>blk</option>
+            <option value=101010010000>add9</option>
+            <option value=101100010000>madd9</option>
+            <option value=100000010000>5</option>
+          </select>
+        </label>
+
+      </div>
+
+
+      <div class="row">
+        <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_0">
+          Root
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_1">
+          m2nd
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_2">
+          M2nd
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_3">
+          m3rd
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_4">
+          M3rd
+        </div>
+        <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_5">
+          P4th
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_6">
+          dim5
+        </div>
+        <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_7">
+          P5th
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_8">
+          aug5
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_9">
+          M6th
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_10">
+          m7th
+        </div>
+        <div class="list-group-item col-xl text-center d-none d-xl-block" id="tension_11">
+          M7th
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="list-group-item list-group-item-secondary col-xl text-center d-none d-xl-block" id="tension_0">
+
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_1">
+          ♭9th
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_2">
+          9th
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_3">
+          #9th
+        </div>
+        <div class="list-group-item list-group-item-secondary col-xl text-center d-none d-xl-block" id="tension_4">
+
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_5">
+          11th
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_6">
+          #11th
+        </div>
+        <div class="list-group-item list-group-item-secondary col-xl text-center d-none d-xl-block" id="tension_7">
+
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_8">
+          ♭13th
+        </div>
+        <div class="list-group-item list-group-item-success col-xl text-center d-none d-xl-block" id="tension_9">
+          13th
+        </div>
+        <div class="list-group-item list-group-item-secondary col-xl text-center d-none d-xl-block" id="tension_10">
+
+        </div>
+        <div class="list-group-item list-group-item-secondary col-xl text-center d-none d-xl-block" id="tension_11">
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="list-group-item col-2 list-group-item-warning offset-1 text-center py-3 d-xl-none">
+          Root
+        </div>
+        <div class="list-group-item col-2 list-group-item-secondary text-center py-3 d-xl-none">
+
+        </div>
+        <div class="list-group-item col-5 list-group-item-info col-xl text-center py-3" id="chord_0">
+          C
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          m2nd
+        </div>
+        <div class="list-group-item list-group-item-success col-2 text-center py-3 d-xl-none">
+          ♭9th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_1">
+          C#/D♭
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          M2nd
+        </div>
+        <div class="list-group-item list-group-item-success col-2 text-center py-3 d-xl-none">
+          9th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_2">
+          D
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          m3rd
+        </div>
+        <div class="list-group-item list-group-item-success col-2 text-center py-3 d-xl-none">
+          #9th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_3">
+          D#/E♭
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          M3rd
+        </div>
+        <div class="list-group-item col-2 list-group-item-secondary text-center py-3 d-xl-none">
+
+        </div>
+        <div class="list-group-item col-5 list-group-item-info col-xl text-center py-3" id="chord_4">
+          E
+        </div>
+
+        <div class="list-group-item col-2 list-group-item-warning offset-1 text-center py-3 d-xl-none">
+          P4th
+        </div>
+        <div class="list-group-item col-2 list-group-item-success text-center py-3 d-xl-none">
+          11th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_5">
+          F
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          dim5
+        </div>
+        <div class="list-group-item col-2 list-group-item-success text-center py-3 d-xl-none">
+          #11th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_6">
+          F#/G♭
+        </div>
+
+        <div class="list-group-item col-2 list-group-item-warning offset-1 text-center py-3 d-xl-none">
+          P5th
+        </div>
+        <div class="list-group-item col-2 list-group-item-secondary text-center py-3 d-xl-none">
+
+        </div>
+        <div class="list-group-item col-5 list-group-item-info col-xl text-center py-3" id="chord_7">
+          G
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          aug5
+        </div>
+        <div class="list-group-item col-2 list-group-item-success text-center py-3 d-xl-none">
+          ♭13th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_8">
+          G#/A♭
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          M6th
+        </div>
+        <div class="list-group-item list-group-item-success col-2 text-center py-3 d-xl-none">
+          13th
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_9">
+          A
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          m7th
+        </div>
+        <div class="list-group-item col-2 list-group-item-secondary text-center py-3 d-xl-none">
+
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_10">
+          A#/B♭
+        </div>
+
+        <div class="list-group-item col-2 offset-1 text-center py-3 d-xl-none">
+          M7th
+        </div>
+        <div class="list-group-item col-2 list-group-item-secondary text-center py-3 d-xl-none">
+
+        </div>
+        <div class="list-group-item col-5 list-group-item-secondary col-xl text-center py-3" id="chord_11">
+          B
+        </div>
+      </div>
+
+
+      <div class="py-3">
+        <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
+          <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+            onchange="keySignatureNames()">
+            <option value=0>英・米式表記</option>
+            <option value=1>イタリア式表記</option>
+            <option value=2>日本式表記</option>
+            <option value=3>ドイツ式表記</option>
+          </select>
+        </label>
+      </div>
+
+
+    </main>
+
+
+    <!-- フッター -->
+    <footer id="footer">
+      <footer-template></footer-template>
+      <copyright-text></copyright-text>
+    </footer>
+
+    <script src="Vue.js"></script>
+    <script src="index.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
+  </div>
+</body>
+
+</html>
