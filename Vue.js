@@ -34,19 +34,19 @@ Vue.component('header-template', {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="chords.html">コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diatonic_chords.html">ダイアトニック・コード</a>
+            <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="note_value.html">音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="metric-modulation.html">メトリック・モジュレーション</a>
+            <a class="nav-link" href="o-to-metric-modulation.html">メトリック・モジュレーション</a>
           </li>
 
         </ul>
@@ -77,19 +77,19 @@ Vue.component('right-column', {
         <ul>
           
           <li class="nav-item">
-            <a class="nav-link" href="chords.html">コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diatonic_chords.html">ダイアトニック・コード</a>
+            <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="note_value.html">音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="metric-modulation.html">メトリック・モジュレーション</a>
+            <a class="nav-link" href="o-to-metric-modulation.html">メトリック・モジュレーション</a>
           </li>
       
         </ul>
@@ -124,6 +124,9 @@ Vue.component('right-column', {
         
         <ul>
         
+        <li class="nav-item">
+          <a class="nav-link" href="https://khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">オフィシャルサイト</span></a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="https://linktr.ee/KHUFRUDAMO_NOTES"target="_blank" rel="noopener noreferrer">KHUFRUDAMO NOTES - linktree</span></a>
         </li>
