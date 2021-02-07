@@ -188,7 +188,7 @@ function Chordschange() {
     let t10 = mod(Number(tonic_note_number) + 10, 12);
     let t11 = mod(Number(tonic_note_number) + 11, 12);
 
-    document.getElementById("Major_dia").innerHTML = note_name[tonic] + " Major ダイアトニックコード：" + key_signature[tonic];
+    document.getElementById("Major_dia").innerHTML = note_name[tonic] + " Major：" + key_signature[tonic];
     document.getElementById("Major_dia_1").innerHTML = note_name[tonic] + " Maj7";
     document.getElementById("Major_dia_2").innerHTML = note_name[t2] + " m7";
     document.getElementById("Major_dia_3").innerHTML = note_name[t4] + " m7";
@@ -197,7 +197,7 @@ function Chordschange() {
     document.getElementById("Major_dia_6").innerHTML = note_name[t9] + " m7";
     document.getElementById("Major_dia_7").innerHTML = note_name[t11] + " m7(♭5)";
 
-    document.getElementById("Rel_HMin_dia").innerHTML = note_name[t9] + " Harmonic Minor ダイアトニックコード：" + key_signature[tonic];
+    document.getElementById("Rel_HMin_dia").innerHTML = note_name[t9] + " Harmonic Minor：" + key_signature[tonic];
     document.getElementById("Rel_HMin_dia_1").innerHTML = note_name[tonic] + " augMaj7";
     document.getElementById("Rel_HMin_dia_2").innerHTML = note_name[t2] + " m7";
     document.getElementById("Rel_HMin_dia_3").innerHTML = note_name[t4] + " 7";
@@ -206,7 +206,7 @@ function Chordschange() {
     document.getElementById("Rel_HMin_dia_6").innerHTML = note_name[t9] + " mMaj7";
     document.getElementById("Rel_HMin_dia_7").innerHTML = note_name[t11] + " m7(♭5)";
 
-    document.getElementById("Rel_MMin_dia").innerHTML = note_name[t9] + " Melodic Minor ダイアトニックコード：" + key_signature[tonic];
+    document.getElementById("Rel_MMin_dia").innerHTML = note_name[t9] + " Melodic Minor：" + key_signature[tonic];
     document.getElementById("Rel_MMin_dia_1").innerHTML = note_name[tonic] + " augMaj7";
     document.getElementById("Rel_MMin_dia_2").innerHTML = note_name[t2] + " 7";
     document.getElementById("Rel_MMin_dia_3").innerHTML = note_name[t4] + " 7";
@@ -215,7 +215,7 @@ function Chordschange() {
     document.getElementById("Rel_MMin_dia_6").innerHTML = note_name[t9] + " mMaj7";
     document.getElementById("Rel_MMin_dia_7").innerHTML = note_name[t11] + " m7";
 
-    document.getElementById("Rel_HMaj_dia").innerHTML = note_name[tonic] + " Harmonic Major ダイアトニックコード：" + key_signature[tonic];
+    document.getElementById("Rel_HMaj_dia").innerHTML = note_name[tonic] + " Harmonic Major：" + key_signature[tonic];
     document.getElementById("Rel_HMaj_dia_1").innerHTML = note_name[tonic] + " Maj7";
     document.getElementById("Rel_HMaj_dia_2").innerHTML = note_name[t2] + " m7(♭5)";
     document.getElementById("Rel_HMaj_dia_3").innerHTML = note_name[t4] + " m7・7";
@@ -224,7 +224,7 @@ function Chordschange() {
     document.getElementById("Rel_HMaj_dia_6").innerHTML = note_name[t8] + " augMaj7";
     document.getElementById("Rel_HMaj_dia_7").innerHTML = note_name[t11] + " dim7";
 
-    document.getElementById("Rel_MMaj_dia").innerHTML = note_name[tonic] + "  Melodic Major ダイアトニックコード：" + key_signature[tonic];
+    document.getElementById("Rel_MMaj_dia").innerHTML = note_name[tonic] + "  Melodic Major：" + key_signature[tonic];
     document.getElementById("Rel_MMaj_dia_1").innerHTML = note_name[tonic] + " 7";
     document.getElementById("Rel_MMaj_dia_2").innerHTML = note_name[t2] + " m7(♭5)";
     document.getElementById("Rel_MMaj_dia_3").innerHTML = note_name[t4] + " m7(♭5)";
@@ -233,7 +233,7 @@ function Chordschange() {
     document.getElementById("Rel_MMaj_dia_6").innerHTML = note_name[t8] + " augMaj7";
     document.getElementById("Rel_MMaj_dia_7").innerHTML = note_name[t10] + " 7";
 
-    document.getElementById("Para_Minor_dia").innerHTML = note_name[tonic] + " Minor ダイアトニックコード：" + key_signature[t3];
+    document.getElementById("Para_Minor_dia").innerHTML = note_name[tonic] + " Minor：" + key_signature[t3];
     document.getElementById("Para_Minor_dia_1").innerHTML = note_name[tonic] + " m7";
     document.getElementById("Para_Minor_dia_2").innerHTML = note_name[t2] + " m7(♭5)";
     document.getElementById("Para_Minor_dia_3").innerHTML = note_name[t3] + " Maj7";
@@ -242,7 +242,7 @@ function Chordschange() {
     document.getElementById("Para_Minor_dia_6").innerHTML = note_name[t8] + " Maj7";
     document.getElementById("Para_Minor_dia_7").innerHTML = note_name[t10] + " 7";
 
-    document.getElementById("Para_HMin_dia").innerHTML = note_name[tonic] + " Harmonic Minor ダイアトニックコード：" + key_signature[t3];
+    document.getElementById("Para_HMin_dia").innerHTML = note_name[tonic] + " Harmonic Minor：" + key_signature[t3];
     document.getElementById("Para_HMin_dia_1").innerHTML = note_name[tonic] + " mMaj7";
     document.getElementById("Para_HMin_dia_2").innerHTML = note_name[t2] + " m7(♭5)";
     document.getElementById("Para_HMin_dia_3").innerHTML = note_name[t3] + " augMaj7";
@@ -251,7 +251,7 @@ function Chordschange() {
     document.getElementById("Para_HMin_dia_6").innerHTML = note_name[t8] + " Maj7";
     document.getElementById("Para_HMin_dia_7").innerHTML = note_name[t11] + " dim7";
 
-    document.getElementById("Para_MMin_dia").innerHTML = note_name[tonic] + " Melodic Minor ダイアトニックコード：" + key_signature[t3];
+    document.getElementById("Para_MMin_dia").innerHTML = note_name[tonic] + " Melodic Minor：" + key_signature[t3];
     document.getElementById("Para_MMin_dia_1").innerHTML = note_name[tonic] + " mMaj7";
     document.getElementById("Para_MMin_dia_2").innerHTML = note_name[t2] + " m7";
     document.getElementById("Para_MMin_dia_3").innerHTML = note_name[t3] + " augMaj7";
@@ -265,7 +265,7 @@ function Chordschange() {
 //ディグリーネームで表示するためのスクリプト
 document.getElementById("degree_button"); function degree() {
 
-    document.getElementById("Major_dia").innerHTML = "Ⅰ Major ダイアトニックコード：";
+    document.getElementById("Major_dia").innerHTML = "Ⅰ Major";
     document.getElementById("Major_dia_1").innerHTML = "Ⅰ Maj7";
     document.getElementById("Major_dia_2").innerHTML = "Ⅱ m7";
     document.getElementById("Major_dia_3").innerHTML = "Ⅲ m7";
@@ -274,7 +274,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Major_dia_6").innerHTML = "Ⅵ m7";
     document.getElementById("Major_dia_7").innerHTML = "Ⅵ m7(♭5)";
 
-    document.getElementById("Rel_HMin_dia").innerHTML = "Ⅵ Harmonic Minor ダイアトニックコード：";
+    document.getElementById("Rel_HMin_dia").innerHTML = "Ⅵ Harmonic Minor";
     document.getElementById("Rel_HMin_dia_1").innerHTML = "♭Ⅲ augMaj7";
     document.getElementById("Rel_HMin_dia_2").innerHTML = "Ⅳ m7";
     document.getElementById("Rel_HMin_dia_3").innerHTML = "Ⅴ 7";
@@ -283,7 +283,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Rel_HMin_dia_6").innerHTML = "Ⅰ mMaj7";
     document.getElementById("Rel_HMin_dia_7").innerHTML = "Ⅱ m7(♭5)";
 
-    document.getElementById("Rel_MMin_dia").innerHTML = "Ⅵ Melodic Minor ダイアトニックコード：";
+    document.getElementById("Rel_MMin_dia").innerHTML = "Ⅵ Melodic Minor";
     document.getElementById("Rel_MMin_dia_1").innerHTML = "♭Ⅲ augMaj7";
     document.getElementById("Rel_MMin_dia_2").innerHTML = "Ⅳ 7";
     document.getElementById("Rel_MMin_dia_3").innerHTML = "Ⅴ 7";
@@ -292,7 +292,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Rel_MMin_dia_6").innerHTML = "Ⅰ mMaj7";
     document.getElementById("Rel_MMin_dia_7").innerHTML = "Ⅱ m7";
 
-    document.getElementById("Rel_HMaj_dia").innerHTML = "Ⅰ Harmonic Major ダイアトニックコード：";
+    document.getElementById("Rel_HMaj_dia").innerHTML = "Ⅰ Harmonic Major";
     document.getElementById("Rel_HMaj_dia_1").innerHTML = "Ⅰ Maj7";
     document.getElementById("Rel_HMaj_dia_2").innerHTML = "Ⅱ m7(♭5)";
     document.getElementById("Rel_HMaj_dia_3").innerHTML = "Ⅲ m7・7";
@@ -301,7 +301,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Rel_HMaj_dia_6").innerHTML = "♭Ⅵ augMaj7";
     document.getElementById("Rel_HMaj_dia_7").innerHTML = "Ⅶ dim7";
 
-    document.getElementById("Rel_MMaj_dia").innerHTML = "Ⅰ Melodic Major ダイアトニックコード：";
+    document.getElementById("Rel_MMaj_dia").innerHTML = "Ⅰ Melodic Major";
     document.getElementById("Rel_MMaj_dia_1").innerHTML = "Ⅰ 7";
     document.getElementById("Rel_MMaj_dia_2").innerHTML = "Ⅱ m7(♭5)";
     document.getElementById("Rel_MMaj_dia_3").innerHTML = "Ⅲ m7(♭5)";
@@ -310,7 +310,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Rel_MMaj_dia_6").innerHTML = "♭Ⅵ augMaj7";
     document.getElementById("Rel_MMaj_dia_7").innerHTML = "♭Ⅶ 7";
 
-    document.getElementById("Para_Minor_dia").innerHTML = "Ⅰ Minor ダイアトニックコード：";
+    document.getElementById("Para_Minor_dia").innerHTML = "Ⅰ Minor";
     document.getElementById("Para_Minor_dia_1").innerHTML = "Ⅰ m7";
     document.getElementById("Para_Minor_dia_2").innerHTML = "Ⅱ m7(♭5)";
     document.getElementById("Para_Minor_dia_3").innerHTML = "♭Ⅲ Maj7";
@@ -319,7 +319,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Para_Minor_dia_6").innerHTML = "♭Ⅵ Maj7";
     document.getElementById("Para_Minor_dia_7").innerHTML = "♭Ⅶ 7";
 
-    document.getElementById("Para_HMin_dia").innerHTML = "Ⅰ Harmonic Minor ダイアトニックコード：";
+    document.getElementById("Para_HMin_dia").innerHTML = "Ⅰ Harmonic Minor";
     document.getElementById("Para_HMin_dia_1").innerHTML = "Ⅰ mMaj7";
     document.getElementById("Para_HMin_dia_2").innerHTML = "Ⅱ m7(♭5)";
     document.getElementById("Para_HMin_dia_3").innerHTML = "♭Ⅲ augMaj7";
@@ -328,7 +328,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Para_HMin_dia_6").innerHTML = "♭Ⅵ Maj7";
     document.getElementById("Para_HMin_dia_7").innerHTML = "Ⅶ dim7";
 
-    document.getElementById("Para_MMin_dia").innerHTML = "Ⅰ Melodic Minor ダイアトニックコード：";
+    document.getElementById("Para_MMin_dia").innerHTML = "Ⅰ Melodic Minor";
     document.getElementById("Para_MMin_dia_1").innerHTML = "Ⅰ mMaj7";
     document.getElementById("Para_MMin_dia_2").innerHTML = "Ⅱ m7";
     document.getElementById("Para_MMin_dia_3").innerHTML = "♭Ⅲ augMaj7";
