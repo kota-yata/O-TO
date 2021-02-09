@@ -330,7 +330,7 @@ function changeChordProgression() {
         //涙を誘うウェポン
         document.getElementById("weapon").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[gisas]}m(♭5) - ${sharp_note_name[a]}m`;
         //アニソン風味
-        document.getElementById("anison").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[gisas]} - ${flat_note_name[aisb]}`;
+        document.getElementById("anison").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${flat_note_name[gisas]} - ${flat_note_name[aisb]}`;
         //サビ前の常連
         document.getElementById("sabimae").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[fisges]}m(♭5) - ${sharp_note_name[g]} - ${sharp_note_name[gisas]}m(♭5)`;
         //丸サ進行
@@ -408,7 +408,7 @@ function changeChordProgression() {
         //普通が嫌いなあなたへ
         document.getElementById("uncommon").innerHTML = `${sharp_note_name[fisges]}m7(♭5) - ${sharp_note_name[f]}Maj7 - ${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7`;
         //モダンメタルの住人
-        document.getElementById("modern_metal").innerHTML = `${sharp_note_name[a]}5add9 - ${sharp_note_name[f]}5add9 - ${sharp_note_name[dises]}5add9 - ${sharp_note_name[c]}5add9`;
+        document.getElementById("modern_metal").innerHTML = `${sharp_note_name[a]}5add9 - ${sharp_note_name[f]}5add9 - ${flat_note_name[dises]}5add9 - ${sharp_note_name[c]}5add9`;
         //スペイン旅行
         document.getElementById("spain").innerHTML = `${sharp_note_name[e]} - ${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[f]}`;
     } else {
@@ -454,7 +454,7 @@ function changeChordProgression() {
         //涙を誘うウェポン
         document.getElementById("weapon").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${sharp_note_name[gisas]}m(♭5) - ${flat_note_name[a]}m`;
         //アニソン風味
-        document.getElementById("anison").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${sharp_note_name[gisas]} - ${flat_note_name[aisb]}`;
+        document.getElementById("anison").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[gisas]} - ${flat_note_name[aisb]}`;
         //サビ前の常連
         document.getElementById("sabimae").innerHTML = `${flat_note_name[f]} - ${sharp_note_name[fisges]}m(♭5) - ${flat_note_name[g]} - ${sharp_note_name[gisas]}m(♭5)`;
         //丸サ進行
