@@ -19,12 +19,12 @@
   <meta charset="utf-8">
 
   <!--ページタイトル-->
-  <title>コードネーム O-TO</title>
-  <meta property="og:title" content="コードネーム O-TO" />
+  <title>スケール O-TO</title>
+  <meta property="og:title" content="スケール O-TO" />
   <meta property="og:type" content="article">
 
   <!--ページの概要-->
-  <meta name="description" content="このページでは主なコードの構成音を調べられます。コードの構成音が分からないのも今日までです。" />
+  <meta name="description" content="スケールの構成音を把握するのに時間を使っていませんか？このページでは主なスケールの構成音を簡単に調べられます。" />
 
   <!--サイト情報-->
   <meta property="og:site_name" content="O-TO" />
@@ -40,8 +40,8 @@
   <!--OGPタグ/twitterカード-->
   <meta name="twitter:card" content="Summary Card" />
   <meta name="twitter:site" content="@khufrudamonotes" />
-  <meta name=”twitter:title” content="コードネーム O-TO" />
-  <meta name=”twitter:description” content="このページでは主なコードの構成音を調べられます。コードの構成音が分からないのも今日までです。" />
+  <meta name=”twitter:title” content="スケール O-TO" />
+  <meta name=”twitter:description” content="スケールの構成音を把握するのに時間を使っていませんか？このページでは主なスケールの構成音を簡単に調べられます。" />
   <meta name=”twitter:image” content="image\o-to site title.png" />
 
   <!--サイトアイコンの指定-->
@@ -125,13 +125,13 @@
 
       <!-- 左(メインコンテンツ) -->
 
-      <p class="pt-3 pb-3">コードの構成音が分かりませんか？
-        <br><br>———それも今日までです。
+      <p class="pt-3 pb-3">スケールの構成音を把握するのに時間を使っていませんか？
+        <br><br>———お任せください。
       </p>
 
 
-      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なコードの構成音を調べる</h3>
-      <p class="pb-3">ドロップダウンリストから調べたいトニックとコードネームを選んでください。</p>
+      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なスケールの構成音を調べる</h3>
+      <p class="pb-3">ドロップダウンリストから調べたいトニックとスケールを選んでください。</p>
 
 
       <div class="text-right">
@@ -154,30 +154,35 @@
           </select>
         </label>
 
-        <label for="chord_name" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">コードネーム
+        <label for="chord_name" class="box1 col-md-10 col-xl-6 pt-2 pb-4 mx-2">調べたいスケール
           <select id="chord_name" class="form-select my-1" aria-label="Default select example"
             onchange="ChangeChords()">
-            <option value=100010010000>Major</option>
-            <option value=100100010000>Minor</option>
-            <option value=100010001000>aug</option>
-            <option value=100100100000>m(♭5)</option>
-            <option value=100001010000>sus4</option>
-            <option value=101000010000>sus2</option>
-            <option value=100010010010>7</option>
-            <option value=100010010001>Maj7</option>
-            <option value=100100010010>m7</option>
-            <option value=100100010001>mMaj7</option>
-            <option value=100100100010>m7(♭5)</option>
-            <option value=100100100100>dim7</option>
-            <option value=100001010010>7sus4</option>
-            <option value=100010010100>6</option>
-            <option value=100100010100>m6</option>
-            <option value=100010001010>aug7</option>
-            <option value=100010001001>augMaj7</option>
-            <option value=101000100010>blk</option>
-            <option value=101010010000>Major add9</option>
-            <option value=101100010000>m add9</option>
-            <option value=100000010000>5</option>
+            <option value=101011010101>Major/Ionian (長音階)</option>
+            <option value=101101011010>Natural minor/Aeolian (自然的短音階)</option>
+            <option value=101101011001>Harmonic minor (和声的短音階)</option>
+            <option value=101101010101>Melodic minor (旋律的短音階)</option>
+            <option value=101011011001>Harmonic major (和声的長音階)</option>
+            <option value=101011011010>Melodic Major (旋律的長音階)</option>
+            <option value=101101010110>Dorian (ドリアン・モード)</option>
+            <option value=110101011010>Phrygian (フリジアン・モード)</option>
+            <option value=101010110101>Lydian (リディアン・モード)</option>
+            <option value=101011010110>Mixolydian (ミクソリディアン・モード)</option>
+            <option value=110101101010>Locrian (ロクリアン・モード)</option>
+            <option value=110011011010>Phrygian dominant (Hmp5↓)</option>
+            <option value=101010110110>Lydian dominant/Lydian ♭7th (リディアン♭7th)</option>
+            <option value=110110011010>Phrygian ♭4th (フリジアン♭4th)</option>
+            <option value=110011010110>Mixolydian ♭2nd (ミクソリディアン♭2nd)</option>
+            <option value=110110101010>Altered Scale/Super Locrian (オルタード・スケール)</option>
+            <option value=110111011010>Spanish Phrygian (スパニッシュ8ノート)</option>
+            <option value=101010101010>Whole Tone (ホールトーン・スケール)</option>
+            <option value=110110110110>Half whole diminished scale (ｺﾝﾋﾞﾈｰｼｮﾝ・ｵﾌﾞ・ﾃﾞｨﾐﾆｯｼｭ)</option>
+            <option value=101110010100>Blues Major pentatonic</option>
+            <option value=100101110010>Blues Minor pentatonic</option>
+            <option value=110001010010>陰音階・都節・Sakura mode[上行形]</option>
+            <option value=110001011000>陰音階・都節・Sakura mode[下行形]</option>
+            <option value=101001010100>律音階</option>
+            <option value=100011010001>琉球音階/ニロ抜き長音階</option>
+            <option value=111111111111>Chromatic (クロマチック・スケール)</option>
           </select>
         </label>
 
@@ -289,7 +294,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           9th
         </div>
-        <div class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_2">
+        <div class="list-group-item col-4 list-group-item-danger col-xl text-center py-3" id="chord_2">
           D
         </div>
 
@@ -319,7 +324,7 @@
         <div class="list-group-item col-3 list-group-item-info text-center py-3 d-xl-none">
           11th
         </div>
-        <div class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_5">
+        <div class="list-group-item col-4 list-group-item-danger col-xl text-center py-3" id="chord_5">
           F
         </div>
 
@@ -359,7 +364,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           13th
         </div>
-        <div class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_9">
+        <div class="list-group-item col-4 list-group-item-danger col-xl text-center py-3" id="chord_9">
           A
         </div>
 
@@ -379,7 +384,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <div class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_11">
+        <div class="list-group-item col-4 list-group-item-danger col-xl text-center py-3" id="chord_11">
           B
         </div>
       </div>
@@ -397,7 +402,6 @@
         </label>
       </div>
 
-      <img class="pt-3 pb-3" src="image\chord name structure.png">
 
     </main>
 

@@ -4,8 +4,6 @@
 Vue.component('head-template', {
   template: `
       <div>
-
-
       </div>
       `
 })
@@ -26,7 +24,7 @@ Vue.component('header-template', {
     
       <a class="navbar-brand text-white" href="index.html">O-TO</a>
     
-      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       
@@ -37,10 +35,16 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-chords.html">コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-scale.html">スケール</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
@@ -80,10 +84,16 @@ Vue.component('right-column', {
             <a class="nav-link" href="o-to-chords.html">コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-scale.html">スケール</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
@@ -105,6 +115,9 @@ Vue.component('right-column', {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">音楽理論マインドマップ</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧表</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">開放弦を使わないギターコード表</span></a>
@@ -142,9 +155,12 @@ Vue.component('right-column', {
         <li class="nav-item">
           <a class="nav-link" href="https://twitter.com/k1mu0419"target="_blank" rel="noopener noreferrer">管理人Twitter</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">バグの報告などはこちらからお願いします。</span></a>
+        </li>
 
         </ul>
-      
+
       </div>
         `
 })
@@ -195,4 +211,19 @@ Vue.component('title-display', {
 //見出し部分のコンポーネントのインスタンスを作成する
 const titleDisplay = new Vue({
   el: '#display'
+})
+
+
+let chordColor = new Vue({
+  el: "app",
+  data: {
+    check: "list-group-item col-xl text-center",
+
+    check: "list-group-item list-group-item-danger col-xl text-center"
+
+  },
+  methods: {
+
+  }
+
 })

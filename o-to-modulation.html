@@ -133,7 +133,7 @@
           <p class="pb-3">ドロップダウンリストから任意の項目を選んでください。結果は自動で切り替わります。</p>
 
           <div class="row py-2">
-            <label for="b_note" class="box1 col-md-6 col-xxl-2">転調前の主音：
+            <label for="b_note" class="box1 col-6 col-xxl-2">転調前の主音
               <select id="b_note" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
                 <option value=0>C</option>
                 <option value=1>C#/D♭</option>
@@ -150,7 +150,7 @@
               </select>
             </label>
 
-            <label for="b_mode" class="box2 col-md-6 col-xxl-3">転調前の調性：
+            <label for="b_mode" class="box2 col-6 col-xxl-3">転調前の調性
               <select id="b_mode" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
                 <option value=0>Major (Ionian)</option>
                 <option value=2>Dorian</option>
@@ -162,7 +162,7 @@
               </select>
             </label>
 
-            <label for="a_note" class="box4 col-md-6 col-xxl-2 offset-xxl-1">転調後の主音：
+            <label for="a_note" class="box4 col-6 col-xxl-2 offset-xxl-1">転調後の主音
               <select id="a_note" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
                 <option value=0>C</option>
                 <option value=1>C#/D♭</option>
@@ -179,7 +179,7 @@
               </select>
             </label>
 
-            <label for="a_mode" class="box5 col-md-6 col-xxl-3">転調後の調性：
+            <label for="a_mode" class="box5 col-6 col-xxl-3">転調後の調性
               <select id="a_mode" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
                 <option value=0>Major (Ionian)</option>
                 <option value=2>Dorian</option>
@@ -206,7 +206,7 @@
           <p class="pb-3">ドロップダウンリストから任意の項目を選んでください。結果は自動で切り替わります。</p>
 
           <div class="row my-4">
-            <label for="note" class="box3 col-md-4 col-xxl-3">転調元の主音：
+            <label for="note" class="box3 col-5 col-xxl-3">転調元の主音
               <select id="note" class="form-select my-1" aria-label="Default select example" onchange="keychange()">
                 <option value=0>C</option>
                 <option value=1>C#/D♭</option>
@@ -223,7 +223,7 @@
               </select>
             </label>
 
-            <label for="mode" class="box3 col-md-8 col-xxl-4">転調元の調性：
+            <label for="mode" class="box3 col-7 col-xxl-4">転調元の調性
               <select id="mode" class="form-select my-1" aria-label="Default select example" onchange="keychange()">
                 <option value=0>Major (Ionian)</option>
                 <option value=2>Dorian</option>
@@ -235,7 +235,7 @@
               </select>
             </label>
 
-            <label for="after_mode" class="box3 col-md-12 col-xxl-4 offset-xxl-1">転調後の調性：
+            <label for="after_mode" class="box3 col-md-12 col-xxl-4 offset-xxl-1">転調後の調性
               <select id="after_mode" class="form-select my-1" aria-label="Default select example"
                 onchange="keychange()">
                 <option value=0>Major (Ionian)</option>
@@ -258,30 +258,30 @@
 
           <div class="row">
             <li class="list-group-item item col-xl-6" id="result_s_2">#+2の転調先：D Major (#×2)</li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_2">♭+2の転調先：A#/B♭ Major
+            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_2">♭+2の転調先：B♭ Major
               (♭×2)</li>
           </div>
 
           <div class="row">
             <li class="list-group-item item col-xl-6" id="result_s_3">#+3の転調先：A Major (#×3)</li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_3">♭+3の転調先：D#/E♭ Major
+            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_3">♭+3の転調先：E♭ Major
               (♭×3)</li>
           </div>
 
           <div class="row">
             <li class="list-group-item item col-xl-6" id="result_s_4">#+4の転調先：E Major (#×4)</li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_4">♭+4の転調先：G#/A♭ Major
+            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_4">♭+4の転調先：A♭ Major
               (♭×4)</li>
           </div>
 
           <div class="row">
             <li class="list-group-item item col-xl-6" id="result_s_5">#+5の転調先：B Major (#×5)</li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_5">♭+5の転調先：C#/D♭ Major
+            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_5">♭+5の転調先：D♭ Major
               (♭×5)</li>
           </div>
 
           <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_sf_6">#・♭+6の転調先：F#/G♭ Major (#・♭×6)</li>
+            <li class="list-group-item item col-xl-6" id="result_sf_6">#・♭+6の転調先：F# Major (#×6)</li>
             <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_sf_zero">#・♭+0(平行調)：</li>
           </div>
 
@@ -298,10 +298,21 @@
               target="_blank" rel="noopener noreferrer">データベース</a>が強化されます。</p>
 
           <div class="ratio ratio-16x9">
-            <iframe
+            <iframe class="py-3"
               src="https://docs.google.com/forms/d/e/1FAIpQLSdt23bbHRWAiacNdszq6wgN1Rmc_bY0DSV9Nk6WVi3Uxib-DQ/viewform?embedded=true"
               allowfullscreen>読み込んでいます…</iframe>
           </div>
+
+          <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
+          <div class="pt-1 pb-1"><a href="https://khufrudamonotes.com/kind-of-modulation" target="_blank"
+              rel="noopener noreferrer">転調 まとめ 【全12種類・参考曲 30曲以上!】ヒット曲にかかる魔法を分析!!</a></div>
+          <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/how-to-modulation" target="_blank"
+              rel="noopener noreferrer">転調 やり方【10以上の方法・曲例あり！】どんなキーへでも転調できる！！</a></div>
+          <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/modulation-questionnaire-form" target="_blank"
+              rel="noopener noreferrer">【既に100曲以上記載】みんなで使える「転調している曲」のデータベースを作りました！ </a></div>
+          <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/a-lot-of-modulation" target="_blank"
+              rel="noopener noreferrer">転調が多い曲・転調しまくる曲 まとめ【10回以上転調する曲も！！】</a> </div>
+
         </div>
 
         <!-- 右カラム部分 -->

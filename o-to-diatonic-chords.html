@@ -11,7 +11,7 @@
 
     gtag('config', 'UA-138258869-1');
   </script>
-  
+
   <!-- Vue を読み込む -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
@@ -106,6 +106,7 @@
   <link href="style.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <div class="container">
@@ -136,7 +137,7 @@
 
       <div class="text-right">
 
-        <label for="tonic_note" class="box1 col-md-10 col-xl-2 py-3 mx-2">調べたい主音：
+        <label for="tonic_note" class="box1 col-10 offset-2 col-xl-2 py-3 mx-2">調べたい主音
           <select id="tonic_note" class="form-select my-1" aria-label="Default select example"
             onchange="Chordschange()">
             <option value=0>C</option>
@@ -154,10 +155,10 @@
           </select>
         </label>
 
-        <button id="degree_change_button" class="btn btn-primary box1 col-sm-12 col-md-5 col-xl-2 m-3"
+        <button id="degree_change_button" class="btn btn-primary box1 col-8 col-md-5 col-xl-3 m-3"
           onclick="Chordschange()">コードネームで表示</button>
 
-        <button id="degree_button" class="btn btn-primary box1 col-sm-12 col-md-5 col-xl-2 m-3"
+        <button id="degree_button" class="btn btn-primary box1 col-8 col-md-5 col-xl-3 m-3"
           onclick="degree()">ディグリーネームで表示</button>
 
       </div>
@@ -167,26 +168,26 @@
           C Major：(#・♭×0)
         </div>
       </div>
-      <div class="row">
-        <div class="list-group-item col-xl text-center" id="Major_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Major_dia_1">
           C Maj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Major_dia_2">
+        <div class="list-group-item col-md text-center" id="Major_dia_2">
           D m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Major_dia_3">
+        <div class="list-group-item col-md text-center" id="Major_dia_3">
           E m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Major_dia_4">
+        <div class="list-group-item col-md text-center" id="Major_dia_4">
           F Maj7
         </div>
-        <div class="list-group-item list-group-item-danger col-xl text-center" id="Major_dia_5">
+        <div class="list-group-item col-md text-center" id="Major_dia_5">
           G 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Major_dia_6">
+        <div class="list-group-item col-md text-center" id="Major_dia_6">
           A m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Major_dia_7">
+        <div class="list-group-item col-md text-center" id="Major_dia_7">
           B m7(♭5)
         </div>
       </div>
@@ -196,26 +197,26 @@
           A Harmonic Minor：(#・♭×0)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_1">
           C augMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_2">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_2">
           D m7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_HMin_dia_3">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_3">
           E 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_4">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_4">
           F Maj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_5">
-          G#/A♭ dim7
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_5">
+          G# dim7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_6">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_6">
           A mMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMin_dia_7">
+        <div class="list-group-item col-md text-center" id="Rel_HMin_dia_7">
           B m7(♭5)
         </div>
       </div>
@@ -225,26 +226,26 @@
           A Melodic Minor：(#・♭×0)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Rel_MMin_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_1">
           C augMaj7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_MMin_dia_2">
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_2">
           D 7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_MMin_dia_3">
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_3">
           E 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMin_dia_4">
-          F#/G♭ m7(♭5)
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_4">
+          F# m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMin_dia_5">
-          G#/A♭ m7(♭5)
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_5">
+          G# m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMin_dia_6">
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_6">
           A mMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMin_dia_7">
+        <div class="list-group-item col-md text-center" id="Rel_MMin_dia_7">
           B m7
         </div>
       </div>
@@ -254,26 +255,26 @@
           C Harmonic Major：(#・♭×0)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Rel_HMaj_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_1">
           C Maj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMaj_dia_2">
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_2">
           D m7(♭5)
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_HMaj_dia_3">
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_3">
           E m7・7
         </div>
-        <div class="list-group-item col-xl list-group-item text-center" id="Rel_HMaj_dia_4">
+        <div class="list-group-item col-md list-group-item text-center" id="Rel_HMaj_dia_4">
           F mMaj7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_HMaj_dia_5">
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_5">
           G 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMaj_dia_6">
-          G#/A♭ augMaj7
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_6">
+          A♭ augMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_HMaj_dia_7">
+        <div class="list-group-item col-md text-center" id="Rel_HMaj_dia_7">
           B dim7
         </div>
       </div>
@@ -283,27 +284,27 @@
           C Melodic Major：(#・♭×0)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item list-group-item-danger col text-center" id="Rel_MMaj_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_1">
           C 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMaj_dia_2">
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_2">
           D m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMaj_dia_3">
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_3">
           E m7(♭5)
         </div>
-        <div class="list-group-item col-xl list-group-item text-center" id="Rel_MMaj_dia_4">
+        <div class="list-group-item col-md list-group-item text-center" id="Rel_MMaj_dia_4">
           F mMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMaj_dia_5">
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_5">
           G m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Rel_MMaj_dia_6">
-          G#/A♭ augMaj7
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_6">
+          A♭ augMaj7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Rel_MMaj_dia_7">
-          A#/B♭ 7
+        <div class="list-group-item col-md text-center" id="Rel_MMaj_dia_7">
+          B♭ 7
         </div>
       </div>
 
@@ -312,27 +313,27 @@
           C Minor：(♭×3)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_1">
           C m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_2">
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_2">
           D m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_3">
-          D#/E♭ Maj7
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_3">
+          E♭ Maj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_4">
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_4">
           F m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_5">
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_5">
           G m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_Minor_dia_6">
-          G#/A♭ Maj7
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_6">
+          A♭ Maj7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Para_Minor_dia_7">
-          A#/B♭ 7
+        <div class="list-group-item col-md text-center" id="Para_Minor_dia_7">
+          B♭ 7
         </div>
       </div>
 
@@ -341,26 +342,26 @@
           C Harmonic Minor：(♭×3)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Para_HMin_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_1">
           C mMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_HMin_dia_2">
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_2">
           D m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_HMin_dia_3">
-          D#/E♭ augMaj7
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_3">
+          E♭ augMaj7
         </div>
-        <div class="list-group-item col-xl list-group-item text-center" id="Para_HMin_dia_4">
+        <div class="list-group-item col-md list-group-item text-center" id="Para_HMin_dia_4">
           F m7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger  text-center" id="Para_HMin_dia_5">
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_5">
           G 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_HMin_dia_6">
-          G#/A♭ Maj7
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_6">
+          A♭ Maj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_HMin_dia_7">
+        <div class="list-group-item col-md text-center" id="Para_HMin_dia_7">
           B dim7
         </div>
       </div>
@@ -370,31 +371,52 @@
           C Melodic Minor：(♭×3)
         </div>
       </div>
-      <div class="row row-cols-7">
-        <div class="list-group-item col-xl text-center" id="Para_MMin_dia_1">
+      <div class="row row-md-cols-7">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_1">
           C mMaj7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_MMin_dia_2">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_2">
           D m7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_MMin_dia_3">
-          D#/E♭ augMaj7
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_3">
+          E♭ augMaj7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Para_MMin_dia_4">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_4">
           F 7
         </div>
-        <div class="list-group-item col-xl list-group-item-danger text-center" id="Para_MMin_dia_5">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_5">
           G 7
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_MMin_dia_6">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_6">
           A m7(♭5)
         </div>
-        <div class="list-group-item col-xl text-center" id="Para_MMin_dia_7">
+        <div class="list-group-item col-md text-center" id="Para_MMin_dia_7">
           B m7(♭5)
         </div>
       </div>
 
-      <p class="py-3">※ドミナント・セブンコードの場所は赤色になっています。</p>
+      <label for="paint_diatonic_chords" class="box1 col-md-10 col-xl-5 py-5 mx-2">任意の種類のコードに色を付ける
+        <select id="paint_diatonic_chords" class="form-select my-1" aria-label="Default select example"
+          onchange="paintDiatonicChords()">
+          <option value=0>色付け無し</option>
+          <option value=1>Maj7</option>
+          <option value=2>m7</option>
+          <option value=3>7</option>
+          <option value=4>m7(♭5)</option>
+          <option value=5>augMaj7</option>
+          <option value=6>dim7</option>
+          <option value=7>mMaj7</option>
+        </select>
+      </label>
+
+      <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
+      <div class="pt-1 pb-1"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
+          rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</a></div>
+      <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/modal-interchange-chart" target="_blank"
+          rel="noopener noreferrer">モーダルインターチェンジ対応表</a></div>
+      <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
+          rel="noopener noreferrer">主要ヘプタトニック・スケールのダイアトニック・コード + 使用可能和音まとめ</a>
+      </div>
 
     </main>
 

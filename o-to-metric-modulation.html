@@ -11,7 +11,7 @@
 
     gtag('config', 'UA-138258869-1');
   </script>
-  
+
   <!-- Vue を読み込む -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
@@ -136,12 +136,12 @@
           <p class="pb-3">任意の音符の情報を入力してください。</p>
 
           <div class="row">
-            <label for="rhythm_input_bpm" class="box1 col-md-6 col-xxl-2">BPM
+            <label for="rhythm_input_bpm" class="box1 col-6 col-xxl-2">BPM
               <input id="rhythm_input_bpm" type="number" class="form-control my-1" pattern="^[0-9]+$" maxlength='3'
                 value="120" placeholder=BPM aria-label="BPM" onchange="NoteInfo()">
             </label>
 
-            <label for="rhythm_note_type" class="box1 col-md-6 col-xxl-2">分音符の種類
+            <label for="rhythm_note_type" class="box1 col-6 col-xxl-2">分音符の種類
               <select id="rhythm_note_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=4>4分音符</option>
@@ -155,7 +155,7 @@
               </select>
             </label>
 
-            <label for="rhythm_dotted_note_type" class="box1 col-md-6 col-xxl-2">符点の有無
+            <label for="rhythm_dotted_note_type" class="box1 col-6 col-xxl-2">符点の有無
               <select id="rhythm_dotted_note_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=0>なし</option>
@@ -166,7 +166,7 @@
               </select>
             </label>
 
-            <label for="rhythm_tuplet_type" class="box1 col-md-6 col-xxl-2">連符の種類
+            <label for="rhythm_tuplet_type" class="box1 col-6 col-xxl-2">連符の種類
               <select id="rhythm_tuplet_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=1>なし</option>
@@ -194,12 +194,12 @@
           </div>
 
           <div class="row">
-            <label for="note_count" class="box1 col-md-6 col-xxl-2">この音符の個数
+            <label for="note_count" class="box1 col-6 col-xxl-2">この音符の個数
               <input id="note_count" type="number" class="form-control my-1 mb-3" inputmode="decimal" maxlength="3"
                 value="1" placeholder="この音符の個数" aria-label="この音符の個数" onchange="NoteInfo()">
             </label>
 
-            <label for="rhythm_time_unit" class="box1 col-md-6 col-xxl-2">表示形式
+            <label for="rhythm_time_unit" class="box1 col-6 col-xxl-2">表示形式
               <select id="rhythm_time_unit" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value="ms">ms</option>
@@ -214,11 +214,28 @@
 
           <div class="row py-2">
             <div class="py-2" id="note_value"><b>BPM=120</b>の<b>「4分音符」</b>の音価は、<b>500ms</b>です。</div>
-            <div class="py-2" id="flag_text">これは、BPM=120の4分音符(500ms)以上の音価です。<br>符尾・連桁の数は<b>"0本"</b>で記述されます。</div>
-            <div class="py-2" id="note_text"></div>
-            <div class="py-2" id="haku_text"></div>
-            <div class="py-2" id="dieresis_note">ちなみに、分音符のみで表記した場合は<b>「4分音符」</b>になります。</div>
-            <div class="py-2" id="dotted_note_value">符点音符のみで表記した場合は<b>「符点6分音符」</b>になります。</div>
+
+            <div class="accordion py-2" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    詳細情報
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="py-2" id="flag_text">これは、BPM=120の4分音符(500ms)以上の音価です。<br>符尾・連桁の数は<b>"0本"</b>で記述されます。
+                    </div>
+                    <div class="py-2" id="note_text"></div>
+                    <div class="py-2" id="haku_text"></div>
+                    <div class="py-2" id="dieresis_note">ちなみに、分音符のみで表記した場合は<b>「4分音符」</b>になります。</div>
+                    <div class="py-2" id="dotted_note_value">符点音符のみで表記した場合は<b>「符点6分音符」</b>になります。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <h3 class="shadow p-3 mb-5 bg-white rounded mt-3 pb-3">メトリック・モジュレーション</h3>
@@ -226,52 +243,60 @@
 
 
           <div class="row py-2">
-            <div class="list-group-item item box1 col-md-4 col-xl-2  text-center list-group-item-info"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
               id="same_length_whole_note">全音符<br><br>BPM=480</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-success"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
               id="same_length_1dot_half_note">符点2分<br><br>BPM=360</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-info"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
               id="same_length_half_note">2分音符<br><br>BPM=240</div>
-            <div class="list-group-item item box1 col-md-4 col-xl-2  list-group-item-secondary text-center"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
               id="same_length_2dot_4th_note">複符点4分<br><br>BPM=210</div>
-            <div class="list-group-item item box3 col-md-4 col-xl-2 text-center list-group-item-success"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
               id="same_length_1dot_quarter_note">符点4分<br><br>BPM=180</div>
-            <div class="list-group-item item box1 col-md-4 col-xl-2  text-center" id="same_length_half_note_triplet">
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
+              id="same_length_half_note_triplet">
               4拍3連<br><br>BPM=160</div>
           </div>
 
           <div class="row py-2">
-            <div class="list-group-item item box3 col-md-4 col-xl-2 text-center list-group-item-warning"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
               id="same_length_quarter_note">4分音符<br><br>BPM=120</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 list-group-item-secondary text-center"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
               id="same_length_2dot_8th_note">複符点8分<br><br>BPM=105</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-success"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
               id="same_length_1dot_8th_note">符点8分<br><br>BPM=90</div>
-            <div class="list-group-item item box1 col-md-4 col-xl-2  text-center" id="same_length_quarter_note_triplet">
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
+              id="same_length_quarter_note_triplet">
               2拍3連<br><br>BPM=80</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-info"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
               id="same_length_8th_note">8分音符<br><br>BPM=60</div>
-            <div class="list-group-item item box3 col-md-4 col-xl-2 list-group-item-secondary text-center"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
               id="same_length_2dot_16th_note">複符点16分<br><br>BPM=52.5</div>
           </div>
 
           <div class="row py-2">
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-success"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
               id="same_length_1dot_16th_note">符点16分<br><br>BPM=45</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center" id="same_length_8th_note_tuplet">
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="same_length_8th_note_tuplet">
               1拍3連<br><br>BPM=40</div>
-            <div class="list-group-item item box3 col-md-4 col-xl-2 text-center list-group-item-info"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
               id="same_length_16th_note">16分音符<br><br>BPM=30</div>
-            <div class="list-group-item item box3 col-md-4 col-xl-2 text-center"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
               id="same_length_quarter_note_quintuplet">1拍5連<br><br>BPM=24</div>
-            <div class="list-group-item item box3 col-md-4 col-xl-2 text-center" id="same_length_16th_note_tuplet">
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
+              id="same_length_16th_note_tuplet">
               1拍6連<br><br>BPM=20</div>
-            <div class="list-group-item item box2 col-md-4 col-xl-2 text-center list-group-item-info"
+            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
               id="same_length_32th_note">32分音符<br><br>BPM=15</div>
           </div>
 
+          <h3 class="shadow p-3 mb-5 bg-white rounded mt-5 pb-3">関連する記事</h3>
+          <p class="pt-0 pb-1">このアプリケーションの計算の仕組みを知りたい方はこちら。</p>
+          <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/rhythm-math" target="_blank"
+              rel="noopener noreferrer">どんなリズムも理解する方法 -数学的リズム論-</a>
+          </div>
           <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/metric-modulation" target="_blank"
-              rel="noopener noreferrer">・「メトリック・モジュレーション」の仕組みを詳しく知る。</a>
+              rel="noopener noreferrer">メトリックモジュレーションを解説</a>
           </div>
 
         </div>
