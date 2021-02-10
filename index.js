@@ -925,8 +925,6 @@ document.getElementById("degree_button"); function degree() {
 //ダイアトニックコードの着色をリセットする
 function paintDiatonicChordsReset() {
 
-    let paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
-
     document.getElementById("Major_dia_1").className = "list-group-item col-xl text-center";
     document.getElementById("Major_dia_2").className = "list-group-item col-xl text-center";
     document.getElementById("Major_dia_3").className = "list-group-item col-xl text-center";
@@ -1380,6 +1378,241 @@ document.getElementById("chord_name"); function ChangeChords() {
     }
 
 };
+
+
+
+//スケールの調号を計算する
+function scaleKeySignature() {
+
+    ChangeChords();
+
+    keySignatureNames();
+
+    let scale_binary = document.getElementById("chord_name").value;
+    let scale_tonic_num = document.getElementById("chord_root_name").value;
+    let parent_scale_num = 0;
+
+    let ionian_case = mod(Number(scale_tonic_num) - 0, 12);
+    let dorian_case = mod(Number(scale_tonic_num) - 2, 12);
+    let phrygian_case = mod(Number(scale_tonic_num) - 4, 12);
+    let lydian_case = mod(Number(scale_tonic_num) - 5, 12);
+    let mixolydian_case = mod(Number(scale_tonic_num) - 7, 12);
+    let aeolian_case = mod(Number(scale_tonic_num) - 9, 12);
+    let locrian_case = mod(Number(scale_tonic_num) - 11, 12);
+
+    //受け取ったスケールの2進数の値を、10進数のスケールナンバーに変換
+    scale_binary_split = scale_binary.split('');
+    scale_binary_reverse = scale_binary_split.reverse();
+    scale_binary_rejoin = scale_binary_reverse.join("");
+
+    let scale_dec = parseInt(scale_binary_rejoin, 2);
+    let scale_key_signature_num = 0;
+
+
+
+    //スケールの調号を判定する
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[ionian_case]}で記譜されます。`;
+    } else if (scale_dec == 1709 || scale_dec == 1749) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[dorian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[phrygian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 2773) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[lydian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[mixolydian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[aeolian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 1387 || scale_dec == 1371) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[locrian_case]}で記譜されます。`;
+
+    } else {
+        document.getElementById("keySignatur_text").innerHTML = "";
+    };
+
+
+    //親スケールの判定に使う
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
+        if (scale_dec == 1461) {
+            parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
+            scale_key_signature_num = ionian_case;
+        } else {
+            parent_scale_num = mod(Number(scale_tonic_num) - 0, 12);
+            scale_key_signature_num = ionian_case;
+        };
+    } else if (scale_dec == 1709) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 2, 12);
+        scale_key_signature_num = dorian_case;
+    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 4, 12);
+        scale_key_signature_num = phrygian_case;
+
+    } else if (scale_dec == 2773 || scale_dec == 1749) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 5, 12);
+        scale_key_signature_num = lydian_case;
+
+    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755 || scale_dec == 1459) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
+        scale_key_signature_num = mixolydian_case;
+
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 9, 12);
+        scale_key_signature_num = aeolian_case;
+
+    } else if (scale_dec == 1387 || scale_dec == 1371) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
+        scale_key_signature_num = locrian_case;
+
+    } else {
+        document.getElementById("keySignatur_text").innerHTML = "";
+    };
+
+    //ドミナントコード上で使えるかを判定する
+    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
+        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
+            document.getElementById("dominant_chord_text").innerHTML = `${sharp_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else if (scale_dec == 1371) {
+            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else {
+            document.getElementById("dominant_chord_text").innerHTML = "";
+        };
+    } else {
+        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
+            document.getElementById("dominant_chord_text").innerHTML = `${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else if (scale_dec == 1371) {
+            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else {
+            document.getElementById("dominant_chord_text").innerHTML = "";
+        };
+    };
+
+    //スケールファミリーを判定する
+    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
+        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
+            if (scale_dec == 1461) {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            } else {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            };
+
+        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1187) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 419 || scale_dec == 2225) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1365) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 669 || scale_dec == 1257) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1467) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1755 || scale_dec == 2925) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 4095) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
+
+        } else {
+            document.getElementById("scale_text").innerHTML
+                = "";
+        };
+    } else {
+        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
+            if (scale_dec == 1461) {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            } else {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            };
+
+        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1187) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 419 || scale_dec == 2225) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1365) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 669 || scale_dec == 1257) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1467) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1755 || scale_dec == 2925) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 4095) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
+
+        } else {
+            document.getElementById("scale_text").innerHTML
+                = "";
+        };
+
+    };
+};
+
+
 
 //音価を計算する
 document.getElementById("input_bpm"); function NoteLength() {

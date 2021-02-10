@@ -138,7 +138,7 @@
 
         <label for="chord_root_name" class="box1 col-md-10 col-xl-2 py-2 mx-2">トニック
           <select id="chord_root_name" class="form-select my-1" aria-label="Default select example"
-            onchange="keySignatureNames()">
+            onchange="scaleKeySignature()">
             <option value=0>C</option>
             <option value=1>C#/D♭</option>
             <option value=2>D</option>
@@ -154,9 +154,9 @@
           </select>
         </label>
 
-        <label for="chord_name" class="box1 col-md-10 col-xl-6 pt-2 pb-4 mx-2">調べたいスケール
+        <label for="chord_name" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
           <select id="chord_name" class="form-select my-1" aria-label="Default select example"
-            onchange="ChangeChords()">
+            onchange="scaleKeySignature()">
             <option value=101011010101>Major/Ionian (長音階)</option>
             <option value=101101011010>Natural minor/Aeolian (自然的短音階)</option>
             <option value=101101011001>Harmonic minor (和声的短音階)</option>
@@ -172,7 +172,7 @@
             <option value=101010110110>Lydian dominant/Lydian ♭7th (リディアン♭7th)</option>
             <option value=110110011010>Phrygian ♭4th (フリジアン♭4th)</option>
             <option value=110011010110>Mixolydian ♭2nd (ミクソリディアン♭2nd)</option>
-            <option value=110110101010>Altered Scale/Super Locrian (オルタード・スケール)</option>
+            <option value=110110101010>Super Locrian/Altered Scale (スーパーロクリアン/オルタード・スケール)</option>
             <option value=110111011010>Spanish Phrygian (スパニッシュ8ノート)</option>
             <option value=101010101010>Whole Tone (ホールトーン・スケール)</option>
             <option value=110110110110>Half whole diminished scale (ｺﾝﾋﾞﾈｰｼｮﾝ・ｵﾌﾞ・ﾃﾞｨﾐﾆｯｼｭ)</option>
@@ -185,6 +185,18 @@
             <option value=111111111111>Chromatic (クロマチック・スケール)</option>
           </select>
         </label>
+
+
+        <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
+          <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+            onchange="keySignatureNames()">
+            <option value=0>英・米式表記</option>
+            <option value=1>イタリア式表記</option>
+            <option value=2>日本式表記</option>
+            <option value=3>ドイツ式表記</option>
+          </select>
+        </label>
+
 
       </div>
 
@@ -390,17 +402,68 @@
       </div>
 
 
-      <div class="py-3">
-        <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
-          <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
-            onchange="keySignatureNames()">
-            <option value=0>英・米式表記</option>
-            <option value=1>イタリア式表記</option>
-            <option value=2>日本式表記</option>
-            <option value=3>ドイツ式表記</option>
-          </select>
-        </label>
+
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              スケールの情報
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="py-2" id="keySignatur_text">このスケールの調号は、通常(#・♭×0)で記譜されます。</div>
+              <div class="py-2" id="dominant_chord_text"></div>
+              <div class="py-2" id="scale_text">親スケールは「Cメジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale
+                number：「2741」</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+              Forte numberとScale numberとは？
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <b>Forte number</b>は、Allen Forteが提唱した、「3音以上からなる音階の集合に割り当てられた数」です。
+              <br>同一のForte numberを持つ<b>"スケールの構成音の構造"</b>が等しくなる仕組みになっています。
+              <br>たとえば、メジャースケールとナチュラルマイナースケールは<b>スタート位置が違うだけで同じ音の飛び方</b>をしています。
+              <br>よって、メジャースケールとナチュラルマイナースケールは同じForte number「<b>7-35</b>」が割り当てられています。
+              <br><br>
+              <b>Scale number</b>は、「"スケールの構成音を12桁の2進数として表した数"を10進数に変換した数字」です。
+              <br>たとえば、Cメジャースケールの例に考えてみましょう。
+              <br>ピアノ鍵盤の白鍵を1、黒鍵を0とするとCメジャースケール(ドレミファソラシ)は「10101011010101」になりますよね。
+              <br>この「10101011010101」を2進数として処理するために逆に並べ替えます。
+              <br>並べ替えた「101011010101」を10進数に変換すると「2741」になるので、メジャースケールのScale numberは「<b>2741</b>」となります。
+              <br><br>参考文献<br>
+              ・<a href="https://ianring.com/musictheory/scales/" target="_blank" rel="noopener noreferrer">The Exciting
+                Universe Of Music Theory</a><br>
+              ・<a href="https://en.wikipedia.org/wiki/Forte_number" target="_blank" rel="noopener noreferrer">Forte
+                number(Wikipedia)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="shadow p-3 mb-5 bg-white rounded mt-5 pb-3">関連する記事</h3>
+      <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
+          rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</a></div>
+      <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/modal-interchange-chart" target="_blank"
+          rel="noopener noreferrer">モーダルインターチェンジ対応表</a></div>
+      <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
+          rel="noopener noreferrer">主要ヘプタトニック・スケールのダイアトニック・コード + 使用可能和音まとめ</a>
+      </div>
+
 
 
     </main>
