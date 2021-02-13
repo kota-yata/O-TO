@@ -38,6 +38,9 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-scale.html">スケール</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="o-to-modal-interchange.html">モーダル・インターチェンジ</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>
           </li>
           <li class="nav-item">
@@ -85,6 +88,9 @@ Vue.component('right-column', {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-scale.html">スケール</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-modal-interchange.html">モーダル・インターチェンジ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>

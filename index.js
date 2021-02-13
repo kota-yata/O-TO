@@ -23,6 +23,42 @@ const japan_note_name = ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", 
 const italy_note_name = ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"];
 const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"];
 
+//スケールの情報を配列に格納する。
+const scale_Ionian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
+const scale_Aeolian = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0];
+const scale_Harmonic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1];
+const scale_Melodic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1];
+const scale_Harmonic_major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1];
+const scale_Melodic_Major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0];
+
+const scale_Dorian = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0];
+const scale_Phrygian = [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0];
+const scale_Lydian = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1];
+const scale_Mixolydian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0];
+const scale_Locrian = [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0];
+
+const scale_Ionian_sharp_5th = [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1];
+const scale_Lydian_augmented = [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
+
+const scale_Phrygian_dominant = [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0];
+const scale_Lydian_dominant = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0];
+const scale_Phrygian_flat_4th = [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0];
+const scale_Mixolydian_flat_2nd = [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0];
+const scale_Altered = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0];
+const scale_Spanish_Phrygian = [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0];
+
+const scale_Whole_Tone = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
+const scale_Half_whole_diminished = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0];
+const scale_Blues_Major_pentatonic = [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0];
+const scale_Blues_Minor_pentatonic = [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0];
+
+const scale_in_upper = [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0];
+const scale_in_down = [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0];
+const scale_ritsu = [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0];
+const scale_ryukyu = [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1];
+const scale_Chromatic = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+
 //入力情報を格納する変数（転調元のキーから考える）
 let note_number = [0]
 let mode_number = [0]
@@ -677,7 +713,7 @@ function changeChordProgressionDegree() {
 document.getElementById("tonic_note"); function Chordschange() {
     let tonic_note_number = document.getElementById("tonic_note").value;
 
-    let tonic = mod(Number(tonic_note_number) - 0, 12);
+    let tonic = mod(Number(tonic_note_number) + 0, 12);
     let t1 = mod(Number(tonic_note_number) + 1, 12);
     let t2 = mod(Number(tonic_note_number) + 2, 12);
     let t3 = mod(Number(tonic_note_number) + 3, 12);
@@ -1397,6 +1433,7 @@ function scaleKeySignature() {
     let phrygian_case = mod(Number(scale_tonic_num) - 4, 12);
     let lydian_case = mod(Number(scale_tonic_num) - 5, 12);
     let mixolydian_case = mod(Number(scale_tonic_num) - 7, 12);
+    let altered_case = mod(Number(scale_tonic_num) - 8, 12);
     let aeolian_case = mod(Number(scale_tonic_num) - 9, 12);
     let locrian_case = mod(Number(scale_tonic_num) - 11, 12);
 
@@ -1408,12 +1445,11 @@ function scaleKeySignature() {
     let scale_dec = parseInt(scale_binary_rejoin, 2);
     let scale_key_signature_num = 0;
 
-
-
     //スケールの調号を判定する
     if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[ionian_case]}で記譜されます。`;
-    } else if (scale_dec == 1709 || scale_dec == 1749) {
+
+    } else if (scale_dec == 1709 || scale_dec == 174) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[dorian_case]}で記譜されます。`;
 
     } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
@@ -1428,15 +1464,18 @@ function scaleKeySignature() {
     } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[aeolian_case]}で記譜されます。`;
 
-    } else if (scale_dec == 1387 || scale_dec == 1371) {
+    } else if (scale_dec == 1387) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[locrian_case]}で記譜されます。`;
+
+    } else if (scale_dec == 1371) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[altered_case]}で記譜されます。`;
 
     } else {
         document.getElementById("keySignatur_text").innerHTML = "";
     };
 
 
-    //親スケールの判定に使う
+    //親スケールと異名同音の判定に使う
     if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
         if (scale_dec == 1461) {
             parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
@@ -1448,6 +1487,7 @@ function scaleKeySignature() {
     } else if (scale_dec == 1709) {
         parent_scale_num = mod(Number(scale_tonic_num) - 2, 12);
         scale_key_signature_num = dorian_case;
+
     } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467) {
         parent_scale_num = mod(Number(scale_tonic_num) - 4, 12);
         scale_key_signature_num = phrygian_case;
@@ -1464,9 +1504,13 @@ function scaleKeySignature() {
         parent_scale_num = mod(Number(scale_tonic_num) - 9, 12);
         scale_key_signature_num = aeolian_case;
 
-    } else if (scale_dec == 1387 || scale_dec == 1371) {
+    } else if (scale_dec == 1387) {
         parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
         scale_key_signature_num = locrian_case;
+
+    } else if (scale_dec == 1371) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
+        scale_key_signature_num = altered_case;
 
     } else {
         document.getElementById("keySignatur_text").innerHTML = "";
@@ -2011,3 +2055,600 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
 
     };
 };
+
+
+//スイッチを作る
+let onoff_0 = 0;
+let onoff_1 = 0;
+let onoff_2 = 0;
+let onoff_3 = 0;
+let onoff_4 = 0;
+let onoff_5 = 0;
+let onoff_6 = 0;
+let onoff_7 = 0;
+let onoff_8 = 0;
+let onoff_9 = 0;
+let onoff_10 = 0;
+let onoff_11 = 0;
+
+//モーダルインターチェンジを表示するスクリプト
+function keyplus() {
+
+    keySignatureNames();
+
+    let chord_root_name = document.getElementById("chord_root_name").value
+
+    let sig0 = mod(chord_root_name - 0, 12);
+    let sig1 = mod(chord_root_name - 1, 12);
+    let sig2 = mod(chord_root_name - 2, 12);
+    let sig3 = mod(chord_root_name - 3, 12);
+    let sig4 = mod(chord_root_name - 4, 12);
+    let sig5 = mod(chord_root_name - 5, 12);
+    let sig6 = mod(chord_root_name - 6, 12);
+    let sig7 = mod(chord_root_name - 7, 12);
+    let sig8 = mod(chord_root_name - 8, 12);
+    let sig9 = mod(chord_root_name - 9, 12);
+    let sig10 = mod(chord_root_name - 10, 12);
+    let sig11 = mod(chord_root_name - 11, 12);
+
+    let tonic_do = mod(sig0 - chord_root_name, 12);
+    let dises = mod(chord_root_name - sig9, 12);
+
+
+
+    document.getElementById("modal_text_1").className = "py-1";
+    document.getElementById("modal_text_2").className = "py-1";
+    document.getElementById("modal_text_3").className = "py-1";
+    document.getElementById("modal_text_4").className = "py-1";
+    document.getElementById("modal_text_5").className = "py-1";
+    document.getElementById("modal_text_6").className = "py-1";
+    document.getElementById("modal_text_7").className = "py-1";
+    document.getElementById("modal_text_8").className = "py-1";
+    document.getElementById("modal_text_9").className = "py-1";
+    document.getElementById("modal_text_10").className = "py-1";
+    document.getElementById("modal_text_11").className = "py-1";
+    document.getElementById("modal_text_12").className = "py-1";
+    document.getElementById("modal_text_13").className = "py-1";
+    document.getElementById("modal_text_14").className = "py-1";
+    document.getElementById("modal_text_15").className = "py-1";
+    document.getElementById("modal_text_16").className = "py-1";
+
+
+    //スケールの判定
+    if (scale_Ionian[0] >= onoff_0
+        && scale_Ionian[1] >= onoff_1
+        && scale_Ionian[2] >= onoff_2
+        && scale_Ionian[3] >= onoff_3
+        && scale_Ionian[4] >= onoff_4
+        && scale_Ionian[5] >= onoff_5
+        && scale_Ionian[6] >= onoff_6
+        && scale_Ionian[7] >= onoff_7
+        && scale_Ionian[8] >= onoff_8
+        && scale_Ionian[9] >= onoff_9
+        && scale_Ionian[10] >= onoff_10
+        && scale_Ionian[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_1").innerHTML = `${sharp_note_name[chord_root_name]}メジャー(長音階)　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_1").innerHTML = `${flat_note_name[chord_root_name]}メジャー(長音階)　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_1").innerHTML = "";
+        document.getElementById("modal_text_1").className = "";
+    };
+
+    if (scale_Ionian_sharp_5th[0] >= onoff_0
+        && scale_Ionian_sharp_5th[1] >= onoff_1
+        && scale_Ionian_sharp_5th[2] >= onoff_2
+        && scale_Ionian_sharp_5th[3] >= onoff_3
+        && scale_Ionian_sharp_5th[4] >= onoff_4
+        && scale_Ionian_sharp_5th[5] >= onoff_5
+        && scale_Ionian_sharp_5th[6] >= onoff_6
+        && scale_Ionian_sharp_5th[7] >= onoff_7
+        && scale_Ionian_sharp_5th[8] >= onoff_8
+        && scale_Ionian_sharp_5th[9] >= onoff_9
+        && scale_Ionian_sharp_5th[10] >= onoff_10
+        && scale_Ionian_sharp_5th[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_12").innerHTML = `${sharp_note_name[chord_root_name]}アイオニアン・オーギュメント　(${sharp_note_name[sig3]}ハーモニック・マイナー)　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_12").innerHTML = `${flat_note_name[chord_root_name]}アイオニアン・オーギュメント　(${flat_note_name[sig3]}ハーモニック・・マイナー)　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_12").innerHTML = "";
+        document.getElementById("modal_text_12").className = "";
+    };
+
+
+    if (scale_Lydian_augmented[0] >= onoff_0
+        && scale_Lydian_augmented[1] >= onoff_1
+        && scale_Lydian_augmented[2] >= onoff_2
+        && scale_Lydian_augmented[3] >= onoff_3
+        && scale_Lydian_augmented[4] >= onoff_4
+        && scale_Lydian_augmented[5] >= onoff_5
+        && scale_Lydian_augmented[6] >= onoff_6
+        && scale_Lydian_augmented[7] >= onoff_7
+        && scale_Lydian_augmented[8] >= onoff_8
+        && scale_Lydian_augmented[9] >= onoff_9
+        && scale_Lydian_augmented[10] >= onoff_10
+        && scale_Lydian_augmented[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_13").innerHTML = `${sharp_note_name[chord_root_name]}リディアン・オーギュメント　(${sharp_note_name[sig3]}メロディック・マイナー)　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_13").innerHTML = `${flat_note_name[chord_root_name]}リディアン・オーギュメント　(${flat_note_name[sig3]}メロディック・マイナー)　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_13").innerHTML = "";
+        document.getElementById("modal_text_13").className = "";
+    };
+
+
+    if (scale_Aeolian[0] >= onoff_0
+        && scale_Aeolian[1] >= onoff_1
+        && scale_Aeolian[2] >= onoff_2
+        && scale_Aeolian[3] >= onoff_3
+        && scale_Aeolian[4] >= onoff_4
+        && scale_Aeolian[5] >= onoff_5
+        && scale_Aeolian[6] >= onoff_6
+        && scale_Aeolian[7] >= onoff_7
+        && scale_Aeolian[8] >= onoff_8
+        && scale_Aeolian[9] >= onoff_9
+        && scale_Aeolian[10] >= onoff_10
+        && scale_Aeolian[11] >= onoff_11) {
+        if (sig9 == 0 || sig9 == 2 || sig9 == 4 || sig9 == 6 || sig9 == 7 || sig9 == 9 || sig9 == 11) {
+            document.getElementById("modal_text_2").innerHTML = `${sharp_note_name[chord_root_name]}ナチュラル・マイナー(自然的短音階)　${sharp_key_signature[sig9]}`;
+        } else {
+            document.getElementById("modal_text_2").innerHTML = `${flat_note_name[chord_root_name]}ナチュラル・マイナー(自然的短音階)　${flat_key_signature[sig9]}`;
+        };
+    } else {
+        document.getElementById("modal_text_2").innerHTML = "";
+        document.getElementById("modal_text_2").className = "";
+    };
+
+    if (scale_Harmonic_minor[0] >= onoff_0
+        && scale_Harmonic_minor[1] >= onoff_1
+        && scale_Harmonic_minor[2] >= onoff_2
+        && scale_Harmonic_minor[3] >= onoff_3
+        && scale_Harmonic_minor[4] >= onoff_4
+        && scale_Harmonic_minor[5] >= onoff_5
+        && scale_Harmonic_minor[6] >= onoff_6
+        && scale_Harmonic_minor[7] >= onoff_7
+        && scale_Harmonic_minor[8] >= onoff_8
+        && scale_Harmonic_minor[9] >= onoff_9
+        && scale_Harmonic_minor[10] >= onoff_10
+        && scale_Harmonic_minor[11] >= onoff_11) {
+        if (sig9 == 0 || sig9 == 2 || sig9 == 4 || sig9 == 6 || sig9 == 7 || sig9 == 9 || sig9 == 11) {
+            document.getElementById("modal_text_3").innerHTML = `${sharp_note_name[chord_root_name]}ハーモニック・マイナー(和声的短音階)　${sharp_key_signature[sig9]}`;
+        } else {
+            document.getElementById("modal_text_3").innerHTML = `${flat_note_name[chord_root_name]}ハーモニック・マイナー(和声的短音階)　${flat_key_signature[sig9]}`;
+        };
+    } else {
+        document.getElementById("modal_text_3").innerHTML = "";
+        document.getElementById("modal_text_3").className = "";
+    };
+
+    if (scale_Melodic_minor[0] >= onoff_0
+        && scale_Melodic_minor[1] >= onoff_1
+        && scale_Melodic_minor[2] >= onoff_2
+        && scale_Melodic_minor[3] >= onoff_3
+        && scale_Melodic_minor[4] >= onoff_4
+        && scale_Melodic_minor[5] >= onoff_5
+        && scale_Melodic_minor[6] >= onoff_6
+        && scale_Melodic_minor[7] >= onoff_7
+        && scale_Melodic_minor[8] >= onoff_8
+        && scale_Melodic_minor[9] >= onoff_9
+        && scale_Melodic_minor[10] >= onoff_10
+        && scale_Melodic_minor[11] >= onoff_11) {
+        if (sig9 == 0 || sig9 == 2 || sig9 == 4 || sig9 == 6 || sig9 == 7 || sig9 == 9 || sig9 == 11) {
+            document.getElementById("modal_text_4").innerHTML = `${sharp_note_name[chord_root_name]}メロディック・マイナー(旋律的短音階)　${sharp_key_signature[sig9]}`;
+        } else {
+            document.getElementById("modal_text_4").innerHTML = `${flat_note_name[chord_root_name]}メロディック・マイナー(旋律的短音階)　${flat_key_signature[sig9]}`;
+        };
+    } else {
+        document.getElementById("modal_text_4").innerHTML = "";
+        document.getElementById("modal_text_4").className = "";
+    };
+
+    if (scale_Harmonic_major[0] >= onoff_0
+        && scale_Harmonic_major[1] >= onoff_1
+        && scale_Harmonic_major[2] >= onoff_2
+        && scale_Harmonic_major[3] >= onoff_3
+        && scale_Harmonic_major[4] >= onoff_4
+        && scale_Harmonic_major[5] >= onoff_5
+        && scale_Harmonic_major[6] >= onoff_6
+        && scale_Harmonic_major[7] >= onoff_7
+        && scale_Harmonic_major[8] >= onoff_8
+        && scale_Harmonic_major[9] >= onoff_9
+        && scale_Harmonic_major[10] >= onoff_10
+        && scale_Harmonic_major[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_5").innerHTML = `${sharp_note_name[chord_root_name]}ハーモニック・メジャー(和声的長音階)　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_5").innerHTML = `${flat_note_name[chord_root_name]}ハーモニック・メジャー(和声的長音階)　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_5").innerHTML = "";
+        document.getElementById("modal_text_5").className = "";
+    };
+
+    if (scale_Melodic_Major[0] >= onoff_0
+        && scale_Melodic_Major[1] >= onoff_1
+        && scale_Melodic_Major[2] >= onoff_2
+        && scale_Melodic_Major[3] >= onoff_3
+        && scale_Melodic_Major[4] >= onoff_4
+        && scale_Melodic_Major[5] >= onoff_5
+        && scale_Melodic_Major[6] >= onoff_6
+        && scale_Melodic_Major[7] >= onoff_7
+        && scale_Melodic_Major[8] >= onoff_8
+        && scale_Melodic_Major[9] >= onoff_9
+        && scale_Melodic_Major[10] >= onoff_10
+        && scale_Melodic_Major[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_6").innerHTML = `${note_name[chord_root_name]}メロディック・メジャー(旋律的長音階)　${flat_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_6").innerHTML = `${flat_note_name[chord_root_name]}ハーモニック・メジャー(和声的長音階)　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_6").innerHTML = "";
+        document.getElementById("modal_text_6").className = "";
+    };
+
+    if (scale_Dorian[0] >= onoff_0
+        && scale_Dorian[1] >= onoff_1
+        && scale_Dorian[2] >= onoff_2
+        && scale_Dorian[3] >= onoff_3
+        && scale_Dorian[4] >= onoff_4
+        && scale_Dorian[5] >= onoff_5
+        && scale_Dorian[6] >= onoff_6
+        && scale_Dorian[7] >= onoff_7
+        && scale_Dorian[8] >= onoff_8
+        && scale_Dorian[9] >= onoff_9
+        && scale_Dorian[10] >= onoff_10
+        && scale_Dorian[11] >= onoff_11) {
+        if (sig2 == 0 || sig2 == 2 || sig2 == 4 || sig2 == 6 || sig2 == 7 || sig2 == 9 || sig2 == 11) {
+            document.getElementById("modal_text_7").innerHTML = `${sharp_note_name[chord_root_name]}ドリアン　${sharp_key_signature[sig2]}`;
+        } else {
+            document.getElementById("modal_text_7").innerHTML = `${flat_note_name[chord_root_name]}ドリアン　${flat_key_signature[sig2]}`;
+        };
+    } else {
+        document.getElementById("modal_text_7").innerHTML = "";
+        document.getElementById("modal_text_7").className = "";
+    };
+
+    if (scale_Phrygian[0] >= onoff_0
+        && scale_Phrygian[1] >= onoff_1
+        && scale_Phrygian[2] >= onoff_2
+        && scale_Phrygian[3] >= onoff_3
+        && scale_Phrygian[4] >= onoff_4
+        && scale_Phrygian[5] >= onoff_5
+        && scale_Phrygian[6] >= onoff_6
+        && scale_Phrygian[7] >= onoff_7
+        && scale_Phrygian[8] >= onoff_8
+        && scale_Phrygian[9] >= onoff_9
+        && scale_Phrygian[10] >= onoff_10
+        && scale_Phrygian[11] >= onoff_11) {
+        if (sig4 == 0 || sig4 == 2 || sig4 == 4 || sig4 == 6 || sig4 == 7 || sig4 == 9 || sig4 == 11) {
+            document.getElementById("modal_text_8").innerHTML = `${sharp_note_name[chord_root_name]}フリジアン　${sharp_key_signature[sig4]}`;
+        } else {
+            document.getElementById("modal_text_8").innerHTML = `${flat_note_name[chord_root_name]}フリジアン　${flat_key_signature[sig4]}`;
+        };
+    } else {
+        document.getElementById("modal_text_8").innerHTML = "";
+        document.getElementById("modal_text_8").className = "";
+    };
+
+    if (scale_Lydian[0] >= onoff_0
+        && scale_Lydian[1] >= onoff_1
+        && scale_Lydian[2] >= onoff_2
+        && scale_Lydian[3] >= onoff_3
+        && scale_Lydian[4] >= onoff_4
+        && scale_Lydian[5] >= onoff_5
+        && scale_Lydian[6] >= onoff_6
+        && scale_Lydian[7] >= onoff_7
+        && scale_Lydian[8] >= onoff_8
+        && scale_Lydian[9] >= onoff_9
+        && scale_Lydian[10] >= onoff_10
+        && scale_Lydian[11] >= onoff_11) {
+        if (sig5 == 0 || sig5 == 2 || sig5 == 4 || sig5 == 6 || sig5 == 7 || sig5 == 9 || sig5 == 11) {
+            document.getElementById("modal_text_9").innerHTML = `${sharp_note_name[chord_root_name]}リディアン　${sharp_key_signature[sig5]}`;
+        } else {
+            document.getElementById("modal_text_9").innerHTML = `${flat_note_name[chord_root_name]}リディアン　${flat_key_signature[sig5]}`;
+        };
+    } else {
+
+        document.getElementById("modal_text_9").innerHTML = "";
+        document.getElementById("modal_text_9").className = "";
+    };
+
+    if (scale_Mixolydian[0] >= onoff_0
+        && scale_Mixolydian[1] >= onoff_1
+        && scale_Mixolydian[2] >= onoff_2
+        && scale_Mixolydian[3] >= onoff_3
+        && scale_Mixolydian[4] >= onoff_4
+        && scale_Mixolydian[5] >= onoff_5
+        && scale_Mixolydian[6] >= onoff_6
+        && scale_Mixolydian[7] >= onoff_7
+        && scale_Mixolydian[8] >= onoff_8
+        && scale_Mixolydian[9] >= onoff_9
+        && scale_Mixolydian[10] >= onoff_10
+        && scale_Mixolydian[11] >= onoff_11) {
+        if (sig7 == 0 || sig7 == 2 || sig7 == 4 || sig7 == 6 || sig7 == 7 || sig7 == 9 || sig7 == 11) {
+            document.getElementById("modal_text_10").innerHTML = `${sharp_note_name[chord_root_name]}ミクソリディアン　${sharp_key_signature[sig7]}`;
+        } else {
+            document.getElementById("modal_text_10").innerHTML = `${flat_note_name[chord_root_name]}ミクソリディアン　${flat_key_signature[sig7]}`;
+        };
+    } else {
+        document.getElementById("modal_text_10").innerHTML = "";
+        document.getElementById("modal_text_10").className = "";
+    };
+
+    if (scale_Locrian[0] >= onoff_0
+        && scale_Locrian[1] >= onoff_1
+        && scale_Locrian[2] >= onoff_2
+        && scale_Locrian[3] >= onoff_3
+        && scale_Locrian[4] >= onoff_4
+        && scale_Locrian[5] >= onoff_5
+        && scale_Locrian[6] >= onoff_6
+        && scale_Locrian[7] >= onoff_7
+        && scale_Locrian[8] >= onoff_8
+        && scale_Locrian[9] >= onoff_9
+        && scale_Locrian[10] >= onoff_10
+        && scale_Locrian[11] >= onoff_11) {
+        if (sig11 == 0 || sig11 == 2 || sig11 == 4 || sig11 == 6 || sig11 == 7 || sig11 == 9 || sig11 == 11) {
+            document.getElementById("modal_text_11").innerHTML = `${sharp_note_name[chord_root_name]}ロクリアン　${sharp_key_signature[sig11]}`;
+        } else {
+            document.getElementById("modal_text_11").innerHTML = `${flat_note_name[chord_root_name]}ロクリアン　${flat_key_signature[sig11]}`;
+        };
+    } else {
+        document.getElementById("modal_text_11").innerHTML = "";
+        document.getElementById("modal_text_11").className = "";
+    };
+
+    if (scale_Blues_Major_pentatonic[0] >= onoff_0
+        && scale_Blues_Major_pentatonic[1] >= onoff_1
+        && scale_Blues_Major_pentatonic[2] >= onoff_2
+        && scale_Blues_Major_pentatonic[3] >= onoff_3
+        && scale_Blues_Major_pentatonic[4] >= onoff_4
+        && scale_Blues_Major_pentatonic[5] >= onoff_5
+        && scale_Blues_Major_pentatonic[6] >= onoff_6
+        && scale_Blues_Major_pentatonic[7] >= onoff_7
+        && scale_Blues_Major_pentatonic[8] >= onoff_8
+        && scale_Blues_Major_pentatonic[9] >= onoff_9
+        && scale_Blues_Major_pentatonic[10] >= onoff_10
+        && scale_Blues_Major_pentatonic[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_14").innerHTML = `${sharp_note_name[chord_root_name]}ブルース・メジャー・ペンタトニック　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_14").innerHTML = `${flat_note_name[chord_root_name]}ブルース・メジャー・ペンタトニック　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_14").innerHTML = "";
+        document.getElementById("modal_text_14").className = "";
+    };
+
+
+    if (scale_Blues_Minor_pentatonic[0] >= onoff_0
+        && scale_Blues_Minor_pentatonic[1] >= onoff_1
+        && scale_Blues_Minor_pentatonic[2] >= onoff_2
+        && scale_Blues_Minor_pentatonic[3] >= onoff_3
+        && scale_Blues_Minor_pentatonic[4] >= onoff_4
+        && scale_Blues_Minor_pentatonic[5] >= onoff_5
+        && scale_Blues_Minor_pentatonic[6] >= onoff_6
+        && scale_Blues_Minor_pentatonic[7] >= onoff_7
+        && scale_Blues_Minor_pentatonic[8] >= onoff_8
+        && scale_Blues_Minor_pentatonic[9] >= onoff_9
+        && scale_Blues_Minor_pentatonic[10] >= onoff_10
+        && scale_Blues_Minor_pentatonic[11] >= onoff_11) {
+        if (sig9 == 0 || sig9 == 2 || sig9 == 4 || sig9 == 6 || sig9 == 7 || sig9 == 9 || sig9 == 11) {
+            document.getElementById("modal_text_15").innerHTML = `${sharp_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　　${sharp_key_signature[sig9]}`;
+        } else {
+            document.getElementById("modal_text_15").innerHTML = `${flat_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　　${flat_key_signature[sig9]}`;
+        };
+    } else {
+        document.getElementById("modal_text_15").innerHTML = "";
+        document.getElementById("modal_text_15").className = "";
+    };
+
+    if (scale_Whole_Tone[0] >= onoff_0
+        && scale_Whole_Tone[1] >= onoff_1
+        && scale_Whole_Tone[2] >= onoff_2
+        && scale_Whole_Tone[3] >= onoff_3
+        && scale_Whole_Tone[4] >= onoff_4
+        && scale_Whole_Tone[5] >= onoff_5
+        && scale_Whole_Tone[6] >= onoff_6
+        && scale_Whole_Tone[7] >= onoff_7
+        && scale_Whole_Tone[8] >= onoff_8
+        && scale_Whole_Tone[9] >= onoff_9
+        && scale_Whole_Tone[10] >= onoff_10
+        && scale_Whole_Tone[11] >= onoff_11) {
+        if (sig7 == 0 || sig7 == 2 || sig7 == 4 || sig7 == 6 || sig7 == 7 || sig7 == 9 || sig7 == 11) {
+            document.getElementById("modal_text_16").innerHTML = `${sharp_note_name[chord_root_name]}ホールトーン　${sharp_key_signature[sig7]}`;
+        } else {
+            document.getElementById("modal_text_16").innerHTML = `${flat_note_name[chord_root_name]}ホールトーン　${flat_key_signature[sig7]}`;
+        };
+    } else {
+        document.getElementById("modal_text_16").innerHTML = "";
+        document.getElementById("modal_text_16").className = "";
+    };
+
+    
+    if (0 == onoff_0
+        && 0 == onoff_1
+        && 0 == onoff_2
+        && 0 == onoff_3
+        && 0 == onoff_4
+        && 0 == onoff_5
+        && 0 == onoff_6
+        && 0 == onoff_7
+        && 0 == onoff_8
+        && 0 == onoff_9
+        && 0 == onoff_10
+        && 0 == onoff_11) {
+        document.getElementById("modal_text_1").innerHTML = "Ⅰメジャー(長音階)";
+        document.getElementById("modal_text_2").innerHTML = "Ⅰナチュラル・マイナー(自然的短音階)";
+        document.getElementById("modal_text_3").innerHTML = "Ⅰハーモニック・マイナー(和声的短音階)";
+        document.getElementById("modal_text_4").innerHTML = "Ⅰメロディック・マイナー(旋律的短音階)";
+        document.getElementById("modal_text_5").innerHTML = "Ⅰハーモニック・メジャー(和声的長音階)";
+        document.getElementById("modal_text_6").innerHTML = "Ⅰメロディック・メジャー(旋律的長音階)";
+        document.getElementById("modal_text_7").innerHTML = "Ⅰドリアン";
+        document.getElementById("modal_text_8").innerHTML = "Ⅰフリジアン";
+        document.getElementById("modal_text_9").innerHTML = "Ⅰリディアン";
+        document.getElementById("modal_text_10").innerHTML = "Ⅰミクソリディアン";
+        document.getElementById("modal_text_11").innerHTML = "Ⅰロクリアン";
+        document.getElementById("modal_text_12").innerHTML = "Ⅰアイオニアン・オーギュメント　(平行調のハーモニック・マイナー)";
+        document.getElementById("modal_text_13").innerHTML = "Ⅰリディアン・オーギュメント　(平行調のメロディック・マイナー)";
+        document.getElementById("modal_text_14").innerHTML = "Ⅰブルース・メジャー・ペンタトニック";
+        document.getElementById("modal_text_15").innerHTML = "Ⅰブルース・マイナー・ペンタトニック";
+        document.getElementById("modal_text_16").innerHTML = "Ⅰホールトーン";
+    } else {
+
+    };
+
+};
+
+
+//以下、モーダルインターチェンジの音名のスイッチ12個
+function noteSwitch_0() {
+
+    if (onoff_0 == 0) {
+        onoff_0 = 1;
+        document.getElementById("chord_0").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_0 == 1) {
+        onoff_0 = 0;
+        document.getElementById("chord_0").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_1() {
+
+    if (onoff_1 == 0) {
+        onoff_1 = 1;
+        document.getElementById("chord_1").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_1 == 1) {
+        onoff_1 = 0;
+        document.getElementById("chord_1").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_2() {
+
+    if (onoff_2 == 0) {
+        onoff_2 = 1;
+        document.getElementById("chord_2").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_2 == 1) {
+        onoff_2 = 0;
+        document.getElementById("chord_2").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_3() {
+
+    if (onoff_3 == 0) {
+        onoff_3 = 1;
+        document.getElementById("chord_3").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_3 == 1) {
+        onoff_3 = 0;
+        document.getElementById("chord_3").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_4() {
+
+    if (onoff_4 == 0) {
+        onoff_4 = 1;
+        document.getElementById("chord_4").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_4 == 1) {
+        onoff_4 = 0;
+        document.getElementById("chord_4").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_5() {
+
+    if (onoff_5 == 0) {
+        onoff_5 = 1;
+        document.getElementById("chord_5").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_5 == 1) {
+        onoff_5 = 0;
+        document.getElementById("chord_5").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_6() {
+
+    if (onoff_6 == 0) {
+        onoff_6 = 1;
+        document.getElementById("chord_6").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_6 == 1) {
+        onoff_6 = 0;
+        document.getElementById("chord_6").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_7() {
+
+    if (onoff_7 == 0) {
+        onoff_7 = 1;
+        document.getElementById("chord_7").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_7 == 1) {
+        onoff_7 = 0;
+        document.getElementById("chord_7").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_8() {
+
+    if (onoff_8 == 0) {
+        onoff_8 = 1;
+        document.getElementById("chord_8").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_8 == 1) {
+        onoff_8 = 0;
+        document.getElementById("chord_8").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_9() {
+
+    if (onoff_9 == 0) {
+        onoff_9 = 1;
+        document.getElementById("chord_9").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_9 == 1) {
+        onoff_9 = 0;
+        document.getElementById("chord_9").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_10() {
+
+    if (onoff_10 == 0) {
+        onoff_10 = 1;
+        document.getElementById("chord_10").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_10 == 1) {
+        onoff_10 = 0;
+        document.getElementById("chord_10").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
+function noteSwitch_11() {
+
+    if (onoff_11 == 0) {
+        onoff_11 = 1;
+        document.getElementById("chord_11").className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff_11 == 1) {
+        onoff_11 = 0;
+        document.getElementById("chord_11").className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    keyplus()
+};
+
