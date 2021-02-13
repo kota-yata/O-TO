@@ -45,6 +45,7 @@ const scale_Lydian_dominant = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0];
 const scale_Phrygian_flat_4th = [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0];
 const scale_Mixolydian_flat_2nd = [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0];
 const scale_Altered = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0];
+
 const scale_Spanish_Phrygian = [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0];
 
 const scale_Whole_Tone = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
@@ -1455,7 +1456,7 @@ function scaleKeySignature() {
     } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[phrygian_case]}で記譜されます。`;
 
-    } else if (scale_dec == 2773) {
+    } else if (scale_dec == 2773||scale_dec == 1749) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[lydian_case]}で記譜されます。`;
 
     } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
@@ -2112,6 +2113,11 @@ function keyplus() {
     document.getElementById("modal_text_14").className = "py-1";
     document.getElementById("modal_text_15").className = "py-1";
     document.getElementById("modal_text_16").className = "py-1";
+    document.getElementById("modal_text_17").className = "py-1";
+    document.getElementById("modal_text_18").className = "py-1";
+    document.getElementById("modal_text_19").className = "py-1";
+    document.getElementById("modal_text_20").className = "py-1";
+    document.getElementById("modal_text_21").className = "py-1";
 
 
     //スケールの判定
@@ -2440,9 +2446,9 @@ function keyplus() {
         && scale_Blues_Minor_pentatonic[10] >= onoff_10
         && scale_Blues_Minor_pentatonic[11] >= onoff_11) {
         if (sig9 == 0 || sig9 == 2 || sig9 == 4 || sig9 == 6 || sig9 == 7 || sig9 == 9 || sig9 == 11) {
-            document.getElementById("modal_text_15").innerHTML = `${sharp_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　　${sharp_key_signature[sig9]}`;
+            document.getElementById("modal_text_15").innerHTML = `${sharp_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　${sharp_key_signature[sig9]}`;
         } else {
-            document.getElementById("modal_text_15").innerHTML = `${flat_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　　${flat_key_signature[sig9]}`;
+            document.getElementById("modal_text_15").innerHTML = `${flat_note_name[chord_root_name]}ブルース・マイナー・ペンタトニック　${flat_key_signature[sig9]}`;
         };
     } else {
         document.getElementById("modal_text_15").innerHTML = "";
@@ -2469,6 +2475,120 @@ function keyplus() {
     } else {
         document.getElementById("modal_text_16").innerHTML = "";
         document.getElementById("modal_text_16").className = "";
+    };
+
+    if (scale_Phrygian_dominant[0] >= onoff_0
+        && scale_Phrygian_dominant[1] >= onoff_1
+        && scale_Phrygian_dominant[2] >= onoff_2
+        && scale_Phrygian_dominant[3] >= onoff_3
+        && scale_Phrygian_dominant[4] >= onoff_4
+        && scale_Phrygian_dominant[5] >= onoff_5
+        && scale_Phrygian_dominant[6] >= onoff_6
+        && scale_Phrygian_dominant[7] >= onoff_7
+        && scale_Phrygian_dominant[8] >= onoff_8
+        && scale_Phrygian_dominant[9] >= onoff_9
+        && scale_Phrygian_dominant[10] >= onoff_10
+        && scale_Phrygian_dominant[11] >= onoff_11) {
+        if (sig4 == 0 || sig4 == 2 || sig4 == 4 || sig4 == 6 || sig4 == 7 || sig4 == 9 || sig4 == 11) {
+            document.getElementById("modal_text_17").innerHTML = `${sharp_note_name[chord_root_name]}フリジアン・ドミナント　${sharp_key_signature[sig4]}`;
+        } else {
+            document.getElementById("modal_text_17").innerHTML = `${flat_note_name[chord_root_name]}フリジアン・ドミナント　${flat_key_signature[sig4]}`;
+        };
+    } else {
+        document.getElementById("modal_text_17").innerHTML = "";
+        document.getElementById("modal_text_17").className = "";
+    };
+
+
+    if (scale_Lydian_dominant[0] >= onoff_0
+        && scale_Lydian_dominant[1] >= onoff_1
+        && scale_Lydian_dominant[2] >= onoff_2
+        && scale_Lydian_dominant[3] >= onoff_3
+        && scale_Lydian_dominant[4] >= onoff_4
+        && scale_Lydian_dominant[5] >= onoff_5
+        && scale_Lydian_dominant[6] >= onoff_6
+        && scale_Lydian_dominant[7] >= onoff_7
+        && scale_Lydian_dominant[8] >= onoff_8
+        && scale_Lydian_dominant[9] >= onoff_9
+        && scale_Lydian_dominant[10] >= onoff_10
+        && scale_Lydian_dominant[11] >= onoff_11) {
+        if (sig5 == 0 || sig5 == 2 || sig5 == 4 || sig5 == 6 || sig5 == 7 || sig5 == 9 || sig5 == 11) {
+            document.getElementById("modal_text_18").innerHTML = `${sharp_note_name[chord_root_name]}リディアン♭7th　${sharp_key_signature[sig5]}`;
+        } else {
+            document.getElementById("modal_text_18").innerHTML = `${flat_note_name[chord_root_name]}リディアン♭7th　${flat_key_signature[sig5]}`;
+        };
+    } else {
+        document.getElementById("modal_text_18").innerHTML = "";
+        document.getElementById("modal_text_18").className = "";
+    };
+
+
+    if (scale_Phrygian_flat_4th[0] >= onoff_0
+        && scale_Phrygian_flat_4th[1] >= onoff_1
+        && scale_Phrygian_flat_4th[2] >= onoff_2
+        && scale_Phrygian_flat_4th[3] >= onoff_3
+        && scale_Phrygian_flat_4th[4] >= onoff_4
+        && scale_Phrygian_flat_4th[5] >= onoff_5
+        && scale_Phrygian_flat_4th[6] >= onoff_6
+        && scale_Phrygian_flat_4th[7] >= onoff_7
+        && scale_Phrygian_flat_4th[8] >= onoff_8
+        && scale_Phrygian_flat_4th[9] >= onoff_9
+        && scale_Phrygian_flat_4th[10] >= onoff_10
+        && scale_Phrygian_flat_4th[11] >= onoff_11) {
+        if (sig4 == 0 || sig4 == 2 || sig4 == 4 || sig4 == 6 || sig4 == 7 || sig4 == 9 || sig4 == 11) {
+            document.getElementById("modal_text_19").innerHTML = `${sharp_note_name[chord_root_name]}フリジアン♭4th　${sharp_key_signature[sig4]}`;
+        } else {
+            document.getElementById("modal_text_19").innerHTML = `${flat_note_name[chord_root_name]}フリジアン♭4th　${flat_key_signature[sig4]}`;
+        };
+    } else {
+        document.getElementById("modal_text_19").innerHTML = "";
+        document.getElementById("modal_text_19").className = "";
+    };
+
+
+    if (scale_Mixolydian_flat_2nd[0] >= onoff_0
+        && scale_Mixolydian_flat_2nd[1] >= onoff_1
+        && scale_Mixolydian_flat_2nd[2] >= onoff_2
+        && scale_Mixolydian_flat_2nd[3] >= onoff_3
+        && scale_Mixolydian_flat_2nd[4] >= onoff_4
+        && scale_Mixolydian_flat_2nd[5] >= onoff_5
+        && scale_Mixolydian_flat_2nd[6] >= onoff_6
+        && scale_Mixolydian_flat_2nd[7] >= onoff_7
+        && scale_Mixolydian_flat_2nd[8] >= onoff_8
+        && scale_Mixolydian_flat_2nd[9] >= onoff_9
+        && scale_Mixolydian_flat_2nd[10] >= onoff_10
+        && scale_Mixolydian_flat_2nd[11] >= onoff_11) {
+        if (sig7 == 0 || sig7 == 2 || sig7 == 4 || sig7 == 6 || sig7 == 7 || sig7 == 9 || sig7 == 11) {
+            document.getElementById("modal_text_20").innerHTML = `${sharp_note_name[chord_root_name]}ミクソリディアン♭2nd　${sharp_key_signature[sig7]}`;
+        } else {
+            document.getElementById("modal_text_20").innerHTML = `${flat_note_name[chord_root_name]}ミクソリディアン♭2nd　${flat_key_signature[sig7]}`;
+        };
+    } else {
+        document.getElementById("modal_text_20").innerHTML = "";
+        document.getElementById("modal_text_20").className = "";
+    };
+
+
+    if (scale_Altered[0] >= onoff_0
+        && scale_Altered[1] >= onoff_1
+        && scale_Altered[2] >= onoff_2
+        && scale_Altered[3] >= onoff_3
+        && scale_Altered[4] >= onoff_4
+        && scale_Altered[5] >= onoff_5
+        && scale_Altered[6] >= onoff_6
+        && scale_Altered[7] >= onoff_7
+        && scale_Altered[8] >= onoff_8
+        && scale_Altered[9] >= onoff_9
+        && scale_Altered[10] >= onoff_10
+        && scale_Altered[11] >= onoff_11) {
+        if (sig8 == 0 || sig8 == 2 || sig8 == 4 || sig8 == 6 || sig8 == 7 || sig8 == 9 || sig8 == 11) {
+            document.getElementById("modal_text_21").innerHTML = `${sharp_note_name[chord_root_name]}オルタード　${sharp_key_signature[sig8]}`;
+        } else {
+            document.getElementById("modal_text_21").innerHTML = `${flat_note_name[chord_root_name]}オルタード　${flat_key_signature[sig8]}`;
+        };
+    } else {
+        document.getElementById("modal_text_21").innerHTML = "";
+        document.getElementById("modal_text_21").className = "";
     };
 
     
@@ -2500,6 +2620,12 @@ function keyplus() {
         document.getElementById("modal_text_14").innerHTML = "Ⅰブルース・メジャー・ペンタトニック";
         document.getElementById("modal_text_15").innerHTML = "Ⅰブルース・マイナー・ペンタトニック";
         document.getElementById("modal_text_16").innerHTML = "Ⅰホールトーン";
+        document.getElementById("modal_text_17").innerHTML = "Ⅰフリジアン・ドミナント";
+        document.getElementById("modal_text_18").innerHTML = "Ⅰリディアン・♭7th";
+        document.getElementById("modal_text_19").innerHTML = "Ⅰフリジアン・♭4th";
+        document.getElementById("modal_text_20").innerHTML = "Ⅰミクソリディアン♭2nd";
+        document.getElementById("modal_text_21").innerHTML = "Ⅰオルタード";
+
     } else {
 
     };
