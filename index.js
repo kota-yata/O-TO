@@ -13,15 +13,19 @@ function roundToThree(num) {
 const note_name = ["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"];
 const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
+const japan_note_name = ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", "ヘ", "嬰ヘ/変ト", "ト", "嬰ト/変イ", "イ", "嬰イ/変ロ", "ロ"];
+const italy_note_name = ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"];
+const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"];
+
+//旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
 const after_mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
+
+//調号の数を配列に格納する。
 const key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#・♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
-const japan_note_name = ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", "ヘ", "嬰ヘ/変ト", "ト", "嬰ト/変イ", "イ", "嬰イ/変ロ", "ロ"];
-const italy_note_name = ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"];
-const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"];
 
 //スケールの情報を配列に格納する。
 const scale_Ionian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
@@ -117,7 +121,7 @@ function modulation() {
     let a_key_num = mod((Number(a_note_num) - Number(a_mode_num)), 12);
     let modulation_num = mod((Number(a_key_num) - Number(b_key_num)), 12);
 
-
+    //転調前のキーと調号を表示
     if (b_key_num == 0 || b_key_num == 2 || b_key_num == 4 || b_key_num == 6 || b_key_num == 7 || b_key_num == 9 || b_key_num == 11) {
         document.getElementById("result_b_key").innerHTML
             = "-転調前-<br><br>" + sharp_note_name[b_note_num] + " " + mode_name[b_mode_num] + " " + sharp_key_signature[b_key_num];
@@ -126,7 +130,7 @@ function modulation() {
             = "-転調前-<br><br>" + flat_note_name[b_note_num] + " " + mode_name[b_mode_num] + " " + flat_key_signature[b_key_num];
     };
 
-
+    //転調の種類を表示
     if (Number(b_key_num) == Number(a_key_num) && Number(b_note_num) == Number(a_note_num)) {
         document.getElementById("result_modulation").innerHTML
             = "【転調の種類】<br><br>転調していません。";
@@ -148,9 +152,9 @@ function modulation() {
     } else {
         document.getElementById("result_modulation").innerHTML
             = "【転調の種類】<br><br>" + modulation_type[modulation_num];
-    }
+    };
 
-
+    //転調後のキーと調号を表示
     if (a_key_num == 0 || a_key_num == 2 || a_key_num == 4 || a_key_num == 6 || a_key_num == 7 || a_key_num == 9 || a_key_num == 11) {
         document.getElementById("result_a_key").innerHTML
             = "-転調後-<br><br>" + sharp_note_name[a_note_num] + " " + mode_name[a_mode_num] + " " + sharp_key_signature[a_key_num];
@@ -158,7 +162,6 @@ function modulation() {
         document.getElementById("result_a_key").innerHTML
             = "-転調後-<br><br>" + flat_note_name[a_note_num] + " " + mode_name[a_mode_num] + " " + flat_key_signature[a_key_num];
     };
-
 };
 
 
@@ -573,10 +576,7 @@ function changeChordProgression() {
         //スペイン旅行
         document.getElementById("spain").innerHTML = `${flat_note_name[e]} - ${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[f]}`;
     };
-
-
 };
-
 
 
 //コード進行をディグリーネームに切り替えるためのスクリプト
@@ -1456,7 +1456,7 @@ function scaleKeySignature() {
     } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[phrygian_case]}で記譜されます。`;
 
-    } else if (scale_dec == 2773||scale_dec == 1749) {
+    } else if (scale_dec == 2773 || scale_dec == 1749) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[lydian_case]}で記譜されます。`;
 
     } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
@@ -1756,6 +1756,12 @@ document.getElementById("input_bpm"); function NoteLength() {
 
 document.getElementById("rhythm_input_bpm"); function NoteInfo() {
 
+    document.getElementById("note_text").className = "py-0";
+    document.getElementById("flag_text").className = "py-0";
+    document.getElementById("haku_text").className = "py-0";
+    document.getElementById("dieresis_note").className = "py-0";
+    document.getElementById("dotted_note_value").className = "py-0";
+
     let rhythm_input_bpm = document.getElementById("rhythm_input_bpm").value;
     let rhythm_note_type = document.getElementById("rhythm_note_type").value;
     let rhythm_dotted_note_type = document.getElementById("rhythm_dotted_note_type").value;
@@ -1951,25 +1957,32 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
     //分音符のみ表記
     if (note_count <= 0 || rhythm_input_bpm <= 0) {
         document.getElementById("dieresis_note").innerHTML = "";
+        document.getElementById("dieresis_note").className = "py-0";
     } else {
         document.getElementById("dieresis_note").innerHTML = "ちなみに、分音符のみで表記した場合は<b>「" + roundToThree(dieresis_note) + "分音符」</b>になります。";
+        document.getElementById("dieresis_note").className = "py-1";
     };
 
     //符点分音符のみ表記
     if (note_count <= 0 || rhythm_input_bpm <= 0) {
         document.getElementById("dotted_note_value").innerHTML = "";
+        document.getElementById("dotted_note_value").className = "py-0";
     } else {
         document.getElementById("dotted_note_value").innerHTML = "符点音符のみで表記した場合は<b>「符点" + roundToThree(dotted_note) + "分音符」</b>になります。";
+        document.getElementById("dotted_note_value").className = "py-1";
     };
 
     //連符の比の解説
     if (note_count <= 0 || rhythm_input_bpm <= 0) {
         document.getElementById("note_text").innerHTML = "";
+        document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
         document.getElementById("note_text").innerHTML
             = Number(ratio_number) + "分音符が" + Number(ratio) + "個分の音価を" + Number(rhythm_tuplet_type) + "個に分割しています。<br>よって、この" + Number(rhythm_tuplet_type) + "連符と" + Number(ratio_number) + "分音符との比は<b>「" + Number(rhythm_tuplet_type) + "：" + Number(ratio) + "」</b>となります。";
-    } else if (rhythm_tuplet_type <= 1) {
+            document.getElementById("note_text").className = "py-1";
+        } else if (rhythm_tuplet_type <= 1) {
         document.getElementById("note_text").innerHTML = "";
+        document.getElementById("note_text").className = "py-1";
     };
 
     //符尾・連桁の数の表示
@@ -1979,39 +1992,51 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
 
     if (rhythm_dotted_note_type >= 1 || rhythm_input_bpm <= 0) {
         document.getElementById("flag_text").innerHTML = "";
+        document.getElementById("flag_text").className = "py-0";
     } else if (note_count != 1) {
         document.getElementById("flag_text").innerHTML = "";
+        document.getElementById("flag_text").className = "py-0";
     } else if (flag_count < 1) {//指定BPMでの8分音符より、「符点を含めない音価」が長い場合
         document.getElementById("flag_text").innerHTML = "これは、BPM=" + rhythm_input_bpm + "の4分音符(" + roundToThree(quarter_note_ms * rhythm_time_type) + rhythm_time_unit + ")以上の音価です。<br>符尾・連桁の数は<b>\"0本\"</b>で記述されます。";
+        document.getElementById("flag_text").className = "py-1";
     } else if (flag_count >= 1) {
         document.getElementById("flag_text").innerHTML = "これは、BPM=" + rhythm_input_bpm + "の" + flag_number + "分音符(" + roundToThree(flag_ms * rhythm_time_type) + rhythm_time_unit + ")以下で、" + flag_number_minusone + "分音符(" + roundToThree(flag_min_ms * rhythm_time_type) + rhythm_time_unit + ")より長いです。<br>したがって、符尾・連桁の数は<b>\"" + flag_count + "本\"</b>で記述されます。";
+        document.getElementById("flag_text").className = "py-1";
     } else {
         document.getElementById("flag_text").innerHTML = "符尾・連桁の数が分かりません。";
+        document.getElementById("flag_text").className = "py-1";
     };
 
     //「〇拍〇連」表記の有無
 
     if (note_count != 1) {
         document.getElementById("haku_text").innerHTML = "";
+        document.getElementById("haku_text").className = "py-0";
     } else if (Number(rhythm_note_type) == 1 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
+        document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
             = "また、この音符を<b>「4拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 2 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
+        document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
             = "また、この音符を<b>「2拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 4 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
+        document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
             = "また、この音符を<b>「1拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 8 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
+        document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
             = "また、この音符を<b>「半拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else {
+        document.getElementById("haku_text").className = "py-0";
         document.getElementById("haku_text").innerHTML = "";
     };
 
     //メトリック・モジュレーションの説明
     if (note_count <= 0 || rhythm_input_bpm <= 0) {
         document.getElementById("rhythm_info").innerHTML = ""
+        document.getElementById("rhythm_info").className = "py-0";
 
         document.getElementById("same_length_whole_note").innerHTML = "全音符<br><br>---";
         document.getElementById("same_length_1dot_half_note").innerHTML = "符点2分<br><br>---";
@@ -2591,7 +2616,7 @@ function keyplus() {
         document.getElementById("modal_text_21").className = "";
     };
 
-    
+
     if (0 == onoff_0
         && 0 == onoff_1
         && 0 == onoff_2
