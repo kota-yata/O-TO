@@ -1959,7 +1959,7 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
         document.getElementById("dieresis_note").innerHTML = "";
         document.getElementById("dieresis_note").className = "py-0";
     } else {
-        document.getElementById("dieresis_note").innerHTML = "ちなみに、分音符のみで表記した場合は<b>「" + roundToThree(dieresis_note) + "分音符」</b>になります。";
+        document.getElementById("dieresis_note").innerHTML = "分音符のみで表記した場合は<b>「" + roundToThree(dieresis_note) + "分音符」</b>になります。";
         document.getElementById("dieresis_note").className = "py-1";
     };
 
@@ -1997,10 +1997,10 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
         document.getElementById("flag_text").innerHTML = "";
         document.getElementById("flag_text").className = "py-0";
     } else if (flag_count < 1) {//指定BPMでの8分音符より、「符点を含めない音価」が長い場合
-        document.getElementById("flag_text").innerHTML = "これは、BPM=" + rhythm_input_bpm + "の4分音符(" + roundToThree(quarter_note_ms * rhythm_time_type) + rhythm_time_unit + ")以上の音価です。<br>符尾・連桁の数は<b>\"0本\"</b>で記述されます。";
+        document.getElementById("flag_text").innerHTML = "BPM=" + rhythm_input_bpm + "の4分音符(" + roundToThree(quarter_note_ms * rhythm_time_type) + rhythm_time_unit + ")以上の音価です。<br>したがって、符尾・連桁の数は<b>\"0本\"</b>で記述されます。";
         document.getElementById("flag_text").className = "py-1";
     } else if (flag_count >= 1) {
-        document.getElementById("flag_text").innerHTML = "これは、BPM=" + rhythm_input_bpm + "の" + flag_number + "分音符(" + roundToThree(flag_ms * rhythm_time_type) + rhythm_time_unit + ")以下で、" + flag_number_minusone + "分音符(" + roundToThree(flag_min_ms * rhythm_time_type) + rhythm_time_unit + ")より長いです。<br>したがって、符尾・連桁の数は<b>\"" + flag_count + "本\"</b>で記述されます。";
+        document.getElementById("flag_text").innerHTML = "BPM=" + rhythm_input_bpm + "の" + flag_number + "分音符(" + roundToThree(flag_ms * rhythm_time_type) + rhythm_time_unit + ")以下で、" + flag_number_minusone + "分音符(" + roundToThree(flag_min_ms * rhythm_time_type) + rhythm_time_unit + ")より長い音価です。<br>したがって、符尾・連桁の数は<b>\"" + flag_count + "本\"</b>で記述されます。";
         document.getElementById("flag_text").className = "py-1";
     } else {
         document.getElementById("flag_text").innerHTML = "符尾・連桁の数が分かりません。";
@@ -2015,19 +2015,19 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
     } else if (Number(rhythm_note_type) == 1 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
         document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
-            = "また、この音符を<b>「4拍" + rhythm_tuplet_type + "連」</b>とも言います。";
+            = "この音符を<b>「4拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 2 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
         document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
-            = "また、この音符を<b>「2拍" + rhythm_tuplet_type + "連」</b>とも言います。";
+            = "この音符を<b>「2拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 4 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
         document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
-            = "また、この音符を<b>「1拍" + rhythm_tuplet_type + "連」</b>とも言います。";
+            = "この音符を<b>「1拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else if (Number(rhythm_note_type) == 8 && Number(rhythm_tuplet_type) >= 3 && Number(rhythm_dotted_note_type) == 0) {
         document.getElementById("haku_text").className = "py-1";
         document.getElementById("haku_text").innerHTML
-            = "また、この音符を<b>「半拍" + rhythm_tuplet_type + "連」</b>とも言います。";
+            = "この音符を<b>「半拍" + rhythm_tuplet_type + "連」</b>とも言います。";
     } else {
         document.getElementById("haku_text").className = "py-0";
         document.getElementById("haku_text").innerHTML = "";
