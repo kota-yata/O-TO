@@ -1798,7 +1798,7 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
     let ratio_number = (2 ** Number(log_number)) * (Number(Adjustment_number));
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = (((Number(dieresis_note_time) + Number(dot_time)) / (Number(rhythm_whole_note_time) / (Number(ratio_number) / (Number(Adjustment_number))))) * (Number(Adjustment_number))) + Number(note_count) - 1;
+    let ratio = Math.round((((Number(dieresis_note_time) + Number(dot_time)) / (Number(rhythm_whole_note_time) / (Number(ratio_number) / (Number(Adjustment_number))))) * (Number(Adjustment_number))) + Number(note_count) - 1);
 
 
     //符尾・連桁の数とその根拠となる...「(2の累乗)分音符」の種類
