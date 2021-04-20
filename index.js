@@ -379,8 +379,8 @@ function changeChordProgression() {
         document.getElementById("osare").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}7 - ${sharp_note_name[a]}m7 - ${sharp_note_name[d]}7`;
         //メロウな王道進行
         document.getElementById("mellow").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[g]}7/${sharp_note_name[f]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7`;
-        //晴れやかな王道進行
-        document.getElementById("bright").innerHTML = `${sharp_note_name[c]}/${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7`;
+        //自由・救済
+        document.getElementById("bright").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}`;
         //レアキャラ
         document.getElementById("rare_character").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}m7 - ${flat_note_name[dises]}dim7 - ${sharp_note_name[d]}m7`;
         //ゲーム音楽の香り
@@ -388,7 +388,7 @@ function changeChordProgression() {
         //チンダル現象みがある
         document.getElementById("tyndall_effect").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[f]}m7 - ${flat_note_name[e]}m7 - ${sharp_note_name[a]}7`;
         //綺麗
-        document.getElementById("beautiful").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[h]}7(♭5)/${sharp_note_name[f]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[e]}dim7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7/${sharp_note_name[d]} - ${sharp_note_name[c]}Maj7 - ${sharp_note_name[c]}6 `;
+        document.getElementById("beautiful").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[h]}m7(♭5)/${sharp_note_name[f]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[e]}dim7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7/${sharp_note_name[d]} - ${sharp_note_name[c]}Maj7 - ${sharp_note_name[c]}6 `;
 
         //小室進行
         document.getElementById("komuro").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[c]}`;
@@ -503,8 +503,8 @@ function changeChordProgression() {
         document.getElementById("osare").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}7 - ${flat_note_name[a]}m7 - ${flat_note_name[d]}7`;
         //メロウな王道進行
         document.getElementById("mellow").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[g]}7/${flat_note_name[f]} - ${flat_note_name[e]}m7 - ${flat_note_name[a]}m7`;
-        //晴れやかな王道進行
-        document.getElementById("bright").innerHTML = `${flat_note_name[c]}/${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[e]}m7 - ${flat_note_name[a]}m7`;
+        //自由・救済
+        document.getElementById("bright").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[a]}`;
         //レアキャラ
         document.getElementById("rare_character").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}m7 - ${flat_note_name[dises]}dim7 - ${flat_note_name[d]}m7`;
         //ゲーム音楽の香り
@@ -512,7 +512,7 @@ function changeChordProgression() {
         //チンダル現象みがある
         document.getElementById("tyndall_effect").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[f]}m7 - ${flat_note_name[e]}m7 - ${flat_note_name[a]}7`;
         //綺麗
-        document.getElementById("beautiful").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[h]}7(♭5)/${flat_note_name[f]} - ${flat_note_name[e]}m7 - ${flat_note_name[e]}dim7 - ${flat_note_name[d]}m7 - ${flat_note_name[g]}7/${flat_note_name[d]} - ${flat_note_name[c]}Maj7 - ${flat_note_name[c]}6 `;
+        document.getElementById("beautiful").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[h]}m7(♭5)/${flat_note_name[f]} - ${flat_note_name[e]}m7 - ${flat_note_name[e]}dim7 - ${flat_note_name[d]}m7 - ${flat_note_name[g]}7/${flat_note_name[d]} - ${flat_note_name[c]}Maj7 - ${flat_note_name[c]}6 `;
 
         //小室進行
         document.getElementById("komuro").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[c]}`;
@@ -633,8 +633,8 @@ function changeChordProgressionDegree() {
     document.getElementById("osare").innerHTML = "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7";
     //メロウな王道進行
     document.getElementById("mellow").innerHTML = "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7";
-    //晴れやかな王道進行
-    document.getElementById("bright").innerHTML = "Ⅰ/Ⅳ-Ⅴ-Ⅲm7-Ⅵm7";
+    //自由・救済
+    document.getElementById("bright").innerHTML = "Ⅳ-Ⅴ-Ⅵ";
     //レアキャラ
     document.getElementById("rare_character").innerHTML = "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7";
     //ゲーム音楽の香り
