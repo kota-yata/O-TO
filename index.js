@@ -891,7 +891,7 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Major_dia_4").innerHTML = "Ⅳ Maj7";
     document.getElementById("Major_dia_5").innerHTML = "Ⅴ 7";
     document.getElementById("Major_dia_6").innerHTML = "Ⅵ m7";
-    document.getElementById("Major_dia_7").innerHTML = "Ⅵ m7(♭5)";
+    document.getElementById("Major_dia_7").innerHTML = "Ⅶ m7(♭5)";
 
     document.getElementById("Rel_HMin_dia").innerHTML = "Ⅵ Harmonic Minor";
     document.getElementById("Rel_HMin_dia_1").innerHTML = "♭Ⅲ augMaj7";
