@@ -110,7 +110,7 @@ let sf_six = [0]
 //1分のミリ秒数
 let one_minutes = 60000;
 
-//転調の種類を判別するためのスクリプト
+//転調の種類を判別するためのスクリプト(転調の間隔)
 function modulation() {
     let b_note_num = document.getElementById("b_note").value;
     let b_mode_num = document.getElementById("b_mode").value;
@@ -709,8 +709,7 @@ function changeChordProgressionDegree() {
 };
 
 
-
-//ダイアトニック・コードのコードネームを切り替えるためのスクリプト
+//コードネームを切り替えるためのスクリプト(ダイアトニックコード)
 document.getElementById("tonic_note"); function Chordschange() {
     let tonic_note_number = document.getElementById("tonic_note").value;
 
@@ -820,7 +819,6 @@ document.getElementById("tonic_note"); function Chordschange() {
         document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7";
     }
 
-
     if (t3 == 0 || t3 == 2 || t3 == 4 || t3 == 6 || t3 == 7 || t3 == 9 || t3 == 11) {
         document.getElementById("Para_Minor_dia").innerHTML = sharp_note_name[tonic] + " Minor：" + sharp_key_signature[t3];
         document.getElementById("Para_Minor_dia_1").innerHTML = sharp_note_name[tonic] + " m7";
@@ -878,10 +876,9 @@ document.getElementById("tonic_note"); function Chordschange() {
         document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)";
     }
 
-
 };
 
-//ディグリーネームで表示するためのスクリプト
+//ディグリーネームで表示するためのスクリプト(ダイアトニックコード)
 document.getElementById("degree_button"); function degree() {
 
     document.getElementById("Major_dia").innerHTML = "Ⅰ Major";
@@ -1035,70 +1032,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
     let paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
 
     if (paint_diatonic_chords == 0) {
-
-        document.getElementById("Major_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Major_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMin_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Rel_HMaj_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Rel_MMaj_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Rel_MMaj_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Para_Minor_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_Minor_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl text-center";
-
-        document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl text-center";
-        document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl text-center";
+        paintDiatonicChordsReset()
 
     } else if (paint_diatonic_chords == 1) {
         document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1176,9 +1110,13 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
 };
 
 
-document.getElementById("chord_root_name"); function ChangeChordRoot() {
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
+//音名の表示形式を切り替えるスクリプト
 
+//英米式
+document.getElementById("chord_root_name"); function ChangeChordRoot() {
+
+    let chord_root_name_number = document.getElementById("chord_root_name").value;
+    
     let tonic = mod(Number(chord_root_name_number) - 0, 12);
     let t1 = mod(Number(chord_root_name_number) + 1, 12);
     let t2 = mod(Number(chord_root_name_number) + 2, 12);
@@ -1206,7 +1144,7 @@ document.getElementById("chord_root_name"); function ChangeChordRoot() {
     document.getElementById("chord_11").innerHTML = note_name[t11];
 };
 
-
+//イタリア式
 document.getElementById("chord_root_name"); function italyChangeChordRoot() {
     let chord_root_name_number = document.getElementById("chord_root_name").value;
 
@@ -1237,6 +1175,7 @@ document.getElementById("chord_root_name"); function italyChangeChordRoot() {
     document.getElementById("chord_11").innerHTML = italy_note_name[t11];
 };
 
+//日本式
 document.getElementById("chord_root_name"); function japanChangeChordRoot() {
     let chord_root_name_number = document.getElementById("chord_root_name").value;
 
@@ -1267,7 +1206,7 @@ document.getElementById("chord_root_name"); function japanChangeChordRoot() {
     document.getElementById("chord_11").innerHTML = japan_note_name[t11];
 };
 
-
+//ドイツ式
 document.getElementById("chord_root_name"); function germanyChangeChordRoot() {
     let chord_root_name_number = document.getElementById("chord_root_name").value;
 
@@ -1299,9 +1238,7 @@ document.getElementById("chord_root_name"); function germanyChangeChordRoot() {
 };
 
 
-
-
-//音名の表示形式を変更する
+//音名の表示形式を変更するスクリプト
 document.getElementById("key_signature_names"); function keySignatureNames() {
 
     let key_signature_names = document.getElementById("key_signature_names").value;
@@ -2097,6 +2034,7 @@ let onoff_9 = 0;
 let onoff_10 = 0;
 let onoff_11 = 0;
 
+
 //モーダルインターチェンジを表示するスクリプト
 function keyplus() {
 
@@ -2120,8 +2058,6 @@ function keyplus() {
     let tonic_do = mod(sig0 - chord_root_name, 12);
     let dises = mod(chord_root_name - sig9, 12);
 
-
-
     document.getElementById("modal_text_1").className = "py-1";
     document.getElementById("modal_text_2").className = "py-1";
     document.getElementById("modal_text_3").className = "py-1";
@@ -2143,7 +2079,8 @@ function keyplus() {
     document.getElementById("modal_text_19").className = "py-1";
     document.getElementById("modal_text_20").className = "py-1";
     document.getElementById("modal_text_21").className = "py-1";
-
+    document.getElementById("modal_text_22").className = "py-1";
+    document.getElementById("modal_text_23").className = "py-1";
 
     //スケールの判定
     if (scale_Ionian[0] >= onoff_0
@@ -2607,15 +2544,58 @@ function keyplus() {
         && scale_Altered[10] >= onoff_10
         && scale_Altered[11] >= onoff_11) {
         if (sig8 == 0 || sig8 == 2 || sig8 == 4 || sig8 == 6 || sig8 == 7 || sig8 == 9 || sig8 == 11) {
-            document.getElementById("modal_text_21").innerHTML = `${sharp_note_name[chord_root_name]}オルタード　${sharp_key_signature[sig8]}`;
+            document.getElementById("modal_text_21").innerHTML = `${sharp_note_name[chord_root_name]}スーパーロクリアン/オルタード　${sharp_key_signature[sig8]}`;
         } else {
-            document.getElementById("modal_text_21").innerHTML = `${flat_note_name[chord_root_name]}オルタード　${flat_key_signature[sig8]}`;
+            document.getElementById("modal_text_21").innerHTML = `${flat_note_name[chord_root_name]}スーパーロクリアン/オルタード　${flat_key_signature[sig8]}`;
         };
     } else {
         document.getElementById("modal_text_21").innerHTML = "";
         document.getElementById("modal_text_21").className = "";
     };
 
+    if (scale_Half_whole_diminished[0] >= onoff_0
+        && scale_Half_whole_diminished[1] >= onoff_1
+        && scale_Half_whole_diminished[2] >= onoff_2
+        && scale_Half_whole_diminished[3] >= onoff_3
+        && scale_Half_whole_diminished[4] >= onoff_4
+        && scale_Half_whole_diminished[5] >= onoff_5
+        && scale_Half_whole_diminished[6] >= onoff_6
+        && scale_Half_whole_diminished[7] >= onoff_7
+        && scale_Half_whole_diminished[8] >= onoff_8
+        && scale_Half_whole_diminished[9] >= onoff_9
+        && scale_Half_whole_diminished[10] >= onoff_10
+        && scale_Half_whole_diminished[11] >= onoff_11) {
+        if (sig7 == 0 || sig7 == 2 || sig7 == 4 || sig7 == 6 || sig7 == 7 || sig7 == 9 || sig7 == 11) {
+            document.getElementById("modal_text_22").innerHTML = `${sharp_note_name[chord_root_name]}ハーフ・ホール・ディミニッシュ　${sharp_key_signature[sig7]}`;
+        } else {
+            document.getElementById("modal_text_22").innerHTML = `${flat_note_name[chord_root_name]}ハーフ・ホール・ディミニッシュ　${flat_key_signature[sig7]}`;
+        };
+    } else {
+        document.getElementById("modal_text_22").innerHTML = "";
+        document.getElementById("modal_text_22").className = "";
+    };
+
+    if (scale_Chromatic[0] >= onoff_0
+        && scale_Chromatic[1] >= onoff_1
+        && scale_Chromatic[2] >= onoff_2
+        && scale_Chromatic[3] >= onoff_3
+        && scale_Chromatic[4] >= onoff_4
+        && scale_Chromatic[5] >= onoff_5
+        && scale_Chromatic[6] >= onoff_6
+        && scale_Chromatic[7] >= onoff_7
+        && scale_Chromatic[8] >= onoff_8
+        && scale_Chromatic[9] >= onoff_9
+        && scale_Chromatic[10] >= onoff_10
+        && scale_Chromatic[11] >= onoff_11) {
+        if (sig0 == 0 || sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+            document.getElementById("modal_text_23").innerHTML = `${sharp_note_name[chord_root_name]}クロマチック　${sharp_key_signature[sig0]}`;
+        } else {
+            document.getElementById("modal_text_23").innerHTML = `${flat_note_name[chord_root_name]}クロマチック　${flat_key_signature[sig0]}`;
+        };
+    } else {
+        document.getElementById("modal_text_23").innerHTML = "";
+        document.getElementById("modal_text_23").className = "";
+    };
 
     if (0 == onoff_0
         && 0 == onoff_1
@@ -2649,12 +2629,101 @@ function keyplus() {
         document.getElementById("modal_text_18").innerHTML = "Ⅰリディアン・♭7th";
         document.getElementById("modal_text_19").innerHTML = "Ⅰフリジアン・♭4th";
         document.getElementById("modal_text_20").innerHTML = "Ⅰミクソリディアン♭2nd";
-        document.getElementById("modal_text_21").innerHTML = "Ⅰオルタード";
+        document.getElementById("modal_text_21").innerHTML = "Ⅰスーパーロクリアン/オルタード";
+        document.getElementById("modal_text_22").innerHTML = "Ⅰハーフ・ホール・ディミニッシュ";
+        document.getElementById("modal_text_23").innerHTML = "Ⅰクロマチック";
 
     } else {
 
     };
 
+};
+
+
+//コードネーム上で使えるスケール
+
+function ChordNoteSwitch() {
+
+    ChangeChords()
+
+    //コードネームのドロップダウンリストのvalueを取得
+    let chord_num_binary = document.getElementById("chord_name").value;
+
+    //二進数の値を1文字ずつ分解して配列chord_numberに格納
+    let chord_number = chord_num_binary.split('');
+
+    if (Number(chord_number[0]) == 1) {
+        onoff_0 = 1;
+    } else {
+        onoff_0 = 0;
+    }
+
+    if (Number(chord_number[1]) == 1) {
+        onoff_1 = 1;
+    } else {
+        onoff_1 = 0;
+    }
+
+    if (Number(chord_number[2]) == 1) {
+        onoff_2 = 1;
+    } else {
+        onoff_2 = 0;
+    }
+
+    if (Number(chord_number[3]) == 1) {
+        onoff_3 = 1;
+    } else {
+        onoff_3 = 0;
+    }
+
+    if (Number(chord_number[4]) == 1) {
+        onoff_4 = 1;
+    } else {
+        onoff_4 = 0;
+    }
+
+    if (Number(chord_number[5]) == 1) {
+        onoff_5 = 1;
+    } else {
+        onoff_5 = 0;
+    }
+
+    if (Number(chord_number[6]) == 1) {
+        onoff_6 = 1;
+    } else {
+        onoff_6 = 0;
+    }
+
+    if (Number(chord_number[7]) == 1) {
+        onoff_7 = 1;
+    } else {
+        onoff_7 = 0;
+    }
+
+    if (Number(chord_number[8]) == 1) {
+        onoff_8 = 1;
+    } else {
+        onoff_8 = 0;
+    }
+
+    if (Number(chord_number[9]) == 1) {
+        onoff_9 = 1;
+    } else {
+        onoff_9 = 0;
+    }
+
+    if (Number(chord_number[10]) == 1) {
+        onoff_10 = 1;
+    } else {
+        onoff_10 = 0;
+    }
+    if (Number(chord_number[11]) == 1) {
+        onoff_11 = 1;
+    } else {
+        onoff_11 = 0;
+    }
+
+    keyplus()
 };
 
 

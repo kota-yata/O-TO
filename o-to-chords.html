@@ -138,7 +138,7 @@
 
         <label for="chord_root_name" class="box1 col-md-10 col-xl-2 py-2 mx-2">ルート音
           <select id="chord_root_name" class="form-select my-1" aria-label="Default select example"
-            onchange="keySignatureNames()">
+            onchange="ChordNoteSwitch()">
             <option value=0>C</option>
             <option value=1>C#/D♭</option>
             <option value=2>D</option>
@@ -154,16 +154,17 @@
           </select>
         </label>
 
-        <label for="chord_name" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">コードネーム
+        <label for="chord_name" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">コードネーム
           <select id="chord_name" class="form-select my-1" aria-label="Default select example"
-            onchange="ChangeChords()">
+            onchange="ChordNoteSwitch()">
             <option value=100010010000>Major</option>
             <option value=100100010000>Minor</option>
             <option value=100010001000>aug</option>
-            <option value=100100100000>m(♭5)</option>
+            <option value=100100100000>m(♭5)・dim</option>
             <option value=100001010000>sus4</option>
             <option value=101000010000>sus2</option>
             <option value=100010010010>7</option>
+            <option value=100010000010>7(omit5)</option>
             <option value=100010010001>Maj7</option>
             <option value=100100010010>m7</option>
             <option value=100100010001>mMaj7</option>
@@ -181,8 +182,17 @@
           </select>
         </label>
 
-      </div>
+        <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
+          <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+            onchange="keySignatureNames()">
+            <option value=0>英・米式表記</option>
+            <option value=1>イタリア式表記</option>
+            <option value=2>日本式表記</option>
+            <option value=3>ドイツ式表記</option>
+          </select>
+        </label>
 
+      </div>
 
       <div class="row">
         <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_0">
@@ -384,17 +394,45 @@
         </div>
       </div>
 
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              このコードの構成音を含む主なスケールはこちら。
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
 
-      <div class="py-3">
-        <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
-          <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
-            onchange="keySignatureNames()">
-            <option value=0>英・米式表記</option>
-            <option value=1>イタリア式表記</option>
-            <option value=2>日本式表記</option>
-            <option value=3>ドイツ式表記</option>
-          </select>
-        </label>
+              <div class="py-1" id="modal_text_1">Cメジャー(長音階)　(#・♭×0)</div>
+              <div class="" id="modal_text_12"></div>
+              <div class="" id="modal_text_13"></div>
+              <div class="" id="modal_text_2"></div>
+              <div class="" id="modal_text_3"></div>
+              <div class="" id="modal_text_4"></div>
+              <div class="py-1" id="modal_text_5">Cハーモニック・メジャー(和声的長音階)　(#・♭×0)</div>
+              <div class="py-1" id="modal_text_6">Cメロディック・メジャー(旋律的長音階)　(#・♭×0)</div>
+              <div class="" id="modal_text_7"></div>
+              <div class="" id="modal_text_8"></div>
+              <div class="py-1" id="modal_text_9">Cリディアン　(#×1)</div>
+              <div class="py-1" id="modal_text_10">Cミクソリディアン　(♭×1)</div>
+              <div class="" id="modal_text_11"></div>
+              <div class="py-1" id="modal_text_14">Cブルース・メジャー・ペンタトニック　(#・♭×0)</div>
+              <div class="" id="modal_text_15"></div>
+              <div class="" id="modal_text_16"></div>
+              <div class="py-1" id="modal_text_17">Cフリジアン・ドミナント　(♭×4)</div>
+              <div class="py-1" id="modal_text_18">Cリディアン♭7th　(#×1)</div>
+              <div class="py-1" id="modal_text_19">Cフリジアン♭4th　(♭×4)</div>
+              <div class="py-1" id="modal_text_20">Cミクソリディアン♭2nd　(♭×1)</div>
+              <div class="" id="modal_text_21"></div>
+              <div class="py-1" id="modal_text_22">Cハーフ・ホール・ディミニッシュ　(♭×1)</div>
+              <div class="py-1" id="modal_text_23">Cクロマチック　(#・♭×0)</div>
+
+            </div>
+          </div>
+        </div>
       </div>
 
       <img class="pt-3 pb-3" src="image\chord name structure.png">
