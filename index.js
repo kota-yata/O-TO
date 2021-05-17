@@ -576,6 +576,9 @@ function changeChordProgression() {
         //スペイン旅行
         document.getElementById("spain").innerHTML = `${flat_note_name[e]} - ${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[f]}`;
     };
+
+    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-5 col-xl-3 m-3";
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-3 m-3";
 };
 
 
@@ -706,11 +709,19 @@ function changeChordProgressionDegree() {
     //スペイン旅行
     document.getElementById("spain").innerHTML = "Ⅲ-Ⅳ-Ⅴ-Ⅳ";
 
+    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-5 col-xl-3 m-3";
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-3 m-3";
+
 };
 
 
 //コードネームを切り替えるためのスクリプト(ダイアトニックコード)
 document.getElementById("tonic_note"); function Chordschange() {
+
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+    document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+
     let tonic_note_number = document.getElementById("tonic_note").value;
 
     let tonic = mod(Number(tonic_note_number) + 0, 12);
@@ -876,10 +887,197 @@ document.getElementById("tonic_note"); function Chordschange() {
         document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)";
     }
 
+    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+    onoff_ChordsAndModeChange = 0;
+
 };
+
+
+//コードネームをモードスケール併記に切り替えるためのスクリプト(ダイアトニックコード)
+document.getElementById("tonic_note"); function ChordsAndModeChange() {
+
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+    document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+
+    let tonic_note_number = document.getElementById("tonic_note").value;
+
+    let tonic = mod(Number(tonic_note_number) + 0, 12);
+    let t1 = mod(Number(tonic_note_number) + 1, 12);
+    let t2 = mod(Number(tonic_note_number) + 2, 12);
+    let t3 = mod(Number(tonic_note_number) + 3, 12);
+    let t4 = mod(Number(tonic_note_number) + 4, 12);
+    let t5 = mod(Number(tonic_note_number) + 5, 12);
+    let t6 = mod(Number(tonic_note_number) + 6, 12);
+    let t7 = mod(Number(tonic_note_number) + 7, 12);
+    let t8 = mod(Number(tonic_note_number) + 8, 12);
+    let t9 = mod(Number(tonic_note_number) + 9, 12);
+    let t10 = mod(Number(tonic_note_number) + 10, 12);
+    let t11 = mod(Number(tonic_note_number) + 11, 12);
+
+    if (tonic_note_number == 0 || tonic_note_number == 2 || tonic_note_number == 4 || tonic_note_number == 6 || tonic_note_number == 7 || tonic_note_number == 9 || tonic_note_number == 11) {
+        document.getElementById("Major_dia").innerHTML = `${sharp_note_name[tonic]} Major：${sharp_key_signature[tonic]}`;
+        document.getElementById("Major_dia_1").innerHTML = sharp_note_name[tonic] + " Maj7" + "<br>【Ionian】";
+        document.getElementById("Major_dia_2").innerHTML = sharp_note_name[t2] + " m7" + "<br>【Dorian】";
+        document.getElementById("Major_dia_3").innerHTML = sharp_note_name[t4] + " m7" + "<br>【Phrygian】";
+        document.getElementById("Major_dia_4").innerHTML = sharp_note_name[t5] + " Maj7" + "<br>【Lydian】";
+        document.getElementById("Major_dia_5").innerHTML = sharp_note_name[t7] + " 7" + "<br>【Mixolydian】";
+        document.getElementById("Major_dia_6").innerHTML = sharp_note_name[t9] + " m7" + "<br>【Aeolian】";
+        document.getElementById("Major_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)" + "<br>【 Locrian】";
+
+        document.getElementById("Rel_HMin_dia").innerHTML = sharp_note_name[t9] + " Harmonic Minor：" + sharp_key_signature[tonic];
+        document.getElementById("Rel_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7"+ "<br>【Ionian ♯5th】";
+        document.getElementById("Rel_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7"+ "<br>【Dorian #4th】" ;
+        document.getElementById("Rel_HMin_dia_3").innerHTML = sharp_note_name[t4] + " 7"+ "<br>【Phrygian dominant】";
+        document.getElementById("Rel_HMin_dia_4").innerHTML = sharp_note_name[t5] + " Maj7"+ "<br>【Lydian ♯2nd】";
+        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7"+ "<br>【Ultralocrian】";
+        document.getElementById("Rel_HMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7"+ "<br>【Harmonic Minor】";
+        document.getElementById("Rel_HMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br>【 Locrian ♮6th】";
+
+        document.getElementById("Rel_MMin_dia").innerHTML = sharp_note_name[t9] + " Melodic Minor：" + sharp_key_signature[tonic];
+        document.getElementById("Rel_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7"+ "<br>【Lydian ♯5th】";
+        document.getElementById("Rel_MMin_dia_2").innerHTML = sharp_note_name[t2] + " 7"+ "<br>【Lydian♭7th】";
+        document.getElementById("Rel_MMin_dia_3").innerHTML = sharp_note_name[t4] + " 7"+ "<br>【Melodic Major】";
+        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)"+ "<br>【Locrian ♮2nd】";
+        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)"+ "<br>【Super Locrian】<br>(Altered)";
+        document.getElementById("Rel_MMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Rel_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7"+ "<br>【 Dorian ♭2nd】";
+
+        document.getElementById("Rel_HMaj_dia").innerHTML = sharp_note_name[tonic] + " Harmonic Major：" + sharp_key_signature[tonic];
+        document.getElementById("Rel_HMaj_dia_1").innerHTML = sharp_note_name[tonic] + " Maj7"+ "<br>【Harmonic major】";
+        document.getElementById("Rel_HMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>【Dorian ♭5th】";
+        document.getElementById("Rel_HMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7・7"+ "<br>【Phrygian ♭4th】";
+        document.getElementById("Rel_HMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7"+ "<br>【Lydian ♭3rd】";
+        document.getElementById("Rel_HMaj_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>【Mixolydian ♭2nd】";
+        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>【Lydian ♯2nd ♯5th】";
+        document.getElementById("Rel_HMaj_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br>【 Locrian ♭♭7th】";
+
+        document.getElementById("Rel_MMaj_dia").innerHTML = sharp_note_name[tonic] + "  Melodic Major：" + sharp_key_signature[tonic];
+        document.getElementById("Rel_MMaj_dia_1").innerHTML = sharp_note_name[tonic] + " 7"+ "<br>【Melodic Major】";
+        document.getElementById("Rel_MMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>【Locrian ♮2】";
+        document.getElementById("Rel_MMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7(♭5)"+ "<br>【Super Locrian】<br>(Altered)";
+        document.getElementById("Rel_MMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Rel_MMaj_dia_5").innerHTML = sharp_note_name[t7] + " m7"+ "<br>【Dorian ♭2nd】";
+        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>【Lydian ♯5th】";
+        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br>【Lydian♭7th】";
+
+    } else {
+        document.getElementById("Major_dia").innerHTML = `${flat_note_name[tonic]} Major：${flat_key_signature[tonic]}`;
+        document.getElementById("Major_dia_1").innerHTML = flat_note_name[tonic] + " Maj7" + "<br>【Ionian】";
+        document.getElementById("Major_dia_2").innerHTML = flat_note_name[t2] + " m7" + "<br>【Dorian】";
+        document.getElementById("Major_dia_3").innerHTML = flat_note_name[t4] + " m7" + "<br>【Phrygian】";
+        document.getElementById("Major_dia_4").innerHTML = flat_note_name[t5] + " Maj7" + "<br>【Lydian】";
+        document.getElementById("Major_dia_5").innerHTML = flat_note_name[t7] + " 7" + "<br>【Mixolydian】";
+        document.getElementById("Major_dia_6").innerHTML = flat_note_name[t9] + " m7" + "<br>【Aeolian】";
+        document.getElementById("Major_dia_7").innerHTML = flat_note_name[t11] + " m7(♭5)" + "<br>【Locrian】";
+
+        document.getElementById("Rel_HMin_dia").innerHTML = flat_note_name[t9] + " Harmonic Minor：" + flat_key_signature[tonic];
+        document.getElementById("Rel_HMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7"+ "<br>【Ionian ♯5th】";
+        document.getElementById("Rel_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7"+ "<br>【Dorian #4th】"+ "<br>9th…" ;
+        document.getElementById("Rel_HMin_dia_3").innerHTML = flat_note_name[t4] + " 7"+ "<br>【Phrygian dominant】";
+        document.getElementById("Rel_HMin_dia_4").innerHTML = flat_note_name[t5] + " Maj7"+ "<br>【Lydian ♯2nd】";
+        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7"+ "<br>【 Ultralocrian】";
+        document.getElementById("Rel_HMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7"+ "<br>【Harmonic Minor】";
+        document.getElementById("Rel_HMin_dia_7").innerHTML = flat_note_name[t11] + " m7(♭5)"+ "<br>【Locrian ♮6th】";
+
+        document.getElementById("Rel_MMin_dia").innerHTML = flat_note_name[t9] + " Melodic Minor：" + flat_key_signature[tonic];
+        document.getElementById("Rel_MMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7"+ "<br>【Lydian ♯5th】";
+        document.getElementById("Rel_MMin_dia_2").innerHTML = flat_note_name[t2] + " 7"+ "<br>【Lydian♭7th】";
+        document.getElementById("Rel_MMin_dia_3").innerHTML = flat_note_name[t4] + " 7"+ "<br>【Melodic Major】";
+        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)"+ "<br>【 Locrian ♮2nd】";
+        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)"+ "<br>【 Super Locrian(Altered)】";
+        document.getElementById("Rel_MMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Rel_MMin_dia_7").innerHTML = flat_note_name[t11] + " m7"+ "<br>【 Dorian ♭2nd】";
+
+        document.getElementById("Rel_HMaj_dia").innerHTML = flat_note_name[tonic] + " Harmonic Major：" + flat_key_signature[tonic];
+        document.getElementById("Rel_HMaj_dia_1").innerHTML = flat_note_name[tonic] + " Maj7"+ "<br>【Harmonic major】";
+        document.getElementById("Rel_HMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>【Dorian ♭5th】";
+        document.getElementById("Rel_HMaj_dia_3").innerHTML = flat_note_name[t4] + " m7・7"+ "<br>【Phrygian ♭4th】";
+        document.getElementById("Rel_HMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7"+ "<br>【Lydian ♭3rd】";
+        document.getElementById("Rel_HMaj_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>【Mixolydian ♭2nd】";
+        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>【Lydian ♯2nd ♯5th】";
+        document.getElementById("Rel_HMaj_dia_7").innerHTML = flat_note_name[t11] + " dim7"+ "<br>【Locrian ♭♭7th】";
+
+        document.getElementById("Rel_MMaj_dia").innerHTML = flat_note_name[tonic] + "  Melodic Major：" + flat_key_signature[tonic];
+        document.getElementById("Rel_MMaj_dia_1").innerHTML = flat_note_name[tonic] + " 7"+ "<br>【Melodic Major】";
+        document.getElementById("Rel_MMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>【Locrian ♮2】";
+        document.getElementById("Rel_MMaj_dia_3").innerHTML = flat_note_name[t4] + " m7(♭5)"+ "<br>【Super Locrian(Altered)】";
+        document.getElementById("Rel_MMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Rel_MMaj_dia_5").innerHTML = flat_note_name[t7] + " m7"+ "<br>【Dorian ♭2nd】";
+        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>【Lydian ♯5th】";
+        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br>【Lydian♭7th】";
+    }
+
+    if (t3 == 0 || t3 == 2 || t3 == 4 || t3 == 6 || t3 == 7 || t3 == 9 || t3 == 11) {
+        document.getElementById("Para_Minor_dia").innerHTML = sharp_note_name[tonic] + " Minor：" + sharp_key_signature[t3];
+        document.getElementById("Para_Minor_dia_1").innerHTML = sharp_note_name[tonic] + " m7"+ "<br>【Aeolian】";
+        document.getElementById("Para_Minor_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>【 Locrian】";
+        document.getElementById("Para_Minor_dia_3").innerHTML = sharp_note_name[t3] + " Maj7"+ "<br>【 Ionian】";
+        document.getElementById("Para_Minor_dia_4").innerHTML = sharp_note_name[t5] + " m7"+ "<br>【 Dorian】";
+        document.getElementById("Para_Minor_dia_5").innerHTML = sharp_note_name[t7] + " m7"+ "<br>【 Phrygian】";
+        document.getElementById("Para_Minor_dia_6").innerHTML = sharp_note_name[t8] + " Maj7"+ "<br>【 Lydian】";
+        document.getElementById("Para_Minor_dia_7").innerHTML = sharp_note_name[t10] + " 7"+ "<br>【Mixolydian】";
+
+        document.getElementById("Para_HMin_dia").innerHTML = sharp_note_name[tonic] + " Harmonic Minor：" + sharp_key_signature[t3];
+        document.getElementById("Para_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7"+ "<br>【Harmonic Minor】";
+        document.getElementById("Para_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>【 Locrian ♮6】";
+        document.getElementById("Para_HMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7"+ "<br>【 Ionian ♯5th】";
+        document.getElementById("Para_HMin_dia_4").innerHTML = sharp_note_name[t5] + " m7"+ "<br>【 Dorian #4th】";
+        document.getElementById("Para_HMin_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>【 Phrygian dominant】";
+        document.getElementById("Para_HMin_dia_6").innerHTML = sharp_note_name[t8] + " Maj7"+ "<br>【 Lydian ♯2nd】";
+        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br>【Ultralocrian】";
+
+        document.getElementById("Para_MMin_dia").innerHTML = sharp_note_name[tonic] + " Melodic Minor：" + sharp_key_signature[t3];
+        document.getElementById("Para_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Para_MMin_dia_2").innerHTML = sharp_note_name[t2] + " m7"+ "<br>【 Dorian ♭2nd】";
+        document.getElementById("Para_MMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7"+ "<br>【 Lydian ♯5th】";
+        document.getElementById("Para_MMin_dia_4").innerHTML = sharp_note_name[t5] + " 7"+ "<br>【 Lydian♭7】";
+        document.getElementById("Para_MMin_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>【 Mixolydian ♭6】";
+        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)"+ "<br>【 Locrian ♮2】";
+        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br>【Super Locrian】<br>(Altered)";
+    } else {
+
+        document.getElementById("Para_Minor_dia").innerHTML = flat_note_name[tonic] + " Minor：" + flat_key_signature[t3];
+        document.getElementById("Para_Minor_dia_1").innerHTML = flat_note_name[tonic] + " m7"+ "<br>【Aeolian】";
+        document.getElementById("Para_Minor_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>【Locrian】";
+        document.getElementById("Para_Minor_dia_3").innerHTML = flat_note_name[t3] + " Maj7"+ "<br>【Ionian】";
+        document.getElementById("Para_Minor_dia_4").innerHTML = flat_note_name[t5] + " m7"+ "<br>【Dorian】";
+        document.getElementById("Para_Minor_dia_5").innerHTML = flat_note_name[t7] + " m7"+ "<br>【Phrygian】";
+        document.getElementById("Para_Minor_dia_6").innerHTML = flat_note_name[t8] + " Maj7"+ "<br>【Lydian】";
+        document.getElementById("Para_Minor_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br>【 Mixolydian】";
+
+        document.getElementById("Para_HMin_dia").innerHTML = flat_note_name[tonic] + " Harmonic Minor：" + flat_key_signature[t3];
+        document.getElementById("Para_HMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7"+ "<br>【Harmonic Minor】";
+        document.getElementById("Para_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>【Locrian ♮6】";
+        document.getElementById("Para_HMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7"+ "<br>【Ionian ♯5th】";
+        document.getElementById("Para_HMin_dia_4").innerHTML = flat_note_name[t5] + " m7"+ "<br>【Dorian #4th】";
+        document.getElementById("Para_HMin_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>【Phrygian dominant】";
+        document.getElementById("Para_HMin_dia_6").innerHTML = flat_note_name[t8] + " Maj7"+ "<br>【Lydian ♯2nd】";
+        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br>【Ultralocrian】";
+
+        document.getElementById("Para_MMin_dia").innerHTML = flat_note_name[tonic] + " Melodic Minor：" + flat_key_signature[t3];
+        document.getElementById("Para_MMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7"+ "<br>【Melodic Minor】";
+        document.getElementById("Para_MMin_dia_2").innerHTML = flat_note_name[t2] + " m7"+ "<br>【Dorian ♭2nd】";
+        document.getElementById("Para_MMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7"+ "<br>【Lydian ♯5th】";
+        document.getElementById("Para_MMin_dia_4").innerHTML = flat_note_name[t5] + " 7"+ "<br>【Lydian♭7】";
+        document.getElementById("Para_MMin_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>【Mixolydian ♭6】";
+        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)"+ "<br>【 Locrian ♮2】";
+        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br>【Super Locrian】<br>(Altered)";
+
+    }
+
+    document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
+    onoff_ChordsAndModeChange = 1;
+
+};
+
 
 //ディグリーネームで表示するためのスクリプト(ダイアトニックコード)
 document.getElementById("degree_button"); function degree() {
+
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+    document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
 
     document.getElementById("Major_dia").innerHTML = "Ⅰ Major";
     document.getElementById("Major_dia_1").innerHTML = "Ⅰ Maj7";
@@ -952,6 +1150,8 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Para_MMin_dia_5").innerHTML = "Ⅴ 7";
     document.getElementById("Para_MMin_dia_6").innerHTML = "Ⅵ m7(♭5)";
     document.getElementById("Para_MMin_dia_7").innerHTML = "Ⅶ m7(♭5)";
+
+    document.getElementById("degree_button").className = "btn btn-success box1 col-10 offset-2 col-md-4 col-xl-2 m-2"
 
 };
 
@@ -1106,12 +1306,32 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
 
     };
+};
 
+let onoff_ChordsAndModeChange = [];
+
+//調べたい主音切り替えスクリプト
+function ChordschangeAndChordsAndModeChange() {
+
+    if (onoff_ChordsAndModeChange == 1) {
+        onoff_ChordsAndModeChange = 1;
+        document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        ChordsAndModeChange() 
+
+    } else if (onoff_ChordsAndModeChange == 0) {
+        onoff_ChordsAndModeChange = 0;
+        document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        document.getElementById("degree_change_button").className = "btn btn-primary box1 col-10 offset-2 col-md-4 col-xl-2 m-2";
+        Chordschange()
+    };
 };
 
 
-//音名の表示形式を切り替えるスクリプト
 
+//音名の表示形式を切り替えるスクリプト
 //英米式
 document.getElementById("chord_root_name"); function ChangeChordRoot() {
 

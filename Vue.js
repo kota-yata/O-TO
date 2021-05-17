@@ -32,28 +32,28 @@ Vue.component('header-template', {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">①コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-scale.html">スケール</a>
+            <a class="nav-link" href="o-to-scale.html">②スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">モーダル・インターチェンジ</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③モーダル・インターチェンジ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>
+            <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
+            <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">⑦音価の計算</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-metric-modulation.html">メトリック・モジュレーション</a>
+            <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
           </li>
 
         </ul>
@@ -84,28 +84,28 @@ Vue.component('right-column', {
         <ul>
           
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">①コードネーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-scale.html">スケール</a>
+            <a class="nav-link" href="o-to-scale.html">③スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">モーダル・インターチェンジ</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③モーダル・インターチェンジ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chord-progression.html">コード進行</a>
+            <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-diatonic-chords.html">ダイアトニック・コード</a>
+            <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-note-value.html">音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">⑦音価の計算</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-metric-modulation.html">メトリック・モジュレーション</a>
+            <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
           </li>
       
         </ul>
