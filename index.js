@@ -350,8 +350,8 @@ function changeChordProgression() {
         document.getElementById("bump").innerHTML = `${sharp_note_name[c]}add9 - ${sharp_note_name[a]}m7 - ${sharp_note_name[g]} - ${sharp_note_name[f]}`;
         //R&B系
         document.getElementById("r_and_b").innerHTML = `${sharp_note_name[c]}△7 - ${sharp_note_name[f]}m7 - ${flat_note_name[aisb]}7`
-        //硬さ：柔らかい
-        document.getElementById("yawarakai").innerHTML = `${sharp_note_name[c]}△7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[e]}m7 - ${sharp_note_name[f]}△7`;
+        //最もポピュラー
+        document.getElementById("popular").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}m - ${sharp_note_name[f]}`;
         //壮大
         document.getElementById("epic").innerHTML = `${sharp_note_name[c]}sus4 - ${sharp_note_name[c]}sus4/${flat_note_name[cisdes]} - ${sharp_note_name[c]}sus4/${flat_note_name[dises]} - ${sharp_note_name[c]}sus4/${sharp_note_name[f]} - ${sharp_note_name[c]}sus4/${sharp_note_name[g]}`;
         //ドラマチック
@@ -474,8 +474,8 @@ function changeChordProgression() {
         document.getElementById("bump").innerHTML = `${flat_note_name[c]}add9 - ${flat_note_name[a]}m7 - ${flat_note_name[g]} - ${flat_note_name[f]}`;
         //R&B系
         document.getElementById("r_and_b").innerHTML = `${flat_note_name[c]}△7 - ${flat_note_name[f]}m7 - ${flat_note_name[aisb]}7`
-        //硬さ：柔らかい
-        document.getElementById("yawarakai").innerHTML = `${flat_note_name[c]}△7 - ${flat_note_name[d]}m7 - ${flat_note_name[e]}m7 - ${flat_note_name[f]}△7`;
+        //最もポピュラー
+        document.getElementById("popular").innerHTML = `${flat_note_name[c]} - ${flat_note_name[g]} - ${flat_note_name[a]}m - ${flat_note_name[f]}`;
         //壮大
         document.getElementById("epic").innerHTML = `${flat_note_name[c]}sus4 - ${flat_note_name[c]}sus4/${flat_note_name[cisdes]} - ${flat_note_name[c]}sus4/${flat_note_name[dises]} - ${flat_note_name[c]}sus4/${flat_note_name[f]} - ${flat_note_name[c]}sus4/${flat_note_name[g]}`;
         //ドラマチック
@@ -607,8 +607,8 @@ function changeChordProgressionDegree() {
     document.getElementById("bump").innerHTML = "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ";
     //R&B系
     document.getElementById("r_and_b").innerHTML = "Ⅰ△7-Ⅳm7-♭Ⅶ7";
-    //硬度：柔らかい
-    document.getElementById("yawarakai").innerHTML = "Ⅰ△7-Ⅱm7-Ⅲm7-Ⅳ△7";
+    //最もポピュラー
+    document.getElementById("popular").innerHTML = "Ⅰ-Ⅴ-Ⅵm-Ⅳ";
     //壮大
     document.getElementById("epic").innerHTML = "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ";
     //ドラマチック
@@ -1608,7 +1608,7 @@ function scaleKeySignature() {
     let scale_key_signature_num = 0;
 
     //スケールの調号を判定する
-    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[ionian_case]}で記譜されます。`;
 
     } else if (scale_dec == 1709 || scale_dec == 174) {
@@ -1623,7 +1623,7 @@ function scaleKeySignature() {
     } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[mixolydian_case]}で記譜されます。`;
 
-    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257) {
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
         document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[aeolian_case]}で記譜されます。`;
 
     } else if (scale_dec == 1387) {
@@ -1638,7 +1638,7 @@ function scaleKeySignature() {
 
 
     //親スケールと異名同音の判定に使う
-    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669) {
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
         if (scale_dec == 1461) {
             parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
             scale_key_signature_num = ionian_case;
@@ -1662,7 +1662,7 @@ function scaleKeySignature() {
         parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
         scale_key_signature_num = mixolydian_case;
 
-    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257) {
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
         parent_scale_num = mod(Number(scale_tonic_num) - 9, 12);
         scale_key_signature_num = aeolian_case;
 

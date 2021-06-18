@@ -150,7 +150,7 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://linktr.ee/KHUFRUDAMO_NOTES"target="_blank" rel="noopener noreferrer">KHUFRUDAMO NOTES - linktree</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">転調曲・旋法曲の情報データベース</a>
+          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">曲情報データベース(転調・旋法・BPM)</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q"target="_blank" rel="noopener noreferrer">転調曲 Spotify playlist</span></a>
