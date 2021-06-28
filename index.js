@@ -17,6 +17,21 @@ const japan_note_name = ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", 
 const italy_note_name = ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"];
 const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"];
 
+//英米式音名の多次元配列
+const noteNames =
+    [["C", "C"],
+    ["C#", "D♭"],
+    ["D", "D"],
+    ["D#", "E♭"],
+    ["E", "E"],
+    ["F", "F"],
+    ["F#", "G♭"],
+    ["G", "G"],
+    ["G#", "A♭"],
+    ["A", "A"],
+    ["A#", "B♭"],
+    ["B", "B"]]
+
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
 const after_mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -27,28 +42,34 @@ const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
-//スケールの情報を配列に格納する。
-const scale_Ionian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
-const scale_Aeolian = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0];
-const scale_Harmonic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1];
-const scale_Melodic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1];
-const scale_Harmonic_major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1];
-const scale_Melodic_Major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0];
 
+//スケールの情報を配列に格納する。
+//メジャースケールファミリー
+const scale_Ionian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
 const scale_Dorian = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0];
 const scale_Phrygian = [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0];
 const scale_Lydian = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1];
+const scale_Aeolian = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0];
 const scale_Mixolydian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0];
 const scale_Locrian = [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0];
 
+//ハーモニックマイナースケールファミリー
+const scale_Harmonic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1];
 const scale_Ionian_sharp_5th = [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1];
-const scale_Lydian_augmented = [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
-
 const scale_Phrygian_dominant = [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0];
+
+//メロディックマイナースケールファミリー
+const scale_Melodic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1];
+const scale_Lydian_augmented = [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
 const scale_Lydian_dominant = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0];
+const scale_Melodic_Major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0];
+const scale_Altered = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0];
+
+//ハーモニックメジャースケールファミリー
+const scale_Harmonic_major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1];
 const scale_Phrygian_flat_4th = [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0];
 const scale_Mixolydian_flat_2nd = [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0];
-const scale_Altered = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0];
+
 
 const scale_Spanish_Phrygian = [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0];
 
@@ -57,10 +78,11 @@ const scale_Half_whole_diminished = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0];
 const scale_Blues_Major_pentatonic = [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0];
 const scale_Blues_Minor_pentatonic = [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0];
 
-const scale_in_upper = [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0];
-const scale_in_down = [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0];
+const scale_insen = [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0];
+const scale_in = [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0];
 const scale_ritsu = [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0];
 const scale_ryukyu = [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1];
+
 const scale_Chromatic = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
 
@@ -123,12 +145,25 @@ function modulation() {
 
     //転調前のキーと調号を表示
     if (b_key_num == 0 || b_key_num == 2 || b_key_num == 4 || b_key_num == 6 || b_key_num == 7 || b_key_num == 9 || b_key_num == 11) {
-        document.getElementById("result_b_key").innerHTML
-            = "-転調前-<br><br>" + sharp_note_name[b_note_num] + " " + mode_name[b_mode_num] + " " + sharp_key_signature[b_key_num];
+        b_SharpOrFlat = 0;
     } else {
-        document.getElementById("result_b_key").innerHTML
-            = "-転調前-<br><br>" + flat_note_name[b_note_num] + " " + mode_name[b_mode_num] + " " + flat_key_signature[b_key_num];
+        b_SharpOrFlat = 1;
     };
+
+    //転調前のキーと調号を表示
+    document.getElementById("result_b_key").innerHTML
+        = "-転調前-<br><br>" + noteNames[b_note_num][b_SharpOrFlat] + " " + mode_name[b_mode_num] + " " + flat_key_signature[b_key_num];
+
+    //転調後のキーと調号を表示
+    if (a_key_num == 0 || a_key_num == 2 || a_key_num == 4 || a_key_num == 6 || a_key_num == 7 || a_key_num == 9 || a_key_num == 11) {
+        a_SharpOrFlat = 0;
+    } else {
+        a_SharpOrFlat = 1;
+    };
+
+    //転調後のキーと調号を表示
+    document.getElementById("result_a_key").innerHTML
+        = "-転調後-<br><br>" + noteNames[a_note_num][a_SharpOrFlat] + " " + mode_name[a_mode_num] + " " + flat_key_signature[a_key_num];
 
     //転調の種類を表示
     if (Number(b_key_num) == Number(a_key_num) && Number(b_note_num) == Number(a_note_num)) {
@@ -152,15 +187,6 @@ function modulation() {
     } else {
         document.getElementById("result_modulation").innerHTML
             = "【転調の種類】<br><br>" + modulation_type[modulation_num];
-    };
-
-    //転調後のキーと調号を表示
-    if (a_key_num == 0 || a_key_num == 2 || a_key_num == 4 || a_key_num == 6 || a_key_num == 7 || a_key_num == 9 || a_key_num == 11) {
-        document.getElementById("result_a_key").innerHTML
-            = "-転調後-<br><br>" + sharp_note_name[a_note_num] + " " + mode_name[a_mode_num] + " " + sharp_key_signature[a_key_num];
-    } else {
-        document.getElementById("result_a_key").innerHTML
-            = "-転調後-<br><br>" + flat_note_name[a_note_num] + " " + mode_name[a_mode_num] + " " + flat_key_signature[a_key_num];
     };
 };
 
@@ -307,411 +333,277 @@ function keychange() {
 
 };
 
+//コード進行を格納する多次元配列
+const chordProgOne =
+    [["シンプル・イズ・ベスト", "Ⅰ-Ⅳ-Ⅴ"],
+    ["きっとみんな好き", "Ⅰ-Ⅳ-Ⅵm-Ⅴ"],
+    ["ポピュラー", "Ⅰ-Ⅴ-Ⅵm-Ⅳ"],
+    ["賞味期限なし", "Ⅰ-Ⅴ-Ⅳ-Ⅴ"],
+    ["カノン進行", "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ"],
+    ["なめらかカノン進行", "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ"],
+    ["モノクローム", "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7"],
+    ["いつメン", "Ⅰ-Ⅵm-Ⅳ-Ⅴ"],
+    ["ヌケ感", "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ"],
+    ["青春", "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ"],
+    ["リラックス", "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ"],
+    ["幻想的", "Ⅰ-♭Ⅵ-♭Ⅶ-♭Ⅵ"],
+    ["午前2時の踏切に居そう", "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ"],
+    ["温かみを感じる", "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7"],
+    ["サンボマスターしか勝たん", "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7"],
+    ["優雅", "Ⅰ△7-#Ⅰdim7-Ⅱm7-V7"],
+    ["壮大", "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ"],
+    ["遊び心", "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ"],
+    ["ドラマチック", "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ"],
+    ["ブルージー", "Ⅰ7-Ⅳ7-Ⅰ7-Ⅳ7-Ⅴ7-Ⅳ7-Ⅰ7-Ⅴ7"],
+    ];
 
+const chordProgFour =
+    [["王道進行", "Ⅳ-Ⅴ-Ⅲm-Ⅵm"],
+    ["爽やか", "Ⅳ-Ⅰ-Ⅴ-Ⅵm"],
+    ["万能調味料", "Ⅳ-Ⅴ-Ⅵm-Ⅰ"],
+    ["エモい", "Ⅳ-Ⅴ-Ⅰ-Ⅲ"],
+    ["涙を誘うウェポン", "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm"],
+    ["アニソン風味", "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ"],
+    ["サビ前の常連", "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)"],
+    ["丸サ進行", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7"],
+    ["オシャレ", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7"],
+    ["メロウな王道進行", "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7"],
+    ["自由・救済", "Ⅳ-Ⅴ-Ⅵ"],
+    ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7"],
+    ["ゲーム音楽の香り", "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7"],
+    ["チンダル現象みがある", "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7"],
+    ["綺麗", "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6"],
+    ];
 
-//コード進行を切り替えるためのスクリプト
-function changeChordProgression() {
+const chordProgSix =
+    [["小室進行", "Ⅵm-Ⅳ-Ⅴ-Ⅰ"],
+    ["ハリウッド映画にありそう", "Ⅵm-Ⅳ-Ⅰ-Ⅴ"],
+    ["スタイリッシュ", "Ⅵm9-Ⅱm7-Ⅲm7"],
+    ["オールラウンダー", "Ⅵm-Ⅴ-Ⅳ-Ⅴ"],
+    ["キャッチー", "Ⅵm-Ⅲm-Ⅳ-Ⅴ"],
+    ["洋楽っぽい", "Ⅵm-Ⅰ-Ⅴ-Ⅳ"],
+    ["炎の呼吸", "Ⅵm-Ⅴ-Ⅳ-Ⅰ"],
+    ["鉄板のベース半音下降", "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)"],
+    ["ミスティックな質感", "Ⅵm-Ⅳm-Ⅵm-Ⅰm"],
+    ["ディストピア", "Ⅵm-Ⅶ-Ⅱm-Ⅲ"],
+    ["領域展開", "Ⅵm7-Ⅴm7-Ⅰ7-Ⅳ△7"],
+    ["近未来", "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ"],
+    ["クラシカルなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ"],
+    ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅳ-Ⅵm7"],
+    ["俺が好き", "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7→Ⅲm7"],
+    ];
 
-    let base_key_number = document.getElementById("base_key").value;
+const chordProgEight =
+    [["ツーファイブ", "Ⅱm7-Ⅴ7-Ⅰ"],
+    ["裏コードで代理", "Ⅱm7-♭Ⅱ7-Ⅰ"],
+    ["フュージョン・コードで代理", "Ⅱm7-Ⅳ/Ⅴ-Ⅰ"],
+    ["Ⅳm/Ⅴで代理", "Ⅱm7-Ⅳm/Ⅴ-Ⅰ"],
+    ["Ⅳdim/Ⅴで代理", "Ⅱm7-Ⅳdim/Ⅴ-Ⅰ"],
+    ["Ⅳaug/Ⅴで代理", "Ⅱm7-Ⅳaug/Ⅴ-Ⅰ"],
+    ["バックドア・ツーファイブ", "Ⅳm7-♭Ⅶ7-Ⅰ"],
+    ["Ⅳへのツーファイブ", "Ⅴm7-Ⅰ7-Ⅳ"],
+    ["Ⅵmへのツーファイブ", "Ⅶm7-Ⅲ7-Ⅵm"],
+    ["平行短調へのツーファイブ", "Ⅶm7(♭5)-Ⅲ7-Ⅵm"],
+    ["クラシカル探求者", "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ"],
+    ["ジャズの基本形", "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7"],
+    ["助走", "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ"],
+    ["大気圏外へ", "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7"],
+    ["平成J-popバラードの最終兵器", "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ"],
+    ["普通が嫌いなあなたへ", "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7"],
+    ["モダン・メタルの住人", "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9"],
+    ["ドリアン", "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅲ-Ⅲm/Ⅱ"],
+    ["ミクソリディアン", "Ⅴ-Ⅳ-Ⅰ-Ⅴ"],
+    ["スペイン旅行", "Ⅲ-Ⅳ-Ⅴ-Ⅳ"],
+    ];
 
-    let c = mod(Number(base_key_number) - 0, 12);
-    let cisdes = mod(Number(base_key_number) + 1, 12);
-    let d = mod(Number(base_key_number) + 2, 12);
-    let dises = mod(Number(base_key_number) + 3, 12);
-    let e = mod(Number(base_key_number) + 4, 12);
-    let f = mod(Number(base_key_number) + 5, 12);
-    let fisges = mod(Number(base_key_number) + 6, 12);
-    let g = mod(Number(base_key_number) + 7, 12);
-    let gisas = mod(Number(base_key_number) + 8, 12);
-    let a = mod(Number(base_key_number) + 9, 12);
-    let aisb = mod(Number(base_key_number) + 10, 12);
-    let h = mod(Number(base_key_number) + 11, 12);
+let firstNum = 0;
+let secondNum = 0;
+let num = 0;
 
-    if (base_key_number == 0 || base_key_number == 2 || base_key_number == 4 || base_key_number == 6 || base_key_number == 7 || base_key_number == 9 || base_key_number == 11) {
-        //  シンプル・イズ・ベスト
-        document.getElementById("simple").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[f]} - ${sharp_note_name[g]}`;
-        //いつメン
-        document.getElementById("itsumen").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[a]}m - ${sharp_note_name[f]} - ${sharp_note_name[g]}`;
-        //モノクローム
-        document.getElementById("monochrome").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[h]}m7(♭5) - ${sharp_note_name[e]}7 - ${sharp_note_name[a]}m7`;
-        //温かみを感じる
-        document.getElementById("atatakai").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[c]}aug - ${sharp_note_name[c]}6 - ${sharp_note_name[c]}7 `;
-        //優雅
-        document.getElementById("elegance").innerHTML = `${sharp_note_name[c]}△7 - ${sharp_note_name[cisdes]}dim7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7`;
-        //カノン進行
-        document.getElementById("canon").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}m - ${sharp_note_name[e]}m - ${sharp_note_name[f]} - ${sharp_note_name[c]} - ${sharp_note_name[d]}m - ${sharp_note_name[g]}`;
-        //なめらかカノン進行
-        document.getElementById("nameracanon").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[g]}/${sharp_note_name[h]} - ${sharp_note_name[a]}m - ${sharp_note_name[e]}m/${sharp_note_name[g]} - ${sharp_note_name[f]} - ${sharp_note_name[c]}/${sharp_note_name[e]} - ${sharp_note_name[d]}m - ${sharp_note_name[g]}`;
-        //サンボマスターしか勝たん
-        document.getElementById("sambo").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[c]}aug/${sharp_note_name[fisges]} - ${sharp_note_name[f]}△7`;
-        //青春
-        document.getElementById("seishun").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[e]} - ${sharp_note_name[a]}ｍ - ${sharp_note_name[g]} `;
-        //午前2時の踏切に居そう
-        document.getElementById("bump").innerHTML = `${sharp_note_name[c]}add9 - ${sharp_note_name[a]}m7 - ${sharp_note_name[g]} - ${sharp_note_name[f]}`;
-        //R&B系
-        document.getElementById("r_and_b").innerHTML = `${sharp_note_name[c]}△7 - ${sharp_note_name[f]}m7 - ${flat_note_name[aisb]}7`
-        //最もポピュラー
-        document.getElementById("popular").innerHTML = `${sharp_note_name[c]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}m - ${sharp_note_name[f]}`;
-        //壮大
-        document.getElementById("epic").innerHTML = `${sharp_note_name[c]}sus4 - ${sharp_note_name[c]}sus4/${flat_note_name[cisdes]} - ${sharp_note_name[c]}sus4/${flat_note_name[dises]} - ${sharp_note_name[c]}sus4/${sharp_note_name[f]} - ${sharp_note_name[c]}sus4/${sharp_note_name[g]}`;
-        //ドラマチック
-        document.getElementById("dramatic").innerHTML = `${sharp_note_name[c]} - ${flat_note_name[cisdes]}/${sharp_note_name[c]} - ${sharp_note_name[d]}/${sharp_note_name[c]} - ${flat_note_name[dises]}/${sharp_note_name[c]} - ${sharp_note_name[e]}/${sharp_note_name[c]}`;
-        //ブルージー
-        document.getElementById("blues").innerHTML = `${sharp_note_name[c]}7 - ${sharp_note_name[f]}7 - ${sharp_note_name[c]}7 - ${sharp_note_name[f]}7 - ${sharp_note_name[g]}7 - ${sharp_note_name[f]}7 - ${sharp_note_name[c]}7 - ${sharp_note_name[g]}7`;
+//変化記号を決定する
+let SOF = 0;
+//調べたいキーを決定する
+let = 0;
 
-        //王道進行
-        document.getElementById("oudou").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[e]}m - ${sharp_note_name[a]}m`;
-        //爽やか
-        document.getElementById("sawayaka").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[c]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}m`;
-        //万能調味料
-        document.getElementById("all_purpose_seasoning").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}m - ${sharp_note_name[c]}`;
-        //エモい
-        document.getElementById("emotion").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[c]} - ${sharp_note_name[e]}`;
-        //涙を誘うウェポン
-        document.getElementById("weapon").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[gisas]}m(♭5) - ${sharp_note_name[a]}m`;
-        //アニソン風味
-        document.getElementById("anison").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${flat_note_name[gisas]} - ${flat_note_name[aisb]}`;
-        //サビ前の常連
-        document.getElementById("sabimae").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[fisges]}m(♭5) - ${sharp_note_name[g]} - ${sharp_note_name[gisas]}m(♭5)`;
-        //丸サ進行
-        document.getElementById("marusa").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}7 - ${sharp_note_name[a]}m7 - ${sharp_note_name[c]}7`;
-        //オシャレ
-        document.getElementById("osare").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}7 - ${sharp_note_name[a]}m7 - ${sharp_note_name[d]}7`;
-        //メロウな王道進行
-        document.getElementById("mellow").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[g]}7/${sharp_note_name[f]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7`;
-        //自由・救済
-        document.getElementById("bright").innerHTML = `${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[a]}`;
-        //レアキャラ
-        document.getElementById("rare_character").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}m7 - ${flat_note_name[dises]}dim7 - ${sharp_note_name[d]}m7`;
-        //ゲーム音楽の香り
-        document.getElementById("game").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[e]}m7 - ${flat_note_name[dises]}△7 - ${sharp_note_name[d]}m7`;
-        //チンダル現象みがある
-        document.getElementById("tyndall_effect").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[f]}m7 - ${flat_note_name[e]}m7 - ${sharp_note_name[a]}7`;
-        //綺麗
-        document.getElementById("beautiful").innerHTML = `${sharp_note_name[f]}△7 - ${sharp_note_name[h]}m7(♭5)/${sharp_note_name[f]} - ${sharp_note_name[e]}m7 - ${sharp_note_name[e]}dim7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7/${sharp_note_name[d]} - ${sharp_note_name[c]}Maj7 - ${sharp_note_name[c]}6 `;
+//コード進行をディグリーネームで表示する関数
+function changeChordProgressionDegree() {
 
-        //小室進行
-        document.getElementById("komuro").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[c]}`;
-        //ハリウッド映画にありそう
-        document.getElementById("hollywood").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[f]} - ${sharp_note_name[c]} - ${sharp_note_name[g]}`;
-        //スタイリッシュ
-        document.getElementById("stylish").innerHTML = `${sharp_note_name[a]}m9 - ${sharp_note_name[d]}m7 - ${sharp_note_name[e]}m7`;
-        //ロックンロール
-        document.getElementById("rock").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[g]} - ${sharp_note_name[f]} - ${sharp_note_name[g]}`;
-        //キャッチー
-        document.getElementById("catchy").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[e]}m - ${sharp_note_name[f]} - ${sharp_note_name[g]}`;
-        //洋楽っぽい
-        document.getElementById("yougaku").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[c]} - ${sharp_note_name[g]} - ${sharp_note_name[f]}`;
-        //炎の呼吸
-        document.getElementById("homura").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[g]} - ${sharp_note_name[f]} - ${sharp_note_name[c]}`;
-        //鉄板のベース半音下降
-        document.getElementById("teppan_bass").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[gisas]}aug - ${sharp_note_name[c]}/${sharp_note_name[g]} - ${sharp_note_name[fisges]}m7(♭5)`;
-        //ミスティックな質感
-        document.getElementById("mystic").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[f]}m - ${sharp_note_name[a]}m - ${sharp_note_name[c]}m`;
-        //ディストピア
-        document.getElementById("dystopia").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[h]} - ${sharp_note_name[d]}m - ${sharp_note_name[e]}`;
-        //領域展開
-        document.getElementById("ryouikitenkai").innerHTML = `${sharp_note_name[a]}m7 - ${sharp_note_name[g]}m7 - ${sharp_note_name[c]}7 - ${sharp_note_name[f]}△7`;
-        //近未来
-        document.getElementById("near_future").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[g]}/${sharp_note_name[a]} - ${sharp_note_name[f]}/${sharp_note_name[a]} - ${sharp_note_name[e]}/${sharp_note_name[a]}`;
-        //クラシカルなゼクエンツ
-        document.getElementById("classic").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[d]}m - ${sharp_note_name[g]} - ${sharp_note_name[c]} - ${sharp_note_name[f]} - ${sharp_note_name[h]}m(♭5) - ${sharp_note_name[e]}`;
-        //サスペンス仕掛け人
-        document.getElementById("suspense").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[f]}/${sharp_note_name[a]} - ${sharp_note_name[fisges]}m(♭5)/${sharp_note_name[a]} - ${sharp_note_name[a]}m7`;
-        //俺が好き
-        document.getElementById("my_favorite").innerHTML = `${sharp_note_name[a]}m - ${sharp_note_name[fisges]}m7(♭5) - ${sharp_note_name[f]}△7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[e]}m7`;
-
-        //ツーファイブ
-        document.getElementById("two_five").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7 - ${sharp_note_name[c]}`;
-        //裏コードにする
-        document.getElementById("two_five_ura").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[cisdes]}7 - ${sharp_note_name[c]}`;
-        //平行短調ツーファイブ
-        document.getElementById("two_five_rm").innerHTML = `${sharp_note_name[h]}m7(♭5) - ${sharp_note_name[e]}7 - ${sharp_note_name[c]}`;
-        //同主短調ツーファイブ
-        document.getElementById("two_five_pm").innerHTML = `${sharp_note_name[f]}m7 - ${flat_note_name[aisb]}7 - ${sharp_note_name[c]}`;
-        //Ⅵmへのセカンダリー・ケーデンス
-        document.getElementById("two_five_s_to_6m").innerHTML = `${sharp_note_name[h]}7 - ${sharp_note_name[e]}7 - ${sharp_note_name[a]}m`;
-        //Ⅳへのセカンダリー・ケーデンス
-        document.getElementById("two_five_s_to_4").innerHTML = `${sharp_note_name[g]}m7 - ${sharp_note_name[c]}7 - ${sharp_note_name[f]}`;
-        //便利ツーファイブ
-        document.getElementById("two_five_useful").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[f]}/${sharp_note_name[g]} - ${sharp_note_name[c]}`;
-        //甘美ツーファイブ
-        document.getElementById("kanbi").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[f]}m/${sharp_note_name[g]} - ${sharp_note_name[c]}`;
-        //助走
-        document.getElementById("run_up").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[e]}m7 - ${sharp_note_name[f]}△7 - ${sharp_note_name[g]}`;
-        //大気圏外へ
-        document.getElementById("outside_the_atmosphere").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[e]}m7 - ${sharp_note_name[f]}m7 - ${sharp_note_name[g]}m7`;
-        //平成J-popバラードの最終兵器
-        document.getElementById("Ballade").innerHTML = `${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7 - ${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7`;
-        //ジャズの基本形
-        document.getElementById("jazz").innerHTML = `${sharp_note_name[d]}m7 - ${sharp_note_name[g]}7 - ${sharp_note_name[c]}△7 - ${sharp_note_name[a]}7`;
-        //普通が嫌いなあなたへ
-        document.getElementById("uncommon").innerHTML = `${sharp_note_name[fisges]}m7(♭5) - ${sharp_note_name[f]}Maj7 - ${sharp_note_name[e]}m7 - ${sharp_note_name[a]}m7`;
-        //モダンメタルの住人
-        document.getElementById("modern_metal").innerHTML = `${sharp_note_name[a]}5add9 - ${sharp_note_name[f]}5add9 - ${flat_note_name[dises]}5add9 - ${sharp_note_name[c]}5add9`;
-        //スペイン旅行
-        document.getElementById("spain").innerHTML = `${sharp_note_name[e]} - ${sharp_note_name[f]} - ${sharp_note_name[g]} - ${sharp_note_name[f]}`;
-    } else {
-        //シンプル・イズ・ベスト
-        document.getElementById("simple").innerHTML = `${flat_note_name[c]} - ${flat_note_name[f]} - ${flat_note_name[g]}`;
-        //いつメン
-        document.getElementById("itsumen").innerHTML = `${flat_note_name[c]} - ${flat_note_name[a]}m - ${flat_note_name[f]} - ${flat_note_name[g]}`;
-        //モノクローム
-        document.getElementById("monochrome").innerHTML = `${flat_note_name[c]} - ${flat_note_name[h]}m7(♭5) - ${flat_note_name[e]}7 - ${flat_note_name[a]}m7`;
-        //温かみを感じる
-        document.getElementById("atatakai").innerHTML = `${flat_note_name[c]} - ${flat_note_name[c]}aug - ${flat_note_name[c]}6 - ${flat_note_name[c]}7 `;
-        //優雅
-        document.getElementById("elegance").innerHTML = `${flat_note_name[c]}△7 - ${sharp_note_name[cisdes]}dim7 - ${flat_note_name[d]}m7 - ${flat_note_name[g]}7`;
-        //カノン進行
-        document.getElementById("canon").innerHTML = `${flat_note_name[c]} - ${flat_note_name[g]} - ${flat_note_name[a]}m - ${flat_note_name[e]}m - ${flat_note_name[f]} - ${flat_note_name[c]} - ${flat_note_name[d]}m - ${flat_note_name[g]}`;
-        //なめらかカノン進行
-        document.getElementById("nameracanon").innerHTML = `${flat_note_name[c]} - ${flat_note_name[g]}/${flat_note_name[h]} - ${flat_note_name[a]}m - ${flat_note_name[e]}m/${flat_note_name[g]} - ${flat_note_name[f]} - ${flat_note_name[c]}/${flat_note_name[e]} - ${flat_note_name[d]}m - ${flat_note_name[g]}`;
-        //サンボマスターしか勝たん
-        document.getElementById("sambo").innerHTML = `${flat_note_name[c]} - ${flat_note_name[c]}aug/${sharp_note_name[fisges]} - ${flat_note_name[f]}△7`;
-        //青春
-        document.getElementById("seishun").innerHTML = `${flat_note_name[c]} - ${flat_note_name[e]} - ${flat_note_name[a]}ｍ - ${flat_note_name[g]} `;
-        //午前2時の踏切に居そう
-        document.getElementById("bump").innerHTML = `${flat_note_name[c]}add9 - ${flat_note_name[a]}m7 - ${flat_note_name[g]} - ${flat_note_name[f]}`;
-        //R&B系
-        document.getElementById("r_and_b").innerHTML = `${flat_note_name[c]}△7 - ${flat_note_name[f]}m7 - ${flat_note_name[aisb]}7`
-        //最もポピュラー
-        document.getElementById("popular").innerHTML = `${flat_note_name[c]} - ${flat_note_name[g]} - ${flat_note_name[a]}m - ${flat_note_name[f]}`;
-        //壮大
-        document.getElementById("epic").innerHTML = `${flat_note_name[c]}sus4 - ${flat_note_name[c]}sus4/${flat_note_name[cisdes]} - ${flat_note_name[c]}sus4/${flat_note_name[dises]} - ${flat_note_name[c]}sus4/${flat_note_name[f]} - ${flat_note_name[c]}sus4/${flat_note_name[g]}`;
-        //ドラマチック
-        document.getElementById("dramatic").innerHTML = `${flat_note_name[c]} - ${flat_note_name[cisdes]}/${flat_note_name[c]} - ${flat_note_name[d]}/${flat_note_name[c]} - ${flat_note_name[dises]}/${flat_note_name[c]} - ${flat_note_name[e]}/${flat_note_name[c]}`;
-        //ブルージー
-        document.getElementById("blues").innerHTML = `${flat_note_name[c]}7 - ${flat_note_name[f]}7 - ${flat_note_name[c]}7 - ${flat_note_name[f]}7 - ${flat_note_name[g]}7 - ${flat_note_name[f]}7 - ${flat_note_name[c]}7 - ${flat_note_name[g]}7`;
-
-        //王道進行
-        document.getElementById("oudou").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[e]}m - ${flat_note_name[a]}m`;
-        //爽やか
-        document.getElementById("sawayaka").innerHTML = `${flat_note_name[f]} - ${flat_note_name[c]} - ${flat_note_name[g]} - ${flat_note_name[a]}m`;
-        //万能調味料
-        document.getElementById("all_purpose_seasoning").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[a]}m - ${flat_note_name[c]}`;
-        //エモい
-        document.getElementById("emotion").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[c]} - ${flat_note_name[e]}`;
-        //涙を誘うウェポン
-        document.getElementById("weapon").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${sharp_note_name[gisas]}m(♭5) - ${flat_note_name[a]}m`;
-        //アニソン風味
-        document.getElementById("anison").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[gisas]} - ${flat_note_name[aisb]}`;
-        //サビ前の常連
-        document.getElementById("sabimae").innerHTML = `${flat_note_name[f]} - ${sharp_note_name[fisges]}m(♭5) - ${flat_note_name[g]} - ${sharp_note_name[gisas]}m(♭5)`;
-        //丸サ進行
-        document.getElementById("marusa").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}7 - ${flat_note_name[a]}m7 - ${flat_note_name[c]}7`;
-        //オシャレ
-        document.getElementById("osare").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}7 - ${flat_note_name[a]}m7 - ${flat_note_name[d]}7`;
-        //メロウな王道進行
-        document.getElementById("mellow").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[g]}7/${flat_note_name[f]} - ${flat_note_name[e]}m7 - ${flat_note_name[a]}m7`;
-        //自由・救済
-        document.getElementById("bright").innerHTML = `${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[a]}`;
-        //レアキャラ
-        document.getElementById("rare_character").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}m7 - ${flat_note_name[dises]}dim7 - ${flat_note_name[d]}m7`;
-        //ゲーム音楽の香り
-        document.getElementById("game").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[e]}m7 - ${flat_note_name[dises]}△7 - ${flat_note_name[d]}m7`;
-        //チンダル現象みがある
-        document.getElementById("tyndall_effect").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[f]}m7 - ${flat_note_name[e]}m7 - ${flat_note_name[a]}7`;
-        //綺麗
-        document.getElementById("beautiful").innerHTML = `${flat_note_name[f]}△7 - ${flat_note_name[h]}m7(♭5)/${flat_note_name[f]} - ${flat_note_name[e]}m7 - ${flat_note_name[e]}dim7 - ${flat_note_name[d]}m7 - ${flat_note_name[g]}7/${flat_note_name[d]} - ${flat_note_name[c]}Maj7 - ${flat_note_name[c]}6 `;
-
-        //小室進行
-        document.getElementById("komuro").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[c]}`;
-        //ハリウッド映画にありそう
-        document.getElementById("hollywood").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[f]} - ${flat_note_name[c]} - ${flat_note_name[g]}`;
-        //スタイリッシュ
-        document.getElementById("stylish").innerHTML = `${flat_note_name[a]}m9 - ${flat_note_name[d]}m7 - ${flat_note_name[e]}m7`;
-        //ロックンロール
-        document.getElementById("rock").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[g]} - ${flat_note_name[f]} - ${flat_note_name[g]}`;
-        //キャッチー
-        document.getElementById("catchy").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[e]}m - ${flat_note_name[f]} - ${flat_note_name[g]}`;
-        //洋楽っぽい
-        document.getElementById("yougaku").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[c]} - ${flat_note_name[g]} - ${flat_note_name[f]}`;
-        //炎の呼吸
-        document.getElementById("homura").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[g]} - ${flat_note_name[f]} - ${flat_note_name[c]}`;
-        //鉄板のベース半音下降
-        document.getElementById("teppan_bass").innerHTML = `${flat_note_name[a]}m - ${sharp_note_name[gisas]}aug - ${flat_note_name[c]}/${flat_note_name[g]} - ${sharp_note_name[fisges]}m7(♭5)`;
-        //ミスティックな質感
-        document.getElementById("mystic").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[f]}m - ${flat_note_name[a]}m - ${flat_note_name[c]}m`;
-        //ディストピア
-        document.getElementById("dystopia").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[h]} - ${flat_note_name[d]}m - ${flat_note_name[e]}`;
-        //領域展開
-        document.getElementById("ryouikitenkai").innerHTML = `${flat_note_name[a]}m7 - ${flat_note_name[g]}m7 - ${flat_note_name[c]}7 - ${flat_note_name[f]}△7`;
-        //近未来
-        document.getElementById("near_future").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[g]}/${flat_note_name[a]} - ${flat_note_name[f]}/${flat_note_name[a]} - ${flat_note_name[e]}/${flat_note_name[a]}`;
-        //クラシカルなゼクエンツ
-        document.getElementById("classic").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[d]}m - ${flat_note_name[g]} - ${flat_note_name[c]} - ${flat_note_name[f]} - ${flat_note_name[h]}m(♭5) - ${flat_note_name[e]}`;
-        //サスペンス仕掛け人
-        document.getElementById("suspense").innerHTML = `${flat_note_name[a]}m - ${flat_note_name[f]}/${flat_note_name[a]} - ${sharp_note_name[fisges]}m(♭5)/${flat_note_name[a]} - ${flat_note_name[a]}m7`;
-        //俺が好き
-        document.getElementById("my_favorite").innerHTML = `${flat_note_name[a]}m - ${sharp_note_name[fisges]}m7(♭5) - ${flat_note_name[f]}△7 - ${flat_note_name[d]}m7 - ${flat_note_name[e]}m7`;
-
-        //ツーファイブ
-        document.getElementById("two_five").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[g]}7 - ${flat_note_name[c]}`;
-        //裏コードにする
-        document.getElementById("two_five_ura").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[cisdes]}7 - ${flat_note_name[c]}`;
-        //平行短調ツーファイブ
-        document.getElementById("two_five_rm").innerHTML = `${flat_note_name[h]}m7(♭5) - ${flat_note_name[e]}7 - ${flat_note_name[c]}`;
-        //同主短調ツーファイブ
-        document.getElementById("two_five_pm").innerHTML = `${flat_note_name[f]}m7 - ${flat_note_name[aisb]}7 - ${flat_note_name[c]}`;
-        //Ⅵmへのセカンダリー・ケーデンス
-        document.getElementById("two_five_s_to_6m").innerHTML = `${flat_note_name[h]}7 - ${flat_note_name[e]}7 - ${flat_note_name[a]}m`;
-        //Ⅳへのセカンダリー・ケーデンス
-        document.getElementById("two_five_s_to_4").innerHTML = `${flat_note_name[g]}m7 - ${flat_note_name[c]}7 - ${flat_note_name[f]}`;
-        //便利ツーファイブ
-        document.getElementById("two_five_useful").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[f]}/${flat_note_name[g]} - ${flat_note_name[c]}`;
-        //甘美ツーファイブ
-        document.getElementById("kanbi").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[f]}m/${flat_note_name[g]} - ${flat_note_name[c]}`;
-        //助走
-        document.getElementById("run_up").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[e]}m7 - ${flat_note_name[f]}△7 - ${flat_note_name[g]}`;
-        //大気圏外へ
-        document.getElementById("outside_the_atmosphere").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[e]}m7 - ${flat_note_name[f]}m7 - ${flat_note_name[g]}m7`;
-        //平成J-popバラードの最終兵器
-        document.getElementById("Ballade").innerHTML = `${flat_note_name[e]}m7 - ${flat_note_name[a]}m7 - ${flat_note_name[d]}m7 - ${flat_note_name[g]}7`;
-        //ジャズの基本形
-        document.getElementById("jazz").innerHTML = `${flat_note_name[d]}m7 - ${flat_note_name[g]}7 - ${flat_note_name[c]}△7 - ${flat_note_name[a]}7`;
-        //普通が嫌いなあなたへ
-        document.getElementById("uncommon").innerHTML = `${sharp_note_name[fisges]}m7(♭5) - ${flat_note_name[f]}Maj7 - ${flat_note_name[e]}m7 - ${flat_note_name[a]}m7`;
-        //モダンメタルの住人
-        document.getElementById("modern_metal").innerHTML = `${flat_note_name[a]}5add9 - ${flat_note_name[f]}5add9 - ${flat_note_name[dises]}5add9 - ${flat_note_name[c]}5add9`;
-        //スペイン旅行
-        document.getElementById("spain").innerHTML = `${flat_note_name[e]} - ${flat_note_name[f]} - ${flat_note_name[g]} - ${flat_note_name[f]}`;
+    //Ⅰ始まりのコード進行
+    firstNum = 1;
+    secondNum = 1;
+    chordProgNum = 0;
+    for (let i = 1; i < 21; i++) {
+        //コード進行のナンバーを表示する
+        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
+        //コード進行の俗称・所感を表示する
+        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][0]}`;
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][1]}`;
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
     };
 
-    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-6 col-xl-4 m-3";
-    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
+    //Ⅳ始まりのコード進行
+    firstNum = 4;
+    secondNum = 1;
+    chordProgNum = 0;
+    for (let i = 1; i < 16; i++) {
+        //コード進行のナンバーを表示する
+        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
+        //コード進行の俗称・所感を表示する
+        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][0]}`;
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][1]}`;
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
+    };
+
+    //Ⅵ始まりのコード進行
+    firstNum = 6;
+    secondNum = 1;
+    chordProgNum = 0;
+    for (let i = 1; i < 16; i++) {
+        //コード進行のナンバーを表示する
+        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
+        //コード進行の俗称・所感を表示する
+        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][0]}`;
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][1]}`;
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
+    };
+
+    //その他のコード進行
+    firstNum = 8;
+    secondNum = 1;
+    chordProgNum = 0;
+    for (let i = 1; i < 21; i++) {
+        //コード進行のナンバーを表示する
+        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
+        //コード進行の俗称・所感を表示する
+        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][0]}`;
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][1]}`;
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
+    };
+
+    //ボタンの色を変える
+    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-6 col-xl-4 m-3";
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
 
 
-//コード進行をディグリーネームに切り替えるためのスクリプト
-function changeChordProgressionDegree() {
+//コード進行を切り替える関数
+function changeChordProgression() {
 
-    //  シンプル・イズ・ベスト
-    document.getElementById("simple").innerHTML = "Ⅰ-Ⅳ-Ⅴ";
-    //いつメン
-    document.getElementById("itsumen").innerHTML = "Ⅰ-Ⅵm-Ⅳ-Ⅴ";
-    //モノクローム
-    document.getElementById("monochrome").innerHTML = "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7";
-    //温かみを感じる
-    document.getElementById("atatakai").innerHTML = "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7 ";
-    //優雅
-    document.getElementById("elegance").innerHTML = "Ⅰ△7-#Ⅰdim7-Ⅱm7-V7";
-    //カノン進行
-    document.getElementById("canon").innerHTML = "Ⅰ-Ⅴ-Ⅳm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ";
-    //なめらかカノン進行
-    document.getElementById("nameracanon").innerHTML = "Ⅰ-Ⅴ/Ⅶ-Ⅳm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ";
-    //サンボマスターしか勝たん
-    document.getElementById("sambo").innerHTML = "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7";
-    //青春
-    document.getElementById("seishun").innerHTML = "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ ";
-    //午前2時の踏切に居そう
-    document.getElementById("bump").innerHTML = "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ";
-    //R&B系
-    document.getElementById("r_and_b").innerHTML = "Ⅰ△7-Ⅳm7-♭Ⅶ7";
-    //最もポピュラー
-    document.getElementById("popular").innerHTML = "Ⅰ-Ⅴ-Ⅵm-Ⅳ";
-    //壮大
-    document.getElementById("epic").innerHTML = "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ";
-    //ドラマチック
-    document.getElementById("dramatic").innerHTML = "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ";
-    //ブルージー
-    document.getElementById("blues").innerHTML = "Ⅰ7-Ⅳ7-Ⅰ7-Ⅳ7-Ⅴ7-Ⅳ7-Ⅰ7-Ⅴ7";
+    rootNumber = document.getElementById("rootNumber").value;
 
-    //王道進行
-    document.getElementById("oudou").innerHTML = "Ⅳ-Ⅴ-Ⅲm-Ⅵm";
-    //爽やか
-    document.getElementById("sawayaka").innerHTML = "Ⅳ-Ⅰ-Ⅴ-Ⅵm";
-    //万能調味料
-    document.getElementById("all_purpose_seasoning").innerHTML = "Ⅳ-Ⅴ-Ⅵm-Ⅰ";
-    //エモい
-    document.getElementById("emotion").innerHTML = "Ⅳ-Ⅴ-Ⅰ-Ⅲ";
-    //涙を誘うウエポン
-    document.getElementById("weapon").innerHTML = "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm";
-    //アニソン風味
-    document.getElementById("anison").innerHTML = "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ";
-    //サビ前の常連
-    document.getElementById("sabimae").innerHTML = "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)";
-    //丸サ進行
-    document.getElementById("marusa").innerHTML = "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7";
-    //オシャレ
-    document.getElementById("osare").innerHTML = "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7";
-    //メロウな王道進行
-    document.getElementById("mellow").innerHTML = "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7";
-    //自由・救済
-    document.getElementById("bright").innerHTML = "Ⅳ-Ⅴ-Ⅵ";
-    //レアキャラ
-    document.getElementById("rare_character").innerHTML = "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7";
-    //ゲーム音楽の香り
-    document.getElementById("game").innerHTML = "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7";
-    //チンダル現象みがある
-    document.getElementById("tyndall_effect").innerHTML = "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7";
-    //綺麗
-    document.getElementById("beautiful").innerHTML = "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6 ";
+    c = mod(Number(rootNumber) - 0, 12);
+    cisdes = mod(Number(rootNumber) + 1, 12);
+    d = mod(Number(rootNumber) + 2, 12);
+    dises = mod(Number(rootNumber) + 3, 12);
+    e = mod(Number(rootNumber) + 4, 12);
+    f = mod(Number(rootNumber) + 5, 12);
+    fisges = mod(Number(rootNumber) + 6, 12);
+    g = mod(Number(rootNumber) + 7, 12);
+    gisas = mod(Number(rootNumber) + 8, 12);
+    a = mod(Number(rootNumber) + 9, 12);
+    aisb = mod(Number(rootNumber) + 10, 12);
+    h = mod(Number(rootNumber) + 11, 12);
 
-    //小室進行
-    document.getElementById("komuro").innerHTML = "Ⅵm-Ⅳ-Ⅴ-Ⅰ";
-    //ハリウッド映画にありそう
-    document.getElementById("hollywood").innerHTML = "Ⅵm-Ⅳ-Ⅰ-Ⅴ";
-    //スタイリッシュ
-    document.getElementById("stylish").innerHTML = "Ⅵm9-Ⅱm7-Ⅲm7";
-    //ロックンロール
-    document.getElementById("rock").innerHTML = "Ⅵm-Ⅴ-Ⅳ-Ⅴ";
-    //キャッチー
-    document.getElementById("catchy").innerHTML = "Ⅵm-Ⅲm-Ⅳ-Ⅴ";
-    //洋楽っぽい
-    document.getElementById("yougaku").innerHTML = "Ⅵm-Ⅰ-Ⅴ-Ⅳ";
-    //炎の呼吸
-    document.getElementById("homura").innerHTML = "Ⅵm-Ⅴ-Ⅳ-Ⅰ";
-    //鉄板のベース半音下降
-    document.getElementById("teppan_bass").innerHTML = "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)";
-    //ミスティックな質感
-    document.getElementById("mystic").innerHTML = "Ⅵm-Ⅳm-Ⅵm-Ⅰm";
-    //ディストピア
-    document.getElementById("dystopia").innerHTML = "Ⅵm-Ⅶ-Ⅱm-Ⅲ";
-    //領域展開
-    document.getElementById("ryouikitenkai").innerHTML = "Ⅵm7-Ⅴm7-Ⅰ7-Ⅲ7";
-    //近未来
-    document.getElementById("near_future").innerHTML = "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲ/Ⅵ";
-    //クラシカルなゼクエンツ
-    document.getElementById("classic").innerHTML = "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ";
-    //サスペンス仕掛け人
-    document.getElementById("suspense").innerHTML = "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅳ-Ⅵm7";
-    //俺が好きなやつ
-    document.getElementById("my_favorite").innerHTML = "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7→Ⅲm7";
+    //異名同音がシャープかフラットかを判定する
+    if (rootNumber == 0 || rootNumber == 2 || rootNumber == 4 || rootNumber == 6 || rootNumber == 7 || rootNumber == 9 || rootNumber == 11) {
+        SOF = 0;
+    } else {
+        SOF = 1
+    };
 
-    //ツーファイブ
-    document.getElementById("two_five").innerHTML = "Ⅱm7-Ⅴ7-Ⅰ";
-    //裏コードにする
-    document.getElementById("two_five_ura").innerHTML = "Ⅱm7-♭Ⅱ7-Ⅰ";
-    //平行短調ツーファイブ
-    document.getElementById("two_five_rm").innerHTML = "Ⅶm7(♭5)-Ⅲ7-Ⅰ";
-    //同主短調ツーファイブ
-    document.getElementById("two_five_pm").innerHTML = "Ⅳm7-Ⅶ7-Ⅰ";
-    //Ⅵmへのセカンダリー・ケーデンス
-    document.getElementById("two_five_s_to_6m").innerHTML = "Ⅶm7-Ⅲ7-Ⅵm";
-    //Ⅳへのセカンダリー・ケーデンス
-    document.getElementById("two_five_s_to_4").innerHTML = "Ⅴm7→Ⅰ7→Ⅳ";
-    //便利ツーファイブ
-    document.getElementById("two_five_useful").innerHTML = "Ⅱm7-Ⅳ/Ⅴ-Ⅰ";
-    //甘美ツーファイブ
-    document.getElementById("kanbi").innerHTML = "Ⅱm7-Ⅳm/Ⅴ-Ⅰ";
-    //助走
-    document.getElementById("run_up").innerHTML = "Ⅱm7-Ⅲm7-Ⅳ7-Ⅴ";
-    //大気圏外へ
-    document.getElementById("outside_the_atmosphere").innerHTML = "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7";
-    //平成J-popバラードの最終兵器
-    document.getElementById("Ballade").innerHTML = "Ⅲm7-Ⅵm7-Ⅱm7-Ⅴ7";
-    //ジャズの基本形
-    document.getElementById("jazz").innerHTML = "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7";
-    //普通が嫌いなあなたへ
-    document.getElementById("uncommon").innerHTML = "#Ⅳm7(♭5)-ⅣMaj7-Ⅲm7-Ⅵm7";
-    //モダンメタルの住人
-    document.getElementById("modern_metal").innerHTML = "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9";
-    //スペイン旅行
-    document.getElementById("spain").innerHTML = "Ⅲ-Ⅳ-Ⅴ-Ⅳ";
+    //Ⅰ始まりのコード進行
+    document.getElementById("chordProg1-1").innerHTML = `${noteNames[c][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-2").innerHTML = `${noteNames[c][SOF]} - ${noteNames[f][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-3").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg1-4").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-5").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[e][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[d][SOF]}m - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-6").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]}/${noteNames[h][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[e][SOF]}m/${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]}/${noteNames[e][SOF]} - ${noteNames[d][SOF]}m - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-7").innerHTML = `${noteNames[c][SOF]} - ${noteNames[h][SOF]}m7(♭5) - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg1-8").innerHTML = `${noteNames[c][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-9").innerHTML = `${noteNames[c][SOF]} - ${noteNames[e][SOF]}m/${noteNames[h][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg1-10").innerHTML = `${noteNames[c][SOF]} - ${noteNames[e][SOF]} - ${noteNames[a][SOF]}ｍ - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-11").innerHTML = `${noteNames[c][SOF]} - ${noteNames[d][SOF]}m7 - ${noteNames[c][SOF]}/${noteNames[e][SOF]} - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg1-12").innerHTML = `${noteNames[c][SOF]} - ${noteNames[gisas][1]} - ${noteNames[aisb][1]} - ${noteNames[gisas][1]}`;
+    document.getElementById("chordProg1-13").innerHTML = `${noteNames[c][SOF]}add9 - ${noteNames[a][SOF]}m7 - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg1-14").innerHTML = `${noteNames[c][SOF]} - ${noteNames[c][SOF]}aug - ${noteNames[c][SOF]}6 - ${noteNames[c][SOF]}7`;
+    document.getElementById("chordProg1-15").innerHTML = `${noteNames[c][SOF]} - ${noteNames[c][SOF]}aug/${noteNames[fisges][0]} - ${noteNames[f][SOF]}△7`;
+    document.getElementById("chordProg1-16").innerHTML = `${noteNames[c][SOF]}△7 - ${noteNames[cisdes][0]}dim7 - ${noteNames[d][SOF]}m7 - V7`;
+    document.getElementById("chordProg1-17").innerHTML = `${noteNames[c][SOF]}sus4 - ${noteNames[c][SOF]}sus4/${noteNames[cisdes][1]} - ${noteNames[c][SOF]}sus4/${noteNames[dises][1]} - ${noteNames[c][SOF]}sus4/${noteNames[f][SOF]} - ${noteNames[c][SOF]}sus4/${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-18").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]}/${noteNames[c][SOF]} - ${noteNames[f][SOF]}/${noteNames[c][SOF]} - ${noteNames[gisas][1]}/${noteNames[c][SOF]} - ${noteNames[aisb][1]}/${noteNames[c][SOF]}`;
+    document.getElementById("chordProg1-19").innerHTML = `${noteNames[c][SOF]} - ${noteNames[cisdes][1]}/${noteNames[c][SOF]} - ${noteNames[d][SOF]}/${noteNames[c][SOF]} - ${noteNames[dises][1]}/${noteNames[c][SOF]} - ${noteNames[e][SOF]}/${noteNames[c][SOF]}`;
+    document.getElementById("chordProg1-20").innerHTML = `${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[g][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[c][SOF]}7 - ${noteNames[g][SOF]}7`;
 
-    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-6 col-xl-4 m-3";
-    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
+    //Ⅳ始まりのコード進行
+    document.getElementById("chordProg4-1").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[e][SOF]}m - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg4-2").innerHTML = `${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg4-3").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg4-4").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[c][SOF]} - ${noteNames[e][SOF]}`;
+    document.getElementById("chordProg4-5").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][0]}m(♭5) - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg4-6").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][1]} - ${noteNames[aisb][1]}`;
+    document.getElementById("chordProg4-7").innerHTML = `${noteNames[f][SOF]} - ${noteNames[fisges][0]}m(♭5) - ${noteNames[g][SOF]} - ${noteNames[gisas][0]}m(♭5)`;
+    document.getElementById("chordProg4-8").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m7 - ${noteNames[c][SOF]}7`;
+    document.getElementById("chordProg4-9").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m7 - ${noteNames[d][SOF]}7`;
+    document.getElementById("chordProg4-10").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[g][SOF]}7/${noteNames[f][SOF]} - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg4-11").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}`;
+    document.getElementById("chordProg4-12").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][1]}dim7 - ${noteNames[d][SOF]}m7`;
+    document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][1]}△7 - ${noteNames[d][SOF]}m7`;
+    document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[f][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}7`;
+    document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[h][SOF]}m7(♭5)/${noteNames[f][SOF]} - ${noteNames[e][SOF]}m7 - ${noteNames[e][SOF]}dim7 - ${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7/${noteNames[d][SOF]} - ${noteNames[c][SOF]}Maj7 - ${noteNames[c][SOF]}6`;
 
+    //Ⅵ始まりのコード進行
+    document.getElementById("chordProg6-1").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg6-2").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg6-3").innerHTML = `${noteNames[a][SOF]}m9 - ${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7`;
+    document.getElementById("chordProg6-4").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg6-5").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[e][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg6-6").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg6-7").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[gisas][0]}aug - ${noteNames[c][SOF]}/${noteNames[g][SOF]} - ${noteNames[fisges][0]}m7(♭5)`;
+    document.getElementById("chordProg6-9").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}m - ${noteNames[a][SOF]}m - ${noteNames[c][SOF]}m`;
+    document.getElementById("chordProg6-10").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[h][SOF]} - ${noteNames[d][SOF]}m - ${noteNames[e][SOF]}`;
+    document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][SOF]}m7 - ${noteNames[g][SOF]}m7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}△7`;
+    document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]}/${noteNames[a][SOF]} - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[e][SOF]}m/${noteNames[a][SOF]}`;
+    document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[d][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[c][SOF]} - ${noteNames[f][SOF]} - ${noteNames[h][SOF]}m(♭5) - ${noteNames[e][SOF]}`;
+    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[fisges][0]}m(♭5)/${noteNames[f][SOF]} - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[d][SOF]}m7→${noteNames[e][SOF]}m7`;
+
+    //その他のコード進行
+    document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7 - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-2").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[cisdes][1]}7 - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-3").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-4").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}m/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-5").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}dim/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-6").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}aug/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-7").innerHTML = `${noteNames[f][SOF]}m7 - ${noteNames[aisb][1]}7 - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-8").innerHTML = `${noteNames[g][SOF]}m7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}`;
+    document.getElementById("chordProg8-9").innerHTML = `${noteNames[h][SOF]}m7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg8-10").innerHTML = `${noteNames[h][SOF]}m7(♭5) - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg8-11").innerHTML = `${noteNames[d][SOF]}m7(♭5) - ${noteNames[cisdes][1]}/${noteNames[f][SOF]} - ${noteNames[f][SOF]}dim/${noteNames[h][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-12").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7 - ${noteNames[c][SOF]}△7 - ${noteNames[a][SOF]}7`;
+    document.getElementById("chordProg8-13").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[f][SOF]}△7 - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg8-14").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[f][SOF]}m7 - ${noteNames[g][SOF]}m7`;
+    document.getElementById("chordProg8-15").innerHTML = `${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7/${noteNames[e][SOF]} - ${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7/${noteNames[d][SOF]}`;
+    document.getElementById("chordProg8-16").innerHTML = `${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg8-17").innerHTML = `${noteNames[a][SOF]}5add9 - ${noteNames[f][SOF]}5add9 - ${noteNames[dises][1]}5add9 - ${noteNames[c][SOF]}5add9`;
+    document.getElementById("chordProg8-18").innerHTML = `${noteNames[d][SOF]}m - ${noteNames[e][SOF]}m/${noteNames[d][SOF]} - ${noteNames[f][SOF]}/${noteNames[e][SOF]} - ${noteNames[e][SOF]}m/${noteNames[d][SOF]}`;
+    document.getElementById("chordProg8-19").innerHTML = `${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]}`;
+    document.getElementById("chordProg8-20").innerHTML = `${noteNames[e][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
+
+    //ボタンの色を変える
+    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-6 col-xl-4 m-3";
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
 
 
@@ -926,40 +818,40 @@ document.getElementById("tonic_note"); function ChordsAndModeChange() {
         document.getElementById("Major_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)" + "<br> Locrian";
 
         document.getElementById("Rel_HMin_dia").innerHTML = sharp_note_name[t9] + " Harmonic Minor：" + sharp_key_signature[tonic];
-        document.getElementById("Rel_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7"+ "<br>Ionian Augmented";
-        document.getElementById("Rel_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7"+ "<br>Dorian #4th" ;
-        document.getElementById("Rel_HMin_dia_3").innerHTML = sharp_note_name[t4] + " 7"+ "<br>Phrygian Dominant";
-        document.getElementById("Rel_HMin_dia_4").innerHTML = sharp_note_name[t5] + " Maj7"+ "<br>Lydian ♯2nd";
-        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7"+ "<br>Ultra Locrian";
-        document.getElementById("Rel_HMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7"+ "<br>Harmonic Minor";
-        document.getElementById("Rel_HMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br> Locrian ♮6th";
+        document.getElementById("Rel_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7" + "<br>Ionian Augmented";
+        document.getElementById("Rel_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7" + "<br>Dorian #4th";
+        document.getElementById("Rel_HMin_dia_3").innerHTML = sharp_note_name[t4] + " 7" + "<br>Phrygian Dominant";
+        document.getElementById("Rel_HMin_dia_4").innerHTML = sharp_note_name[t5] + " Maj7" + "<br>Lydian ♯2nd";
+        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7" + "<br>Ultra Locrian";
+        document.getElementById("Rel_HMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7" + "<br>Harmonic Minor";
+        document.getElementById("Rel_HMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)" + "<br> Locrian ♮6th";
 
         document.getElementById("Rel_MMin_dia").innerHTML = sharp_note_name[t9] + " Melodic Minor：" + sharp_key_signature[tonic];
-        document.getElementById("Rel_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Rel_MMin_dia_2").innerHTML = sharp_note_name[t2] + " 7"+ "<br>Lydian♭7th";
-        document.getElementById("Rel_MMin_dia_3").innerHTML = sharp_note_name[t4] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ sharp_note_name[t8] +"7(omit5)<br>Altered";
-        document.getElementById("Rel_MMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Rel_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7"+ "<br> Dorian ♭2nd";
+        document.getElementById("Rel_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Rel_MMin_dia_2").innerHTML = sharp_note_name[t2] + " 7" + "<br>Lydian♭7th";
+        document.getElementById("Rel_MMin_dia_3").innerHTML = sharp_note_name[t4] + " 7" + "<br>Melodic Major";
+        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)" + "<br>Super Locrian<br><br>" + sharp_note_name[t8] + "7(omit5)<br>Altered";
+        document.getElementById("Rel_MMin_dia_6").innerHTML = sharp_note_name[t9] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Rel_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7" + "<br> Dorian ♭2nd";
 
         document.getElementById("Rel_HMaj_dia").innerHTML = sharp_note_name[tonic] + " Harmonic Major：" + sharp_key_signature[tonic];
-        document.getElementById("Rel_HMaj_dia_1").innerHTML = sharp_note_name[tonic] + " Maj7"+ "<br>Harmonic major";
-        document.getElementById("Rel_HMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>Dorian ♭5th";
-        document.getElementById("Rel_HMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7・7"+ "<br>Phrygian ♭4th";
-        document.getElementById("Rel_HMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7"+ "<br>Lydian ♭3rd";
-        document.getElementById("Rel_HMaj_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>Mixolydian ♭2nd";
-        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>Lydian ♯2nd ♯5th";
-        document.getElementById("Rel_HMaj_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br> Locrian ♭♭7th";
+        document.getElementById("Rel_HMaj_dia_1").innerHTML = sharp_note_name[tonic] + " Maj7" + "<br>Harmonic major";
+        document.getElementById("Rel_HMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)" + "<br>Dorian ♭5th";
+        document.getElementById("Rel_HMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7・7" + "<br>Phrygian ♭4th";
+        document.getElementById("Rel_HMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7" + "<br>Lydian ♭3rd";
+        document.getElementById("Rel_HMaj_dia_5").innerHTML = sharp_note_name[t7] + " 7" + "<br>Mixolydian ♭2nd";
+        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7" + "<br>Lydian ♯2nd ♯5th";
+        document.getElementById("Rel_HMaj_dia_7").innerHTML = sharp_note_name[t11] + " dim7" + "<br> Locrian ♭♭7th";
 
         document.getElementById("Rel_MMaj_dia").innerHTML = sharp_note_name[tonic] + "  Melodic Major：" + sharp_key_signature[tonic];
-        document.getElementById("Rel_MMaj_dia_1").innerHTML = sharp_note_name[tonic] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Rel_MMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Rel_MMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ sharp_note_name[t4] +"7(omit5)<br>Altered";
-        document.getElementById("Rel_MMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Rel_MMaj_dia_5").innerHTML = sharp_note_name[t7] + " m7"+ "<br>Dorian ♭2nd";
-        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br>Lydian♭7th";
+        document.getElementById("Rel_MMaj_dia_1").innerHTML = sharp_note_name[tonic] + " 7" + "<br>Melodic Major";
+        document.getElementById("Rel_MMaj_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Rel_MMaj_dia_3").innerHTML = sharp_note_name[t4] + " m7(♭5)" + "<br>Super Locrian<br><br>" + sharp_note_name[t4] + "7(omit5)<br>Altered";
+        document.getElementById("Rel_MMaj_dia_4").innerHTML = sharp_note_name[t5] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Rel_MMaj_dia_5").innerHTML = sharp_note_name[t7] + " m7" + "<br>Dorian ♭2nd";
+        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7" + "<br>Lydian♭7th";
 
     } else {
         document.getElementById("Major_dia").innerHTML = `${flat_note_name[tonic]} Major：${flat_key_signature[tonic]}`;
@@ -972,97 +864,97 @@ document.getElementById("tonic_note"); function ChordsAndModeChange() {
         document.getElementById("Major_dia_7").innerHTML = flat_note_name[t11] + " m7(♭5)" + "<br>Locrian";
 
         document.getElementById("Rel_HMin_dia").innerHTML = flat_note_name[t9] + " Harmonic Minor：" + flat_key_signature[tonic];
-        document.getElementById("Rel_HMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7"+ "<br>Ionian Augmented";
-        document.getElementById("Rel_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7"+ "<br>Dorian #4th";
-        document.getElementById("Rel_HMin_dia_3").innerHTML = flat_note_name[t4] + " 7"+ "<br>Phrygian Dominant";
-        document.getElementById("Rel_HMin_dia_4").innerHTML = flat_note_name[t5] + " Maj7"+ "<br>Lydian ♯2nd";
-        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7"+ "<br>Ultra Locrian";
-        document.getElementById("Rel_HMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7"+ "<br>Harmonic Minor";
-        document.getElementById("Rel_HMin_dia_7").innerHTML = flat_note_name[t11] + " m7(♭5)"+ "<br>Locrian ♮6th";
+        document.getElementById("Rel_HMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7" + "<br>Ionian Augmented";
+        document.getElementById("Rel_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7" + "<br>Dorian #4th";
+        document.getElementById("Rel_HMin_dia_3").innerHTML = flat_note_name[t4] + " 7" + "<br>Phrygian Dominant";
+        document.getElementById("Rel_HMin_dia_4").innerHTML = flat_note_name[t5] + " Maj7" + "<br>Lydian ♯2nd";
+        document.getElementById("Rel_HMin_dia_5").innerHTML = sharp_note_name[t8] + " dim7" + "<br>Ultra Locrian";
+        document.getElementById("Rel_HMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7" + "<br>Harmonic Minor";
+        document.getElementById("Rel_HMin_dia_7").innerHTML = flat_note_name[t11] + " m7(♭5)" + "<br>Locrian ♮6th";
 
         document.getElementById("Rel_MMin_dia").innerHTML = flat_note_name[t9] + " Melodic Minor：" + flat_key_signature[tonic];
-        document.getElementById("Rel_MMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Rel_MMin_dia_2").innerHTML = flat_note_name[t2] + " 7"+ "<br>Lydian♭7th";
-        document.getElementById("Rel_MMin_dia_3").innerHTML = flat_note_name[t4] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ flat_note_name[t8] +"7(omit5)<br>Altered";
-        document.getElementById("Rel_MMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Rel_MMin_dia_7").innerHTML = flat_note_name[t11] + " m7"+ "<br> Dorian ♭2nd";
+        document.getElementById("Rel_MMin_dia_1").innerHTML = flat_note_name[tonic] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Rel_MMin_dia_2").innerHTML = flat_note_name[t2] + " 7" + "<br>Lydian♭7th";
+        document.getElementById("Rel_MMin_dia_3").innerHTML = flat_note_name[t4] + " 7" + "<br>Melodic Major";
+        document.getElementById("Rel_MMin_dia_4").innerHTML = sharp_note_name[t6] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Rel_MMin_dia_5").innerHTML = sharp_note_name[t8] + " m7(♭5)" + "<br>Super Locrian<br><br>" + flat_note_name[t8] + "7(omit5)<br>Altered";
+        document.getElementById("Rel_MMin_dia_6").innerHTML = flat_note_name[t9] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Rel_MMin_dia_7").innerHTML = flat_note_name[t11] + " m7" + "<br> Dorian ♭2nd";
 
         document.getElementById("Rel_HMaj_dia").innerHTML = flat_note_name[tonic] + " Harmonic Major：" + flat_key_signature[tonic];
-        document.getElementById("Rel_HMaj_dia_1").innerHTML = flat_note_name[tonic] + " Maj7"+ "<br>Harmonic major";
-        document.getElementById("Rel_HMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>Dorian ♭5th";
-        document.getElementById("Rel_HMaj_dia_3").innerHTML = flat_note_name[t4] + " m7・7"+ "<br>Phrygian ♭4th";
-        document.getElementById("Rel_HMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7"+ "<br>Lydian ♭3rd";
-        document.getElementById("Rel_HMaj_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>Mixolydian ♭2nd";
-        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>Lydian ♯2nd ♯5th";
-        document.getElementById("Rel_HMaj_dia_7").innerHTML = flat_note_name[t11] + " dim7"+ "<br>Locrian ♭♭7th";
+        document.getElementById("Rel_HMaj_dia_1").innerHTML = flat_note_name[tonic] + " Maj7" + "<br>Harmonic major";
+        document.getElementById("Rel_HMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)" + "<br>Dorian ♭5th";
+        document.getElementById("Rel_HMaj_dia_3").innerHTML = flat_note_name[t4] + " m7・7" + "<br>Phrygian ♭4th";
+        document.getElementById("Rel_HMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7" + "<br>Lydian ♭3rd";
+        document.getElementById("Rel_HMaj_dia_5").innerHTML = flat_note_name[t7] + " 7" + "<br>Mixolydian ♭2nd";
+        document.getElementById("Rel_HMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7" + "<br>Lydian ♯2nd ♯5th";
+        document.getElementById("Rel_HMaj_dia_7").innerHTML = flat_note_name[t11] + " dim7" + "<br>Locrian ♭♭7th";
 
         document.getElementById("Rel_MMaj_dia").innerHTML = flat_note_name[tonic] + "  Melodic Major：" + flat_key_signature[tonic];
-        document.getElementById("Rel_MMaj_dia_1").innerHTML = flat_note_name[tonic] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Rel_MMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Rel_MMaj_dia_3").innerHTML = flat_note_name[t4] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ flat_note_name[t4] +"7(omit5)<br>Altered";
-        document.getElementById("Rel_MMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Rel_MMaj_dia_5").innerHTML = flat_note_name[t7] + " m7"+ "<br>Dorian ♭2nd";
-        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br>Lydian♭7th";
+        document.getElementById("Rel_MMaj_dia_1").innerHTML = flat_note_name[tonic] + " 7" + "<br>Melodic Major";
+        document.getElementById("Rel_MMaj_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Rel_MMaj_dia_3").innerHTML = flat_note_name[t4] + " m7(♭5)" + "<br>Super Locrian<br><br>" + flat_note_name[t4] + "7(omit5)<br>Altered";
+        document.getElementById("Rel_MMaj_dia_4").innerHTML = flat_note_name[t5] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Rel_MMaj_dia_5").innerHTML = flat_note_name[t7] + " m7" + "<br>Dorian ♭2nd";
+        document.getElementById("Rel_MMaj_dia_6").innerHTML = flat_note_name[t8] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Rel_MMaj_dia_7").innerHTML = flat_note_name[t10] + " 7" + "<br>Lydian♭7th";
     }
 
     if (t3 == 0 || t3 == 2 || t3 == 4 || t3 == 6 || t3 == 7 || t3 == 9 || t3 == 11) {
         document.getElementById("Para_Minor_dia").innerHTML = sharp_note_name[tonic] + " Minor：" + sharp_key_signature[t3];
-        document.getElementById("Para_Minor_dia_1").innerHTML = sharp_note_name[tonic] + " m7"+ "<br>Aeolian";
-        document.getElementById("Para_Minor_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>Locrian";
-        document.getElementById("Para_Minor_dia_3").innerHTML = sharp_note_name[t3] + " Maj7"+ "<br>Ionian";
-        document.getElementById("Para_Minor_dia_4").innerHTML = sharp_note_name[t5] + " m7"+ "<br>Dorian";
-        document.getElementById("Para_Minor_dia_5").innerHTML = sharp_note_name[t7] + " m7"+ "<br>Phrygian";
-        document.getElementById("Para_Minor_dia_6").innerHTML = sharp_note_name[t8] + " Maj7"+ "<br>Lydian";
-        document.getElementById("Para_Minor_dia_7").innerHTML = sharp_note_name[t10] + " 7"+ "<br>Mixolydian";
+        document.getElementById("Para_Minor_dia_1").innerHTML = sharp_note_name[tonic] + " m7" + "<br>Aeolian";
+        document.getElementById("Para_Minor_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)" + "<br>Locrian";
+        document.getElementById("Para_Minor_dia_3").innerHTML = sharp_note_name[t3] + " Maj7" + "<br>Ionian";
+        document.getElementById("Para_Minor_dia_4").innerHTML = sharp_note_name[t5] + " m7" + "<br>Dorian";
+        document.getElementById("Para_Minor_dia_5").innerHTML = sharp_note_name[t7] + " m7" + "<br>Phrygian";
+        document.getElementById("Para_Minor_dia_6").innerHTML = sharp_note_name[t8] + " Maj7" + "<br>Lydian";
+        document.getElementById("Para_Minor_dia_7").innerHTML = sharp_note_name[t10] + " 7" + "<br>Mixolydian";
 
         document.getElementById("Para_HMin_dia").innerHTML = sharp_note_name[tonic] + " Harmonic Minor：" + sharp_key_signature[t3];
-        document.getElementById("Para_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7"+ "<br>Harmonic Minor";
-        document.getElementById("Para_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)"+ "<br>Locrian ♮6th";
-        document.getElementById("Para_HMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7"+ "<br>Ionian Augmented";
-        document.getElementById("Para_HMin_dia_4").innerHTML = sharp_note_name[t5] + " m7"+ "<br>Dorian #4th";
-        document.getElementById("Para_HMin_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>Phrygian Dominant";
-        document.getElementById("Para_HMin_dia_6").innerHTML = sharp_note_name[t8] + " Maj7"+ "<br>Lydian ♯2nd";
-        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br>Ultra Locrian";
+        document.getElementById("Para_HMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7" + "<br>Harmonic Minor";
+        document.getElementById("Para_HMin_dia_2").innerHTML = sharp_note_name[t2] + " m7(♭5)" + "<br>Locrian ♮6th";
+        document.getElementById("Para_HMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7" + "<br>Ionian Augmented";
+        document.getElementById("Para_HMin_dia_4").innerHTML = sharp_note_name[t5] + " m7" + "<br>Dorian #4th";
+        document.getElementById("Para_HMin_dia_5").innerHTML = sharp_note_name[t7] + " 7" + "<br>Phrygian Dominant";
+        document.getElementById("Para_HMin_dia_6").innerHTML = sharp_note_name[t8] + " Maj7" + "<br>Lydian ♯2nd";
+        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7" + "<br>Ultra Locrian";
 
         document.getElementById("Para_MMin_dia").innerHTML = sharp_note_name[tonic] + " Melodic Minor：" + sharp_key_signature[t3];
-        document.getElementById("Para_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Para_MMin_dia_2").innerHTML = sharp_note_name[t2] + " m7"+ "<br>Dorian ♭2nd";
-        document.getElementById("Para_MMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Para_MMin_dia_4").innerHTML = sharp_note_name[t5] + " 7"+ "<br>Lydian♭7th";
-        document.getElementById("Para_MMin_dia_5").innerHTML = sharp_note_name[t7] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ sharp_note_name[t11] +"7(omit5)<br>Altered";
+        document.getElementById("Para_MMin_dia_1").innerHTML = sharp_note_name[tonic] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Para_MMin_dia_2").innerHTML = sharp_note_name[t2] + " m7" + "<br>Dorian ♭2nd";
+        document.getElementById("Para_MMin_dia_3").innerHTML = sharp_note_name[t3] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Para_MMin_dia_4").innerHTML = sharp_note_name[t5] + " 7" + "<br>Lydian♭7th";
+        document.getElementById("Para_MMin_dia_5").innerHTML = sharp_note_name[t7] + " 7" + "<br>Melodic Major";
+        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)" + "<br>Super Locrian<br><br>" + sharp_note_name[t11] + "7(omit5)<br>Altered";
     } else {
 
         document.getElementById("Para_Minor_dia").innerHTML = flat_note_name[tonic] + " Minor：" + flat_key_signature[t3];
-        document.getElementById("Para_Minor_dia_1").innerHTML = flat_note_name[tonic] + " m7"+ "<br>Aeolian";
-        document.getElementById("Para_Minor_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>Locrian";
-        document.getElementById("Para_Minor_dia_3").innerHTML = flat_note_name[t3] + " Maj7"+ "<br>Ionian";
-        document.getElementById("Para_Minor_dia_4").innerHTML = flat_note_name[t5] + " m7"+ "<br>Dorian";
-        document.getElementById("Para_Minor_dia_5").innerHTML = flat_note_name[t7] + " m7"+ "<br>Phrygian";
-        document.getElementById("Para_Minor_dia_6").innerHTML = flat_note_name[t8] + " Maj7"+ "<br>Lydian";
-        document.getElementById("Para_Minor_dia_7").innerHTML = flat_note_name[t10] + " 7"+ "<br> Mixolydian";
+        document.getElementById("Para_Minor_dia_1").innerHTML = flat_note_name[tonic] + " m7" + "<br>Aeolian";
+        document.getElementById("Para_Minor_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)" + "<br>Locrian";
+        document.getElementById("Para_Minor_dia_3").innerHTML = flat_note_name[t3] + " Maj7" + "<br>Ionian";
+        document.getElementById("Para_Minor_dia_4").innerHTML = flat_note_name[t5] + " m7" + "<br>Dorian";
+        document.getElementById("Para_Minor_dia_5").innerHTML = flat_note_name[t7] + " m7" + "<br>Phrygian";
+        document.getElementById("Para_Minor_dia_6").innerHTML = flat_note_name[t8] + " Maj7" + "<br>Lydian";
+        document.getElementById("Para_Minor_dia_7").innerHTML = flat_note_name[t10] + " 7" + "<br> Mixolydian";
 
         document.getElementById("Para_HMin_dia").innerHTML = flat_note_name[tonic] + " Harmonic Minor：" + flat_key_signature[t3];
-        document.getElementById("Para_HMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7"+ "<br>Harmonic Minor";
-        document.getElementById("Para_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)"+ "<br>Locrian ♮6th";
-        document.getElementById("Para_HMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7"+ "<br>Ionian Augmented";
-        document.getElementById("Para_HMin_dia_4").innerHTML = flat_note_name[t5] + " m7"+ "<br>Dorian #4th";
-        document.getElementById("Para_HMin_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>Phrygian Dominant";
-        document.getElementById("Para_HMin_dia_6").innerHTML = flat_note_name[t8] + " Maj7"+ "<br>Lydian ♯2nd";
-        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7"+ "<br>Ultra Locrian";
+        document.getElementById("Para_HMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7" + "<br>Harmonic Minor";
+        document.getElementById("Para_HMin_dia_2").innerHTML = flat_note_name[t2] + " m7(♭5)" + "<br>Locrian ♮6th";
+        document.getElementById("Para_HMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7" + "<br>Ionian Augmented";
+        document.getElementById("Para_HMin_dia_4").innerHTML = flat_note_name[t5] + " m7" + "<br>Dorian #4th";
+        document.getElementById("Para_HMin_dia_5").innerHTML = flat_note_name[t7] + " 7" + "<br>Phrygian Dominant";
+        document.getElementById("Para_HMin_dia_6").innerHTML = flat_note_name[t8] + " Maj7" + "<br>Lydian ♯2nd";
+        document.getElementById("Para_HMin_dia_7").innerHTML = sharp_note_name[t11] + " dim7" + "<br>Ultra Locrian";
 
         document.getElementById("Para_MMin_dia").innerHTML = flat_note_name[tonic] + " Melodic Minor：" + flat_key_signature[t3];
-        document.getElementById("Para_MMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7"+ "<br>Melodic Minor";
-        document.getElementById("Para_MMin_dia_2").innerHTML = flat_note_name[t2] + " m7"+ "<br>Dorian ♭2nd";
-        document.getElementById("Para_MMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7"+ "<br>Lydian augmented";
-        document.getElementById("Para_MMin_dia_4").innerHTML = flat_note_name[t5] + " 7"+ "<br>Lydian♭7th";
-        document.getElementById("Para_MMin_dia_5").innerHTML = flat_note_name[t7] + " 7"+ "<br>Melodic Major";
-        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)"+ "<br>Locrian ♮2nd";
-        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)"+ "<br>Super Locrian<br><br>"+ sharp_note_name[t11] +"7(omit5)<br>Altered";
+        document.getElementById("Para_MMin_dia_1").innerHTML = flat_note_name[tonic] + " mMaj7" + "<br>Melodic Minor";
+        document.getElementById("Para_MMin_dia_2").innerHTML = flat_note_name[t2] + " m7" + "<br>Dorian ♭2nd";
+        document.getElementById("Para_MMin_dia_3").innerHTML = flat_note_name[t3] + " augMaj7" + "<br>Lydian augmented";
+        document.getElementById("Para_MMin_dia_4").innerHTML = flat_note_name[t5] + " 7" + "<br>Lydian♭7th";
+        document.getElementById("Para_MMin_dia_5").innerHTML = flat_note_name[t7] + " 7" + "<br>Melodic Major";
+        document.getElementById("Para_MMin_dia_6").innerHTML = sharp_note_name[t9] + " m7(♭5)" + "<br>Locrian ♮2nd";
+        document.getElementById("Para_MMin_dia_7").innerHTML = sharp_note_name[t11] + " m7(♭5)" + "<br>Super Locrian<br><br>" + sharp_note_name[t11] + "7(omit5)<br>Altered";
 
     }
 
@@ -1156,72 +1048,23 @@ document.getElementById("degree_button"); function degree() {
 };
 
 
-//ダイアトニックコードの着色をリセットする
+//ダイアトニックコードの着色をリセットする関数
 function paintDiatonicChordsReset() {
 
-    document.getElementById("Major_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Major_dia_7").className = "list-group-item col-xl text-center";
+    diaNum = 1;
 
-    document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl text-center";
+    for (let i = 1; i < 8; i++) {
+        document.getElementById(`Major_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        diaNum = diaNum + 1;
+    };
 
-    document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMin_dia_7").className = "list-group-item col-xl text-center";
-
-    document.getElementById("Rel_HMaj_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl text-center";
-
-    document.getElementById("Rel_MMaj_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Rel_MMaj_dia_7").className = "list-group-item col-xl text-center";
-
-    document.getElementById("Para_Minor_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_Minor_dia_7").className = "list-group-item col-xl text-center";
-
-    document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl text-center";
-
-    document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl text-center";
-    document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl text-center";
 };
 
 //ダイアトニック・コードのコードネームに対応する場所の色を変更する
@@ -1270,7 +1113,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-
+        //ブルーに着色
         document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-info text-center";
         document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-info text-center";
         document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-info text-center";
@@ -1322,7 +1165,7 @@ function ChordschangeAndChordsAndModeChange() {
         document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
-        ChordsAndModeChange() 
+        ChordsAndModeChange()
 
     } else if (onoff_ChordsAndModeChange == 0) {
         onoff_ChordsAndModeChange = 0;
@@ -1340,7 +1183,7 @@ function ChordschangeAndChordsAndModeChange() {
 document.getElementById("chord_root_name"); function ChangeChordRoot() {
 
     let chord_root_name_number = document.getElementById("chord_root_name").value;
-    
+
     let tonic = mod(Number(chord_root_name_number) - 0, 12);
     let t1 = mod(Number(chord_root_name_number) + 1, 12);
     let t2 = mod(Number(chord_root_name_number) + 2, 12);
@@ -2140,8 +1983,8 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
     } else if (rhythm_tuplet_type >= 2) {
         document.getElementById("note_text").innerHTML
             = Number(ratio_number) + "分音符が" + Number(ratio) + "個分の音価を" + Number(rhythm_tuplet_type) + "個に分割しています。<br>よって、この" + Number(rhythm_tuplet_type) + "連符と" + Number(ratio_number) + "分音符との比は<b>「" + Number(rhythm_tuplet_type) + "：" + Number(ratio) + "」</b>となります。";
-            document.getElementById("note_text").className = "py-1";
-        } else if (rhythm_tuplet_type <= 1) {
+        document.getElementById("note_text").className = "py-1";
+    } else if (rhythm_tuplet_type <= 1) {
         document.getElementById("note_text").innerHTML = "";
         document.getElementById("note_text").className = "py-1";
     };
