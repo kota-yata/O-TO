@@ -411,7 +411,7 @@ const chordProgEight =
     ["平成J-popバラードの最終兵器", "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ"],
     ["普通が嫌いなあなたへ", "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7"],
     ["モダン・メタルの住人", "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9"],
-    ["ドリアン", "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅲ-Ⅲm/Ⅱ"],
+    ["ドリアン", "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅱ-Ⅲm/Ⅱ"],
     ["ミクソリディアン", "Ⅴ-Ⅳ-Ⅰ-Ⅴ"],
     ["スペイン旅行", "Ⅲ-Ⅳ-Ⅴ-Ⅳ"],
     ];
@@ -597,7 +597,7 @@ function changeChordProgression() {
     document.getElementById("chordProg8-15").innerHTML = `${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7/${noteNames[e][SOF]} - ${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7/${noteNames[d][SOF]}`;
     document.getElementById("chordProg8-16").innerHTML = `${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
     document.getElementById("chordProg8-17").innerHTML = `${noteNames[a][SOF]}5add9 - ${noteNames[f][SOF]}5add9 - ${noteNames[dises][1]}5add9 - ${noteNames[c][SOF]}5add9`;
-    document.getElementById("chordProg8-18").innerHTML = `${noteNames[d][SOF]}m - ${noteNames[e][SOF]}m/${noteNames[d][SOF]} - ${noteNames[f][SOF]}/${noteNames[e][SOF]} - ${noteNames[e][SOF]}m/${noteNames[d][SOF]}`;
+    document.getElementById("chordProg8-18").innerHTML = `${noteNames[d][SOF]}m - ${noteNames[e][SOF]}m/${noteNames[d][SOF]} - ${noteNames[f][SOF]}/${noteNames[d][SOF]} - ${noteNames[e][SOF]}m/${noteNames[d][SOF]}`;
     document.getElementById("chordProg8-19").innerHTML = `${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]}`;
     document.getElementById("chordProg8-20").innerHTML = `${noteNames[e][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
 
