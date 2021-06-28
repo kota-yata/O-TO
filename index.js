@@ -390,7 +390,7 @@ const chordProgSix =
     ["近未来", "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ"],
     ["クラシカルなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ"],
     ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅳ-Ⅵm7"],
-    ["俺が好き", "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7→Ⅲm7"],
+    ["俺が好き", "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7-Ⅲm7"],
     ];
 
 const chordProgEight =
@@ -577,7 +577,7 @@ function changeChordProgression() {
     document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]}/${noteNames[a][SOF]} - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[e][SOF]}m/${noteNames[a][SOF]}`;
     document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[d][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[c][SOF]} - ${noteNames[f][SOF]} - ${noteNames[h][SOF]}m(♭5) - ${noteNames[e][SOF]}`;
     document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[fisges][0]}m(♭5)/${noteNames[f][SOF]} - ${noteNames[a][SOF]}m7`;
-    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[d][SOF]}m7→${noteNames[e][SOF]}m7`;
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7`;
 
     //その他のコード進行
     document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7 - ${noteNames[c][SOF]}`;

@@ -162,7 +162,7 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://twitter.com/k1mu0419"target="_blank" rel="noopener noreferrer">管理人Twitter</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">バグの報告などはこちらからお願いします。</span></a>
+          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">バグや誤りの報告などはこちらからお願いします。</span></a>
         </li>
 
         </ul>
