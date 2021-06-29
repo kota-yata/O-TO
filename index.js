@@ -19,18 +19,18 @@ const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "
 
 //英米式音名の多次元配列
 const noteNames =
-    [["C", "C"],
-    ["C#", "D♭"],
-    ["D", "D"],
-    ["D#", "E♭"],
-    ["E", "E"],
-    ["F", "F"],
-    ["F#", "G♭"],
-    ["G", "G"],
-    ["G#", "A♭"],
-    ["A", "A"],
-    ["A#", "B♭"],
-    ["B", "B"]]
+    [['C', 'C', 'B#', 'C', 'B#', 'C', 'B#', 'C', 'B#', 'C', 'B#', 'C'],
+    ['C#', 'D♭', 'C#', 'D♭', 'C#', 'D♭', 'C#', 'D♭', 'C#', 'D♭', 'C#', 'D♭'],
+    ['D', 'D', 'D', 'E𝄫', 'C𝄪', 'D', 'D', 'E𝄫', 'C𝄪', 'D', 'C𝄪', 'D'],
+    ['D#', 'E♭', 'D#', 'E♭', 'D#', 'E♭', 'D#', 'E♭', 'D#', 'E♭', 'D#', 'E♭'],
+    ['E', 'E', 'E', 'F♭', 'E', 'F♭', 'E', 'F♭', 'E', 'F♭', 'D𝄪', 'E'],
+    ['F', 'F', 'E#', 'F', 'E#', 'F', 'E#', 'F', 'E#', 'F', 'E#', 'F'],
+    ['F#', 'G♭', 'F#', 'G♭', 'F#', 'G♭', 'F#', 'G♭', 'F#', 'G♭', 'F#', 'G♭'],
+    ['G', 'G', 'F𝄪', 'G', 'F𝄪', 'G', 'G', 'A𝄫', 'F𝄪', 'G', 'F𝄪', 'G'],
+    ['G#', 'A♭', 'G#', 'A♭', 'G#', 'A♭', 'G#', 'A♭', 'G#', 'A♭', 'G#', 'A♭'],
+    ['A', 'A', 'A', 'B𝄫', 'G𝄪', 'A', 'A', 'B𝄫', 'A', 'B𝄫', 'G𝄪', 'A'],
+    ['A#', 'B♭', 'A#', 'B♭', 'A#', 'B♭', 'A#', 'B♭', 'A#', 'B♭', 'A#', 'B♭'],
+    ['B', 'B', 'B', 'C♭', 'B', 'C♭', 'B', 'C♭', 'B', 'C♭', 'B', 'C♭']];
 
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -535,14 +535,14 @@ function changeChordProgression() {
     document.getElementById("chordProg1-9").innerHTML = `${noteNames[c][SOF]} - ${noteNames[e][SOF]}m/${noteNames[h][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[f][SOF]}`;
     document.getElementById("chordProg1-10").innerHTML = `${noteNames[c][SOF]} - ${noteNames[e][SOF]} - ${noteNames[a][SOF]}ｍ - ${noteNames[g][SOF]}`;
     document.getElementById("chordProg1-11").innerHTML = `${noteNames[c][SOF]} - ${noteNames[d][SOF]}m7 - ${noteNames[c][SOF]}/${noteNames[e][SOF]} - ${noteNames[f][SOF]}`;
-    document.getElementById("chordProg1-12").innerHTML = `${noteNames[c][SOF]} - ${noteNames[gisas][1]} - ${noteNames[aisb][1]} - ${noteNames[gisas][1]}`;
+    document.getElementById("chordProg1-12").innerHTML = `${noteNames[c][SOF]} - ${noteNames[gisas][9]} - ${noteNames[aisb][11]} - ${noteNames[gisas][9]}`;
     document.getElementById("chordProg1-13").innerHTML = `${noteNames[c][SOF]}add9 - ${noteNames[a][SOF]}m7 - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
     document.getElementById("chordProg1-14").innerHTML = `${noteNames[c][SOF]} - ${noteNames[c][SOF]}aug - ${noteNames[c][SOF]}6 - ${noteNames[c][SOF]}7`;
-    document.getElementById("chordProg1-15").innerHTML = `${noteNames[c][SOF]} - ${noteNames[c][SOF]}aug/${noteNames[fisges][0]} - ${noteNames[f][SOF]}△7`;
-    document.getElementById("chordProg1-16").innerHTML = `${noteNames[c][SOF]}△7 - ${noteNames[cisdes][0]}dim7 - ${noteNames[d][SOF]}m7 - V7`;
-    document.getElementById("chordProg1-17").innerHTML = `${noteNames[c][SOF]}sus4 - ${noteNames[c][SOF]}sus4/${noteNames[cisdes][1]} - ${noteNames[c][SOF]}sus4/${noteNames[dises][1]} - ${noteNames[c][SOF]}sus4/${noteNames[f][SOF]} - ${noteNames[c][SOF]}sus4/${noteNames[g][SOF]}`;
-    document.getElementById("chordProg1-18").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]}/${noteNames[c][SOF]} - ${noteNames[f][SOF]}/${noteNames[c][SOF]} - ${noteNames[gisas][1]}/${noteNames[c][SOF]} - ${noteNames[aisb][1]}/${noteNames[c][SOF]}`;
-    document.getElementById("chordProg1-19").innerHTML = `${noteNames[c][SOF]} - ${noteNames[cisdes][1]}/${noteNames[c][SOF]} - ${noteNames[d][SOF]}/${noteNames[c][SOF]} - ${noteNames[dises][1]}/${noteNames[c][SOF]} - ${noteNames[e][SOF]}/${noteNames[c][SOF]}`;
+    document.getElementById("chordProg1-15").innerHTML = `${noteNames[c][SOF]} - ${noteNames[c][SOF]}aug/${noteNames[fisges][6]} - ${noteNames[f][SOF]}△7`;
+    document.getElementById("chordProg1-16").innerHTML = `${noteNames[c][SOF]}△7 - ${noteNames[cisdes][2]}dim7 - ${noteNames[d][SOF]}m7 - V7`;
+    document.getElementById("chordProg1-17").innerHTML = `${noteNames[c][SOF]}sus4 - ${noteNames[c][SOF]}sus4/${noteNames[cisdes][3]} - ${noteNames[c][SOF]}sus4/${noteNames[dises][5]} - ${noteNames[c][SOF]}sus4/${noteNames[f][SOF]} - ${noteNames[c][SOF]}sus4/${noteNames[g][SOF]}`;
+    document.getElementById("chordProg1-18").innerHTML = `${noteNames[c][SOF]} - ${noteNames[g][SOF]}/${noteNames[c][SOF]} - ${noteNames[f][SOF]}/${noteNames[c][SOF]} - ${noteNames[gisas][9]}/${noteNames[c][SOF]} - ${noteNames[aisb][11]}/${noteNames[c][SOF]}`;
+    document.getElementById("chordProg1-19").innerHTML = `${noteNames[c][SOF]} - ${noteNames[cisdes][3]}/${noteNames[c][SOF]} - ${noteNames[d][SOF]}/${noteNames[c][SOF]} - ${noteNames[dises][5]}/${noteNames[c][SOF]} - ${noteNames[e][SOF]}/${noteNames[c][SOF]}`;
     document.getElementById("chordProg1-20").innerHTML = `${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[g][SOF]}7 - ${noteNames[f][SOF]}7 - ${noteNames[c][SOF]}7 - ${noteNames[g][SOF]}7`;
 
     //Ⅳ始まりのコード進行
@@ -550,18 +550,18 @@ function changeChordProgression() {
     document.getElementById("chordProg4-2").innerHTML = `${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m`;
     document.getElementById("chordProg4-3").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}m - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg4-4").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[c][SOF]} - ${noteNames[e][SOF]}`;
-    document.getElementById("chordProg4-5").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][0]}m(♭5) - ${noteNames[a][SOF]}m`;
-    document.getElementById("chordProg4-6").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][1]} - ${noteNames[aisb][1]}`;
-    document.getElementById("chordProg4-7").innerHTML = `${noteNames[f][SOF]} - ${noteNames[fisges][0]}m(♭5) - ${noteNames[g][SOF]} - ${noteNames[gisas][0]}m(♭5)`;
+    document.getElementById("chordProg4-5").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][8]}m(♭5) - ${noteNames[a][SOF]}m`;
+    document.getElementById("chordProg4-6").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[gisas][9]} - ${noteNames[aisb][11]}`;
+    document.getElementById("chordProg4-7").innerHTML = `${noteNames[f][SOF]} - ${noteNames[fisges][6]}m(♭5) - ${noteNames[g][SOF]} - ${noteNames[gisas][8]}m(♭5)`;
     document.getElementById("chordProg4-8").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m7 - ${noteNames[c][SOF]}7`;
     document.getElementById("chordProg4-9").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m7 - ${noteNames[d][SOF]}7`;
     document.getElementById("chordProg4-10").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[g][SOF]}7/${noteNames[f][SOF]} - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
     document.getElementById("chordProg4-11").innerHTML = `${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[a][SOF]}`;
-    document.getElementById("chordProg4-12").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][1]}dim7 - ${noteNames[d][SOF]}m7`;
-    document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][1]}△7 - ${noteNames[d][SOF]}m7`;
+    document.getElementById("chordProg4-12").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][5]}dim7 - ${noteNames[d][SOF]}m7`;
+    document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[dises][5]}△7 - ${noteNames[d][SOF]}m7`;
     document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[f][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}7`;
     document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][SOF]}△7 - ${noteNames[h][SOF]}m7(♭5)/${noteNames[f][SOF]} - ${noteNames[e][SOF]}m7 - ${noteNames[e][SOF]}dim7 - ${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7/${noteNames[d][SOF]} - ${noteNames[c][SOF]}Maj7 - ${noteNames[c][SOF]}6`;
-
+    
     //Ⅵ始まりのコード進行
     document.getElementById("chordProg6-1").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg6-2").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]}`;
@@ -570,33 +570,33 @@ function changeChordProgression() {
     document.getElementById("chordProg6-5").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[e][SOF]}m - ${noteNames[f][SOF]} - ${noteNames[g][SOF]}`;
     document.getElementById("chordProg6-6").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[c][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
     document.getElementById("chordProg6-7").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]}`;
-    document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[gisas][0]}aug - ${noteNames[c][SOF]}/${noteNames[g][SOF]} - ${noteNames[fisges][0]}m7(♭5)`;
+    document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[gisas][8]}aug - ${noteNames[c][SOF]}/${noteNames[g][SOF]} - ${noteNames[fisges][6]}m7(♭5)`;
     document.getElementById("chordProg6-9").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}m - ${noteNames[a][SOF]}m - ${noteNames[c][SOF]}m`;
     document.getElementById("chordProg6-10").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[h][SOF]} - ${noteNames[d][SOF]}m - ${noteNames[e][SOF]}`;
     document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][SOF]}m7 - ${noteNames[g][SOF]}m7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}△7`;
     document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[g][SOF]}/${noteNames[a][SOF]} - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[e][SOF]}m/${noteNames[a][SOF]}`;
     document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[d][SOF]}m - ${noteNames[g][SOF]} - ${noteNames[c][SOF]} - ${noteNames[f][SOF]} - ${noteNames[h][SOF]}m(♭5) - ${noteNames[e][SOF]}`;
-    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[fisges][0]}m(♭5)/${noteNames[f][SOF]} - ${noteNames[a][SOF]}m7`;
-    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7`;
+    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[f][SOF]}/${noteNames[a][SOF]} - ${noteNames[fisges][6]}m(♭5)/${noteNames[f][SOF]} - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][SOF]}m - ${noteNames[fisges][6]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7`;
 
     //その他のコード進行
     document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7 - ${noteNames[c][SOF]}`;
-    document.getElementById("chordProg8-2").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[cisdes][1]}7 - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-2").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[cisdes][3]}7 - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-3").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-4").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}m/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-5").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}dim/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-6").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[f][SOF]}aug/${noteNames[g][SOF]} - ${noteNames[c][SOF]}`;
-    document.getElementById("chordProg8-7").innerHTML = `${noteNames[f][SOF]}m7 - ${noteNames[aisb][1]}7 - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-7").innerHTML = `${noteNames[f][SOF]}m7 - ${noteNames[aisb][11]}7 - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-8").innerHTML = `${noteNames[g][SOF]}m7 - ${noteNames[c][SOF]}7 - ${noteNames[f][SOF]}`;
     document.getElementById("chordProg8-9").innerHTML = `${noteNames[h][SOF]}m7 - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m`;
     document.getElementById("chordProg8-10").innerHTML = `${noteNames[h][SOF]}m7(♭5) - ${noteNames[e][SOF]}7 - ${noteNames[a][SOF]}m`;
-    document.getElementById("chordProg8-11").innerHTML = `${noteNames[d][SOF]}m7(♭5) - ${noteNames[cisdes][1]}/${noteNames[f][SOF]} - ${noteNames[f][SOF]}dim/${noteNames[h][SOF]} - ${noteNames[c][SOF]}`;
+    document.getElementById("chordProg8-11").innerHTML = `${noteNames[d][SOF]}m7(♭5) - ${noteNames[cisdes][3]}/${noteNames[f][SOF]} - ${noteNames[f][SOF]}dim/${noteNames[h][SOF]} - ${noteNames[c][SOF]}`;
     document.getElementById("chordProg8-12").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7 - ${noteNames[c][SOF]}△7 - ${noteNames[a][SOF]}7`;
     document.getElementById("chordProg8-13").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[f][SOF]}△7 - ${noteNames[g][SOF]}`;
     document.getElementById("chordProg8-14").innerHTML = `${noteNames[d][SOF]}m7 - ${noteNames[e][SOF]}m7 - ${noteNames[f][SOF]}m7 - ${noteNames[g][SOF]}m7`;
     document.getElementById("chordProg8-15").innerHTML = `${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7/${noteNames[e][SOF]} - ${noteNames[d][SOF]}m7 - ${noteNames[g][SOF]}7/${noteNames[d][SOF]}`;
-    document.getElementById("chordProg8-16").innerHTML = `${noteNames[fisges][0]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
-    document.getElementById("chordProg8-17").innerHTML = `${noteNames[a][SOF]}5add9 - ${noteNames[f][SOF]}5add9 - ${noteNames[dises][1]}5add9 - ${noteNames[c][SOF]}5add9`;
+    document.getElementById("chordProg8-16").innerHTML = `${noteNames[fisges][6]}m7(♭5) - ${noteNames[f][SOF]}△7 - ${noteNames[e][SOF]}m7 - ${noteNames[a][SOF]}m7`;
+    document.getElementById("chordProg8-17").innerHTML = `${noteNames[a][SOF]}5add9 - ${noteNames[f][SOF]}5add9 - ${noteNames[dises][5]}5add9 - ${noteNames[c][SOF]}5add9`;
     document.getElementById("chordProg8-18").innerHTML = `${noteNames[d][SOF]}m - ${noteNames[e][SOF]}m/${noteNames[d][SOF]} - ${noteNames[f][SOF]}/${noteNames[d][SOF]} - ${noteNames[e][SOF]}m/${noteNames[d][SOF]}`;
     document.getElementById("chordProg8-19").innerHTML = `${noteNames[g][SOF]} - ${noteNames[f][SOF]} - ${noteNames[c][SOF]} - ${noteNames[g][SOF]}`;
     document.getElementById("chordProg8-20").innerHTML = `${noteNames[e][SOF]} - ${noteNames[f][SOF]} - ${noteNames[g][SOF]} - ${noteNames[f][SOF]}`;
