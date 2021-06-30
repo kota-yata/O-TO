@@ -20,7 +20,7 @@ const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "
 //英米式音名の多次元配列
 const noteNames =
     [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'C', 'C'],
-    ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'D♭', 'C#/D♭'],
+    ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'D♭', 'C#/D♭'],
     ['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'D'],
     ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'D#', 'D#', 'D#/E♭'],
     ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'E', 'E', 'D𝄪', 'E'],
@@ -360,8 +360,8 @@ const chordProgOne =
     ["リラックス", "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ", "ベースが段階的に上昇。凪な空気感。"],
     ["幻想的", "Ⅰ-♭Ⅵ-♭Ⅶ-♭Ⅵ", "メロディックメジャー的な響きを使いたいときに。"],
     ["午前2時の踏切に居そう", "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ", "参考曲：BUMP OF CHICKEN - 天体観測"],
-    ["温かみを感じる", "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", "トップノートを半音ずつ上げていくクリシェ。"],
-    ["サンボマスターしか勝たん", "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7", "このブラックアダーコードはサンボマスター。"],
+    ["温かみを感じる半音上昇", "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", "メジャーコードのトップノートを半音で上昇させるクリシェ。"],
+    ["サンボマスターしか勝たん", "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", "サンボマスターっぽいブラックアダーコードの使い方"],
     ["優雅", "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", "パッシング・ディミニッシュはいかが？"],
     ["壮大", "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", "仰々しくしたいときに。"],
     ["遊び心", "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", "ベースを固定しつつちょっと寄り道。"],
@@ -380,7 +380,7 @@ const chordProgFour =
     ["丸サ進行", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。"],
     ["オシャレ", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", "丸サ進行とはひと味違うオシャレさ。"],
     ["メロウな王道進行", "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", "「王道進行」に、さらに砂糖を振りかけた感じ。"],
-    ["自由・救済", "Ⅳ-Ⅴ-Ⅵ", "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。"],
+    ["解放・救済", "Ⅳ-Ⅴ-Ⅵ", "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。"],
     ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", "このパッシング・ディミニッシュはあまり出てこない印象。"],
     ["ゲーム音楽の香り", "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", "△7とm7を繰り返して半音ずつ下がっていく形。"],
     ["チンダル現象みがある", "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", "穏やかな昼下がりみたいな流れ。"],
@@ -388,17 +388,20 @@ const chordProgFour =
     ];
 
 const chordProgSix =
-    [["小室進行", "Ⅵm-Ⅳ-Ⅴ-Ⅰ", "最後にⅤ/Ⅶを追加されがち。"],
+    [["小室進行", "Ⅵm-Ⅳ-Ⅴ-Ⅰ", "最後にⅤ/Ⅶを追加しても使いやすい。"],
     ["ハリウッド映画にありそう", "Ⅵm-Ⅳ-Ⅰ-Ⅴ", "最終決戦へ向かっていけそう。"],
     ["オールラウンダー", "Ⅵm-Ⅴ-Ⅳ-Ⅴ", "どんなジャンルでも必要とされている。"],
     ["炎の呼吸", "Ⅵm-Ⅴ-Ⅳ-Ⅰ", "参考曲：LiSA - 炎"],
     ["洋楽っぽい", "Ⅵm-Ⅰ-Ⅴ-Ⅳ", "シンプルで使いやすい。"],
     ["鉄板のベース半音下降", "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", "みんな8億万回は聴いている。"],
     ["スタイリッシュ", "Ⅵm9-Ⅱm7-Ⅲm7", "研ぎ澄まされた都会的な響き。"],
+    ["情熱的", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", "力強くいきたい時に。"],
     ["お前はタンゴ？", "Ⅵm-Ⅱm-Ⅲ-Ⅵm", "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)"],
     ["クラシカルなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", "気分はバロック時代。"],
     ["近未来", "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", "ベースを固定しつつ上を動かす形。"],
+    ["困難を伴う前進", "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", "ベースが段階的に上昇。シリアスな空気感。"],
     ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", "マイナーコードのトップノートを半音で上昇させるクリシェ。"],
+    ["遂に自由に…", "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", "参考曲：Dream Theater - Finally Free"],
     ["領域展開", "Ⅵm7-Ⅴm7-Ⅰ7-Ⅳ△7", "参考曲：Eve - 廻廻奇譚"],
     ["ミスティックな質感", "Ⅵm-Ⅳm-Ⅵm-Ⅰm", "非現実な空間を想起させるような響き。"],
     ["ディストピア", "Ⅵm-Ⅶ-Ⅱm-Ⅲ", "不穏な感じを出したいときに。"],
@@ -450,10 +453,12 @@ function changeChordProgressionDegree() {
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
         //コード進行の俗称・所感を表示する
         document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][0]}`;
-        //コード進行の注釈ツールチップを指定する。
+        //コード進行の注釈を追加する。
         document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][1]}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -469,10 +474,12 @@ function changeChordProgressionDegree() {
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
         //コード進行の俗称・所感を表示する
         document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][0]}`;
-        //コード進行の注釈ツールチップを指定する。
+        //コード進行の注釈を追加する。
         document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][1]}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -488,10 +495,12 @@ function changeChordProgressionDegree() {
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
         //コード進行の俗称・所感を表示する
         document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][0]}`;
-        //コード進行の注釈ツールチップを指定する。
+        //コード進行の注釈を追加する。
         document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][1]}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -507,10 +516,12 @@ function changeChordProgressionDegree() {
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
         //コード進行の俗称・所感を表示する
         document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][0]}`;
-        //コード進行の注釈ツールチップを指定する。
+        //コード進行の注釈を追加する。
         document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][1]}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -562,7 +573,7 @@ function changeChordProgression() {
     document.getElementById("chordProg1-12").innerHTML = `${noteNames[c][2]} - ${noteNames[gisas][16]} - ${noteNames[aisb][19]} - ${noteNames[gisas][16]}`;
     document.getElementById("chordProg1-13").innerHTML = `${noteNames[c][2]}add9 - ${noteNames[a][17]}m7 - ${noteNames[g][14]} - ${noteNames[f][11]}`;
     document.getElementById("chordProg1-14").innerHTML = `${noteNames[c][2]} - ${noteNames[c][2]}aug - ${noteNames[c][2]}6 - ${noteNames[c][2]}7`;
-    document.getElementById("chordProg1-15").innerHTML = `${noteNames[c][2]} - ${noteNames[c][2]}aug/${noteNames[fisges][12]} - ${noteNames[f][11]}△7`;
+    document.getElementById("chordProg1-15").innerHTML = `${noteNames[c][2]} - ${noteNames[c][2]}aug/${noteNames[fisges][12]} - ${noteNames[f][11]}△7 - ${noteNames[g][14]}`;
     document.getElementById("chordProg1-16").innerHTML = `${noteNames[c][2]}△7 - ${noteNames[cisdes][3]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7`;
     document.getElementById("chordProg1-17").innerHTML = `${noteNames[c][2]}sus4 - ${noteNames[c][2]}sus4/${noteNames[cisdes][4]} - ${noteNames[c][2]}sus4/${noteNames[dises][7]} - ${noteNames[c][2]}sus4/${noteNames[f][11]} - ${noteNames[c][2]}sus4/${noteNames[g][14]}`;
     document.getElementById("chordProg1-18").innerHTML = `${noteNames[c][2]} - ${noteNames[g][14]}/${noteNames[c][2]} - ${noteNames[f][11]}/${noteNames[c][2]} - ${noteNames[gisas][16]}/${noteNames[c][2]} - ${noteNames[aisb][19]}/${noteNames[c][2]}`;
@@ -586,7 +597,6 @@ function changeChordProgression() {
     document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[f][11]}m7 - ${noteNames[e][8]}m7 - ${noteNames[a][17]}7`;
     document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[h][20]}m7(♭5)/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[e][8]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7/${noteNames[d][5]} - ${noteNames[c][2]}Maj7 - ${noteNames[c][2]}6`;
 
-
     //Ⅵ始まりのコード進行
     document.getElementById("chordProg6-1").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[c][2]}`;
     document.getElementById("chordProg6-2").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]} - ${noteNames[c][2]} - ${noteNames[g][14]}`;
@@ -595,15 +605,18 @@ function changeChordProgression() {
     document.getElementById("chordProg6-5").innerHTML = `${noteNames[a][17]}m - ${noteNames[c][2]} - ${noteNames[g][14]} - ${noteNames[f][11]}`;
     document.getElementById("chordProg6-6").innerHTML = `${noteNames[a][17]}m - ${noteNames[gisas][15]}aug - ${noteNames[c][2]}/${noteNames[g][14]} - ${noteNames[fisges][12]}m7(♭5)`;
     document.getElementById("chordProg6-7").innerHTML = `${noteNames[a][17]}m9 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
-    document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[e][8]} - ${noteNames[a][17]}m`;
-    document.getElementById("chordProg6-9").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[g][14]} - ${noteNames[c][2]} - ${noteNames[f][11]} - ${noteNames[h][20]}m(♭5) - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-10").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[a][17]} - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[e][8]}m/${noteNames[a][17]}`;
-    document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[fisges][12]}m(♭5)/${noteNames[a][17]} - ${noteNames[a][17]}m7`;
-    document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
-    document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
-    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
-
+    document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[g][14]} - ${noteNames[c][2]} - ${noteNames[g][14]}/${noteNames[h][20]}`;
+    document.getElementById("chordProg6-9").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[e][8]} - ${noteNames[a][17]}m`;
+    document.getElementById("chordProg6-10").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[g][14]} - ${noteNames[c][2]} - ${noteNames[f][11]} - ${noteNames[h][20]}m(♭5) - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[a][17]} - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[e][8]}m/${noteNames[a][17]}`;
+    document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[h][20]} - ${noteNames[c][2]} - ${noteNames[d][5]}m - ${noteNames[e][8]}sus4 - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[fisges][12]}m(♭5)/${noteNames[a][17]} - ${noteNames[a][17]}m7`;
+    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][17]}m - ${noteNames[e][8]}7/${noteNames[gisas][15]} - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m9 - ${noteNames[g][14]}sus4 - ${noteNames[g][14]}`;
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
+    document.getElementById("chordProg6-16").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
+    document.getElementById("chordProg6-17").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-18").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
+    
     //その他のコード進行
     document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][5]}m7 - ${noteNames[g][14]}7 - ${noteNames[c][2]}`;
     document.getElementById("chordProg8-2").innerHTML = `${noteNames[d][5]}m7 - ${noteNames[cisdes][4]}7 - ${noteNames[c][2]}`;
@@ -631,6 +644,15 @@ function changeChordProgression() {
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
 
+const chordnames =
+    [['Maj7', ''],
+    ['m7', 'm'],
+    ['7', ''],
+    ['m7(♭5)', 'm(♭5)'],
+    ['augMaj7', 'aug'],
+    ['dim7', 'm(♭5)'],
+    ['mMaj7', 'm'],
+    ];
 
 //コードネームを切り替えるためのスクリプト(ダイアトニックコード)
 document.getElementById("tonic_note"); function Chordschange() {
