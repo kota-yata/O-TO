@@ -19,18 +19,18 @@ const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "
 
 //英米式音名の多次元配列
 const noteNames =
-    [['C','C','C','B#','C','C','B#','C','C','B#','D𝄫','C','B#','C','C','B#','C','C','B#','C','C','B#','C'],
-    ['C#','D♭','D♭','C#','D♭','C#','C#','D♭','C#','C#','D♭','D♭','C#','D♭','C#','C#','D♭','C#','C#','D♭','C#','C#','C#/D♭'],
-    ['D','D','D','D','E𝄫','D','C𝄪','D','D','C𝄪','E𝄫','D','D','E𝄫','D','C𝄪','D','D','C𝄪','D','D','C𝄪','D'],
-    ['D#','E♭','E♭','D#','E♭','E♭','D#','E♭','D#','D#','E♭','E♭','D#','E♭','E♭','D#','E♭','D#','D#','E♭','D#','D#','D#/E♭'],
-    ['E','E','E','E','F♭','E','E','F♭','E','D𝄪','F♭','E','E','F♭','E','E','F♭','E','D𝄪','E','E','D𝄪','E'],
-    ['F','F','F','E#','F','F','E#','F','F','E#','G𝄫','F','E#','F','F','E#','F','F','E#','F','E#','E#','F'],
-    ['F#','G♭','F#','F#','G♭','F#','F#','G♭','F#','F#','G♭','G♭','F#','G♭','F#','F#','G♭','F#','F#','G♭','F#','E𝄪','F#/G♭'],
-    ['G','G','G','F𝄪','G','G','F𝄪','G','G','F𝄪','A𝄫','G','G','A𝄫','G','F𝄪','G','G','F𝄪','G','G','F𝄪','G'],
-    ['G#','A♭','A♭','G#','A♭','G#','G#','A♭','G#','G#','A♭','A♭','G#','A♭','A♭','G#','A♭','G#','G#','A♭','G#','G#','G#/A♭'],
-    ['A','A','A','A','B𝄫','A','G𝄪','A','A','G𝄪','A','A','A','B𝄫','A','A','B𝄫','A','G𝄪','A','A','G𝄪','A'],
-    ['A#','B♭','B♭','A#','B♭','B♭','A#','B♭','A#','A#','B♭','B♭','A#','B♭','B♭','A#','B♭','B♭','A#','B♭','A#','A#','A#/B♭'],
-    ['B','B','B','B','C♭','B','B','C♭','B','A𝄪','C♭','B','B','C♭','B','B','C♭','B','B','C♭','B','A𝄪','B'],];
+    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C'],
+    ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'C#/D♭'],
+    ['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'D'],
+    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'D#', 'D#', 'D#/E♭'],
+    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'E', 'E', 'D𝄪', 'E'],
+    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'F', 'E#', 'E#', 'F'],
+    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'E𝄪', 'F#/G♭'],
+    ['G', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'A𝄫', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'G'],
+    ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'G#', 'G#', 'G#/A♭'],
+    ['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'A', 'A', 'G𝄪', 'A'],
+    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'A#', 'A#', 'A#/B♭'],
+    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'B'],];
 
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -402,6 +402,7 @@ const chordProgSix =
     ["困難を伴う前進", "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", "ベースが段階的に上昇。シリアスな空気感。"],
     ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", "マイナーコードのトップノートを半音で上昇させるクリシェ。"],
     ["遂に自由に…", "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", "参考曲：Dream Theater - Finally Free"],
+    ["ミステリー小説", "Ⅵm-Ⅳ7-Ⅲ7", "怪しく不思議、ちょっとコミカル。"],
     ["領域展開", "Ⅵm7-Ⅴm7-Ⅰ7-Ⅳ△7", "参考曲：Eve - 廻廻奇譚"],
     ["ミスティックな質感", "Ⅵm-Ⅳm-Ⅵm-Ⅰm", "非現実な空間を想起させるような響き。"],
     ["ディストピア", "Ⅵm-Ⅶ-Ⅱm-Ⅲ", "不穏な感じを出したいときに。"],
@@ -612,11 +613,12 @@ function changeChordProgression() {
     document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[h][20]} - ${noteNames[c][2]} - ${noteNames[d][5]}m - ${noteNames[e][8]}sus4 - ${noteNames[e][8]}`;
     document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[fisges][12]}m(♭5)/${noteNames[a][17]} - ${noteNames[a][17]}m7`;
     document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][17]}m - ${noteNames[e][8]}7/${noteNames[gisas][15]} - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m9 - ${noteNames[g][14]}sus4 - ${noteNames[g][14]}`;
-    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
-    document.getElementById("chordProg6-16").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
-    document.getElementById("chordProg6-17").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-18").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
-    
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}7 - ${noteNames[e][8]}7`;
+    document.getElementById("chordProg6-16").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
+    document.getElementById("chordProg6-17").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
+    document.getElementById("chordProg6-18").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-19").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
+
     //その他のコード進行
     document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][5]}m7 - ${noteNames[g][14]}7 - ${noteNames[c][2]}`;
     document.getElementById("chordProg8-2").innerHTML = `${noteNames[d][5]}m7 - ${noteNames[cisdes][4]}7 - ${noteNames[c][2]}`;
