@@ -377,12 +377,14 @@ const chordProgFour =
     ["涙を誘うウェポン", "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm", "みんな大好きパッシング・ディミニッシュ"],
     ["アニソン風味", "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ", "サビの最後あたりに入れると効果抜群！"],
     ["サビ前の常連", "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)", "「これからサビに入りますよ～」感が出ます。"],
+    ["解放・救済", "Ⅳ-Ⅴ-Ⅵ", "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。"],
+    ["内なる敵", "Ⅳ-Ⅵm-Ⅰm-Ⅴ/Ⅱ-♭Ⅶm/♭Ⅱ-Ⅳ/Ⅰ-Ⅶdim7-Ⅲ7/#Ⅴ", "参考曲：Dream Theater - The Enemy Inside"],
+    ["335号室", "Ⅳ△7-Ⅰadd9/Ⅲ-Ⅱm7-Ⅲm7", "参考曲：Larry Carlton - ROOM 335"],
+    ["ゲーム音楽の香り", "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", "△7とm7を繰り返して半音ずつ下がっていく形。"],
+    ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", "このパッシング・ディミニッシュはあまり出てこない印象。"],
     ["丸サ進行", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。"],
     ["オシャレ", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", "丸サ進行とはひと味違うオシャレさ。"],
     ["メロウな王道進行", "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", "「王道進行」に、さらに砂糖を振りかけた感じ。"],
-    ["解放・救済", "Ⅳ-Ⅴ-Ⅵ", "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。"],
-    ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", "このパッシング・ディミニッシュはあまり出てこない印象。"],
-    ["ゲーム音楽の香り", "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", "△7とm7を繰り返して半音ずつ下がっていく形。"],
     ["チンダル現象みがある", "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", "穏やかな昼下がりみたいな流れ。"],
     ["綺麗", "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6", "「美しさ」への一つの回答。"],
     ];
@@ -397,7 +399,8 @@ const chordProgSix =
     ["スタイリッシュ", "Ⅵm9-Ⅱm7-Ⅲm7", "研ぎ澄まされた都会的な響き。"],
     ["情熱的", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", "力強くいきたい時に。"],
     ["お前はタンゴ？", "Ⅵm-Ⅱm-Ⅲ-Ⅵm", "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)"],
-    ["クラシカルなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", "気分はバロック時代。"],
+    ["バロックなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", "気分はバロック時代。"],
+    ["貴様の形状", "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", "参考曲：Ed Sheeran - Shape of You"],
     ["近未来", "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", "ベースを固定しつつ上を動かす形。"],
     ["困難を伴う前進", "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", "ベースが段階的に上昇。シリアスな空気感。"],
     ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", "マイナーコードのトップノートを半音で上昇させるクリシェ。"],
@@ -589,14 +592,16 @@ function changeChordProgression() {
     document.getElementById("chordProg4-5").innerHTML = `${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[gisas][15]}m(♭5) - ${noteNames[a][17]}m`;
     document.getElementById("chordProg4-6").innerHTML = `${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[gisas][16]} - ${noteNames[aisb][19]}`;
     document.getElementById("chordProg4-7").innerHTML = `${noteNames[f][11]} - ${noteNames[fisges][12]}m(♭5) - ${noteNames[g][14]} - ${noteNames[gisas][15]}m(♭5)`;
-    document.getElementById("chordProg4-8").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[c][2]}7`;
-    document.getElementById("chordProg4-9").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[d][5]}7`;
-    document.getElementById("chordProg4-10").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[g][14]}7/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[a][17]}m7`;
-    document.getElementById("chordProg4-11").innerHTML = `${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[a][17]}`;
+    document.getElementById("chordProg4-8").innerHTML = `${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[a][17]}`;
+    document.getElementById("chordProg4-9").innerHTML = `${noteNames[f][11]} - ${noteNames[a][17]}m - ${noteNames[c][2]}m - ${noteNames[g][14]}/${noteNames[d][5]} - ${noteNames[aisb][19]}m/${noteNames[cisdes][4]} - ${noteNames[f][11]}/${noteNames[c][2]} - ${noteNames[h][20]}dim7 - ${noteNames[e][8]}7/${noteNames[gisas][15]}`;
+    document.getElementById("chordProg4-10").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[c][2]}add9/${noteNames[e][8]} - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
+    document.getElementById("chordProg4-11").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}m7 - ${noteNames[dises][7]}△7 - ${noteNames[d][5]}m7`;
     document.getElementById("chordProg4-12").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}m7 - ${noteNames[dises][7]}dim7 - ${noteNames[d][5]}m7`;
-    document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}m7 - ${noteNames[dises][7]}△7 - ${noteNames[d][5]}m7`;
-    document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[f][11]}m7 - ${noteNames[e][8]}m7 - ${noteNames[a][17]}7`;
-    document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[h][20]}m7(♭5)/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[e][8]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7/${noteNames[d][5]} - ${noteNames[c][2]}Maj7 - ${noteNames[c][2]}6`;
+    document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[c][2]}7`;
+    document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[d][5]}7`;
+    document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[g][14]}7/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[a][17]}m7`;
+    document.getElementById("chordProg4-16").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[f][11]}m7 - ${noteNames[e][8]}m7 - ${noteNames[a][17]}7`;
+    document.getElementById("chordProg4-17").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[h][20]}m7(♭5)/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[e][8]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7/${noteNames[d][5]} - ${noteNames[c][2]}Maj7 - ${noteNames[c][2]}6`;
 
     //Ⅵ始まりのコード進行
     document.getElementById("chordProg6-1").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[c][2]}`;
@@ -609,15 +614,16 @@ function changeChordProgression() {
     document.getElementById("chordProg6-8").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[g][14]} - ${noteNames[c][2]} - ${noteNames[g][14]}/${noteNames[h][20]}`;
     document.getElementById("chordProg6-9").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[e][8]} - ${noteNames[a][17]}m`;
     document.getElementById("chordProg6-10").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m - ${noteNames[g][14]} - ${noteNames[c][2]} - ${noteNames[f][11]} - ${noteNames[h][20]}m(♭5) - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[a][17]} - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[e][8]}m/${noteNames[a][17]}`;
-    document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[h][20]} - ${noteNames[c][2]} - ${noteNames[d][5]}m - ${noteNames[e][8]}sus4 - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[fisges][12]}m(♭5)/${noteNames[a][17]} - ${noteNames[a][17]}m7`;
-    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][17]}m - ${noteNames[e][8]}7/${noteNames[gisas][15]} - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m9 - ${noteNames[g][14]}sus4 - ${noteNames[g][14]}`;
-    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}7 - ${noteNames[e][8]}7`;
-    document.getElementById("chordProg6-16").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
-    document.getElementById("chordProg6-17").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
-    document.getElementById("chordProg6-18").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
-    document.getElementById("chordProg6-19").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
+    document.getElementById("chordProg6-11").innerHTML = `${noteNames[a][17]}m - ${noteNames[d][5]}m7 - ${noteNames[f][11]} - ${noteNames[g][14]}`;
+    document.getElementById("chordProg6-12").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[a][17]} - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[e][8]}m/${noteNames[a][17]}`;
+    document.getElementById("chordProg6-13").innerHTML = `${noteNames[a][17]}m - ${noteNames[g][14]}/${noteNames[h][20]} - ${noteNames[c][2]} - ${noteNames[d][5]}m - ${noteNames[e][8]}sus4 - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-14").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}/${noteNames[a][17]} - ${noteNames[fisges][12]}m(♭5)/${noteNames[a][17]} - ${noteNames[a][17]}m7`;
+    document.getElementById("chordProg6-15").innerHTML = `${noteNames[a][17]}m - ${noteNames[e][8]}7/${noteNames[gisas][15]} - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m9 - ${noteNames[g][14]}sus4 - ${noteNames[g][14]}`;
+    document.getElementById("chordProg6-16").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}7 - ${noteNames[e][8]}7`;
+    document.getElementById("chordProg6-17").innerHTML = `${noteNames[a][17]}m7 - ${noteNames[g][14]}m7 - ${noteNames[c][2]}7 - ${noteNames[f][11]}△7`;
+    document.getElementById("chordProg6-18").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]}m - ${noteNames[a][17]}m - ${noteNames[c][2]}m`;
+    document.getElementById("chordProg6-19").innerHTML = `${noteNames[a][17]}m - ${noteNames[h][20]} - ${noteNames[d][5]}m - ${noteNames[e][8]}`;
+    document.getElementById("chordProg6-20").innerHTML = `${noteNames[a][17]}m - ${noteNames[fisges][12]}m7(♭5) - ${noteNames[f][11]}△7 - ${noteNames[d][5]}m7 - ${noteNames[e][8]}m7`;
 
     //その他のコード進行
     document.getElementById("chordProg8-1").innerHTML = `${noteNames[d][5]}m7 - ${noteNames[g][14]}7 - ${noteNames[c][2]}`;
@@ -1069,6 +1075,71 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
 
+    } else if (paint_diatonic_chords == 8) {
+        document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+
+        document.getElementById("Major_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+
+    } else if (paint_diatonic_chords == 9) {
+        document.getElementById("Major_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+
+        document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+    } else if (paint_diatonic_chords == 10) {
+        document.getElementById("Major_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_Minor_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+
+        document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+    } else if (paint_diatonic_chords == 11) {
+        document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
     };
 };
 
