@@ -13,11 +13,14 @@ function roundToThree(num) {
 const note_name = ["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"];
 const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
-const japan_note_name = ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", "ヘ", "嬰ヘ/変ト", "ト", "嬰ト/変イ", "イ", "嬰イ/変ロ", "ロ"];
-const italy_note_name = ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"];
-const germany_note_name = ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"];
 
-//英米式音名の多次元配列
+const EIJG =
+    [["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"],
+    ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"],
+    ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", "ヘ", "嬰ヘ/変ト", "ト", "嬰ト/変イ", "イ", "嬰イ/変ロ", "ロ"],
+    ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"]];
+
+//英・米式音名の多次元配列
 const noteNames =
     [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C'],
     ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'C#/D♭'],
@@ -30,7 +33,7 @@ const noteNames =
     ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'G#', 'G#', 'G#/A♭'],
     ['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'A', 'A', 'G𝄪', 'A'],
     ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'A#', 'A#', 'A#/B♭'],
-    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'B'],];
+    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'A𝄪', 'B']];
 
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -143,6 +146,21 @@ let sf_six = [0]
 
 //1分のミリ秒数
 let one_minutes = 60000;
+
+
+//音名の表示形式を英米式/イタリア式/日本式/ドイツ式に切り替えるスクリプト
+function ChangeEIJG() {
+    let chord_root_name_number = document.getElementById("chord_root_name").value;
+    let key_signature_names = document.getElementById("key_signature_names").value;
+
+    num = 0;
+
+    for (let i = 0; i < 12; i++) {
+        document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(Number(chord_root_name_number) + num, 12)];
+        num = num + 1;
+    };
+};
+
 
 //転調の種類を判別するためのスクリプト(転調の間隔)
 function modulation() {
@@ -1165,153 +1183,6 @@ function ChordschangeAndChordsAndModeChange() {
 };
 
 
-
-//音名の表示形式を切り替えるスクリプト
-//英米式
-document.getElementById("chord_root_name"); function ChangeChordRoot() {
-
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
-
-    let tonic = mod(Number(chord_root_name_number) - 0, 12);
-    let t1 = mod(Number(chord_root_name_number) + 1, 12);
-    let t2 = mod(Number(chord_root_name_number) + 2, 12);
-    let t3 = mod(Number(chord_root_name_number) + 3, 12);
-    let t4 = mod(Number(chord_root_name_number) + 4, 12);
-    let t5 = mod(Number(chord_root_name_number) + 5, 12);
-    let t6 = mod(Number(chord_root_name_number) + 6, 12);
-    let t7 = mod(Number(chord_root_name_number) + 7, 12);
-    let t8 = mod(Number(chord_root_name_number) + 8, 12);
-    let t9 = mod(Number(chord_root_name_number) + 9, 12);
-    let t10 = mod(Number(chord_root_name_number) + 10, 12);
-    let t11 = mod(Number(chord_root_name_number) + 11, 12);
-
-    document.getElementById("chord_0").innerHTML = note_name[tonic];
-    document.getElementById("chord_1").innerHTML = note_name[t1];
-    document.getElementById("chord_2").innerHTML = note_name[t2];
-    document.getElementById("chord_3").innerHTML = note_name[t3];
-    document.getElementById("chord_4").innerHTML = note_name[t4];
-    document.getElementById("chord_5").innerHTML = note_name[t5];
-    document.getElementById("chord_6").innerHTML = note_name[t6];
-    document.getElementById("chord_7").innerHTML = note_name[t7];
-    document.getElementById("chord_8").innerHTML = note_name[t8];
-    document.getElementById("chord_9").innerHTML = note_name[t9];
-    document.getElementById("chord_10").innerHTML = note_name[t10];
-    document.getElementById("chord_11").innerHTML = note_name[t11];
-};
-
-//イタリア式
-document.getElementById("chord_root_name"); function italyChangeChordRoot() {
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
-
-    let tonic = mod(Number(chord_root_name_number) - 0, 12);
-    let t1 = mod(Number(chord_root_name_number) + 1, 12);
-    let t2 = mod(Number(chord_root_name_number) + 2, 12);
-    let t3 = mod(Number(chord_root_name_number) + 3, 12);
-    let t4 = mod(Number(chord_root_name_number) + 4, 12);
-    let t5 = mod(Number(chord_root_name_number) + 5, 12);
-    let t6 = mod(Number(chord_root_name_number) + 6, 12);
-    let t7 = mod(Number(chord_root_name_number) + 7, 12);
-    let t8 = mod(Number(chord_root_name_number) + 8, 12);
-    let t9 = mod(Number(chord_root_name_number) + 9, 12);
-    let t10 = mod(Number(chord_root_name_number) + 10, 12);
-    let t11 = mod(Number(chord_root_name_number) + 11, 12);
-
-    document.getElementById("chord_0").innerHTML = italy_note_name[tonic];
-    document.getElementById("chord_1").innerHTML = italy_note_name[t1];
-    document.getElementById("chord_2").innerHTML = italy_note_name[t2];
-    document.getElementById("chord_3").innerHTML = italy_note_name[t3];
-    document.getElementById("chord_4").innerHTML = italy_note_name[t4];
-    document.getElementById("chord_5").innerHTML = italy_note_name[t5];
-    document.getElementById("chord_6").innerHTML = italy_note_name[t6];
-    document.getElementById("chord_7").innerHTML = italy_note_name[t7];
-    document.getElementById("chord_8").innerHTML = italy_note_name[t8];
-    document.getElementById("chord_9").innerHTML = italy_note_name[t9];
-    document.getElementById("chord_10").innerHTML = italy_note_name[t10];
-    document.getElementById("chord_11").innerHTML = italy_note_name[t11];
-};
-
-//日本式
-document.getElementById("chord_root_name"); function japanChangeChordRoot() {
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
-
-    let tonic = mod(Number(chord_root_name_number) - 0, 12);
-    let t1 = mod(Number(chord_root_name_number) + 1, 12);
-    let t2 = mod(Number(chord_root_name_number) + 2, 12);
-    let t3 = mod(Number(chord_root_name_number) + 3, 12);
-    let t4 = mod(Number(chord_root_name_number) + 4, 12);
-    let t5 = mod(Number(chord_root_name_number) + 5, 12);
-    let t6 = mod(Number(chord_root_name_number) + 6, 12);
-    let t7 = mod(Number(chord_root_name_number) + 7, 12);
-    let t8 = mod(Number(chord_root_name_number) + 8, 12);
-    let t9 = mod(Number(chord_root_name_number) + 9, 12);
-    let t10 = mod(Number(chord_root_name_number) + 10, 12);
-    let t11 = mod(Number(chord_root_name_number) + 11, 12);
-
-    document.getElementById("chord_0").innerHTML = japan_note_name[tonic];
-    document.getElementById("chord_1").innerHTML = japan_note_name[t1];
-    document.getElementById("chord_2").innerHTML = japan_note_name[t2];
-    document.getElementById("chord_3").innerHTML = japan_note_name[t3];
-    document.getElementById("chord_4").innerHTML = japan_note_name[t4];
-    document.getElementById("chord_5").innerHTML = japan_note_name[t5];
-    document.getElementById("chord_6").innerHTML = japan_note_name[t6];
-    document.getElementById("chord_7").innerHTML = japan_note_name[t7];
-    document.getElementById("chord_8").innerHTML = japan_note_name[t8];
-    document.getElementById("chord_9").innerHTML = japan_note_name[t9];
-    document.getElementById("chord_10").innerHTML = japan_note_name[t10];
-    document.getElementById("chord_11").innerHTML = japan_note_name[t11];
-};
-
-//ドイツ式
-document.getElementById("chord_root_name"); function germanyChangeChordRoot() {
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
-
-    let tonic = mod(Number(chord_root_name_number) - 0, 12);
-    let t1 = mod(Number(chord_root_name_number) + 1, 12);
-    let t2 = mod(Number(chord_root_name_number) + 2, 12);
-    let t3 = mod(Number(chord_root_name_number) + 3, 12);
-    let t4 = mod(Number(chord_root_name_number) + 4, 12);
-    let t5 = mod(Number(chord_root_name_number) + 5, 12);
-    let t6 = mod(Number(chord_root_name_number) + 6, 12);
-    let t7 = mod(Number(chord_root_name_number) + 7, 12);
-    let t8 = mod(Number(chord_root_name_number) + 8, 12);
-    let t9 = mod(Number(chord_root_name_number) + 9, 12);
-    let t10 = mod(Number(chord_root_name_number) + 10, 12);
-    let t11 = mod(Number(chord_root_name_number) + 11, 12);
-
-    document.getElementById("chord_0").innerHTML = germany_note_name[tonic];
-    document.getElementById("chord_1").innerHTML = germany_note_name[t1];
-    document.getElementById("chord_2").innerHTML = germany_note_name[t2];
-    document.getElementById("chord_3").innerHTML = germany_note_name[t3];
-    document.getElementById("chord_4").innerHTML = germany_note_name[t4];
-    document.getElementById("chord_5").innerHTML = germany_note_name[t5];
-    document.getElementById("chord_6").innerHTML = germany_note_name[t6];
-    document.getElementById("chord_7").innerHTML = germany_note_name[t7];
-    document.getElementById("chord_8").innerHTML = germany_note_name[t8];
-    document.getElementById("chord_9").innerHTML = germany_note_name[t9];
-    document.getElementById("chord_10").innerHTML = germany_note_name[t10];
-    document.getElementById("chord_11").innerHTML = germany_note_name[t11];
-};
-
-
-//音名の表示形式を変更するスクリプト
-document.getElementById("key_signature_names"); function keySignatureNames() {
-
-    let key_signature_names = document.getElementById("key_signature_names").value;
-
-    if (key_signature_names == 0) {
-        ChangeChordRoot();
-    } else if (key_signature_names == 1) {
-        italyChangeChordRoot();
-    } else if (key_signature_names == 2) {
-        japanChangeChordRoot();
-    } else if (key_signature_names == 3) {
-        germanyChangeChordRoot();
-    } else {
-        ChangeChordRoot();
-    }
-
-};
-
 //コードネームに対応する場所の色を変更する
 document.getElementById("chord_name"); function ChangeChords() {
 
@@ -1415,7 +1286,7 @@ function scaleKeySignature() {
 
     ChangeChords();
 
-    keySignatureNames();
+    ChangeEIJG();
 
     let scale_binary = document.getElementById("chord_name").value;
     let scale_tonic_num = document.getElementById("chord_root_name").value;
@@ -2093,7 +1964,7 @@ let onoff_11 = 0;
 //モーダルインターチェンジを表示するスクリプト
 function keyplus() {
 
-    keySignatureNames();
+    ChangeEIJG();
 
     let chord_root_name = document.getElementById("chord_root_name").value
 
