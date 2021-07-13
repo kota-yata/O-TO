@@ -402,6 +402,7 @@ const chordProgFour =
     ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", "このパッシング・ディミニッシュはあまり出てこない印象。"],
     ["丸サ進行", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。"],
     ["オシャレ", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", "丸サ進行とはひと味違うオシャレさ。"],
+    ["リディアン", "Ⅳ-Ⅴ/Ⅳ", "リディアン・モードを取り入れたい時に。"],
     ["メロウな王道進行", "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", "「王道進行」に、さらに砂糖を振りかけた感じ。"],
     ["チンダル現象みがある", "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", "穏やかな昼下がりみたいな流れ。"],
     ["綺麗", "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6", "「美しさ」への一つの回答。"],
@@ -617,9 +618,10 @@ function changeChordProgression() {
     document.getElementById("chordProg4-12").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}m7 - ${noteNames[dises][7]}dim7 - ${noteNames[d][5]}m7`;
     document.getElementById("chordProg4-13").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[c][2]}7`;
     document.getElementById("chordProg4-14").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[e][8]}7 - ${noteNames[a][17]}m7 - ${noteNames[d][5]}7`;
-    document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[g][14]}7/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[a][17]}m7`;
-    document.getElementById("chordProg4-16").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[f][11]}m7 - ${noteNames[e][8]}m7 - ${noteNames[a][17]}7`;
-    document.getElementById("chordProg4-17").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[h][20]}m7(♭5)/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[e][8]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7/${noteNames[d][5]} - ${noteNames[c][2]}Maj7 - ${noteNames[c][2]}6`;
+    document.getElementById("chordProg4-15").innerHTML = `${noteNames[f][11]} - ${noteNames[g][14]}/${noteNames[f][11]}`;
+    document.getElementById("chordProg4-16").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[g][14]}7/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[a][17]}m7`;
+    document.getElementById("chordProg4-17").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[f][11]}m7 - ${noteNames[e][8]}m7 - ${noteNames[a][17]}7`;
+    document.getElementById("chordProg4-18").innerHTML = `${noteNames[f][11]}△7 - ${noteNames[h][20]}m7(♭5)/${noteNames[f][11]} - ${noteNames[e][8]}m7 - ${noteNames[e][8]}dim7 - ${noteNames[d][5]}m7 - ${noteNames[g][14]}7/${noteNames[d][5]} - ${noteNames[c][2]}Maj7 - ${noteNames[c][2]}6`;
 
     //Ⅵ始まりのコード進行
     document.getElementById("chordProg6-1").innerHTML = `${noteNames[a][17]}m - ${noteNames[f][11]} - ${noteNames[g][14]} - ${noteNames[c][2]}`;
