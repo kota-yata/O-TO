@@ -106,6 +106,7 @@ scale_Container =
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0 }
     ];
 
+    
 //1分のミリ秒数
 let one_minutes = 60000;
 
