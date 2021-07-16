@@ -40,19 +40,7 @@ const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolyd
 const after_mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
 
 //調号の数を配列に格納する。
-const key_signature =
-    ["(#・♭×0)",
-        "(♭×5)",
-        "(#×2)",
-        "(♭×3)",
-        "(#×4)",
-        "(♭×1)",
-        "(#・♭×6)",
-        "(#×1)",
-        "(♭×4)",
-        "(#×3)",
-        "(♭×2)",
-        "(#×5)"];
+const key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#・♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 
 const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
@@ -60,155 +48,66 @@ const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "
 
 scale_Container =
     //メジャースケールファミリー
-    [{ englishName: "Major(Ionian)", JapaneseName: "メジャー(アイオニアン)", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0 },
-    { englishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2 },
-    { englishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { englishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { englishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
-    { englishName: "Minor(Aeolian)", JapaneseName: "マイナー(エオリアン)", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9 },
-    { englishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11 },
+    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン/長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0 },
+    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2 },
+    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
+    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
+    { EnglishName: "Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9 },
+    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11 },
 
     //ハーモニックマイナースケールファミリー
-    { englishName: "Harmonic minor", JapaneseName: "ハーモニック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9 },
-    { englishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11 },
-    { englishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0 },
-    { englishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
-    { englishName: "Phrygian dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { englishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { englishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8 },
+    { EnglishName: "Harmonic minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9 },
+    { EnglishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11 },
+    { EnglishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0 },
+    { EnglishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
+    { EnglishName: "Phrygian dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
+    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8 },
 
     //メロディックマイナースケールファミリー
-    { englishName: "Melodic minor", JapaneseName: "メロディック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9 },
-    { englishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11 },
-    { englishName: "Lydian augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0 },
-    { englishName: "Lydian dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
-    { englishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { englishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6 },
-    { englishName: "Super Locrian", JapaneseName: "スーパーロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
+    { EnglishName: "Melodic minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9 },
+    { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11 },
+    { EnglishName: "Lydian augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0 },
+    { EnglishName: "Lydian dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
+    { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6 },
+    { EnglishName: "Super Locrian", JapaneseName: "スーパーロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
 
     //ハーモニックメジャースケールファミリー
-    { englishName: "Harmonic major", JapaneseName: "ハーモニック・メジャー", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0 },
-    { englishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2 },
-    { englishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { englishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { englishName: "Mixolydian ♭2nd", JapaneseName: "ミクソリディアン♭2nd", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
-    { englishName: "Lydian ♯2nd ♯5th", JapaneseName: "リディアン♯2nd ♯5th", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10 },
-    { englishName: "Locrian ♭♭7th", JapaneseName: "ロクリアン♭♭7th", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11 },
+    { EnglishName: "Harmonic major", JapaneseName: "メロディック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0 },
+    { EnglishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2 },
+    { EnglishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
+    { EnglishName: "Mixolydian ♭2nd", JapaneseName: "ミクソリディアン♭2nd", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
+    { EnglishName: "Lydian ♯2nd ♯5th", JapaneseName: "リディアン♯2nd ♯5th", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10 },
+    { EnglishName: "Locrian ♭♭7th", JapaneseName: "ロクリアン♭♭7th", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11 },
 
     //メロディック・メジャー
-    { englishName: "Melodic Major", JapaneseName: "メロディック・メジャー", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0 },
+    { EnglishName: "Melodic Major", JapaneseName: "ハーモニック・メジャー/旋律的長音階", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0 },
 
     //ペンタ
-    { englishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
-    { englishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9 },
-    { englishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
-    { englishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9 },
+    { EnglishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
+    { EnglishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9 },
+    { EnglishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
+    { EnglishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9 },
 
     //和風スケール
-    { englishName: "Insen", JapaneseName: "陰音階(上行系)", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4 },
-    { englishName: "In/Sakura pentatonic", JapaneseName: "陰音階(下行形)", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4 },
-    { englishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7 },
-    { englishName: "Ryukyu", JapaneseName: "琉球・沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0 },
+    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7 },
+    { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4 },
+    { EnglishName: "In/Sakura pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4 },
+    { EnglishName: "Ryukyu", JapaneseName: "琉球音階/沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0 },
 
     //その他のスケール
-    { englishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
-    { englishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { englishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7 },
-    { englishName: "Half whole diminished", JapaneseName: "コンビネーション・オブ・ディミニッシュト", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0 },
-    { englishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0 }
+    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
+    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7 },
+    { EnglishName: "Half whole diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0 },
+    { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0 }
     ];
-
-console.log(scale_Container[0]['ScaleNumBinary'][1]);
-
-//スケールの情報を配列に格納する。
-//メジャースケールファミリー
-const scale_Ionian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
-const scale_Dorian = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0];
-const scale_Phrygian = [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0];
-const scale_Lydian = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1];
-const scale_Mixolydian = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0];
-const scale_Aeolian = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0];
-const scale_Locrian = [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0];
-
-//ハーモニックマイナースケールファミリー
-const scale_Harmonic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1];
-const scale_Ionian_sharp_5th = [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1];
-const scale_Phrygian_dominant = [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0];
-
-//メロディックマイナースケールファミリー
-const scale_Melodic_minor = [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1];
-const scale_Lydian_augmented = [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
-const scale_Lydian_dominant = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0];
-const scale_Melodic_Major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0];
-const scale_Altered = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0];
-
-//ハーモニックメジャースケールファミリー
-const scale_Harmonic_major = [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1];
-const scale_Phrygian_flat_4th = [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0];
-const scale_Mixolydian_flat_2nd = [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0];
-
-
-const scale_Spanish_Phrygian = [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0];
-
-const scale_Whole_Tone = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
-const scale_Half_whole_diminished = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0];
-const scale_Blues_Major_pentatonic = [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0];
-const scale_Blues_Minor_pentatonic = [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0];
-
-const scale_insen = [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0];
-const scale_in = [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0];
-const scale_ritsu = [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0];
-const scale_ryukyu = [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1];
-
-const scale_Chromatic = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-
-
-//入力情報を格納する変数（転調元のキーから考える）
-let note_number = [0]
-let mode_number = [0]
-let after_mode_number = [0]
-
-//入力情報を格納する変数（転調の種類）
-let b_n_num = [0]
-let b_m_num = [0]
-let a_n_num = [0]
-let a_m_numb = [0]
-
-let b_key_num = [0]
-let a_key_num = [0]
-let modulation_num = [0]
-
-//転調後の主音を示す番号を格納する変数。
-let note_sf_zore = [0]
-let note_s_one = [0]
-let note_f_one = [0]
-let note_s_two = [0]
-let note_f_two = [0]
-let note_s_three = [0]
-let note_f_three = [0]
-let note_s_four = [0]
-let note_f_four = [0]
-let note_s_five = [0]
-let note_f_five = [0]
-let note_sf_six = [0]
-
-//転調後の調号を示す番号を格納する変数。
-let sf_zore = [0]
-let s_one = [0]
-let f_one = [0]
-let s_two = [0]
-let f_two = [0]
-let s_three = [0]
-let f_three = [0]
-let s_four = [0]
-let f_four = [0]
-let s_five = [0]
-let f_five = [0]
-let sf_six = [0]
 
 //1分のミリ秒数
 let one_minutes = 60000;
-
 
 //音名の表示形式を英米式/イタリア式/日本式/ドイツ式に切り替えるスクリプト
 function ChangeEIJG() {
@@ -226,14 +125,14 @@ function ChangeEIJG() {
 
 //転調の種類を判別するためのスクリプト(転調の間隔)
 function modulation() {
-    let b_note_num = document.getElementById("b_note").value;
-    let b_mode_num = document.getElementById("b_mode").value;
-    let a_note_num = document.getElementById("a_note").value;
-    let a_mode_num = document.getElementById("a_mode").value;
+    b_note_num = document.getElementById("b_note").value;
+    b_mode_num = document.getElementById("b_mode").value;
+    a_note_num = document.getElementById("a_note").value;
+    a_mode_num = document.getElementById("a_mode").value;
 
-    let b_key_num = mod((Number(b_note_num) - Number(b_mode_num)), 12);
-    let a_key_num = mod((Number(a_note_num) - Number(a_mode_num)), 12);
-    let modulation_num = mod((Number(a_key_num) - Number(b_key_num)), 12);
+    b_key_num = mod((Number(b_note_num) - Number(b_mode_num)), 12);
+    a_key_num = mod((Number(a_note_num) - Number(a_mode_num)), 12);
+    modulation_num = mod((Number(a_key_num) - Number(b_key_num)), 12);
 
     //転調前のキーと調号を表示
     if (b_key_num == 0 || b_key_num == 2 || b_key_num == 4 || b_key_num == 6 || b_key_num == 7 || b_key_num == 9 || b_key_num == 11) {
@@ -526,8 +425,8 @@ let SOF = 0;
 let = 0;
 
 //スケールを表示するためのHTML要素(div)を追加するための関数
-function chordCandidateDiv() {
-    
+function chordCandidate() {
+
     //スケールを格納した配列の長さを取得する。
     chordProgOne_length = chordProgOne.length
     chordProgFour_length = chordProgFour.length
@@ -538,8 +437,8 @@ function chordCandidateDiv() {
     Num = chordProgOne_length
     for (let i = 0; i < chordProgOne_length; i++) {
         HTML_Info = document.getElementById("addHTML1");
-        HTML_Info.insertAdjacentHTML('afterbegin', 
-        `<tr>
+        HTML_Info.insertAdjacentHTML('afterbegin',
+            `<tr>
         <th scope="row" id="row1-${Num}"></th>
         <td id="title1-${Num}"></td>
         <td id="chordProg1-${Num}"></td>
@@ -550,8 +449,8 @@ function chordCandidateDiv() {
     Num = chordProgFour_length
     for (let i = 0; i < chordProgFour_length; i++) {
         HTML_Info = document.getElementById("addHTML4");
-        HTML_Info.insertAdjacentHTML('afterbegin', 
-        `<tr>
+        HTML_Info.insertAdjacentHTML('afterbegin',
+            `<tr>
         <th scope="row" id="row4-${Num}"></th>
         <td id="title4-${Num}"></td>
         <td id="chordProg4-${Num}"></td>
@@ -562,8 +461,8 @@ function chordCandidateDiv() {
     Num = chordProgSix_length
     for (let i = 0; i < chordProgSix_length; i++) {
         HTML_Info = document.getElementById("addHTML6");
-        HTML_Info.insertAdjacentHTML('afterbegin', 
-        `<tr>
+        HTML_Info.insertAdjacentHTML('afterbegin',
+            `<tr>
         <th scope="row" id="row6-${Num}"></th>
         <td id="title6-${Num}"></td>
         <td id="chordProg6-${Num}"></td>
@@ -574,8 +473,8 @@ function chordCandidateDiv() {
     Num = chordProgEight_length
     for (let i = 0; i < chordProgEight_length; i++) {
         HTML_Info = document.getElementById("addHTML8");
-        HTML_Info.insertAdjacentHTML('afterbegin', 
-        `<tr>
+        HTML_Info.insertAdjacentHTML('afterbegin',
+            `<tr>
         <th scope="row" id="row8-${Num}"></th>
         <td id="title8-${Num}"></td>
         <td id="chordProg8-${Num}"></td>
@@ -796,15 +695,6 @@ function changeChordProgression() {
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
 
-const chordnames =
-    [['Maj7', ''],
-    ['m7', 'm'],
-    ['7', ''],
-    ['m7(♭5)', 'm(♭5)'],
-    ['augMaj7', 'aug'],
-    ['dim7', 'm(♭5)'],
-    ['mMaj7', 'm'],
-    ];
 
 //コードネームを切り替えるためのスクリプト(ダイアトニックコード)
 document.getElementById("tonic_note"); function Chordschange() {
@@ -1309,108 +1199,8 @@ function ChordschangeAndChordsAndModeChange() {
 };
 
 
-//コードネームに対応する場所の色を変更する
-document.getElementById("chord_name"); function ChangeChords() {
-
-    let root = document.getElementById("chord_0");
-    let min2 = document.getElementById("chord_1");
-    let maj2 = document.getElementById("chord_2");
-    let min3 = document.getElementById("chord_3");
-    let maj3 = document.getElementById("chord_4");
-    let p4 = document.getElementById("chord_5");
-    let dim5 = document.getElementById("chord_6");
-    let p5 = document.getElementById("chord_7");
-    let aug5 = document.getElementById("chord_8");
-    let maj6 = document.getElementById("chord_9");
-    let min7 = document.getElementById("chord_10");
-    let maj7 = document.getElementById("chord_11");
-
-    //コードネームのドロップダウンリストのvalueを取得
-    let chord_num_binary = document.getElementById("chord_name").value;
-
-    //二進数の値を1文字ずつ分解して配列chord_numberに格納
-    let chord_number = chord_num_binary.split('');
-
-    if (Number(chord_number[0]) == 1) {
-        root.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        root.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[1]) == 1) {
-        min2.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        min2.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[2]) == 1) {
-        maj2.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        maj2.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[3]) == 1) {
-        min3.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        min3.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[4]) == 1) {
-        maj3.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        maj3.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[5]) == 1) {
-        p4.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        p4.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[6]) == 1) {
-        dim5.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        dim5.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[7]) == 1) {
-        p5.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        p5.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[8]) == 1) {
-        aug5.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        aug5.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[9]) == 1) {
-        maj6.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        maj6.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[10]) == 1) {
-        min7.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        min7.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-    if (Number(chord_number[11]) == 1) {
-        maj7.className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else {
-        maj7.className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    }
-
-};
-
-
-
 //スケールの調号を計算する
 function scaleKeySignature() {
-
-    ChangeChords();
 
     ChangeEIJG();
 
@@ -1647,6 +1437,138 @@ function scaleKeySignature() {
 };
 
 
+//オンオフ状態を格納する配列
+let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+//スケールを表示するためのHTML要素(div)を追加するための関数
+function createCandidate() {
+    Num = 0
+    //スケールを格納した配列の長さを取得する。
+    length = scale_Container.length
+
+    //配列の数だけHTML要素(div)を追加する。
+    for (let i = 0; i < length; i++) {
+        HTML_Info = document.getElementById("addHTML");
+        // HTML_Info.insertAdjacentHTML('beforebegin','<div>BeforeBegin</div>');
+        HTML_Info.insertAdjacentHTML('beforebegin', `<div class="" id="modal_text_${Num}"></div>`);
+        Num = Num + 1;
+    };
+};
+
+//モーダル・インターチェンジの候補をディグリー表記で表示する関数
+function modalCandidateDegree() {
+    
+    if (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
+        0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11]) {
+        Num = 0
+        length = scale_Container.length
+        for (let i = 0; i < length; i++) {
+            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num][ScaleLanguage]}`;
+            Num = Num + 1;
+        };
+    } else {
+    };
+};
+
+//モーダル・インターチェンジの候補を表示するスクリプト
+function modalTextCreate() {
+    //音名の表記を切り替える関数
+    ChangeEIJG();
+    //スケールを表示するためのHTML要素(div)を追加するための関数
+    createCandidate()
+
+    sig0 = document.getElementById("chord_root_name").value
+
+    Num = 0
+    length = scale_Container.length
+    for (let i = 0; i < length; i++) {
+        if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
+            && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
+            && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
+            && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
+            && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
+            && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
+            && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
+            && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
+            && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
+            && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
+            && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
+            && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
+            if (mod(sig0 + scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 11) {
+                document.getElementById(`modal_text_${Num}`).innerHTML = `${sharp_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
+            } else {
+                document.getElementById(`modal_text_${Num}`).innerHTML = `${flat_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${flat_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
+            };
+        } else {
+            document.getElementById(`modal_text_${Num}`).innerHTML = "";
+            document.getElementById(`modal_text_${Num}`).className = "";
+        };
+        Num = Num + 1;
+    };
+
+    //モーダル・インターチェンジの候補をディグリー表記で表示する関数
+    modalCandidateDegree()
+};
+
+//スケールの日本語・英語表記を切り替えるスイッチ
+let ScaleLanguage = 'JapaneseName';
+let ScaleLanguageNum = 0;
+function ScaleLanguageJE(){
+    if (ScaleLanguageNum == 0) {
+        ScaleLanguage = 'JapaneseName';
+        document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        ScaleLanguageNum = 1;
+    } else if (ScaleLanguageNum == 1) {
+        ScaleLanguage = 'EnglishName';
+        document.getElementById("scale_language_change_button").className = "btn btn-danger box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        ScaleLanguageNum = 0;
+    };
+    //モーダル・インターチェンジの候補を表示するスクリプト
+    modalTextCreate()
+};
+
+//コードネームの構成音と、そのコード上で使えるスケールを表示する関数
+function ChordNoteSwitch() {
+    //コードネームのドロップダウンリストのvalueを取得
+    chord_num_binary = document.getElementById("chord_name").value;
+    //二進数の値を1文字ずつ分解して配列chord_numberに格納
+    chord_number = chord_num_binary.split('');
+
+    Num = 0
+    for (let i = 0; i < 12; i++) {
+        if (chord_number[Num] == "1") {
+            onoff[Num] = 1;
+        } else {
+            onoff[Num] = 0;
+        };
+        Num = Num + 1;
+    };
+
+    Num = 0
+    for (let i = 0; i < 12; i++) {
+        if (onoff[Num] == 1) {
+            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+        } else if (onoff[Num] == 0) {
+            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+        };
+        Num = Num + 1;
+    };
+    //モーダル・インターチェンジの候補を表示するスクリプト
+    modalTextCreate()
+};
+
+//モーダル・インターチェンジ判定用のスイッチ
+function noteSwitch(Num) {
+
+    if (onoff[Num] == 0) {
+        onoff[Num] = 1;
+        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff[Num] == 1) {
+        onoff[Num] = 0;
+        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    modalTextCreate()
+};
 
 //音価を計算する
 document.getElementById("input_bpm"); function NoteLength() {
@@ -2069,117 +1991,5 @@ document.getElementById("rhythm_input_bpm"); function NoteInfo() {
         document.getElementById("same_length_32th_note").innerHTML = "32分音符<br><br>BPM=" + roundToThree(Number(one_minutes) / ((Number(note_value) * 32) / 4));
 
     };
-};
-
-//オンオフ状態を格納する配列
-let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-//スケールを表示するためのHTML要素(div)を追加するための関数
-function createCandidateDiv() {
-    Num = 0
-    //スケールを格納した配列の長さを取得する。
-    length = scale_Container.length
-
-    //配列の数だけHTML要素(div)を追加する。
-    for (let i = 0; i < length; i++) {
-        HTML_Info = document.getElementById("addHTML");
-        // HTML_Info.insertAdjacentHTML('beforebegin','<div>BeforeBegin</div>');
-        HTML_Info.insertAdjacentHTML('beforebegin', `<div class="" id="modal_text_${Num}"></div>`);
-        Num = Num + 1;
-    };
-};
-
-//モーダル・インターチェンジの候補をディグリー表記で表示する関数
-function modalCandidateDegree() {
-    if (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
-        0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11]) {
-        Num = 0
-        length = scale_Container.length
-        for (let i = 0; i < length; i++) {
-            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num]['JapaneseName']}`;
-            Num = Num + 1;
-        };
-    } else {
-    };
-};
-
-//モーダル・インターチェンジの候補を表示するスクリプト
-function keyplus() {
-    ChangeEIJG();
-    createCandidateDiv()
-
-    sig0 = document.getElementById("chord_root_name").value
-
-    Num = 0
-    length = scale_Container.length
-    for (let i = 0; i < length; i++) {
-        document.getElementById(`modal_text_${Num}`).className = "py-1";
-        Num = Num + 1;
-    };
-
-    Num = 0
-    length = scale_Container.length
-    for (let i = 0; i < length; i++) {
-        if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
-            && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
-            && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
-            && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
-            && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
-            && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
-            && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
-            && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
-            && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
-            && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
-            && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
-            && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
-            if (mod(sig0 + scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 11) {
-                document.getElementById(`modal_text_${Num}`).innerHTML = `${sharp_note_name[sig0]} ${scale_Container[Num]['JapaneseName']} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
-            } else {
-                document.getElementById(`modal_text_${Num}`).innerHTML = `${flat_note_name[sig0]} ${scale_Container[Num]['JapaneseName']} ${flat_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
-            };
-        } else {
-            document.getElementById(`modal_text_${Num}`).innerHTML = "";
-            document.getElementById(`modal_text_${Num}`).className = "";
-        };
-        Num = Num + 1;
-    };
-
-    //モーダル・インターチェンジの候補をディグリー表記で表示する関数
-    modalCandidateDegree()
-};
-
-//コードネーム上で使えるスケール
-function ChordNoteSwitch() {
-    ChangeChords()
-
-    //コードネームのドロップダウンリストのvalueを取得
-    let chord_num_binary = document.getElementById("chord_name").value;
-
-    //二進数の値を1文字ずつ分解して配列chord_numberに格納
-    let chord_number = chord_num_binary.split('');
-
-    Num = 0
-    for (let i = 0; i < 12; i++) {
-        if (Number(chord_number[Num]) == 1) {
-            onoff[Num] = 1;
-        } else {
-            onoff[Num] = 0;
-        }
-        Num = Num + 1;
-    };
-    keyplus()
-};
-
-//モーダル・インターチェンジ判定用のスイッチ
-function noteSwitch(Num) {
-
-    if (onoff[Num] == 0) {
-        onoff[Num] = 1;
-        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else if (onoff[Num] == 1) {
-        onoff[Num] = 0;
-        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    };
-    keyplus()
 };
 

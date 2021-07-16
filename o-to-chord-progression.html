@@ -183,7 +183,7 @@
                         <th scope="col">コード進行</th>
                       </tr>
                     </thead>
-
+                    <!--JavaScriptによってページがロードされた後にコード進行を表示する -->
                     <tbody id="addHTML1">
                     </tbody>
 
@@ -192,7 +192,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="accordion py-2" id="accordionExample">
             <div class="accordion-item">
@@ -215,7 +214,7 @@
                         <th scope="col">コード進行</th>
                       </tr>
                     </thead>
-
+                    <!--JavaScriptによってページがロードされた後にコード進行を表示する -->
                     <tbody id="addHTML4">
                     </tbody>
 
@@ -224,7 +223,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="accordion py-2" id="accordionExample">
             <div class="accordion-item">
@@ -247,7 +245,7 @@
                         <th scope="col">コード進行</th>
                       </tr>
                     </thead>
-
+                    <!--JavaScriptによってページがロードされた後にコード進行を表示する -->
                     <tbody id="addHTML6">
                     </tbody>
 
@@ -256,7 +254,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="accordion py-2" id="accordionExample">
             <div class="accordion-item">
@@ -279,7 +276,7 @@
                         <th scope="col">コード進行</th>
                       </tr>
                     </thead>
-
+                    <!--JavaScriptによってページがロードされた後にコード進行を表示する -->
                     <tbody id="addHTML8">
                     </tbody>
 
@@ -300,8 +297,6 @@
 
         </div>
 
-
-
         <!-- 右カラム部分 -->
         <div id="right-column" class="col-md-4">
           <right-column></right-column>
@@ -321,10 +316,10 @@
     <script src="Vue.js"></script>
     <script src="index.js"></script>
 
-    <!--ページがロードされたときにディグリー表記のコード進行を描画する関数 -->
+    <!--ページのロードが終了したときに実行される関数 -->
     <script>
       window.addEventListener('load', function () {
-        chordCandidateDiv()
+        chordCandidate()
         changeChordProgressionDegree()
       });
     </script>

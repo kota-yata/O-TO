@@ -405,10 +405,18 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
+            
+            <div>
+              <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
+                onclick="ScaleLanguageJE()">日本語⇔English</button>
+            </div>
+            
             <div class="accordion-body">
+              <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
               <div id="addHTML">
                 
               </div>
+
             </div>
           </div>
         </div>
@@ -438,10 +446,10 @@
       <copyright-text></copyright-text>
     </footer>
 
-    <!--ページがロードされたときに関数を実行 -->
+    <!--ページのロードが終了したときに実行される関数 -->
     <script>
       window.addEventListener('load',function () {
-        createCandidateDiv()
+        createCandidate()
         modalCandidateDegree()
         ChordNoteSwitch()
       });
