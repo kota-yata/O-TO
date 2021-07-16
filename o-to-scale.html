@@ -137,8 +137,8 @@
 
       <div class="text-right">
 
-        <label for="chord_root_name" class="box1 col-md-10 col-xl-2 py-2 mx-2">トニック
-          <select id="chord_root_name" class="form-select my-1" aria-label="Default select example"
+        <label for="rootNumber" class="box1 col-md-10 col-xl-2 py-2 mx-2">トニック
+          <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
             onchange="scaleKeySignature()">
             <option value=0>C</option>
             <option value=1>C#/D♭</option>
@@ -155,10 +155,10 @@
           </select>
         </label>
 
-        <label for="chord_name" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
-          <select id="chord_name" class="form-select my-1" aria-label="Default select example"
+        <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
+          <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
             onchange="scaleKeySignature()">
-            <option value=101011010101>Major/Ionian (長音階)</option>
+            <!-- <option value=101011010101>Major/Ionian (長音階)</option>
             <option value=101101011010>Natural minor/Aeolian (自然的短音階)</option>
             <option value=101101011001>Harmonic minor (和声的短音階)</option>
             <option value=101101010101>Melodic minor (旋律的短音階)</option>
@@ -185,7 +185,7 @@
             <option value=110001011000>陰音階/都節[下行形]</option>
             <option value=101001010100>律音階</option>
             <option value=100011010001>琉球音階/ニロ抜き長音階</option>
-            <option value=111111111111>Chromatic (クロマチック・スケール)</option>
+            <option value=111111111111>Chromatic (クロマチック・スケール)</option> -->
           </select>
         </label>
 
@@ -200,6 +200,10 @@
           </select>
         </label>
 
+        <!-- <div>
+          <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
+            onclick="ScaleLanguageJE()">日本語⇔English</button>
+        </div> -->
 
       </div>
 
@@ -482,6 +486,13 @@
       <footer-template></footer-template>
       <copyright-text></copyright-text>
     </footer>
+
+    <!--ページのロードが終了したときに実行される関数 -->
+    <script>
+      window.addEventListener('load', function () {
+        createScaleChoices()
+      });
+    </script>
 
     <script src="Vue.js"></script>
     <script src="index.js"></script>

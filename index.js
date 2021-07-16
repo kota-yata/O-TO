@@ -48,83 +48,463 @@ const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "
 
 scale_Container =
     //メジャースケールファミリー
-    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン/長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0 },
-    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2 },
-    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
-    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9 },
-    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11 },
+    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン/長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35" },
+    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-35" },
+    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-35" },
+    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-35" },
+    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-35" },
+    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9, ForteNumber: "7-35" },
+    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11, ForteNumber: "7-35" },
 
     //ハーモニックマイナースケールファミリー
-    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9 },
-    { EnglishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11 },
-    { EnglishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0 },
-    { EnglishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
-    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { EnglishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8 },
+    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9, ForteNumber: "7-32" },
+    { EnglishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-32" },
+    { EnglishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-32" },
+    { EnglishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32" },
+    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32" },
+    { EnglishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32" },
+    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8, ForteNumber: "7-32" },
 
     //メロディックマイナースケールファミリー
-    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9 },
-    { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11 },
-    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0 },
-    { EnglishName: "Lydian Dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
-    { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6 },
-    { EnglishName: "Super Locrian", JapaneseName: "スーパーロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
+    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9, ForteNumber: "7-34" },
+    { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34" },
+    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-34" },
+    { EnglishName: "Lydian Dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34" },
+    { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34" },
+    { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34" },
+    { EnglishName: "Super Locrian", JapaneseName: "スーパーロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34" },
 
     //ハーモニックメジャースケールファミリー
-    { EnglishName: "Harmonic Major", JapaneseName: "メロディック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0 },
-    { EnglishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2 },
-    { EnglishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { EnglishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
-    { EnglishName: "Mixolydian ♭2nd", JapaneseName: "ミクソリディアン♭2nd", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
-    { EnglishName: "Lydian ♯2nd ♯5th", JapaneseName: "リディアン♯2nd ♯5th", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10 },
-    { EnglishName: "Locrian ♭♭7th", JapaneseName: "ロクリアン♭♭7th", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11 },
+    { EnglishName: "Harmonic Major", JapaneseName: "ハーモニック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0, ForteNumber: "7-32" },
+    { EnglishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32" },
+    { EnglishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32" },
+    { EnglishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32" },
+    { EnglishName: "Mixolydian ♭2nd", JapaneseName: "ミクソリディアン♭2nd", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-32" },
+    { EnglishName: "Lydian ♯2nd ♯5th", JapaneseName: "リディアン♯2nd ♯5th", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10, ForteNumber: "7-32" },
+    { EnglishName: "Locrian ♭♭7th", JapaneseName: "ロクリアン♭♭7th", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11, ForteNumber: "7-32" },
 
     //メロディック・メジャー
-    { EnglishName: "Melodic Major", JapaneseName: "ハーモニック・メジャー/旋律的長音階", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0 },
+    { EnglishName: "Melodic Major", JapaneseName: "メロディック・メジャー/旋律的長音階", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0, ForteNumber: "7-34" },
 
     //ペンタ
-    { EnglishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
-    { EnglishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9 },
-    { EnglishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0 },
-    { EnglishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9 },
+    { EnglishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "5-35" },
+    { EnglishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "5-35" },
+    { EnglishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47" },
+    { EnglishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47" },
 
     //和風スケール
-    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7 },
-    { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4 },
-    { EnglishName: "In/Sakura pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4 },
-    { EnglishName: "Ryukyu", JapaneseName: "琉球音階/沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0 },
+    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7, ForteNumber: "5-35" },
+    { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "5-29" },
+    { EnglishName: "In/Sakura pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20" },
+    { EnglishName: "Ryukyu", JapaneseName: "琉球音階/沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20" },
 
     //その他のスケール
-    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
-    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
-    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7 },
-    { EnglishName: "Half Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0 },
-    { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0 }
+    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34" },
+    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "8-26" },
+    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7, ForteNumber: "6-35" },
+    { EnglishName: "Half Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0, ForteNumber: "8-28" },
+    { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0, ForteNumber: "12-1" }
     ];
 
-    
-//1分のミリ秒数
-let one_minutes = 60000;
 
-//音名の表示形式を英米式/イタリア式/日本式/ドイツ式に切り替えるスクリプト
+//音名の表示形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
 function ChangeEIJG() {
-    let chord_root_name_number = document.getElementById("chord_root_name").value;
-    let key_signature_names = document.getElementById("key_signature_names").value;
+    root_number = document.getElementById("rootNumber").value;
+    key_signature_names = document.getElementById("key_signature_names").value;
 
     num = 0;
-
     for (let i = 0; i < 12; i++) {
-        document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(Number(chord_root_name_number) + num, 12)];
+        document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(Number(root_number) + num, 12)];
         num = num + 1;
     };
 };
 
+//スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
+function createScaleChoices() {
 
-//転調の種類を判別するためのスクリプト(転調の間隔)
+    //スケールを格納した配列の長さを取得する。
+    length = scale_Container.length;
+    Num = scale_Container.length;
+    ScaleLanguage = 'JapaneseName';
+
+    //配列の数だけスケールの選択肢optionを追加する。
+    for (let i = 0; i < length; i++) {
+        Num = Num - 1;
+        HTML_Info = document.getElementById("constituent_binary");
+        if (Num == 0) {
+            //メジャースケールを初期の選択肢にする。
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
+        } else {
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}>${scale_Container[Num][ScaleLanguage]}</option>`);
+        };
+    };
+};
+
+//スケールの調号を計算する
+function scaleKeySignature() {
+
+    ChangeEIJG();
+
+    scale_binary = document.getElementById("constituent_binary").value;
+    scale_tonic_num = document.getElementById("rootNumber").value;
+    parent_scale_num = 0;
+
+    ionian_case = mod(Number(scale_tonic_num) - 0, 12);
+    dorian_case = mod(Number(scale_tonic_num) - 2, 12);
+    phrygian_case = mod(Number(scale_tonic_num) - 4, 12);
+    lydian_case = mod(Number(scale_tonic_num) - 5, 12);
+    mixolydian_case = mod(Number(scale_tonic_num) - 7, 12);
+    altered_case = mod(Number(scale_tonic_num) - 8, 12);
+    aeolian_case = mod(Number(scale_tonic_num) - 9, 12);
+    locrian_case = mod(Number(scale_tonic_num) - 11, 12);
+
+    //受け取ったスケールの2進数の値を、10進数のスケールナンバーに変換
+    scale_binary_split = scale_binary.split('');
+    scale_binary_reverse = scale_binary_split.reverse();
+    scale_binary_rejoin = scale_binary_reverse.join("");
+
+    scale_dec = parseInt(scale_binary_rejoin, 2);
+    scale_key_signature_num = 0;
+
+    //スケールの調号を判定する
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[ionian_case]}で記譜されます。`;
+    } else if (scale_dec == 1709 || scale_dec == 174) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[dorian_case]}で記譜されます。`;
+    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[phrygian_case]}で記譜されます。`;
+    } else if (scale_dec == 2773 || scale_dec == 1749) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[lydian_case]}で記譜されます。`;
+    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[mixolydian_case]}で記譜されます。`;
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[aeolian_case]}で記譜されます。`;
+    } else if (scale_dec == 1387) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[locrian_case]}で記譜されます。`;
+    } else if (scale_dec == 1371) {
+        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[altered_case]}で記譜されます。`;
+    } else {
+        document.getElementById("keySignatur_text").innerHTML = "";
+    };
+
+    //親スケールと異名同音の判定に使う
+    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
+        if (scale_dec == 1461) {
+            parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
+            scale_key_signature_num = ionian_case;
+        } else {
+            parent_scale_num = mod(Number(scale_tonic_num) - 0, 12);
+            scale_key_signature_num = ionian_case;
+        };
+    } else if (scale_dec == 1709) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 2, 12);
+        scale_key_signature_num = dorian_case;
+    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 4, 12);
+        scale_key_signature_num = phrygian_case;
+    } else if (scale_dec == 2773 || scale_dec == 1749) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 5, 12);
+        scale_key_signature_num = lydian_case;
+    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755 || scale_dec == 1459) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
+        scale_key_signature_num = mixolydian_case;
+    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 9, 12);
+        scale_key_signature_num = aeolian_case;
+    } else if (scale_dec == 1387) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
+        scale_key_signature_num = locrian_case;
+    } else if (scale_dec == 1371) {
+        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
+        scale_key_signature_num = altered_case;
+    } else {
+        document.getElementById("keySignatur_text").innerHTML = "";
+    };
+
+    //ドミナントコード上で使えるかを判定する
+    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
+        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
+            document.getElementById("dominant_chord_text").innerHTML = `${sharp_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else if (scale_dec == 1371) {
+            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else {
+            document.getElementById("dominant_chord_text").innerHTML = "";
+        };
+    } else {
+        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
+            document.getElementById("dominant_chord_text").innerHTML = `${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else if (scale_dec == 1371) {
+            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
+        } else {
+            document.getElementById("dominant_chord_text").innerHTML = "";
+        };
+    };
+
+    //スケールファミリーを判定する
+    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
+        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
+            if (scale_dec == 1461) {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            } else {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            };
+
+        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1187) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 419 || scale_dec == 2225) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1365) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 669 || scale_dec == 1257) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1467) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1755 || scale_dec == 2925) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 4095) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
+
+        } else {
+            document.getElementById("scale_text").innerHTML
+                = "";
+        };
+    } else {
+        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
+            if (scale_dec == 1461) {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            } else {
+                document.getElementById("scale_text").innerHTML
+                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
+            };
+
+        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
+            document.getElementById("scale_text").innerHTML
+                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1187) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 419 || scale_dec == 2225) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1365) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 669 || scale_dec == 1257) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1467) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 1755 || scale_dec == 2925) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
+
+        } else if (scale_dec == 4095) {
+            document.getElementById("scale_text").innerHTML
+                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
+
+        } else {
+            document.getElementById("scale_text").innerHTML
+                = "";
+        };
+    };
+
+    //構成音を着色
+    NoteNameColoring()
+};
+
+//オンオフ状態を格納する配列
+let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+//モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+function createCandidate() {
+    Num = 0
+    //スケールを格納した配列の長さを取得する。
+    length = scale_Container.length
+
+    //配列の数だけHTML要素(div)を追加する。
+    for (let i = 0; i < length; i++) {
+        HTML_Info = document.getElementById("addHTML");
+        // HTML_Info.insertAdjacentHTML('beforebegin','<div>BeforeBegin</div>');
+        HTML_Info.insertAdjacentHTML('beforebegin', `<div class="" id="modal_text_${Num}"></div>`);
+        Num = Num + 1;
+    };
+};
+
+//モーダル・インターチェンジの候補をディグリー表記で表示する関数
+function modalCandidateDegree() {
+
+    if (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
+        0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11]) {
+        Num = 0
+        length = scale_Container.length
+        for (let i = 0; i < length; i++) {
+            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num][ScaleLanguage]}`;
+            Num = Num + 1;
+        };
+    } else {
+    };
+};
+
+//モーダル・インターチェンジの候補を表示する関数
+function modalTextCreate() {
+    //音名の表記を切り替える関数
+    ChangeEIJG();
+    //スケールを表示するためのHTML要素(div)を追加するための関数
+    createCandidate()
+
+    sig0 = document.getElementById("rootNumber").value
+
+    Num = 0
+    length = scale_Container.length
+    for (let i = 0; i < length; i++) {
+        if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
+            && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
+            && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
+            && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
+            && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
+            && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
+            && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
+            && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
+            && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
+            && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
+            && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
+            && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
+            if (mod(sig0 + scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 11) {
+                document.getElementById(`modal_text_${Num}`).innerHTML = `${sharp_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
+            } else {
+                document.getElementById(`modal_text_${Num}`).innerHTML = `${flat_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${flat_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
+            };
+        } else {
+            document.getElementById(`modal_text_${Num}`).innerHTML = "";
+            document.getElementById(`modal_text_${Num}`).className = "";
+        };
+        Num = Num + 1;
+    };
+
+    //モーダル・インターチェンジの候補をディグリー表記で表示する関数
+    modalCandidateDegree()
+};
+
+//スケールの日本語・英語表記を切り替えるスイッチ
+let ScaleLanguage = 'JapaneseName';
+let ScaleLanguageNum = 1;
+function ScaleLanguageJE() {
+    if (ScaleLanguageNum == 0) {
+        ScaleLanguage = 'JapaneseName';
+        document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        ScaleLanguageNum = 1;
+    } else if (ScaleLanguageNum == 1) {
+        ScaleLanguage = 'EnglishName';
+        document.getElementById("scale_language_change_button").className = "btn btn-danger box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        ScaleLanguageNum = 0;
+    };
+    //モーダル・インターチェンジの候補を表示する関数
+    modalTextCreate()
+};
+
+//構成音を着色
+function NoteNameColoring() {
+    //コードネームのドロップダウンリストのvalueを取得
+    constituent_binary_num = document.getElementById("constituent_binary").value;
+    //二進数の値を1文字ずつ分解して配列onoffに格納
+    onoff = constituent_binary_num.split('');
+
+    Num = 0
+    for (let i = 0; i < 12; i++) {
+        if (onoff[Num] == 1) {
+            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+        } else if (onoff[Num] == 0) {
+            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+        };
+        Num = Num + 1;
+    };
+};
+
+//コードネームの構成音と、そのコード上で使えるスケールを表示する関数
+function ChordNoteSwitch() {
+    //構成音を着色
+    NoteNameColoring()
+
+    //モーダル・インターチェンジの候補を表示する関数
+    modalTextCreate()
+
+    Num = 0
+    for (let i = 0; i < 12; i++) {
+        if (onoff[Num] == "1") {
+            onoff[Num] = 1;
+        } else {
+            onoff[Num] = 0;
+        };
+        Num = Num + 1;
+    };
+
+};
+
+//モーダル・インターチェンジ判定用のスイッチ
+function noteSwitch(Num) {
+    if (onoff[Num] == 0) {
+        onoff[Num] = 1;
+        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+    } else if (onoff[Num] == 1) {
+        onoff[Num] = 0;
+        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+    };
+    modalTextCreate()
+};
+
+
+//転調の種類を判別するための関数(転調の間隔)
 function modulation() {
     b_note_num = document.getElementById("b_note").value;
     b_mode_num = document.getElementById("b_mode").value;
@@ -183,38 +563,40 @@ function modulation() {
 };
 
 
-//転調元から転調先を表示するためのスクリプト
+//転調元から転調先を表示するための関数
 function keychange() {
 
-    let note_number = document.getElementById("note").value;
-    let mode_number = document.getElementById("mode").value;
-    let after_mode_number = document.getElementById("after_mode").value;
+    note_number = document.getElementById("note").value;
+    mode_number = document.getElementById("mode").value;
+    after_mode_number = document.getElementById("after_mode").value;
 
-    let sf_zore = mod((Number(note_number) - Number(mode_number)) - 0, 12);
-    let s_one = mod((Number(note_number) - Number(mode_number)) - 5, 12);
-    let f_one = mod((Number(note_number) - Number(mode_number)) - 7, 12);
-    let s_two = mod((Number(note_number) - Number(mode_number)) - 10, 12);
-    let f_two = mod((Number(note_number) - Number(mode_number)) - 2, 12);
-    let s_three = mod((Number(note_number) - Number(mode_number)) - 3, 12);
-    let f_three = mod((Number(note_number) - Number(mode_number)) - 9, 12);
-    let s_four = mod((Number(note_number) - Number(mode_number)) - 8, 12);
-    let f_four = mod((Number(note_number) - Number(mode_number)) - 4, 12);
-    let s_five = mod((Number(note_number) - Number(mode_number)) - 1, 12);
-    let f_five = mod((Number(note_number) - Number(mode_number)) - 11, 12);
-    let sf_six = mod((Number(note_number) - Number(mode_number)) - 6, 12);
+    answer = Number(note_number) - Number(mode_number);
+    sf_zore = mod((answer - 0), 12);
+    s_one = mod((answer - 5), 12);
+    f_one = mod((answer - 7), 12);
+    s_two = mod((answer - 10), 12);
+    f_two = mod((answer - 2), 12);
+    s_three = mod((answer - 3), 12);
+    f_three = mod((answer - 9), 12);
+    s_four = mod((answer - 8), 12);
+    f_four = mod((answer - 4), 12);
+    s_five = mod((answer - 1), 12);
+    f_five = mod((answer - 11), 12);
+    sf_six = mod((answer - 6), 12);
 
-    let note_sf_zore = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 0), 12);
-    let note_s_one = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 7), 12);
-    let note_f_one = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 5), 12);
-    let note_s_two = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 2), 12);
-    let note_f_two = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 10), 12);
-    let note_s_three = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 9), 12);
-    let note_f_three = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 3), 12);
-    let note_s_four = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 4), 12);
-    let note_f_four = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 8), 12);
-    let note_s_five = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 11), 12);
-    let note_f_five = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 1), 12);
-    let note_sf_six = mod((Number(note_number) - Number(mode_number) + Number(after_mode_number) + 6), 12);
+    answer = Number(note_number) - Number(mode_number) + Number(after_mode_number);
+    note_sf_zore = mod((answer + 0), 12);
+    note_s_one = mod((answer + 7), 12);
+    note_f_one = mod((answer + 5), 12);
+    note_s_two = mod((answer + 2), 12);
+    note_f_two = mod((answer + 10), 12);
+    note_s_three = mod((answer + 9), 12);
+    note_f_three = mod((answer + 3), 12);
+    note_s_four = mod((answer + 4), 12);
+    note_f_four = mod((answer + 8), 12);
+    note_s_five = mod((answer + 11), 12);
+    note_f_five = mod((answer + 1), 12);
+    note_sf_six = mod((answer + 6), 12);
 
     if (sf_zore == 0 || sf_zore == 2 || sf_zore == 4 || sf_zore == 6 || sf_zore == 7 || sf_zore == 9 || sf_zore == 11) {
         document.getElementById("result_origin").innerHTML
@@ -324,6 +706,7 @@ function keychange() {
     };
 
 };
+
 
 //コード進行を格納する多次元配列
 const chordProgOne =
@@ -577,9 +960,6 @@ function changeChordProgressionDegree() {
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
 
-
-
-
 //コード進行を切り替える関数
 function changeChordProgression() {
 
@@ -697,7 +1077,7 @@ function changeChordProgression() {
 };
 
 
-//コードネームを切り替えるためのスクリプト(ダイアトニックコード)
+//コードネームを切り替えるための関数(ダイアトニックコード)
 document.getElementById("tonic_note"); function Chordschange() {
 
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
@@ -809,7 +1189,7 @@ document.getElementById("tonic_note"); function Chordschange() {
 };
 
 
-//コードネームをモードスケール併記に切り替えるためのスクリプト(ダイアトニックコード)
+//コードネームをモードスケール併記に切り替えるための関数(ダイアトニックコード)
 document.getElementById("tonic_note"); function ChordsAndModeChange() {
 
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
@@ -922,7 +1302,7 @@ document.getElementById("tonic_note"); function ChordsAndModeChange() {
 };
 
 
-//ディグリーネームで表示するためのスクリプト(ダイアトニックコード)
+//ディグリーネームで表示するための関数(ダイアトニックコード)
 document.getElementById("degree_button"); function degree() {
 
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
@@ -1005,12 +1385,9 @@ document.getElementById("degree_button"); function degree() {
 
 };
 
-
 //ダイアトニックコードの着色をリセットする関数
 function paintDiatonicChordsReset() {
-
     diaNum = 1;
-
     for (let i = 1; i < 8; i++) {
         document.getElementById(`Major_dia_${diaNum}`).className = "list-group-item col-xl text-center";
         document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
@@ -1022,19 +1399,16 @@ function paintDiatonicChordsReset() {
         document.getElementById(`Para_MMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
         diaNum = diaNum + 1;
     };
-
 };
 
 //ダイアトニック・コードのコードネームに対応する場所の色を変更する
 document.getElementById("paint_diatonic_chords"); function paintDiatonicChords() {
 
     paintDiatonicChordsReset()
-
-    let paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
+    paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
 
     if (paint_diatonic_chords == 0) {
         paintDiatonicChordsReset()
-
     } else if (paint_diatonic_chords == 1) {
         document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Major_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1043,7 +1417,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 2) {
         document.getElementById("Major_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Major_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1057,7 +1430,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 3) {
         document.getElementById("Major_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1075,7 +1447,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-info text-center";
         document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-info text-center";
         document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-info text-center";
-        ;
     } else if (paint_diatonic_chords == 4) {
         document.getElementById("Major_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1088,7 +1459,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 5) {
         document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1096,12 +1466,10 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 6) {
         document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 7) {
         document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1109,7 +1477,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 8) {
         document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Major_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1118,7 +1485,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-
+        //------------------
         document.getElementById("Major_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1131,7 +1498,6 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-
     } else if (paint_diatonic_chords == 9) {
         document.getElementById("Major_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Major_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1145,7 +1511,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-
+        //------------------
         document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1164,7 +1530,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-
+        //------------------
         document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
         document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
@@ -1180,7 +1546,7 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
 
 let onoff_ChordsAndModeChange = [];
 
-//調べたい主音切り替えスクリプト
+//調べたい主音切り替え関数
 function ChordschangeAndChordsAndModeChange() {
 
     if (onoff_ChordsAndModeChange == 1) {
@@ -1199,379 +1565,13 @@ function ChordschangeAndChordsAndModeChange() {
     };
 };
 
-
-//スケールの調号を計算する
-function scaleKeySignature() {
-
-    ChangeEIJG();
-
-    let scale_binary = document.getElementById("chord_name").value;
-    let scale_tonic_num = document.getElementById("chord_root_name").value;
-    let parent_scale_num = 0;
-
-    let ionian_case = mod(Number(scale_tonic_num) - 0, 12);
-    let dorian_case = mod(Number(scale_tonic_num) - 2, 12);
-    let phrygian_case = mod(Number(scale_tonic_num) - 4, 12);
-    let lydian_case = mod(Number(scale_tonic_num) - 5, 12);
-    let mixolydian_case = mod(Number(scale_tonic_num) - 7, 12);
-    let altered_case = mod(Number(scale_tonic_num) - 8, 12);
-    let aeolian_case = mod(Number(scale_tonic_num) - 9, 12);
-    let locrian_case = mod(Number(scale_tonic_num) - 11, 12);
-
-    //受け取ったスケールの2進数の値を、10進数のスケールナンバーに変換
-    scale_binary_split = scale_binary.split('');
-    scale_binary_reverse = scale_binary_split.reverse();
-    scale_binary_rejoin = scale_binary_reverse.join("");
-
-    let scale_dec = parseInt(scale_binary_rejoin, 2);
-    let scale_key_signature_num = 0;
-
-    //スケールの調号を判定する
-    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[ionian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1709 || scale_dec == 174) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[dorian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467 || scale_dec == 1459) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[phrygian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 2773 || scale_dec == 1749) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[lydian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[mixolydian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[aeolian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1387) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[locrian_case]}で記譜されます。`;
-
-    } else if (scale_dec == 1371) {
-        document.getElementById("keySignatur_text").innerHTML = `通常、調号は${key_signature[altered_case]}で記譜されます。`;
-
-    } else {
-        document.getElementById("keySignatur_text").innerHTML = "";
-    };
-
-
-    //親スケールと異名同音の判定に使う
-    if (scale_dec == 2741 || scale_dec == 2485 || scale_dec == 1461 || scale_dec == 4095 || scale_dec == 2225 || scale_dec == 669 || scale_dec == 661) {
-        if (scale_dec == 1461) {
-            parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
-            scale_key_signature_num = ionian_case;
-        } else {
-            parent_scale_num = mod(Number(scale_tonic_num) - 0, 12);
-            scale_key_signature_num = ionian_case;
-        };
-    } else if (scale_dec == 1709) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 2, 12);
-        scale_key_signature_num = dorian_case;
-
-    } else if (scale_dec == 1451 || scale_dec == 1187 || scale_dec == 419 || scale_dec == 1435 || scale_dec == 1467) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 4, 12);
-        scale_key_signature_num = phrygian_case;
-
-    } else if (scale_dec == 2773 || scale_dec == 1749) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 5, 12);
-        scale_key_signature_num = lydian_case;
-
-    } else if (scale_dec == 1717 || scale_dec == 677 || scale_dec == 1715 || scale_dec == 1365 || scale_dec == 1755 || scale_dec == 1459) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 7, 12);
-        scale_key_signature_num = mixolydian_case;
-
-    } else if (scale_dec == 1453 || scale_dec == 2477 || scale_dec == 2733 || scale_dec == 1257 || scale_dec == 1193) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 9, 12);
-        scale_key_signature_num = aeolian_case;
-
-    } else if (scale_dec == 1387) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
-        scale_key_signature_num = locrian_case;
-
-    } else if (scale_dec == 1371) {
-        parent_scale_num = mod(Number(scale_tonic_num) - 11, 12);
-        scale_key_signature_num = altered_case;
-
-    } else {
-        document.getElementById("keySignatur_text").innerHTML = "";
-    };
-
-    //ドミナントコード上で使えるかを判定する
-    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
-        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
-            document.getElementById("dominant_chord_text").innerHTML = `${sharp_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
-        } else if (scale_dec == 1371) {
-            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
-        } else {
-            document.getElementById("dominant_chord_text").innerHTML = "";
-        };
-    } else {
-        if (scale_dec == 1717 || scale_dec == 1459 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1715 || scale_dec == 1435 || scale_dec == 1365 || scale_dec == 1755) {
-            document.getElementById("dominant_chord_text").innerHTML = `${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
-        } else if (scale_dec == 1371) {
-            document.getElementById("dominant_chord_text").innerHTML = `スーパーロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7(ドミナントセブンスコード)上で使用可能なスケールです。`;
-        } else {
-            document.getElementById("dominant_chord_text").innerHTML = "";
-        };
-    };
-
-    //スケールファミリーを判定する
-    if (scale_key_signature_num == 0 || scale_key_signature_num == 2 || scale_key_signature_num == 4 || scale_key_signature_num == 6 || scale_key_signature_num == 7 || scale_key_signature_num == 9 || scale_key_signature_num == 11) {
-        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${sharp_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
-            if (scale_dec == 1461) {
-                document.getElementById("scale_text").innerHTML
-                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
-            } else {
-                document.getElementById("scale_text").innerHTML
-                    = `親スケールは「${sharp_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
-            };
-
-        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${sharp_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1187) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 419 || scale_dec == 2225) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1365) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 669 || scale_dec == 1257) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1467) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1755 || scale_dec == 2925) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 4095) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
-
-        } else {
-            document.getElementById("scale_text").innerHTML
-                = "";
-        };
-    } else {
-        if (scale_dec == 2741 || scale_dec == 1709 || scale_dec == 1451 || scale_dec == 2773 || scale_dec == 1717 || scale_dec == 1453 || scale_dec == 1387) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${flat_note_name[parent_scale_num]}メジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 2477 || scale_dec == 1643 || scale_dec == 2869 || scale_dec == 1741 || scale_dec == 1459 || scale_dec == 2777 || scale_dec == 859) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックマイナースケール(和声的短音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 2733 || scale_dec == 1707 || scale_dec == 2901 || scale_dec == 1749 || scale_dec == 1461 || scale_dec == 1389 || scale_dec == 1371) {
-            if (scale_dec == 1461) {
-                document.getElementById("scale_text").innerHTML
-                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br>※メロディックメジャーはメロディックマイナーの第5モードとして解釈できるため。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
-            } else {
-                document.getElementById("scale_text").innerHTML
-                    = `親スケールは「${flat_note_name[parent_scale_num]}メロディックマイナースケール(旋律的短音階)」です。<br><br>Forte number：「7-34」<br>Scale number：「${scale_dec}」`;
-            };
-
-        } else if (scale_dec == 2485 || scale_dec == 1645 || scale_dec == 1435 || scale_dec == 2765 || scale_dec == 1715 || scale_dec == 2905 || scale_dec == 875) {
-            document.getElementById("scale_text").innerHTML
-                = `親スケールは「${flat_note_name[parent_scale_num]}ハーモニックメジャースケール(和声的長音階)」です。<br><br>Forte number：「7-32」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 661 || scale_dec == 1189 || scale_dec == 1321 || scale_dec == 677 || scale_dec == 1193) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1187) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-29」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 419 || scale_dec == 2225) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「5-20」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1365) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「6-35」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 669 || scale_dec == 1257) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「6-Z47」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1467) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「8-26」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 1755 || scale_dec == 2925) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「8-28」<br>Scale number：「${scale_dec}」`;
-
-        } else if (scale_dec == 4095) {
-            document.getElementById("scale_text").innerHTML
-                = `Forte number：「12-1」<br>Scale number：「${scale_dec}」`;
-
-        } else {
-            document.getElementById("scale_text").innerHTML
-                = "";
-        };
-
-    };
-};
-
-
-//オンオフ状態を格納する配列
-let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-//スケールを表示するためのHTML要素(div)を追加するための関数
-function createCandidate() {
-    Num = 0
-    //スケールを格納した配列の長さを取得する。
-    length = scale_Container.length
-
-    //配列の数だけHTML要素(div)を追加する。
-    for (let i = 0; i < length; i++) {
-        HTML_Info = document.getElementById("addHTML");
-        // HTML_Info.insertAdjacentHTML('beforebegin','<div>BeforeBegin</div>');
-        HTML_Info.insertAdjacentHTML('beforebegin', `<div class="" id="modal_text_${Num}"></div>`);
-        Num = Num + 1;
-    };
-};
-
-//モーダル・インターチェンジの候補をディグリー表記で表示する関数
-function modalCandidateDegree() {
-    
-    if (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
-        0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11]) {
-        Num = 0
-        length = scale_Container.length
-        for (let i = 0; i < length; i++) {
-            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num][ScaleLanguage]}`;
-            Num = Num + 1;
-        };
-    } else {
-    };
-};
-
-//モーダル・インターチェンジの候補を表示するスクリプト
-function modalTextCreate() {
-    //音名の表記を切り替える関数
-    ChangeEIJG();
-    //スケールを表示するためのHTML要素(div)を追加するための関数
-    createCandidate()
-
-    sig0 = document.getElementById("chord_root_name").value
-
-    Num = 0
-    length = scale_Container.length
-    for (let i = 0; i < length; i++) {
-        if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
-            && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
-            && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
-            && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
-            && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
-            && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
-            && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
-            && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
-            && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
-            && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
-            && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
-            && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
-            if (mod(sig0 + scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 11) {
-                document.getElementById(`modal_text_${Num}`).innerHTML = `${sharp_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
-            } else {
-                document.getElementById(`modal_text_${Num}`).innerHTML = `${flat_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${flat_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
-            };
-        } else {
-            document.getElementById(`modal_text_${Num}`).innerHTML = "";
-            document.getElementById(`modal_text_${Num}`).className = "";
-        };
-        Num = Num + 1;
-    };
-
-    //モーダル・インターチェンジの候補をディグリー表記で表示する関数
-    modalCandidateDegree()
-};
-
-//スケールの日本語・英語表記を切り替えるスイッチ
-let ScaleLanguage = 'JapaneseName';
-let ScaleLanguageNum = 1;
-function ScaleLanguageJE(){
-    if (ScaleLanguageNum == 0) {
-        ScaleLanguage = 'JapaneseName';
-        document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
-        ScaleLanguageNum = 1;
-    } else if (ScaleLanguageNum == 1) {
-        ScaleLanguage = 'EnglishName';
-        document.getElementById("scale_language_change_button").className = "btn btn-danger box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
-        ScaleLanguageNum = 0;
-    };
-    //モーダル・インターチェンジの候補を表示するスクリプト
-    modalTextCreate()
-};
-
-//コードネームの構成音と、そのコード上で使えるスケールを表示する関数
-function ChordNoteSwitch() {
-    //コードネームのドロップダウンリストのvalueを取得
-    chord_num_binary = document.getElementById("chord_name").value;
-    //二進数の値を1文字ずつ分解して配列chord_numberに格納
-    chord_number = chord_num_binary.split('');
-
-    Num = 0
-    for (let i = 0; i < 12; i++) {
-        if (chord_number[Num] == "1") {
-            onoff[Num] = 1;
-        } else {
-            onoff[Num] = 0;
-        };
-        Num = Num + 1;
-    };
-
-    Num = 0
-    for (let i = 0; i < 12; i++) {
-        if (onoff[Num] == 1) {
-            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-        } else if (onoff[Num] == 0) {
-            document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-        };
-        Num = Num + 1;
-    };
-    //モーダル・インターチェンジの候補を表示するスクリプト
-    modalTextCreate()
-};
-
-//モーダル・インターチェンジ判定用のスイッチ
-function noteSwitch(Num) {
-
-    if (onoff[Num] == 0) {
-        onoff[Num] = 1;
-        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-    } else if (onoff[Num] == 1) {
-        onoff[Num] = 0;
-        document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
-    };
-    modalTextCreate()
-};
+//--------------------------------------------------------------
 
 //音価を計算する
+
+//1分のミリ秒数
+let one_minutes = 60000;
+
 document.getElementById("input_bpm"); function NoteLength() {
 
     let input_bpm = document.getElementById("input_bpm").value;
