@@ -525,6 +525,66 @@ let SOF = 0;
 //調べたいキーを決定する
 let = 0;
 
+//スケールを表示するためのHTML要素(div)を追加するための関数
+function chordCandidateDiv() {
+    
+    //スケールを格納した配列の長さを取得する。
+    chordProgOne_length = chordProgOne.length
+    chordProgFour_length = chordProgFour.length
+    chordProgSix_length = chordProgSix.length
+    chordProgEight_length = chordProgEight.length
+
+    //配列の数だけHTML要素(div)を追加する。
+    Num = chordProgOne_length
+    for (let i = 0; i < chordProgOne_length; i++) {
+        HTML_Info = document.getElementById("addHTML1");
+        HTML_Info.insertAdjacentHTML('afterbegin', 
+        `<tr>
+        <th scope="row" id="row1-${Num}"></th>
+        <td id="title1-${Num}"></td>
+        <td id="chordProg1-${Num}"></td>
+        </tr>`)
+        Num = Num - 1;
+    };
+    //配列の数だけHTML要素(div)を追加する。
+    Num = chordProgFour_length
+    for (let i = 0; i < chordProgFour_length; i++) {
+        HTML_Info = document.getElementById("addHTML4");
+        HTML_Info.insertAdjacentHTML('afterbegin', 
+        `<tr>
+        <th scope="row" id="row4-${Num}"></th>
+        <td id="title4-${Num}"></td>
+        <td id="chordProg4-${Num}"></td>
+        </tr>`)
+        Num = Num - 1;
+    };
+    //配列の数だけHTML要素(div)を追加する。
+    Num = chordProgSix_length
+    for (let i = 0; i < chordProgSix_length; i++) {
+        HTML_Info = document.getElementById("addHTML6");
+        HTML_Info.insertAdjacentHTML('afterbegin', 
+        `<tr>
+        <th scope="row" id="row6-${Num}"></th>
+        <td id="title6-${Num}"></td>
+        <td id="chordProg6-${Num}"></td>
+        </tr>`)
+        Num = Num - 1;
+    };
+    //配列の数だけHTML要素(div)を追加する。
+    Num = chordProgEight_length
+    for (let i = 0; i < chordProgEight_length; i++) {
+        HTML_Info = document.getElementById("addHTML8");
+        HTML_Info.insertAdjacentHTML('afterbegin', 
+        `<tr>
+        <th scope="row" id="row8-${Num}"></th>
+        <td id="title8-${Num}"></td>
+        <td id="chordProg8-${Num}"></td>
+        </tr>`)
+        Num = Num - 1;
+    };
+};
+
+
 //コード進行をディグリーネームで表示する関数
 function changeChordProgressionDegree() {
 
@@ -616,6 +676,8 @@ function changeChordProgressionDegree() {
     document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-6 col-xl-4 m-3";
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
 };
+
+
 
 
 //コード進行を切り替える関数
@@ -2081,7 +2143,7 @@ function keyplus() {
         };
         Num = Num + 1;
     };
-    
+
     //モーダル・インターチェンジの候補をディグリー表記で表示する関数
     modalCandidateDegree()
 };
