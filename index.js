@@ -70,7 +70,7 @@ scale_Container =
     { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34", Info:"メロディック・マイナーの第2モードです。" },
     { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info:"メロディック・マイナーの第3モードです。" },
     { EnglishName: "Lydian Dominant/Lydian ♭7th ", JapaneseName: "リディアン・ドミナント/リディアン♭7th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info:"メロディック・マイナーの第4モードです。" },
-    { EnglishName: "Mixolydian ♭6th/", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info:"メロディック・マイナーの第5モードです。<br>ハーモニック・メジャーと同じ構成音を持ちます。" },
+    { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info:"メロディック・マイナーの第5モードです。<br>ハーモニック・メジャーと同じ構成音を持ちます。" },
     { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info:"" },
     { EnglishName: "Super Locrian", JapaneseName: "スーパー・ロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info:"オルタード・スケールと同じ構成音を持ちます。" },
 

@@ -140,7 +140,7 @@
         <label for="rootNumber" class="box1 col-md-10 col-xl-2 py-2 mx-2">ルート音
           <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
             onchange="ChordNoteSwitch()">
-            <option value=0>C</option>
+            <option value=0 selected>C</option>
             <option value=1>C#/D♭</option>
             <option value=2>D</option>
             <option value=3>D#/E♭</option>
@@ -158,7 +158,7 @@
         <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">コードネーム
           <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
             onchange="ChordNoteSwitch()">
-            <option value=100010010000-0>Major</option>
+            <option value=100010010000-0 selected>Major</option>
             <option value=100100010000-1>Minor</option>
             <option value=100010001000-2>aug</option>
             <option value=100100100000-3>m(♭5)・dim</option>
@@ -186,7 +186,7 @@
         <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
           <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
             onchange="ChangeEIJG()">
-            <option value=0>英・米式表記</option>
+            <option value=0  selected>英・米式表記</option>
             <option value=1>イタリア式表記</option>
             <option value=2>日本式表記</option>
             <option value=3>ドイツ式表記</option>
@@ -451,6 +451,7 @@
       window.addEventListener('load',function () {
         createCandidate()
         modalCandidateDegree()
+        ChordNoteSwitch()
       });
     </script>
 
