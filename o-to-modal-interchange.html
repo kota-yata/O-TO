@@ -255,7 +255,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button onclick="noteSwitch_0()" type="button"
+        <button data-index="0" onclick="noteSwitch(0)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_0">
           <div>
             C
@@ -268,7 +268,7 @@
         <div class="list-group-item list-group-item-success col-3 text-center py-3 d-xl-none">
           ♭9th
         </div>
-        <button onclick="noteSwitch_1()" type="button"
+        <button data-index="1" onclick="noteSwitch(1)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_1">
           <div>
             C#/D♭
@@ -281,7 +281,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           9th
         </div>
-        <button onclick="noteSwitch_2()" type="button"
+        <button data-index="2" onclick="noteSwitch(2)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_2">
           <div>
             D
@@ -294,7 +294,7 @@
         <div class="list-group-item list-group-item-success col-3 text-center py-3 d-xl-none">
           #9th
         </div>
-        <button onclick="noteSwitch_3()" type="button"
+        <button data-index="3" onclick="noteSwitch(3)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_3">
           <div>
             D#/E♭
@@ -306,7 +306,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button onclick="noteSwitch_4()" type="button"
+        <button data-index="4" onclick="noteSwitch(4)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_4">
           <div>
             E
@@ -319,7 +319,7 @@
         <div class="list-group-item col-3 list-group-item-info text-center py-3 d-xl-none">
           11th
         </div>
-        <button onclick="noteSwitch_5()" type="button"
+        <button data-index="5" onclick="noteSwitch(5)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_5">
           <div>
             F
@@ -332,7 +332,7 @@
         <div class="list-group-item col-3 list-group-item-success text-center py-3 d-xl-none">
           #11th
         </div>
-        <button onclick="noteSwitch_6()" type="button"
+        <button data-index="6" onclick="noteSwitch(6)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_6">
           <div>
             F#/G♭
@@ -345,7 +345,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button onclick="noteSwitch_7()" type="button"
+        <button data-index="7" onclick="noteSwitch(7)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_7">
           <div>
             G
@@ -358,7 +358,7 @@
         <div class="list-group-item col-3 list-group-item-success text-center py-3 d-xl-none">
           ♭13th
         </div>
-        <button onclick="noteSwitch_8()" type="button"
+        <button data-index="8" onclick="noteSwitch(8)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_8">
           <div>
             G#/A♭
@@ -371,7 +371,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           13th
         </div>
-        <button onclick="noteSwitch_9()" type="button"
+        <button data-index="9" onclick="noteSwitch(9)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_9">
           <div>
             A
@@ -384,7 +384,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button onclick="noteSwitch_10()" type="button"
+        <button data-index="10" onclick="noteSwitch(10)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_10">
           <div>
             A#/B♭
@@ -397,7 +397,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button onclick="noteSwitch_11()" type="button"
+        <button data-index="11" onclick="noteSwitch(11)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_11">
           <div>
             B
@@ -416,31 +416,9 @@
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
-              <div class="py-1" id="modal_text_1">Ⅰメジャー(長音階)</div>
-              <div class="py-1" id="modal_text_12">Ⅰアイオニアン・オーギュメント　(平行調のハーモニック・マイナー)</div>
-              <div class="py-1" id="modal_text_13">Ⅰリディアン・オーギュメント　(平行調のメロディック・マイナー)</div>
-              <div class="py-1" id="modal_text_2">Ⅰナチュラル・マイナー(自然的短音階)</div>
-              <div class="py-1" id="modal_text_3">Ⅰハーモニック・マイナー(和声的短音階)</div>
-              <div class="py-1" id="modal_text_4">Ⅰメロディック・マイナー(旋律的短音階)</div>
-              <div class="py-1" id="modal_text_5">Ⅰハーモニック・メジャー(和声的長音階)</div>
-              <div class="py-1" id="modal_text_6">Ⅰメロディック・メジャー(旋律的長音階)</div>
-              <div class="py-1" id="modal_text_7">Ⅰドリアン</div>
-              <div class="py-1" id="modal_text_8">Ⅰフリジアン</div>
-              <div class="py-1" id="modal_text_9">Ⅰリディアン</div>
-              <div class="py-1" id="modal_text_10">Ⅰミクソリディアン</div>
-              <div class="py-1" id="modal_text_11">Ⅰロクリアン</div>
-              <div class="py-1" id="modal_text_14">Ⅰブルース・メジャー・ペンタトニック</div>
-              <div class="py-1" id="modal_text_15">Ⅰブルース・マイナー・ペンタトニック</div>
-              <div class="py-1" id="modal_text_16">Ⅰホールトーン</div>
-              <div class="py-1" id="modal_text_17">Ⅰフリジアン・ドミナント</div>
-              <div class="py-1" id="modal_text_18">Ⅰリディアン・♭7th</div>
-              <div class="py-1" id="modal_text_19">Ⅰフリジアン・♭4th</div>
-              <div class="py-1" id="modal_text_20">Ⅰミクソリディアン♭2nd</div>
-              <div class="py-1" id="modal_text_21">Ⅰスーパーロクリアン/オルタード</div>
-              <div class="py-1" id="modal_text_22">Ⅰハーフ・ホール・ディミニッシュ</div>
-              <div class="py-1" id="modal_text_23">Ⅰクロマチック</div>
-
+              <div id="addHTML">
+                
+              </div>
             </div>
           </div>
         </div>
@@ -470,6 +448,14 @@
       <footer-template></footer-template>
       <copyright-text></copyright-text>
     </footer>
+
+    <!--ページがロードされたときに関数を実行 -->
+    <script>
+      window.addEventListener('load', function () {
+        createCandidateDiv()
+        modalCandidateDegree()
+      });
+    </script>
 
     <script src="Vue.js"></script>
     <script src="index.js"></script>

@@ -406,31 +406,9 @@
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
-              <div class="py-1" id="modal_text_1">Cメジャー(長音階)　(#・♭×0)</div>
-              <div class="" id="modal_text_12"></div>
-              <div class="" id="modal_text_13"></div>
-              <div class="" id="modal_text_2"></div>
-              <div class="" id="modal_text_3"></div>
-              <div class="" id="modal_text_4"></div>
-              <div class="py-1" id="modal_text_5">Cハーモニック・メジャー(和声的長音階)　(#・♭×0)</div>
-              <div class="py-1" id="modal_text_6">Cメロディック・メジャー(旋律的長音階)　(#・♭×0)</div>
-              <div class="" id="modal_text_7"></div>
-              <div class="" id="modal_text_8"></div>
-              <div class="py-1" id="modal_text_9">Cリディアン　(#×1)</div>
-              <div class="py-1" id="modal_text_10">Cミクソリディアン　(♭×1)</div>
-              <div class="" id="modal_text_11"></div>
-              <div class="py-1" id="modal_text_14">Cブルース・メジャー・ペンタトニック　(#・♭×0)</div>
-              <div class="" id="modal_text_15"></div>
-              <div class="" id="modal_text_16"></div>
-              <div class="py-1" id="modal_text_17">Cフリジアン・ドミナント　(♭×4)</div>
-              <div class="py-1" id="modal_text_18">Cリディアン♭7th　(#×1)</div>
-              <div class="py-1" id="modal_text_19">Cフリジアン♭4th　(♭×4)</div>
-              <div class="py-1" id="modal_text_20">Cミクソリディアン♭2nd　(♭×1)</div>
-              <div class="" id="modal_text_21"></div>
-              <div class="py-1" id="modal_text_22">Cハーフ・ホール・ディミニッシュ　(♭×1)</div>
-              <div class="py-1" id="modal_text_23">Cクロマチック　(#・♭×0)</div>
-
+              <div id="addHTML">
+                
+              </div>
             </div>
           </div>
         </div>
@@ -459,6 +437,15 @@
       <footer-template></footer-template>
       <copyright-text></copyright-text>
     </footer>
+
+    <!--ページがロードされたときに関数を実行 -->
+    <script>
+      window.addEventListener('load',function () {
+        createCandidateDiv()
+        modalCandidateDegree()
+        ChordNoteSwitch()
+      });
+    </script>
 
     <script src="Vue.js"></script>
     <script src="index.js"></script>
