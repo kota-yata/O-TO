@@ -158,28 +158,28 @@
         <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">コードネーム
           <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
             onchange="ChordNoteSwitch()">
-            <option value=100010010000>Major</option>
-            <option value=100100010000>Minor</option>
-            <option value=100010001000>aug</option>
-            <option value=100100100000>m(♭5)・dim</option>
-            <option value=100001010000>sus4</option>
-            <option value=101000010000>sus2</option>
-            <option value=100010010010>7</option>
-            <option value=100010000010>7(omit5)</option>
-            <option value=100010010001>Maj7</option>
-            <option value=100100010010>m7</option>
-            <option value=100100010001>mMaj7</option>
-            <option value=100100100010>m7(♭5)</option>
-            <option value=100100100100>dim7</option>
-            <option value=100001010010>7sus4</option>
-            <option value=100010010100>6</option>
-            <option value=100100010100>m6</option>
-            <option value=100010001010>aug7</option>
-            <option value=100010001001>augMaj7</option>
-            <option value=101000100010>blk・Ⅱaug/Ⅰ</option>
-            <option value=101010010000>Major add9</option>
-            <option value=101100010000>m add9</option>
-            <option value=100000010000>5</option>
+            <option value=100010010000-0>Major</option>
+            <option value=100100010000-1>Minor</option>
+            <option value=100010001000-2>aug</option>
+            <option value=100100100000-3>m(♭5)・dim</option>
+            <option value=100001010000-4>sus4</option>
+            <option value=101000010000-5>sus2</option>
+            <option value=100010010010-6>7</option>
+            <option value=100010000010-7>7(omit5)</option>
+            <option value=100010010001-8>Maj7</option>
+            <option value=100100010010-9>m7</option>
+            <option value=100100010001-10>mMaj7</option>
+            <option value=100100100010-11>m7(♭5)</option>
+            <option value=100100100100-12>dim7</option>
+            <option value=100001010010-13>7sus4</option>
+            <option value=100010010100-14>6</option>
+            <option value=100100010100-15>m6</option>
+            <option value=100010001010-16>aug7</option>
+            <option value=100010001001-17>augMaj7</option>
+            <option value=101000100010-18>blk・Ⅱaug/Ⅰ</option>
+            <option value=101010010000-19>Major add9</option>
+            <option value=101100010000-20>m add9</option>
+            <option value=100000010000-21>5</option>
           </select>
         </label>
 
@@ -412,7 +412,7 @@
             </div>
             
             <div class="accordion-body">
-              <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
+              <!--ページがロードされた後にJavaScriptによって候補となるスケールを表示する -->
               <div id="addHTML">
                 
               </div>
@@ -451,7 +451,6 @@
       window.addEventListener('load',function () {
         createCandidate()
         modalCandidateDegree()
-        ChordNoteSwitch()
       });
     </script>
 

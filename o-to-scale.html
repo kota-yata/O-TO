@@ -158,37 +158,9 @@
         <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
           <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
             onchange="scaleKeySignature()">
-            <!-- <option value=101011010101>Major/Ionian (長音階)</option>
-            <option value=101101011010>Natural minor/Aeolian (自然的短音階)</option>
-            <option value=101101011001>Harmonic minor (和声的短音階)</option>
-            <option value=101101010101>Melodic minor (旋律的短音階)</option>
-            <option value=101011011001>Harmonic major (和声的長音階)</option>
-            <option value=101011011010>Melodic Major (旋律的長音階)</option>
-            <option value=101101010110>Dorian (ドリアン・モード)</option>
-            <option value=110101011010>Phrygian (フリジアン・モード)</option>
-            <option value=101010110101>Lydian (リディアン・モード)</option>
-            <option value=101011010110>Mixolydian (ミクソリディアン・モード)</option>
-            <option value=110101101010>Locrian (ロクリアン・モード)</option>
-            <option value=110011011010>Phrygian dominant (Hmp5↓)</option>
-            <option value=101010110110>Lydian dominant/Lydian ♭7th (リディアン♭7th)</option>
-            <option value=110110011010>Phrygian ♭4th (フリジアン♭4th)</option>
-            <option value=110011010110>Mixolydian ♭2nd (ミクソリディアン♭2nd)</option>
-            <option value=110110101010>Super Locrian/Altered Scale (スーパーロクリアン/オルタード・スケール)</option>
-            <option value=110111011010>Spanish Phrygian (スパニッシュ8ノート)</option>
-            <option value=101010101010>Whole Tone (ホールトーン・スケール)</option>
-            <option value=110110110110>Half whole diminished scale (ｺﾝﾋﾞﾈｰｼｮﾝ・ｵﾌﾞ・ﾃﾞｨﾐﾆｯｼｭ)</option>
-            <option value=101010010100>Major pentatonic/ヨナ抜き長音階</option>
-            <option value=100101010010>Minor pentatonic/ニロ抜き短音階</option>
-            <option value=101110010100>Blues Major pentatonic</option>
-            <option value=100101110010>Blues Minor pentatonic</option>
-            <option value=110001010010>陰音階/都節[上行形]</option>
-            <option value=110001011000>陰音階/都節[下行形]</option>
-            <option value=101001010100>律音階</option>
-            <option value=100011010001>琉球音階/ニロ抜き長音階</option>
-            <option value=111111111111>Chromatic (クロマチック・スケール)</option> -->
+            <!-- ページがロードされた後にJavaScriptによって選択肢を追加する -->
           </select>
         </label>
-
 
         <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
           <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
@@ -200,10 +172,6 @@
           </select>
         </label>
 
-        <!-- <div>
-          <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
-            onclick="ScaleLanguageJE()">日本語⇔English</button>
-        </div> -->
 
       </div>
 
@@ -408,8 +376,6 @@
         </div>
       </div>
 
-
-
       <div class="accordion py-3" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -420,16 +386,20 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
+
             <div class="accordion-body">
-              <div class="py-2" id="keySignatur_text">このスケールの調号は、通常(#・♭×0)で記譜されます。</div>
-              <div class="py-2" id="dominant_chord_text"></div>
-              <div class="py-2" id="scale_text">親スケールは「Cメジャースケール(長音階)」です。<br><br>Forte number：「7-35」<br>Scale
-                number：「2741」</div>
+
+              <div id="Scale_name_text"></div>
+              <div id="keySignatur_text"></div>
+              <div id="Scale_info_text"></div>
+              <div id="dominant_chord_text"></div>
+              <div id="Forte_number_text"></div>
+              <div id="Scale_number_text"></div>
+
             </div>
           </div>
         </div>
       </div>
-
 
       <div class="accordion py-3" id="accordionExample">
         <div class="accordion-item">
@@ -491,6 +461,7 @@
     <script>
       window.addEventListener('load', function () {
         createScaleChoices()
+        scaleKeySignature()
       });
     </script>
 
