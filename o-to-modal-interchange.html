@@ -153,7 +153,6 @@
         </select>
       </label>
 
-
       <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
         <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
           onchange="ChangeEIJG()">
@@ -164,11 +163,7 @@
         </select>
       </label>
 
-
       <p class="pt-3">②音名をタップしてください。</p>
-
-
-
 
       <div class="row">
         <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_0">
@@ -405,6 +400,8 @@
         </button>
       </div>
 
+
+
       <div class="accordion py-3" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -415,10 +412,18 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
+            
+            <div>
+              <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
+                onclick="ScaleLanguageJE()">日本語⇔English</button>
+            </div>
+
             <div class="accordion-body">
+            <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
               <div id="addHTML">
-                
+
               </div>
+
             </div>
           </div>
         </div>
@@ -428,7 +433,7 @@
 
       <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
       <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/modal-interchange-chart" target="_blank"
-          rel="noopener noreferrer">・対応表</a>
+          rel="noopener noreferrer">・モーダルインターチェンジ対応表</a>
         <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/slash-chords" target="_blank"
             rel="noopener noreferrer">分数コードを解説します。【転回形/UST/ハイブリッド・コード】</a></div>
         <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
@@ -449,10 +454,10 @@
       <copyright-text></copyright-text>
     </footer>
 
-    <!--ページがロードされたときに関数を実行 -->
+    <!--ページのロードが終了したときに実行される関数 -->
     <script>
       window.addEventListener('load', function () {
-        createCandidateDiv()
+        createCandidate()
         modalCandidateDegree()
       });
     </script>

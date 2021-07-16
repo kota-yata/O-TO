@@ -53,29 +53,29 @@ scale_Container =
     { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
     { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
     { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7 },
-    { EnglishName: "Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9 },
+    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9 },
     { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11 },
 
     //ハーモニックマイナースケールファミリー
-    { EnglishName: "Harmonic minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9 },
+    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9 },
     { EnglishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11 },
     { EnglishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0 },
     { EnglishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
-    { EnglishName: "Phrygian dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
+    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
     { EnglishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
     { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8 },
 
     //メロディックマイナースケールファミリー
-    { EnglishName: "Melodic minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9 },
+    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9 },
     { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11 },
-    { EnglishName: "Lydian augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0 },
-    { EnglishName: "Lydian dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
+    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0 },
+    { EnglishName: "Lydian Dominant", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2 },
     { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
     { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6 },
     { EnglishName: "Super Locrian", JapaneseName: "スーパーロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
 
     //ハーモニックメジャースケールファミリー
-    { EnglishName: "Harmonic major", JapaneseName: "メロディック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0 },
+    { EnglishName: "Harmonic Major", JapaneseName: "メロディック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0 },
     { EnglishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2 },
     { EnglishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4 },
     { EnglishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5 },
@@ -102,7 +102,7 @@ scale_Container =
     { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8 },
     { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4 },
     { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7 },
-    { EnglishName: "Half whole diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0 },
+    { EnglishName: "Half Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0 },
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0 }
     ];
 
@@ -1512,7 +1512,7 @@ function modalTextCreate() {
 
 //スケールの日本語・英語表記を切り替えるスイッチ
 let ScaleLanguage = 'JapaneseName';
-let ScaleLanguageNum = 0;
+let ScaleLanguageNum = 1;
 function ScaleLanguageJE(){
     if (ScaleLanguageNum == 0) {
         ScaleLanguage = 'JapaneseName';
