@@ -10,15 +10,15 @@ function roundToThree(num) {
 }
 
 //音名を配列に格納する。
-const note_name = ["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"];
+const note_name = ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"];
 const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
 
 const EIJG =
-    [["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"],
-    ["ド", "ド#/レ♭", "レ", "レ#/ミ♭", "ミ", "ファ", "ﾌｧ#/ソ♭", "ソ", "ソ#/ラ♭", "ラ", "ラ#/シ♭", "シ"],
-    ["ハ", "嬰ハ/変ニ", "ニ", "嬰ニ/変ホ", "ホ", "ヘ", "嬰ヘ/変ト", "ト", "嬰ト/変イ", "イ", "嬰イ/変ロ", "ロ"],
-    ["C", "Cis/Des", "D", "Dis/Es", "E", "F", "Fis/Ges", "G", "Gis/As", "A", "Ais/B", "H"]];
+    [["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
+    ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ﾌｧ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
+    ["ハ", "嬰ハ-変ニ", "ニ", "嬰ニ-変ホ", "ホ", "ヘ", "嬰ヘ-変ト", "ト", "嬰ト-変イ", "イ", "嬰イ-変ロ", "ロ"],
+    ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]];
 
 //英・米式音名の多次元配列
 const noteNames =
@@ -47,63 +47,91 @@ const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
 scale_Container =
-    //メジャースケールファミリー
-    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン/長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info:"" },
-    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-35", Info:"メジャー・スケールの第2モードです。" },
-    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-35", Info:"メジャー・スケールの第3モードです。" },
-    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-35", Info:"メジャー・スケールの第4モードです。" },
-    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-35", Info:"メジャー・スケールの第5モードです。" },
-    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン/自然的短音階", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9, ForteNumber: "7-35", Info:"" },
-    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11, ForteNumber: "7-35", Info:"メジャー・スケールの第7モードです。" },
+    //メジャー・スケールファミリー
+    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-35", Info: "", Mode: "メジャー・スケールの第2モードです。", Adjustment: 0 },
+    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-35", Info: "", Mode: "メジャー・スケールの第3モードです。", Adjustment: 0 },
+    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-35", Info: "", Mode: "メジャー・スケールの第4モードです。", Adjustment: 0 },
+    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-35", Info: "", Mode: "メジャー・スケールの第5モードです。", Adjustment: 0 },
+    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9, ForteNumber: "7-35", Info: "自然的短音階。モーダルな文脈では、「エオリアン・モード」。", Mode: "メジャー・スケールの第6モードです。", Adjustment: 0 },
+    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11, ForteNumber: "7-35", Info: "", Mode: "メジャー・スケールの第7モードです。", Adjustment: 0 },
 
-    //ハーモニックマイナースケールファミリー
-    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー/和声的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9, ForteNumber: "7-32", Info:"短調の主和音への終止感を得るためのスケールです。" },
-    { EnglishName: "Locrian ♮6th", JapaneseName: "ロクリアン♮6th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第2モードです。" },
-    { EnglishName: "Ionian sharp 5th", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第3モードです。"  },
-    { EnglishName: "Dorian #4th", JapaneseName: "ドリアン#4th", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第4モードです。" },
-    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント/Hmp5↓", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第5モードです。" },
-    { EnglishName: "Lydian ♯2nd", JapaneseName: "リディアン#2nd", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第6モードです。" },
-    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8, ForteNumber: "7-32", Info:"ハーモニック・マイナーの第7モードです。" },
+    //ハーモニック・マイナースケールファミリー
+    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1], addNum: 9, ForteNumber: "7-32", Info: "和声的短音階。短調の主和音への終止感を得るためのスケールです。", Mode: "", Adjustment: -9 },
+    { EnglishName: "Locrian ♮6", JapaneseName: "ロクリアン♮6", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第2モードです。", Adjustment: -9 },
+    { EnglishName: "Ionian #5", JapaneseName: "アイオニアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第3モードです。", Adjustment: -9 },
+    { EnglishName: "Dorian #4", JapaneseName: "ドリアン#4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第4モードです。", Adjustment: -9 },
+    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "「ハーモニック・マイナー・パーフェクト・フィフス・ビロウ(Hmp5↓)」とも。", Mode: "ハーモニック・マイナーの第5モードです。", Adjustment: -9 },
+    { EnglishName: "Lydian ♯2", JapaneseName: "リディアン#2", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第6モードです。", Adjustment: -9 },
+    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第7モードです。", Adjustment: -9 },
 
-    //メロディックマイナースケールファミリー
-    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー/旋律的短音階", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9, ForteNumber: "7-34", Info:"ハーモニック・マイナーのメロディとしての違和感を軽減するためのスケール。<br>基本的にはスケールを下行する時は自然的短音階に変化させる。" },
-    { EnglishName: "Dorian ♭2nd", JapaneseName: "ドリアン♭2nd", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34", Info:"メロディック・マイナーの第2モードです。" },
-    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info:"メロディック・マイナーの第3モードです。" },
-    { EnglishName: "Lydian Dominant/Lydian ♭7th ", JapaneseName: "リディアン・ドミナント/リディアン♭7th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info:"メロディック・マイナーの第4モードです。" },
-    { EnglishName: "Mixolydian ♭6th", JapaneseName: "ミクソリディアン♭6th", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info:"メロディック・マイナーの第5モードです。<br>ハーモニック・メジャーと同じ構成音を持ちます。" },
-    { EnglishName: "Locrian ♮2nd", JapaneseName: "ロクリアン♮2nd", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info:"" },
-    { EnglishName: "Super Locrian", JapaneseName: "スーパー・ロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info:"オルタード・スケールと同じ構成音を持ちます。" },
+    //メロディック・マイナースケールファミリー
+    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1], addNum: 9, ForteNumber: "7-34", Info: "旋律的短音階。ハーモニック・マイナーのメロディとしての違和感を軽減するためのスケール。<br>基本的にはスケールを下行する時は、自然的短音階に変化させます。", Mode: "", Adjustment: -9 },
+    { EnglishName: "Dorian ♭2", JapaneseName: "ドリアン♭2", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第2モードです。", Adjustment: -9 },
+    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第3モードです。", Adjustment: -9 },
+    { EnglishName: "Lydian Dominant ", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info: "「リディアン♭7」とも。", Mode: "メロディック・マイナーの第4モードです。", Adjustment: -9 },
+    { EnglishName: "Mixolydian ♭6", JapaneseName: "ミクソリディアン♭6", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info: "ハーモニック・メジャーと同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モードです。", Adjustment: -9 },
+    { EnglishName: "Locrian ♮2", JapaneseName: "ロクリアン♮2", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info: "", Mode: "", Adjustment: -9 },
+    { EnglishName: "Super Locrian", JapaneseName: "スーパー・ロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・スケールと同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モードです。", Adjustment: -9 },
 
-    //ハーモニックメジャースケールファミリー
-    { EnglishName: "Harmonic Major", JapaneseName: "ハーモニック・メジャー/和声的長音階", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Dorian ♭5th", JapaneseName: "ドリアン♭5th", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Phrygian ♭4th", JapaneseName: "フリジアン♭4th", diaChord4: "m7・7", diaChord3: "m・", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Lydian ♭3rd", JapaneseName: "リディアン♭3rd", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Mixolydian ♭2nd", JapaneseName: "ミクソリディアン♭2nd", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Lydian ♯2nd ♯5th", JapaneseName: "リディアン♯2nd ♯5th", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10, ForteNumber: "7-32", Info:"" },
-    { EnglishName: "Locrian ♭♭7th", JapaneseName: "ロクリアン♭♭7th", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11, ForteNumber: "7-32", Info:"" },
+    //ハーモニック・メジャースケールファミリー
+    { EnglishName: "Harmonic Major", JapaneseName: "ハーモニック・メジャー", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 0, ForteNumber: "7-32", Info: "和声的長音階。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Dorian ♭5", JapaneseName: "ドリアン♭5", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第2モードです。", Adjustment: 0 },
+    { EnglishName: "Phrygian ♭4", JapaneseName: "フリジアン♭4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "ドミナント・セブンスコード上で使用可能です。", Mode: "ハーモニック・メジャーの第3モードです。", Adjustment: 0 },
+    { EnglishName: "Lydian ♭3", JapaneseName: "リディアン♭3", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第4モードです。", Adjustment: 0 },
+    { EnglishName: "Mixolydian ♭2", JapaneseName: "ミクソリディアン♭2", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第5モードです。", Adjustment: 0 },
+    { EnglishName: "Lydian ♯2 ♯5", JapaneseName: "リディアン♯2 ♯5", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第6モードです。", Adjustment: 0 },
+    { EnglishName: "Locrian ♭♭7", JapaneseName: "ロクリアン♭♭7", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 11, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第7モードです。", Adjustment: 0 },
 
     //メロディック・メジャー
-    { EnglishName: "Melodic Major", JapaneseName: "メロディック・メジャー/旋律的長音階", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0, ForteNumber: "7-34", Info:"メロディック・マイナーの第5モードでもあります。" },
+    { EnglishName: "Melodic Major", JapaneseName: "メロディック・メジャー", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 0, ForteNumber: "7-34", Info: "旋律的長音階。「ミクソリディアン♭6」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モードでもあります。", Adjustment: -5 },
+
+    //ダブル・ハーモニック
+    { EnglishName: "Double Harmonic", JapaneseName: "ダブル・ハーモニック", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1], addNum: 4, ForteNumber: "7-22", Info: "「フラメンコ・モード」や、「アラビック・スケール」などとも呼ばれます。", Mode: "", Adjustment: -4 },
+    { EnglishName: "Lydian ♯2 ♯6", JapaneseName: "リディアン♯2 ♯6", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], addNum: 5, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第2モードです。", Adjustment: -4 },
+    { EnglishName: "Ultraphrygian", JapaneseName: "ウルトラ・フリジアン", diaChord4: "m6", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0], addNum: 8, ForteNumber: "7-22", Info: "「フリジアン♭♭7 ♭4」とも。", Mode: "ダブル・ハーモニックの第3モードです。", Adjustment: -4 },
+    { EnglishName: "Hungarian minor", JapaneseName: "ハンガリアン・マイナー", diaChord4: "m△7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1], addNum: 9, ForteNumber: "7-22", Info: "「Algerian」、「Egyptian」などとも。", Mode: "ダブル・ハーモニックの第4モードです。", Adjustment: -4 },
+    { EnglishName: "Oriental", JapaneseName: "オリエンタル", diaChord4: "Fr+6", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-22", Info: "「Asian」、「ミクソリディアン♭5 ♭2」、「ロクリアン♮6 ♮3」とも。", Mode: "ダブル・ハーモニックの第5モードです。", Adjustment: -4 },
+    { EnglishName: "Ionian ♯5 ♯2", JapaneseName: "アイオニアン♯5 ♯2", diaChord4: "aug△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第6モードです。", Adjustment: -4 },
+    { EnglishName: "Locrian double ♭♭3 ♭♭7", JapaneseName: "ロクリアン・ダブル♭♭3 ♭♭7", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0], addNum: 3, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第7モードです。", Adjustment: -4 },
 
     //ペンタ
-    { EnglishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "5-35", Info:"" },
-    { EnglishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "5-35", Info:"" },
-    { EnglishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info:"" },
-    { EnglishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info:"" },
+    { EnglishName: "Major pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "5-35", Info: "もっとも基本的な5音階です。<br>「ヨナ抜き長音階」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Suspeed Pentatonic", JapaneseName: "陽音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 2, ForteNumber: "5-35", Info: "「楽調子」や「青葉調子」とも。", Mode: "メジャー・ペンタトニックの第2モードです。", Adjustment: 0 },
+    { EnglishName: "Blues Minor", JapaneseName: "ブルース・マイナー", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0], addNum: 4, ForteNumber: "5-35", Info: "", Mode: "メジャー・ペンタトニックの第3モードです。", Adjustment: 0 },
+    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7, ForteNumber: "5-35", Info: "古くは雅楽で用いられる音階です。", Mode: "メジャー・ペンタトニックの第4モードです。", Adjustment: 0 },
+    { EnglishName: "Minor pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "5-35", Info: "「ニロ抜き短音階」とも。", Mode: "メジャー・ペンタトニックの第5モードです。", Adjustment: 0 },
 
     //和風スケール
-    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7, ForteNumber: "5-35", Info:"" },
-    { EnglishName: "Insen", JapaneseName: "陰音階/都節-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "5-29", Info:"" },
-    { EnglishName: "In/Sakura pentatonic", JapaneseName: "陰音階/都節-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info:"" },
-    { EnglishName: "Ryukyu", JapaneseName: "琉球音階/沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info:"" },
+    { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "5-29", Info: "宮城道雄-『春の海』などで用いられる和風な音階です。<br>「都節-上行形」、「半岩戸調子」、「古今調子」とも。", Mode: "", Adjustment: -5 },
+    { EnglishName: "Raga Hindol", JapaneseName: "ラーガ・ヒンドル", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], addNum: 5, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第2モードです。", Adjustment: -5 },
+    { EnglishName: "Han Nakazora", JapaneseName: "半中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第3モードです。", Adjustment: -5 },
+    { EnglishName: "Niju Kumoi", JapaneseName: "二重雲井調子 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第4モードです。", Adjustment: -5 },
+    { EnglishName: "Dorian Pentatonic", JapaneseName: "秋風調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], addNum: 2, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第5モードです。「雲井ペンタトニック」とも。", Adjustment: -5 },
+
+    { EnglishName: "In/Sakura pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "古謡「さくらさくら」などで用いられる和風な音階です。<br>「都節-下行形」、「平調子」、「平巾十調子」とも。", Mode: "", Adjustment: -4 },
+    { EnglishName: "Lydian Pentatonic", JapaneseName: "リディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第2モードです。", Adjustment: -4 },
+    { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モードです", Adjustment: -4 },
+    { EnglishName: "Iwato Scale", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モードです。", Adjustment: -4 },
+    { EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モードです。", Adjustment: -4 },
+    
+    { EnglishName: "Ionian Pentatonic", JapaneseName: "琉球音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「沖縄音階」、「ニロ抜き長音階」とも。", Mode: "", Adjustment: 0 },
+
+    { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
+    { EnglishName: "Koptimic", JapaneseName: "中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "6-Z25", Info: "", Mode: "", Adjustment: 0 },
+
+    //ブルース
+    { EnglishName: "Blues Major pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
+    { EnglishName: "Blues Minor pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
+    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート・スケール", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
 
     //その他のスケール
-    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info:"オルタード・テンションをまとめたスケールです。スーパー・ロクリアンと同じ構成音を持ちます。" },
-    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "8-26", Info:"スパニッシュな雰囲気が出ます。スパニッシュ8ノートとも呼ばれます。" },
-    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン/全音音階", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7, ForteNumber: "6-35", Info:"オクターブを6等分したスケール。全てが全音で構成されています。" },
-    { EnglishName: "Half Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0, ForteNumber: "8-28", Info:"半音と全音の繰り返しからなるスケール。<br>日本ではコンビネーション・オブ・ディミニッシュ(コンディミ)とも呼ばれます。" },
-    { EnglishName: "Chromatic", JapaneseName: "クロマチック/半音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0, ForteNumber: "12-1", Info:"" }
+    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Diminished", JapaneseName: "ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モードです。", Adjustment: -9 },
+    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 7, ForteNumber: "6-35", Info: "「全音音階」とも。オクターブを6等分したスケール。全てが全音で構成されています。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
     ];
 
 
@@ -133,9 +161,9 @@ function createScaleChoices() {
         HTML_Info = document.getElementById("constituent_binary");
         if (Num == 0) {
             //メジャースケールを初期の選択肢にする。
-            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${Num+1} - ${scale_Container[Num][ScaleLanguage]}</option>`);
         } else {
-            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${Num+1} - ${scale_Container[Num][ScaleLanguage]}</option>`);
         };
     };
 };
@@ -162,6 +190,7 @@ function scaleKeySignature() {
     scale_tonic_num = document.getElementById("rootNumber").value;
 
     KeySignatureNum = mod(Number(scale_tonic_num) - scale_Container[Num]["addNum"], 12)
+    scaleFamilyNum = mod(Number(scale_tonic_num) - scale_Container[Num]["addNum"] - scale_Container[Num]["Adjustment"], 12)
 
     //調号が#か♭かを判定する。
     if (KeySignatureNum == 0 || KeySignatureNum == 2 || KeySignatureNum == 4 || KeySignatureNum == 6 || KeySignatureNum == 7 || KeySignatureNum == 9 || KeySignatureNum == 11) {
@@ -170,27 +199,36 @@ function scaleKeySignature() {
         SOF = 1;
     };
 
+    //スケールファミリーの情報を表示
+    if (scale_Container[Num]["Mode"] == "") {
+        document.getElementById("Scale_Family_text").innerHTML = "<br>";
+    } else {
+        document.getElementById("Scale_Family_text").innerHTML
+            = `<br>${noteNames[scaleFamilyNum][SOF]} ${scale_Container[Num]["Mode"]}`;
+    };
+
     //スケールの名前を表示する
     document.getElementById("Scale_name_text").innerHTML
         = `English : ${noteNames[scale_tonic_num][SOF]} ${scale_Container[Num]['EnglishName']} <br>日本語 : ${noteNames[scale_tonic_num][SOF]} ${scale_Container[Num]['JapaneseName']}`;
 
     //スケールの調号を判定する
     document.getElementById("keySignatur_text").innerHTML
-        = `<br>通常、調号は${key_signature[KeySignatureNum]}で記譜されます。`;
+        = `通常、調号は${key_signature[KeySignatureNum]}で記譜されます。`;
+
 
     //スケールの情報を表示
     if (scale_Container[Num]["Info"] == "") {
         document.getElementById("Scale_info_text").innerHTML = "";
     } else {
         document.getElementById("Scale_info_text").innerHTML
-        = `<br>${scale_Container[Num]["Info"]}`;
+            = `<br>${scale_Container[Num]["Info"]}`;
     };
 
     // ドミナントコード上で使えるかを判定する
     if (scale_Container[Num]["diaChord4"] == "7") {
         document.getElementById("dominant_chord_text").innerHTML = `${noteNames[scale_tonic_num][SOF]}7 (ドミナント・セブンスコード)上で使用可能です。`;
     } else if (scale_dec == 1371) {
-        document.getElementById("dominant_chord_text").innerHTML = `スーパー・ロクリアンではなくオルタード・スケールとして解釈する場合は、${flat_note_name[scale_tonic_num]}7 (ドミナント・セブンスコード)上で使用可能です。`;
+        document.getElementById("dominant_chord_text").innerHTML = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${flat_note_name[scale_tonic_num]}7 (ドミナント・セブンスコード)上で使用可能です。`;
     } else {
         document.getElementById("dominant_chord_text").innerHTML = "";
     };
