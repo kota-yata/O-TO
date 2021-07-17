@@ -20,6 +20,13 @@ const EIJG =
     ["ハ", "嬰ハ-変ニ", "ニ", "嬰ニ-変ホ", "ホ", "ヘ", "嬰ヘ-変ト", "ト", "嬰ト-変イ", "イ", "嬰イ-変ロ", "ロ"],
     ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]];
 
+const EIJG2 =
+    [[["C", "C"], ["C#", "D♭"], ["D", "D"], ["D#", "E♭"], ["E", "E"], ["F", "F"], ["F#", "G♭"], ["G", "G"], ["G#", "A♭"], ["A", "A"], ["A#", "B♭"], ["B", "B"]],
+    [["ド", "ド"], ["ド#", "レ♭"], ["レ", "レ"], ["レ#", "ミ♭"], ["ミ", "ミ"], ["ファ", "ファ"], ["ファ#", "ソ♭"], ["ソ", "ソ"], ["ソ#", "ラ♭"], ["ラ", "ラ"], ["ラ#", "シ♭"], ["シ", "シ"]],
+    [["ハ", "ハ"], ["嬰ハ", "変ニ"], ["ニ", "ニ"], ["嬰ニ", "変ホ"], ["ホ", "ホ"], ["ヘ", "ヘ"], ["嬰ヘ", "変ト"], ["ト", "ト"], ["嬰ト", "変イ"], ["イ", "イ"], ["嬰イ", "変ロ"], ["ロ", "ロ"]],
+    [["C", "C"], ["Cis", "Des"], ["D", "D"], ["Dis", "Es"], ["E", "E"], ["F", "F"], ["Fis", "Ges"], ["G", "G"], ["Gis", "As"], ["A", "A"], ["Ais", "B"], ["H", "H"]]];
+
+
 //英・米式音名の多次元配列
 const noteNames =
     [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'C'],
@@ -114,7 +121,7 @@ scale_Container =
     { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モードです", Adjustment: -4 },
     { EnglishName: "Iwato Scale", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モードです。", Adjustment: -4 },
     { EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モードです。", Adjustment: -4 },
-    
+
     { EnglishName: "Ionian Pentatonic", JapaneseName: "琉球音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「沖縄音階」、「ニロ抜き長音階」とも。", Mode: "", Adjustment: 0 },
 
     { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
@@ -161,9 +168,9 @@ function createScaleChoices() {
         HTML_Info = document.getElementById("constituent_binary");
         if (Num == 0) {
             //メジャースケールを初期の選択肢にする。
-            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${Num+1} - ${scale_Container[Num][ScaleLanguage]}</option>`);
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
         } else {
-            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${Num+1} - ${scale_Container[Num][ScaleLanguage]}</option>`);
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
         };
     };
 };
@@ -275,7 +282,9 @@ function modalCandidateDegree() {
             Num = Num + 1;
         };
     } else {
+        modalTextAndNoteCreate();
     };
+
 };
 
 //モーダル・インターチェンジの候補を表示する関数
@@ -302,7 +311,7 @@ function modalTextCreate() {
             && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
             && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
             && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
-            if (mod(sig0 + scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 + scale_Container[Num]['addNum'], 12) == 11) {
+            if (mod(sig0 - scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 11) {
                 document.getElementById(`modal_text_${Num}`).innerHTML = `${sharp_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
             } else {
                 document.getElementById(`modal_text_${Num}`).innerHTML = `${flat_note_name[sig0]} ${scale_Container[Num][ScaleLanguage]} ${flat_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}`;
@@ -317,6 +326,68 @@ function modalTextCreate() {
     //モーダル・インターチェンジの候補をディグリー表記で表示する関数
     modalCandidateDegree()
 };
+
+//スケールの情報を格納する配列
+let note = [];
+//モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数
+function modalTextAndNoteCreate() {
+    //音名の表記を切り替える関数
+    ChangeEIJG();
+    //スケールを表示するためのHTML要素(div)を追加するための関数
+    createCandidate()
+
+    //ルート音の情報を取得する。
+    sig0 = Number(document.getElementById("rootNumber").value);
+    //スケールを表示する言語の情報を取得する。
+    sigNameNum = Number(document.getElementById("modalCandidateSelect").value);
+
+    Num = 0
+    //スケール情報を格納した連想配列の長さを取得する。
+    length = scale_Container.length
+
+    for (let i = 0; i < length; i++) {
+        //配列を空にする。
+        note.splice(0);
+        if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
+            && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
+            && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
+            && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
+            && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
+            && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
+            && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
+            && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
+            && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
+            && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
+            && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
+            && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
+            //シャープとフラットの区別をする変数SOF
+            if (mod(sig0 - scale_Container[Num]['addNum'], 12) == 0 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 2 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 4 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 6 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 7 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 9 || mod(sig0 - scale_Container[Num]['addNum'], 12) == 11) {
+                SOF = 0;
+            } else {
+                SOF = 1;
+            };
+            //スケールの構成音のバイナリを配列に格納する。
+            scale = scale_Container[Num]['ScaleNumBinary']
+            //for文でスケールの構成音を生成する。
+            for (let i = 0; i < 12; i++) {
+                if (scale[i] == 1) {
+                    //音名をの言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+                    note.push(EIJG2[sigNameNum][mod(sig0 + i, 12)][SOF]);
+                } else {
+                };
+            };
+            //スケールの情報をHTMLに書き込む。
+            document.getElementById(`modal_text_${Num}`).innerHTML
+                = `${noteNames[sig0][SOF]} ${scale_Container[Num][ScaleLanguage]} ${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}　. . .　【${note.join("-")}】`;
+        } else {
+            document.getElementById(`modal_text_${Num}`).innerHTML = "";
+            document.getElementById(`modal_text_${Num}`).className = "";
+        };
+        Num = Num + 1;
+    };
+    ChangeEIJG()
+};
+
 
 //スケールの日本語・英語表記を切り替えるスイッチ
 let ScaleLanguage = 'JapaneseName';
@@ -333,6 +404,21 @@ function ScaleLanguageJE() {
     };
     //モーダル・インターチェンジの候補を表示する関数
     modalTextCreate()
+    //モードの構成音の表示・非表示の切り替え
+    modalCandidateSelect()
+};
+
+//モードの構成音の表示・非表示の切り替え
+function modalCandidateSelect() {
+    //言語の情報を取得する。
+    modalSelectNum = Number(document.getElementById("modalCandidateSelect").value);
+    //言語表示なしの場合 又は 音名が選択されていないとき
+    if (modalSelectNum == 4 || (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
+        0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11])) {
+        modalTextCreate()
+    } else {
+        modalTextAndNoteCreate()
+    };
 };
 
 //構成音を着色
@@ -372,6 +458,8 @@ function ChordNoteSwitch() {
         Num = Num + 1;
     };
 
+    //モードの構成音の表示・非表示の切り替え
+    modalCandidateSelect()
 };
 
 //モーダル・インターチェンジ判定用のスイッチ
