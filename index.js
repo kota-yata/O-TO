@@ -53,9 +53,8 @@ const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
-const ToneCluster = 
-    [[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+const ToneCluster =
+    [[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
@@ -464,9 +463,9 @@ function ChordCandidate() {
                 return
                 //マッチするもの無し
             } else {
-                document.getElementById("AddChordHTML").innerHTML = `---不明---`;
-                document.getElementById("AddChordNameHTML").innerHTML = ``;
-                document.getElementById("AddChordInfoHTML").innerHTML = `※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※ハイブリッド・コード及びUSTや、複雑なテンションの組み合わせを含むコード・ネームなどは判定されません。`;
+                document.getElementById("AddChordHTML").innerHTML = `<font size="6">N.C.</font>`;
+                document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：ノン・コード</font>`;
+                document.getElementById("AddChordInfoHTML").innerHTML = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br>※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※ハイブリッド・コード及びUSTや、複雑なテンションの組み合わせを含むコード・ネームなどは判定されません。`;
             };
             Num++
         };
@@ -478,33 +477,55 @@ function ChordCandidate() {
     };
 
     //トーン・クラスターを判定する。
+    NoteChain = 0;
+    tcj = 0;
+    for (let i = 0; i < 12; i++) {
+        NoteChain = onoff[mod(i, 12)] + onoff[mod(i + 1, 12)] + onoff[mod(i + 2, 12)];
+        if (NoteChain === 3) {
+            tcj = 1;
+            break
+        } else {
+            NoteChain = 0;
+        }
+    };
+
+    //トーン・クラスターを判定する。
+    RootNum = 0;
+    clear = 0;
     for (let x = 0; x < 12; x++) {
         //トーン・クラスターを格納した配列の長さを取得する。
         lenngth = ToneCluster.length;
         TCNum = 0;
         for (let y = 0; y < lenngth; y++) {
-            if(ToneCluster[TCNum][0] === onoff[mod(RootNum + 0, 12)]
-            && ToneCluster[TCNum][1] === onoff[mod(RootNum + 1, 12)]
-            && ToneCluster[TCNum][2] === onoff[mod(RootNum + 2, 12)]
-            && ToneCluster[TCNum][3] === onoff[mod(RootNum + 3, 12)]
-            && ToneCluster[TCNum][4] === onoff[mod(RootNum + 4, 12)]
-            && ToneCluster[TCNum][5] === onoff[mod(RootNum + 5, 12)]
-            && ToneCluster[TCNum][6] === onoff[mod(RootNum + 6, 12)]
-            && ToneCluster[TCNum][7] === onoff[mod(RootNum + 7, 12)]
-            && ToneCluster[TCNum][8] === onoff[mod(RootNum + 8, 12)]
-            && ToneCluster[TCNum][9] === onoff[mod(RootNum + 9, 12)]
-            && ToneCluster[TCNum][10] === onoff[mod(RootNum + 10, 12)]
-            && ToneCluster[TCNum][11] === onoff[mod(RootNum + 11, 12)]){
+            if (ToneCluster[TCNum][0] === onoff[mod(RootNum + 0, 12)]
+                && ToneCluster[TCNum][1] === onoff[mod(RootNum + 1, 12)]
+                && ToneCluster[TCNum][2] === onoff[mod(RootNum + 2, 12)]
+                && ToneCluster[TCNum][3] === onoff[mod(RootNum + 3, 12)]
+                && ToneCluster[TCNum][4] === onoff[mod(RootNum + 4, 12)]
+                && ToneCluster[TCNum][5] === onoff[mod(RootNum + 5, 12)]
+                && ToneCluster[TCNum][6] === onoff[mod(RootNum + 6, 12)]
+                && ToneCluster[TCNum][7] === onoff[mod(RootNum + 7, 12)]
+                && ToneCluster[TCNum][8] === onoff[mod(RootNum + 8, 12)]
+                && ToneCluster[TCNum][9] === onoff[mod(RootNum + 9, 12)]
+                && ToneCluster[TCNum][10] === onoff[mod(RootNum + 10, 12)]
+                && ToneCluster[TCNum][11] === onoff[mod(RootNum + 11, 12)]
+                || tcj === 1) {
                 document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
-                document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。現代音楽の作曲技法の一種。<br>ある音名から別の音名までの全ての音が同時になっている状態。`;
+                document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
                 return
-            }else{
-                
+            } else {
+
             };
             TCNum++
+        };;
+        if (clear === 1) {
+            return
+        } else {
+            RootNum++
         };
     };
+
 
     //8音以上のコードを判定する。
     if (CandidateCount >= 8) {
