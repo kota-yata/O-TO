@@ -394,10 +394,15 @@ function ChordCandidate() {
     };
 
     //トーン・クラスターを判定
-    if (CandidateCount >= 8) {
+    if (CandidateCount >= 12) {
+        document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
+        document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">トーン・クラスター</font>`;
+        document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。現代音楽の作曲技法の一種。<br>ある音名から別の音名までの全ての音が同時になっている状態。`;
+    return
+    }if (CandidateCount >= 8) {
         document.getElementById("AddChordHTML").innerHTML = `---不明---`;
         document.getElementById("AddChordNameHTML").innerHTML = ``;
-        document.getElementById("AddChordInfoHTML").innerHTML = `7種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
+        document.getElementById("AddChordInfoHTML").innerHTML = `8種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
         return
     } else {
 
