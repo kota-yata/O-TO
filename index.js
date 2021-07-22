@@ -53,6 +53,19 @@ const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
+const ToneCluster = 
+    [[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
+
 chord_container =
     [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「ルート音(Root)」＋「完全5度(P5th)」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
     { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「長三和音」。「メジャー・トライアド」とも。最も基本的な三和音のひとつ。<br>「ルート音(Root)」＋「長3度(M3rd)」＋「完全5度(P5th)」の組み合わせです。' },
@@ -393,24 +406,10 @@ function ChordCandidate() {
         CandidateCount = CandidateCount + onoff[t];
     };
 
-    //トーン・クラスターを判定
-    if (CandidateCount >= 12) {
-        document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
-        document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">トーン・クラスター</font>`;
-        document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。現代音楽の作曲技法の一種。<br>ある音名から別の音名までの全ての音が同時になっている状態。`;
-    return
-    }if (CandidateCount >= 8) {
-        document.getElementById("AddChordHTML").innerHTML = `---不明---`;
-        document.getElementById("AddChordNameHTML").innerHTML = ``;
-        document.getElementById("AddChordInfoHTML").innerHTML = `8種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
-        return
-    } else {
-
-    };
-
-    //コードネームの種類を取得
+    //コードネームを格納した配列の長さを取得する。
     length = chord_container.length
 
+    //コード・ネームを判定する。
     RootNum = 0;
     clear = 0;
     for (let i = 0; i < 12; i++) {
@@ -477,6 +476,46 @@ function ChordCandidate() {
             RootNum++
         };
     };
+
+    //トーン・クラスターを判定する。
+    for (let x = 0; x < 12; x++) {
+        //トーン・クラスターを格納した配列の長さを取得する。
+        lenngth = ToneCluster.length;
+        TCNum = 0;
+        for (let y = 0; y < lenngth; y++) {
+            if(ToneCluster[TCNum][0] === onoff[mod(RootNum + 0, 12)]
+            && ToneCluster[TCNum][1] === onoff[mod(RootNum + 1, 12)]
+            && ToneCluster[TCNum][2] === onoff[mod(RootNum + 2, 12)]
+            && ToneCluster[TCNum][3] === onoff[mod(RootNum + 3, 12)]
+            && ToneCluster[TCNum][4] === onoff[mod(RootNum + 4, 12)]
+            && ToneCluster[TCNum][5] === onoff[mod(RootNum + 5, 12)]
+            && ToneCluster[TCNum][6] === onoff[mod(RootNum + 6, 12)]
+            && ToneCluster[TCNum][7] === onoff[mod(RootNum + 7, 12)]
+            && ToneCluster[TCNum][8] === onoff[mod(RootNum + 8, 12)]
+            && ToneCluster[TCNum][9] === onoff[mod(RootNum + 9, 12)]
+            && ToneCluster[TCNum][10] === onoff[mod(RootNum + 10, 12)]
+            && ToneCluster[TCNum][11] === onoff[mod(RootNum + 11, 12)]){
+                document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
+                document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
+                document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。現代音楽の作曲技法の一種。<br>ある音名から別の音名までの全ての音が同時になっている状態。`;
+                return
+            }else{
+                
+            };
+            TCNum++
+        };
+    };
+
+    //8音以上のコードを判定する。
+    if (CandidateCount >= 8) {
+        document.getElementById("AddChordHTML").innerHTML = `---不明---`;
+        document.getElementById("AddChordNameHTML").innerHTML = ``;
+        document.getElementById("AddChordInfoHTML").innerHTML = `8種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
+        return
+    } else {
+
+    };
+
 };
 
 
