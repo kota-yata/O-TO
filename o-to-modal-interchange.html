@@ -18,19 +18,22 @@
   <!--文字エンコーディングの指定-->
   <meta charset="utf-8">
 
-  <!--ページタイトル-->
-  <title>モーダル・インターチェンジ O-TO</title>
-  <meta property="og:title" content="モーダル・インターチェンジ O-TO" />
+  <!--サイト情報-->
+  <meta property="og:title" content="コード/モード検索 O-TO 【音楽理論ウェブアプリ】" />
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-to.khufrudamonotes.com" />
+  <meta property="og:image" content="image/o-to site title.png" />
+  <meta property="og:site_name" content="O-TO -Ongaku Tools-" />
+  <meta name="description" content="このページではコード・ネームや、モーダル・インターチェンジについて調べられます。より自由に音を使いこなしましょう。" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image:width" content="464" />
+  <meta property="og:image:height" content="446" />
+
+  <!--ページタイトル-->
+  <title>コード・ネーム O-TO</title>
 
   <!--ページの概要-->
-  <meta name="description" content="このページではモーダル・インターチェンジについて調べられます。より自由に和音を使いこなしましょう。" />
-  <meta name="keyword" content="音楽理論,音楽,モーダル・インターチェンジ">
-
-  <!--サイト情報-->
-  <meta property="og:site_name" content="O-TO" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta property="og:image" content="image\o-to site title.png" />
+  <meta name="keyword" content="音楽理論,音楽,コードネーム,コード,モーダルインターチェンジ">
 
   <!--Internet Explorer用の設定-->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -41,8 +44,8 @@
   <!--OGPタグ/twitterカード-->
   <meta name="twitter:card" content="Summary Card" />
   <meta name="twitter:site" content="@khufrudamonotes" />
-  <meta name=”twitter:title” content="モーダル・インターチェンジ O-TO" />
-  <meta name=”twitter:description” content="このページではモーダル・インターチェンジについて調べられます。より自由に和音を使いこなしましょう。" />
+  <meta name=”twitter:title” content="コード/モード検索 O-TO" />
+  <meta name=”twitter:description” content="このページではコード・ネームや、モーダル・インターチェンジについて調べられます。より自由に音を使いこなしましょう。" />
   <meta name=”twitter:image” content="image\o-to site title.png" />
 
   <!--サイトアイコンの指定-->
@@ -126,18 +129,19 @@
 
       <!-- 左(メインコンテンツ) -->
 
-      <p class="pt-3 pb-3">モーダル・インターチェンジについてお考えですか？
-        <br><br>———主要なスケールの中から、素早く候補を検索できますよ。
+      <p class="pt-3 pb-3">音の組み合わせでお悩みですか？
+        <br><br>———あなたのインスピレーションの名前を見つけましょう。
       </p>
 
 
-      <h3 class="shadow p-3 mb-2 bg-white rounded mb-5 py-3">モーダル・インターチェンジについて調べる</h3>
-      <p class="py-1">①ドロップダウンリストから調べたい軸音を指定してください。</p>
+      <h3 class="shadow p-3 mb-2 bg-white rounded mb-5 py-3">コード/モード検索</h3>
+      <p class="py-1">①ドロップダウンリストから調べたい主音/軸音を指定してください。</p>
 
 
 
-      <label for="rootNumber" class="box1 col-10 offset-2 col-xl-3 py-2 mx-2">軸音(アクシス)
-        <select id="rootNumber" class="form-select my-1" aria-label="Default select example" onchange="modalTextCreate()">
+      <label for="rootNumber" class="box1 col-10 offset-2 col-xl-3 py-2 mx-2">主音/軸音
+        <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+          onchange="modalTextCreate()">
           <option value=0>C </option>
           <option value=1>C#-D♭</option>
           <option value=2>D</option>
@@ -405,12 +409,36 @@
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
               aria-expanded="true" aria-controls="collapseOne">
-              この音の組み合わせは、以下のスケールの中からモーダル・インターチェンジされた可能性が高いです。
+              コードネームの自動判定
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
-            
+            <div class="accordion-body">
+              <!-- コードネームの判定と情報をJavaScriptで書き込む -->
+
+              <div id="AddChordHTML"></div>
+              <div id="AddChordNameHTML"></div>
+              <div><br></div>
+              <div id="AddChordInfoHTML"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="true" aria-controls="collapseTwo">
+              この音の組み合わせは、以下のスケールの中からモーダル・インターチェンジされた可能性が高いです。
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+
             <label for="modalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
               <select id="modalCandidateSelect" class="form-select my-1" aria-label="Default select example"
                 onchange="modalCandidateSelect()">
@@ -426,9 +454,9 @@
               <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
                 onclick="ScaleLanguageJE()">日本語⇔English</button>
             </div>
-            
+
             <div class="accordion-body">
-            <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
+              <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
               <div id="addHTML">
 
               </div>
@@ -471,6 +499,7 @@
       window.addEventListener('load', function () {
         createCandidate()
         modalCandidateDegree()
+        ChordCandidate()
       });
     </script>
 

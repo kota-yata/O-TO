@@ -32,13 +32,13 @@ Vue.component('header-template', {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">①コード構成音</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-scale.html">②スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③モーダル・インターチェンジ</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/モード検索</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
@@ -84,13 +84,13 @@ Vue.component('right-column', {
         <ul>
           
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コードネーム</a>
+            <a class="nav-link" href="o-to-chords.html">①コード構成音</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-scale.html">③スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③モーダル・インターチェンジ</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/モード検索</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>

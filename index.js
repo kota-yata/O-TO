@@ -53,6 +53,69 @@ const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
+chord_container =
+    [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「ルート音(Root)」＋「完全5度(P5th)」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
+    { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「長三和音」。「メジャー・トライアド」とも。最も基本的な三和音のひとつ。<br>「ルート音(Root)」＋「長3度(M3rd)」＋「完全5度(P5th)」の組み合わせです。' },
+    { ChordName: "m", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー", Info: '「短三和音」。「マイナー・トライアド」とも。最も基本的な三和音のひとつ。<br>「-」と表示される場合もあります。<br>「ルート音(Root)」＋「短3度(m3rd)」＋「完全5度(P5th)」の組み合わせです。' },
+    { ChordName: "m(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0], Name: "マイナー・フラット・ファイブ", Info: '「減三和音」。「ディミニッシュト・トライアド」とも。<br>「m-5」や「dim」などと表記される場合もあります。' },
+    { ChordName: "aug", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], Name: "オーグメンテッド", Info: '「増三和音」。「オーグメンテッド・トライアド」とも。<br>「+5」や「+」や「(#5)」などと表記される場合もあります。<br>等間隔で堆積された和音なので、転回しても間隔は一定です。したがって、音の組み合わせは4種類しかありません。' },
+    { ChordName: "sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー", Info: '(主にメジャーコード及びマイナーコードへの)解決の係留(引き延ばし)機能を持ちます。<br>「アーメン・コード」とも。<br>「sus」は「suspended」の略称です。その名の通り、3度の音を完全4度に吊り上げた和音です。' },
+    { ChordName: "sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "サスツー", Info: '「2」や「sus9」などと表記される場合もあります。<br>sus4と同じく(主にメジャーコード及びマイナーコードへの)解決の係留(引き延ばし)機能を持ちます。<br>「sus」は「suspended」の略称です。sus4の転回形でもあります。' },
+    { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: 'sus4に9thを加えた和音です。<br>7sus4の転回形とも解釈できます。' },
+    { ChordName: "Maj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン", Info: '「△7」と表示される場合もあります。<br>メジャー・トライアドに、長7度(M7th)の音が加わった和音です。5thの音は省略可能です。' },
+    { ChordName: "Maj7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーセブン・オミットファイブ", Info: '「△7(omit5)」と表示される場合もあります。<br>メジャーセブンスから、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "Maj7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1], Name: "メジャーセブン・フラットファイブ", Info: 'メジャーセブンの完全5度(P5th)を半音下げた和音です。<br>メジャーセブンの完全5度(P5th)を省略し、#11thを加えたとも解釈できるでしょう。' },
+    { ChordName: "augMaj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1], Name: "オーグメンテッド・メジャーセブン", Info: '「Maj7+5」や「Maj7(#5)」と表示される場合もあります。<br>オーグメンテッド・トライアドに、長7度(M7th)の音が加わった和音です。' },
+    { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4に長7度(M7th)が加わった和音です。' },
+    { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2に長7度(M7th)が加わった和音です。' },
+    { ChordName: "m7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン", Info: 'マイナー・トライアドに、短7度(m7th)の音が加わった和音です。<br>完全5度(P5th)の音は省略可能です。' },
+    { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], Name: "マイナーセブン・オミットファイブ", Info: '「m7(omit5)」と表示される場合もあります。<br>マイナーセブンスから、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "m7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0], Name: "マイナーセブン・シャープファイブ", Info: 'マイナー・セブンの完全5度(P5th)を半音上げた和音です。<br>ハイブリッド・コードである「♭Ⅶ/Ⅰ(フュージョン・コード)」の転回形とも解釈できます。' },
+    { ChordName: "m7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナーセブン・フラットファイブ", Info: '「ハーフディミニッシュ」とも。<br>ディミニッシュト・トライアドに、短7度(m7th)の音が加わった和音です。' },
+    { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「属七の和音」とも。メジャー・トライアドに、短7度(m7th)の音が加わった和音です。最も基本的なドミナント機能を持つコードです。' },
+    { ChordName: "7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・オミット・ファイブ", Info: 'ドミナントセブンから完全5度(P5th)を抜いた形。<br>ドミナント機能を持ちます。' },
+    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナントセブンの完全5度(P5th)をフラットさせた和音です。<br>ドミナントセブンの完全5度(P5th)を省略し、#11thを加えたとも解釈できるでしょう。' },
+    { ChordName: "aug7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "オーグメンテッド・セブン", Info: '「7+5」や「7(#5)」と表示される場合もあります。オーグメンテッド・トライアドに、短7度(m7th)の音が加わった和音です。' },
+    { ChordName: "7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー", Info: 'sus4に短7度(m7th)が加わった和音です。' },
+    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2に短7度(m7th)が加わった和音です。' },
+    { ChordName: "mMaj7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1], Name: "マイナー・メジャーセブン", Info: 'マイナー・トライアドに、長7度(M7th)の音が加わった和音です。' },
+    { ChordName: "mMaj7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1], Name: "マイナー・メジャーセブン・シャープファイブ", Info: 'マイナー・メジャーセブンの完全5度(P5th)の音を半音上げた和音です。' },
+    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: 'ディミニッシュト・トライアドに、減7度の音が加わった和音です。<br>ドミナント機能を持つコードとして使ったり、経過和音(パッシング・ディミニッシュ)として使ったりもできます。<br>等間隔で堆積された和音なので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナントセブン・コードになります。' },
+    { ChordName: "6", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "シックス", Info: 'メジャー・トライアドに、長6度(M6th)の音を加えた和音です。<br>「m7」の転回形とも解釈できます。<br>メジャー・トライアドに、13thテンションを加えたとも解釈ができます。' },
+    { ChordName: "m6", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス", Info: 'マイナー・トライアドに、長6度(M6th)の音をを加えた和音です。「m7(♭5)」の転回形とも解釈できます。<br>マイナー・トライアドに、13thテンションを加えたとも解釈ができます。<br>ドリアン・モードを示唆する和音としても使えるでしょう。' },
+    { ChordName: "add9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "アドナイン", Info: 'メジャー・トライアドに、9thを加えた和音です。完全5度(P5th)の音は省略可能です。' },
+    { ChordName: "add9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "アドナイン・オミットファイブ", Info: 'メジャー・トライアドに、9thを加えた和音から、完全5度(P5th)を抜いた和音です。' },
+    { ChordName: "add♭9", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "アドフラットナイン", Info: 'メジャー・トライアドに、♭9thを加えた和音です。' },
+    { ChordName: "add#11", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0], Name: "アドシャープイレブン", Info: 'メジャー・トライアドに、#11thを加えた和音です。' },
+    { ChordName: "m add9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー・アドナイン", Info: 'マイナー・トライアドに、9thを加えた和音です。<br>ハイブリッド・コードである「♭Ⅶm/Ⅰ」の転回形とも解釈できます。' },
+    { ChordName: "6/9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "シックス・ナイン", Info: 'メジャー・トライアドに、長6度(M6th)と9thの音を加えた和音です。' },
+    { ChordName: "m6/9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス・ナイン", Info: 'マイナー・トライアドに、長6度(M6th)と9thの音を加えた和音です。' },
+    { ChordName: "7(♭9)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン", Info: 'ドミナントセブンに♭9thが加わった和音です。' },
+    { ChordName: "7(♭9)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・オミットファイブ", Info: 'ドミナントセブンに♭9thが加わった和音から、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "Maj9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーナイン", Info: '「△9」と表示される場合もあります。メジャーセブンに9thが加わった和音です。' },
+    { ChordName: "m9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナーナイン", Info: 'マイナー・セブンに9thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "m9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーナイン", Info: 'マイナー・セブンに9thが加わった和音から、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナントセブンに9thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナントセブンに9thが加わった和音から、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナントセブンに#9thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。<br>「ジミヘン・コード」とも。<br>9thの音は、M3rdより高く配置するの一般的です。' },
+    { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナントセブンに#9thが加わった和音から、完全5度(P5th)の音を省略した和音です。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
+    { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナントセブンに11thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン", Info: 'ドミナントセブンに#11thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "blk", ChordBinary: [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0], Name: "ブラックアダー", Info: '「イキスギ・コード」とも。<br>ドミナント機能を持つコードです。主に9thと#11thのサウンドが欲しい時に使えます。<br>ハイブリッド・コードである「Ⅱaug/Ⅰ」及び「#Ⅳaug/Ⅰ」及び「♭Ⅶaug/Ⅰ」の転回形とも解釈できます。' },
+    { ChordName: "7(♭13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットサーティーン", Info: 'ドミナントセブンに♭13thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナントセブンに13thが加わった和音です。<br>完全5度(P5th)の音は省略可能です。<br>ドミナント機能を持つコードです。' },
+    { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに13thが加わった和音から、完全5度(P5th)の音を省略した和音です。' },
+    { ChordName: "Maj7add#11", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], Name: "メジャーセブン・アドシャープイレブン", Info: 'メジャーセブンに#11thを加えた和音です。リディアン・モードを示唆する和音です。' },
+    { ChordName: "7sus4add9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブンス・サスフォー・アドフラットナイン", Info: '7sus4に♭9thが加わった和音です。<br>主にフリジアン・モードや、陰音階-上行系を示唆する和音です。' },
+    { ChordName: "11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "イレブン", Info: 'ドミナントセブンに9thと11thが加わった和音です。<br>M3rdとP4thはアボイドになるので、どちらかを省略するのが一般的です。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "Maj11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーイレブン", Info: 'メジャーセブンに9thと11thが加わった和音です。<br>M3rdとP4thはアボイドになるので、どちらかを省略するのが一般的です。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "m11", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナーイレブン", Info: 'マイナーセブンに9thと11thが加わった和音です。<br>完全5度(P5th)と9thの音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], Name: "サーティーン", Info: 'ドミナントセブンに9thと11thと13thが加わった和音です。<br>ミクソリディアン・スケールの構成音を全て含むコード。<br>M3rdとP4thはアボイドになるので、どちらかを省略するのが一般的です。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "Maj13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], Name: "メジャーサーティーン", Info: 'メジャー・スケールの構成音を全て含むコード。<br>M3rdとP4thはアボイドになるので、どちらかを省略するのが一般的です。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "m13", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], Name: "マイナーサーティーン", Info: 'ドリアン・スケールの構成音を全て含むコード。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' },
+    { ChordName: "Maj7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンスに9thと#11thと13thが加わった和音です。<br>リディアン・スケールの構成音を全て含むコード。<br>完全5度(P5th)の音は省略可能です。<br>この手の構成音が多いコードは、構成音のボイシングなども併記した方が良いでしょう。' }];
+
+
 scale_Container =
     //メジャー・スケールファミリー
     [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
@@ -153,6 +216,26 @@ function ChangeEIJG() {
         num = num + 1;
     };
 };
+
+function createChordChoices() {
+
+    //スケールを格納した配列の長さを取得する。
+    length = chord_container.length;
+    Num = chord_container.length;
+
+    //配列の数だけスケールの選択肢optionを追加する。
+    for (let i = 0; i < length; i++) {
+        Num = Num - 1;
+        HTML_Info = document.getElementById("constituent_binary");
+        if (Num === 1) {
+            //メジャースケールを初期の選択肢にする。
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num]['ChordBinary'].join('')}-${Num} selected>Major</option>`);
+        } else {
+            HTML_Info.insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num]['ChordBinary'].join('')}-${Num}>${chord_container[Num]["ChordName"]}</option>`);
+        };
+    };
+};
+
 
 //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
 function createScaleChoices() {
@@ -287,6 +370,109 @@ function modalCandidateDegree() {
 
 };
 
+
+//コード・ネームの候補を表示する関数
+function ChordCandidate() {
+    //音名の表記を切り替える関数
+    ChangeEIJG();
+    //ルートの音を取得
+    sig0 = Number(document.getElementById("rootNumber").value);
+
+    //シャープとフラットの判別
+    if (sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
+        SOF = 0;
+    } else {
+        SOF = 1;
+    };
+
+    //コードが何音か格納する変数
+    CandidateCount = 0;
+    for (let t = 0; t < 12; t++) {
+        CandidateCount = CandidateCount + onoff[t];
+    };
+
+    //トーン・クラスターを判定
+    if (CandidateCount >= 8) {
+        document.getElementById("AddChordHTML").innerHTML = `---不明---`;
+        document.getElementById("AddChordNameHTML").innerHTML = ``;
+        document.getElementById("AddChordInfoHTML").innerHTML = `7種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
+        return
+    } else {
+
+    };
+
+    //コードネームの種類を取得
+    length = chord_container.length
+
+    RootNum = 0;
+    clear = 0;
+    for (let i = 0; i < 12; i++) {
+        Num = 0;
+        for (let j = 0; j < length; j++) {
+            if (chord_container[Num]['ChordBinary'][0] === onoff[mod(RootNum + 0, 12)]
+                && chord_container[Num]['ChordBinary'][1] === onoff[mod(RootNum + 1, 12)]
+                && chord_container[Num]['ChordBinary'][2] === onoff[mod(RootNum + 2, 12)]
+                && chord_container[Num]['ChordBinary'][3] === onoff[mod(RootNum + 3, 12)]
+                && chord_container[Num]['ChordBinary'][4] === onoff[mod(RootNum + 4, 12)]
+                && chord_container[Num]['ChordBinary'][5] === onoff[mod(RootNum + 5, 12)]
+                && chord_container[Num]['ChordBinary'][6] === onoff[mod(RootNum + 6, 12)]
+                && chord_container[Num]['ChordBinary'][7] === onoff[mod(RootNum + 7, 12)]
+                && chord_container[Num]['ChordBinary'][8] === onoff[mod(RootNum + 8, 12)]
+                && chord_container[Num]['ChordBinary'][9] === onoff[mod(RootNum + 9, 12)]
+                && chord_container[Num]['ChordBinary'][10] === onoff[mod(RootNum + 10, 12)]
+                && chord_container[Num]['ChordBinary'][11] === onoff[mod(RootNum + 11, 12)]) {
+
+                //ベース音を判定
+                Bass = 0;
+                for (let c = 0; c < 12; c++) {
+                    if (1 === onoff[c]) {
+                        Bass = mod(c + sig0, 12);
+                        break;
+                    } else {
+
+                    };
+                };
+
+                //軸音を含まないコード・ネームの判定
+                if (0 === onoff[0] && Bass >= RootNum) {
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}`;
+                    document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
+                    //軸音を含まないコード・ネームの展開形の判定
+                } else if (0 === onoff[0]) {
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}/${noteNames[Bass][SOF]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[Bass][SOF]}(転回形)</font>`;
+                    document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
+                    //軸音を含むコード・ネームの判定
+                } else if (RootNum === 0) {
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[sig0][SOF]} ${chord_container[Num]["ChordName"]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[sig0][SOF]}${chord_container[Num]["Name"]}</font>`
+                    document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
+                    //軸音を含むコード・ネームの転回形の判定
+                } else {
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}/${noteNames[sig0][SOF]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[sig0][SOF]}(展開形)</font>`;
+                    document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
+                };
+                clear = 1;
+                return
+                //マッチするもの無し
+            } else {
+                document.getElementById("AddChordHTML").innerHTML = `---不明---`;
+                document.getElementById("AddChordNameHTML").innerHTML = ``;
+                document.getElementById("AddChordInfoHTML").innerHTML = `※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※ハイブリッド・コード及びUSTや、複雑なテンションを含むコード・ネームは判定されません。`;
+            };
+            Num++
+        };
+        if (clear === 1) {
+            return
+        } else {
+            RootNum++
+        };
+    };
+};
+
+
 //モーダル・インターチェンジの候補を表示する関数
 function modalTextCreate() {
     //音名の表記を切り替える関数
@@ -335,6 +521,9 @@ function modalTextAndNoteCreate() {
     ChangeEIJG();
     //スケールを表示するためのHTML要素(div)を追加するための関数
     createCandidate()
+
+    //コードネームの候補を表示する関数
+    ChordCandidate()
 
     //ルート音の情報を取得する。
     sig0 = Number(document.getElementById("rootNumber").value);
@@ -388,8 +577,8 @@ function modalTextAndNoteCreate() {
             Num = Num + 1;
         };
     } else {
-    //構成音を表示しない
-    };    
+        //構成音を表示しない
+    };
     //音名の表示形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
     ChangeEIJG()
 };

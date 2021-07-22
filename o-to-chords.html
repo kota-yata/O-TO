@@ -19,13 +19,13 @@
   <meta charset="utf-8">
 
   <!--ページタイトル-->
-  <title>コードネーム O-TO</title>
-  <meta property="og:title" content="コードネーム O-TO" />
+  <title>コード構成音 O-TO</title>
+  <meta property="og:title" content="コード構成音 O-TO" />
   <meta property="og:type" content="article">
 
   <!--ページの概要-->
   <meta name="description" content="このページでは主なコードの構成音を調べられます。コードの構成音が分からないのも今日までです。" />
-  <meta name="keyword" content="音楽理論,音楽,コードネーム">
+  <meta name="keyword" content="音楽理論,音楽,コード構成音,コードネーム">
 
   <!--サイト情報-->
   <meta property="og:site_name" content="O-TO" />
@@ -41,7 +41,7 @@
   <!--OGPタグ/twitterカード-->
   <meta name="twitter:card" content="Summary Card" />
   <meta name="twitter:site" content="@khufrudamonotes" />
-  <meta name=”twitter:title” content="コードネーム O-TO" />
+  <meta name=”twitter:title” content="コード構成音 O-TO" />
   <meta name=”twitter:description” content="このページでは主なコードの構成音を調べられます。コードの構成音が分からないのも今日までです。" />
   <meta name=”twitter:image” content="image\o-to site title.png" />
 
@@ -132,7 +132,7 @@
 
 
       <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なコードの構成音を調べる</h3>
-      <p class="pb-3">ドロップダウンリストから調べたいルート音とコードネームを選んでください。</p>
+      <p class="pb-3">ドロップダウンリストから調べたいルート音とコード構成音を選んでください。</p>
 
 
       <div class="text-right">
@@ -155,31 +155,10 @@
           </select>
         </label>
 
-        <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">コードネーム
+        <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
           <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
             onchange="ChordNoteSwitch()">
-            <option value=100010010000-0 selected>Major</option>
-            <option value=100100010000-1>Minor</option>
-            <option value=100010001000-2>aug</option>
-            <option value=100100100000-3>m(♭5)・dim</option>
-            <option value=100001010000-4>sus4</option>
-            <option value=101000010000-5>sus2</option>
-            <option value=100010010010-6>7</option>
-            <option value=100010000010-7>7(omit5)</option>
-            <option value=100010010001-8>Maj7</option>
-            <option value=100100010010-9>m7</option>
-            <option value=100100010001-10>mMaj7</option>
-            <option value=100100100010-11>m7(♭5)</option>
-            <option value=100100100100-12>dim7</option>
-            <option value=100001010010-13>7sus4</option>
-            <option value=100010010100-14>6</option>
-            <option value=100100010100-15>m6</option>
-            <option value=100010001010-16>aug7</option>
-            <option value=100010001001-17>augMaj7</option>
-            <option value=101000100010-18>blk・Ⅱaug/Ⅰ</option>
-            <option value=101010010000-19>Major add9</option>
-            <option value=101100010000-20>m add9</option>
-            <option value=100000010000-21>5</option>
+            <!-- ページがロードされた後にJavaScriptによって選択肢を追加する -->
           </select>
         </label>
 
@@ -400,6 +379,29 @@
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
               aria-expanded="true" aria-controls="collapseOne">
+              コードの情報
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <!-- コードネームの判定と情報をJavaScriptで書き込む -->
+
+              <div id="AddChordHTML"></div>
+              <div id="AddChordNameHTML"></div>
+              <div><br></div>
+              <div id="AddChordInfoHTML"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
               このコードの構成音を含む主なスケールはこちら。
             </button>
           </h2>
@@ -466,6 +468,7 @@
     <!--ページのロードが終了したときに実行される関数 -->
     <script>
       window.addEventListener('load', function () {
+        createChordChoices()
         createCandidate()
         modalCandidateDegree()
         ChordNoteSwitch()
