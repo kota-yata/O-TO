@@ -135,11 +135,11 @@
 
 
       <h3 class="shadow p-3 mb-2 bg-white rounded mb-5 py-3">コード/モード検索</h3>
-      <p class="py-1">①ドロップダウンリストから調べたい主音/軸音を指定してください。</p>
+      <p class="py-1">①調べたい主音/軸音を指定してください。</p>
 
 
 
-      <label for="rootNumber" class="box1 col-10 offset-2 col-xl-3 py-2 mx-2">主音/軸音
+      <label for="rootNumber" class="box1 col-5 offset-2 col-xl-3 py-2 mx-2">主音/軸音
         <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
           onchange="modalTextCreate()">
           <option value=0>C </option>
@@ -157,7 +157,7 @@
         </select>
       </label>
 
-      <label for="key_signature_names" class="box1 col-md-10 col-xl-2 pt-2 pb-4 mx-2">音名の表記
+      <label for="key_signature_names" class="box1 col-md-5 col-xl-2 pt-2 pb-4 mx-2">音名の表記
         <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
           onchange="ChangeEIJG()">
           <option value=0>英・米式表記</option>
@@ -421,7 +421,9 @@
               <div id="AddChordNameHTML"></div>
               <div><br></div>
               <div id="AddChordInfoHTML"></div>
-
+              <div id="AddChordInfoTriToneHTML"></div>
+              <div id="AddChordInfoOmit5HTML"></div>
+              <div id="AddChordInfo2HTML"></div>
             </div>
           </div>
         </div>
