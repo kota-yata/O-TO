@@ -85,7 +85,7 @@ chord_container =
     { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4に長7度(M7th)が加わったコードです。' },
     { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2に長7度(M7th)が加わったコードです。' },
     { ChordName: "m7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン", Info: '「短七の和音」とも呼ばれます。<br>「-7」と表記される場合もあります。<br>マイナー・トライアドに、短7度(m7th)の音が加わったコードです。<br>完全5度(P5th)の音は省略可能です。' },
-    { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーセブン・オミットファイブ", Info: '「m7(omit5)」と表記される場合もあります。<br>マイナーセブンスから、完全5度(P5th)の音を省略したコードです。' },
+    { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーセブン・オミットファイブ", Info: '「-7(omit5)」と表記される場合もあります。<br>マイナーセブンスから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "m7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0], Name: "マイナーセブン・シャープファイブ", Info: 'マイナー・セブンの完全5度(P5th)を半音上げたコードです。<br>ハイブリッド・コードである「♭Ⅶ/Ⅰ(フュージョン・コード)」の転回形とも解釈できます。' },
     { ChordName: "m7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナーセブン・フラットファイブ", Info: '「減五短七の和音」や「ハーフ・ディミニッシュ」とも呼ばれます。<br>「ハーフ・ディミニッシュ」と呼ぶ場合は、よく「Φ」を傾けた記号が用いられます。<br>ディミニッシュト・トライアドに、短7度(m7th)の音が加わったコードです。<br>ツー・ファイブ・ワン進行(Ⅱm7-Ⅴ7-Ⅰ)のⅡm7の代理としてよく使われます。' },
     { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「属七の和音」とも呼ばれます。<br>メジャー・トライアドに、短7度(m7th)の音が加わったコードです。<br>最も基本的なドミナント機能を持つコードです。<br>完全5度(P5th)の音は省略可能です。' },
@@ -574,9 +574,9 @@ function ChordCandidate() {
 
     //8音以上のコードを判定する。
     if (CandidateCount >= 8) {
-        document.getElementById("AddChordHTML").innerHTML = `---不明---`;
-        document.getElementById("AddChordNameHTML").innerHTML = ``;
-        document.getElementById("AddChordInfoHTML").innerHTML = `8種類以上の異なるピッチクラスが選択されています。響きが無彩色になる可能性が高いです。`;
+        document.getElementById("AddChordHTML").innerHTML = `<font size="6">N.C.</font>`;
+        document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：ノン・コード</font>`;
+        document.getElementById("AddChordInfoHTML").innerHTML = `8種類以上の異なるピッチクラスが選択されています。<br>響きが無彩色的になる可能性が高いです。`;
         return
     } else {
 
