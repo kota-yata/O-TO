@@ -394,31 +394,47 @@ function modalCandidateDegree() {
 function ChordCandidate() {
     //音名の表記を切り替える関数
     ChangeEIJG();
-    //ルートの音を取得
+
+    //ルートの音の値を取得
     sig0 = Number(document.getElementById("rootNumber").value);
 
-    //シャープとフラットの判別
+    //ルート音の値から大雑把にシャープとフラットの判別をする。
     if (sig0 == 2 || sig0 == 4 || sig0 == 6 || sig0 == 7 || sig0 == 9 || sig0 == 11) {
         SOF = 0;
     } else {
         SOF = 1;
     };
 
-    //コードが何音か格納する変数
+    //コードの構成音が何音か判定した値を格納する変数
     CandidateCount = 0;
+    //コードの構成音が何音か判定する
     for (let t = 0; t < 12; t++) {
         CandidateCount = CandidateCount + onoff[t];
     };
 
-    //コードネームを格納した配列の長さを取得する。
-    length = chord_container.length
+    //ベース音を判定する
+    Bass = 0;
+    for (let c = 0; c < 12; c++) {
+        //一番左側の押されているスイッチの場所(ベース音)を判定する
+        if (1 === onoff[c]) {
+            Bass = c + sig0;
+            break;
+        } else {
+        };
+    };
 
     //コード・ネームを判定する。
     RootNum = 0;
     clear = 0;
+    //コード・ネームを格納した配列の長さを取得する。
+    length = chord_container.length
+    //転回形を判定するためルート音をずらして12通り全てを判定する。
     for (let i = 0; i < 12; i++) {
+        //コード・ネームが格納された配列の先頭に戻る。
         Num = 0;
+        //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < length; j++) {
+            //スイッチの押されている状態からコード・ネームを判定する。
             if (chord_container[Num]['ChordBinary'][0] === onoff[mod(RootNum + 0, 12)]
                 && chord_container[Num]['ChordBinary'][1] === onoff[mod(RootNum + 1, 12)]
                 && chord_container[Num]['ChordBinary'][2] === onoff[mod(RootNum + 2, 12)]
@@ -432,74 +448,98 @@ function ChordCandidate() {
                 && chord_container[Num]['ChordBinary'][10] === onoff[mod(RootNum + 10, 12)]
                 && chord_container[Num]['ChordBinary'][11] === onoff[mod(RootNum + 11, 12)]) {
 
-                //ベース音を判定
-                Bass = 0;
-                for (let c = 0; c < 12; c++) {
-                    if (1 === onoff[c]) {
-                        Bass = mod(c + sig0, 12);
-                        break;
-                    } else {
-                    };
+                //コード・ネームのルート音
+                sig0 + RootNum
+                
+                //コードがメジャーかマイナーかそれ以外かを判定する。
+                MajorOrMinor = 0;
+                //長3度が含まれる場合
+                if(onoff[mod(RootNum + 4, 12)] === 1) {
+                    MajorOrMinor = 0;
+                //短3度が含まれる場合
+                }else if(onoff[mod(RootNum + 3, 12)] === 1) {
+                    MajorOrMinor = 9;
+                //3度が含まれない場合
+                }else{
+                    MajorOrMinor = sig0;
                 };
 
-                //軸音を含まないコード・ネームの判定
-                if (0 === onoff[0] && Bass >= RootNum) {
-                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}`;
+                //コード・ネームのシャープとフラットを判定するための値を計算する。
+                NonRootMOm = mod(RootNum - MajorOrMinor + sig0, 12);
+
+                //コード・ネームのシャープとフラットの判別
+                if (NonRootMOm == 2 || NonRootMOm == 4 || NonRootMOm == 6 || NonRootMOm == 7 || NonRootMOm == 9 || NonRootMOm == 11) {
+                    NonRootSOF = 0;
+                } else {
+                    NonRootSOF = 1;
+                };
+
+                //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
+                if (0 === onoff[0] && Bass >= sig0 + RootNum) {
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["ChordName"]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["Name"]}`;
                     document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
-                    //軸音を含まないコード・ネームの展開形の判定
+                    //軸音を含まないコード・ネームの展開形の判定(判定基準：ルート音のスイッチが押されていない)
                 } else if (0 === onoff[0]) {
-                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}/${noteNames[Bass][SOF]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[Bass][SOF]}　(転回形)</font>`;
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["ChordName"]}/${noteNames[mod(Bass, 12)][NonRootSOF]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[mod(Bass, 12)][NonRootSOF]}　(転回形)</font>`;
                     document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
-                    //軸音を含むコード・ネームの判定
+                    //軸音を含むコード・ネームの判定(判定基準：初回ループ時)
                 } else if (RootNum === 0) {
-                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[sig0][SOF]} ${chord_container[Num]["ChordName"]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[sig0][SOF]}${chord_container[Num]["Name"]}</font>`
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[sig0][NonRootSOF]} ${chord_container[Num]["ChordName"]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[sig0][NonRootSOF]}${chord_container[Num]["Name"]}</font>`
                     document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
                     //軸音を含むコード・ネームの転回形の判定
                 } else {
-                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["ChordName"]}/${noteNames[sig0][SOF]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][SOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[sig0][SOF]}　(転回形)</font>`;
+                    document.getElementById("AddChordHTML").innerHTML = `<font size="6">${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["ChordName"]}/${noteNames[sig0][NonRootSOF]}</font>`;
+                    document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：${noteNames[mod(sig0 + RootNum, 12)][NonRootSOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[sig0][NonRootSOF]}　(転回形)</font>`;
                     document.getElementById("AddChordInfoHTML").innerHTML = `${chord_container[Num]["Info"]}`;
                 };
                 clear = 1;
+                //マッチするものが見つかった場合はここでreturn
                 return
-                //マッチするもの無し
             } else {
+                //マッチするもの無し
                 document.getElementById("AddChordHTML").innerHTML = `<font size="6">N.C.</font>`;
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：ノン・コード</font>`;
                 document.getElementById("AddChordInfoHTML").innerHTML = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br>※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※ハイブリッド・コード及びUSTや、複雑なテンションの組み合わせを含むコード・ネームなどは判定されません。`;
             };
+            //見つからなかったので、コードネームを格納した配列から、次のコードとマッチするか調べる。
             Num++
         };
+        //このルート音では見つからなかった場合、次のルート音でループに入る。
         if (clear === 1) {
             return
         } else {
+            //ルート音をずらす。
             RootNum++
         };
     };
 
-    //トーン・クラスターを判定する。
+    //3音連続しているトーン・クラスターを判定する
     NoteChain = 0;
     tcj = 0;
     for (let i = 0; i < 12; i++) {
+        //特定の場合と、+1と＋2の場所のスイッチがonかどうか判定する。
         NoteChain = onoff[mod(i, 12)] + onoff[mod(i + 1, 12)] + onoff[mod(i + 2, 12)];
+        //3音以上連続している部分を見つける。
         if (NoteChain === 3) {
             tcj = 1;
             break
         } else {
             NoteChain = 0;
-        }
+        };
     };
 
-    //トーン・クラスターを判定する。
+    //4音以上音が連続しているトーン・クラスターを判定する(トーン・クラスターを格納した配列とマッチするものを見つける)
     RootNum = 0;
     clear = 0;
+    //12通りの場合について調べる。
     for (let x = 0; x < 12; x++) {
         //トーン・クラスターを格納した配列の長さを取得する。
         lenngth = ToneCluster.length;
         TCNum = 0;
+        //トーン・クラスターを格納した配列と照合する。
         for (let y = 0; y < lenngth; y++) {
             if (ToneCluster[TCNum][0] === onoff[mod(RootNum + 0, 12)]
                 && ToneCluster[TCNum][1] === onoff[mod(RootNum + 1, 12)]
@@ -522,10 +562,12 @@ function ChordCandidate() {
 
             };
             TCNum++
-        };;
+        };
         if (clear === 1) {
+            //トーン・クラスターと一致した場合はreturn
             return
         } else {
+            //ルート音をずらす。
             RootNum++
         };
     };
