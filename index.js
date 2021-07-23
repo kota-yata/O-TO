@@ -641,6 +641,7 @@ function ChordCandidate() {
                 document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
                 document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
+                document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
                 document.getElementById("AddChordInfo2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
                 return
