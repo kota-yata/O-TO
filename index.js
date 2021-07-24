@@ -79,7 +79,7 @@ chord_container =
     { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "m(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・オミットファイブ", Info: 'マイナー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: '「sus2 4」などの表記もあります。<br>sus4に9thを加えたコードです。<br>7sus4の転回形とも解釈できます。' },
-    { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: '<br>sus4に♭9thを加えたコードです。' },
+    { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: 'sus4に♭9thを加えたコードです。' },
     { ChordName: "Maj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン", Info: '「長七の和音」とも呼ばれます。<br>「△7」などの表記もあります。<br>メジャー・トライアドに長7度(M7th)の音が加わったコードです。' },
     { ChordName: "Maj7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーセブン・オミットファイブ", Info: '「△7(omit5)」などの表記もあります。<br>メジャーセブンから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "augMaj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1], Name: "オーグメンテッド・メジャーセブン", Info: '「Maj7+5」や「Maj7(#5)」などの表記もあります。<br>オーグメンテッド・トライアドに長7度(M7th)の音が加わったコードです。' },
@@ -466,7 +466,8 @@ function ChordCandidate() {
         //増4度の音程が存在するか調べる
         TriTone = onoff[mod(i, 12)] + onoff[mod(i + 6, 12)];
         if (TriTone === 2 && CandidateCount >= 3) {
-            document.getElementById("AddChordInfoTriToneHTML").innerHTML = `ドミナント機能を持つコードです。`;
+            document.getElementById("AddChordInfoTriToneHTML").innerHTML 
+            = `ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】<br>${noteNames[mod(sig0 + i + 1 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i + 1 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i - 2 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i - 2 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i - 5 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i - 5 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i + 4 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i + 4 , 12)][NonRootSOF]}m`;
             break
         } else {
             TriTone = 0;
@@ -681,6 +682,7 @@ function modalTextCreate() {
     ChangeEIJG();
     //スケールを表示するためのHTML要素(div)を追加するための関数
     createCandidate()
+    ChordCandidate()
 
     sig0 = document.getElementById("rootNumber").value
 
