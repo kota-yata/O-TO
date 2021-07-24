@@ -208,8 +208,8 @@ Vue.component('title-display', {
   template: `
     <div class="position-relative overflow-hidden p-3 p-md-4 m-md-3 text-center bg-light">
       <div class="col-md-3 p-lg-2 mx-auto my-5">
-        <h1 class="display-5 fw-normal">O-TO</h1>
-        <p class="lead fw-normal">集中せよ。『音楽』に。</p>
+        <h1 class="display-3 fw-normal">O-TO</h1>
+        <p class="lead fw-normal">【音楽理論ウェブアプリ】</p>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
