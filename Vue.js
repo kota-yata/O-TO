@@ -32,7 +32,7 @@ Vue.component('header-template', {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コード構成音</a>
+            <a class="nav-link" href="o-to-chords.html">①コード</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-scale.html">②スケール</a>
@@ -84,7 +84,7 @@ Vue.component('right-column', {
         <ul>
           
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コード構成音</a>
+            <a class="nav-link" href="o-to-chords.html">①コード</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-scale.html">③スケール</a>
