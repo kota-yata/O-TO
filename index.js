@@ -459,6 +459,8 @@ function ChordCandidate() {
         CandidateCount = CandidateCount + onoff[t];
     };
 
+    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
+    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
     document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
     document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
 
@@ -474,9 +476,13 @@ function ChordCandidate() {
         if (TriTone === 2 && CandidateCount >= 3) {
             document.getElementById("AddChordInfoTriToneHTML").innerHTML
                 = `<br>ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】<br>${noteNames[mod(sig0 + i + 1, 12)][SOF]}　${noteNames[mod(sig0 + i + 1, 12)][SOF]}m　${noteNames[mod(sig0 + i - 2, 12)][SOF]}　${noteNames[mod(sig0 + i - 2, 12)][SOF]}m　${noteNames[mod(sig0 + i - 5, 12)][SOF]}　${noteNames[mod(sig0 + i - 5, 12)][SOF]}m　${noteNames[mod(sig0 + i + 4, 12)][SOF]}　${noteNames[mod(sig0 + i + 4, 12)][SOF]}m`;
+            document.getElementById("AddChordInfoSub2HTML").innerHTML
+                = `<br>【このコードの手前に居がちなコード】<br>${noteNames[mod(sig0 + i + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + i + 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + i - 0, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + i - 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + i + 6, 12)][SOF]}m7(♭5)`;
             break
         } else {
             TriTone = 0;
+            document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
+            document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
             document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
             document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
         };
@@ -485,18 +491,22 @@ function ChordCandidate() {
     //2つ目のトライ・トーンがあるかを判定する
     if (TriTone2 === 2 && CandidateCount >= 4) {
         document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+        document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
     } else {
-        for (let t = TriToneCount + 6; t < 12 - TriToneCount ; t++) {
+        for (let t = TriToneCount + 6; t < 12 - TriToneCount; t++) {
             TriTone = 0;
             //増4度の音程が存在するか調べる
             TriTone = onoff[mod(t, 12)] + onoff[mod(t + 6, 12)];
             if (TriTone === 2 && CandidateCount >= 4) {
                 document.getElementById("AddChordInfoTriTone2HTML").innerHTML
                     = `${noteNames[mod(sig0 + t + 1, 12)][SOF]}　${noteNames[mod(sig0 + t + 1, 12)][SOF]}m　${noteNames[mod(sig0 + t - 2, 12)][SOF]}　${noteNames[mod(sig0 + t - 2, 12)][SOF]}m　${noteNames[mod(sig0 + t - 5, 12)][SOF]}　${noteNames[mod(sig0 + t - 5, 12)][SOF]}m　${noteNames[mod(sig0 + t + 4, 12)][SOF]}　${noteNames[mod(sig0 + t + 4, 12)][SOF]}m`;
+                document.getElementById("AddChordInfoSub22HTML").innerHTML
+                    = `${noteNames[mod(sig0 + t + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + t + 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + t - 0, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + t - 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + t + 6, 12)][SOF]}m7(♭5)`;
                 break
             } else {
                 TriTone = 0;
                 document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+                document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
             };
         };
     };
@@ -682,6 +692,8 @@ function ChordCandidate() {
                 document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
                 document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
+                document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
+                document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
                 document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
                 document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfo2HTML").innerHTML = ``;
