@@ -133,7 +133,7 @@ chord_container =
     { ChordName: "m7(11)", ChordBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
     { ChordName: "m7(11)(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
     { ChordName: "7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン", Info: 'ドミナントセブンに#11thが加わったコードです。' },
-    { ChordName: "7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに#11thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
+    { ChordName: "7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに#11thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
 
     { ChordName: "m7(♭5)add9", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドナイン", Info: '「ハーフ・ディミニッシュ」に9thが加わったコードです。' },
     { ChordName: "m7(♭5)add♭9", ChordBinary: [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドフラットナイン", Info: '「ハーフ・ディミニッシュ」に♭9thが加わったコードです。' },
@@ -481,8 +481,6 @@ function ChordCandidate() {
             document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
         };
     };
-
-    console.log(TriToneCount);
 
     //2つ目のトライ・トーンがあるかを判定する
     if (TriTone2 === 2 && CandidateCount >= 4) {
