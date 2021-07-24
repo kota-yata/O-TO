@@ -151,6 +151,9 @@ chord_container =
     { ChordName: "7(♭13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに♭13thが加わったコードから、完全5度(P5th)の音を省略したコードです。<br>aug7と同じ構成音を持ちます。' },
     { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナントセブンに13thが加わったコードです。' },
     { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに13thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
+    
+    { ChordName: "7(♭9,#11)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン", Info: 'ドミナントセブンに♭9thと#11thが加わったコードです。<br>UST(アッパー・ストラクチャー・トライアド)で「#Ⅳ/Ⅰ」と表記されるコードと同じ構成音を持ちます。<br>「ペトルーシュカ和音」とも呼ばれます。' },
+    { ChordName: "7(♭9,#11)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに♭9thと#11thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "7(9,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン", Info: 'ドミナントセブンに9thと13thが加わったコードです。' },
     { ChordName: "7(9,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに9thと13thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "7(♭9,13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン", Info: 'ドミナントセブンに♭9thと13thが加わったコードです。' },
@@ -472,10 +475,10 @@ function ChordCandidate() {
 
     //8音以上のコードを判定する。
     if (CandidateCount >= 8) {
-        document.getElementById("AddChordInfo2HTML").innerHTML = `<br>8種類以上の異なるピッチクラスを使用するコードです。<br>響きが無彩色的になる可能性が高いです。`;
+        document.getElementById("AddChordInfo2HTML").innerHTML = `<br>8種類以上の異なるピッチクラスを使用するコードになります。<br>響きが無彩色的になる可能性が高いです。`;
         document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
     } else if (CandidateCount >= 5) {
-        document.getElementById("AddChordInfo2HTML").innerHTML = `<br>5種類以上の異なるピッチクラスを使用するコードです。<br>ボイシング(和音の積み方)の併記を推奨します。`;
+        document.getElementById("AddChordInfo2HTML").innerHTML = `<br>5種類以上の異なるピッチクラスを使用するコードになります。<br>混乱を防ぐために、ボイシング(和音の積み方)の併記を推奨します。`;
     } else {
         document.getElementById("AddChordInfo2HTML").innerHTML = ``;
     };
