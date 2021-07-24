@@ -151,7 +151,7 @@ chord_container =
     { ChordName: "7(♭13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに♭13thが加わったコードから、完全5度(P5th)の音を省略したコードです。<br>aug7と同じ構成音を持ちます。' },
     { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナントセブンに13thが加わったコードです。' },
     { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに13thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
-    
+
     { ChordName: "7(♭9,#11)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン", Info: 'ドミナントセブンに♭9thと#11thが加わったコードです。<br>UST(アッパー・ストラクチャー・トライアド)で「#Ⅳ/Ⅰ」と表記されるコードと同じ構成音を持ちます。<br>「ペトルーシュカ和音」とも呼ばれます。' },
     { ChordName: "7(♭9,#11)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに♭9thと#11thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "7(9,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン", Info: 'ドミナントセブンに9thと13thが加わったコードです。' },
@@ -459,19 +459,47 @@ function ChordCandidate() {
         CandidateCount = CandidateCount + onoff[t];
     };
 
+    document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
+    document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+
     TriTone = 0;
+    TriToneCount = 0;
     //トライ・トーンを判定する
     for (let i = 0; i < 12; i++) {
         TriTone = 0;
+        TriToneCount++
         //増4度の音程が存在するか調べる
         TriTone = onoff[mod(i, 12)] + onoff[mod(i + 6, 12)];
+        TriTone2 = onoff[mod(i + 3, 12)] + onoff[mod(i + 9, 12)];
         if (TriTone === 2 && CandidateCount >= 3) {
-            document.getElementById("AddChordInfoTriToneHTML").innerHTML 
-            = `ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】<br>${noteNames[mod(sig0 + i + 1 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i + 1 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i - 2 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i - 2 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i - 5 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i - 5 , 12)][NonRootSOF]}m　${noteNames[mod(sig0 + i + 4 , 12)][NonRootSOF]}　${noteNames[mod(sig0 + i + 4 , 12)][NonRootSOF]}m`;
+            document.getElementById("AddChordInfoTriToneHTML").innerHTML
+                = `<br>ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】<br>${noteNames[mod(sig0 + i + 1, 12)][SOF]}　${noteNames[mod(sig0 + i + 1, 12)][SOF]}m　${noteNames[mod(sig0 + i - 2, 12)][SOF]}　${noteNames[mod(sig0 + i - 2, 12)][SOF]}m　${noteNames[mod(sig0 + i - 5, 12)][SOF]}　${noteNames[mod(sig0 + i - 5, 12)][SOF]}m　${noteNames[mod(sig0 + i + 4, 12)][SOF]}　${noteNames[mod(sig0 + i + 4, 12)][SOF]}m`;
             break
         } else {
             TriTone = 0;
             document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
+            document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+        };
+    };
+
+    console.log(TriToneCount);
+
+    //2つ目のトライ・トーンがあるかを判定する
+    if (TriTone2 === 2 && CandidateCount >= 4) {
+        document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+    } else {
+        for (let t = TriToneCount + 6; t < 12 - TriToneCount ; t++) {
+            TriTone = 0;
+            //増4度の音程が存在するか調べる
+            TriTone = onoff[mod(t, 12)] + onoff[mod(t + 6, 12)];
+            if (TriTone === 2 && CandidateCount >= 4) {
+                document.getElementById("AddChordInfoTriTone2HTML").innerHTML
+                    = `${noteNames[mod(sig0 + t + 1, 12)][SOF]}　${noteNames[mod(sig0 + t + 1, 12)][SOF]}m　${noteNames[mod(sig0 + t - 2, 12)][SOF]}　${noteNames[mod(sig0 + t - 2, 12)][SOF]}m　${noteNames[mod(sig0 + t - 5, 12)][SOF]}　${noteNames[mod(sig0 + t - 5, 12)][SOF]}m　${noteNames[mod(sig0 + t + 4, 12)][SOF]}　${noteNames[mod(sig0 + t + 4, 12)][SOF]}m`;
+                break
+            } else {
+                TriTone = 0;
+                document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+            };
         };
     };
 
@@ -479,6 +507,7 @@ function ChordCandidate() {
     if (CandidateCount >= 8) {
         document.getElementById("AddChordInfo2HTML").innerHTML = `<br>8種類以上の異なるピッチクラスを使用するコードになります。<br>響きが無彩色的になる可能性が高いです。`;
         document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
+        document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
     } else if (CandidateCount >= 5) {
         document.getElementById("AddChordInfo2HTML").innerHTML = `<br>5種類以上の異なるピッチクラスを使用するコードになります。<br>混乱を防ぐために、ボイシング(和音の積み方)の併記を推奨します。`;
     } else {
@@ -656,6 +685,7 @@ function ChordCandidate() {
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
                 document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
                 document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
+                document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfo2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
                 return
