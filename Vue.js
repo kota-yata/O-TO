@@ -19,7 +19,7 @@ const headTemplate = new Vue({
 Vue.component('header-template', {
   template: `
       <div>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-xxl navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
     
       <a class="navbar-brand text-white" href="index.html">O-TO</a>
