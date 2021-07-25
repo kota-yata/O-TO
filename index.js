@@ -220,7 +220,7 @@ scale_Container =
     { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーギュメント", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第3モード。", Adjustment: -9 },
     { EnglishName: "Lydian Dominant ", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info: "「リディアン♭7」とも。", Mode: "メロディック・マイナーの第4モード。", Adjustment: -9 },
     { EnglishName: "Mixolydian ♭6", JapaneseName: "ミクソリディアン♭6", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info: "「メロディック・メジャー(旋律的長音階)」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モード。", Adjustment: -9 },
-    { EnglishName: "Locrian ♮2", JapaneseName: "ロクリアン♮2", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info: "", Mode: "", Adjustment: -9 },
+    { EnglishName: "Locrian ♮2", JapaneseName: "ロクリアン♮2", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第6モード。", Adjustment: -9 },
     { EnglishName: "Super Locrian", JapaneseName: "スーパー・ロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・スケールと同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
 
     //ハーモニック・メジャースケールファミリー
@@ -260,7 +260,7 @@ scale_Container =
 
     { EnglishName: "In/Sakura Pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "古謡「さくらさくら」などで用いられる和風な音階です。<br>「都節-下行形」とも。<br>「平調子」、「平巾十調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -4 },
     { EnglishName: "Lydian Pentatonic", JapaneseName: "リディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -4 },
-    { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モードです", Adjustment: -4 },
+    { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モード。", Adjustment: -4 },
     { EnglishName: "Hon-Kumoi", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モード。", Adjustment: -4 },
     { EnglishName: "Raga Bhinna Shadja", JapaneseName: "ラーガ・ベニア・シャジア", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モード。", Adjustment: -4 },
 
@@ -318,7 +318,6 @@ function createChordChoices() {
 
 //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
 function createScaleChoices() {
-
     //スケールを格納した配列の長さを取得する。
     length = scale_Container.length;
     Num = scale_Container.length;
@@ -340,7 +339,7 @@ function createScaleChoices() {
 
 //スケールの調号を計算する
 function scaleKeySignature() {
-
+    //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
     ChangeEIJG();
 
     //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
@@ -414,7 +413,7 @@ function scaleKeySignature() {
     NoteNameColoring()
 };
 
-//オンオフ状態を格納する配列
+//音名スイッチのオンオフ状態を格納する配列
 let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
@@ -434,13 +433,13 @@ function createCandidate() {
 
 //モーダル・インターチェンジの候補をディグリー表記で表示する関数
 function modalCandidateDegree() {
-
+    //スイッチが全てオフの場合
     if (0 == onoff[0] && 0 == onoff[1] && 0 == onoff[2] && 0 == onoff[3] && 0 == onoff[4] && 0 == onoff[5] &&
         0 == onoff[6] && 0 == onoff[7] && 0 == onoff[8] && 0 == onoff[9] && 0 == onoff[10] && 0 == onoff[11]) {
-        Num = 0
+        Num = 0;
         length = scale_Container.length
         for (let i = 0; i < length; i++) {
-            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num][ScaleLanguage]}`;
+            document.getElementById(`modal_text_${Num}`).innerHTML = `Ⅰ ${scale_Container[Num][ScaleLanguage]}　<font size="2"><span style="color:#808080">${scale_Container[Num]["Mode"]}</span></font>`;
             Num = Num + 1;
         };
     } else {
@@ -648,7 +647,7 @@ function ChordCandidate() {
                 //マッチするもの無し
                 document.getElementById("AddChordHTML").innerHTML = `<font size="6">N.C.</font>`;
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：ノン・コード</font>`;
-                document.getElementById("AddChordInfoHTML").innerHTML = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br><br><font size="2">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※基本的に「UST(アッパー・ストラクチャー・トライアド)」及び、「ハイブリッド・コード」での解釈の可能性は表示されません。</font>`;
+                document.getElementById("AddChordInfoHTML").innerHTML = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※基本的に「UST(アッパー・ストラクチャー・トライアド)」及び、「ハイブリッド・コード」での解釈の可能性は表示されません。</span></font>`;
                 document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
             };
             //見つからなかったので、コードネームを格納した配列から、次のコードとマッチするか調べる。
@@ -785,8 +784,7 @@ function modalTextAndNoteCreate() {
     //ルート音の情報を取得する。
     sig0 = Number(document.getElementById("rootNumber").value);
 
-
-    Num = 0
+    Num = 0;
     //スケール情報を格納した連想配列の長さを取得する。
     length = scale_Container.length
     //スケールを表示する言語の情報を取得する。
@@ -830,7 +828,7 @@ function modalTextAndNoteCreate() {
                         = `${noteNames[sig0][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${note.join("-")}】<font size="2">${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}</font>`;
                 } else {
                     document.getElementById(`modal_text_${Num}`).innerHTML
-                    = `${noteNames[sig0][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${note.join("-")}】<font size="2">${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}　${noteNames[mod(sig0 - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</font>`;
+                    = `${noteNames[sig0][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${note.join("-")}】<font size="2">${sharp_key_signature[mod(sig0 - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(sig0 - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
                 };
             } else {
                 document.getElementById(`modal_text_${Num}`).innerHTML = "";
