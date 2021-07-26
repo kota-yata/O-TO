@@ -1536,7 +1536,7 @@ function Chordschange() {
     document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}`;
     document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}`;
     document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}`;
-    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][17]} ${scale_Container[5]['diaChord4']}`;
+    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}`;
     document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}`;
 
     document.getElementById("Rel_HMin_dia").innerHTML = `${noteNames[t9][SOF]} Harmonic Minor：${sharp_key_signature[tonic]}`;
@@ -1650,7 +1650,7 @@ function ChordsAndModeChange() {
     document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}<br>${scale_Container[2][ScaleLanguage]}`;
     document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}<br>${scale_Container[3][ScaleLanguage]}`;
     document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}<br>${scale_Container[4][ScaleLanguage]}`;
-    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][17]} ${scale_Container[5]['diaChord4']}<br>${scale_Container[5][ScaleLanguage]}`;
+    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}<br>${scale_Container[5][ScaleLanguage]}`;
     document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}<br>${scale_Container[6][ScaleLanguage]}`;
 
     document.getElementById("Rel_HMin_dia").innerHTML = `${noteNames[t9][SOF]} Harmonic Minor：${sharp_key_signature[tonic]}`;
