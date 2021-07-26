@@ -272,7 +272,7 @@ scale_Container =
     //ブルース
     { EnglishName: "Blues Major Pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
     { EnglishName: "Blues Minor Pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 3, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
-    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート・スケール", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
 
     //その他のスケール
     { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 2, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
