@@ -342,8 +342,11 @@ function scaleKeySignature() {
     //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
     ChangeEIJG();
 
-    //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割(スケールナンバー生成のため異名同音用の2～6を1へ置換する)
-    value = document.getElementById("constituent_binary").value.replace("2", "1").replace("3", "1").replace("4", "1").replace("5", "1").replace("6", "1").split('-');
+    //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    value = document.getElementById("constituent_binary").value.split('-');
+
+    //スケールナンバー生成のため異名同音用の2～6を1へ置換する
+    value[0].replace("2", "1").replace("2", "1").replace("3", "1").replace("4", "1").replace("5", "1").replace("6", "1");
 
     //scale_Container配列を検索用の値
     Num = value[1];
