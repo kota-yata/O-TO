@@ -353,7 +353,7 @@ function scaleKeySignature() {
 
     //シャープまたはフラット指定用の数値をスケールナンバー計算のために置き換える
     for (let i = 0; i < scale_binary_split.length; i++) {
-        
+
         if (scale_binary_split[i] == "2") {
             scale_binary_split.splice(i, 1, "1");
         };
@@ -947,9 +947,9 @@ function NoteNameColoring() {
 
     Num = 0
     for (let i = 0; i < 12; i++) {
-        if (onoff[Num] == 1) {
+        if (onoff[Num] != "0") {
             document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
-        } else if (onoff[Num] == 0) {
+        } else if (onoff[Num] === "0") {
             document.getElementById(`chord_${Num}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
         };
         Num = Num + 1;
@@ -966,7 +966,7 @@ function ChordNoteSwitch() {
 
     Num = 0
     for (let i = 0; i < 12; i++) {
-        if (onoff[Num] == "1") {
+        if (onoff[Num] != "0") {
             onoff[Num] = 1;
         } else {
             onoff[Num] = 0;
