@@ -345,14 +345,24 @@ function scaleKeySignature() {
     //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
     value = document.getElementById("constituent_binary").value.split('-');
 
-    //スケールナンバー生成のため異名同音用の2～6を1へ置換する
-    value[0].replace("2", "1").replace("2", "1").replace("3", "1").replace("4", "1").replace("5", "1").replace("6", "1");
-
     //scale_Container配列を検索用の値
     Num = value[1];
 
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
     scale_binary_split = value[0].split('');
+
+    //シャープまたはフラット指定用の数値をスケールナンバー計算のために置き換える
+    for (let i = 0; i < scale_binary_split.length; i++) {
+        
+        if (scale_binary_split[i] == "2") {
+            scale_binary_split.splice(i, 1, "1");
+        };
+
+        if (scale_binary_split[i] == "3") {
+            scale_binary_split.splice(i, 1, "1");
+        };
+    };
+    console.log(scale_binary_split);
     scale_binary_reverse = scale_binary_split.reverse();
     scale_binary_rejoin = scale_binary_reverse.join("");
     scale_dec = parseInt(scale_binary_rejoin, 2);
@@ -565,9 +575,9 @@ function ChordCandidate() {
         //トライトーンが含まれるものの、コードの構成音が3音に満たない場合
     } else {
         document.getElementById("AddChordInfoTriToneHTML").innerHTML
-        = TriToneText.join().replace(",","").replace(",","").replace(",","");
+            = TriToneText.join().replace(",", "").replace(",", "").replace(",", "");
         document.getElementById("AddChordInfoSub2HTML").innerHTML
-            = Sub2Text.join().replace(",","").replace(",","").replace(",","");
+            = Sub2Text.join().replace(",", "").replace(",", "").replace(",", "");
     };
 
 
