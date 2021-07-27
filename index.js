@@ -362,7 +362,6 @@ function scaleKeySignature() {
             scale_binary_split.splice(i, 1, "1");
         };
     };
-    console.log(scale_binary_split);
     scale_binary_reverse = scale_binary_split.reverse();
     scale_binary_rejoin = scale_binary_reverse.join("");
     scale_dec = parseInt(scale_binary_rejoin, 2);
