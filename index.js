@@ -1442,8 +1442,8 @@ function changeChordProgressionDegree() {
     };
 
     //ボタンの色を変える
-    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-6 col-xl-4 m-3";
-    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
+    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-5 col-xl-4 m-3";
+    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
 };
 
 //コード進行を切り替える関数
@@ -1558,8 +1558,8 @@ function changeChordProgression() {
     document.getElementById("chordProg8-20").innerHTML = `${noteNames[e][9]} - ${noteNames[f][12]} - ${noteNames[g][15]} - ${noteNames[f][12]}`;
 
     //ボタンの色を変える
-    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-6 col-xl-4 m-3";
-    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-6 col-xl-4 m-3";
+    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-5 col-xl-4 m-3";
+    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
 };
 
 
