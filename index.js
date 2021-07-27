@@ -343,7 +343,7 @@ function scaleKeySignature() {
     ChangeEIJG();
 
     //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割(スケールナンバー生成のため異名同音用の2～6を1へ置換する)
-    value = document.getElementById("constituent_binary").value.replace("2","1").replace("3","1").replace("4","1").replace("5","1").replace("6","1").split('-');
+    value = document.getElementById("constituent_binary").value.replace("2", "1").replace("3", "1").replace("4", "1").replace("5", "1").replace("6", "1").split('-');
 
     //scale_Container配列を検索用の値
     Num = value[1];
@@ -471,63 +471,106 @@ function ChordCandidate() {
         CandidateCount = CandidateCount + onoff[t];
     };
 
-    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
-    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
     document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-    document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
+    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
 
-    TriTone = 0;
-    TriToneCount = 0;
+    TriToneText = ["<br>ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】"];
+    Sub2Text = ["<br>【このコードの手前に居がちなコード】"]
+
     //トライ・トーンを判定する
-    for (let i = 0; i < 12; i++) {
-        TriTone = 0;
-        TriToneCount++
-        //増4度の音程が存在するか調べる
-        TriTone = onoff[mod(i, 12)] + onoff[mod(i + 6, 12)];
-        TriTone2 = onoff[mod(i + 3, 12)] + onoff[mod(i + 9, 12)];
-        if (TriTone === 2 && CandidateCount >= 3) {
-            document.getElementById("AddChordInfoTriToneHTML").innerHTML
-                = `<br>ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】<br>${noteNames[mod(sig0 + i + 1, 12)][SOF]}　${noteNames[mod(sig0 + i + 1, 12)][SOF]}m　${noteNames[mod(sig0 + i - 2, 12)][SOF]}　${noteNames[mod(sig0 + i - 2, 12)][SOF]}m　${noteNames[mod(sig0 + i - 5, 12)][SOF]}　${noteNames[mod(sig0 + i - 5, 12)][SOF]}m　${noteNames[mod(sig0 + i + 4, 12)][SOF]}　${noteNames[mod(sig0 + i + 4, 12)][SOF]}m`;
-            document.getElementById("AddChordInfoSub2HTML").innerHTML
-                = `<br>【このコードの手前に居がちなコード】<br>${noteNames[mod(sig0 + i + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + i + 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + i - 0, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + i - 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + i + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + i + 6, 12)][SOF]}m7(♭5)`;
-            break
-        } else {
-            TriTone = 0;
-            document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
-            document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
-            document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-            document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
-        };
+    if (onoff[0] + onoff[6] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 1, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 - 2, 12)][SOF]}　${noteNames[mod(sig0 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 - 5, 12)][SOF]}　${noteNames[mod(sig0 - 5, 12)][SOF]}m　`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 - 3, 12)][SOF]}m7(♭5)`);
+    } else if (onoff[3] + onoff[9] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 - 5, 12)][SOF]}　${noteNames[mod(sig0 - 5, 12)][SOF]}m　
+            ${noteNames[mod(sig0 - 2, 12)][SOF]}　${noteNames[mod(sig0 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 1, 12)][SOF]}m`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 - 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 3, 12)][SOF]}m7(♭5)`);
+    } else {
     };
 
-    //2つ目のトライ・トーンがあるかを判定する
-    if (TriTone2 === 2 && CandidateCount >= 4) {
-        document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
-        document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
+    //トライ・トーンを判定する
+    if (onoff[1] + onoff[7] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 1 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 1 + 1, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 1 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 - 2, 12)][SOF]}　${noteNames[mod(sig0 + 1 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 - 5, 12)][SOF]}　${noteNames[mod(sig0 + 1 - 5, 12)][SOF]}m　`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 1 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 + 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 - 3, 12)][SOF]}m7(♭5)`);
+    } else if (onoff[4] + onoff[10] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 1 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 1 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 - 5, 12)][SOF]}　${noteNames[mod(sig0 + 1 - 5, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 - 2, 12)][SOF]}　${noteNames[mod(sig0 + 1 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 1 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 1 + 1, 12)][SOF]}m`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 1 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 - 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 1 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 + 3, 12)][SOF]}m7(♭5)`);
     } else {
-        for (let t = TriToneCount + 6; t < 12 - TriToneCount; t++) {
-            TriTone = 0;
-            //増4度の音程が存在するか調べる
-            TriTone = onoff[mod(t, 12)] + onoff[mod(t + 6, 12)];
-            if (TriTone === 2 && CandidateCount >= 4) {
-                document.getElementById("AddChordInfoTriTone2HTML").innerHTML
-                    = `${noteNames[mod(sig0 + t + 1, 12)][SOF]}　${noteNames[mod(sig0 + t + 1, 12)][SOF]}m　${noteNames[mod(sig0 + t - 2, 12)][SOF]}　${noteNames[mod(sig0 + t - 2, 12)][SOF]}m　${noteNames[mod(sig0 + t - 5, 12)][SOF]}　${noteNames[mod(sig0 + t - 5, 12)][SOF]}m　${noteNames[mod(sig0 + t + 4, 12)][SOF]}　${noteNames[mod(sig0 + t + 4, 12)][SOF]}m`;
-                document.getElementById("AddChordInfoSub22HTML").innerHTML
-                    = `${noteNames[mod(sig0 + t + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + t + 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + t - 0, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + t - 3, 12)][SOF]}m7(♭5)　${noteNames[mod(sig0 + t + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + t + 6, 12)][SOF]}m7(♭5)`;
-                break
-            } else {
-                TriTone = 0;
-                document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
-                document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
-            };
-        };
     };
+
+    //トライ・トーンを判定する
+    if (onoff[2] + onoff[8] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 2 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 2 + 1, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 2 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 - 2, 12)][SOF]}　${noteNames[mod(sig0 + 2 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 - 5, 12)][SOF]}　${noteNames[mod(sig0 + 2 - 5, 12)][SOF]}m　`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 2 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 + 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 - 3, 12)][SOF]}m7(♭5)`);
+    } else if (onoff[5] + onoff[11] === 2) {
+        TriToneText.push(`<br>
+            ${noteNames[mod(sig0 + 2 + 4, 12)][SOF]}　${noteNames[mod(sig0 + 2 + 4, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 - 5, 12)][SOF]}　${noteNames[mod(sig0 + 2 - 5, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 - 2, 12)][SOF]}　${noteNames[mod(sig0 + 2 - 2, 12)][SOF]}m　
+            ${noteNames[mod(sig0 + 2 + 1, 12)][SOF]}　${noteNames[mod(sig0 + 2 + 1, 12)][SOF]}m`);
+        Sub2Text.push(`<br>
+            ${noteNames[mod(sig0 + 2 + 6, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 + 6, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 - 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 - 3, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 - 0, 12)][SOF]}m7　${noteNames[mod(sig0 + 2 - 0, 12)][SOF]}m7(♭5)　
+            ${noteNames[mod(sig0 + 2 + 3, 12)][SOF]}m7　${noteNames[mod(sig0 + 1 + 3, 12)][SOF]}m7(♭5)`);
+    } else {
+    };
+
+    //トライ・トーンの情報を書き込む
+    if (TriToneText.length === 1) {
+        //トライトーンが含まれない場合
+    } else if (CandidateCount <= 2) {
+        //トライトーンが含まれるものの、コードの構成音が3音に満たない場合
+    } else {
+        document.getElementById("AddChordInfoTriToneHTML").innerHTML
+        = TriToneText.join().replace(",","").replace(",","").replace(",","");
+        document.getElementById("AddChordInfoSub2HTML").innerHTML
+            = Sub2Text.join().replace(",","").replace(",","").replace(",","");
+    };
+
 
     //8音以上のコードを判定する。
     if (CandidateCount >= 8) {
         document.getElementById("AddChordInfo2HTML").innerHTML = `<br>8種類以上の異なるピッチクラスを使用するコードになります。<br>響きが無彩色的になる可能性が高いです。`;
-        document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-        document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
     } else if (CandidateCount >= 5) {
         document.getElementById("AddChordInfo2HTML").innerHTML = `<br>5種類以上の異なるピッチクラスを使用するコードになります。<br>混乱を防ぐために、ボイシング(和音の積み方)の併記を推奨します。`;
     } else {
@@ -705,9 +748,7 @@ function ChordCandidate() {
                 document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
                 document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
                 document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
-                document.getElementById("AddChordInfoSub22HTML").innerHTML = ``;
                 document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-                document.getElementById("AddChordInfoTriTone2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfo2HTML").innerHTML = ``;
                 document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
                 return
@@ -819,12 +860,12 @@ function modalTextAndNoteCreate() {
 
                 //for文でスケールの構成音を生成する。
                 for (let i = 0; i < 12; i++) {
-                        //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-                    if (scale[i] === 2){
+                    //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+                    if (scale[i] === 2) {
                         note.push(EIJG2[sigNameNum][mod(sig0 + i, 12)][0]);
-                    }else if(scale[i] === 3) {
+                    } else if (scale[i] === 3) {
                         note.push(EIJG2[sigNameNum][mod(sig0 + i, 12)][1]);
-                    }else if(scale[i] >= 1) {
+                    } else if (scale[i] >= 1) {
                         note.push(EIJG2[sigNameNum][mod(sig0 + i, 12)][SOF]);
                     } else {
                     };
