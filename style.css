@@ -1,5 +1,5 @@
-
 /* フォント指定 */
+
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 body {
     font-family: 'Noto Sans JP', sans-serif;
@@ -7,8 +7,27 @@ body {
 }
 
 /* 画像のレスポンシブ対応 */
+
 img {
     width: 100%;
     max-width: 100%;
     height: auto;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: #ffffff;
+    padding: 1em;
+    margin: 0;
+}
+
+box {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: #ffffff;
+    padding: 1em;
+    margin: 0;
 }

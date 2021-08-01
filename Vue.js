@@ -56,6 +56,9 @@ Vue.component('header-template', {
           <li class="nav-item">
             <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-degree-change.html">⑨コード移調</a>
+          </li>
 
         </ul>
       </div>
@@ -108,7 +111,9 @@ Vue.component('right-column', {
           <li class="nav-item">
             <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
           </li>
-      
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-degree-change.html">⑨コード移調</a>
+          </li>
         </ul>
       
         <div class="shadow p-3 mb-3 bg-white rounded pb-2 m-3">
