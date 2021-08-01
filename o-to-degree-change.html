@@ -122,7 +122,7 @@
             <div id="display">
                 <title-display></title-display>
             </div>
-            <p class="pb-3">ほんの3ステップです。<br><br>——あなたのコード進行メモは、<strong>12キー全て</strong>で確認できます。</p>
+            <p class="pb-3">移調したコード進行を確認したいですか？<br><br>——できますよ。素早く。</p>
 
             <h3 class="shadow p-3 mb-3 bg-white rounded mb-5 py-3">コード移調</h3>
 
@@ -130,7 +130,7 @@
             <div class="row">
                 <!-- ここから分割されたページの左側 -->
                 <div class="col-md-6">
-                    <label for="BeforeRootNumber">変換前のキーを設定してください。
+                    <label for="BeforeRootNumber">①変換前のキーを設定してください。
                         <select id="BeforeRootNumber" class="form-select my-1" aria-label="Default select example"
                             onchange="ChangeDegreeText()">
                             <option value=0>C (#・♭×0)</option>
@@ -155,17 +155,12 @@
 
                     <!-- コード進行入力テキストエリア -->
                     <TEXTAREA id="textarea" maxlength="100000" cols="80" rows="15"
-                        placeholder="こちらにコード進行を入力してください。"></TEXTAREA>
-                    <!-- 警告 -->
-                    <p>
-                        <span style="color:red">※保存機能はありません。元データを保存した上でお使いください。</span><br>
-                        ※英文を入力するのは、オススメしません。<br>
-                    </p>
+                        placeholder="②こちらにコード進行のテキストを入力してください。※保存機能はありません。元データを保存した上でお使いください。"></TEXTAREA>
                 </div>
 
                 <!-- ここから分割されたページの右側 -->
                 <div class="col-md-6">
-                    <label for="AfterRootNumber">変換後のキーを設定してください。
+                    <label for="AfterRootNumber">③変換後のキーを設定してください。
                         <select id="AfterRootNumber" class="form-select my-1" aria-label="Default select example"
                             onchange="ChangeDegreeText()">
                             <option value=0>C (#・♭×0)</option>

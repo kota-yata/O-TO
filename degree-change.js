@@ -187,11 +187,12 @@ function ExampleTextOne() {
 function ButtonInvisible() {
     //テキストエリア内のテキストを取得
     text = document.getElementById("textarea").value;
+    
     Sanitizing(text);
 
     TextLength = text.replace(/<br \/>/g, '').length;
     if (TextLength === 0) {
-        document.getElementById("box").innerHTML = '<br><br><br><br><br><br><br>';
+        document.getElementById("box").innerHTML = 'こちらに変換後のテキストが表示されます。<br><br><br><br><br><br><br>';
     } else if (TextLength > 1) {
         document.getElementById("ExampleTextButton").innerHTML = ""
     };
