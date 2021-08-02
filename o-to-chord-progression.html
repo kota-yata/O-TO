@@ -144,7 +144,7 @@
 
             <label for="rootNumber" class="box1 col-8 offset-2 col-xl-2 py-3 mx-2">調べたいキー
               <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-                onchange="changeChordProgression()">
+                onchange="ChangeChordProgression()">
                 <option value=0>C (#・♭×0)</option>
                 <option value=1>D♭ (♭×5)</option>
                 <option value=2>D (#×2)</option>
@@ -161,10 +161,10 @@
             </label>
 
             <button id="degree_change_button" class="btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3"
-              onclick="changeChordProgression()">コードネームで表示</button>
+              onclick="ChangeChordProgression()">コードネームで表示</button>
 
             <button id="degree_button" class="btn btn-success box1 col-8 col-md-5 col-xl-4 m-3"
-              onclick="changeChordProgressionDegree()">ディグリーネームで表示</button>
+              onclick="ChangeChordProgressionDegree()">ディグリーネームで表示</button>
 
           </div>
 
@@ -326,14 +326,15 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      chordCandidate()
-      changeChordProgressionDegree()
+      ChordCandidateCreate();
+      ChangeChordProgressionDegree();
     });
   </script>
 
   <!-- JavaScriptを読み込む-->
   <script src="Vue.js"></script>
-  <script src="index.js"></script>
+  <!-- <script src="index.js"></script> -->
+  <script src="ChordChange.js"></script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->
