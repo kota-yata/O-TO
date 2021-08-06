@@ -143,7 +143,7 @@
 
         <label for="rootNumber" class="box1 col-md-10 col-xl-2 py-2 mx-2">トニック
           <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-            onchange="scaleKeySignature()">
+            onchange="ScaleKeySignature()">
             <option value=0>C</option>
             <option value=1>C#-D♭</option>
             <option value=2>D</option>
@@ -161,7 +161,7 @@
 
         <label for="constituent_binary" class="box1 col-md-10 col-xl-5 pt-2 pb-4 mx-2">調べたいスケール
           <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
-            onchange="scaleKeySignature()">
+            onchange="ScaleKeySignature()">
             <!-- ページがロードされた後にJavaScriptによって選択肢を追加する -->
           </select>
         </label>
@@ -445,15 +445,15 @@
       <ul>
         <li class="nav-item">
           <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/mode" target="_blank"
-            rel="noopener noreferrer">モード(旋法)を使った曲をまとめてみた。【モードについて解説】</a></div>
+              rel="noopener noreferrer">モード(旋法)を使った曲をまとめてみた。【モードについて解説】</a></div>
         </li>
         <li class="nav-item">
           <div class="pt-2 pb-1"><a href="https://khufrudamonotes.com/japanese-musical-scales" target="_blank"
-            rel="noopener noreferrer">和風・日本のスケール(音階)のモード(旋法) まとめ</a></div>
+              rel="noopener noreferrer">和風・日本のスケール(音階)のモード(旋法) まとめ</a></div>
         </li>
         <li class="nav-item">
           <div class="pt-0 pb-1"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
-            rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</a></div>
+              rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</a></div>
         </li>
       </ul>
 
@@ -474,8 +474,10 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      createScaleChoices()
-      scaleKeySignature()
+      //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
+      CeateScaleChoices();
+      //スケールの情報を処理して書き込む関数
+      ScaleKeySignature();
     });
   </script>
 

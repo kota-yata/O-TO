@@ -142,7 +142,7 @@
 
       <label for="rootNumber" class="box1 col-5 offset-2 col-xl-3 py-2 mx-2">主音/軸音
         <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-          onchange="modalTextCreate()">
+          onchange="ModalTextCreate()">
           <option value=0>C </option>
           <option value=1>C#-D♭</option>
           <option value=2>D</option>
@@ -255,7 +255,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button data-index="0" onclick="noteSwitch(0)" type="button"
+        <button data-index="0" onclick="NoteSwitch(0)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_0">
           <div>
             C
@@ -268,7 +268,7 @@
         <div class="list-group-item list-group-item-success col-3 text-center py-3 d-xl-none">
           ♭9th
         </div>
-        <button data-index="1" onclick="noteSwitch(1)" type="button"
+        <button data-index="1" onclick="NoteSwitch(1)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_1">
           <div>
             C#-D♭
@@ -281,7 +281,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           9th
         </div>
-        <button data-index="2" onclick="noteSwitch(2)" type="button"
+        <button data-index="2" onclick="NoteSwitch(2)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_2">
           <div>
             D
@@ -294,7 +294,7 @@
         <div class="list-group-item list-group-item-success col-3 text-center py-3 d-xl-none">
           #9th
         </div>
-        <button data-index="3" onclick="noteSwitch(3)" type="button"
+        <button data-index="3" onclick="NoteSwitch(3)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_3">
           <div>
             D#-E♭
@@ -306,7 +306,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button data-index="4" onclick="noteSwitch(4)" type="button"
+        <button data-index="4" onclick="NoteSwitch(4)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_4">
           <div>
             E
@@ -319,7 +319,7 @@
         <div class="list-group-item col-3 list-group-item-info text-center py-3 d-xl-none">
           11th
         </div>
-        <button data-index="5" onclick="noteSwitch(5)" type="button"
+        <button data-index="5" onclick="NoteSwitch(5)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_5">
           <div>
             F
@@ -332,7 +332,7 @@
         <div class="list-group-item col-3 list-group-item-success text-center py-3 d-xl-none">
           #11th
         </div>
-        <button data-index="6" onclick="noteSwitch(6)" type="button"
+        <button data-index="6" onclick="NoteSwitch(6)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_6">
           <div>
             F#-G♭
@@ -345,7 +345,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button data-index="7" onclick="noteSwitch(7)" type="button"
+        <button data-index="7" onclick="NoteSwitch(7)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_7">
           <div>
             G
@@ -358,7 +358,7 @@
         <div class="list-group-item col-3 list-group-item-success text-center py-3 d-xl-none">
           ♭13th
         </div>
-        <button data-index="8" onclick="noteSwitch(8)" type="button"
+        <button data-index="8" onclick="NoteSwitch(8)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_8">
           <div>
             G#-A♭
@@ -371,7 +371,7 @@
         <div class="list-group-item list-group-item-info col-3 text-center py-3 d-xl-none">
           13th
         </div>
-        <button data-index="9" onclick="noteSwitch(9)" type="button"
+        <button data-index="9" onclick="NoteSwitch(9)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_9">
           <div>
             A
@@ -384,7 +384,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button data-index="10" onclick="noteSwitch(10)" type="button"
+        <button data-index="10" onclick="NoteSwitch(10)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_10">
           <div>
             A#-B♭
@@ -397,7 +397,7 @@
         <div class="list-group-item col-3 list-group-item-secondary text-center py-3 d-xl-none">
 
         </div>
-        <button data-index="11" onclick="noteSwitch(11)" type="button"
+        <button data-index="11" onclick="NoteSwitch(11)" type="button"
           class="list-group-item col-4 list-group-item-secondary col-xl text-center py-3" id="chord_11">
           <div>
             B
@@ -444,9 +444,9 @@
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample">
 
-            <label for="modalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
-              <select id="modalCandidateSelect" class="form-select my-1" aria-label="Default select example"
-                onchange="modalCandidateSelect()">
+            <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
+              <select id="ModalCandidateSelect" class="form-select my-1" aria-label="Default select example"
+                onchange="ModalCandidateSelect()">
                 <option value=0 selected>英・米式表記で構成音を表示する</option>
                 <option value=1>イタリア式表記で構成音を表示する</option>
                 <option value=2>日本式表記で構成音を表示する</option>
@@ -504,9 +504,12 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      createCandidate()
-      modalCandidateDegree()
-      ChordCandidate()
+      //コード・ネームの情報を判定する関数
+      ChordCandidateInfo(onoff);
+      //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+      CreateCandidate();
+      //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
+      ModalCandidateSelect();
     });
   </script>
 

@@ -417,9 +417,9 @@
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample">
 
-            <label for="modalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
-              <select id="modalCandidateSelect" class="form-select my-1" aria-label="Default select example"
-                onchange="modalCandidateSelect()">
+            <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
+              <select id="ModalCandidateSelect" class="form-select my-1" aria-label="Default select example"
+                onchange="ModalCandidateSelect()">
                 <option value=0 selected>英・米式表記で構成音を表示する</option>
                 <option value=1>イタリア式表記で構成音を表示する</option>
                 <option value=2>日本式表記で構成音を表示する</option>
@@ -436,7 +436,7 @@
             <div class="accordion-body">
               <!--ページがロードされた後にJavaScriptによって候補となるスケールを表示する -->
               <div id="addHTML">
-                
+
               </div>
 
             </div>
@@ -449,6 +449,7 @@
           rel="noopener noreferrer">異名同音を解説します【「ド#」と「レ♭」との違いとは？】</a>
       </div>
 
+      <!-- コードネームの書き方 -->
       <img class="pt-3 pb-3" src="image\chord name structure.png">
 
       <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
@@ -469,7 +470,6 @@
 
     </main>
 
-
     <!-- フッター -->
     <footer id="footer">
       <footer-template></footer-template>
@@ -480,10 +480,14 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      createChordChoices()
-      createCandidate()
-      modalCandidateDegree()
-      ChordNoteSwitch()
+      //コードの選択肢を表示するためのHTML要素(option)を追加するための関数
+      CreateChordChoices();
+      //コードの情報を処理して書き込む関数(コードで使用)
+      ChordNoteSwitch();
+      //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+      CreateCandidate();
+      //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
+      ModalCandidateSelect();
     });
   </script>
 
