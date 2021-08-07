@@ -21,10 +21,10 @@
     <!--サイト情報-->
     <meta property="og:title" content="指板 O-TO【音楽理論ウェブアプリ】" />
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-scale" />
+    <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-fingerboard" />
     <meta property="og:image" content="image/o-to site title.png" />
     <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta name="description" content="60種類を超える指板の構成音を、全てのキーで簡単に調べられます。" />
+    <meta name="description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:image:width" content="328" />
     <meta property="og:image:height" content="183" />
@@ -33,8 +33,8 @@
     <title>指板 O-TO【音楽理論ウェブアプリ】</title>
 
     <!--ページの概要-->
-    <meta name="description" content="60種類を超える指板の構成音を、全てのキーで簡単に調べられます。">
-    <meta name="keyword" content="音楽理論,音楽,指板,音階,指板構成音,音階構成音">
+    <meta name="description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。">
+    <meta name="keyword" content="音楽理論,音楽,指板,音階,指板構成音,スケール,コードネーム,コード">
 
     <!--Internet Explorer用の設定-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -46,7 +46,7 @@
     <meta name="twitter:card" content="Summary Card" />
     <meta name="twitter:site" content="@khufrudamonotes" />
     <meta name="twitter:title" content="指板 O-TO【音楽理論ウェブアプリ】" />
-    <meta name="twitter:description" content="60種類を超える指板の構成音を、全てのキーで簡単に調べられます。" />
+    <meta name="twitter:description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。" />
     <meta name="twitter:image" content="image\o-to site title.png" />
 
     <!--サイトアイコンの指定-->
@@ -131,7 +131,7 @@
             <!-- 左(メインコンテンツ) -->
 
             <p class="pt-3 pb-3">あなたにトップ・プレイヤーの視座を授けましょう。
-                <br><br>———そのフレーズには、もっと良い運指があるかもしれません。
+                <br><br>———そのフレーズには、もっとよい運指があるかもしれません。
             </p>
 
 
@@ -142,52 +142,13 @@
             <div class="text-right">
 
                 <div>
-                    <label for="rootNumber" class="col-md-1 col-xl-1 py-2 mx-1">トニック
-                        <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+                    <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
+                        <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
                             onchange="FingerboardDateInfo()">
-                            <option value=0>C</option>
-                            <option value=1>C#-D♭</option>
-                            <option value=2>D</option>
-                            <option value=3>D#-E♭</option>
-                            <option value=4>E</option>
-                            <option value=5>F</option>
-                            <option value=6>F#-G♭</option>
-                            <option value=7>G</option>
-                            <option value=8>G#-A♭</option>
-                            <option value=9>A</option>
-                            <option value=10>A#-B♭</option>
-                            <option value=11>B</option>
                         </select>
                     </label>
 
-                    <!-- スケールとコードの選択肢をJavaScriptで描画する -->
-                    <a id="ScaleAndChords">
-                    </a>
-                    <a id="ScaleAndChordsChange">
-                        <button id="ScaleAndChordsChangeButton" value=0
-                            class="btn btn-primary col-2 col-md-2 col-xl-2 py-2 mx-1"
-                            onclick="ScaleAndChordsDrowing()">スケール⇔コード</button>
-                    </a>
-                </div>
-
-                <div>
-                    <label for="NumberOfStrings" class="box2 col-md-2 col-xl-2 pt-2 pb-4 mx-1">弦の本数
-                        <select id="NumberOfStrings" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardDateInfo()">
-                            <option value=1>1</option>
-                            <option value=2>2</option>
-                            <option value=3>3</option>
-                            <option value=4>4</option>
-                            <option value=5>5</option>
-                            <option value=6 selected>6</option>
-                            <option value=7>7</option>
-                            <option value=8>8</option>
-                            <option value=9>9</option>
-                            <option value=10>10</option>
-                        </select>
-                    </label>
-
-                    <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-4 mx-1">フレットの数
+                    <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
                         <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
                             onchange="FingerboardDateInfo()">
                             <option value=1>1</option>
@@ -223,7 +184,7 @@
                         </select>
                     </label>
 
-                    <label for="key_signature_names" class="box2 col-md-2 col-xl-2 pt-2 pb-4 mx-1">音名の表記
+                    <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
                         <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
                             onchange="FingerboardDateInfo()">
                             <option value=0>英・米式表記</option>
@@ -233,9 +194,35 @@
                         </select>
                     </label>
                 </div>
+                <div>
 
-                <!-- 弦のチューニング設定をJavaScriptで描画する -->
-                <div id="Tuning">
+
+                    <label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
+                        <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+                            onchange="FingerboardDateInfo()">
+                            <option value=0>C</option>
+                            <option value=1>C#-D♭</option>
+                            <option value=2>D</option>
+                            <option value=3>D#-E♭</option>
+                            <option value=4>E</option>
+                            <option value=5>F</option>
+                            <option value=6>F#-G♭</option>
+                            <option value=7 selected>G</option>
+                            <option value=8>G#-A♭</option>
+                            <option value=9>A</option>
+                            <option value=10>A#-B♭</option>
+                            <option value=11>B</option>
+                        </select>
+                    </label>
+
+                    <!-- スケールとコードの選択肢をJavaScriptで描画する -->
+                    <a id="ScaleAndChords">
+                    </a>
+                    <a id="ScaleAndChordsChange">
+                        <button id="ScaleAndChordsChangeButton" value=0
+                            class="btn btn-primary col-3 col-md-3 col-xl-2 pt-2 pb-2 mx-1"
+                            onclick="ScaleAndChordsDrowing()">スケール⇔コード</button>
+                    </a>
                 </div>
 
 
@@ -244,13 +231,49 @@
                 </table>
 
             </div>
-            <div>
-                <div>
-                    <button class="btn btn-primary box1 col-10 offset-2 col-md-2 col-xl-2 m-2"
-                        onclick="Guitar()">ギター</button>
-                </div>
 
-                <!-- 情報をJavaScriptで描画する -->
+            <div class="accordion py-3" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            調弦の詳細設定
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                    <!-- 弦のチューニング設定をJavaScriptで描画する -->
+                    <div>
+                        <div id="Tuning">
+                        </div>
+                        <label for="NumberOfStrings" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">弦の本数<br>
+                            <select id="NumberOfStrings" class="form-select my-1" aria-label="Default select example"
+                                onchange="NumberOfStringsManually()">
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6 selected>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                        </label>
+                        <div>※弦の本数は、「チューニングの種類」で選択された項目が優先されます。</div>
+                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+
+                <!-- コード画面とスケール画面それぞれの情報をJavaScriptで描画する -->
                 <div id="InformationBlock">
 
                 </div>
@@ -271,8 +294,15 @@
     <!--ページのロードが終了したときに実行される関数 -->
     <script>
         window.addEventListener('DOMContentLoaded', function () {
+            //チューニングの選択肢を表示するためのHTML要素(option)を追加するための関数
+            CreateTuningVariation();
             //スケール画面とコード画面の切り替えをする関数
             ScaleAndChordsDrowing();
+            //画面サイズが狭い時はフレット数を減らす
+            if (window.innerWidth <= 980) {
+                    document.getElementById("NumberOfFlet").selectedIndex = 11;
+                    ScaleAndChordsDrowing();
+                };
         });
     </script>
 

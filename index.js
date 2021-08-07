@@ -238,12 +238,12 @@ scale_Container =
 
     //ダブル・ハーモニック
     { EnglishName: "Double Harmonic", JapaneseName: "ダブル・ハーモニック", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 0, 1, 3, 0, 0, 1], addNum: 4, ForteNumber: "7-22", Info: "「フラメンコ・モード」や、「アラビック・スケール」などとも呼ばれます。", Mode: "", Adjustment: -4 },
-    { EnglishName: "Lydian ♯2♯6", JapaneseName: "リディアン♯2♯6", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [3, 0, 0, 1, 1, 0, 1, 3, 0, 0, 1, 1], addNum: 5, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第2モード。", Adjustment: -4 },
-    { EnglishName: "Ultra Phrygian", JapaneseName: "ウルトラ・フリジアン", diaChord4: "m6", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 3, 0, 0, 1, 1, 3, 0, 0], addNum: 8, ForteNumber: "7-22", Info: "「フリジアン♭♭7 ♭4」とも。", Mode: "ダブル・ハーモニックの第3モード。", Adjustment: -4 },
-    { EnglishName: "Hungarian Minor", JapaneseName: "ハンガリアン・マイナー", diaChord4: "m△7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 0, 0, 1, 1, 3, 0, 0, 1], addNum: 9, ForteNumber: "7-22", Info: "「Algerian」、「Egyptian」などとも。", Mode: "ダブル・ハーモニックの第4モード。", Adjustment: -4 },
-    { EnglishName: "Oriental", JapaneseName: "オリエンタル", diaChord4: "Fr+6", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 3, 0, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-22", Info: "「Asian」、「ミクソリディアン♭5 ♭2」、「ロクリアン♮6 ♮3」とも。", Mode: "ダブル・ハーモニックの第5モード。", Adjustment: -4 },
-    { EnglishName: "Ionian ♯5♯2", JapaneseName: "アイオニアン♯5♯2", diaChord4: "aug△7", diaChord3: "", ScaleNumBinary: [3, 0, 0, 1, 1, 3, 0, 0, 1, 1, 0, 1], addNum: 0, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第6モード。", Adjustment: -4 },
-    { EnglishName: "Locrian Double ♭♭3♭♭7", JapaneseName: "ロクリアン・ダブル♭♭3♭♭7", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 1, 3, 0, 0, 1, 1, 0, 1, 3, 0, 0], addNum: 3, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第7モード。", Adjustment: -4 },
+    { EnglishName: "Lydian ♯2♯6", JapaneseName: "リディアン♯2♯6", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 2, 1, 0, 2, 1, 0, 0, 2, 1], addNum: 5, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第2モード。", Adjustment: -4 },
+    { EnglishName: "Ultra Phrygian", JapaneseName: "ウルトラ・フリジアン", diaChord4: "m6", diaChord3: "", ScaleNumBinary: [1, 3, 0, 3, 3, 0, 0, 1, 3, 3, 0, 0], addNum: 8, ForteNumber: "7-22", Info: "「フリジアン♭♭7 ♭4」とも。", Mode: "ダブル・ハーモニックの第3モード。", Adjustment: -4 },
+    { EnglishName: "Hungarian Minor", JapaneseName: "ハンガリアン・マイナー", diaChord4: "m△7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 0, 0, 2, 1, 3, 0, 0, 1], addNum: 9, ForteNumber: "7-22", Info: "「Algerian」、「Egyptian」などとも。", Mode: "ダブル・ハーモニックの第4モード。", Adjustment: -4 },
+    { EnglishName: "Oriental", JapaneseName: "オリエンタル", diaChord4: "Fr+6", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 3, 0, 0, 1, 3, 0], addNum: 11, ForteNumber: "7-22", Info: "「Asian」、「ミクソリディアン♭5 ♭2」、「ロクリアン♮6 ♮3」とも。", Mode: "ダブル・ハーモニックの第5モード。", Adjustment: -4 },
+    { EnglishName: "Ionian ♯5♯2", JapaneseName: "アイオニアン♯5♯2", diaChord4: "aug△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 2, 1, 1, 0, 0, 2, 1, 0, 1], addNum: 0, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第6モード。", Adjustment: -4 },
+    { EnglishName: "Locrian Double ♭♭3♭♭7", JapaneseName: "ロクリアン・ダブル♭♭3♭♭7", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 3, 3, 0, 0, 1, 3, 0, 3, 3, 0, 0], addNum: 3, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第7モード。", Adjustment: -4 },
 
     //ペンタ
     { EnglishName: "Major Pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "5-35", Info: "もっとも基本的な5音階です。<br>「ヨナ抜き長音階」とも。<br>「夏山調子」と同じ構成音を持ちます。", Mode: "", Adjustment: 0 },
@@ -276,7 +276,7 @@ scale_Container =
     { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
 
     //その他のスケール
-    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 2, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 3, 3, 3, 0, 1, 3, 0, 3, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
     { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "7", diaChord3: "", ScaleNumBinary: [3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
     { EnglishName: "Diminished", JapaneseName: "ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
     { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 3, 0, 3, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
@@ -599,7 +599,6 @@ function ChordCandidateInfo(onoff) {
         Num = 0;
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
-            console.log(`${chord_container[Num]['ChordBinary']}・${onoff}・${Num}`)
             if (chord_container[Num]['ChordBinary'][0] === onoff[mod(RootNum + 0, 12)]
                 && chord_container[Num]['ChordBinary'][1] === onoff[mod(RootNum + 1, 12)]
                 && chord_container[Num]['ChordBinary'][2] === onoff[mod(RootNum + 2, 12)]
@@ -792,7 +791,7 @@ function ChordNoteSwitch() {
 };
 
 //スケールの情報を格納する配列
-let note = [];
+let ConfigurationNotes = [];
 
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(コード・コード/モード検索用)
 function ModalTextAndNoteCreate() {
@@ -804,7 +803,7 @@ function ModalTextAndNoteCreate() {
     if (sigNameNum <= 3) {
         for (let i = 0; i < scale_Container.length; i++) {
             //配列を空にする。
-            note.splice(0);
+            ConfigurationNotes.splice(0);
             //選択された音の組み合わせがスケールの構成音と一致するか判定する。
             if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
                 && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
@@ -833,28 +832,27 @@ function ModalTextAndNoteCreate() {
                 };
 
                 //スケール構成音のバイナリを配列に格納する。
-                scale = scale_Container[Num]['ScaleNumBinary']
+                Configuration = scale_Container[Num]['ScaleNumBinary']
 
                 //for文でスケールの構成音を生成する。
                 for (let i = 0; i < 12; i++) {
                     //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-                    if (scale[i] === 2) {
-                        note.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][0]);
-                    } else if (scale[i] === 3) {
-                        note.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][1]);
-                    } else if (scale[i] >= 1) {
-                        note.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][SOF]);
-                    } else {
+                    if (Configuration[i] === 2) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][0]);
+                    } else if (Configuration[i] === 3) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][1]);
+                    } else if (Configuration[i] >= 1) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][SOF]);
                     };
-
                 };
+
                 //スケールの情報をHTMLに書き込む。
                 if (scale_Container[Num]["Mode"] === "") {
                     document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${note.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${ConfigurationNotes.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
                 } else {
                     document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${note.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${ConfigurationNotes.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
                 };
             } else {
                 document.getElementById(`Modal_text_${Num}`).innerHTML = "";
@@ -996,8 +994,6 @@ function NoteSwitch(Num) {
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替えをする関数(コード・コード/モード検索用)
     ModalCandidateSelect(onoff);
 };
-
-
 
 
 //転調の種類を判別するための関数(転調の間隔)

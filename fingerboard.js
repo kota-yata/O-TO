@@ -1,23 +1,41 @@
 
 //音名の多次元配列
-const AllNoteNames =
-    [{ EnglishName: ['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'C'], ItalyName: ['ド', 'ド', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'ド', 'シ#', 'ド'], JapaneseName: ['ハ', 'ハ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', 'ハ', '嬰ロ', 'ハ'], DeutschName: ['C', 'C', 'C', 'His', 'C', 'C', 'His', 'Deses', 'C', 'C', 'His', 'Deses', 'C', 'His', 'C', 'C', 'His', 'C', 'C', 'His', 'Deses', 'C', 'C', 'His', 'C'] },
-    { EnglishName: ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#-D♭'], ItalyName: ['ド#', 'レ♭', 'レ♭', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'ド#', 'ド#-レ♭'], JapaneseName: ['嬰ハ', '変ニ', '変ニ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '嬰ハ', '嬰ハ-変ニ'], DeutschName: ['Cis', 'Des', 'Des', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Cis', 'Cis-Des'] },
-    { EnglishName: ['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'D'], ItalyName: ['レ', 'レ', 'レ', 'レ', 'ミ𝄫', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ミ𝄫', 'レ', 'ド𝄪', 'レ', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ド𝄪', 'レ'], JapaneseName: ['ニ', 'ニ', 'ニ', 'ニ', '重変ホ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重変ホ', 'ニ', '重嬰ハ', 'ニ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重嬰ハ', 'ニ'], DeutschName: ['D', 'D', 'D', 'D', 'Eses', 'D', 'Cisis', 'Eses', 'D', 'D', 'Cisis', 'Eses', 'D', 'D', 'Eses', 'D', 'Cisis', 'D', 'D', 'Cisis', 'Eses', 'D', 'D', 'Cisis', 'D'] },
-    { EnglishName: ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F𝄫', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#-E♭'], ItalyName: ['レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ファ𝄫', 'ミ♭', 'レ#', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'レ#', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'レ#', 'レ#-ミ♭'], JapaneseName: ['嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '重変ヘ', '変ホ', '嬰ニ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '嬰ニ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '嬰ニ', '嬰ニ-変ホ'], DeutschName: [] },
-    { EnglishName: ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'D𝄪', 'E'], ItalyName: ['ミ', 'ミ', 'ミ', 'ミ', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ファ♭', 'ミ', 'レ𝄪', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ミ', 'レ𝄪', 'ファ♭', 'ミ', 'ミ', 'レ𝄪', 'ミ'], apaneseName: ['ホ', 'ホ', 'ホ', 'ホ', '変ヘ', 'ホ', 'ホ', '変ヘ', '変ヘ', 'ホ', '重嬰イ', '変ヘ', 'ホ', 'ホ', '変ヘ', 'ホ', 'ホ', '変ヘ', 'ホ', '重嬰イ', '変ヘ', 'ホ', 'ホ', '重嬰イ', 'ホ'], DeutschName: ['Dis', 'Es', 'Es', 'Dis', 'Es', 'Es', 'Dis', 'Feses', 'Es', 'Dis', 'Dis', 'Es', 'Es', 'Dis', 'Es', 'Es', 'Dis', 'Es', 'Dis', 'Dis', 'Es', 'Es', 'Dis', 'Dis', 'Dis-Es'] },
-    { EnglishName: ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'E#', 'F'], ItalyName: ['ファ', 'ファ', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ミ#', 'ミ#', 'ファ'], JapaneseName: ['ヘ', 'ヘ', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', '嬰ホ', '嬰ホ', 'ヘ'], DeutschName: ['E', 'E', 'E', 'E', 'Fes', 'E', 'E', 'Fes', 'Fes', 'E', 'Disis', 'Fes', 'E', 'E', 'Fes', 'E', 'E', 'Fes', 'E', 'Disis', 'Fes', 'E', 'E', 'Disis', 'E'] },
-    { EnglishName: ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E𝄪', 'F#-G♭'], ItalyName: ['ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ミ𝄪', 'ファ#-ソ♭'], JapaneseName: ['嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '重嬰ホ', '嬰ヘ-変ト'], DeutschName: ['F', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'Eis', 'F'] },
-    { EnglishName: ['G', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'A𝄫', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'G'], ItalyName: ['ソ', 'ソ', 'ソ', 'ファ𝄪', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ラ𝄫', 'ソ', 'ファ𝄪', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ファ𝄪', 'ソ'], JapaneseName: ['ト', 'ト', 'ト', '重嬰ヘ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重変イ', 'ト', '重嬰ヘ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重嬰ヘ', 'ト'], DeutschName: ['Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Eisis', 'Fis-Ges'] },
-    { EnglishName: ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#-A♭'], ItalyName: ['ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ソ#', 'ソ#-ラ♭'], JapaneseName: ['嬰ト', '変イ', '変イ', '嬰ト', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '変イ', '変イ', '嬰ト', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '嬰ト', '嬰ト-変イ'], DeutschName: ['G', 'G', 'G', 'Fisis', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Ases', 'G', 'Fisis', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Fisis', 'G'] },
-    { EnglishName: ['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A'], ItalyName: ['ラ', 'ラ', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ソ𝄪', 'シ𝄫', 'ラ', 'ラ', 'ソ𝄪', 'ラ', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ソ𝄪', 'シ𝄫', 'ラ', 'ラ', 'ソ𝄪', 'ラ'], JapaneseName: ['イ', 'イ', 'イ', 'イ', '重変ロ', 'イ', '重嬰ト', '重変ロ', 'イ', 'イ', '重嬰ト', 'イ', 'イ', 'イ', '重変ロ', 'イ', 'イ', '重変ロ', 'イ', '重嬰ト', '重変ロ', 'イ', 'イ', '重嬰ト', 'イ'], DeutschName: ['A', 'A', 'A', 'A', 'Heses', 'A', 'Gisis', 'Heses', 'A', 'A', 'Gisis', 'A', 'A', 'A', 'Heses', 'A', 'A', 'Heses', 'A', 'Gisis', 'Heses', 'A', 'A', 'Gisis', 'A'] },
-    { EnglishName: ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'A#-B♭'], ItalyName: ['ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'ド𝄫', 'シ♭', 'ラ#', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'ド𝄫', 'シ♭', 'ラ#', 'ラ#', 'ラ#-シ♭'], JapaneseName: ['嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '重変ハ', '変ロ', '嬰イ', '嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '重変ハ', '変ロ', '嬰イ', '嬰イ', '嬰イ-変ロ'], DeutschName: ['Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'Ceses', 'B', 'Ais', 'Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'Ceses', 'B', 'Ais', 'Ais', 'Ais-B'] },
-    { EnglishName: ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'B'], ItalyName: ['シ', 'シ', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ𝄪', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ𝄪', 'シ'], JapaneseName: ['ロ', 'ロ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', 'ロ'], DeutschName: ['H', 'H', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'H'] }];
+const AllNoteNames = [
+    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'C'], ['ド', 'ド', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'ド', 'ド', 'シ#', 'レ𝄫', 'ド', 'ド', 'シ#', 'ド'], ['ハ', 'ハ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', 'ハ', 'ハ', '嬰ロ', '重変ニ', 'ハ', 'ハ', '嬰ロ', 'ハ'], ['C', 'C', 'C', 'His', 'C', 'C', 'His', 'Deses', 'C', 'C', 'His', 'Deses', 'C', 'His', 'C', 'C', 'His', 'C', 'C', 'His', 'Deses', 'C', 'C', 'His', 'C']],
+    [['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#-D♭'], ['ド#', 'レ♭', 'レ♭', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'ド#', 'ド#', 'レ♭', 'レ♭', 'ド#', 'ド#', 'ド#-レ♭'], ['嬰ハ', '変ニ', '変ニ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '嬰ハ', '嬰ハ', '変ニ', '変ニ', '嬰ハ', '嬰ハ', '嬰ハ-変ニ'], ['Cis', 'Des', 'Des', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Cis', 'Cis', 'Des', 'Des', 'Cis', 'Cis', 'Cis-Des']],
+    [['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'D'], ['レ', 'レ', 'レ', 'レ', 'ミ𝄫', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ミ𝄫', 'レ', 'ド𝄪', 'レ', 'レ', 'ド𝄪', 'ミ𝄫', 'レ', 'レ', 'ド𝄪', 'レ'], ['ニ', 'ニ', 'ニ', 'ニ', '重変ホ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重変ホ', 'ニ', '重嬰ハ', 'ニ', 'ニ', '重嬰ハ', '重変ホ', 'ニ', 'ニ', '重嬰ハ', 'ニ'], ['D', 'D', 'D', 'D', 'Eses', 'D', 'Cisis', 'Eses', 'D', 'D', 'Cisis', 'Eses', 'D', 'D', 'Eses', 'D', 'Cisis', 'D', 'D', 'Cisis', 'Eses', 'D', 'D', 'Cisis', 'D']],
+    [['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F𝄫', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#-E♭'], ['レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ファ𝄫', 'ミ♭', 'レ#', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'ミ♭', 'レ#', 'レ#', 'ミ♭', 'ミ♭', 'レ#', 'レ#', 'レ#-ミ♭'], ['嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '重変ヘ', '変ホ', '嬰ニ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '変ホ', '嬰ニ', '嬰ニ', '変ホ', '変ホ', '嬰ニ', '嬰ニ', '嬰ニ-変ホ'], ['Dis', 'Es', 'Es', 'Dis', 'Es', 'Es', 'Dis', 'Feses', 'Es', 'Dis', 'Dis', 'Es', 'Es', 'Dis', 'Es', 'Es', 'Dis', 'Es', 'Dis', 'Dis', 'Es', 'Es', 'Dis', 'Dis', 'Dis-Es']],
+    [['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'D𝄪', 'E'], ['ミ', 'ミ', 'ミ', 'ミ', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ファ♭', 'ミ', 'レ𝄪', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ミ', 'ミ', 'ファ♭', 'ミ', 'レ𝄪', 'ファ♭', 'ミ', 'ミ', 'レ𝄪', 'ミ'], ['ホ', 'ホ', 'ホ', 'ホ', '変ヘ', 'ホ', 'ホ', '変ヘ', '変ヘ', 'ホ', '重嬰イ', '変ヘ', 'ホ', 'ホ', '変ヘ', 'ホ', 'ホ', '変ヘ', 'ホ', '重嬰イ', '変ヘ', 'ホ', 'ホ', '重嬰イ', 'ホ'], ['E', 'E', 'E', 'E', 'Fes', 'E', 'E', 'Fes', 'Fes', 'E', 'Disis', 'Fes', 'E', 'E', 'Fes', 'E', 'E', 'Fes', 'E', 'Disis', 'Fes', 'E', 'E', 'Disis', 'E']],
+    [['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'E#', 'F'], ['ファ', 'ファ', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ファ', 'ファ', 'ミ#', 'ソ𝄫', 'ファ', 'ミ#', 'ミ#', 'ファ'], ['ヘ', 'ヘ', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', 'ヘ', 'ヘ', '嬰ホ', '重変ト', 'ヘ', '嬰ホ', '嬰ホ', 'ヘ'], ['F', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'Eis', 'F']],
+    [['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E𝄪', 'F#-G♭'], ['ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ファ#', 'ファ#', 'ソ♭', 'ソ♭', 'ファ#', 'ミ𝄪', 'ファ#-ソ♭'], ['嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '嬰ヘ', '嬰ヘ', '変ト', '変ト', '嬰ヘ', '重嬰ホ', '嬰ヘ-変ト'], ['F', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'F', 'F', 'Eis', 'F', 'F', 'Eis', 'Geses', 'F', 'Eis', 'Eis', 'F']],
+    [['G', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'A𝄫', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'G'], ['ソ', 'ソ', 'ソ', 'ファ𝄪', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ラ𝄫', 'ソ', 'ファ𝄪', 'ソ', 'ソ', 'ファ𝄪', 'ラ𝄫', 'ソ', 'ソ', 'ファ𝄪', 'ソ'], ['ト', 'ト', 'ト', '重嬰ヘ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重変イ', 'ト', '重嬰ヘ', 'ト', 'ト', '重嬰ヘ', '重変イ', 'ト', 'ト', '重嬰ヘ', 'ト'], ['Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Fis', 'Fis', 'Ges', 'Ges', 'Fis', 'Eisis', 'Fis-Ges']],
+    [['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#-A♭'], ['ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ラ♭', 'ソ#', 'ソ#', 'ラ♭', 'ラ♭', 'ソ#', 'ソ#', 'ソ#-ラ♭'], ['嬰ト', '変イ', '変イ', '嬰ト', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '変イ', '変イ', '嬰ト', '変イ', '嬰ト', '嬰ト', '変イ', '変イ', '嬰ト', '嬰ト', '嬰ト-変イ'], ['G', 'G', 'G', 'Fisis', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Ases', 'G', 'Fisis', 'G', 'G', 'Fisis', 'Ases', 'G', 'G', 'Fisis', 'G']],
+    [['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A'], ['ラ', 'ラ', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ソ𝄪', 'シ𝄫', 'ラ', 'ラ', 'ソ𝄪', 'ラ', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ラ', 'シ𝄫', 'ラ', 'ソ𝄪', 'シ𝄫', 'ラ', 'ラ', 'ソ𝄪', 'ラ'], ['イ', 'イ', 'イ', 'イ', '重変ロ', 'イ', '重嬰ト', '重変ロ', 'イ', 'イ', '重嬰ト', 'イ', 'イ', 'イ', '重変ロ', 'イ', 'イ', '重変ロ', 'イ', '重嬰ト', '重変ロ', 'イ', 'イ', '重嬰ト', 'イ'], ['A', 'A', 'A', 'A', 'Heses', 'A', 'Gisis', 'Heses', 'A', 'A', 'Gisis', 'A', 'A', 'A', 'Heses', 'A', 'A', 'Heses', 'A', 'Gisis', 'Heses', 'A', 'A', 'Gisis', 'A']],
+    [['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'A#-B♭'], ['ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'ド𝄫', 'シ♭', 'ラ#', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'シ♭', 'シ♭', 'ラ#', 'ド𝄫', 'シ♭', 'ラ#', 'ラ#', 'ラ#-シ♭'], ['嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '重変ハ', '変ロ', '嬰イ', '嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '変ロ', '変ロ', '嬰イ', '重変ハ', '変ロ', '嬰イ', '嬰イ', '嬰イ-変ロ'], ['Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'Ceses', 'B', 'Ais', 'Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'B', 'B', 'Ais', 'Ceses', 'B', 'Ais', 'Ais', 'Ais-B']],
+    [['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'B'], ['シ', 'シ', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ𝄪', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ𝄪', 'シ'], ['ロ', 'ロ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', 'ロ'], ['H', 'H', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'H']]
+];
 
 //主なチューニングタイプを格納した連想配列
 TuningVariation = [
-    { TuningName: "6弦ギター スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6, 1, 8] }
+    { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4] },
+    { TuningName: "ギター　7弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
+    { TuningName: "ギター　8弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
+    { TuningName: "ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 3] },
+    { TuningName: "ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10] },
+    { TuningName: "ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10, 5] },
+    { TuningName: "ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 2] },
+    { TuningName: "ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 9, 2] },
+    { TuningName: "ギター　8弦：Djent1", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 4] },
+    { TuningName: "ギター　8弦：Djent2", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9, 4] },
 
+    { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
+    { TuningName: "ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 11] },
+    { TuningName: "ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [0, 7, 2, 9, 4, 11] },
+    { TuningName: "ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 2] },
+    { TuningName: "ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 9] },
+
+    { TuningName: "★ヴァイオリン　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [4, 9, 2, 7] },
+    { TuningName: "ヴァイオリン　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] }
 ];
 
 //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数(指板用)
@@ -71,7 +89,7 @@ function ScaleAndChordsDrowing() {
 
     if (ScaleAndChordsDrowingSwitch === 0) {
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="box1 col-md-3 col-xl-3 pt-2 pb-4 mx-1">調べたいスケール
+            <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDateInfo()">
             </select>
@@ -142,12 +160,12 @@ function ScaleAndChordsDrowing() {
         document.getElementById("ScaleAndChordsChange").innerHTML
             = ``
         document.getElementById("ScaleAndChordsChange").innerHTML
-            = `<button id="ScaleAndChordsChangeButton" value=1 class="btn btn-primary col-2 col-md-2 col-xl-2 py-2 mx-1"
+            = `<button id="ScaleAndChordsChangeButton" value=1 class="btn btn-primary col-md-3 col-xl-2 mb-2 py-2 mx-1"
         onclick="ScaleAndChordsDrowing()">コード画面へ</button>`;
 
     } else if (ScaleAndChordsDrowingSwitch === 1) {
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="box1 col-md-3 col-xl-3 pt-2 pb-4 mx-1">調べたいコード
+            <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDateInfo()">
             </select>
@@ -225,40 +243,11 @@ function ScaleAndChordsDrowing() {
 
         document.getElementById("ScaleAndChordsChange").innerHTML = ``
         document.getElementById("ScaleAndChordsChange").innerHTML
-            = `<button id="ScaleAndChordsChangeButton" value=0 class="btn btn-success col-2 col-md-2 col-xl-2 py-2 mx-1"
+            = `<button id="ScaleAndChordsChangeButton" value=0 class="btn btn-success col-md-3 col-xl-2 mb-2 py-2 mx-1"
         onclick="ScaleAndChordsDrowing()">スケール画面へ</button>`;
     };
     //スケール画面とコード画面ごとに必要な処理を行う関数
     FingerboardDateInfo();
-};
-
-//スケール画面とコード画面ごとに必要な処理を行う関数
-function FingerboardDateInfo() {
-
-    //scale_Container配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    value = document.getElementById("constituent_binary").value.split('-');
-    //構成音のバイナリ値を配列「onoff」へ格納する
-    onoff = value[0].split('').map(Number);
-
-    //コード画面の場合の処理
-    if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 0) {
-        //コード・ネームの情報を判定する関数
-        ChordCandidateInfo(onoff);
-        //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
-        CreateCandidate();
-        ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-        ModalCandidateSelect();
-
-    };
-
-    //スケール画面の場合の処理
-    if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 1) {
-        //スケール情報を描画する関数
-        ScaleInformationDrawing();
-    };
-
-    //フィンガーボードを実体化する
-    FingerboardMaterialization();
 };
 
 //フィンガーボードの要素を描画する関数
@@ -297,8 +286,8 @@ function FingerboardCreate() {
         Num--
     };
 
-    //指定した弦の本数だけtr(行)要素をtableに書き込む。
-    NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
+    // //指定した弦の本数だけtr(行)要素をtableに書き込む。
+    // NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
     Num = NumberOfStrings;
     for (let i = 0; i < NumberOfStrings; i++) {
         document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
@@ -360,9 +349,6 @@ function FletCreate(NumberOfStrings) {
     //ルート音の情報を取得する。
     RootNumber = Number(document.getElementById("rootNumber").value);
 
-    //音名の表記方法を取得する
-    key_signature_names = Number(document.getElementById(`key_signature_names`).value);
-
     //配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
     value = document.getElementById("constituent_binary").value.split('-');
 
@@ -372,7 +358,15 @@ function FletCreate(NumberOfStrings) {
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
     onoff = value[0].split('').map(Number);
 
+    //音名の表記方法を取得する
+    key_signature_names = Number(document.getElementById(`key_signature_names`).value);
+
+    //コード画像かスケール画面かを判定する値
     ScaleAndChordsDrowingSwitch = Number(document.getElementById("ScaleAndChordsChangeButton").value);
+
+    //構成音を格納する配列を定義する
+    ConfigurationNotes = [];
+    ConfigurationNotes.splice(0);
 
     //スケールの場合の処理
     if (ScaleAndChordsDrowingSwitch === 1) {
@@ -390,11 +384,11 @@ function FletCreate(NumberOfStrings) {
         } else {
             SOF = 1;
         };
+
         //コードの場合の処理
     } else if (ScaleAndChordsDrowingSwitch === 0) {
         //コード構成音のバイナリを配列に格納する。
         Configuration = chord_container[ScaleNum]['ChordBinary'];
-
         //mを判定するために「omit5」を除く
         ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "")
 
@@ -432,14 +426,20 @@ function FletCreate(NumberOfStrings) {
         };
 
         //7度の異名同音判定
-        if (ChordName.includes("Maj7")) {
+        if (Configuration[11] >= 1 && ChordName.includes("Maj7")) {
             Configuration[11] = 1;
+        } else if (ChordName.includes("m(♭5)")) {
+            Configuration[0] = 3;
+            Configuration[3] = 3;
+            Configuration[6] = 3;
         } else if (ChordName.includes("dim")) {
             Configuration[0] = 3;
             Configuration[3] = 3;
             Configuration[6] = 3;
             Configuration[9] = 3;
-        } else if (ChordName.includes("7")) {
+        } else if (Configuration[10] >= 1 && ChordName.includes("7")) {
+            Configuration[10] = 3;
+        } else if (Configuration[10] >= 1 && ChordName.includes("9")) {
             Configuration[10] = 3;
         };
 
@@ -463,9 +463,6 @@ function FletCreate(NumberOfStrings) {
         };
     };
 
-    //構成音を格納する配列
-    ConfigurationNotes = [];
-
     //for文でスケールの構成音を生成する。
     for (let i = 0; i < 12; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
@@ -481,56 +478,169 @@ function FletCreate(NumberOfStrings) {
         };
     };
 
-    // フレットを描画
+    //1：(#Ⅰ/♭Ⅱ)の処理
+    if (Configuration[1] === 2) {
+        ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][3]);
+    } else if (Configuration[1] === 3) {
+        ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][4]);
+    };
+
+    //2：(♭♭Ⅲ)の処理
+    if (Configuration[2] === 3) {
+        ConfigurationNotes.splice(2, 1, AllNoteNames[mod(RootNumber + 2, 12)][key_signature_names][7]);
+    };
+
+    //3：(#Ⅱ/♭Ⅲ)の処理
+    if (Configuration[3] === 2) {
+        ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][6]);
+    } else if (Configuration[3] === 3) {
+        ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][8]);
+    };
+
+    //4：(#Ⅲ/♭Ⅳ)の処理
+    if (Configuration[4] === 2) {
+        ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][10]);
+    } else if (Configuration[4] === 3) {
+        ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][11]);
+    };
+
+    //6：(#Ⅳ/♭Ⅴ)の処理
+    if (Configuration[6] === 2) {
+        ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][13]);
+    } else if (Configuration[6] === 3) {
+        ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][14]);
+    };
+
+    //8：(#Ⅴ/♭Ⅶ)の処理
+    if (Configuration[8] === 2) {
+        ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][16]);
+    } else if (Configuration[8] === 3) {
+        ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][17]);
+    };
+
+    //9：(♭♭Ⅶ)の処理
+    if (Configuration[9] === 3) {
+        ConfigurationNotes.splice(9, 1, AllNoteNames[mod(RootNumber + 9, 12)][key_signature_names][20]);
+    };
+
+    //10：(#Ⅴ/♭Ⅶ)の処理
+    if (Configuration[10] === 2) {
+        ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][19]);
+    } else if (Configuration[10] === 3) {
+        ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][21]);
+    };
+
+    // フレットに音名を描画する
     for (let st = 1; st < NumberOfStrings + 1; st++) {
         //フレットの数を取得する
         FletNum = Number(document.getElementById(`NumberOfFlet`).value);
         FletCount = FletNum;
-
         //以前に描画された音名を消去する。
         document.getElementById(`${st}_string`).innerHTML = "";
-
         //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
         TuningNumber = document.getElementById(`StringTuning_${st}`).value;
 
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
             if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
-                document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
             } else {
-                document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
             }
             TuningNumber--
             FletNum--
         };
-
         //フレットボードの左端に、何弦かを表す数字とidを書き込む。
         document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
     };
 
-    //シャープまたはフラット指定用に書き換えた数値を元に戻す
-    for (let i = 0; i < Configuration.length; i++) {
-        if (Configuration[i] === 2) {
-            Configuration.splice(i, 1, 1);
+    //コード画面の場合の処理
+    if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 0) {
+        //シャープまたはフラット指定用に書き換えた数値を元に戻す
+        for (let i = 0; i < Configuration.length; i++) {
+            if (Configuration[i] === 2) {
+                Configuration.splice(i, 1, 1);
+            };
+            if (Configuration[i] === 3) {
+                Configuration.splice(i, 1, 1);
+            };
         };
-        if (Configuration[i] === 3) {
-            Configuration.splice(i, 1, 1);
-        };
+        //コード・ネームの情報を判定する関数
+        ChordCandidateInfo(onoff);
+        //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+        CreateCandidate();
+        ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
+        ModalCandidateSelect();
+    };
+    //スケール画面の場合の処理
+    if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 1) {
+        //スケール情報を描画する関数
+        ScaleInformationDrawing();
     };
 
     //構成音を戻り値として返す
     return Configuration;
 };
 
-//フィンガーボードを実体化する
-function FingerboardMaterialization() {
-    //フィンガーボードの要素を描画する関数
-    FingerboardCreate();
+//スケール画面とコード画面ごとに必要な処理を行う関数
+function FingerboardDateInfo() {
 
-    //弦の本数の値を取得
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    TuningDate = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
+
+    TuningInfo = TuningVariationValue[0].split('-').map(Number);
+
+    for (let i = 0; i < TuningInfo.length; i++) {
+        TuningDate.splice(i, 1, TuningInfo[i]);
+    };
+
+    //弦の本数を設定する
+    NumberOfStrings = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
+    document.getElementById("NumberOfStrings").selectedIndex = NumberOfStrings - 1;
+
+    //フィンガーボードの要素を描画する関数
+    FingerboardCreate(NumberOfStrings);
+
+    //チューニングを変更する
+    StringsTuning = TuningVariation;
+    for (let i = 0; i < NumberOfStrings; i++) {
+        if (NumberOfStrings >= i + 1) {
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningDate[i];
+        };
+    };
+
+    //フレット上の音名を描画する関数
+    FletCreate(NumberOfStrings);
+};
+
+//スケール画面とコード画面ごとに必要な処理を行う関数
+function NumberOfStringsManually() {
+
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    TuningDate = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
+
+    TuningInfo = TuningVariationValue[0].split('-').map(Number);
+
+    for (let i = 0; i < TuningInfo.length; i++) {
+        TuningDate.splice(i, 1, TuningInfo[i]);
+    };
+
     NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
-    //弦のチューニングを決定する関数
-    Guitar(NumberOfStrings);
+
+    //フィンガーボードの要素を描画する関数
+    FingerboardCreate(NumberOfStrings);
+
+    //チューニングを変更する
+    StringsTuning = TuningVariation;
+    for (let i = 0; i < NumberOfStrings; i++) {
+        if (NumberOfStrings >= i + 1) {
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningDate[i];
+        };
+    };
 
     //フレット上の音名を描画する関数
     FletCreate(NumberOfStrings);
@@ -538,48 +648,46 @@ function FingerboardMaterialization() {
 
 
 
+//チューニングの選択肢を表示するためのHTML要素(option)を追加するための関数
+function CreateTuningVariation() {
+    //コードを格納した配列の長さを取得する。
+    Num = TuningVariation.length;
 
-//弦のチューニングを決定する関数
-function Guitar(NumberOfStrings) {
+    document.getElementById("TuningVariation").innerHTML = "";
 
-    if (NumberOfStrings >= 1) {
-        document.getElementById(`StringTuning_1`).selectedIndex = 4;
-    };
-
-    if (NumberOfStrings >= 2) {
-        document.getElementById(`StringTuning_2`).selectedIndex = 11;
-    };
-
-    if (NumberOfStrings >= 3) {
-        document.getElementById(`StringTuning_3`).selectedIndex = 7;
-    };
-
-    if (NumberOfStrings >= 4) {
-        document.getElementById(`StringTuning_4`).selectedIndex = 2;
-    };
-
-    if (NumberOfStrings >= 5) {
-        document.getElementById(`StringTuning_5`).selectedIndex = 9;
-    };
-
-    if (NumberOfStrings >= 6) {
-        document.getElementById(`StringTuning_6`).selectedIndex = 4;
-    };
-
-    if (NumberOfStrings >= 7) {
-        document.getElementById(`StringTuning_7`).selectedIndex = 11;
-    };
-
-    if (NumberOfStrings >= 8) {
-        document.getElementById(`StringTuning_8`).selectedIndex = 6;
-    };
-
-    if (NumberOfStrings >= 9) {
-        document.getElementById(`StringTuning_9`).selectedIndex = 1;
-    };
-
-    if (NumberOfStrings >= 10) {
-        document.getElementById(`StringTuning_10`).selectedIndex = 8;
+    //配列の数だけコードの選択肢optionを追加する。
+    for (let i = 0; i < TuningVariation.length; i++) {
+        Num--
+        if (Num === 0) {
+            //メジャーコードを初期の選択肢にする。
+            document.getElementById("TuningVariation").insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings'].join('-')}:${Num} selected>${TuningVariation[Num]["TuningName"]}</option>`);
+        } else {
+            document.getElementById("TuningVariation").insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings'].join('-')}:${Num}>${TuningVariation[Num]["TuningName"]}</option>`);
+        };
     };
 
 };
+
+
+
+//弦のチューニングを決定する関数
+function Tuning(NumberOfStrings) {
+
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    TuningValue = document.getElementById("TuningVariation").value.split(':');
+
+    //弦の本数を設定する
+    StringsNum = Number(TuningValue[1]) - 1;
+    console.log(StringsNum);
+    document.getElementById("NumberOfStrings").selectedIndex = TuningVariation[StringsNum]['NumberOfStrings'];
+
+    //チューニングを変更する
+    StringsTuning = TuningValue[0].split('-').map(Number);
+    for (let i = 0; i < StringsTuning.length; i++) {
+        if (NumberOfStrings >= i + 1) {
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = StringsTuning[i];
+        };
+    };
+
+};
+
