@@ -18,24 +18,42 @@ const AllNoteNames = [
 //主なチューニングタイプを格納した連想配列
 TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4] },
-    { TuningName: "ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
-    { TuningName: "ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
-    { TuningName: "ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 3] },
-    { TuningName: "ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10] },
-    { TuningName: "ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10, 5] },
-    { TuningName: "ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 2] },
-    { TuningName: "ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 9, 2] },
-    { TuningName: "ギター　8弦：Djent1", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 4] },
-    { TuningName: "ギター　8弦：Djent2", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9, 4] },
+    { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
+    { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
+    { TuningName: "　ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 3] },
+    { TuningName: "　ギター　6弦：全音下げ", NumberOfStrings: 6, StringTuningStrings: [2, 9, 5, 0, 7, 2] },
+    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10] },
+    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10, 5] },
+
+    { TuningName: "　ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 2] },
+    { TuningName: "　ギター　6弦：ドロップC#", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 1] },
+    { TuningName: "　ギター　6弦：ドロップC", NumberOfStrings: 6, StringTuningStrings: [2, 9, 5, 0, 7, 0] },
+    { TuningName: "　ギター　6弦：ドロップB", NumberOfStrings: 6, StringTuningStrings: [1, 8, 4, 11, 6, 11] },
+    { TuningName: "　ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 9, 2] },
+
+    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9] },
+    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 4] },
+    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9, 4] },
+
+    { TuningName: "　ギター　6弦：オープンD", NumberOfStrings: 6, StringTuningStrings: [2, 9, 6, 2, 9, 2] },
+    { TuningName: "　ギター　6弦：オープンG", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 7, 2] },
+    { TuningName: "　ギター　6弦：オープンA", NumberOfStrings: 6, StringTuningStrings: [4, 1, 9, 4, 9, 4] },
 
     { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
-    { TuningName: "ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 11] },
-    { TuningName: "ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [0, 7, 2, 9, 4, 11] },
-    { TuningName: "ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 2] },
-    { TuningName: "ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 9] },
+    { TuningName: "　ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 11] },
+    { TuningName: "　ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [0, 7, 2, 9, 4, 11] },
+    { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 2] },
+    { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 9] },
 
     { TuningName: "★ヴァイオリン　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [4, 9, 2, 7] },
-    { TuningName: "ヴァイオリン　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] }
+    { TuningName: "　ヴァイオリン　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] },
+    { TuningName: "★ヴィオラ/チェロ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
+
+    { TuningName: "★三味線　3弦：本調子", NumberOfStrings: 3, StringTuningStrings: [0, 5, 0] },
+    { TuningName: "★三味線　3弦：二上がり", NumberOfStrings: 3, StringTuningStrings: [0, 7, 0] },
+    { TuningName: "★三味線　3弦：三下がり", NumberOfStrings: 3, StringTuningStrings: [10, 5, 0] },
+
+    { TuningName: "★二胡　2弦：スタンダード", NumberOfStrings: 2, StringTuningStrings: [9, 2] }
 ];
 
 //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数(指板用)
