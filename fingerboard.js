@@ -18,8 +18,8 @@ const AllNoteNames = [
 //主なチューニングタイプを格納した連想配列
 TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4] },
-    { TuningName: "ギター　7弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
-    { TuningName: "ギター　8弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
+    { TuningName: "ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
+    { TuningName: "ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
     { TuningName: "ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 3] },
     { TuningName: "ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10] },
     { TuningName: "ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10, 5] },
