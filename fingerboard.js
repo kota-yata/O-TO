@@ -45,13 +45,17 @@ TuningVariation = [
     { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 2] },
     { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 9] },
 
-    { TuningName: "★ヴァイオリン　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [4, 9, 2, 7] },
-    { TuningName: "　ヴァイオリン　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] },
-    { TuningName: "★ヴィオラ/チェロ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
-
+    { TuningName: "★ヴァイオリン　4弦", NumberOfStrings: 4, StringTuningStrings: [4, 9, 2, 7] },
+    { TuningName: "　ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] },
+    { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
+    { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
+    { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
+    
     { TuningName: "★三味線　3弦：本調子", NumberOfStrings: 3, StringTuningStrings: [0, 5, 0] },
-    { TuningName: "★三味線　3弦：二上がり", NumberOfStrings: 3, StringTuningStrings: [0, 7, 0] },
-    { TuningName: "★三味線　3弦：三下がり", NumberOfStrings: 3, StringTuningStrings: [10, 5, 0] },
+    { TuningName: "　三味線　3弦：二上がり", NumberOfStrings: 3, StringTuningStrings: [0, 7, 0] },
+    { TuningName: "　三味線　3弦：三下がり", NumberOfStrings: 3, StringTuningStrings: [10, 5, 0] },
+
+    { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [9, 4, 0, 7] },
 
     { TuningName: "★二胡　2弦：スタンダード", NumberOfStrings: 2, StringTuningStrings: [9, 2] }
 ];
