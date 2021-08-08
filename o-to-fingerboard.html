@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-fingerboard" />
     <meta property="og:image" content="image/o-to site title.png" />
     <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta name="description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。" />
+    <meta name="description" content="弦楽器の指板を色付けして、構成音やポジションを可視化するアプリです。あなたにトップ・プレイヤーの視座を授けます。" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:image:width" content="328" />
     <meta property="og:image:height" content="183" />
@@ -33,7 +33,7 @@
     <title>指板 O-TO【音楽理論ウェブアプリ】</title>
 
     <!--ページの概要-->
-    <meta name="description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。">
+    <meta name="description" content="弦楽器の指板を色付けして、構成音やポジションを可視化するアプリです。あなたにトップ・プレイヤーの視座を授けます。">
     <meta name="keyword" content="音楽理論,音楽,指板,音階,指板構成音,スケール,コードネーム,コード">
 
     <!--Internet Explorer用の設定-->
@@ -46,7 +46,7 @@
     <meta name="twitter:card" content="Summary Card" />
     <meta name="twitter:site" content="@khufrudamonotes" />
     <meta name="twitter:title" content="指板 O-TO【音楽理論ウェブアプリ】" />
-    <meta name="twitter:description" content="弦楽器の指板をスケールやコード情報を色付けされた状態で確認できます。あなたにトップ・プレイヤーの視座を授けます。" />
+    <meta name="twitter:description" content="弦楽器の指板を色付けして、構成音やポジションを可視化するアプリです。あなたにトップ・プレイヤーの視座を授けます。" />
     <meta name="twitter:image" content="image\o-to site title.png" />
 
     <!--サイトアイコンの指定-->
@@ -130,14 +130,92 @@
 
             <!-- 左(メインコンテンツ) -->
 
-            <p class="pt-3 pb-3">あなたにトップ・プレイヤーの視座を授けましょう。
-                <br><br>———そのフレーズには、もっとよい運指があるかもしれません。
-            </p>
+            <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">⑩フィンガー・ボード</h3>
 
+            <!-- タブの中身 -->
+            <div id="tabBox" class=" pb-3">
+                <!-- タブの切り替えボタン -->
+                <div id="tabs">
+                    <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                    <label for="tab1">使う</label>
+                    <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                    <label for="tab2">説明</label>
+                    <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+                    <label for="tab3">関連資料</label>
+                </div>
 
-            <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">フィンガー・ボード</h3>
-            <p class="pb-3">任意の項目を選んでください。</p>
+                <div id="contents">
 
+                    <!-- タブ1の中身 -->
+                    <div v-if="isActive == '1'">
+                    </div>
+
+                    <!-- タブ2の中身 -->
+                    <div v-if="isActive == '2'" class="pb-5">
+                        <p class="py-2">弦楽器の指板を色付けして、構成音やポジションを可視化するアプリです。</p>
+
+                        <p class="py-2">――弦楽器は、音名とポジションを把握しづらいです。<br>
+                            なぜなら、同じ音が複数の場所にあり、チューニングによってポジションも変化するためです。 </p>
+
+                        <p class="py-2">もちろん、主要なコードやスケールのポジションなら暗記している方も多いと思います。<br>
+                            しかし、一般的な人間の記憶力には限度があります。</p>
+
+                        <p class="py-2">たとえば、今すぐ指板上に<b>"F ダブル・ハーモニック・スケール"</b>のポジションをイメージできますか？ </p>
+                        <p class="py-2">…僕は無理です。笑</p>
+
+                        <p class="py-2">このアプリは、そんな悩みを解決するために作りました。</p>
+                        <p class="py-2">もう、いちいちメモを書く必要はありません。</p>
+
+                        <h4 class="pt-3 manual">【チューニングの種類】</h4>
+                        <p class="py-2"><b>ギター、ベース、ヴァイオリン</b>など主な弦楽器のチューニングをまとめました。<br>
+                            リストから選ぶだけで、対応した指板が描画されます。</p>
+                        <p class="py-2">調べたいチューニングがリストに無い場合は、画面下部の「チューニングの詳細設定」から変更できます。</p>
+
+                        <h4 class="pt-3 manual">【フレットの数】</h4>
+                        <p class="py-2">1~30の間で指定できます。</p>
+
+                        <h4 class="pt-3 manual">【音名の表記】</h4>
+                        <p class="py-2">指板の音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。</p>
+                        <p class="py-2">初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
+
+                        <h4 class="pt-3 manual">【コードとスケールの指定】</h4>
+                        <p class="py-2">コードとスケールのリストは、「○○画面へ」ボタンをタップして切り替えます。</p>
+
+                        <h4 class="pt-3 manual">【色付けのルール】</h4>
+                        <p class="py-2">指定したトニック(ルート音)に対して、移動ド的に色付けされます。<br>たとえば、トニック(ルート音)は<span
+                                class="Degree0">青色</span>、完全5度は<span class="Degree7">黄色</span>です。</p>
+                        <p class="py-2">そして、異名同音は同じ色です。<br>たとえば、長3度と減4度はどちらも<span class="Degree4">緑色</span>です。</p>
+
+                        <h4 class="pt-3 manual">【想定している用途】</h4>
+                        <lu class="py-2">
+                            <li>音名・ポジションの把握</li>
+                            <li>運指の選定</li>
+                            <li>作曲やアレンジの資料</li>
+                            <li>レッスンの教材</li>
+                        </lu>
+
+                    </div>
+
+                    <!-- タブ3の中身 -->
+                    <div v-if="isActive == '3'" class="pb-5">
+                        <div class="py-2">・
+                            <a href="https://khufrudamonotes.com/useful-guitar-chords" target="_blank"
+                                rel="noopener noreferrer">ギター初心者が覚えるべきコード7つと その理由【TAB譜あり】</span></a>
+                            <p>　伴奏や弾き語りで使えるオススメのコードを、厳選してまとめた記事です。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://gum.co/musictheory-mindmap" target="_blank"
+                                rel="noopener noreferrer">開放弦を使わないギターコード表</span></a>
+                            <p>　30種類以上のコードの、開放弦を使わないコードフォームをまとめた楽譜(TAB併記)pdfです。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://gum.co/musictheory-mindmap" target="_blank"
+                                rel="noopener noreferrer">開放弦を使ったギターコード表</span></a>
+                            <p>　開放弦を使ったコードフォームを大量にまとめた楽譜(TAB併記)pdfです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="text-right">
 
@@ -243,27 +321,27 @@
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                    <!-- 弦のチューニング設定をJavaScriptで描画する -->
-                    <div>
-                        <div id="Tuning">
-                        </div>
-                        <label for="NumberOfStrings" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">弦の本数<br>
-                            <select id="NumberOfStrings" class="form-select my-1" aria-label="Default select example"
-                                onchange="NumberOfStringsManually()">
-                                <option value=1>1</option>
-                                <option value=2>2</option>
-                                <option value=3>3</option>
-                                <option value=4>4</option>
-                                <option value=5>5</option>
-                                <option value=6 selected>6</option>
-                                <option value=7>7</option>
-                                <option value=8>8</option>
-                                <option value=9>9</option>
-                                <option value=10>10</option>
-                            </select>
-                        </label>
-                        <div>※弦の本数は、「チューニングの種類」で選択された項目が優先されます。</div>
-                    </div>
+                            <!-- 弦のチューニング設定をJavaScriptで描画する -->
+                            <div>
+                                <div id="Tuning">
+                                </div>
+                                <label for="NumberOfStrings" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">弦の本数<br>
+                                    <select id="NumberOfStrings" class="form-select my-1"
+                                        aria-label="Default select example" onchange="NumberOfStringsManually()">
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
+                                        <option value=6 selected>6</option>
+                                        <option value=7>7</option>
+                                        <option value=8>8</option>
+                                        <option value=9>9</option>
+                                        <option value=10>10</option>
+                                    </select>
+                                </label>
+                                <div>※「チューニングの種類」で選択された項目が優先されます。</div>
+                            </div>
 
                         </div>
                     </div>
@@ -276,6 +354,11 @@
                 <!-- コード画面とスケール画面それぞれの情報をJavaScriptで描画する -->
                 <div id="InformationBlock">
 
+                </div>
+
+                <div class="pt-2 pb-1">※このページでは、厳密な異名同音の区別を行っていません。</div>
+                <div class="pt-2 pb-4"><a href="https://khufrudamonotes.com/enharmonic" target="_blank"
+                        rel="noopener noreferrer">異名同音を解説します【「ド#」と「レ♭」との違いとは？】</a>
                 </div>
 
                 <div id="right-column">
@@ -300,9 +383,9 @@
             ScaleAndChordsDrowing();
             //画面サイズが狭い時はフレット数を減らす
             if (window.innerWidth <= 980) {
-                    document.getElementById("NumberOfFlet").selectedIndex = 11;
-                    ScaleAndChordsDrowing();
-                };
+                document.getElementById("NumberOfFlet").selectedIndex = 11;
+                ScaleAndChordsDrowing();
+            };
         });
     </script>
 

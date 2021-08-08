@@ -31,3 +31,49 @@ box {
     padding: 1em;
     margin: 0;
 }
+
+
+/* 説明タブ */
+
+#tabs {
+    overflow: hidden;
+}
+
+#tabs input {
+    display: none;
+}
+
+#tabs label {
+    display: inline-block;
+    line-height: 40px;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+    background: #c0c0c0;
+    transition: 0.3s;
+    border-radius: 10px 10px 0 0;
+}
+
+#tabs input:checked+label, #tabs label:hover {
+    background: royalblue;
+    color: #fff;
+}
+
+#contents {
+    padding: 5px 10px;
+    border-top: 2px solid royalblue;
+}
+
+#contents p {
+    font-size: 15px;
+    margin: 0;
+}
+
+#contents p.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.manual {
+    color: royalblue;
+}

@@ -995,7 +995,6 @@ function NoteSwitch(Num) {
     ModalCandidateSelect(onoff);
 };
 
-
 //転調の種類を判別するための関数(転調の間隔)
 function modulation() {
     b_note_num = document.getElementById("b_note").value;

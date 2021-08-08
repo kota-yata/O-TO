@@ -251,9 +251,9 @@ const footer = new Vue({
 
 Vue.component('title-display', {
   template: `
-    <div class="position-relative overflow-hidden p-3 p-md-4 m-md-3 text-center bg-light">
-      <div class="col-md-3 p-lg-2 mx-auto my-5">
-        <h1 class="display-3 fw-normal">O-TO</h1>
+  <div class="position-relative overflow-hidden p-3 p-md-4 m-md-3 text-center bg-light">
+  <div class="col-md-8 p-lg-2 mx-auto mt-5 mb-1">
+        <h1 class="display-5 fw-normal">O-TO</h1>
         <p class="lead fw-normal">【音楽理論ウェブアプリ】</p>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -282,3 +282,10 @@ let chordColor = new Vue({
 
 })
 
+//切り替えタブを描画する
+new Vue({
+  el: '#tabBox',
+  data: {
+    isActive: '1',
+  }
+})
