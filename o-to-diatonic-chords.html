@@ -129,11 +129,51 @@
       </div>
 
       <!-- 左(メインコンテンツ) -->
-      <p class="pt-3 pb-3">主なダイアトニック・コードが知りたいですか？
-        <br><br>———ほんの数瞬で分かります。
-      </p>
 
-      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なダイアトニック・コードを調べる</h3>
+      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">⑤ダイアトニック・コード</h3>
+
+      <!-- タブの中身 -->
+      <div id="tabBox" class=" pb-3">
+        <!-- タブの切り替えボタン -->
+        <div id="tabs">
+          <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+          <label for="tab1">使う</label>
+          <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+          <label for="tab2">説明</label>
+          <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+          <label for="tab3">関連資料</label>
+        </div>
+
+        <div id="contents">
+
+          <!-- タブ1の中身 -->
+          <div v-if="isActive == '1'">
+          </div>
+
+          <!-- タブ2の中身 -->
+          <div v-if="isActive == '2'" class="pb-5">
+            <p class="py-2">主なスケールの<b>ダイアトニック・コード</b>一覧表です。<br>
+              表示は、ディグリーネーム及び12キー全てに切り替えられます。</p>
+
+            <h4 class="pt-3 manual">【使い方】</h4>
+            <p class="py-2">　ドロップダウンリストから任意の項目を選んでください。<br>　結果は自動的に切り替わります。</p>
+            <p class="py-2">　「モードスケールを併記」ボタンを押すと、それぞれのコードに対応するモードスケールが表示されます。</p>
+
+            <h4 class="pt-3 manual">【任意の種類のコードに色を付ける】</h4>
+            <p class="py-2">　同じく種類のコードに色を付けられます。<br>　モーダル・インターチェンジや、転調をする際の参考になるでしょう。</p>
+          </div>
+
+          <!-- タブ3の中身 -->
+          <div v-if="isActive == '3'" class="pb-5">
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
+                rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</span></a>
+              <p>　主要なダイアトニック・コードの情報をまとめた記事です。</p>
+            </div>
+            </div>
+          </div>
+        </div>
+
 
       <label for="paint_diatonic_chords" class="box1 col-10 offset-2 col-xl-4 py-3 mx-2">任意の種類のコードに色を付ける
         <select id="paint_diatonic_chords" class="form-select my-1" aria-label="Default select example"
@@ -356,19 +396,7 @@
       </div>
 
 
-      <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
-      <ul>
-        <li class="nav-item">
-          <div class="pt-1 pb-1"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
-            rel="noopener noreferrer">ダイアトニックコード/テンション/モード まとめ【8つスケールファミリーと28種類のモード】</a></div>
-        </li>
-        <li class="nav-item">
-          <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/mode-tensions-chords" target="_blank"
-            rel="noopener noreferrer">主要ヘプタトニック・スケールのダイアトニック・コード + 使用可能和音まとめ</a></div>
-        </li>
-      </ul>
-
-      <div id="right-column">
+      <div id="right-column" class="pt-5">
         <right-column></right-column>
       </div>
 
