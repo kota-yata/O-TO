@@ -129,14 +129,66 @@
       </div>
 
       <!-- 左(メインコンテンツ) -->
+      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">①コード</h3>
 
-      <p class="pt-3 pb-3">コードの構成音が分かりませんか？
-        <br><br>———それも今日までです。
-      </p>
+      <!-- タブの中身 -->
+      <div id="tabBox" class=" pb-3">
+        <!-- タブの切り替えボタン -->
+        <div id="tabs">
+          <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+          <label for="tab1">使う</label>
+          <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+          <label for="tab2">説明</label>
+          <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+          <label for="tab3">関連資料</label>
+        </div>
 
+        <div id="contents">
 
-      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">主なコードの構成音を調べる</h3>
-      <p class="pb-3">調べたいルート音とコード構成音を選んでください。</p>
+          <!-- タブ1の中身 -->
+          <div v-if="isActive == '1'">
+          </div>
+
+          <!-- タブ2の中身 -->
+          <div v-if="isActive == '2'" class="pb-5">
+            <p class="py-2">コードの構成音を調べられるアプリです。<br>
+
+            <p class="py-2">――コードの構成音が分からないのも今日までです。</p>
+
+            <h4 class="pt-3 manual">【使い方】</h4>
+            <p class="py-2">　ドロップダウンリストから任意の項目を選んでください。<br>　結果は自動的に切り替わります。</p>
+
+            <h4 class="pt-3 manual">【音名の表記】</h4>
+            <p class="py-2">　音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。<br>
+              　初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
+
+            <h4 class="pt-3 manual">【コードの情報】</h4>
+            <p class="py-2">　コードの読み方、詳細情報が表示されます。<br>　ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
+
+            <h4 class="pt-3 manual">【コードの構成音を含む主なスケール】</h4>
+            <p class="py-2">　コードは、前後の流れや使われているキーに対しての立ち位置によって役割が変わります。<br>　コードの構成音を含む主なスケールの情報は、モーダル・インターチェンジや、転調をする際の参考になるでしょう。</p>
+          </div>
+
+          <!-- タブ3の中身 -->
+          <div v-if="isActive == '3'" class="pb-5">
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/music-theory-roadmap" target="_blank" rel="noopener noreferrer">【音楽理論
+                修得ロードマップ】音楽理論は何から勉強すればいい？</span></a>
+              <p>　音楽理論の学習ロードマップです。</p>
+            </div>
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/slash-chords" target="_blank"
+                rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</span></a>
+              <p>　分数コードの解説記事です。</p>
+            </div>
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
+                rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a>
+              <p>　代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方をまとめた記事です。</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <div class="text-right">
@@ -451,18 +503,6 @@
 
       <!-- コードネームの書き方 -->
       <img class="pt-3 pb-3" src="image\chord name structure.png">
-
-      <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
-      <ul>
-        <li class="nav-item">
-          <div class="pt-1 pb-1"><a href="https://khufrudamonotes.com/slash-chords" target="_blank"
-              rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</a></div>
-        </li>
-        <li class="nav-item">
-          <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
-              rel="noopener noreferrer">代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方</a></div>
-        </li>
-      </ul>
 
       <div id="right-column">
         <right-column></right-column>

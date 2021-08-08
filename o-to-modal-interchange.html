@@ -130,14 +130,65 @@
 
       <!-- 左(メインコンテンツ) -->
 
-      <p class="pt-3 pb-3">音の組み合わせでお悩みですか？
-        <br><br>———あなたのインスピレーションの名前を見つけましょう。
-      </p>
+      <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">③コード/モード検索</h3>
 
+      <!-- タブの中身 -->
+      <div id="tabBox" class=" pb-3">
+        <!-- タブの切り替えボタン -->
+        <div id="tabs">
+          <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+          <label for="tab1">使う</label>
+          <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+          <label for="tab2">説明</label>
+          <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+          <label for="tab3">関連資料</label>
+        </div>
 
-      <h3 class="shadow p-3 mb-2 bg-white rounded mb-5 py-3">コード/モード検索</h3>
-      <p class="py-1">①調べたい主音/軸音を指定してください。</p>
+        <div id="contents">
+          <!-- タブ1の中身 -->
+          <div v-if="isActive == '1'">
+          </div>
 
+          <!-- タブ2の中身 -->
+          <div v-if="isActive == '2'" class="pb-5">
+            <p class="py-2">コードの構成音を調べられるアプリです。<br>
+
+            <p class="py-2">――コードの構成音が分からないのも今日までです。</p>
+
+            <h4 class="pt-3 manual">【使い方】</h4>
+            <p class="py-2">　①ドロップダウンリストから任意の項目を選んでください。<br>　②音名をタップしてください。<br>　コード・ネームが判定されます。</p>
+
+            <h4 class="pt-3 manual">【音名の表記】</h4>
+            <p class="py-2">　音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。<br>
+              　初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
+
+            <h4 class="pt-3 manual">【コードの情報】</h4>
+            <p class="py-2">　コードの読み方、詳細情報が表示されます。<br>　ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
+
+            <h4 class="pt-3 manual">【コードの構成音を含む主なスケール】</h4>
+            <p class="py-2">　コードは、前後の流れや使われているキーに対しての立ち位置によって役割が変わります。<br>　コードの構成音を含む主なスケールの情報は、モーダル・インターチェンジや、転調をする際の参考になるでしょう。</p>
+          </div>
+
+          <!-- タブ3の中身 -->
+          <div v-if="isActive == '3'" class="pb-5">
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/music-theory-roadmap" target="_blank" rel="noopener noreferrer">【音楽理論
+                修得ロードマップ】音楽理論は何から勉強すればいい？</span></a>
+              <p>　音楽理論の学習ロードマップです。</p>
+            </div>
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/slash-chords" target="_blank"
+                rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</span></a>
+              <p>　分数コードの解説記事です。</p>
+            </div>
+            <div class="py-2">・
+              <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
+                rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a>
+              <p>　代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方をまとめた記事です。</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <label for="rootNumber" class="box1 col-5 offset-2 col-xl-3 py-2 mx-2">主音/軸音
@@ -168,7 +219,7 @@
         </select>
       </label>
 
-      <p class="pt-3">②音名をタップしてください。</p>
+      <p class="pt-3">音名をタップしてください。</p>
 
       <div class="row">
         <div class="list-group-item col-xl list-group-item-warning text-center d-none d-xl-block" id="tension_0">
