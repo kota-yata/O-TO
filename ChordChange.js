@@ -133,6 +133,7 @@ function ToDegreeName(text, Root) {
 
     //シャープやフラットの表記ゆれを統一
     text = text
+        .replace(/＃/g, "#")
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
         .replace(/#⃣/g, "#")
