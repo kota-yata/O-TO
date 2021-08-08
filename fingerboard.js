@@ -144,40 +144,6 @@ function ScaleAndChordsDrowing() {
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="accordion py-3" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Forte numberとScale numberとは？
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <b>Forte number</b>は、Allen Forteが提唱した、「3音以上からなる音階の集合に割り当てられた数」です。
-                        <br>同一のForte numberを持つ<b>"スケールの構成音の構造"</b>が等しくなる仕組みになっています。
-                        <br>たとえば、メジャースケールとナチュラルマイナースケールは<b>スタート位置が違うだけで同じ音の飛び方</b>をしています。
-                        <br>よって、メジャースケールとナチュラルマイナースケールは同じForte number「<b>7-35</b>」が割り当てられています。
-                        <br><br>
-                        <b>Scale number</b>は、「"スケールの構成音を12桁の2進数として表した数"を10進数に変換した数字」です。
-                        <br>たとえば、Cメジャースケール(ドレミファソラシ)を例に考えてみましょう。
-                        <br>スケールの構成音を「1」、そうでない音を「0」とすると、Cメジャー・スケールは「10101011010101」と表せますよね。
-                        <br>この「10101011010101」を2進数として処理するために逆に並べ替えます。
-                        <br>並べ替えた「101011010101」を10進数に変換すると「2741」になるので、メジャースケールのScale
-                        numberは「<b>2741</b>」となるわけです。
-                        <br><br>【参考文献】<br>
-                        ・<a href="https://ianring.com/musictheory/scales/" target="_blank"
-                            rel="noopener noreferrer">The Exciting
-                            Universe Of Music Theory</a><br>
-                        ・<a href="https://en.wikipedia.org/wiki/Forte_number" target="_blank"
-                            rel="noopener noreferrer">Forte
-                            number(Wikipedia)</a>
-                    </div>
-                </div>
-            </div>
         </div>`);
         document.getElementById("ScaleAndChordsChange").innerHTML
             = ``
