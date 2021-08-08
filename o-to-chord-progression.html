@@ -134,10 +134,68 @@
       <div class="row">
         <div class="col-xxl-8">
 
-          <p class="pb-3">主要なコード進行を一覧にしました。しかも、表示を全てのキーへ切り替え可能です。<br><br>———しばらくアイディアには困らないでしょう。<br><br><font size="2">※任意のコード進行のキーを切り替えたい方は、<a href="o-to-degree-change.html">⑨コード移調</a>をお試しください。</font></p>
+          <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">④コード進行</h3>
 
-          <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">コード進行のアイディア</h3>
-          <p class="pb-3">調べたいキーの主音を選んでください。</p>
+          <!-- タブの中身 -->
+          <div id="tabBox" class=" pb-3">
+            <!-- タブの切り替えボタン -->
+            <div id="tabs">
+              <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+              <label for="tab1">使う</label>
+              <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+              <label for="tab2">説明</label>
+              <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+              <label for="tab3">関連資料</label>
+            </div>
+
+            <div id="contents">
+
+              <!-- タブ1の中身 -->
+              <div v-if="isActive == '1'">
+              </div>
+
+              <!-- タブ2の中身 -->
+              <div v-if="isActive == '2'" class="pb-5">
+                <p class="py-2">よく使用されている気がするコード進行のパターンを<b>70種類</b>以上まとめました。<br>しかも、表示を<b>全てのキーへ切り替え可能</b>です。</p>
+
+                <p class="py-2">——しばらくアイディアには困らないでしょう。</p>
+
+                <h4 class="pt-3 manual">【使い方】</h4>
+                <p class="py-2">ドロップダウンリストから任意のキーを選んでください。<br>
+                <p class="py-2">コード進行は、そのまま使用する必要はありません。<br>
+                  組み合わせたり、代理コードで置き換えたりしてもOKです。</p>
+                <p class="py-2">※任意のコード進行のキーを切り替えたい方は、<a href="o-to-degree-change.html">⑨コード移調</a>も併せてお使いください。</p>
+
+                <h4 class="pt-3 manual">【分類の方法】</h4>
+                <p class="py-2">多くのコード進行は、キーのⅠ、Ⅳ、Ⅵmから始まります。</p>
+                <p class="py-2">Ⅰ始まりのコード進行は明るく、Ⅵm始まりのコード進行は暗い印象を与える傾向があります。</p>
+
+
+                <h4 class="pt-3 manual">【補足情報】</h4>
+                <p class="py-2">PCからお使いの方は、それぞれのコード進行にカーソルを合わせると補足情報が表示されます。</p>
+                <p class="py-2">わりとふざけたコメントもありますが、参考にしてみてください。</p>
+
+                <h4 class="pt-3 manual">【俗称・所感】</h4>
+                <p class="py-2">「所感」は、僕の独断と偏見で書かれています。</p>
+                <p class="py-2">音楽の感じ方は人それぞれなので、必ずしも書かれているシチュエーションでなくても使えます。</p>
+
+              </div>
+
+              <!-- タブ3の中身 -->
+              <div v-if="isActive == '3'" class="pb-5">
+                <div class="py-2">・
+                  <a href="https://khufrudamonotes.com/slash-chords" target="_blank"
+                    rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</span></a>
+                  <p>　分数コードの解説記事です。</p>
+                </div>
+                <div class="py-2">・
+                  <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
+                    rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a>
+                  <p>　代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方をまとめた記事です。</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
           <div class="text-right">
@@ -292,18 +350,6 @@
             </div>
           </div>
 
-          <h3 class="shadow p-3 mb-5 bg-white rounded mt-2 pb-3">関連する記事</h3>
-          <ul>
-            <li class="nav-item">
-              <div class="pt-1 pb-1"><a href="https://khufrudamonotes.com/slash-chords" target="_blank"
-                  rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</a></div>
-            </li>
-            <li class="nav-item">
-              <div class="pt-2 pb-5"><a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
-                  rel="noopener noreferrer">代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方</a></div>
-            </li>
-          </ul>
-
         </div>
 
         <!-- 右カラム部分 -->
@@ -322,7 +368,7 @@
       <copyright-text></copyright-text>
     </footer>
   </div>
-  
+
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {

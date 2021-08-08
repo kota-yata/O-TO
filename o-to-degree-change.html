@@ -123,11 +123,81 @@
             <div id="display">
                 <title-display></title-display>
             </div>
-            <p class="pb-3">移調したコード進行を確認したいですか？<br><br>——できますよ。素早く。</p>
-
-            <h3 class="shadow p-3 mb-3 bg-white rounded mb-5 py-3">コード移調</h3>
 
             <!-- 左(メインコンテンツ) -->
+            <h3 class="shadow p-3 mb-5 bg-white rounded mb-5 py-3">⑨コード移調</h3>
+
+            <!-- タブの中身 -->
+            <div id="tabBox" class=" pb-3">
+                <!-- タブの切り替えボタン -->
+                <div id="tabs">
+                    <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                    <label for="tab1">使う</label>
+                    <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                    <label for="tab2">説明</label>
+                    <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+                    <label for="tab3">関連資料</label>
+                </div>
+
+                <div id="contents">
+
+                    <!-- タブ1の中身 -->
+                    <div v-if="isActive == '1'">
+                    </div>
+
+                    <!-- タブ2の中身 -->
+                    <div v-if="isActive == '2'" class="pb-5">
+                        <p class="py-2">入力したコード進行を、任意のキーやディグリーネームへ書き換えるアプリです。 </p>
+
+                        <p class="py-2">今までの人生で、コード進行のメモを別のキーへ書き換える作業を何度やったか分かりません。<br>
+                            しかし、このアプリを使えば一瞬で終わるので、もうやる必要は無くなりました。
+                        </p>
+
+                        <h4 class="pt-3 manual">【使い方】</h4>
+                        <p class="py-2">①入力するコード進行のキーを設定してください。</p>
+                        <p class="py-2">②コード進行のテキストを入力するか、貼り付けてください。</p>
+                        <p class="py-2">③変換したいキーを選んでください。</p>
+
+                        <h4 class="pt-3 manual">【想定している用途】</h4>
+                        
+                        <div class="py-2">・<b>コード進行メモを別のキーへ変更する</b></div>
+                        <p class="py-2">　オリジナル曲などのキーを変更したくなったとき、いちいち書き直す必要はありません。<br>　テキストを貼り付けてキーを設定するだけでOKです。</p>
+                        <div class="py-2">・<b>コード進行のアイデアメモをディグリーネームへ変換する</b></div>
+                        <p class="py-2">　お気に入りのコード進行をディグリーネームでメモしたいときありますよね。<br>　変換後のキーを「ディグリーネーム表記」にすれば簡単に変換できます。</p>
+                        <p class="py-2">　※主要なコード進行は、既に70種類以上<a href="o-to-chord-progression.html">④コード進行</a>にまとめています。<br>　こちらも併せてお使いください。</p>
+
+                        <h4 class="pt-3 manual">【その他】</h4>
+                        <lu class="py-2">
+                            <li>アルファベットの「b」を入力すると、「♭」扱いになります。</li>
+                            <li>キー設定や異名同音の表記によっては、正しく変換されない場合があります。</li>
+                            <li>アプリの性質上、英文を入力しないでください。</li>
+                            <li>テキストの保存機能はありません。元データを保存した上でお使いください。</li>
+                        </lu>
+
+                    </div>
+
+
+                    <!-- タブ3の中身 -->
+                    <div v-if="isActive == '3'" class="pb-5">
+                        <div class="py-2">・
+                            <a href="o-to-chord-progression.html" target="_blank"
+                                rel="noopener noreferrer">④コード進行</span></a>
+                            <p>　コードのよく使われる進行を、70種類以上まとめたページです。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://khufrudamonotes.com/slash-chords" target="_blank"
+                                rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</span></a>
+                            <p>　分数コードの解説記事です。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
+                                rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a>
+                            <p>　代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方をまとめた記事です。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <!-- ここから分割されたページの左側 -->
                 <div class="col-md-6">
