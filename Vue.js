@@ -158,7 +158,7 @@ Vue.component('right-column', {
         <ul>
         
         <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">オフィシャルサイト</span></a>
+          <a class="nav-link" href="https://khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者のオフィシャルサイト</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://linktr.ee/KHUFRUDAMO_NOTES"target="_blank" rel="noopener noreferrer">KHUFRUDAMO NOTES - linktree</span></a>
@@ -173,7 +173,7 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調曲 YouTube playlist</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/k1mu0419"target="_blank" rel="noopener noreferrer">管理人Twitter</span></a>
+          <a class="nav-link" href="https://twitter.com/k1mu0419"target="_blank" rel="noopener noreferrer">開発者のTwitter</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Yoshito924/O-TO"target="_blank" rel="noopener noreferrer">GitHub</span></a>
