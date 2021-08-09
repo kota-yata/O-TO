@@ -997,6 +997,7 @@ function NoteSwitch(Num) {
 
 //転調の種類を判別するための関数(転調の間隔)
 function modulation() {
+    //入力された値を変数に代入する
     b_note_num = Number(document.getElementById("b_note").value);
     b_mode_num = Number(document.getElementById("b_mode").value);
     a_note_num = Number(document.getElementById("a_note").value);
@@ -1006,8 +1007,8 @@ function modulation() {
     a_key_num = mod(a_note_num - a_mode_num, 12);
     modulation_num = mod(a_key_num - b_key_num, 12);
 
-    //転調前のキーと調号を表示
-    if (b_key_num == 0 || b_key_num == 2 || b_key_num == 4 || b_key_num == 6 || b_key_num == 7 || b_key_num == 9 || b_key_num == 11) {
+    //転調前のキーの主音の異名同音を判定
+    if (b_key_num === 0 || b_key_num === 2 || b_key_num === 4 || b_key_num === 6 || b_key_num === 7 || b_key_num === 9 || b_key_num === 11) {
         b_SOF = 0;
     } else {
         b_SOF = 1;
@@ -1017,8 +1018,8 @@ function modulation() {
     document.getElementById("result_b_key").innerHTML
         = "-転調前-<br><br>" + noteNames[b_note_num][b_SOF] + " " + mode_name[b_mode_num] + " " + flat_key_signature[b_key_num];
 
-    //転調後のキーと調号を表示
-    if (a_key_num == 0 || a_key_num == 2 || a_key_num == 4 || a_key_num == 6 || a_key_num == 7 || a_key_num == 9 || a_key_num == 11) {
+    //転調後のキーの主音の異名同音を判定
+    if (a_key_num === 0 || a_key_num === 2 || a_key_num === 4 || a_key_num === 6 || a_key_num === 7 || a_key_num === 9 || a_key_num === 11) {
         a_SOF = 0;
     } else {
         a_SOF = 1;
@@ -1028,29 +1029,56 @@ function modulation() {
     document.getElementById("result_a_key").innerHTML
         = "-転調後-<br><br>" + noteNames[a_note_num][a_SOF] + " " + mode_name[a_mode_num] + " " + flat_key_signature[a_key_num];
 
+    //転調の種類を格納する配列を空で定義
+    result_modulation = [];
+
     //転調の種類を表示
-    if (Number(b_key_num) == Number(a_key_num) && Number(b_note_num) == Number(a_note_num)) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>転調していません。";
-    } else if (Number(b_key_num) == Number(a_key_num) && Number(b_note_num) != Number(a_note_num)) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num] + "（平行調）";
-    } else if (Number(b_note_num) == Number(a_note_num)) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num] + "（同主調転調）";
-    } else if (Number(b_mode_num) == Number(a_mode_num) && Number(a_mode_num) == 0) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num];
-    } else if (Number(b_mode_num) == Number(a_mode_num) && Number(a_mode_num) == 9) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num];
-    } else if (Number(b_mode_num) == Number(a_mode_num)) {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num] + "（同旋法移行）";
+    if (b_key_num === a_key_num && b_note_num === a_note_num) {
+        result_modulation.unshift(`【転調の種類】<br><br>転調していません。<br>　`);
+    } else if (b_key_num === a_key_num && b_note_num != a_note_num) {
+        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（平行調）`);
+    } else if (b_note_num === a_note_num) {
+        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同主調）`);
+        //メジャー及び、マイナーでは「同旋法移行」と表示しない。
+    } else if (b_mode_num === a_mode_num && a_mode_num === 0 || b_mode_num === a_mode_num && a_mode_num === 9) {
+        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}`);
+    } else if (b_mode_num === a_mode_num) {
+        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同旋法移行）`);
     } else {
-        document.getElementById("result_modulation").innerHTML
-            = "【転調の種類】<br><br>" + modulation_type[modulation_num];
+        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>　`);
     };
+
+    //追加情報
+    if (modulation_num === 1 && b_mode_num === a_mode_num) {
+        result_modulation.push(`(+1/半音上のキー)`);
+    }else if(modulation_num === 2 && b_mode_num === a_mode_num){
+        result_modulation.push(`(+2/全音上のキー)`);
+    }else if(modulation_num === 3 && b_mode_num === a_mode_num){
+        result_modulation.push(`(+3/短3度上のキー)`);
+    }else if(modulation_num === 4 && b_mode_num === a_mode_num){
+        result_modulation.push(`(+4/長3度上のキー)`);
+    }else if(modulation_num === 5 && b_mode_num === a_mode_num){
+        result_modulation.push(`(下属調)`);
+    }else if(modulation_num === 6 && b_mode_num === a_mode_num){
+        result_modulation.push(`(±6:増4度上下のキー)`);
+    }else if(modulation_num === 7 && b_mode_num === a_mode_num){
+        result_modulation.push(`(属調)`);
+    }else if(modulation_num === 8 && b_mode_num === a_mode_num){
+        result_modulation.push(`(-4/長3度下のキー)`);
+    }else if(modulation_num === 9 && b_mode_num === a_mode_num){
+        result_modulation.push(`(-3/短3度下のキー)`);
+    }else if(modulation_num === 10 && b_mode_num === a_mode_num){
+        result_modulation.push(`(-2/全音下のキー)`);
+    }else if(modulation_num === 11 && b_mode_num === a_mode_num){
+        result_modulation.push(`(-1/半音下のキー)`);
+    };
+
+    //転調の種類を格納した配列を結合する
+    result_modulation = result_modulation.join("<br>").replace(/,/g, "");
+
+    //HTMLに転調の種類を書き込む
+    document.getElementById("result_modulation").innerHTML = ` ${result_modulation}`;
+
 };
 
 //転調元から転調先を表示するための関数(転調の間隔)

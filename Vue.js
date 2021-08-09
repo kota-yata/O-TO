@@ -179,7 +179,7 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://github.com/Yoshito924/O-TO"target="_blank" rel="noopener noreferrer">GitHub</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">バグや誤りの報告はこちらからお願いします。</span></a>
+          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">フィードバックはこちらからお願いします。</span></a>
         </li>
 
         </ul>
