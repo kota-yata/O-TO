@@ -63,6 +63,7 @@ box {
 #contents {
     padding: 5px 10px;
     border-top: 2px solid royalblue;
+    box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 #contents p {
