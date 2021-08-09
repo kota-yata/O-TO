@@ -32,8 +32,6 @@ box {
     margin: 0;
 }
 
-
-
 /* 説明タブ */
 
 #tabs {
@@ -69,6 +67,7 @@ box {
 #contents p {
     font-size: 15px;
     margin: 0;
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
 
 #contents p.title {
@@ -78,4 +77,13 @@ box {
 
 .manual {
     color: royalblue;
+    font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+}
+
+a {
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+}
+
+#accordionExample {
+    font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
