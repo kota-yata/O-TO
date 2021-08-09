@@ -158,10 +158,11 @@
 
                 <p class="py-2">ディレイ・タイムが計算したいですか？<br>
                   リヴァーブ・プラグインに入力する値の目安が知りたいですか？</p>
-                  <p class="py-2">———簡単です。</p>
+                <p class="py-2">———簡単です。</p>
                 <h4 class="pt-3 manual">【使い方】</h4>
                 <p class="py-2">　調べたいBPMを入力すると、計算が行われます。</p>
-                <p class="py-2">　※より詳細な音符の長さを求めたい方は、<a href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>も併せてお使いください。</p>
+                <p class="py-2">　※より詳細な音符の長さを求めたい方は、<a
+                    href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>も併せてお使いください。</p>
 
                 <h4 class="pt-3 manual">【表示形式】</h4>
                 <p class="py-2">　音価の表示形式は、[<b>秒、ミリ秒、マイクロ秒、sec、ms、μs</b>]の6種類から選べます。</p>
@@ -195,12 +196,12 @@
             <label for="time_unit" class="box2 col-6 col-xxl-2">表示形式
               <select id="time_unit" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteLength()">
-                <option value="秒">秒</option>
-                <option value="ミリ秒">ミリ秒</option>
-                <option value="マイクロ秒">マイクロ秒</option>
-                <option value="sec">sec</option>
-                <option value="ms" selected>ms</option>
-                <option value="μs">μs</option>
+                <option value=秒>秒</option>
+                <option value=ミリ秒>ミリ秒</option>
+                <option value=マイクロ秒>マイクロ秒</option>
+                <option value=sec>sec</option>
+                <option value=ms selected>ms</option>
+                <option value=μs>μs</option>
               </select>
             </label>
           </div>
@@ -208,51 +209,50 @@
           <div class="row py-2">
             <div
               class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-secondary text-center"
-              id="time_maxima">マキシマ<br><br>16000ms</div>
+              id="time_maxima"></div>
             <div
               class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-secondary text-center"
-              id="time_longa">ロンガ<br><br>8000ms</div>
+              id="time_longa"></div>
             <div
               class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-secondary text-center"
-              id="time_double_whole_note">倍全音符<br><br>4000ms</div>
+              id="time_double_whole_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center  text-center list-group-item-info"
-              id="time_whole_note">全音符<br><br>2000ms</div>
+              id="time_whole_note"></div>
             <div
               class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center text-center list-group-item-success"
-              id="time_1dot_half_note">符点2分<br><br>1500ms</div>
+              id="time_1dot_half_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center text-center list-group-item-info"
-              id="time_half_note">2分音符<br><br>1000ms</div>
+              id="time_half_note"></div>
           </div>
 
           <div class="row py-2">
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_half_note_triplet">
-              4拍3連<br><br>666.667ms</div>
+            </div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_quarter_note">符点4分<br><br>750ms</div>
+              id="time_1dot_quarter_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
-              id="time_quarter_note">4分音符<br><br>500ms</div>
+              id="time_quarter_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_8th_note">符点8分<br><br>375ms</div>
+              id="time_1dot_8th_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_quarter_note_triplet">
-              2拍3連<br><br>333.333ms</div>
+            </div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_8th_note">8分音符<br><br>250ms</div>
+              id="time_8th_note"></div>
           </div>
 
           <div class="row py-2">
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_16th_note">符点16分<br><br>187.5ms</div>
+              id="time_1dot_16th_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_8th_note_tuplet">
-              1拍3連<br><br>166.667ms</div>
+            </div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_16th_note">16分音符<br><br>125ms</div>
+              id="time_16th_note"></div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="time_quarter_note_quintuplet">
-              1拍5連符<br><br>100ms</div>
+              id="time_quarter_note_quintuplet"> </div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_16th_note_tuplet">
-              1拍6連<br><br>83.333ms</div>
+            </div>
             <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_32th_note">32分音符<br><br>62.5ms</div>
+              id="time_32th_note"></div>
           </div>
 
         </div>
@@ -274,6 +274,14 @@
       <copyright-text></copyright-text>
     </footer>
   </div>
+
+  <!--ページのロードが終了したときに実行される関数 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      //音価の計算をして描画する関数
+      NoteLength();
+    });
+  </script>
 
   <!-- JavaScriptを読み込む-->
   <script src="Vue.js"></script>
