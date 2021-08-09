@@ -997,14 +997,14 @@ function NoteSwitch(Num) {
 
 //転調の種類を判別するための関数(転調の間隔)
 function modulation() {
-    b_note_num = document.getElementById("b_note").value;
-    b_mode_num = document.getElementById("b_mode").value;
-    a_note_num = document.getElementById("a_note").value;
-    a_mode_num = document.getElementById("a_mode").value;
+    b_note_num = Number(document.getElementById("b_note").value);
+    b_mode_num = Number(document.getElementById("b_mode").value);
+    a_note_num = Number(document.getElementById("a_note").value);
+    a_mode_num = Number(document.getElementById("a_mode").value);
 
-    b_key_num = mod((Number(b_note_num) - Number(b_mode_num)), 12);
-    a_key_num = mod((Number(a_note_num) - Number(a_mode_num)), 12);
-    modulation_num = mod((Number(a_key_num) - Number(b_key_num)), 12);
+    b_key_num = mod(b_note_num - b_mode_num, 12);
+    a_key_num = mod(a_note_num - a_mode_num, 12);
+    modulation_num = mod(a_key_num - b_key_num, 12);
 
     //転調前のキーと調号を表示
     if (b_key_num == 0 || b_key_num == 2 || b_key_num == 4 || b_key_num == 6 || b_key_num == 7 || b_key_num == 9 || b_key_num == 11) {
