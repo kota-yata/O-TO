@@ -1,4 +1,5 @@
 /* フォント指定 */
+
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 body {
     font-family: 'Noto Sans JP', sans-serif;
@@ -34,15 +35,16 @@ box {
 table {
     border-collapse: collapse;
     text-align: center;
-    width: 100%; /* 幅 */
+    width: 100%;
+    /* 幅 */
     table-layout: fixed;
+    font-size: clamp(0.1rem, 0.1rem + 1vw, 0.95rem);
 }
 
 th, td {
     padding: 4px;
     border: 1px solid rgb(158, 158, 158);
 }
-
 
 #FletNumberUpper {
     background-color: #111111;
@@ -54,27 +56,23 @@ th, td {
     color: #FFF;
 }
 
-.FletNumberInlay{
+.FletNumberInlay {
     background-color: #111111;
     color: rgb(29, 255, 123);
 }
 
-
-
-
 /* ----------------------------- */
-.DegreeBlack{
+
+.DegreeBlack {
     background-color: rgb(213, 213, 213);
 }
 
 .Degree0 {
     background-color: #0588ff;
-
 }
 
 .Degree1 {
     background-color: #a4c2f4;
-    ;
 }
 
 .Degree2 {
@@ -107,7 +105,6 @@ th, td {
 
 .Degree9 {
     background-color: #ff2121;
-
 }
 
 .Degree10 {
@@ -117,8 +114,6 @@ th, td {
 .Degree11 {
     background-color: #cc99ff;
 }
-
-
 
 /* 500px以下の画面で適用 */
 
@@ -162,12 +157,13 @@ th, td {
 #contents {
     padding: 5px 10px;
     border-top: 2px solid royalblue;
-    box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 #contents p {
-    font-size: 15px;
+    /* font-size: 15px; */
     margin: 0;
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
 
 #contents p.title {
@@ -177,4 +173,13 @@ th, td {
 
 .manual {
     color: royalblue;
+    font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+}
+
+a {
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+}
+
+#accordionExample {
+    font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
