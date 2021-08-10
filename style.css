@@ -32,6 +32,104 @@ box {
     margin: 0;
 }
 
+/* テーブル */
+
+/* .row {
+    font-size: clamp(0.5rem, 0.5rem + 0.5vw, 1rem);
+} */
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    /* 幅 */
+    table-layout: fixed;
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+    height: clamp(3rem, 3rem + 1vw, 2rem);
+}
+
+th, td {
+    padding: 4px;
+    border: 1px solid rgb(158, 158, 158);
+}
+
+/* 500px以下の画面で適用 */
+
+@media only screen and (max-width: 600px) {
+    table.mobile-scroll {
+        white-space: nowrap;
+        /* 折り返されないように */
+        overflow-x: auto;
+        /* 横スクロール */
+        -webkit-overflow-scrolling: touch;
+        /* スマホでスムーズにスクロールできるように */
+    }
+}
+
+/* ------------------------- */
+
+.NoteOn {
+    background-color: crimson;
+    color:whitesmoke;
+    font-weight: 900;
+}
+
+.NoteName {
+    height: clamp(2rem, 2rem + 1vw, 5rem);
+}
+
+.DegreeBlack {
+    background-color: black;
+}
+
+.Degree0 {
+    background-color: #0588ff;
+}
+
+.Degree1 {
+    background-color: #a4c2f4;
+}
+
+.Degree2 {
+    background-color: #21daff;
+}
+
+.Degree3 {
+    background-color: #21ff95;
+}
+
+.Degree4 {
+    background-color: #01ff50;
+}
+
+.Degree5 {
+    background-color: #ffccff;
+}
+
+.Degree6 {
+    background-color: #00da15;
+}
+
+.Degree7 {
+    background-color: #fcfc04;
+}
+
+.Degree8 {
+    background-color: #ff6e01;
+}
+
+.Degree9 {
+    background-color: #ff2121;
+}
+
+.Degree10 {
+    background-color: #ff19bd;
+}
+
+.Degree11 {
+    background-color: #cc99ff;
+}
+
 /* 説明タブ */
 
 #tabs {
@@ -61,7 +159,7 @@ box {
 #contents {
     padding: 5px 10px;
     border-top: 2px solid royalblue;
-    box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 #contents p {

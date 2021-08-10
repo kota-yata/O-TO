@@ -16,7 +16,7 @@ const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭",
 
 const EIJG =
     [["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
-    ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ﾌｧ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
+    ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ファ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
     ["ハ", "嬰ハ-変ニ", "ニ", "嬰ニ-変ホ", "ホ", "ヘ", "嬰ヘ-変ト", "ト", "嬰ト-変イ", "イ", "嬰イ-変ロ", "ロ"],
     ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]];
 
@@ -973,9 +973,9 @@ let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function NoteNameColoring(onoff) {
     for (let i = 0; i < 12; i++) {
         if (onoff[i] != 0) {
-            document.getElementById(`chord_${i}`).className = "list-group-item col-4 list-group-item-danger col-xl text-center py-3";
+            document.getElementById(`chord_${i}`).className = "NoteName NoteOn";
         } else if (onoff[i] === 0) {
-            document.getElementById(`chord_${i}`).className = "list-group-item col-4 list-group-item-secondary col-xl text-center py-3";
+            document.getElementById(`chord_${i}`).className = "NoteName";
         };
     };
 };
