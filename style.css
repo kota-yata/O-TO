@@ -74,6 +74,12 @@ th, td {
     font-weight: 900;
 }
 
+.NoteOn2 {
+    background-color: mediumblue;
+    color:whitesmoke;
+    font-weight: 900;
+}
+
 .NoteName {
     height: clamp(2rem, 2rem + 1vw, 5rem);
 }
@@ -184,4 +190,10 @@ a {
 
 #accordionExample {
     font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
+}
+
+.ChordName{
+    font-size: clamp(0.01rem, 0.01rem + 3vw, 1rem);
+    height: clamp(2rem, 2rem + 3vw, 3rem);
+    /* 折り返されないように */
 }
