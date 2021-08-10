@@ -1594,14 +1594,14 @@ document.getElementById("degree_button"); function degree() {
 function paintDiatonicChordsReset() {
     diaNum = 1;
     for (let i = 1; i < 8; i++) {
-        document.getElementById(`Major_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
-        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "list-group-item col-xl text-center";
+        document.getElementById(`Major_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "text-center";
         diaNum = diaNum + 1;
     };
 };
@@ -1616,146 +1616,146 @@ document.getElementById("paint_diatonic_chords"); function paintDiatonicChords()
         paintDiatonicChordsReset()
     } else if (paint_diatonic_chords == 1) {
         //Maj7を着色
-        document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_1").className = "NoteOn text-center";
+        document.getElementById("Major_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_6").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 2) {
         //m7を着色
-        document.getElementById("Major_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_2").className = "NoteOn text-center";
+        document.getElementById("Major_dia_3").className = "NoteOn text-center";
+        document.getElementById("Major_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_2").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 3) {
         //7を着色
-        document.getElementById("Major_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_5").className = "NoteOn text-center";
         //ブルーに着色
-        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl list-group-item-info text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-info text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-info text-center";
-        document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-info text-center";
+        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn2 text-center";
+        document.getElementById("Rel_MMin_dia_5").className = "NoteOn2 text-center";
+        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn2 text-center";
+        document.getElementById("Para_MMin_dia_7").className = "NoteOn2 text-center";
     } else if (paint_diatonic_chords == 4) {
         //m7(♭5)を着色
-        document.getElementById("Major_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_2").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_7").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 5) {
         //augMaj7を着色
-        document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_3").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 6) {
         //dim7を着色
-        document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_7").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 7) {
         //mMaj7を着色
-        document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_1").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 8) {
         //メジャー・トライアドを着色
-        document.getElementById("Major_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_1").className = "NoteOn text-center";
+        document.getElementById("Major_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_6").className = "NoteOn text-center";
         //------------------
-        document.getElementById("Major_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_5").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 9) {
         //マイナー・トライアドを着色
-        document.getElementById("Major_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Major_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_2").className = "NoteOn text-center";
+        document.getElementById("Major_dia_3").className = "NoteOn text-center";
+        document.getElementById("Major_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_5").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_2").className = "NoteOn text-center";
         //------------------
-        document.getElementById("Rel_HMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_4").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_1").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 10) {
         //ディミニッシュト・トライアドを着色
-        document.getElementById("Major_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_4").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_Minor_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_2").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Major_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_7").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_4").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_2").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_Minor_dia_2").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_7").className = "NoteOn text-center";
         //------------------
-        document.getElementById("Rel_HMin_dia_5").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_7").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_7").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_7").className = "NoteOn text-center";
     } else if (paint_diatonic_chords == 11) {
         //オーグメンテッド・トライアドを着色
-        document.getElementById("Rel_HMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMin_dia_1").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_HMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Rel_MMaj_dia_6").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_HMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
-        document.getElementById("Para_MMin_dia_3").className = "list-group-item col-xl list-group-item-danger text-center";
+        document.getElementById("Rel_HMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_MMin_dia_1").className = "NoteOn text-center";
+        document.getElementById("Rel_HMaj_dia_6").className = "NoteOn text-center";
+        document.getElementById("Rel_MMaj_dia_6").className = "NoteOn text-center";
+        document.getElementById("Para_HMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Para_MMin_dia_3").className = "NoteOn text-center";
     };
 };
 
