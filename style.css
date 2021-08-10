@@ -197,3 +197,7 @@ a {
     height: clamp(2rem, 2rem + 3vw, 3rem);
     /* 折り返されないように */
 }
+
+.ResText{
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+}

@@ -237,7 +237,7 @@ Vue.component('copyright-text', {
 Vue.component('footer-template', {
   template: `
   <div class="float-end">
-  <a href="index.html">トップページに戻る</a></div>
+  <a href="info.html">このアプリについて</a></div>
     `
 })
 
