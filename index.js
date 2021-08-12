@@ -72,38 +72,43 @@ const ToneCluster =
 chord_container =
     [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「ルート音(Root)」＋「完全5度(P5th)」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
     { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「メジャー・トライアド」。<br>最も基本的な三和音。「長三和音」とも呼ばれます。<br><br>「ルート音(Root)」＋「長3度(M3rd)」＋「完全5度(P5th)」の組み合わせです。' },
+    { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
+    
     { ChordName: "m", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー", Info: '「マイナー・トライアド」。<br>最も基本的な三和音。「短三和音」とも呼ばれます。<br>「-」などの表記もあります。<br><br>「ルート音(Root)」＋「短3度(m3rd)」＋「完全5度(P5th)」の組み合わせです。' },
+    { ChordName: "m(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・オミットファイブ", Info: 'マイナー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
+
+    { ChordName: "(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0], Name: "メジャー・フラットファイブ", Info: 'メジャー・トライアドの完全5度(P5th)の音を半音下げたコードです。' },
     { ChordName: "m(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0], Name: "マイナー・フラットファイブ", Info: '「減三和音」。「ディミニッシュト・トライアド」とも。<br>マイナー・トライアドの完全5度(P5th)の音を半音下げたコードです。<br>「m-5」や「dim」などの表記もあります。(※「dim」は「dim7」と混同される場合があるので注意が必要です。)<br><br>「dim」は「diminished」の略称です。<br>よく経過和音(パッシング・ディミニッシュ)として使用されます。' },
     { ChordName: "aug", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], Name: "オーグメンテッド", Info: '「増三和音」。「オーグメンテッド・トライアド」とも。<br>「+5」や「+」や「(#5)」などの表記もあります。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは4種類しかありません。<br><br>「aug」は「augmented」の略称です。' },
     { ChordName: "sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー", Info: '「アーメン・コード」とも。<br>解決の係留(引き延ばし)機能を持ち、ドミナント機能を持つコードの手前に配置される場合が多いです。<br>短3度(m3rd)も長3度(M3rd)も含まないため、長短調に縛られずに柔軟な使用ができます。<br>様々な用途に使える汎用性の高いコードです。<br><br>「sus」は「suspended」の略称です。<br>その名の通り、ルート音から3度の音を完全4度(P4th)に吊り上げた形の構成になっています。' },
     { ChordName: "sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "サスツー", Info: '「2」や「sus9」などの表記もあります。<br>sus4と同じく、解決の係留(引き延ばし)機能を持ちます。<br>sus4の転回形とも解釈できます。' },
-    { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
-    { ChordName: "m(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・オミットファイブ", Info: 'マイナー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
-    { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: '「sus2 4」などの表記もあります。<br>sus4に9thを加えたコードです。<br>7sus4の転回形とも解釈できます。' },
-    { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: 'sus4に♭9thを加えたコードです。' },
+
     { ChordName: "Maj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン", Info: '「長七の和音」とも呼ばれます。<br>「△7」などの表記もあります。<br>メジャー・トライアドに長7度(M7th)の音が加わったコードです。' },
     { ChordName: "Maj7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーセブン・オミットファイブ", Info: '「△7(omit5)」などの表記もあります。<br>メジャーセブンから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "augMaj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1], Name: "オーグメンテッド・メジャーセブン", Info: '「Maj7+5」や「Maj7(#5)」などの表記もあります。<br>オーグメンテッド・トライアドに長7度(M7th)の音が加わったコードです。' },
-    { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4に長7度(M7th)が加わったコードです。' },
-    { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2に長7度(M7th)が加わったコードです。' },
-    { ChordName: "(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0], Name: "メジャー・フラットファイブ", Info: 'メジャー・トライアドの完全5度(P5th)の音を半音下げたコードです。' },
 
     { ChordName: "m7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン", Info: '「短七の和音」とも呼ばれます。<br>「-7」などの表記もあります。<br>マイナー・トライアドに短7度(m7th)の音が加わったコードです。' },
     { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナー・セブン・オミットファイブ", Info: '「-7(omit5)」などの表記もあります。<br>マイナーセブンから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "m7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0], Name: "マイナー・セブン・シャープファイブ", Info: 'マイナー・セブンの完全5度(P5th)を半音上げたコードです。<br>ハイブリッド・コードである「♭Ⅶ/Ⅰ(フュージョン・コード)」の転回形とも解釈できます。' },
     { ChordName: "m7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ", Info: '「減五短七の和音」や「ハーフ・ディミニッシュ」とも呼ばれます。<br>「ハーフ・ディミニッシュ」と呼ぶ場合は、よく「Φ」を傾けた記号が用いられます。<br>ディミニッシュト・トライアドに短7度(m7th)の音が加わったコードです。<br>ツー・ファイブ・ワン進行(Ⅱm7-Ⅴ7-Ⅰ)のⅡm7の代理としてよく使われます。' },
+    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: '「減七の和音」とも呼ばれます。<br>「dim」や「〇」などの表記もあります。(※「dim」は「m(♭5)」と混同される場合があるので注意が必要です。)<br>ディミニッシュト・トライアドに減7度の音が加わったコードです。<br><br>よく経過和音(パッシング・ディミニッシュ)として使用されます。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナントセブン・コードになります。<br><br>「dim」は「diminished」の略称です。' },
 
     { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「属七の和音」とも呼ばれます。<br>メジャー・トライアドに短7度(m7th)の音が加わったコードです。' },
     { ChordName: "7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・オミットファイブ", Info: 'ドミナントセブンから完全5度(P5th)を抜いた形。' },
-    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナントセブンの完全5度(P5th)をフラットさせたコードです。<br>ドミナントセブンの完全5度(P5th)を省略し、#11thを加えたとも解釈できるでしょう。' },
     { ChordName: "aug7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "オーグメンテッド・セブン", Info: '「7+5」や「7(#5)」やなどの表記もあります。<br>オーグメンテッド・トライアドに短7度(m7th)の音が加わったコードです。<br>「7(♭13)(omit5)」と同じ構成音を持ちます。' },
-    { ChordName: "7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー", Info: 'sus4に短7度(m7th)が加わったコードです。' },
-    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2に短7度(m7th)が加わったコードです。' },
+    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナントセブンの完全5度(P5th)をフラットさせたコードです。<br>ドミナントセブンの完全5度(P5th)を省略し、#11thを加えたとも解釈できるでしょう。' },
+
     { ChordName: "mMaj7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1], Name: "マイナー・メジャーセブン", Info: '「短三長七の和音」とも呼ばれます。<br>「m△7」などの表記もあります。<br>マイナー・トライアドに長7度(M7th)の音が加わったコードです。' },
     { ChordName: "mMaj7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・オミットファイブ", Info: '「m△7(omit5)」などの表記もあります。<br>マイナー・トライアドに長7度(M7th)の音が加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "mMaj7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1], Name: "マイナー・メジャーセブン・シャープファイブ", Info: 'マイナー・メジャーセブンの完全5度(P5th)の音を半音上げたコードです。' },
     { ChordName: "mMaj7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・フラットファイブ", Info: 'マイナー・メジャーセブンの完全5度(P5th)の音を半音下げたコードです。' },
-    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: '「減七の和音」とも呼ばれます。<br>「dim」や「〇」などの表記もあります。(※「dim」は「m(♭5)」と混同される場合があるので注意が必要です。)<br>ディミニッシュト・トライアドに減7度の音が加わったコードです。<br>よく経過和音(パッシング・ディミニッシュ)として使用されます。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナントセブン・コードになります。<br><br>「dim」は「diminished」の略称です。' },
+
+    { ChordName: "7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー", Info: 'sus4に短7度(m7th)が加わったコードです。' },
+    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2に短7度(m7th)が加わったコードです。' },
+    { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: '「sus2 4」などの表記もあります。<br>sus4に9thを加えたコードです。<br>7sus4の転回形とも解釈できます。' },
+    { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: 'sus4に♭9thを加えたコードです。' },
+    { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4に長7度(M7th)が加わったコードです。' },
+    { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2に長7度(M7th)が加わったコードです。' },
 
     { ChordName: "6", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス", Info: 'メジャー・トライアドに長6度(M6th)の音を加えたコードです。<br>「m7」の転回形とも解釈できます。<br>メジャー・トライアドに13thテンションを加えたとも解釈ができます。' },
     { ChordName: "m6", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス", Info: 'マイナー・トライアドに長6度(M6th)の音をを加えたコードです。「m7(♭5)」の転回形とも解釈できます。<br>マイナー・トライアドに13thテンションを加えたとも解釈ができます。<br>ドリアン・モードを示唆するコードとしても使えるでしょう。' },
@@ -135,6 +140,7 @@ chord_container =
     { ChordName: "m9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーナイン・オミットファイブ", Info: 'マイナー・セブンに9thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナントセブンに9thが加わったコードです。' },
     { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナントセブンに9thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
+    
     { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナントセブンに#9thが加わったコードです。<br>「ジミヘン・コード」とも呼ばれます。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
     { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナントセブンに#9thが加わったコードから、完全5度(P5th)の音を省略したコードです。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
     { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナントセブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
@@ -265,7 +271,7 @@ scale_Container =
     { EnglishName: "Hon-Kumoi", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モード。", Adjustment: -4 },
     { EnglishName: "Raga Bhinna Shadja", JapaneseName: "ラーガ・ベニア・シャジア", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モード。", Adjustment: -4 },
 
-    { EnglishName: "Ionian Pentatonic", JapaneseName: "琉球音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「沖縄音階」、「ニロ抜き長音階」、「アイオニアン・ペンタトニック」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Ionian Pentatonic", JapaneseName: "沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「琉球音階」、「ニロ抜き長音階」、「アイオニアン・ペンタトニック」とも。", Mode: "", Adjustment: 0 },
 
     { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
     { EnglishName: "Koptimic", JapaneseName: "中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "6-Z25", Info: "", Mode: "", Adjustment: 0 },
@@ -1424,7 +1430,7 @@ function ChordsAndModeChange() {
     document.getElementById("Rel_MMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<br>${scale_Container[17][ScaleLanguage]}`;
     document.getElementById("Rel_MMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<br>${scale_Container[18][ScaleLanguage]}`;
     document.getElementById("Rel_MMin_dia_4").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<br>${scale_Container[19][ScaleLanguage]}`;
-    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}<br>${scale_Container[60][ScaleLanguage]}`;
+    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}<br>オルタード`;
     document.getElementById("Rel_MMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}<br>${scale_Container[14][ScaleLanguage]}`;
     document.getElementById("Rel_MMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}<br>${scale_Container[15][ScaleLanguage]}`;
 
@@ -1440,7 +1446,7 @@ function ChordsAndModeChange() {
     document.getElementById("Rel_MMaj_dia").innerHTML = `${noteNames[tonic][SOF]} Melodic Major：${sharp_key_signature[tonic]}`;
     document.getElementById("Rel_MMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[28]['diaChord4']}<br>${scale_Container[28][ScaleLanguage]}`;
     document.getElementById("Rel_MMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[19]['diaChord4']}<br>${scale_Container[19][ScaleLanguage]}`;
-    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t4][9]} ${scale_Container[60]['diaChord4']}<br>${scale_Container[60][ScaleLanguage]}`;
+    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t4][9]} ${scale_Container[60]['diaChord4']}<br>オルタード`;
     document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[14]['diaChord4']}<br>${scale_Container[14][ScaleLanguage]}`;
     document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[15]['diaChord4']}<br>${scale_Container[15][ScaleLanguage]}`;
     document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[16]['diaChord4']}<br>${scale_Container[16][ScaleLanguage]}`;
@@ -1500,7 +1506,7 @@ function ChordsAndModeChange() {
     document.getElementById("Para_MMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<br>${scale_Container[17][ScaleLanguage]}`;
     document.getElementById("Para_MMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<br>${scale_Container[18][ScaleLanguage]}`;
     document.getElementById("Para_MMin_dia_6").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<br>${scale_Container[19][ScaleLanguage]}`;
-    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}<br>${scale_Container[60][ScaleLanguage]}`;
+    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br>${scale_Container[20][ScaleLanguage]}<br><br>${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}<br>オルタード`;
 
     document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
     onoff_ChordsAndModeChange = 1;
