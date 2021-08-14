@@ -118,7 +118,7 @@ const chordProgEight =
 
 
 //入力されたテキストをサニタイジング(エスケープ処理)する関数
-function Sanitizing() {
+function Sanitizing(text) {
     text = text
         .replace(/&/g, "&amp;")
         .replace(/"/g, "&quot;")
@@ -126,6 +126,8 @@ function Sanitizing() {
         .replace(/>/g, "&gt;")
 
         .replace(/\n/g, "<br \/>")
+
+    return text;
 };
 
 //指定したキーの音名をディグリーネームへ変換する関数
@@ -206,6 +208,50 @@ function ToDegreeName(text, Root) {
     return text;
 };
 
+
+//正誤判定を行うプログラム
+function Validation() {
+
+    ValidationText = text
+        .replace(/#Ⅰ/g, "")
+        .replace(/♭Ⅱ/g, "")
+
+        .replace(/#Ⅱ/g, "")
+        .replace(/𝄫Ⅲ/g, "")
+        .replace(/♭Ⅲ/g, "")
+
+        .replace(/#Ⅲ/g, "")
+
+        .replace(/♭Ⅳ/g, "")
+
+        .replace(/#Ⅳ/g, "")
+        .replace(/♭Ⅴ/g, "")
+
+        .replace(/#Ⅴ/g, "")
+        .replace(/♭Ⅵ/g, "")
+
+        .replace(/#Ⅵ/g, "")
+        .replace(/𝄫Ⅶ/g, "")
+        .replace(/♭Ⅶ/g, "")
+
+        .replace(/#Ⅶ/g, "")
+
+        .replace(/Ⅰ/g, "")
+        .replace(/Ⅱ/g, "")
+        .replace(/Ⅲ/g, "")
+        .replace(/Ⅳ/g, "")
+        .replace(/Ⅴ/g, "")
+        .replace(/Ⅵ/g, "")
+        .replace(/Ⅶ/g, "");
+
+    //変換してもなお変化記号が含まれる場合を判定
+    if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('𝄪') || ValidationText.includes('𝄫')) {
+        document.getElementById("ValidationBox").innerHTML = `<font color="red">正しく変換できませんでした。キー設定や異名同音の表記を誤っている可能性があります。</font>`;
+    } else {
+        document.getElementById("ValidationBox").innerHTML = "";
+    };
+};
+
 //ディグリーネームを指定したキーへ変換する関数
 function DegreeChange(text, Root) {
 
@@ -259,7 +305,7 @@ function DegreeChange(text, Root) {
     return text;
 };
 
-//使用に注意が必要な表現を着色して転記して点数を書き込む関数
+//コードネームを変換して転記する関数
 function ChangeDegreeText() {
 
     //テキストエリア内のテキストを取得
@@ -267,15 +313,20 @@ function ChangeDegreeText() {
     BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
     AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
 
+    //指定したキーの音名をディグリーネームへ変換する関数
     text = ToDegreeName(text, BeforeRootNumber);
 
     //入力されたテキストをサニタイジングする関数
-    Sanitizing(text);
+    text = Sanitizing(text);
+
+    //正誤判定を行うプログラム
+    Validation();
 
     //ディグリーネーム表記の処理
     if (AfterRootNumber === 12) {
         //処理なし
     } else {
+        //ディグリーネームから任意のキーのコードネームへ変換する。
         text = DegreeChange(text, AfterRootNumber);
     };
 
@@ -286,7 +337,7 @@ function ChangeDegreeText() {
 //サンプルテキストを書き込む関数
 function ExampleTextOne() {
     document.getElementById("textarea").innerHTML
-        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n・王道進行\nF - G - Em - Am\n\n※ディグリーネームでも入力できます。\n例：Ⅵm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ";
+        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n・王道進行\nF - G - Em - Am\n\n※ディグリーネームでも入力できます。\nⅥm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ\n\nⅠ△7 - Ⅱm7 - Ⅲm7 - Ⅳ△7 - Ⅴ7 - Ⅵm7 - Ⅶm7-5";
     ChangeDegreeText();
     ButtonInvisible();
 };
