@@ -156,13 +156,7 @@ Vue.component('right-column', {
         </div>
         
         <ul>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者のオフィシャルサイト</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://linktr.ee/KHUFRUDAMO_NOTES"target="_blank" rel="noopener noreferrer">KHUFRUDAMO NOTES - linktree</span></a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">曲情報データベース(転調・旋法・BPM)</a>
         </li>
@@ -173,7 +167,7 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調曲 YouTube playlist</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/k1mu0419"target="_blank" rel="noopener noreferrer">開発者のTwitter</span></a>
+          <a class="nav-link" href="https://yoshito.khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者について</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Yoshito924/O-TO"target="_blank" rel="noopener noreferrer">GitHub</span></a>
