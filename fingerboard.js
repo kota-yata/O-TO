@@ -50,7 +50,7 @@ TuningVariation = [
     { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
     { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
     { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
-    
+
     { TuningName: "★三味線　3弦：本調子", NumberOfStrings: 3, StringTuningStrings: [0, 5, 0] },
     { TuningName: "　三味線　3弦：二上がり", NumberOfStrings: 3, StringTuningStrings: [0, 7, 0] },
     { TuningName: "　三味線　3弦：三下がり", NumberOfStrings: 3, StringTuningStrings: [10, 5, 0] },
@@ -238,8 +238,108 @@ function ScaleAndChordsDrowing() {
     FingerboardDateInfo();
 };
 
+
+//指定した弦の本数だけtr(行)要素をtableに書き込む関数
+function StringsTable() {
+    // NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
+    Num = NumberOfStrings;
+    for (let i = 0; i < NumberOfStrings; i++) {
+        document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
+            `<label for="StringTuning_${Num}" id="TuningString_${Num}" class="box1 col-md-1 col-xl-1 py-1 mx-1">【${Num}弦】
+            <select id="StringTuning_${Num}" class="form-select my-1" aria-label="Default select example"
+            onchange="FletCreate(${NumberOfStrings})">
+                <option value=0>C</option>
+                <option value=1>C#-D♭</option>
+                <option value=2>D</option>
+                <option value=3>D#-E♭</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>F#-G♭</option>
+                <option value=7>G</option>
+                <option value=8>G#-A♭</option>
+                <option value=9>A</option>
+                <option value=10>A#-B♭</option>
+                <option value=11>B</option>
+            </select>
+            </label>
+        </tr>`)
+
+        //弦のナンバーのtr(行)要素のidを書き込む
+        document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="${Num}_string"></tr>`)
+        Num--
+    };
+};
+
 //フィンガーボードの要素を描画する関数
-function FingerboardCreate() {
+function LeftyFingerboardCreate() {
+    //一度フィンガーボードを空にする
+    document.getElementById("Fingerboard").innerHTML = ""
+    document.getElementById("Tuning").innerHTML = ""
+
+    //下段のフレットナンバーのtr(行)要素をtableに書き込む。
+    //フレットの数を取得する 
+    FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+    Num = -1;
+    //下の方のフレットナンバー
+    document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberLower"></tr>`)
+    for (let i = 0; i < FletCount + 2; i++) {
+        //ポジションマークの数字の色を変える
+        if (Num === 0
+            || Num === 3
+            || Num === 5
+            || Num === 7
+            || Num === 9
+            || Num === 12
+            || Num === 15
+            || Num === 17
+            || Num === 19
+            || Num === 21
+            || Num === 24
+            || Num === 27
+            || Num === 29) {
+            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay">${Num}</th>`)
+        } else if (Num < 0) {
+            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay"></th>`)
+        } else {
+            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumber">${Num}</th>`)
+        }
+        Num++
+    };
+
+    // //指定した弦の本数だけtr(行)要素をtableに書き込む。
+    StringsTable();
+
+    //上段のフレットナンバーのtr(行)要素をtableに書き込む。
+    Num = -1;
+    //上の方のフレットナンバー
+    document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberUpper"></tr>`)
+    for (let i = 0; i < FletCount + 2; i++) {
+        //ポジションマークの数字の色を変える
+        if (Num === 0
+            || Num === 3
+            || Num === 5
+            || Num === 7
+            || Num === 9
+            || Num === 12
+            || Num === 15
+            || Num === 17
+            || Num === 19
+            || Num === 21
+            || Num === 24
+            || Num === 27
+            || Num === 29) {
+            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay">${Num}</th>`)
+        } else if (Num < 0) {
+            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay"></th>`)
+        } else {
+            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumber">${Num}</th>`)
+        }
+        Num++
+    };
+};
+
+//フィンガーボードの要素を描画する関数
+function RightyFingerboardCreate() {
     //一度フィンガーボードを空にする
     document.getElementById("Fingerboard").innerHTML = ""
     document.getElementById("Tuning").innerHTML = ""
@@ -275,33 +375,7 @@ function FingerboardCreate() {
     };
 
     // //指定した弦の本数だけtr(行)要素をtableに書き込む。
-    // NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
-    Num = NumberOfStrings;
-    for (let i = 0; i < NumberOfStrings; i++) {
-        document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
-            `<label for="StringTuning_${Num}" id="TuningString_${Num}" class="box1 col-md-1 col-xl-1 py-1 mx-1">【${Num}弦】
-            <select id="StringTuning_${Num}" class="form-select my-1" aria-label="Default select example"
-            onchange="FletCreate(${NumberOfStrings})">
-                <option value=0>C</option>
-                <option value=1>C#-D♭</option>
-                <option value=2>D</option>
-                <option value=3>D#-E♭</option>
-                <option value=4>E</option>
-                <option value=5>F</option>
-                <option value=6>F#-G♭</option>
-                <option value=7>G</option>
-                <option value=8>G#-A♭</option>
-                <option value=9>A</option>
-                <option value=10>A#-B♭</option>
-                <option value=11>B</option>
-            </select>
-            </label>
-        </tr>`)
-
-        //弦のナンバーのtr(行)要素のidを書き込む
-        document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="${Num}_string"></tr>`)
-        Num--
-    };
+    StringsTable();
 
     //上段のフレットナンバーのtr(行)要素をtableに書き込む。
     Num = FletCount;
@@ -331,6 +405,66 @@ function FingerboardCreate() {
         Num--
     };
 };
+
+// 右利きフレットに音名を描画する
+function RightyToneNameCreate() {
+    for (let st = 1; st < NumberOfStrings + 1; st++) {
+        //フレットの数を取得する
+        FletNum = Number(document.getElementById(`NumberOfFlet`).value);
+        FletCount = FletNum;
+        //以前に描画された音名を消去する。
+        document.getElementById(`${st}_string`).innerHTML = "";
+        //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
+        TuningNumber = document.getElementById(`StringTuning_${st}`).value;
+
+        // フレットの数だけfor文で音名を書き込む
+        for (let i = 0; i < FletCount + 1; i++) {
+            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
+            } else {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
+            }
+            TuningNumber--
+            FletNum--
+        };
+        //フレットボードの左端に、何弦かを表す数字とidを書き込む。
+        document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
+    };
+};
+
+// 左利きフレットに音名を描画する
+function LeftyToneNameCreate() {
+    for (let st = 1; st < NumberOfStrings + 1; st++) {
+        //フレットの数を取得する
+        FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+        FletNum = 0;
+        //以前に描画された音名を消去する。
+        document.getElementById(`${st}_string`).innerHTML = "";
+        //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
+        TuningNumber = document.getElementById(`StringTuning_${st}`).value;
+
+        //フレットボードの左端に、何弦かを表す数字とidを書き込む。
+        document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
+
+        // フレットの数だけfor文で音名を書き込む
+        for (let i = 0; i < FletCount + 1; i++) {
+            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
+            } else {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
+            }
+            TuningNumber++
+            FletNum++
+        };
+
+    };
+};
+
+
 
 //フレット上の音名を描画する関数
 function FletCreate(NumberOfStrings) {
@@ -518,30 +652,13 @@ function FletCreate(NumberOfStrings) {
         ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][21]);
     };
 
-    // フレットに音名を描画する
-    for (let st = 1; st < NumberOfStrings + 1; st++) {
-        //フレットの数を取得する
-        FletNum = Number(document.getElementById(`NumberOfFlet`).value);
-        FletCount = FletNum;
-        //以前に描画された音名を消去する。
-        document.getElementById(`${st}_string`).innerHTML = "";
-        //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
-        TuningNumber = document.getElementById(`StringTuning_${st}`).value;
-
-        // フレットの数だけfor文で音名を書き込む
-        for (let i = 0; i < FletCount + 1; i++) {
-            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
-                document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
-            } else {
-                document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
-            }
-            TuningNumber--
-            FletNum--
-        };
-        //フレットボードの左端に、何弦かを表す数字とidを書き込む。
-        document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
+    //利き手を判定
+    if (Number(document.getElementById("DominantHand").value) === 0) {
+        // 右利きフレットに音名を描画する
+        RightyToneNameCreate();
+    } else if (Number(document.getElementById("DominantHand").value) === 1) {
+        // 左利きフレットに音名を描画する
+        LeftyToneNameCreate();
     };
 
     //コード画面の場合の処理
@@ -572,6 +689,8 @@ function FletCreate(NumberOfStrings) {
     return Configuration;
 };
 
+
+
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function FingerboardDateInfo() {
 
@@ -589,8 +708,15 @@ function FingerboardDateInfo() {
     NumberOfStrings = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     document.getElementById("NumberOfStrings").selectedIndex = NumberOfStrings - 1;
 
-    //フィンガーボードの要素を描画する関数
-    FingerboardCreate(NumberOfStrings);
+
+    //利き手を判定
+    if (Number(document.getElementById("DominantHand").value) === 0) {
+        // 右利きフィンガーボードの要素を描画する関数
+        RightyFingerboardCreate(NumberOfStrings);
+    } else if (Number(document.getElementById("DominantHand").value) === 1) {
+        // 左利きフィンガーボードの要素を描画する関数
+        LeftyFingerboardCreate(NumberOfStrings);
+    };
 
     //チューニングを変更する
     StringsTuning = TuningVariation;
@@ -619,8 +745,14 @@ function NumberOfStringsManually() {
 
     NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
 
-    //フィンガーボードの要素を描画する関数
-    FingerboardCreate(NumberOfStrings);
+    //利き手を判定
+    if (Number(document.getElementById("DominantHand").value) === 0) {
+        // 右利きフィンガーボードの要素を描画する関数
+        RightyFingerboardCreate(NumberOfStrings);
+    } else if (Number(document.getElementById("DominantHand").value) === 1) {
+        // 左利きフィンガーボードの要素を描画する関数
+        LeftyFingerboardCreate(NumberOfStrings);
+    };
 
     //チューニングを変更する
     StringsTuning = TuningVariation;
