@@ -108,8 +108,28 @@ function ScaleAndChordsDrowing() {
 
     document.getElementById("ScaleAndChords").innerHTML = "";
     document.getElementById("InformationBlock").innerHTML = "";
+    document.getElementById("RootTonic").innerHTML = "";
 
     if (ScaleAndChordsDrowingSwitch === 0) {
+        document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
+            `<label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
+                <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardDateInfo()">
+                    <option value=0 selected>C</option>
+                    <option value=1>C#-D♭</option>
+                    <option value=2>D</option>
+                    <option value=3>D#-E♭</option>
+                    <option value=4>E</option>
+                    <option value=5>F</option>
+                    <option value=6>F#-G♭</option>
+                    <option value=7>G</option>
+                    <option value=8>G#-A♭</option>
+                    <option value=9>A</option>
+                    <option value=10>A#-B♭</option>
+                    <option value=11>B</option>
+                </select>
+            </label>`);
+
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
             <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
@@ -152,6 +172,26 @@ function ScaleAndChordsDrowing() {
         onclick="ScaleAndChordsDrowing()">コード画面へ</button>`;
 
     } else if (ScaleAndChordsDrowingSwitch === 1) {
+
+        document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
+            `<label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">ルート
+                <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardDateInfo()">
+                    <option value=0 selected>C</option>
+                    <option value=1>C#-D♭</option>
+                    <option value=2>D</option>
+                    <option value=3>D#-E♭</option>
+                    <option value=4>E</option>
+                    <option value=5>F</option>
+                    <option value=6>F#-G♭</option>
+                    <option value=7>G</option>
+                    <option value=8>G#-A♭</option>
+                    <option value=9>A</option>
+                    <option value=10>A#-B♭</option>
+                    <option value=11>B</option>
+                </select>
+            </label>`);
+
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
             <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
