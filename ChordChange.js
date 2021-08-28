@@ -358,26 +358,6 @@ function ButtonInvisible() {
     };
 };
 
-//文章が入力・変更されたときに実行する
-window.addEventListener('DOMContentLoaded', function () {
-
-    // input要素を取得
-    let input_name = document.getElementById("textarea")
-
-    // イベントリスナーでイベント「input」を登録
-    input_name.addEventListener("input", function () {
-        ButtonInvisible();
-        ChangeDegreeText();
-    });
-
-    // イベントリスナーでイベント「change」を登録
-    input_name.addEventListener("change", function () {
-        ButtonInvisible();
-        ChangeDegreeText();
-    });
-
-});
-
 let firstNum = 0;
 let secondNum = 0;
 let num = 0;
