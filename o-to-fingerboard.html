@@ -225,20 +225,25 @@
 
                     <!-- タブ3の中身 -->
                     <div v-if="isActive == '3'" class="pb-2">
+                        <div class="py-2">・
+                            <a href="https://youtu.be/JeT18JKRbnQ" target="_blank"
+                                rel="noopener noreferrer">「指板の音」を理解させてしまう動画</span></a>
+                            <p>指板の音を理解する方法と、このアプリの使い方の紹介動画です。</p>
+                        </div>
                         <div class="pt-3 pb-2">・
                             <a href="https://khufrudamonotes.com/useful-guitar-chords" target="_blank"
                                 rel="noopener noreferrer">ギター初心者が覚えるべきコード7つと その理由【TAB譜あり】</span></a>
-                            <p>　伴奏や弾き語りで使えるオススメのコードを、厳選してまとめた記事です。</p>
+                            <p>伴奏や弾き語りで使えるオススメのコードを、厳選してまとめた記事です。</p>
                         </div>
                         <div class="py-2">・
                             <a href="https://gum.co/musictheory-mindmap" target="_blank"
                                 rel="noopener noreferrer">開放弦を使わないギターコード表</span></a>
-                            <p>　30種類以上のコードの、開放弦を使わないコードフォームをまとめた楽譜(TAB併記)pdfです。</p>
+                            <p>30種類以上のコードの「開放弦を使わないコードフォーム」をまとめた楽譜(TAB併記)pdfです。</p>
                         </div>
                         <div class="py-2">・
                             <a href="https://gum.co/musictheory-mindmap" target="_blank"
                                 rel="noopener noreferrer">開放弦を使ったギターコード表</span></a>
-                            <p>　開放弦を使ったコードフォームを大量にまとめた楽譜(TAB併記)pdfです。</p>
+                            <p>「開放弦を使ったコードフォーム」を大量にまとめた楽譜(TAB併記)pdfです。</p>
                         </div>
                     </div>
                 </div>
@@ -299,31 +304,14 @@
                         </select>
                     </label>
                 </div>
-                <div>
 
-                    <a id="RootTonic">
-                    <label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
-                        <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardDateInfo()">
-                            <option value=0 selected>C</option>
-                            <option value=1>C#-D♭</option>
-                            <option value=2>D</option>
-                            <option value=3>D#-E♭</option>
-                            <option value=4>E</option>
-                            <option value=5>F</option>
-                            <option value=6>F#-G♭</option>
-                            <option value=7>G</option>
-                            <option value=8>G#-A♭</option>
-                            <option value=9>A</option>
-                            <option value=10>A#-B♭</option>
-                            <option value=11>B</option>
-                        </select>
-                    </label>
-                </a>
+                <div>
+                    <!-- ルート音/トニックの選択肢をJavaScriptで描画する -->
+                    <a id="RootTonic"></a>
 
                     <!-- スケールとコードの選択肢をJavaScriptで描画する -->
-                    <a id="ScaleAndChords">
-                    </a>
+                    <a id="ScaleAndChords"></a>
+
                     <a id="ScaleAndChordsChange">
                         <button id="ScaleAndChordsChangeButton" value=0
                             class="btn btn-primary col-3 col-md-3 col-xl-2 pt-2 pb-2 mx-1"

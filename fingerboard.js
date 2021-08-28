@@ -112,8 +112,8 @@ function ScaleAndChordsDrowing() {
 
     if (ScaleAndChordsDrowingSwitch === 0) {
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
-            `<label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
-                <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
+            `<label for="rootNumber"class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
+                <select id="rootNumber"class="form-select my-1" aria-label="Default select example"
                     onchange="FingerboardDateInfo()">
                     <option value=0 selected>C</option>
                     <option value=1>C#-D♭</option>
@@ -131,7 +131,7 @@ function ScaleAndChordsDrowing() {
             </label>`);
 
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
+            <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDateInfo()">
             </select>
@@ -193,7 +193,7 @@ function ScaleAndChordsDrowing() {
             </label>`);
 
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="box1 col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
+            <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDateInfo()">
             </select>
@@ -215,7 +215,6 @@ function ScaleAndChordsDrowing() {
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
-                <!-- コードネームの判定と情報をJavaScriptで書き込む -->
                 <div id="AddChordHTML"></div>
                 <div id="AddChordNameHTML"></div>
                 <div><br></div>
@@ -259,7 +258,7 @@ function ScaleAndChordsDrowing() {
                 </div>
 
                 <div class="accordion-body">
-                <!--ページがロードされた後にJavaScriptによって候補となるスケールを表示する -->
+
                 <div id="addHTML">
                     
                 </div>
