@@ -331,7 +331,7 @@
             </div>
 
             <div id="downloadButton">
-                <a href="" id="ss" download="fingerboard.png">指板の画像をダウンロード</a>
+                <a href="" id='shiban' download="fingerboard.png">指板の画像をダウンロード</a>
             </div>
 
             <div class="accordion py-3" id="accordionExample">
@@ -429,15 +429,15 @@
     </script>
 
     <script>
-        //ロードされた際の処理として実施：
-        document.getElementById('ss').addEventListener('focus', function () {
+        //ボタンにフォーカスがあった時にダウンロードする画像を作る
+        document.getElementById('shiban').addEventListener('focus', function () {
 
-        //ボタンを押下した際にダウンロードする画像を作る
+        //ボタンを押下した際に画像をダウンロード
         html2canvas(document.getElementById("target"),{
             onrendered: function(canvas){
             //aタグのhrefにキャプチャ画像のURLを設定
             var imgData = canvas.toDataURL();
-            document.getElementById("ss").href = imgData;
+            document.getElementById('shiban').href = imgData;
             }
         });
     });
