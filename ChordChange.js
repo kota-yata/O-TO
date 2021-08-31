@@ -139,9 +139,18 @@ function ToDegreeName(text, Root) {
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
         .replace(/#⃣/g, "#")
+
         .replace(/♭♭/g, "𝄫")
         .replace(/bb/g, "𝄫")
         .replace(/b/g, "♭")
+
+        .replace(/III/g, "Ⅲ")
+        .replace(/II/g, "Ⅱ")
+        .replace(/IV/g, "Ⅳ")
+        .replace(/VII/g, "Ⅶ")
+        .replace(/VI/g, "Ⅵ")
+        .replace(/V/g, "Ⅴ")
+        .replace(/I/g, "Ⅰ")
 
     RootNumber = Number(Root);
 
@@ -246,7 +255,7 @@ function Validation() {
 
     //変換してもなお変化記号が含まれる場合を判定
     if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('𝄪') || ValidationText.includes('𝄫')) {
-        document.getElementById("ValidationBox").innerHTML = `<font color="red">正しく変換できませんでした。キー設定や異名同音の表記を誤っている可能性があります。</font>`;
+        document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
     } else {
         document.getElementById("ValidationBox").innerHTML = "";
     };
