@@ -107,7 +107,7 @@ Vue.component('right-column', {
             <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード（8種類の環境）</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔・関係調を調べる</a>
+            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔・調の関係を調べる</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-note-value.html">⑦音価の計算（18種類の音符）</a>
