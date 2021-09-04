@@ -85,89 +85,91 @@ Vue.component('right-column', {
   template: `
         <div>
 
-        <div class="shadow p-3 mt-0 mb-3 bg-white rounded pb-2 m-3">
-          <h5>提供中の「O-TO」アプリ一覧</h5>
+        <div class="Larger shadow p-3 mt-0 mb-3 rounded pb-2 m-3">
+          <h5>音楽理論アプリの一覧</h5>
         </div>
       
         <ul>
           
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コード</a>
+            <a class="nav-link" href="o-to-chords.html">①コードの構成音を調べる（100種類以上）</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-scale.html">③スケール</a>
+            <a class="nav-link" href="o-to-scale.html">②スケールの構成音を調べる（60種類以上）</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード/モード検索</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード・ネーム/モードを検索する</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
+            <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（80種類以上）</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード</a>
+            <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード（8種類の環境）</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔・関係調を調べる</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-note-value.html">⑦音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">⑦音価の計算（18種類の音符）</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-degree-change.html">⑨コード移調</a>
+            <a class="nav-link" href="o-to-degree-change.html">⑨コード進行のテキストを移調する</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-fingerboard.html">⑩指板</a>
+            <a class="nav-link" href="o-to-fingerboard.html">⑩弦楽器の指板を可視化する</a>
           </li>
         </ul>
 
       
-        <div class="shadow p-3 mb-3 bg-white rounded pb-2 m-3">
-          <h5>提供中のアイテム一覧</h5>
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+          <h5>音楽関係の資料データ</h5>
         </div>
       
         <ul>
 
           <li class="nav-item">
-            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">五度圏</span></a>
+            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">五度圏(png)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">音楽理論マインドマップ</span></a>
+            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">音楽理論マインドマップ(png)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧表</span></a>
+            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">開放弦を使わないギターコード表(pdf)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">開放弦を使わないギターコード表</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">開放弦を使ったギターコード表</span></a>
+            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">開放弦を使ったギターコード表(pdf)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">Finale 自作スクリプト集(XML)</span></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">イコライザーの使い方 フローチャート(png)</span></a>
+          </li>
 
         </ul>
       
-        <div class="shadow p-3 mb-3 bg-white rounded pb-2 m-3">
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>関連ページへのリンク</h5>
         </div>
         
         <ul>
-
         <li class="nav-item">
-          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">曲情報データベース(転調・旋法・BPM)</a>
+          <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧（A=440Hz/12平均律）</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q"target="_blank" rel="noopener noreferrer">転調曲 Spotify playlist</span></a>
+          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">曲情報データベース（転調・旋法・BPM）</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調曲 YouTube playlist</span></a>
+          <a class="nav-link" href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q"target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(Spotify)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://yoshito.khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者について</span></a>
+          <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(YouTube)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://yoshito.khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者の自己紹介</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Yoshito924/O-TO"target="_blank" rel="noopener noreferrer">GitHub</span></a>
