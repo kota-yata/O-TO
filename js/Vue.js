@@ -90,7 +90,6 @@ Vue.component('right-column', {
         </div>
       
         <ul>
-          
           <li class="nav-item">
             <a class="nav-link" href="o-to-chords.html">①コードの構成音を調べる（100種類以上）</a>
           </li>
@@ -123,7 +122,24 @@ Vue.component('right-column', {
           </li>
         </ul>
 
-      
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+          <h5>音楽学習アプリの一覧</h5>
+        </div>
+
+        <ul>
+
+          <li class="nav-item">
+            <a class="nav-link" href="https://mwsr.khufrudamonotes.com/metronome" target="_blank" rel="noopener noreferrer">メトロノーム（変拍子対応）</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome" target="_blank" rel="noopener noreferrer">メトロノーム（ポリリズム対応）</span></a>
+          </li>
+
+        </ul>
+
+
+
+
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>音楽関係の資料データ</h5>
         </div>
@@ -232,10 +248,11 @@ Vue.component('copyright-text', {
 
 Vue.component('footer-template', {
   template: `
-  <div class="float-end">
-  <a href="info.html">このアプリについて</a></div>
-    `
+    <div class="float-end">
+    <a href="info.html">このアプリについて</a></div>
+      `
 })
+
 
 //インスタンスを作成する
 const footer = new Vue({

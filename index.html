@@ -1,601 +1,368 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head
-    prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#"
-  >
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-138258869-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "UA-138258869-1");
-    </script>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138258869-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    <!-- Vue を読み込む -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    gtag("config", "UA-138258869-1");
+  </script>
 
-    <!--文字エンコーディングの指定-->
-    <meta charset="utf-8" />
+  <!-- Vue を読み込む -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
-    <!--ページタイトル-->
-    <title>O-TO【音楽理論ウェブアプリ】</title>
+  <!--文字エンコーディングの指定-->
+  <meta charset="utf-8" />
 
-    <!--サイト情報-->
-    <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta property="og:title" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://o-to.khufrudamonotes.com" />
-    <meta property="og:locale" content="ja_JP" />
+  <!--ページタイトル-->
+  <title>O-TO【音楽理論ウェブアプリ】</title>
 
-    <!-- 画像情報 -->
-    <meta property="og:image" content="image/o-to site title.png" />
-    <meta property="og:image:width" content="328" />
-    <meta property="og:image:height" content="183" />
+  <!--サイト情報-->
+  <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
+  <meta property="og:title" content="O-TO【音楽理論ウェブアプリ】" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://o-to.khufrudamonotes.com" />
+  <meta property="og:locale" content="ja_JP" />
 
-    <!--ページの概要-->
-    <meta
-      name="description"
-      content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。"
-    />
-    <meta
-      name="og:description"
-      content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。"
-    />
-    <meta
-      name="keyword"
-      content="音楽理論,音楽,アプリ,ウェブアプリ,Webアプリ"
-    />
+  <!-- 画像情報 -->
+  <meta property="og:image" content="image/o-to site title.png" />
+  <meta property="og:image:width" content="328" />
+  <meta property="og:image:height" content="183" />
 
-    <!--Internet Explorer用の設定-->
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!--ページの概要-->
+  <meta name="description" content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。" />
+  <meta name="og:description" content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。" />
+  <meta name="keyword" content="音楽理論,音楽,アプリ,ウェブアプリ,Webアプリ" />
 
-    <!--viewport設定(レスポンシブデザイン対応)-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--Internet Explorer用の設定-->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <!--OGPタグ/twitterカード-->
-    <meta name="twitter:card" content="Summary Card" />
-    <meta name="twitter:site" content="@khufrudamonotes" />
-    <meta name="twitter:title" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta
-      name="twitter:description"
-      content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。"
-    />
-    <meta name="twitter:image" content="image/o-to site title.png" />
+  <!--viewport設定(レスポンシブデザイン対応)-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!--サイトアイコンの指定-->
-    <meta
-      name="msapplication-square70x70logo"
-      content="image/icon/site-tile-70x70.png"
-    />
-    <meta
-      name="msapplication-square150x150logo"
-      content="image/icon/site-tile-150x150.png"
-    />
-    <meta
-      name="msapplication-wide310x150logo"
-      content="image/icon/site-tile-310x150.png"
-    />
-    <meta
-      name="msapplication-square310x310logo"
-      content="image/icon/site-tile-310x310.png"
-    />
-    <meta name="msapplication-TileColor" content="#0078d7" />
+  <!--OGPタグ/twitterカード-->
+  <meta name="twitter:card" content="Summary Card" />
+  <meta name="twitter:site" content="@khufrudamonotes" />
+  <meta name="twitter:title" content="O-TO【音楽理論ウェブアプリ】" />
+  <meta name="twitter:description" content="音楽理論の学習や、作曲・編曲を補助するアプリを作りました。全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。" />
+  <meta name="twitter:image" content="image/o-to site title.png" />
 
-    <link
-      rel="shortcut icon"
-      type="image/vnd.microsoft.icon"
-      href="image/icon/favicon.ico"
-    />
-    <link
-      rel="icon"
-      type="image/vnd.microsoft.icon"
-      href="image/icon/favicon.ico"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="image/icon/apple-touch-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="image/icon/apple-touch-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="image/icon/apple-touch-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="image/icon/apple-touch-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="image/icon/apple-touch-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="image/icon/apple-touch-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="image/icon/apple-touch-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="image/icon/apple-touch-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="image/icon/apple-touch-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="36x36"
-      href="image/icon/android-chrome-36x36.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="48x48"
-      href="image/icon/android-chrome-48x48.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="72x72"
-      href="image/icon/android-chrome-72x72.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="image/icon/android-chrome-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="128x128"
-      href="image/icon/android-chrome-128x128.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="144x144"
-      href="image/icon/android-chrome-144x144.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="152x152"
-      href="image/icon/android-chrome-152x152.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="image/icon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="256x256"
-      href="image/icon/android-chrome-256x256.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="384x384"
-      href="image/icon/android-chrome-384x384.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="image/icon/android-chrome-512x512.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="36x36"
-      href="image/icon/icon-36x36.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="48x48"
-      href="image/icon/icon-48x48.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="72x72"
-      href="image/icon/icon-72x72.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="image/icon/icon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="128x128"
-      href="image/icon/icon-128x128.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="144x144"
-      href="image/icon/icon-144x144.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="152x152"
-      href="image/icon/icon-152x152.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="160x160"
-      href="image/icon/icon-160x160.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="image/icon/icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="196x196"
-      href="image/icon/icon-196x196.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="256x256"
-      href="image/icon/icon-256x256.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="384x384"
-      href="image/icon/icon-384x384.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="image/icon/icon-512x512.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="image/icon/icon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="24x24"
-      href="image/icon/icon-24x24.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="image/icon/icon-32x32.png"
-    />
-    <link rel="manifest" href="image/icon/manifest.json" />
+  <!--サイトアイコンの指定-->
+  <meta name="msapplication-square70x70logo" content="image/icon/site-tile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="image/icon/site-tile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="image/icon/site-tile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="image/icon/site-tile-310x310.png" />
+  <meta name="msapplication-TileColor" content="#0078d7" />
 
-    <!-- AdSense コード -->
-    <!-- <script data-ad-client="ca-pub-1796975428667007" async
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="image/icon/favicon.ico" />
+  <link rel="icon" type="image/vnd.microsoft.icon" href="image/icon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="57x57" href="image/icon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="image/icon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="image/icon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="image/icon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="image/icon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="image/icon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="image/icon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="image/icon/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="image/icon/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="36x36" href="image/icon/android-chrome-36x36.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="image/icon/android-chrome-48x48.png" />
+  <link rel="icon" type="image/png" sizes="72x72" href="image/icon/android-chrome-72x72.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="image/icon/android-chrome-96x96.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="image/icon/android-chrome-128x128.png" />
+  <link rel="icon" type="image/png" sizes="144x144" href="image/icon/android-chrome-144x144.png" />
+  <link rel="icon" type="image/png" sizes="152x152" href="image/icon/android-chrome-152x152.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="image/icon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="image/icon/android-chrome-256x256.png" />
+  <link rel="icon" type="image/png" sizes="384x384" href="image/icon/android-chrome-384x384.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="image/icon/android-chrome-512x512.png" />
+  <link rel="icon" type="image/png" sizes="36x36" href="image/icon/icon-36x36.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="image/icon/icon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="72x72" href="image/icon/icon-72x72.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="image/icon/icon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="image/icon/icon-128x128.png" />
+  <link rel="icon" type="image/png" sizes="144x144" href="image/icon/icon-144x144.png" />
+  <link rel="icon" type="image/png" sizes="152x152" href="image/icon/icon-152x152.png" />
+  <link rel="icon" type="image/png" sizes="160x160" href="image/icon/icon-160x160.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="image/icon/icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="196x196" href="image/icon/icon-196x196.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="image/icon/icon-256x256.png" />
+  <link rel="icon" type="image/png" sizes="384x384" href="image/icon/icon-384x384.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="image/icon/icon-512x512.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="image/icon/icon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="24x24" href="image/icon/icon-24x24.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="image/icon/icon-32x32.png" />
+  <link rel="manifest" href="image/icon/manifest.json" />
+
+  <!-- AdSense コード -->
+  <!-- <script data-ad-client="ca-pub-1796975428667007" async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 
-    <!-- headのコンポーネントを読み込む -->
-    <div id="head">
-      <head-template></head-template>
-    </div>
+  <!-- headのコンポーネントを読み込む -->
+  <div id="head">
+    <head-template></head-template>
+  </div>
 
-    <!--bootstrap を読み込む-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-      crossorigin="anonymous"
-    />
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
+  <!--bootstrap を読み込む-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
 
-  <body>
-    <div class="container">
-      <!-- ヘッダーのコンポーネントを読み込む -->
-      <header id="header">
-        <header-template></header-template>
-      </header>
+<body>
+  <div class="container">
+    <!-- ヘッダーのコンポーネントを読み込む -->
+    <header id="header">
+      <header-template></header-template>
+    </header>
 
-      <!-- メイン -->
-      <main>
-        <!-- 見出しのコンポーネントを読み込む -->
-        <div id="display">
-          <title-display></title-display>
+    <!-- メイン -->
+    <main>
+      <!-- 見出しのコンポーネントを読み込む -->
+      <div id="display">
+        <title-display></title-display>
+      </div>
+
+      <div class="row">
+        <!-- 左カラム部分(メインコンテンツ) -->
+        <div class="col-md-8">
+          <h3 class="Larger shadow p-3 rounded mb-5 py-3">ようこそ！</h3>
+          <p>音楽理論の学習や、作曲・編曲を補助するアプリを作りました。</p>
+          <p class="py-1">
+            全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。
+          </p>
+
+          <p style="text-align: left" class="py-2">
+            開発者：<a href="https://yoshito.khufrudamonotes.com/" target="_blank" rel="noreferrer noopener">Yoshito
+              Kimura</a>(KHUFRUDAMO NOTES)
+          </p>
+
+          <h3 class="Larger shadow p-3 rounded mb-5 py-3">アプリの一覧</h3>
+          <p class="py-1">各アプリは、全て無料で使えます。</p>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">①コードの構成音を調べる</h5>
+                  <p class="card-text">
+                    100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
+                  </p>
+                  <a href="o-to-chords.html" class="btn btn-primary">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">②スケールの構成音を調べる</h5>
+                  <p class="card-text">
+                    60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。同時に、各スケールの説明も表示されます。
+                  </p>
+                  <a href="o-to-scale.html" class="btn btn-success">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">③コード・ネーム/モードを検索する</h5>
+                  <p class="card-text">
+                    構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。
+                  </p>
+                  <a href="o-to-modal-interchange.html" class="btn btn-success">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">④コード進行まとめ</h5>
+                  <p class="card-text">
+                    80種類以上のコード進行をまとめたアプリです。表示は全てのキーへ切り替え可能なので、実質1000以上のコード進行を確認できます。
+                  </p>
+                  <a href="o-to-chord-progression.html" class="btn btn-primary">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑤ダイアトニック・コード一覧表</h5>
+                  <p class="card-text">
+                    ダイアトニック・コードの一覧表アプリです。表示は全てのキーへ切り替え可能です。各コードに対応するモード・スケールも確認できます。
+                  </p>
+                  <a href="o-to-diatonic-chords.html" class="btn btn-primary">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑥転調の間隔・関係調を調べる</h5>
+                  <p class="card-text">
+                    「転調の間隔」を調べられるアプリです。指定したキーがどんな関係性か簡単に分かります。旋法（モード）にも対応しています。
+                  </p>
+                  <a href="o-to-modulation.html" class="btn btn-danger">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑦音価の計算をする</h5>
+                  <p class="card-text">
+                    指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
+                  </p>
+                  <a href="o-to-note-value.html" class="btn btn-warning">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑧メトリック・モジュレーション</h5>
+                  <p class="card-text">
+                    「メトリック・モジュレーション」に関係する情報を調べるアプリです。様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。
+                  </p>
+                  <a href="o-to-metric-modulation.html" class="btn btn-warning">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑨コード進行のテキストを移調する</h5>
+                  <p class="card-text">
+                    コード進行のテキストを移調するアプリです。入力したコード進行のテキストを「12キー全て」と「ディグリー・ネーム」へ変換できます。
+                  </p>
+                  <a href="o-to-degree-change.html" class="btn btn-success">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">⑩弦楽器の指板を可視化する</h5>
+                  <p class="card-text">
+                    コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。
+                  </p>
+                  <a href="o-to-fingerboard.html" class="btn btn-danger">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">・メトロノーム（変拍子対応）</h5>
+                  <p class="card-text">
+                    変拍子対応のメトロノームです。拍子の分子は1～30まで、分母は2,4,8,16を選択できます。加えてもう1つ別のクリックも追加できます。
+                  </p>
+                  <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/metronome"
+                    class="btn btn-warning">利用する</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">・メトロノーム（ポリリズム対応）</h5>
+                  <p class="card-text">
+                    ポリリズム対応のメトロノームです。音と視覚でポリリズムを理解できます。1～20までの数値を設定可能です。
+                  </p>
+                  <a target="_blank" rel="noopener noreferrer"
+                    href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome" class="btn btn-warning">利用する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3"></div>
+
+          <h3 class="Larger shadow p-3 rounded mb-5 py-3">
+            集中せよ。『音楽』に。
+          </h3>
+          <p class="pt-1 pb-5">
+            音楽をするために、音楽理論や専門的な知識は必要ですか？
+            <br /><br /><br />———はい。必要です。
+            <br /><br /><br /><br />音楽理論や専門的な知識の修得に、凄まじい努力は必要ですか？
+            <br /><br /><br />———いいえ。必要ありません。
+            <br /><br /><br /><br />「<b>O-TO</b>(Ongaku
+            Tools)」を活用してください。
+            <br /><br />"創造の本質"とは関係の無い部分に、頭脳と時間を使うのは終わりにしましょう。<br />
+          </p>
         </div>
 
-        <div class="row">
-          <!-- 左カラム部分(メインコンテンツ) -->
-          <div class="col-md-8">
-            <h3 class="Larger shadow p-3 rounded mb-5 py-3">ようこそ！</h3>
-            <p>音楽理論の学習や、作曲・編曲を補助するアプリを作りました。</p>
-            <p class="py-1">
-              全て音楽を20年以上やってきた経験から「あったら便利」だと思うものです。
-            </p>
-
-            <p style="text-align: left" class="py-2">
-              開発者：<a
-                href="https://yoshito.khufrudamonotes.com/"
-                target="_blank"
-                rel="noreferrer noopener"
-                >Yoshito Kimura</a
-              >(KHUFRUDAMO NOTES)
-            </p>
-
-            <h3 class="Larger shadow p-3 rounded mb-5 py-3">アプリの一覧</h3>
-            <p class="py-1">各アプリは、全て無料で使えます。</p>
-
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">①コードの構成音を調べる</h5>
-                    <p class="card-text">
-                      100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
-                    </p>
-                    <a href="o-to-chords.html" class="btn btn-primary"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">②スケールの構成音を調べる</h5>
-                    <p class="card-text">
-                      60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。同時に、各スケールの説明も表示されます。
-                    </p>
-                    <a href="o-to-scale.html" class="btn btn-success"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-3"></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">③コード・ネーム/モードを検索する</h5>
-                    <p class="card-text">
-                      構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。
-                    </p>
-                    <a
-                      href="o-to-modal-interchange.html"
-                      class="btn btn-success"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">④コード進行まとめ</h5>
-                    <p class="card-text">
-                      80種類以上のコード進行をまとめたアプリです。表示は全てのキーへ切り替え可能なので、実質1000以上のコード進行を確認できます。
-                    </p>
-                    <a
-                      href="o-to-chord-progression.html"
-                      class="btn btn-primary"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-3"></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑤ダイアトニック・コード一覧表</h5>
-                    <p class="card-text">
-                      ダイアトニック・コードの一覧表アプリです。表示は全てのキーへ切り替え可能です。各コードに対応するモード・スケールも確認できます。
-                    </p>
-                    <a href="o-to-diatonic-chords.html" class="btn btn-primary"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑥転調の間隔・関係調を調べる</h5>
-                    <p class="card-text">
-                      「転調の間隔」を調べられるアプリです。指定したキーがどんな関係性か簡単に分かります。旋法（モード）にも対応しています。
-                    </p>
-                    <a href="o-to-modulation.html" class="btn btn-danger"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-3"></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑦音価の計算をする</h5>
-                    <p class="card-text">
-                      指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
-                    </p>
-                    <a href="o-to-note-value.html" class="btn btn-warning"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑧メトリック・モジュレーション</h5>
-                    <p class="card-text">
-                      「メトリック・モジュレーション」に関係する情報を調べるアプリです。様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。
-                    </p>
-                    <a
-                      href="o-to-metric-modulation.html"
-                      class="btn btn-warning"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-3"></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑨コード進行のテキストを移調する</h5>
-                    <p class="card-text">
-                      コード進行のテキストを移調するアプリです。入力したコード進行のテキストを「12キー全て」と「ディグリー・ネーム」へ変換できます。
-                    </p>
-                    <a href="o-to-degree-change.html" class="btn btn-success"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">⑩弦楽器の指板を可視化する</h5>
-                    <p class="card-text">
-                      コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。
-                    </p>
-                    <a href="o-to-fingerboard.html" class="btn btn-danger"
-                      >利用する</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-3"></div>
-
-            <h3 class="Larger shadow p-3 rounded mb-5 py-3">
-              集中せよ。『音楽』に。
-            </h3>
-            <p class="pt-1 pb-5">
-              音楽をするために、音楽理論や専門的な知識は必要ですか？
-              <br /><br /><br />———はい。必要です。
-              <br /><br /><br /><br />音楽理論や専門的な知識の修得に、凄まじい努力は必要ですか？
-              <br /><br /><br />———いいえ。必要ありません。
-              <br /><br /><br /><br />「<b>O-TO</b>(Ongaku
-              Tools)」を活用してください。
-              <br /><br />"創造の本質"とは関係の無い部分に、頭脳と時間を使うのは終わりにしましょう。<br />
-            </p>
-          </div>
-
-          <!-- 右カラム部分のコンポーネントを読み込む -->
-          <div id="right-column" class="col-md-4">
-            <right-column></right-column>
-          </div>
+        <!-- 右カラム部分のコンポーネントを読み込む -->
+        <div id="right-column" class="col-md-4">
+          <right-column></right-column>
         </div>
-      </main>
+      </div>
+    </main>
 
-      <!-- フッターのコンポーネントを読み込む -->
-      <footer id="footer">
-        <footer-template></footer-template>
-        <copyright-text></copyright-text>
-      </footer>
-    </div>
+    <!-- フッターのコンポーネントを読み込む -->
+    <footer id="footer">
+      <footer-template></footer-template>
+      <copyright-text></copyright-text>
+    </footer>
+  </div>
 
-    <!-- JavaScriptを読み込む-->
-    <script src="js/Vue.js"></script>
-    <script src="js/index.js"></script>
+  <!-- JavaScriptを読み込む-->
+  <script src="js/Vue.js"></script>
+  <script src="js/index.js"></script>
 
-    <!-- シェアボタン用のJavaScript -->
-    <!-- Twitter -->
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
-    <!-- facebook -->
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0"
-      nonce="s28FkDyH"
-    ></script>
-    <!-- note -->
-    <script
-      async
-      src="https://cdn.st-note.com/js/social_button.min.js"
-    ></script>
-    <!-- はてなブックマーク -->
-    <script
-      type="text/javascript"
-      src="https://b.st-hatena.com/js/bookmark_button.js"
-      charset="utf-8"
-      async="async"
-    ></script>
-    <!-- Pocket -->
-    <script type="text/javascript">
-      !(function (d, i) {
-        if (!d.getElementById(i)) {
-          var j = d.createElement("script");
-          j.id = i;
-          j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1";
-          var w = d.getElementById(i);
-          d.body.appendChild(j);
-        }
-      })(document, "pocket-btn-js");
-    </script>
-    <!-- Line -->
-    <script
-      src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
-      async="async"
-      defer="defer"
-    ></script>
+  <!-- シェアボタン用のJavaScript -->
+  <!-- Twitter -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <!-- facebook -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0"
+    nonce="s28FkDyH"></script>
+  <!-- note -->
+  <script async src="https://cdn.st-note.com/js/social_button.min.js"></script>
+  <!-- はてなブックマーク -->
+  <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8"
+    async="async"></script>
+  <!-- Pocket -->
+  <script type="text/javascript">
+    !(function (d, i) {
+      if (!d.getElementById(i)) {
+        var j = d.createElement("script");
+        j.id = i;
+        j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1";
+        var w = d.getElementById(i);
+        d.body.appendChild(j);
+      }
+    })(document, "pocket-btn-js");
+  </script>
+  <!-- Line -->
+  <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
+    defer="defer"></script>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
