@@ -127,25 +127,23 @@ Vue.component('right-column', {
         </div>
 
         <ul>
-
+          <li class="nav-item">
+            <a class="nav-link" href="https://mwsr.khufrudamonotes.com/rhythm-training" target="_blank" rel="noopener noreferrer">リズム・トレーニング（教材）</span></a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="https://mwsr.khufrudamonotes.com/metronome" target="_blank" rel="noopener noreferrer">メトロノーム（変拍子対応）</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome" target="_blank" rel="noopener noreferrer">メトロノーム（ポリリズム対応）</span></a>
           </li>
-
         </ul>
-
-
 
 
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>音楽関係の資料データ</h5>
         </div>
       
-        <ul>
-
+      <ul>
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">五度圏(png)</span></a>
           </li>
@@ -164,14 +162,13 @@ Vue.component('right-column', {
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">イコライザーの使い方 フローチャート(png)</span></a>
           </li>
-
-        </ul>
+      </ul>
       
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>関連ページへのリンク</h5>
         </div>
         
-        <ul>
+      <ul>
         <li class="nav-item">
           <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧（A=440Hz/12平均律）</span></a>
         </li>
@@ -185,6 +182,15 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(YouTube)</span></a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="https://khufrudamonotes.com/category/music-theory-and-dtm"target="_blank" rel="noopener noreferrer">音楽理論・DTM関連のブログ記事</span></a>
+        </li>
+      </ul>
+
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+          <h5>その他</h5>
+        </div>
+      <ul>
+        <li class="nav-item">
           <a class="nav-link" href="https://yoshito.khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者の自己紹介</span></a>
         </li>
         <li class="nav-item">
@@ -193,8 +199,7 @@ Vue.component('right-column', {
         <li class="nav-item">
           <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">フィードバックはこちらからお願いします。</span></a>
         </li>
-
-        </ul>
+      </ul>
 
       </div>
         `
