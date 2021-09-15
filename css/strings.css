@@ -36,7 +36,7 @@ img {
 
 @media (max-width: 780px) {
   #scaleChordTable {
-    font-size: clamp(0.05rem, 0.05rem + 0.1vw, 0.1rem);
+    font-size: clamp(0.1rem, 0.1rem + 0.4vw, 0.4rem);
     /* table-layout: fixed; */
     table-layout: fixed;
   }
