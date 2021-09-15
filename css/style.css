@@ -1,35 +1,76 @@
 /* フォント指定 */
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f5f5f5;
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #f5f5f5;
 }
 
 /* 画像のレスポンシブ対応 */
 
 img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+#scaleChord_index {
+  font-weight: bold;
+}
+
+@media (min-width: 1280px) {
+  #scaleChordTable {
+    font-size: clamp(0.3rem, 0.3rem + 0.7vw, 0.7rem);
+    /* table-layout: fixed; */
+    table-layout: fixed;
+  }
+}
+
+@media (max-width: 1280px) {
+  #scaleChordTable {
+    font-size: clamp(0.1rem, 0.1rem + 0.4vw, 0.4rem);
+    /* table-layout: fixed; */
+    table-layout: auto;
     width: 100%;
-    max-width: 100%;
-    height: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  #scaleChordTable {
+    font-size: clamp(0.05rem, 0.05rem + 0.1vw, 0.1rem);
+    /* table-layout: fixed; */
+    table-layout: fixed;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hidden1280 {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .hidden780 {
+    display: none;
+  }
 }
 
 textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    background: #ffffff;
-    padding: 1em;
-    margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #ffffff;
+  padding: 1em;
+  margin: 0;
 }
 
 box {
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    background: #ffffff;
-    padding: 1em;
-    margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #ffffff;
+  padding: 1em;
+  margin: 0;
 }
 
 /* テーブル */
@@ -39,165 +80,174 @@ box {
 } */
 
 table {
-    border-collapse: collapse;
-    text-align: center;
-    width: 100%;
-    /* 幅 */
-    table-layout: fixed;
-    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-    height: clamp(3rem, 3rem + 1vw, 2rem);
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+  /* 幅 */
+  table-layout: fixed;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  height: clamp(3rem, 3rem + 1vw, 2rem);
 }
 
-th, td {
-    padding: 4px;
-    border: 1px solid rgb(158, 158, 158);
+th,
+td {
+  padding: 4px;
+  border: 1px solid rgb(158, 158, 158);
 }
 
 /* 500px以下の画面で適用 */
 
 @media only screen and (max-width: 600px) {
-    table.mobile-scroll {
-        white-space: nowrap;
-        /* 折り返されないように */
-        overflow-x: auto;
-        /* 横スクロール */
-        -webkit-overflow-scrolling: touch;
-        /* スマホでスムーズにスクロールできるように */
-    }
+  table.mobile-scroll {
+    white-space: nowrap;
+    /* 折り返されないように */
+    overflow-x: auto;
+    /* 横スクロール */
+    -webkit-overflow-scrolling: touch;
+    /* スマホでスムーズにスクロールできるように */
+  }
 }
 
 /* ------------------------- */
 
+.ChordNotFound {
+  background-color: gainsboro;
+}
+
 .NoteOn {
-    background-color: crimson;
-    color:whitesmoke;
-    font-weight: 900;
+  background-color: crimson;
+  color: whitesmoke;
+  font-weight: 900;
 }
 
 .NoteOn2 {
-    background-color: mediumblue;
-    color:whitesmoke;
-    font-weight: 900;
+  background-color: mediumblue;
+  color: whitesmoke;
+  font-weight: 900;
 }
 
 .NoteName {
-    height: clamp(2rem, 2rem + 1vw, 5rem);
+  height: clamp(2rem, 2rem + 1vw, 5rem);
 }
 
 .DegreeBlack {
-    background-color: black;
+  background-color: black;
 }
 
 .Degree0 {
-    background-color: #0588ff;
+  background-color: #0588ff;
+  color: whitesmoke;
 }
 
 .Degree1 {
-    background-color: #a4c2f4;
+  background-color: #a4c2f4;
 }
 
 .Degree2 {
-    background-color: #21daff;
+  background-color: #21daff;
 }
 
 .Degree3 {
-    background-color: #21ff95;
+  background-color: #21ff95;
 }
 
 .Degree4 {
-    background-color: #01ff50;
+  background-color: #01ff50;
 }
 
 .Degree5 {
-    background-color: #ffccff;
+  background-color: #ffccff;
 }
 
 .Degree6 {
-    background-color: #00da15;
+  background-color: #00da15;
 }
 
 .Degree7 {
-    background-color: #fcfc04;
+  background-color: #fcfc04;
 }
 
 .Degree8 {
-    background-color: #ff6e01;
+  background-color: #ff6e01;
 }
 
 .Degree9 {
-    background-color: #ff2121;
+  background-color: #ff2121;
+  color: whitesmoke;
 }
 
 .Degree10 {
-    background-color: #ff19bd;
+  background-color: #ff19bd;
+  color: whitesmoke;
 }
 
 .Degree11 {
-    background-color: #cc99ff;
+  background-color: #cc99ff;
 }
 
 /* 説明タブ */
 
 #tabs {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #tabs input {
-    display: none;
+  display: none;
 }
 
 #tabs label {
-    display: inline-block;
-    line-height: 40px;
-    width: 90px;
-    text-align: center;
-    cursor: pointer;
-    background: #c0c0c0;
-    transition: 0.3s;
-    border-radius: 10px 10px 0 0;
+  display: inline-block;
+  line-height: 40px;
+  width: 90px;
+  text-align: center;
+  cursor: pointer;
+  background: #c0c0c0;
+  transition: 0.3s;
+  border-radius: 10px 10px 0 0;
 }
 
-#tabs input:checked+label, #tabs label:hover {
-    background: royalblue;
-    color: #fff;
+#tabs input:checked + label,
+#tabs label:hover {
+  background: royalblue;
+  color: #fff;
 }
 
 #contents {
-    padding: 5px 10px;
-    border-top: 2px solid royalblue;
-    box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-top: 2px solid royalblue;
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 #contents p {
-    font-size: 15px;
-    margin: 0;
-    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  font-size: 15px;
+  margin: 0;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
 
 #contents p.title {
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .manual {
-    color: royalblue;
-    font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+  color: royalblue;
+  font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
 }
 
 a {
-    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
 
 #accordionExample {
-    font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
 
-.ChordName{
-    font-size: clamp(0.01rem, 0.01rem + 3vw, 1rem);
-    height: clamp(2rem, 2rem + 3vw, 3rem);
-    /* 折り返されないように */
+.ChordName {
+  font-size: clamp(0.01rem, 0.01rem + 3vw, 1rem);
+  height: clamp(2rem, 2rem + 3vw, 3rem);
+  /* 折り返されないように */
 }
 
-.ResText{
-    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+.ResText {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
