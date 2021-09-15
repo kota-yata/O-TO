@@ -7,11 +7,51 @@ body {
 }
 
 /* 画像のレスポンシブ対応 */
-
 img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+#scaleChord_index {
+  font-weight: bold;
+}
+
+@media (min-width: 1280px) {
+  #scaleChordTable {
+    font-size: clamp(0.3rem, 0.3rem + 0.7vw, 0.7rem);
+    /* table-layout: fixed; */
+    table-layout: fixed;
+  }
+}
+
+@media (max-width: 1280px) {
+  #scaleChordTable {
+    font-size: clamp(0.1rem, 0.1rem + 0.4vw, 0.4rem);
+    /* table-layout: fixed; */
+    table-layout: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  #scaleChordTable {
+    font-size: clamp(0.05rem, 0.05rem + 0.1vw, 0.1rem);
+    /* table-layout: fixed; */
+    table-layout: fixed;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hidden1280 {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .hidden780 {
+    display: none;
+  }
 }
 
 textarea {
@@ -70,6 +110,7 @@ td {
 
 .Degree0 {
   background-color: #0588ff;
+  color: whitesmoke;
 }
 
 .Degree1 {
@@ -106,6 +147,7 @@ td {
 
 .Degree9 {
   background-color: #ff2121;
+  color: whitesmoke;
 }
 
 .Degree10 {
@@ -115,7 +157,6 @@ td {
 .Degree11 {
   background-color: #cc99ff;
 }
-
 /* 500px以下の画面で適用 */
 
 @media only screen and (max-width: 500px) {

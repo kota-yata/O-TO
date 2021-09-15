@@ -73,7 +73,7 @@ chord_container =
     [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「ルート音(Root)」＋「完全5度(P5th)」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
     { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「メジャー・トライアド」。<br>最も基本的な三和音。「長三和音」とも呼ばれます。<br><br>「ルート音(Root)」＋「長3度(M3rd)」＋「完全5度(P5th)」の組み合わせです。' },
     { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
-    
+
     { ChordName: "m", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー", Info: '「マイナー・トライアド」。<br>最も基本的な三和音。「短三和音」とも呼ばれます。<br>「-」などの表記もあります。<br><br>「ルート音(Root)」＋「短3度(m3rd)」＋「完全5度(P5th)」の組み合わせです。' },
     { ChordName: "m(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・オミットファイブ", Info: 'マイナー・トライアドから、完全5度(P5th)の音を省略したコードです。' },
 
@@ -140,7 +140,7 @@ chord_container =
     { ChordName: "m9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーナイン・オミットファイブ", Info: 'マイナー・セブンに9thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
     { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナントセブンに9thが加わったコードです。' },
     { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナントセブンに9thが加わったコードから、完全5度(P5th)の音を省略したコードです。' },
-    
+
     { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナントセブンに#9thが加わったコードです。<br>「ジミヘン・コード」とも呼ばれます。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
     { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナントセブンに#9thが加わったコードから、完全5度(P5th)の音を省略したコードです。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
     { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナントセブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
@@ -426,6 +426,100 @@ function ScaleInformationDrawing() {
     //構成音を着色するために構成音のバイナリを返り値として返す
     onoff = value[0].split('').map(Number);
     return onoff
+
+};
+
+//スケールの構成音を含む主なコード一覧のテーブルを描画する関数
+function scaleChordTableCreate() {
+
+    //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    value = document.getElementById("constituent_binary").value.split('-');
+
+    //scale_Container配列を検索用の値
+    Num = Number(value[1]);
+
+    //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
+    scale_binary_split = value[0].split('').map(Number);
+
+    //トニックの数値を取得する。
+    RootNumber = Number(document.getElementById("rootNumber").value);
+    KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
+
+    //一度テーブルを空にする
+    document.getElementById(`scaleChordTable`).innerHTML = "";
+
+    //全てのルート音の場合でスケールの構成音と一致するかを判定するために使う値
+    let ChordTableNum = chord_container.length;
+
+    for (let i = 0; i < chord_container.length; i++) {
+        //tr要素を書き込む
+        document.getElementById(`scaleChordTable`).insertAdjacentHTML('afterbegin', `<tr id="ChordNumber-${ChordTableNum}"></tr>`);
+        ChordCountNum = 12;
+        let chordAdjustmentNumber = 0;
+        let noneCount = 0;
+        // 登録しているコードネームの数だけfor文でコードネームを判定して書き込む
+        for (let i = 0; i < 12; i++) {
+            //スケールのバイナリが空ならテーブルも空。
+            if (scale_binary_split[ChordCountNum - 1] !== 0) {
+                //スケールの構成音でコードネームが作れるか判定する
+                if (chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 0, 12)] <= scale_binary_split[11] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 1, 12)] <= scale_binary_split[10] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 2, 12)] <= scale_binary_split[9] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 3, 12)] <= scale_binary_split[8] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 4, 12)] <= scale_binary_split[7] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 5, 12)] <= scale_binary_split[6] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 6, 12)] <= scale_binary_split[5] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 7, 12)] <= scale_binary_split[4] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 8, 12)] <= scale_binary_split[3] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 9, 12)] <= scale_binary_split[2] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 10, 12)] <= scale_binary_split[1] &&
+                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 11, 12)] <= scale_binary_split[0]) {
+
+                    //調号が#か♭かを判定する。
+                    if (KeySignatureNum === 0
+                        || KeySignatureNum === 2
+                        || KeySignatureNum === 4
+                        || KeySignatureNum === 6
+                        || KeySignatureNum === 7
+                        || KeySignatureNum === 9
+                        || KeySignatureNum === 11) {
+                        SOF = 0;
+                    } else {
+                        SOF = 1;
+                    };
+
+                    if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 2) {
+                        SOF = 0;
+                    } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 3) {
+                        SOF = 1;
+                    };
+
+                    //コードネームを書き込む
+                    document.getElementById(`ChordNumber-${ChordTableNum}`)
+                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                } else {
+                    //空のテーブル要素を書き込む
+                    document.getElementById(`ChordNumber-${ChordTableNum}`)
+                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="ChordNotFound hidden780"></td>`);
+                    //一行丸ごと何も無いかチェックのためのカウント
+                    noneCount++
+                };
+            } else {
+                //空のテーブル要素を書き込む
+                document.getElementById(`ChordNumber-${ChordTableNum}`)
+                    .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="ChordNotFound hidden780"></td>`);
+                //一行丸ごと何も無いかチェックのためのカウント
+                noneCount++
+            };
+            chordAdjustmentNumber++
+            ChordCountNum--
+        };
+        //一行丸ごと何も無い場合は、行ごと表示しない。
+        if (noneCount === 12) {
+            document.getElementById(`ChordNumber-${ChordTableNum}`).innerHTML = "";
+        };
+        ChordTableNum--;
+    };
 };
 
 //スケールの情報を処理して書き込む関数(スケールで使用)
@@ -436,6 +530,9 @@ function ScaleKeySignature() {
     onoff = ScaleInformationDrawing();
     //構成音を着色
     NoteNameColoring(onoff);
+
+    //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
+    scaleChordTableCreate();
 };
 
 //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
@@ -1057,25 +1154,25 @@ function modulation() {
     //追加情報
     if (modulation_num === 1 && b_mode_num === a_mode_num) {
         result_modulation.push(`(+1/半音上のキー)`);
-    }else if(modulation_num === 2 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 2 && b_mode_num === a_mode_num) {
         result_modulation.push(`(+2/全音上のキー)`);
-    }else if(modulation_num === 3 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 3 && b_mode_num === a_mode_num) {
         result_modulation.push(`(+3/短3度上のキー)`);
-    }else if(modulation_num === 4 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 4 && b_mode_num === a_mode_num) {
         result_modulation.push(`(+4/長3度上のキー)`);
-    }else if(modulation_num === 5 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 5 && b_mode_num === a_mode_num) {
         result_modulation.push(`(下属調)`);
-    }else if(modulation_num === 6 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 6 && b_mode_num === a_mode_num) {
         result_modulation.push(`(±6:増4度上下のキー)`);
-    }else if(modulation_num === 7 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 7 && b_mode_num === a_mode_num) {
         result_modulation.push(`(属調)`);
-    }else if(modulation_num === 8 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 8 && b_mode_num === a_mode_num) {
         result_modulation.push(`(-4/長3度下のキー)`);
-    }else if(modulation_num === 9 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 9 && b_mode_num === a_mode_num) {
         result_modulation.push(`(-3/短3度下のキー)`);
-    }else if(modulation_num === 10 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 10 && b_mode_num === a_mode_num) {
         result_modulation.push(`(-2/全音下のキー)`);
-    }else if(modulation_num === 11 && b_mode_num === a_mode_num){
+    } else if (modulation_num === 11 && b_mode_num === a_mode_num) {
         result_modulation.push(`(-1/半音下のキー)`);
     };
 

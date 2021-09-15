@@ -164,13 +164,56 @@ function ScaleAndChordsDrowing() {
                     </div>
                 </div>
             </div>
-        </div>`);
+        </div>
+
+        <div class="accordion py-3" id="accordionExample">
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                スケール構成音を含む主なコード
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+
+                <!-- <div class="hidden780"> -->
+
+                <table id="scaleChord_index" class="hidden1280">
+                <tr class="">
+                    <td class="Degree0">Ⅰ</td>
+                    <td class="Degree1">#Ⅰ/♭Ⅱ</td>
+                    <td class="Degree2">Ⅱ</td>
+                    <td class="Degree3">#Ⅱ/♭Ⅲ</td>
+                    <td class="Degree4">Ⅲ</td>
+                    <td class="Degree5">Ⅳ</td>
+                    <td class="Degree6">#Ⅳ/♭Ⅴ</td>
+                    <td class="Degree7">Ⅴ</td>
+                    <td class="Degree8">#Ⅴ/♭Ⅵ</td>
+                    <td class="Degree9">Ⅵ</td>
+                    <td class="Degree10">#Ⅵ/♭Ⅶ</td>
+                    <td class="Degree11">Ⅶ</td>
+                </tr>
+                </table>
+
+
+                <!-- スケールの構成音を含むコード一覧を描画するテーブル -->
+                <table id="scaleChordTable"></table>
+                <!-- </div> -->
+
+            </div>
+            </div>
+        </div>
+        `);
+        //一度空にする
         document.getElementById("ScaleAndChordsChange").innerHTML
             = ``
         document.getElementById("ScaleAndChordsChange").innerHTML
             = `<button id="ScaleAndChordsChangeButton" value=1 class="btn btn-primary col-md-3 col-xl-2 mb-2 py-2 mx-1"
         onclick="ScaleAndChordsDrowing()">コード画面へ</button>`;
 
+        //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
+        scaleChordTableCreate();
     } else if (ScaleAndChordsDrowingSwitch === 1) {
 
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
@@ -234,7 +277,7 @@ function ScaleAndChordsDrowing() {
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
-                このコードの構成音を含む主なスケールはこちら。
+                コード構成音を含む主なスケール
                 </button>
             </h2>
 
@@ -722,6 +765,8 @@ function FletCreate(NumberOfStrings) {
     if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 1) {
         //スケール情報を描画する関数
         ScaleInformationDrawing();
+        //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
+        scaleChordTableCreate()
     };
 
     //構成音を戻り値として返す
