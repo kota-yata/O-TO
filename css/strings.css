@@ -17,6 +17,12 @@ img {
   font-weight: bold;
 }
 
+#clef2 {
+  width: 10%;
+  max-width: 10%;
+  height: auto;
+}
+
 @media (min-width: 1280px) {
   #scaleChordTable {
     font-size: clamp(0.3rem, 0.3rem + 0.7vw, 0.7rem);

@@ -410,7 +410,8 @@ function ScaleInformationDrawing() {
 
     //スケールの調号を判定する
     document.getElementById("keySignatur_text").innerHTML
-        = `通常、調号は${key_signature[KeySignatureNum]}で記譜されます。`;
+        = `通常、調号は${key_signature[KeySignatureNum]}で記譜されます。<br><img src="./image/${clef_image[KeySignatureNum]}" alt="調号" title="調号" id="clef2">`;
+
 
     //スケールの情報を表示
     if (scale_Container[Num]["Info"] == "") {

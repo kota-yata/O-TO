@@ -95,6 +95,12 @@ td {
   height: auto;
 }
 
+#clef2 {
+  width: 10%;
+  max-width: 10%;
+  height: auto;
+}
+
 #modulationTable {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   background: #ffffff;
