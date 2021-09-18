@@ -11,18 +11,18 @@ function roundToThree(num) {
 
 //英・米式音名の多次元配列
 const noteNames =
-    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'C'],
+    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'D&#119083;', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'C'],
     ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#/D♭'],
-    ['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'D'],
-    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F𝄫', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
-    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'D𝄪', 'E'],
-    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'E#', 'F'],
-    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E𝄪', 'F#/G♭'],
-    ['G', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'A𝄫', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'G'],
+    ['D', 'D', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'D'],
+    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F&#119083;', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
+    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'D&#119082;', 'E'],
+    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'E#', 'F'],
+    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E&#119082;', 'F#/G♭'],
+    ['G', 'G', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'A&#119083;', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'G'],
     ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#/A♭'],
-    ['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A'],
-    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'A#/B♭'],
-    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'B']];
+    ['A', 'A', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A', 'A', 'A', 'B&#119083;', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A'],
+    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'A#/B♭'],
+    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']];
 
 //コード進行を格納する多次元配列
 const chordProgOne =
@@ -145,10 +145,12 @@ function ToDegreeName(text, Root) {
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
         .replace(/#⃣/g, "#")
+        .replace(/𝄪/g, "&#119082;")
 
-        .replace(/♭♭/g, "𝄫")
-        .replace(/bb/g, "𝄫")
+        .replace(/♭♭/g, "&#119083;")
+        .replace(/bb/g, "&#119083;")
         .replace(/b/g, "♭")
+        .replace(/𝄫/g, "&#119083;")
 
         .replace(/III/g, "Ⅲ")
         .replace(/II/g, "Ⅱ")
@@ -179,7 +181,7 @@ function ToDegreeName(text, Root) {
         { NoteName: noteNames[cisdes][4], DegreeName: '♭Ⅱ' },
 
         { NoteName: noteNames[dises][6], DegreeName: '#Ⅱ' },
-        { NoteName: noteNames[d][7], DegreeName: '𝄫Ⅲ' },
+        { NoteName: noteNames[d][7], DegreeName: '&#119083;Ⅲ' },
         { NoteName: noteNames[dises][8], DegreeName: '♭Ⅲ' },
 
         { NoteName: noteNames[f][10], DegreeName: '#Ⅲ' },
@@ -193,7 +195,7 @@ function ToDegreeName(text, Root) {
         { NoteName: noteNames[gisas][17], DegreeName: '♭Ⅵ' },
 
         { NoteName: noteNames[aisb][19], DegreeName: '#Ⅵ' },
-        { NoteName: noteNames[a][20], DegreeName: '𝄫Ⅶ' },
+        { NoteName: noteNames[a][20], DegreeName: '&#119083;Ⅶ' },
         { NoteName: noteNames[aisb][21], DegreeName: '♭Ⅶ' },
 
         { NoteName: noteNames[h][23], DegreeName: '#Ⅶ' },
@@ -232,7 +234,7 @@ function Validation() {
         .replace(/♭Ⅱ/g, "")
 
         .replace(/#Ⅱ/g, "")
-        .replace(/𝄫Ⅲ/g, "")
+        .replace(/&#119083;Ⅲ/g, "")
         .replace(/♭Ⅲ/g, "")
 
         .replace(/#Ⅲ/g, "")
@@ -246,7 +248,7 @@ function Validation() {
         .replace(/♭Ⅵ/g, "")
 
         .replace(/#Ⅵ/g, "")
-        .replace(/𝄫Ⅶ/g, "")
+        .replace(/&#119083;Ⅶ/g, "")
         .replace(/♭Ⅶ/g, "")
 
         .replace(/#Ⅶ/g, "")
@@ -260,7 +262,7 @@ function Validation() {
         .replace(/Ⅶ/g, "");
 
     //変換してもなお変化記号が含まれる場合を判定
-    if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('𝄪') || ValidationText.includes('𝄫')) {
+    if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('&#119082;') || ValidationText.includes('&#119083;')) {
         document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
     } else {
         document.getElementById("ValidationBox").innerHTML = "";
@@ -290,7 +292,7 @@ function DegreeChange(text, Root) {
         .replace(/♭Ⅱ/g, `${noteNames[cisdes][4]}`)
 
         .replace(/#Ⅱ/g, `${noteNames[dises][6]}`)
-        .replace(/𝄫Ⅲ/g, `${noteNames[d][7]}`)
+        .replace(/&#119083;Ⅲ/g, `${noteNames[d][7]}`)
         .replace(/♭Ⅲ/g, `${noteNames[dises][8]}`)
 
         .replace(/#Ⅲ/g, `${noteNames[f][10]}`)
@@ -304,7 +306,7 @@ function DegreeChange(text, Root) {
         .replace(/♭Ⅵ/g, `${noteNames[gisas][17]}`)
 
         .replace(/#Ⅵ/g, `${noteNames[aisb][19]}`)
-        .replace(/𝄫Ⅶ/g, `${noteNames[a][20]}`)
+        .replace(/&#119083;Ⅶ/g, `${noteNames[a][20]}`)
         .replace(/♭Ⅶ/g, `${noteNames[aisb][21]}`)
 
         .replace(/#Ⅶ/g, `${noteNames[h][23]}`)
