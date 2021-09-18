@@ -14,6 +14,21 @@ const note_name = ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#
 const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
 
+const clef_image = [
+    "Treble_clef_with_empty_staff.svg",
+    "D-flat-major_b-flat-minor.svg",
+    "D-major_b-minor.svg",
+    "E-flat-major_c-minor.svg",
+    "E-major_c-sharp-minor.svg",
+    "F-major_d-minor.svg",
+    "F-sharp-major_d-sharp-minor.svg",
+    "G-major_e-minor.svg",
+    "A-flat-major_f-minor.svg",
+    "A-major_f-sharp-minor.svg",
+    "B-flat-major_g-minor.svg",
+    "B-major_g-sharp-minor.svg",
+];
+
 const EIJG =
     [["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
     ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ファ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
@@ -32,18 +47,18 @@ const DegreeNames =
 
 //英・米式音名の多次元配列
 const noteNames =
-    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'D𝄫', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D𝄫', 'C', 'C', 'B#', 'C'],
+    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'D&#119083;', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'C'],
     ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#/D♭'],
-    ['D', 'D', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'E𝄫', 'D', 'C𝄪', 'D', 'D', 'C𝄪', 'E𝄫', 'D', 'D', 'C𝄪', 'D'],
-    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F𝄫', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
-    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D𝄪', 'F♭', 'E', 'E', 'D𝄪', 'E'],
-    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G𝄫', 'F', 'E#', 'E#', 'F'],
-    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E𝄪', 'F#/G♭'],
-    ['G', 'G', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'A𝄫', 'G', 'F𝄪', 'G', 'G', 'F𝄪', 'A𝄫', 'G', 'G', 'F𝄪', 'G'],
+    ['D', 'D', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'D'],
+    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F&#119083;', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
+    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'D&#119082;', 'E'],
+    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'E#', 'F'],
+    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E&#119082;', 'F#/G♭'],
+    ['G', 'G', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'A&#119083;', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'G'],
     ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#/A♭'],
-    ['A', 'A', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A', 'A', 'A', 'B𝄫', 'A', 'A', 'B𝄫', 'A', 'G𝄪', 'B𝄫', 'A', 'A', 'G𝄪', 'A'],
-    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C𝄫', 'B♭', 'A#', 'A#', 'A#/B♭'],
-    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A𝄪', 'B']];
+    ['A', 'A', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A', 'A', 'A', 'B&#119083;', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A'],
+    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'A#/B♭'],
+    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']];
 
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -1119,7 +1134,7 @@ function modulation() {
 
     //転調前のキーと調号を表示
     document.getElementById("result_b_key").innerHTML
-        = "-転調前-<br><br>" + noteNames[b_note_num][b_SOF] + " " + mode_name[b_mode_num] + " " + flat_key_signature[b_key_num];
+        = `-転調前-<br><font size="+2">${noteNames[b_note_num][b_SOF]} ${mode_name[b_mode_num]}</font><br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef">`;
 
     //転調後のキーの主音の異名同音を判定
     if (a_key_num === 0 || a_key_num === 2 || a_key_num === 4 || a_key_num === 6 || a_key_num === 7 || a_key_num === 9 || a_key_num === 11) {
@@ -1130,25 +1145,25 @@ function modulation() {
 
     //転調後のキーと調号を表示
     document.getElementById("result_a_key").innerHTML
-        = "-転調後-<br><br>" + noteNames[a_note_num][a_SOF] + " " + mode_name[a_mode_num] + " " + flat_key_signature[a_key_num];
+        = `-転調後-<br><font size="+2">${noteNames[a_note_num][a_SOF]} ${mode_name[a_mode_num]}</font><br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef">`;
 
     //転調の種類を格納する配列を空で定義
     result_modulation = [];
 
     //転調の種類を表示
     if (b_key_num === a_key_num && b_note_num === a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>転調していません。<br>　`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">転調なし</font><br>　`);
     } else if (b_key_num === a_key_num && b_note_num != a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（平行調）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（平行調）`);
     } else if (b_note_num === a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同主調）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（同主調）`);
         //メジャー及び、マイナーでは「同旋法移行」と表示しない。
     } else if (b_mode_num === a_mode_num && a_mode_num === 0 || b_mode_num === a_mode_num && a_mode_num === 9) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}`);
     } else if (b_mode_num === a_mode_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同旋法移行）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（同旋法移行）`);
     } else {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>　`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>　`);
     };
 
     //追加情報
@@ -1219,111 +1234,111 @@ function keychange() {
     note_f_five = mod((answer + 1), 12);
     note_sf_six = mod((answer + 6), 12);
 
-    if (sf_zore == 0 || sf_zore == 2 || sf_zore == 4 || sf_zore == 6 || sf_zore == 7 || sf_zore == 9 || sf_zore == 11) {
+    if (sf_zore === 0 || sf_zore === 2 || sf_zore === 4 || sf_zore === 6 || sf_zore === 7 || sf_zore === 9 || sf_zore === 11) {
         document.getElementById("result_origin").innerHTML
-            = "転調元のキー：" + sharp_note_name[note_number] + " " + mode_name[mode_number] + " " + sharp_key_signature[sf_zore];
+            = `転調元のキー：${sharp_note_name[note_number]} ${mode_name[mode_number]}${sharp_key_signature[sf_zore]}`;
     } else {
         document.getElementById("result_origin").innerHTML
-            = "転調元のキー：" + flat_note_name[note_number] + " " + mode_name[mode_number] + " " + flat_key_signature[sf_zore];
+            = `転調元のキー：${flat_note_name[note_number]} ${mode_name[mode_number]}${flat_key_signature[sf_zore]}`;
     };
 
-    if (s_one == 0 || s_one == 2 || s_one == 4 || s_one == 6 || s_one == 7 || s_one == 9 || s_one == 11) {
+    if (s_one === 0 || s_one === 2 || s_one === 4 || s_one === 6 || s_one === 7 || s_one === 9 || s_one === 11) {
         document.getElementById("result_s_1").innerHTML
-            = "#+1の転調先：" + sharp_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_one];
+            = "#+1：" + sharp_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_one];
     } else {
         document.getElementById("result_s_1").innerHTML
-            = "#+1の転調先：" + flat_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_one];
+            = "#+1：" + flat_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_one];
     };
 
-    if (f_one == 0 || f_one == 2 || f_one == 4 || f_one == 6 || f_one == 7 || f_one == 9 || f_one == 11) {
+    if (f_one === 0 || f_one === 2 || f_one === 4 || f_one === 6 || f_one === 7 || f_one === 9 || f_one === 11) {
         document.getElementById("result_f_1").innerHTML
-            = "♭+1の転調先：" + sharp_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_one];
+            = "♭+1：" + sharp_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_one];
     } else {
         document.getElementById("result_f_1").innerHTML
-            = "♭+1の転調先：" + flat_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_one];
+            = "♭+1：" + flat_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_one];
     };
 
-    if (s_two == 0 || s_two == 2 || s_two == 4 || s_two == 6 || s_two == 7 || s_two == 9 || s_two == 11) {
+    if (s_two === 0 || s_two === 2 || s_two === 4 || s_two === 6 || s_two === 7 || s_two === 9 || s_two === 11) {
         document.getElementById("result_s_2").innerHTML
-            = "#+2の転調先：" + sharp_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_two];
+            = "#+2：" + sharp_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_two];
     } else {
         document.getElementById("result_s_2").innerHTML
-            = "#+2の転調先：" + flat_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_two];
+            = "#+2：" + flat_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_two];
     };
 
-    if (f_two == 0 || f_two == 2 || f_two == 4 || f_two == 6 || f_two == 7 || f_two == 9 || f_two == 11) {
+    if (f_two === 0 || f_two === 2 || f_two === 4 || f_two === 6 || f_two === 7 || f_two === 9 || f_two === 11) {
         document.getElementById("result_f_2").innerHTML
-            = "♭+2の転調先：" + sharp_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_two];
+            = "♭+2：" + sharp_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_two];
     } else {
         document.getElementById("result_f_2").innerHTML
-            = "♭+2の転調先：" + flat_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_two];
+            = "♭+2：" + flat_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_two];
     };
 
-    if (s_three == 0 || s_three == 2 || s_three == 4 || s_three == 6 || s_three == 7 || s_three == 9 || s_three == 11) {
+    if (s_three === 0 || s_three === 2 || s_three === 4 || s_three === 6 || s_three === 7 || s_three === 9 || s_three === 11) {
         document.getElementById("result_s_3").innerHTML
-            = "#+3の転調先：" + sharp_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_three];
+            = "#+3：" + sharp_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_three];
     } else {
         document.getElementById("result_s_3").innerHTML
-            = "#+3の転調先：" + flat_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_three];
+            = "#+3：" + flat_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_three];
     };
 
-    if (f_three == 0 || f_three == 2 || f_three == 4 || f_three == 6 || f_three == 7 || f_three == 9 || f_three == 11) {
+    if (f_three === 0 || f_three === 2 || f_three === 4 || f_three === 6 || f_three === 7 || f_three === 9 || f_three === 11) {
         document.getElementById("result_f_3").innerHTML
-            = "♭+3の転調先：" + sharp_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_three];
+            = "♭+3：" + sharp_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_three];
     } else {
         document.getElementById("result_f_3").innerHTML
-            = "♭+3の転調先：" + flat_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_three];
+            = "♭+3：" + flat_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_three];
     };
 
-    if (s_four == 0 || s_four == 2 || s_four == 4 || s_four == 6 || s_four == 7 || s_four == 9 || s_four == 11) {
+    if (s_four === 0 || s_four === 2 || s_four === 4 || s_four === 6 || s_four === 7 || s_four === 9 || s_four === 11) {
         document.getElementById("result_s_4").innerHTML
-            = "#+4の転調先：" + sharp_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_four];
+            = "#+4：" + sharp_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_four];
     } else {
         document.getElementById("result_s_4").innerHTML
-            = "#+4の転調先：" + flat_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_four];
+            = "#+4：" + flat_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_four];
     };
 
-    if (f_four == 0 || f_four == 2 || f_four == 4 || f_four == 6 || f_four == 7 || f_four == 9 || f_four == 11) {
+    if (f_four === 0 || f_four === 2 || f_four === 4 || f_four === 6 || f_four === 7 || f_four === 9 || f_four === 11) {
         document.getElementById("result_f_4").innerHTML
-            = "♭+4の転調先：" + sharp_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_four];
+            = "♭+4：" + sharp_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_four];
     } else {
         document.getElementById("result_f_4").innerHTML
-            = "♭+4の転調先：" + flat_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_four];
+            = "♭+4：" + flat_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_four];
     };
 
-    if (s_five == 0 || s_five == 2 || s_five == 4 || s_five == 6 || s_five == 7 || s_five == 9 || s_five == 11) {
+    if (s_five === 0 || s_five === 2 || s_five === 4 || s_five === 6 || s_five === 7 || s_five === 9 || s_five === 11) {
         document.getElementById("result_s_5").innerHTML
-            = "#+5の転調先：" + sharp_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_five];
+            = "#+5：" + sharp_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_five];
     } else {
         document.getElementById("result_s_5").innerHTML
-            = "#+5の転調先：" + flat_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_five];
+            = "#+5：" + flat_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_five];
     };
 
-    if (f_five == 0 || f_five == 2 || f_five == 4 || f_five == 6 || f_five == 7 || f_five == 9 || f_five == 11) {
+    if (f_five === 0 || f_five === 2 || f_five === 4 || f_five === 6 || f_five === 7 || f_five === 9 || f_five === 11) {
         document.getElementById("result_f_5").innerHTML
-            = "♭+5の転調先：" + sharp_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_five];
+            = "♭+5：" + sharp_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_five];
     } else {
         document.getElementById("result_f_5").innerHTML
-            = "♭+5の転調先：" + flat_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_five];
+            = "♭+5：" + flat_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_five];
     };
 
-    if (sf_six == 0 || sf_six == 2 || sf_six == 4 || sf_six == 6 || sf_six == 7 || sf_six == 9 || sf_six == 11) {
+    if (sf_six === 0 || sf_six === 2 || sf_six === 4 || sf_six === 6 || sf_six === 7 || sf_six === 9 || sf_six === 11) {
         document.getElementById("result_sf_6").innerHTML
-            = "#・♭+6の転調先：" + sharp_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_six];
+            = "#・♭+6：" + sharp_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_six];
     } else {
         document.getElementById("result_sf_6").innerHTML
-            = "#・♭+6の転調先：" + flat_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_six];
+            = "#・♭+6：" + flat_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_six];
     };
 
-    if (Number(mode_number) == Number(after_mode_number)) {
+    if (Number(mode_number) === Number(after_mode_number)) {
         document.getElementById("result_sf_zero").innerHTML
-            = "#・♭+0(平行調)：";
-    } else if (sf_zore == 0 || sf_zore == 2 || sf_zore == 4 || sf_zore == 6 || sf_zore == 7 || sf_zore == 9 || sf_zore == 11) {
+            = "#・♭+0：";
+    } else if (sf_zore === 0 || sf_zore === 2 || sf_zore === 4 || sf_zore === 6 || sf_zore === 7 || sf_zore === 9 || sf_zore === 11) {
         document.getElementById("result_sf_zero").innerHTML
-            = "#・♭+0(平行調)：" + sharp_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_zore];
+            = "#・♭+0：" + sharp_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_zore];
     } else {
         document.getElementById("result_sf_zero").innerHTML
-            = "#・♭+0(平行調)：" + flat_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_zore];
+            = "#・♭+0：" + flat_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_zore];
     };
 
 };

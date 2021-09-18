@@ -27,7 +27,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-modulation" />
   <meta property="og:locale" content="ja_JP" />
-    
+
   <!-- 画像情報 -->
   <meta property="og:image" content="image/o-to site title.png" />
   <meta property="og:image:width" content="328" />
@@ -260,17 +260,13 @@
             </label>
           </div>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-md-4 text-center list-group-item-secondary" id="result_b_key">
 
-            </div>
-            <div class="list-group-item item box2 col-md-4 text-center list-group-item-info" id="result_modulation">
+          <table id="modulationTable">
+            <td id="result_b_key"></td>
+            <td id="result_modulation" class="modulationChangeTable"></td>
+            <td id="result_a_key"></td>
+          </table>
 
-            </div>
-            <div class="list-group-item item box3 col-md-4 text-center list-group-item-secondary" id="result_a_key">
-
-            </div>
-          </div>
 
           <h3 class="Larger shadow p-3 rounded mt-5 py-3">転調元のキーから考える</h3>
 
@@ -320,40 +316,32 @@
 
           <h4 id="result_origin"></h4>
 
-          <div class="row">
-            <li class="list-group-item col-xl-6" id="result_s_1"></li>
-            <li class="list-group-item col-xl-6 list-group-item-secondary" id="result_f_1"></li>
-          </div>
-
-          <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_s_2"></li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_2">
-              </li>
-          </div>
-
-          <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_s_3"></li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_3">
-              </li>
-          </div>
-
-          <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_s_4"></li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_4">
-              </li>
-          </div>
-
-          <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_s_5"></li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_f_5">
-              </li>
-          </div>
-
-          <div class="row">
-            <li class="list-group-item item col-xl-6" id="result_sf_6"></li>
-            <li class="list-group-item item col-xl-6 list-group-item-secondary" id="result_sf_zero"></li>
-          </div>
-
+          <table id="modulationTable2">
+            <tr>
+              <td class="" id="result_s_1"></td>
+              <td class="gainsboro" id="result_f_1"></td>
+            </tr>
+            <tr>
+              <td class="" id="result_s_2"></td>
+              <td class="gainsboro" id="result_f_2"></td>
+            </tr>
+            <tr>
+              <td class="" id="result_s_3"></td>
+              <td class="gainsboro" id="result_f_3"></td>
+            </tr>
+            <tr>
+              <td class="" id="result_s_4"></td>
+              <td class="gainsboro" id="result_f_4"></td>
+            </tr>
+            <tr>
+              <td class="" id="result_s_5"></td>
+              <td class="gainsboro" id="result_f_5"></td>
+            </tr>
+            <tr>
+              <td class="" id="result_sf_6"></td>
+              <td class="" id="result_sf_zero"></td>
+            </tr>
+          </table>
 
           <h3 class="Larger shadow p-3 rounded mt-5 py-3">五度圏</h3>
           <img class="pt-3 pb-3" src="image\Circle of fifth.png">
@@ -393,14 +381,14 @@
   <script src="js/Vue.js"></script>
   <script src="js/index.js"></script>
 
-    <!--ページのロードが終了したときに実行される関数 -->
-    <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        //転調の種類を判別するための関数
-        modulation();
-        keychange();
-      });
-    </script>
+  <!--ページのロードが終了したときに実行される関数 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      //転調の種類を判別するための関数
+      modulation();
+      keychange();
+    });
+  </script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->

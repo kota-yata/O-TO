@@ -73,12 +73,6 @@ box {
   margin: 0;
 }
 
-/* テーブル */
-
-/* .row {
-    font-size: clamp(0.5rem, 0.5rem + 0.5vw, 1rem);
-} */
-
 table {
   border-collapse: collapse;
   text-align: center;
@@ -95,8 +89,35 @@ td {
   border: 1px solid rgb(158, 158, 158);
 }
 
-/* 500px以下の画面で適用 */
+.clef {
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+}
 
+#modulationTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  border: 2px #808080 solid;
+}
+
+.modulationChangeTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: paleturquoise;
+}
+
+#modulationTable2 {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  text-align: left;
+  border: 2px #808080 solid;
+}
+
+.gainsboro {
+  background: #dcdcdc;
+}
+
+/* 500px以下の画面で適用 */
 @media only screen and (max-width: 600px) {
   table.mobile-scroll {
     white-space: nowrap;
