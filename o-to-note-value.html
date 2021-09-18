@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
   <!--文字エンコーディングの指定-->
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
 
   <!--ページタイトル-->
   <title>音価の計算をする O-TO【音楽理論ウェブアプリ】</title>
@@ -27,7 +27,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-note-value" />
   <meta property="og:locale" content="ja_JP" />
-    
+
   <!-- 画像情報 -->
   <meta property="og:image" content="image/o-to site title.png" />
   <meta property="og:image:width" content="328" />
@@ -163,8 +163,8 @@
                 <p class="py-2">———簡単です。</p>
                 <h4 class="pt-3 manual">【使い方】</h4>
                 <p class="py-2">調べたいBPMを入力すると、計算が行われます。</p>
-                <p class="py-2">※ここに無い種類の音符の長さを求めたい方は、<a
-                    href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>をお使いください。</p>
+                <p class="py-2">※ここに無い種類の音符の長さを求めたい方は、<a href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>をお使いください。
+                </p>
 
                 <h4 class="pt-3 manual">【表示形式】</h4>
                 <p class="py-2">音価の表示形式は、[<b>秒、ミリ秒、マイクロ秒、sec、ms、μs</b>]の6種類から選べます。</p>
@@ -192,12 +192,12 @@
 
             <label for="input_bpm" class="box1 col-6 col-xxl-4">BPM
               <input id=input_bpm type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='3'
-                value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength()">
+                value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength2()">
             </label>
 
             <label for="time_unit" class="box2 col-6 col-xxl-2">表示形式
               <select id="time_unit" class="form-select my-1" aria-label="Default select example"
-                onchange="NoteLength()">
+                onchange="NoteLength2()">
                 <option value=秒>秒</option>
                 <option value=ミリ秒>ミリ秒</option>
                 <option value=マイクロ秒>マイクロ秒</option>
@@ -208,57 +208,54 @@
             </label>
           </div>
 
-          <div class="row py-2">
-            <div
-              class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="time_maxima"></div>
-            <div
-              class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="time_longa"></div>
-            <div
-              class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="time_double_whole_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2   text-center list-group-item-info"
-              id="time_whole_note"></div>
-            <div
-              class="list-group-item item box1 col-6 col-md-4 col-xl-2  text-center list-group-item-success"
-              id="time_1dot_half_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_half_note"></div>
-          </div>
+          <table>
+            <tr class="row py-2">
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
+                id="time_maxima"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
+                id="time_longa"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
+                id="time_double_whole_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2   text-center list-group-item-info"
+                id="time_whole_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2  text-center list-group-item-success"
+                id="time_1dot_half_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
+                id="time_half_note"></th>
+            </tr>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_half_note_triplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_quarter_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
-              id="time_quarter_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_8th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_quarter_note_triplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_8th_note"></div>
-          </div>
+            <tr class="row py-2">
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_half_note_triplet">
+              </th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
+                id="time_1dot_quarter_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
+                id="time_quarter_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
+                id="time_1dot_8th_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_quarter_note_triplet">
+              </th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
+                id="time_8th_note"></th>
+            </tr>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="time_1dot_16th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_8th_note_tuplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_16th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="time_quarter_note_quintuplet"> </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_16th_note_tuplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="time_32th_note"></div>
-          </div>
+            <tr class="row py-2">
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
+                id="time_1dot_16th_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_8th_note_tuplet">
+              </th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
+                id="time_16th_note"></th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
+                id="time_quarter_note_quintuplet"> </th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_16th_note_tuplet">
+              </th>
+              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
+                id="time_32th_note"></th>
+            </tr>
+          </table>
 
-          <p class="py-2">※ここに無い種類の音符の長さを求めたい方は、<a
-            href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>をお使いください。</p>
+          <p class="py-2">※ここに無い種類の音符の長さを求めたい方は、<a href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>をお使いください。</p>
 
         </div>
 
@@ -284,7 +281,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       //音価の計算をして描画する関数
-      NoteLength();
+      NoteLength2();
     });
   </script>
 
