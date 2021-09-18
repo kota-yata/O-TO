@@ -107,10 +107,13 @@ td {
   border: 2px #808080 solid;
 }
 
-.modulationChangeTable {
+.#modulationChangeTable {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   font-weight: bold;
-  background: paleturquoise;
+}
+
+#result_modulation {
+  background: whitesmoke;
 }
 
 #modulationTable2 {
@@ -138,6 +141,67 @@ td {
 
 /* ------------------------- */
 
+.modulationBorder0 {
+  outline: 10px solid #0588ff;
+  outline-offset: -10px;
+}
+
+.modulationBorder1 {
+  outline: 10px solid #a4c2f4;
+  outline-offset: -10px;
+}
+
+.modulationBorder2 {
+  outline: 10px solid #21daff;
+  outline-offset: -10px;
+}
+
+.modulationBorder3 {
+  outline: 10px solid #21ff95;
+  outline-offset: -10px;
+}
+
+.modulationBorder4 {
+  outline: 10px solid #01ff50;
+  outline-offset: -10px;
+}
+
+.modulationBorder5 {
+  outline: 10px solid #ffccff;
+  outline-offset: -10px;
+}
+
+.modulationBorder6 {
+  outline: 10px solid #00da15;
+  outline-offset: -10px;
+}
+
+.modulationBorder7 {
+  outline: 10px solid #fcfc04;
+  outline-offset: -10px;
+}
+
+.modulationBorder8 {
+  outline: 10px solid #ff6e01;
+  outline-offset: -10px;
+}
+
+.modulationBorder9 {
+  outline: 10px solid #ff2121;
+  outline-offset: -10px;
+}
+
+.modulationBorder10 {
+  outline: 10px solid #ff19bd;
+  outline-offset: -10px;
+}
+
+.modulationBorder11 {
+  outline: 10px solid #cc99ff;
+  outline-offset: -10px;
+}
+
+/* --------------------- */
 .ChordNotFound {
   background-color: gainsboro;
 }

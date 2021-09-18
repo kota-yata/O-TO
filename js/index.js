@@ -1200,10 +1200,10 @@ function modulation() {
 
     //転調の種類のテーブルのテーマをリセットする
     for (let step = 0; step < 12; step++) {
-        document.getElementById("result_modulation").classList.remove(`Degree${step}`);
+        document.getElementById("result_modulation").classList.remove(`modulationBorder${step}`);
     };
     //転調の種類のテーブルのテーマを色付けする
-    document.getElementById("result_modulation").classList.add(`Degree${modulation_num}`);
+    document.getElementById("result_modulation").classList.add(`modulationBorder${modulation_num}`);
 };
 
 //転調元から転調先を表示するための関数(転調の間隔)
