@@ -22,14 +22,14 @@ Vue.component('header-template', {
       <div>
       <nav class="navbar navbar-expand-xxl navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-    
+
       <a class="navbar-brand text-white" href="index.html">O-TO</a>
-    
+
       <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
@@ -66,7 +66,7 @@ Vue.component('header-template', {
 
         </ul>
       </div>
-    
+
       </div>
       </nav>
       </div>
@@ -88,7 +88,7 @@ Vue.component('right-column', {
         <div class="Larger shadow p-3 mt-0 mb-3 rounded pb-2 m-3">
           <h5>音楽理論アプリの一覧</h5>
         </div>
-      
+
         <ul>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chords.html">①コードの構成音を調べる（100種類以上）</a>
@@ -142,7 +142,7 @@ Vue.component('right-column', {
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>音楽関係の資料データ</h5>
         </div>
-      
+
       <ul>
           <li class="nav-item">
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">五度圏(png)</span></a>
@@ -163,11 +163,11 @@ Vue.component('right-column', {
             <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank" rel="noopener noreferrer">イコライザーの使い方 フローチャート(png)</span></a>
           </li>
       </ul>
-      
+
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>関連ページへのリンク</h5>
         </div>
-        
+
       <ul>
         <li class="nav-item">
           <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧（A=440Hz/12平均律）</span></a>
@@ -245,7 +245,7 @@ Vue.component('copyright-text', {
       <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
         data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
         style="display: none;"></a>
-      
+
       <p>&copy; 2021- KHUFRUDAMO NOTES (since 2009) </p>
     </div>
     `
