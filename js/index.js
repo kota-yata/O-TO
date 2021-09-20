@@ -336,7 +336,7 @@ function CreateChordChoices() {
 };
 
 //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
-function CeateScaleChoices() {
+function CeateScaleChoices(idName) {
     ScaleLanguage = "JapaneseName"
     //スケールを格納した配列の長さを取得する。
     Num = scale_Container.length;
@@ -346,9 +346,9 @@ function CeateScaleChoices() {
         Num--
         if (Num === 0) {
             //メジャースケールを初期の選択肢にする。
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
+            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
         } else {
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
+            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
         };
     };
 };
@@ -1116,11 +1116,12 @@ function NoteSwitch(Num) {
 
 //転調の種類を判別するための関数(転調の間隔)
 function modulation() {
+
     //入力された値を変数に代入する
     b_note_num = Number(document.getElementById("b_note").value);
-    b_mode_num = Number(document.getElementById("b_mode").value);
+    b_mode_num = scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['addNum'];
     a_note_num = Number(document.getElementById("a_note").value);
-    a_mode_num = Number(document.getElementById("a_mode").value);
+    a_mode_num = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['addNum'];
 
     b_key_num = mod(b_note_num - b_mode_num, 12);
     a_key_num = mod(a_note_num - a_mode_num, 12);
@@ -1135,7 +1136,7 @@ function modulation() {
 
     //転調前のキーと調号を表示
     document.getElementById("result_b_key").innerHTML
-        = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${mode_name[b_mode_num]}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef">`;
+        = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef">`;
 
     //転調後のキーの主音の異名同音を判定
     if (a_key_num === 0 || a_key_num === 2 || a_key_num === 4 || a_key_num === 6 || a_key_num === 7 || a_key_num === 9 || a_key_num === 11) {
@@ -1146,7 +1147,7 @@ function modulation() {
 
     //転調後のキーと調号を表示
     document.getElementById("result_a_key").innerHTML
-        = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${mode_name[a_mode_num]}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef">`;
+        = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef">`;
 
     //転調の種類を格納する配列を空で定義
     result_modulation = [];
@@ -1210,8 +1211,8 @@ function modulation() {
 function keychange() {
 
     note_number = document.getElementById("note").value;
-    mode_number = document.getElementById("mode").value;
-    after_mode_number = document.getElementById("after_mode").value;
+    mode_number = scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['addNum'];
+    after_mode_number = scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['addNum'];
 
     answer = Number(note_number) - Number(mode_number);
     sf_zore = mod((answer - 0), 12);
@@ -1243,98 +1244,98 @@ function keychange() {
 
     if (sf_zore === 0 || sf_zore === 2 || sf_zore === 4 || sf_zore === 6 || sf_zore === 7 || sf_zore === 9 || sf_zore === 11) {
         document.getElementById("result_origin").innerHTML
-            = `転調元のキー：${sharp_note_name[note_number]} ${mode_name[mode_number]}${sharp_key_signature[sf_zore]}`;
+            = `転調元のキー：${sharp_note_name[note_number]} ${scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['JapaneseName']}${sharp_key_signature[sf_zore]}`;
     } else {
         document.getElementById("result_origin").innerHTML
-            = `転調元のキー：${flat_note_name[note_number]} ${mode_name[mode_number]}${flat_key_signature[sf_zore]}`;
+            = `転調元のキー：${flat_note_name[note_number]} ${scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['JapaneseName']}${flat_key_signature[sf_zore]}`;
     };
 
     if (s_one === 0 || s_one === 2 || s_one === 4 || s_one === 6 || s_one === 7 || s_one === 9 || s_one === 11) {
         document.getElementById("result_s_1").innerHTML
-            = "#+1：" + sharp_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_one];
+            = "#+1：" + sharp_note_name[note_s_one] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[s_one];
     } else {
         document.getElementById("result_s_1").innerHTML
-            = "#+1：" + flat_note_name[note_s_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_one];
+            = "#+1：" + flat_note_name[note_s_one] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[s_one];
     };
 
     if (f_one === 0 || f_one === 2 || f_one === 4 || f_one === 6 || f_one === 7 || f_one === 9 || f_one === 11) {
         document.getElementById("result_f_1").innerHTML
-            = "♭+1：" + sharp_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_one];
+            = "♭+1：" + sharp_note_name[note_f_one] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[f_one];
     } else {
         document.getElementById("result_f_1").innerHTML
-            = "♭+1：" + flat_note_name[note_f_one] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_one];
+            = "♭+1：" + flat_note_name[note_f_one] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[f_one];
     };
 
     if (s_two === 0 || s_two === 2 || s_two === 4 || s_two === 6 || s_two === 7 || s_two === 9 || s_two === 11) {
         document.getElementById("result_s_2").innerHTML
-            = "#+2：" + sharp_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_two];
+            = "#+2：" + sharp_note_name[note_s_two] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[s_two];
     } else {
         document.getElementById("result_s_2").innerHTML
-            = "#+2：" + flat_note_name[note_s_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_two];
+            = "#+2：" + flat_note_name[note_s_two] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[s_two];
     };
 
     if (f_two === 0 || f_two === 2 || f_two === 4 || f_two === 6 || f_two === 7 || f_two === 9 || f_two === 11) {
         document.getElementById("result_f_2").innerHTML
-            = "♭+2：" + sharp_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_two];
+            = "♭+2：" + sharp_note_name[note_f_two] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[f_two];
     } else {
         document.getElementById("result_f_2").innerHTML
-            = "♭+2：" + flat_note_name[note_f_two] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_two];
+            = "♭+2：" + flat_note_name[note_f_two] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[f_two];
     };
 
     if (s_three === 0 || s_three === 2 || s_three === 4 || s_three === 6 || s_three === 7 || s_three === 9 || s_three === 11) {
         document.getElementById("result_s_3").innerHTML
-            = "#+3：" + sharp_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_three];
+            = "#+3：" + sharp_note_name[note_s_three] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[s_three];
     } else {
         document.getElementById("result_s_3").innerHTML
-            = "#+3：" + flat_note_name[note_s_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_three];
+            = "#+3：" + flat_note_name[note_s_three] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[s_three];
     };
 
     if (f_three === 0 || f_three === 2 || f_three === 4 || f_three === 6 || f_three === 7 || f_three === 9 || f_three === 11) {
         document.getElementById("result_f_3").innerHTML
-            = "♭+3：" + sharp_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_three];
+            = "♭+3：" + sharp_note_name[note_f_three] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[f_three];
     } else {
         document.getElementById("result_f_3").innerHTML
-            = "♭+3：" + flat_note_name[note_f_three] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_three];
+            = "♭+3：" + flat_note_name[note_f_three] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[f_three];
     };
 
     if (s_four === 0 || s_four === 2 || s_four === 4 || s_four === 6 || s_four === 7 || s_four === 9 || s_four === 11) {
         document.getElementById("result_s_4").innerHTML
-            = "#+4：" + sharp_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_four];
+            = "#+4：" + sharp_note_name[note_s_four] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[s_four];
     } else {
         document.getElementById("result_s_4").innerHTML
-            = "#+4：" + flat_note_name[note_s_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_four];
+            = "#+4：" + flat_note_name[note_s_four] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[s_four];
     };
 
     if (f_four === 0 || f_four === 2 || f_four === 4 || f_four === 6 || f_four === 7 || f_four === 9 || f_four === 11) {
         document.getElementById("result_f_4").innerHTML
-            = "♭+4：" + sharp_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_four];
+            = "♭+4：" + sharp_note_name[note_f_four] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[f_four];
     } else {
         document.getElementById("result_f_4").innerHTML
-            = "♭+4：" + flat_note_name[note_f_four] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_four];
+            = "♭+4：" + flat_note_name[note_f_four] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[f_four];
     };
 
     if (s_five === 0 || s_five === 2 || s_five === 4 || s_five === 6 || s_five === 7 || s_five === 9 || s_five === 11) {
         document.getElementById("result_s_5").innerHTML
-            = "#+5：" + sharp_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[s_five];
+            = "#+5：" + sharp_note_name[note_s_five] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[s_five];
     } else {
         document.getElementById("result_s_5").innerHTML
-            = "#+5：" + flat_note_name[note_s_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[s_five];
+            = "#+5：" + flat_note_name[note_s_five] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[s_five];
     };
 
     if (f_five === 0 || f_five === 2 || f_five === 4 || f_five === 6 || f_five === 7 || f_five === 9 || f_five === 11) {
         document.getElementById("result_f_5").innerHTML
-            = "♭+5：" + sharp_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[f_five];
+            = "♭+5：" + sharp_note_name[note_f_five] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[f_five];
     } else {
         document.getElementById("result_f_5").innerHTML
-            = "♭+5：" + flat_note_name[note_f_five] + " " + mode_name[after_mode_number] + " " + flat_key_signature[f_five];
+            = "♭+5：" + flat_note_name[note_f_five] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[f_five];
     };
 
     if (sf_six === 0 || sf_six === 2 || sf_six === 4 || sf_six === 6 || sf_six === 7 || sf_six === 9 || sf_six === 11) {
         document.getElementById("result_sf_6").innerHTML
-            = "#・♭+6：" + sharp_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_six];
+            = "#・♭+6：" + sharp_note_name[note_sf_six] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[sf_six];
     } else {
         document.getElementById("result_sf_6").innerHTML
-            = "#・♭+6：" + flat_note_name[note_sf_six] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_six];
+            = "#・♭+6：" + flat_note_name[note_sf_six] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[sf_six];
     };
 
     if (Number(mode_number) === Number(after_mode_number)) {
@@ -1342,10 +1343,10 @@ function keychange() {
             = "#・♭+0：";
     } else if (sf_zore === 0 || sf_zore === 2 || sf_zore === 4 || sf_zore === 6 || sf_zore === 7 || sf_zore === 9 || sf_zore === 11) {
         document.getElementById("result_sf_zero").innerHTML
-            = "#・♭+0：" + sharp_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + sharp_key_signature[sf_zore];
+            = "#・♭+0：" + sharp_note_name[note_sf_zore] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[sf_zore];
     } else {
         document.getElementById("result_sf_zero").innerHTML
-            = "#・♭+0：" + flat_note_name[note_sf_zore] + " " + mode_name[after_mode_number] + " " + flat_key_signature[sf_zore];
+            = "#・♭+0：" + flat_note_name[note_sf_zore] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[sf_zore];
     };
 
 };

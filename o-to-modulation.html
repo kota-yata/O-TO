@@ -218,19 +218,12 @@
               </select>
             </label>
 
-            <label for="b_mode" class="box2 col-6 col-xxl-3">転調前の調性
+            <label for="b_mode" class="box2 col-6 col-xxl-4">転調前の調性
               <select id="b_mode" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
-                <option value=0>Major (Ionian)</option>
-                <option value=2>Dorian</option>
-                <option value=4>Phrygian</option>
-                <option value=5>Lydian</option>
-                <option value=7>Mixolydian</option>
-                <option value=9>Minor (Aeolian)</option>
-                <option value=11>Locrian</option>
               </select>
             </label>
 
-            <label for="a_note" class="box4 col-6 col-xxl-2 offset-xxl-1">転調後の主音
+            <label for="a_note" class="box4 col-6 col-xxl-2">転調後の主音
               <select id="a_note" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
                 <option value=0>C</option>
                 <option value=1>C#-D♭</option>
@@ -247,15 +240,8 @@
               </select>
             </label>
 
-            <label for="a_mode" class="box5 col-6 col-xxl-3">転調後の調性
+            <label for="a_mode" class="box5 col-6 col-xxl-4">転調後の調性
               <select id="a_mode" class="form-select my-1" aria-label="Default select example" onchange="modulation()">
-                <option value=0>Major (Ionian)</option>
-                <option value=2>Dorian</option>
-                <option value=4>Phrygian</option>
-                <option value=5>Lydian</option>
-                <option value=7>Mixolydian</option>
-                <option value=9>Minor (Aeolian)</option>
-                <option value=11>Locrian</option>
               </select>
             </label>
           </div>
@@ -290,26 +276,12 @@
 
             <label for="mode" class="box3 col-7 col-xxl-4">転調元の調性
               <select id="mode" class="form-select my-1" aria-label="Default select example" onchange="keychange()">
-                <option value=0>Major (Ionian)</option>
-                <option value=2>Dorian</option>
-                <option value=4>Phrygian</option>
-                <option value=5>Lydian</option>
-                <option value=7>Mixolydian</option>
-                <option value=9>Minor (Aeolian)</option>
-                <option value=11>Locrian</option>
               </select>
             </label>
 
             <label for="after_mode" class="box3 col-md-12 col-xxl-4 offset-xxl-1">転調後の調性
               <select id="after_mode" class="form-select my-1" aria-label="Default select example"
                 onchange="keychange()">
-                <option value=0>Major (Ionian)</option>
-                <option value=2>Dorian</option>
-                <option value=4>Phrygian</option>
-                <option value=5>Lydian</option>
-                <option value=7>Mixolydian</option>
-                <option value=9>Minor (Aeolian)</option>
-                <option value=11>Locrian</option>
               </select>
             </label>
           </div>
@@ -384,6 +356,11 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
+      //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
+      CeateScaleChoices("a_mode");
+      CeateScaleChoices("b_mode");
+      CeateScaleChoices("mode");
+      CeateScaleChoices("after_mode");
       //転調の種類を判別するための関数
       modulation();
       keychange();
