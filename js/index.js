@@ -1134,9 +1134,24 @@ function modulation() {
         b_SOF = 1;
     };
 
+    let b_Configuration = scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['ScaleNumBinary'];
+    let b_ConfigurationNotes = [];
+
+    //for文でスケールの構成音を生成する。
+    for (let i = 0; i < 12; i++) {
+        //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+        if (b_Configuration[i] === 2) {
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][0]);
+        } else if (b_Configuration[i] === 3) {
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][1]);
+        } else if (b_Configuration[i] >= 1) {
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][b_SOF]);
+        };
+    };
+
     //転調前のキーと調号を表示
     document.getElementById("result_b_key").innerHTML
-        = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef">`;
+        = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${b_ConfigurationNotes.join("-")}</font>`;
 
     //転調後のキーの主音の異名同音を判定
     if (a_key_num === 0 || a_key_num === 2 || a_key_num === 4 || a_key_num === 6 || a_key_num === 7 || a_key_num === 9 || a_key_num === 11) {
@@ -1145,27 +1160,42 @@ function modulation() {
         a_SOF = 1;
     };
 
+    let a_Configuration = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['ScaleNumBinary'];
+    let a_ConfigurationNotes = [];
+
+    //for文でスケールの構成音を生成する。
+    for (let i = 0; i < 12; i++) {
+        //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+        if (a_Configuration[i] === 2) {
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][0]);
+        } else if (a_Configuration[i] === 3) {
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][1]);
+        } else if (a_Configuration[i] >= 1) {
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][a_SOF]);
+        };
+    };
+
     //転調後のキーと調号を表示
     document.getElementById("result_a_key").innerHTML
-        = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef">`;
+        = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${a_ConfigurationNotes.join("-")}</font>`;
 
     //転調の種類を格納する配列を空で定義
     result_modulation = [];
 
     //転調の種類を表示
     if (b_key_num === a_key_num && b_note_num === a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>転調なし<br>　`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">転調なし</font><br>　`);
     } else if (b_key_num === a_key_num && b_note_num != a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（平行調）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（平行調）`);
     } else if (b_note_num === a_note_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同主調）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（同主調）`);
         //メジャー及び、マイナーでは「同旋法移行」と表示しない。
     } else if (b_mode_num === a_mode_num && a_mode_num === 0 || b_mode_num === a_mode_num && a_mode_num === 9) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font>`);
     } else if (b_mode_num === a_mode_num) {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>（同旋法移行）`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>（同旋法移行）`);
     } else {
-        result_modulation.unshift(`【転調の種類】<br><br>${modulation_type[modulation_num]}<br>　`);
+        result_modulation.unshift(`【転調の種類】<br><br><font size="+2">${modulation_type[modulation_num]}</font><br>　`);
     };
 
     //追加情報
