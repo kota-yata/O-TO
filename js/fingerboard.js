@@ -138,7 +138,7 @@ function ScaleAndChordsDrowing() {
         </label>`);
 
         //JavaScriptによってスケールの選択肢を追加する
-        CeateScaleChoices();
+        CeateScaleChoices("constituent_binary");
 
         document.getElementById("InformationBlock").insertAdjacentHTML('afterbegin', `
             <div class="accordion py-3" id="accordionExample">
