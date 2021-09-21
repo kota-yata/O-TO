@@ -161,6 +161,10 @@ function ToDegreeName(text, Root) {
         .replace(/V/g, "Ⅴ")
         .replace(/I/g, "Ⅰ")
 
+    text = text.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) - 65248);
+    });
+
     RootNumber = Number(Root);
 
     c = mod(RootNumber + 0, 12);
@@ -226,7 +230,6 @@ function ToDegreeName(text, Root) {
     return text;
 };
 
-
 //正誤判定を行うプログラム
 function Validation() {
 
@@ -264,7 +267,12 @@ function Validation() {
 
     //変換してもなお変化記号が含まれる場合を判定
     if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('&#119082;') || ValidationText.includes('&#119083;')) {
-        document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
+        //コードネームに含まれる場合はOK
+        if (ValidationText.includes('#5') || ValidationText.includes('♭5')) {
+            document.getElementById("ValidationBox").innerHTML = "";
+        } else {
+            document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
+        };
     } else {
         document.getElementById("ValidationBox").innerHTML = "";
     };
