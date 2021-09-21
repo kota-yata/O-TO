@@ -141,9 +141,9 @@
         <!-- タブの切り替えボタン -->
         <div id="tabs">
           <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-          <label for="tab1">使う</label>
+          <label for="tab1">ガイド</label>
           <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-          <label for="tab2">ガイド</label>
+          <label for="tab2">説明書</label>
           <input type="radio" value="3" id="tab3" v-model="isActive"></input>
           <label for="tab3">関連資料</label>
         </div>
@@ -151,11 +151,11 @@
         <div id="contents">
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
+            <p class="pt-3 pb-2">構成音からコード・ネームを検索できるアプリです。<br>同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。<br>
           </div>
 
           <!-- タブ2の中身 -->
           <div v-if="isActive == '2'" class="pb-2">
-            <p class="pt-3 pb-2">コード・ネーム及び、その構成音を含むスケールを判定するアプリです。<br>
 
             <p class="py-2">――あなたのインスピレーションの名前を見つけましょう。</p>
 

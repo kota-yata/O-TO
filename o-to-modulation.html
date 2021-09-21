@@ -143,9 +143,9 @@
             <!-- タブの切り替えボタン -->
             <div id="tabs">
               <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-              <label for="tab1">使う</label>
+              <label for="tab1">ガイド</label>
               <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-              <label for="tab2">ガイド</label>
+              <label for="tab2">説明書</label>
               <input type="radio" value="3" id="tab3" v-model="isActive"></input>
               <label for="tab3">関連資料</label>
             </div>
@@ -154,6 +154,7 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
+                <p class="py-2">指定した調（キー）の関係性を調べられるアプリです。<br>60を超えるスケールや、モードを指定可能です。<br>
               </div>
 
               <!-- タブ2の中身 -->
@@ -167,8 +168,8 @@
                 <p class="py-2">ドロップダウンリストから任意の項目を選んでください。<br>結果は自動的に切り替わります。</p>
 
                 <h4 class="pt-3 manual">【異名同音について】</h4>
-                <p class="pt-2">このページでは、厳密な異名同音の区別を行っていません。</p>
-                <p class="pt-2 pb-4"><a href="https://khufrudamonotes.com/enharmonic" target="_blank"
+                <p class="pt-2">このページでは、厳密な異名同音の区別を行っていません。<br>→
+                  <a href="https://khufrudamonotes.com/enharmonic" target="_blank"
                     rel="noopener noreferrer">異名同音を解説します【「ド#」と「レ♭」との違いとは？】</a>
                 </p>
 
@@ -323,7 +324,7 @@
             </tr>
           </table>
 
-          <h3 class="Larger shadow p-3 rounded mt-5 py-3">五度圏</h3>
+          <h3 class="Larger shadow p-3 rounded mt-5 py-3">五度圏の画像</h3>
           <img class="pt-3 pb-3" src="image\Circle of fifth.png">
 
 

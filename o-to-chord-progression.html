@@ -145,9 +145,9 @@
             <!-- タブの切り替えボタン -->
             <div id="tabs">
               <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-              <label for="tab1">使う</label>
+              <label for="tab1">ガイド</label>
               <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-              <label for="tab2">ガイド</label>
+              <label for="tab2">説明書</label>
               <input type="radio" value="3" id="tab3" v-model="isActive"></input>
               <label for="tab3">関連資料</label>
             </div>
@@ -156,19 +156,17 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
+                <p class="pt-3 pb-2">80種類以上のコード進行をまとめたアプリです。<br>表示は全てのキーへ切り替え可能なので、実質1000以上のコード進行を確認できます。</p>
+                <p class="py-2">※任意のコード進行のキーを切り替えたい方は、<a href="o-to-degree-change.html">⑨コード移調</a>も併せてお使いください。</p>
               </div>
 
               <!-- タブ2の中身 -->
               <div v-if="isActive == '2'" class="pb-2">
-                <p class="pt-3 pb-2">よく使用されている気がするコード進行のパターンを<b>70種類</b>以上まとめました。<br>しかも、表示を<b>全てのキーへ切り替え可能</b>です。</p>
-
-                <p class="py-2">——しばらくアイディアには困らないでしょう。</p>
 
                 <h4 class="pt-3 manual">【使い方】</h4>
                 <p class="py-2">ドロップダウンリストから任意のキーを選んでください。<br>
                 <p class="py-2">コード進行は、そのまま使用する必要はありません。<br>
                   組み合わせたり、代理コードで置き換えたりしてもOKです。</p>
-                <p class="py-2">※任意のコード進行のキーを切り替えたい方は、<a href="o-to-degree-change.html">⑨コード移調</a>も併せてお使いください。</p>
 
                 <h4 class="pt-3 manual">【分類の方法】</h4>
                 <p class="py-2">多くのコード進行は、キーのⅠ、Ⅳ、Ⅵmから始まります。</p>

@@ -143,9 +143,9 @@
             <!-- タブの切り替えボタン -->
             <div id="tabs">
               <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-              <label for="tab1">使う</label>
+              <label for="tab1">ガイド</label>
               <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-              <label for="tab2">ガイド</label>
+              <label for="tab2">説明書</label>
               <input type="radio" value="3" id="tab3" v-model="isActive"></input>
               <label for="tab3">関連資料</label>
             </div>
@@ -154,12 +154,11 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
+                <p class="pt-3 pb-2">指定したBPMの、18種類の「音符の長さ」を計算するアプリです。<br>表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。</p>
               </div>
 
               <!-- タブ2の中身 -->
               <div v-if="isActive == '2'" class="pb-2">
-                <p class="pt-3 pb-2">主要な音符の「音価」を計算できるアプリです。</p>
-
                 <p class="py-2">ディレイ・タイムが計算したいですか？<br>
                   リヴァーブ・プラグインに入力する値の目安が知りたいですか？</p>
                 <p class="py-2">———簡単です。</p>

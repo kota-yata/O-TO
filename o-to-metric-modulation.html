@@ -145,9 +145,9 @@
             <!-- タブの切り替えボタン -->
             <div id="tabs">
               <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-              <label for="tab1">使う</label>
+              <label for="tab1">ガイド</label>
               <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-              <label for="tab2">ガイド</label>
+              <label for="tab2">説明書</label>
               <input type="radio" value="3" id="tab3" v-model="isActive"></input>
               <label for="tab3">関連資料</label>
             </div>
@@ -156,12 +156,12 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
+                <p class="pt-3 pb-2">「メトリック・モジュレーション」に関係する情報を調べるアプリです。<br>様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。</p>
               </div>
 
               <!-- タブ2の中身 -->
               <div v-if="isActive == '2'" class="pb-2">
-                <p class="pt-3 pb-2"><b>メトリック・モジュレーション</b>に関係する情報を調べられるアプリです。</p>
-                <p class="py-2"><b>メトリック・モジュレーション</b>は、整合性を持ったテンポチェンジや、高度なリズム・トリックに使われる手法です。</p>
+                <p class="py-2">「メトリック・モジュレーション」は、整合性を持ったテンポチェンジや、高度なリズム・トリックに使われる手法です。</p>
                 <p class="py-2">———しかし、このアプリを使えば恐れるに足りません。</p>
 
                 <h4 class="pt-3 manual">【使い方】</h4>

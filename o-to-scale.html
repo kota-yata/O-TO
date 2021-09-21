@@ -51,7 +51,6 @@
   <meta name="twitter:title" content="スケールの構成音を調べる（60種類以上） O-TO【音楽理論ウェブアプリ】" />
   <meta name="twitter:description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
   <meta property="og:description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
-  <meta property="og:image" content="image\o-to site title.png" />
 
   <!--サイトアイコンの指定-->
   <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
@@ -141,9 +140,9 @@
         <!-- タブの切り替えボタン -->
         <div id="tabs">
           <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-          <label for="tab1">使う</label>
+          <label for="tab1">ガイド</label>
           <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-          <label for="tab2">ガイド</label>
+          <label for="tab2">説明書</label>
           <input type="radio" value="3" id="tab3" v-model="isActive"></input>
           <label for="tab3">関連資料</label>
         </div>
@@ -152,11 +151,11 @@
 
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
+            <p class="pt-3 pb-2">60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。<br>指定したスケールの構成音を含む主なコードも表示されます。</p>
           </div>
 
           <!-- タブ2の中身 -->
           <div v-if="isActive == '2'" class="pb-2">
-            <p class="pt-3 pb-2">60を超えるスケールの構成音を、全てのキーで確認できるアプリです。</p>
 
             <p class="py-2">スケールの構成音を把握するのに時間を使っていませんか？<br>
               ———お任せください。 </p>

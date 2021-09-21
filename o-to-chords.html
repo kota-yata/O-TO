@@ -140,9 +140,9 @@
         <!-- タブの切り替えボタン -->
         <div id="tabs">
           <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-          <label for="tab1">使う</label>
+          <label for="tab1">ガイド</label>
           <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-          <label for="tab2">ガイド</label>
+          <label for="tab2">説明書</label>
           <input type="radio" value="3" id="tab3" v-model="isActive"></input>
           <label for="tab3">関連資料</label>
         </div>
@@ -151,14 +151,13 @@
 
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
+            <p class="pt-3 pb-2">100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。<br>
+              同時に、指定したコードの構成音を含む主なスケールも表示されます。
+            <p>
           </div>
 
           <!-- タブ2の中身 -->
           <div v-if="isActive == '2'" class="pb-2">
-            <p class="pt-3 pb-2">コードの構成音を調べられるアプリです。<br>
-
-            <p class="py-2">――コードの構成音が分からないのも今日までです。</p>
-
             <h4 class="pt-3 manual">【使い方】</h4>
             <p class="py-2">ドロップダウンリストから任意の項目を選んでください。<br>結果は自動的に切り替わります。</p>
 

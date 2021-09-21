@@ -143,9 +143,9 @@
                 <!-- タブの切り替えボタン -->
                 <div id="tabs">
                     <input type="radio" value="1" id="tab1" v-model="isActive"></input>
-                    <label for="tab1">使う</label>
+                    <label for="tab1">ガイド</label>
                     <input type="radio" value="2" id="tab2" v-model="isActive"></input>
-                    <label for="tab2">ガイド</label>
+                    <label for="tab2">説明書</label>
                     <input type="radio" value="3" id="tab3" v-model="isActive"></input>
                     <label for="tab3">関連資料</label>
                 </div>
@@ -154,13 +154,13 @@
 
                     <!-- タブ1の中身 -->
                     <div v-if="isActive == '1'">
+                        <p class="pt-3 pb-2">コードやスケールの「指板上のポジション」を可視化するアプリです。<br>ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。</p>
                     </div>
 
                     <!-- タブ2の中身 -->
                     <div v-if="isActive == '2'" class="pb-2">
-                        <p class="pt-3 pb-2">弦楽器の指板を色付けして、構成音やポジションを可視化するアプリです。</p>
 
-                        <p class="py-2">――弦楽器は、音名とポジションを把握しづらいです。<br>
+                        <p class="py-2">弦楽器は、音名とポジションを把握しづらいです。<br>
                             なぜなら、同じ音が複数の場所にあり、チューニングによってポジションも変化するためです。 </p>
 
                         <p class="py-2">もちろん、主要なコードやスケールのポジションなら暗記している方も多いと思います。<br>
@@ -169,8 +169,8 @@
                         <p class="py-2">たとえば、今すぐ指板上に<b>"F ダブル・ハーモニック・スケール"</b>のポジションをイメージできますか？ </p>
                         <p class="py-2">…僕は無理です。笑</p>
 
-                        <p class="py-2">このアプリは、そんな悩みを解決するために作りました。</p>
-                        <p class="py-2">もう、いちいちメモを書く必要はありません。</p>
+                        <p class="py-2">このアプリは、そんな悩みを解決するために作りました。<br>
+                            ――もう、いちいちメモを書く必要はありません。</p>
 
                         <h4 class="pt-3 manual">【チューニングの種類】</h4>
                         <p class="py-2"><b>ギター、ベース、ヴァイオリン</b>など主な弦楽器のチューニングをまとめました。<br>
