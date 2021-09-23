@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="234" viewBox="0 0 1200 234">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 21.333px;
+      }
+
+      .cls-1, .cls-15, .cls-18, .cls-19, .cls-2, .cls-3, .cls-4, .cls-6 {
+        fill: #dcdcdc;
+      }
+
+      .cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-2, .cls-21, .cls-23, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        text-anchor: middle;
+      }
+
+      .cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-18, .cls-19, .cls-2, .cls-20, .cls-22, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        font-family: HGSSoeiKakugothicUB;
+      }
+
+      .cls-2 {
+        font-size: 32px;
+      }
+
+      .cls-3 {
+        font-size: 33.333px;
+      }
+
+      .cls-10, .cls-4 {
+        font-size: 60px;
+      }
+
+      .cls-23, .cls-5 {
+        font-size: 20px;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-16, .cls-17, .cls-5, .cls-7, .cls-8, .cls-9 {
+        fill: #e5e5e5;
+      }
+
+      .cls-6 {
+        font-size: 96px;
+      }
+
+      .cls-7 {
+        font-size: 93.333px;
+      }
+
+      .cls-8 {
+        font-size: 53.333px;
+      }
+
+      .cls-9 {
+        font-size: 80px;
+      }
+
+      .cls-11 {
+        font-size: 46.667px;
+      }
+
+      .cls-12 {
+        font-size: 16px;
+      }
+
+      .cls-13 {
+        font-size: 120px;
+      }
+
+      .cls-14, .cls-15 {
+        font-size: 49.333px;
+      }
+
+      .cls-14 {
+        fill: #eee;
+      }
+
+      .cls-16, .cls-17, .cls-21 {
+        font-size: 66.667px;
+      }
+
+      .cls-17, .cls-21 {
+        font-family: HGPGothicE;
+      }
+
+      .cls-18 {
+        font-size: 86.667px;
+      }
+
+      .cls-19 {
+        font-size: 100px;
+      }
+
+      .cls-20 {
+        font-size: 160px;
+      }
+
+      .cls-23 {
+        fill: #dc143c;
+        font-family: HGSoeiKakugothicUB;
+      }
+    </style>
+  </defs>
+  <text id="_m7_5_-_-_dim_-_" data-name=" Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ" class="cls-1" x="163.019" y="151.474"><tspan x="163.019">	Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ</tspan></text>
+  <text id="コード進行_" data-name="コード進行 " class="cls-2" transform="translate(134.641 42.13) scale(1.313)"><tspan x="0">コード進行 </tspan></text>
+  <text id="_-_-_m-_m_-_-_-_m-_" data-name="Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ" class="cls-3" transform="translate(889.502 99.075) scale(0.442)"><tspan x="0">Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ</tspan></text>
+  <text id="_468.75ms" data-name="468.75ms" class="cls-4" transform="translate(1116.08 116.527) scale(0.5)"><tspan x="0">468.75ms</tspan></text>
+  <text id="_ダブル_ハーモニック_スケール" data-name="Ｅダブル・ハーモニック・スケール" class="cls-5" x="236.25" y="177.646"><tspan x="236.25">Ｅダブル・ハーモニック・スケール</tspan></text>
+  <text id="スケール" class="cls-6" transform="translate(1064.924 50.1) scale(0.619)"><tspan x="0">スケール</tspan></text>
+  <text id="B_sus4" data-name="B♭sus4" class="cls-7" transform="translate(844.777 223.611) scale(0.453)"><tspan x="0">B♭sus4</tspan></text>
+  <text id="下属調" class="cls-8" transform="translate(70.431 86.329) scale(0.548)"><tspan x="0">下属調</tspan></text>
+  <text id="Fadd9" class="cls-9" transform="translate(205.366 93.747) scale(0.617)"><tspan x="0">Fadd9</tspan></text>
+  <text id="メトリック_モジュレーション" data-name="メトリック・モジュレーション" class="cls-10" transform="translate(1008.684 74.065) scale(0.384)"><tspan x="0">メトリック・モジュレーション</tspan></text>
+  <text id="モーダル_インターチェンジ" data-name="モーダル・インターチェンジ" class="cls-11" transform="translate(226 117.947) scale(0.521)"><tspan x="0">モーダル・インターチェンジ</tspan></text>
+  <text id="_m7_5_G" data-name="Ｄm7(♭5)/G" class="cls-11" transform="translate(89.144 211.073) scale(0.569)"><tspan x="0">Ｄm7(♭5)/G</tspan></text>
+  <text id="コード検索" class="cls-10" transform="translate(383.935 219.023) scale(0.613)"><tspan x="0">コード検索</tspan></text>
+  <text id="BPM_128の_8分音符_の音価は_234.375msです_" data-name="BPM=128の「8分音符」の音価は、234.375msです。" class="cls-12" transform="matrix(0.718, 0, 0, 0.718, 503, 14.118)"><tspan x="0">BPM=128の「8分音符」の音価は、234.375msです。</tspan></text>
+  <text id="ギター" class="cls-13" transform="translate(886.919 184.149) scale(0.328)"><tspan x="0">ギター</tspan></text>
+  <text id="指板" class="cls-14" transform="translate(237.752 224.744) scale(0.96)"><tspan x="0">指板</tspan></text>
+  <text id="オルタード" class="cls-15" transform="translate(874.291 144.511) scale(0.884)"><tspan x="0">オルタード</tspan></text>
+  <text id="移調" class="cls-16" transform="translate(433.847 111.997) scale(0.472)"><tspan x="0">移調</tspan></text>
+  <text id="ダイアトニック_コード" data-name="ダイアトニック・コード" class="cls-17" transform="translate(486.175 146.958) scale(0.484)"><tspan x="0">ダイアトニック・コード</tspan></text>
+  <text id="カノン進行" class="cls-18" transform="translate(583.082 192.53) scale(0.207)"><tspan x="0">カノン進行</tspan></text>
+  <text id="転調_" data-name="転調 " class="cls-19" x="1100" y="214"><tspan x="1100">転調 </tspan></text>
+  <text id="O-TO" class="cls-20" transform="translate(463.234 186.944) scale(0.729)">O-TO</text>
+  <text id="音楽理論ウェブアプリ" class="cls-21" x="605" y="73"><tspan x="605">音楽理論<tspan class="cls-22">ウェブアプリ</tspan></tspan></text>
+  <text id="音楽理論をハックせよ_" data-name="音楽理論をハックせよ！" class="cls-23" transform="translate(615 223.87) scale(1.281)"><tspan x="0">音楽理論をハックせよ！</tspan></text>
+</svg>

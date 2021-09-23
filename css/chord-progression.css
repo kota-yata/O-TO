@@ -15,6 +15,13 @@ img {
   height: auto;
 }
 
+.header_image {
+  background-position: center;
+  background-size: cover;
+  padding-top: 5rem;
+  margin-bottom: 1.75rem;
+}
+
 textarea {
   width: 100%;
   box-sizing: border-box;
