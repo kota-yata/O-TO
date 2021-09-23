@@ -15,18 +15,18 @@ const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "
 const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
 
 const clef_image = [
-    "Treble_clef_with_empty_staff.svg",
-    "D-flat-major_b-flat-minor.svg",
-    "D-major_b-minor.svg",
-    "E-flat-major_c-minor.svg",
-    "E-major_c-sharp-minor.svg",
-    "F-major_d-minor.svg",
-    "F-sharp-major_d-sharp-minor.svg",
-    "G-major_e-minor.svg",
-    "A-flat-major_f-minor.svg",
-    "A-major_f-sharp-minor.svg",
-    "B-flat-major_g-minor.svg",
-    "B-major_g-sharp-minor.svg",
+    "clef/Treble_clef_with_empty_staff.svg",
+    "clef/D-flat-major_b-flat-minor.svg",
+    "clef/D-major_b-minor.svg",
+    "clef/E-flat-major_c-minor.svg",
+    "clef/E-major_c-sharp-minor.svg",
+    "clef/F-major_d-minor.svg",
+    "clef/F-sharp-major_d-sharp-minor.svg",
+    "clef/G-major_e-minor.svg",
+    "clef/A-flat-major_f-minor.svg",
+    "clef/A-major_f-sharp-minor.svg",
+    "clef/B-flat-major_g-minor.svg",
+    "clef/B-major_g-sharp-minor.svg",
 ];
 
 const EIJG =
