@@ -125,6 +125,7 @@ table {
   /* 幅 */
   table-layout: fixed;
   font-size: clamp(0.1rem, 0.1rem + 1vw, 0.95rem);
+  white-space: nowrap;
 }
 
 th,
@@ -198,6 +199,7 @@ td {
 
 .Degree10 {
   background-color: #ff19bd;
+  color: whitesmoke;
 }
 
 .Degree11 {
