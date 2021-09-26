@@ -194,12 +194,12 @@
 
             <label for="input_bpm" class="box1 col-6 col-xxl-4">BPM
               <input id=input_bpm type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='3'
-                value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength2()">
+                value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength()">
             </label>
 
             <label for="time_unit" class="box2 col-6 col-xxl-2">表示形式
               <select id="time_unit" class="form-select my-1" aria-label="Default select example"
-                onchange="NoteLength2()">
+                onchange="NoteLength()">
                 <option value=秒>秒</option>
                 <option value=ミリ秒>ミリ秒</option>
                 <option value=マイクロ秒>マイクロ秒</option>
@@ -281,7 +281,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       //音価の計算をして描画する関数
-      NoteLength2();
+      NoteLength();
     });
   </script>
 
