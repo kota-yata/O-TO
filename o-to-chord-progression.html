@@ -210,31 +210,38 @@
 
           <div class="text-right">
 
-            <label for="rootNumber" class="box1 col-8 offset-2 col-xl-2 py-3 mx-2">調べたいキー
+            <label for="rootNumber" class="pb-4">調べたいキー
               <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
                 onchange="ChangeChordProgression()">
-                <option value=0>C (#・♭×0)</option>
-                <option value=1>D♭ (♭×5)</option>
-                <option value=2>D (#×2)</option>
-                <option value=3>E♭ (♭×3)</option>
-                <option value=4>E (#×4)</option>
-                <option value=5>F (♭×1)</option>
-                <option value=6>F# (#×6)</option>
-                <option value=7>G (#×1)</option>
-                <option value=8>A♭ (♭×4)</option>
-                <option value=9>A (#×3)</option>
-                <option value=10>B♭ (♭×2)</option>
-                <option value=11>B (#×5)</option>
+                <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
+                <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
+                <option value=2>Dメジャー / Bマイナー (#×2)</option>
+                <option value=3>E♭メジャー / Cマイナー (♭×3)</option>
+                <option value=4>Eメジャー / C#マイナー (#×4)</option>
+                <option value=5>Fメジャー / Dマイナー (♭×1)</option>
+                <option value=6>F#メジャー / E♭マイナー (#×6)</option>
+                <option value=7>Gメジャー / Eマイナー (#×1)</option>
+                <option value=8>A♭メジャー / Fマイナー (♭×4)</option>
+                <option value=9>Aメジャー / F#マイナー (#×3)</option>
+                <option value=10>B♭メジャー / Gマイナー (♭×2)</option>
+                <option value=11>Bメジャー / G#マイナー (#×5)</option>
               </select>
             </label>
 
+            <a id="b_clef_image">
+
+            </a>
+          </div>
+
+          <div class="text-right">
             <button id="degree_change_button" class="btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3"
               onclick="ChangeChordProgression()">コードネームで表示</button>
 
             <button id="degree_button" class="btn btn-success box1 col-8 col-md-5 col-xl-4 m-3"
               onclick="ChangeChordProgressionDegree()">ディグリーネームで表示</button>
-
           </div>
+
+
 
           <div class="accordion py-2" id="accordionExample">
             <div class="accordion-item">

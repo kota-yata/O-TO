@@ -24,6 +24,21 @@ const noteNames =
     ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'A#/B♭'],
     ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']];
 
+const clef_image = [
+    "clef/Treble_clef_with_empty_staff.svg",
+    "clef/D-flat-major_b-flat-minor.svg",
+    "clef/D-major_b-minor.svg",
+    "clef/E-flat-major_c-minor.svg",
+    "clef/E-major_c-sharp-minor.svg",
+    "clef/F-major_d-minor.svg",
+    "clef/F-sharp-major_d-sharp-minor.svg",
+    "clef/G-major_e-minor.svg",
+    "clef/A-flat-major_f-minor.svg",
+    "clef/A-major_f-sharp-minor.svg",
+    "clef/B-flat-major_g-minor.svg",
+    "clef/B-major_g-sharp-minor.svg",
+];
+
 //コード進行を格納する多次元配列
 const chordProgOne =
     [["シンプル・イズ・ベスト", "Ⅰ-Ⅳ-Ⅴ", "トニック！サブドミナント！ドミナント！"],
@@ -358,6 +373,15 @@ function ChangeDegreeText() {
 
     //表示ボックスに書き込む
     document.getElementById("box").innerHTML = text;
+
+    // 調号の画像を変更する
+    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[BeforeRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    if (AfterRootNumber === 12) {
+        document.getElementById("a_clef_image").innerHTML = "";
+    } else {
+        // 調号の画像を変更する
+        document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    };
 };
 
 //サンプルテキストを書き込む関数
@@ -453,6 +477,7 @@ function ChordCandidateCreate() {
 };
 
 
+
 //コード進行をディグリーネームで表示する関数
 function ChangeChordProgressionDegree() {
 
@@ -543,13 +568,19 @@ function ChangeChordProgressionDegree() {
     //ボタンの色を変える
     document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-5 col-xl-4 m-3";
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
+    //調号を消す
+    document.getElementById("b_clef_image").innerHTML = "";
 };
+
+
 
 
 //コード進行を切り替える関数
 function ChangeChordProgression() {
 
-    RootNumber = document.getElementById("rootNumber").value;
+    RootNumber = Number(document.getElementById("rootNumber").value);
+    // 調号の画像を変更する
+    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
 
     //Ⅰ始まりのコード進行
     firstNum = 1;

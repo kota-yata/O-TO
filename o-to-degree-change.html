@@ -211,24 +211,27 @@
                     <label for="BeforeRootNumber">①変換前のキーを設定してください。
                         <select id="BeforeRootNumber" class="form-select my-1" aria-label="Default select example"
                             onchange="ChangeDegreeText()">
-                            <option value=0>C (#・♭×0)</option>
-                            <option value=1>D♭ (♭×5)</option>
-                            <option value=2>D (#×2)</option>
-                            <option value=3>E♭ (♭×3)</option>
-                            <option value=4>E (#×4)</option>
-                            <option value=5>F (♭×1)</option>
-                            <option value=6>F# (#×6)</option>
-                            <option value=7>G (#×1)</option>
-                            <option value=8>A♭ (♭×4)</option>
-                            <option value=9>A (#×3)</option>
-                            <option value=10>B♭ (♭×2)</option>
-                            <option value=11>B (#×5)</option>
+                            <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
+                            <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
+                            <option value=2>Dメジャー / Bマイナー (#×2)</option>
+                            <option value=3>E♭メジャー / Cマイナー (♭×3)</option>
+                            <option value=4>Eメジャー / C#マイナー (#×4)</option>
+                            <option value=5>Fメジャー / Dマイナー (♭×1)</option>
+                            <option value=6>F#メジャー / E♭マイナー (#×6)</option>
+                            <option value=7>Gメジャー / Eマイナー (#×1)</option>
+                            <option value=8>A♭メジャー / Fマイナー (♭×4)</option>
+                            <option value=9>Aメジャー / F#マイナー (#×3)</option>
+                            <option value=10>B♭メジャー / Gマイナー (♭×2)</option>
+                            <option value=11>Bメジャー / G#マイナー (#×5)</option>
                         </select>
                     </label>
+                    <a id="b_clef_image">
+
+                    </a>
                     <!-- サンプルボタン -->
                     <div id="ExampleTextButton">
-                        <button class="btn btn-primary box1 col-8 col-md-8 col-xl-8 m-3"
-                            onclick="ExampleTextOne()">試しにコード進行サンプルを入力してみる</button>
+                        <button class="btn btn-primary box1 col-xxl-6 m-3"
+                            onclick="ExampleTextOne()">コード進行サンプルを入力する</button>
                     </div>
 
                     <!-- コード進行入力テキストエリア -->
@@ -241,26 +244,30 @@
                     <label for="AfterRootNumber">③変換後のキーを設定してください。
                         <select id="AfterRootNumber" class="form-select my-1" aria-label="Default select example"
                             onchange="ChangeDegreeText()">
-                            <option value=0>C (#・♭×0)</option>
-                            <option value=1>D♭ (♭×5)</option>
-                            <option value=2>D (#×2)</option>
-                            <option value=3>E♭ (♭×3)</option>
-                            <option value=4>E (#×4)</option>
-                            <option value=5>F (♭×1)</option>
-                            <option value=6>F# (#×6)</option>
-                            <option value=7>G (#×1)</option>
-                            <option value=8>A♭ (♭×4)</option>
-                            <option value=9>A (#×3)</option>
-                            <option value=10>B♭ (♭×2)</option>
-                            <option value=11>B (#×5)</option>
+                            <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
+                            <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
+                            <option value=2>Dメジャー / Bマイナー (#×2)</option>
+                            <option value=3>E♭メジャー / Cマイナー (♭×3)</option>
+                            <option value=4>Eメジャー / C#マイナー (#×4)</option>
+                            <option value=5>Fメジャー / Dマイナー (♭×1)</option>
+                            <option value=6>F#メジャー / E♭マイナー (#×6)</option>
+                            <option value=7>Gメジャー / Eマイナー (#×1)</option>
+                            <option value=8>A♭メジャー / Fマイナー (♭×4)</option>
+                            <option value=9>Aメジャー / F#マイナー (#×3)</option>
+                            <option value=10>B♭メジャー / Gマイナー (♭×2)</option>
+                            <option value=11>Bメジャー / G#マイナー (#×5)</option>
                             <option value=12 selected>ディグリーネーム表記</option>
                         </select>
-                        <!-- 修正後テキスト -->
-                        <div id="ValidationBox">
-                        </div>
-                        <div id="box" contenteditable=False class="pb-3">
-                            読み込み中…
-                        </div>
+                    </label>
+                    <a id="a_clef_image">
+
+                    </a>
+                    <!-- 修正後テキスト -->
+                    <div id="ValidationBox">
+                    </div>
+                    <div id="box" contenteditable=False class="pb-3">
+                        読み込み中…
+                    </div>
 
                 </div>
             </div>
