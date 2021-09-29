@@ -99,8 +99,8 @@ const chordProgSix =
     { name: "鉄板のベース半音下降", chord: "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", info: "みんな8億万回は聴いている。", url: "" },
     { name: "スタイリッシュ", chord: "Ⅵm9-Ⅱm7-Ⅲm7", info: "研ぎ澄まされた都会的な響き", url: "" },
     { name: "情熱的", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", info: "力強くいきたい時に。", url: "" },
-    { name: "お前はタンゴ？", chord: "Ⅵm-Ⅱm-Ⅲ-Ⅵm", info: "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)", url: "https://youtu.be/WOuNTIWuykI?t=17" },
-    { name: "バロックなゼクエンツ", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", info: "気分はバロック時代。", url: "https://youtu.be/ZPdk5GaIDjo?t=68" },
+    { name: "お前はタンゴ？", chord: "Ⅵm-Ⅱm-Ⅲ-Ⅵm", info: "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)", url: "" },
+    { name: "バロックなゼクエンツ", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", info: "気分はバロック時代。", url: "" },
     { name: "貴様の形状", chord: "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", info: "参考曲：Ed Sheeran - Shape of You", url: "https://youtu.be/JGwWNGJdvx8?t=5" },
     { name: "近未来", chord: "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", info: "ベースを固定しつつ上を動かす形。", url: "" },
     { name: "困難を伴う前進", chord: "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", info: "ベースが段階的に上昇。シリアスな空気感。", url: "" },
@@ -109,7 +109,7 @@ const chordProgSix =
     { name: "月光が差す", chord: "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", info: "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章", url: "https://youtu.be/zucBfXpCA6s" },
     { name: "ミステリー小説", chord: "Ⅵm-Ⅳ7-Ⅲ7", info: "怪しく不思議、ちょっとコミカル。", url: "" },
     { name: "ディストピア", chord: "Ⅵm-Ⅶ-Ⅱm-Ⅲ", info: "不穏な感じを出したいときに。", url: "" },
-    { name: "外宇宙への旅", chord: "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", info: "暗黒の宇宙空間を想起させる響き。", url: "https://youtu.be/jsRT8ee97eo?t=206" },
+    { name: "外宇宙への旅", chord: "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", info: "暗黒の宇宙空間を想起させる響き。", url: "" },
     { name: "俺が好き", chord: "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7-Ⅲm7", info: "好きなのでたくさん使っちゃう。", url: "https://youtu.be/eNGSdQOG57A?t=66" },
     ];
 
