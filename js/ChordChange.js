@@ -41,101 +41,101 @@ const clef_image = [
 
 //コード進行を格納する多次元配列
 const chordProgOne =
-    [["シンプル・イズ・ベスト", "Ⅰ-Ⅳ-Ⅴ", "トニック！サブドミナント！ドミナント！"],
-    ["きっとみんな好き", "Ⅰ-Ⅳ-Ⅵm-Ⅴ", "メジャー感とマイナー感の絶妙なハーモニー。"],
-    ["ポップパンク進行", "Ⅰ-Ⅴ-Ⅵm-Ⅳ", "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。"],
-    ["賞味期限なし", "Ⅰ-Ⅴ-Ⅳ-Ⅴ", "結局ここに帰ってくる。"],
-    ["カノン進行", "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", "王道で美しい曲を作りたいならこれ"],
-    ["なめらかカノン進行", "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", "カノン進行のベースラインをなめらかに繋がるように変形したもの。"],
-    ["イチロクニーゴー", "Ⅰ-Ⅵm-Ⅱm-Ⅴ", "オールディーズでよく耳にする、シンプルで万能な循環コード。"],
-    ["いつメン", "Ⅰ-Ⅵm-Ⅳ-Ⅴ", "いつ使っても良い。"],
-    ["午前2時の踏切に居そう", "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ", "参考曲：BUMP OF CHICKEN - 天体観測"],
-    ["モノクローム", "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7", "カノン進行冒頭の定番変形パターンのひとつ。Ⅵmへのセカンダリー・ケーデンスを差し込んだもの。"],
-    ["リラックス", "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ", "ベースが順次進行で上昇。凪な空気感。"],
-    ["ヌケ感", "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", "シンプルでモダンな雰囲気が出せる。"],
-    ["青春", "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ", "溢れ出るノスタルジー。"],
-    ["きれいめ", "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", "ベースが順次進行で上昇。清潔感がある。"],
-    ["大団円", "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", "ハッピーなエンドロールみたいな。"],
-    ["幻想的", "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", "メロディック・メジャー的な響きを使いたいときに。"],
-    ["温かみを感じる半音上昇", "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", "メジャーコードのトップノートを半音で上昇させるクリシェ。"],
-    ["サンボマスターしか勝たん", "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", "サンボマスターっぽいブラックアダーコードの使い方"],
-    ["優雅", "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", "パッシング・ディミニッシュはいかが？"],
-    ["煌びやか", "Ⅰ-Ⅳm6/Ⅰ", "華やかで奥行きのある響き"],
-    ["壮大", "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", "仰々しくしたいときに。"],
-    ["遊び心", "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", "ベースを固定しつつちょっと寄り道。"],
-    ["ドラマチック", "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ", "ベースを固定しつつ大胆に寄り道。"],
-    ["ブルージー", "Ⅰ7-Ⅳ7-Ⅰ7-Ⅳ7-Ⅴ7-Ⅳ7-Ⅰ7-Ⅴ7", "ブルースっぽい響きを出したいならコレ！"],
+    [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "" },
+    { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "" },
+    { name: "ポップパンク進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅳ", info: "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。", url: "https://youtu.be/L0MK7qz13bU?t=64" },
+    { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
+    { name: "カノン進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", info: "王道で美しい曲を作りたいならこれ！", url: "https://youtu.be/NlprozGcs80?t=126" },
+    { name: "なめらかカノン進行", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", info: "カノン進行のベースラインをなめらかに繋がるように変形したもの。", url: "" },
+    { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コード。", url: "" },
+    { name: "いつメン", chord: "Ⅰ-Ⅵm-Ⅳ-Ⅴ", info: "いつ使っても良い。", url: "" },
+    { name: "午前2時の踏切に居そう", chord: "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ", info: "参考曲：BUMP OF CHICKEN - 天体観測", url: "https://youtu.be/j7CDb610Bg0?t=33" },
+    { name: "モノクローム", chord: "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7", info: "カノン進行冒頭の定番変形パターンのひとつ。Ⅵmへのセカンダリー・ケーデンスを差し込んだもの。", url: "https://youtu.be/ony539T074w?t=2" },
+    { name: "リラックス", chord: "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ", info: "ベースが順次進行で上昇。凪な空気感。", url: "" },
+    { name: "ヌケ感", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", info: "シンプルでモダンな雰囲気が出せる。", url: "" },
+    { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ", info: "溢れ出るノスタルジー。", url: "" },
+    { name: "きれいめ", chord: "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", info: "ベースが順次進行で上昇。清潔感がある。", url: "" },
+    { name: "大団円", chord: "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "ハッピーなエンドロールみたいな。", url: "" },
+    { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "メロディック・メジャー的な響きを使いたいときに。", url: "" },
+    { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "" },
+    { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
+    { name: "優雅", chord: "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", info: "パッシング・ディミニッシュはいかが？", url: "" },
+    { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き", url: "" },
+    { name: "壮大", chord: "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "仰々しくしたいときに。", url: "" },
+    { name: "遊び心", chord: "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", info: "ベースを固定しつつちょっと寄り道。", url: "" },
+    { name: "ドラマチック", chord: "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ", info: "ベースを固定しつつ大胆に寄り道。", url: "" },
+    { name: "ブルージー", chord: "Ⅰ7-Ⅳ7-Ⅰ7-Ⅳ7-Ⅴ7-Ⅳ7-Ⅰ7-Ⅴ7", info: "ブルースっぽい響きを出したいならコレ！", url: "" },
     ];
 
 const chordProgFour =
-    [["王道進行", "Ⅳ-Ⅴ-Ⅲm-Ⅵm", "名実ともに「J-Popの王」"],
-    ["万能調味料", "Ⅳ-Ⅴ-Ⅵm-Ⅰ", "どんなジャンルでも受け入れる包容力！"],
-    ["エモい", "Ⅳ-Ⅴ-Ⅰ-Ⅲ", "サビの2回し目とかによく居そう。"],
-    ["涙を誘うウェポン", "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm", "みんな大好きパッシング・ディミニッシュ"],
-    ["アニソン風味", "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ", "サビの最後あたりに入れると効果抜群！"],
-    ["解放・救済", "Ⅳ-Ⅴ-Ⅵ", "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。"],
-    ["邦楽ポップパンク進行", "Ⅳ-Ⅰ-Ⅴ-Ⅵm", "爽やか ＋ ちょっぴり哀愁 ＝ 正解。 ポップパンク進行の派生形。"],
-    ["サビ前の常連", "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)", "「これからサビに入りますよ～」感が出ます。"],
-    ["内なる敵", "Ⅳ-Ⅵm-Ⅰm-Ⅴ/Ⅱ-♭Ⅶm/♭Ⅱ-Ⅳ/Ⅰ-Ⅶdim7-Ⅲ7/#Ⅴ-Ⅵm", "参考曲：Dream Theater - The Enemy Inside"],
-    ["335号室", "Ⅳ△7-Ⅲm7(#5)-Ⅱm7-Ⅲm7", "参考曲：Larry Carlton - ROOM 335"],
-    ["ゲーム音楽の香り", "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", "△7とm7を繰り返して半音ずつ下がっていく形。"],
-    ["レアキャラ", "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", "このパッシング・ディミニッシュはあまり出てこない印象。"],
-    ["丸サ進行", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。"],
-    ["オシャレ", "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", "丸サ進行とはひと味違うオシャレさ。"],
-    ["おやすみ", "Ⅳ△7-Ⅰ△7", "穏やかな気分になりたい時に。"],
-    ["リディアン", "Ⅳ-Ⅴ/Ⅳ", "リディアン・モードを取り入れたい時に。"],
-    ["メロウな王道進行", "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", "「王道進行」に、さらに砂糖を振りかけた感じ。"],
-    ["チンダル現象みがある", "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", "穏やかな昼下がりみたいな流れ。"],
-    ["花鳥風月", "Ⅳ6-Ⅴ6-Ⅵ7sus4-Ⅲsus4", "止ん事無き和風な響き"],
-    ["綺麗", "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6", "「美しさ」への一つの回答。"],
+    [{ name: "王道進行", chord: "Ⅳ-Ⅴ-Ⅲm-Ⅵm", info: "名実ともに「J-Popの王」", url: "https://youtu.be/nhOhFOoURnE?t=8" },
+    { name: "万能調味料", chord: "Ⅳ-Ⅴ-Ⅵm-Ⅰ", info: "どんなジャンルでも受け入れる包容力！", url: "" },
+    { name: "エモい", chord: "Ⅳ-Ⅴ-Ⅰ-Ⅲ", info: "サビの2回し目とかによく居そう。", url: "" },
+    { name: "涙を誘うウェポン", chord: "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm", info: "みんな大好きパッシング・ディミニッシュ", url: "" },
+    { name: "アニソン風味", chord: "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ", info: "サビの最後あたりに入れると効果抜群！", url: "" },
+    { name: "解放・救済", chord: "Ⅳ-Ⅴ-Ⅵ", info: "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。", url: "" },
+    { name: "邦楽ポップパンク進行", chord: "Ⅳ-Ⅰ-Ⅴ-Ⅵm", info: "爽やか ＋ ちょっぴり哀愁 ＝ 正解。 ポップパンク進行の派生形。", url: "https://youtu.be/kzZ6KXDM1RI?t=64" },
+    { name: "サビ前の常連", chord: "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)", info: "「これからサビに入りますよ～」感が出ます。", url: "" },
+    { name: "内なる敵", chord: "Ⅳ-Ⅵm-Ⅰm-Ⅴ/Ⅱ-♭Ⅶm/♭Ⅱ-Ⅳ/Ⅰ-Ⅶdim7-Ⅲ7/#Ⅴ-Ⅵm", info: "参考曲：Dream Theater - The Enemy Inside", url: "https://youtu.be/RoVAUUFjl0I?t=215" },
+    { name: "335号室", chord: "Ⅳ△7-Ⅲm7(#5)-Ⅱm7-Ⅲm7", info: "参考曲：Larry Carlton - ROOM 335", url: "https://youtu.be/47ysdThtXgw?t=109" },
+    { name: "ゲーム音楽の香り", chord: "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", info: "△7とm7を繰り返して半音ずつ下がっていく形。", url: "" },
+    { name: "レアキャラ", chord: "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", info: "このパッシング・ディミニッシュはあまり出てこない印象。", url: "" },
+    { name: "丸サ進行", chord: "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", info: "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。", url: "https://youtu.be/i9I55MZLYYY" },
+    { name: "オシャレ", chord: "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", info: "丸サ進行とはひと味違うオシャレさ。", url: "https://youtu.be/zw5wH_Tr21U?t=6" },
+    { name: "おやすみ", chord: "Ⅳ△7-Ⅰ△7", info: "穏やかな気分になりたい時に。", url: "" },
+    { name: "リディアン", chord: "Ⅳ-Ⅴ/Ⅳ", info: "リディアン・モードを取り入れたい時に。", url: "" },
+    { name: "メロウな王道進行", chord: "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", info: "「王道進行」に、さらに砂糖を振りかけた感じ。", url: "https://youtu.be/ukyRC_fNEP0?t=77" },
+    { name: "チンダル現象みがある", chord: "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", info: "穏やかな昼下がりみたいな流れ。", url: "" },
+    { name: "花鳥風月", chord: "Ⅳ6-Ⅴ6-Ⅵ7sus4-Ⅲsus4", info: "止ん事無き和風な響き", url: "" },
+    { name: "綺麗", chord: "Ⅳ△7-Ⅶm7(♭5)/Ⅳ-Ⅲm7-Ⅲdim7-Ⅱm7-Ⅴ7/Ⅱ-ⅠMaj7-Ⅰ6", info: "「美しさ」への一つの回答。", url: "" },
     ];
 
 const chordProgSix =
-    [["小室進行", "Ⅵm-Ⅳ-Ⅴ-Ⅰ", "最後にⅤ/Ⅶを追加しても使いやすい。"],
-    ["ハリウッド映画にありそう", "Ⅵm-Ⅳ-Ⅰ-Ⅴ", "最終決戦へ向かっていけそう。ポップパンク進行の派生形。"],
-    ["オールラウンダー", "Ⅵm-Ⅴ-Ⅳ-Ⅴ", "どんなジャンルでも必要とされている。"],
-    ["炎の呼吸", "Ⅵm-Ⅴ-Ⅳ-Ⅰ", "参考曲：LiSA - 炎"],
-    ["洋楽っぽい", "Ⅵm-Ⅰ-Ⅴ-Ⅳ", "シンプルで使いやすい。"],
-    ["鉄板のベース半音下降", "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", "みんな8億万回は聴いている。"],
-    ["スタイリッシュ", "Ⅵm9-Ⅱm7-Ⅲm7", "研ぎ澄まされた都会的な響き"],
-    ["情熱的", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", "力強くいきたい時に。"],
-    ["お前はタンゴ？", "Ⅵm-Ⅱm-Ⅲ-Ⅵm", "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)"],
-    ["バロックなゼクエンツ", "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", "気分はバロック時代。"],
-    ["貴様の形状", "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", "参考曲：Ed Sheeran - Shape of You"],
-    ["近未来", "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", "ベースを固定しつつ上を動かす形。"],
-    ["困難を伴う前進", "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", "ベースが段階的に上昇。シリアスな空気感。"],
-    ["サスペンス半音上昇", "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", "マイナーコードのトップノートを半音で上昇させるクリシェ。"],
-    ["遂に自由に…", "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", "参考曲：Dream Theater - Finally Free"],
-    ["月光が差す", "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章"],
-    ["ミステリー小説", "Ⅵm-Ⅳ7-Ⅲ7", "怪しく不思議、ちょっとコミカル。"],
-    ["ディストピア", "Ⅵm-Ⅶ-Ⅱm-Ⅲ", "不穏な感じを出したいときに。"],
-    ["外宇宙への旅", "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", "暗黒の宇宙空間を想起させる響き。"],
-    ["俺が好き", "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7-Ⅲm7", "好きなのでたくさん使っちゃう。"],
+    [{ name: "小室進行", chord: "Ⅵm-Ⅳ-Ⅴ-Ⅰ", info: "最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/35XsK9VERXM?t=97" },
+    { name: "ハリウッド映画にありそう", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "最終決戦へ向かっていけそう。ポップパンク進行の派生形。", url: "" },
+    { name: "オールラウンダー", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅴ", info: "どんなジャンルでも必要とされている。", url: "" },
+    { name: "炎の呼吸", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅰ", info: "参考曲：LiSA - 炎", url: "https://youtu.be/4DxL6IKmXx4?t=10" },
+    { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "" },
+    { name: "鉄板のベース半音下降", chord: "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", info: "みんな8億万回は聴いている。", url: "" },
+    { name: "スタイリッシュ", chord: "Ⅵm9-Ⅱm7-Ⅲm7", info: "研ぎ澄まされた都会的な響き", url: "" },
+    { name: "情熱的", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", info: "力強くいきたい時に。", url: "" },
+    { name: "お前はタンゴ？", chord: "Ⅵm-Ⅱm-Ⅲ-Ⅵm", info: "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)", url: "https://youtu.be/WOuNTIWuykI?t=17" },
+    { name: "バロックなゼクエンツ", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", info: "気分はバロック時代。", url: "https://youtu.be/ZPdk5GaIDjo?t=68" },
+    { name: "貴様の形状", chord: "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", info: "参考曲：Ed Sheeran - Shape of You", url: "https://youtu.be/JGwWNGJdvx8?t=5" },
+    { name: "近未来", chord: "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", info: "ベースを固定しつつ上を動かす形。", url: "" },
+    { name: "困難を伴う前進", chord: "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", info: "ベースが段階的に上昇。シリアスな空気感。", url: "" },
+    { name: "サスペンス半音上昇", chord: "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", info: "マイナーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/zKBCSBfP9TI?t=13" },
+    { name: "遂に自由に…", chord: "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", info: "参考曲：Dream Theater - Finally Free", url: "https://youtu.be/tdZKo7hPzmE?t=169" },
+    { name: "月光が差す", chord: "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", info: "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章", url: "https://youtu.be/zucBfXpCA6s" },
+    { name: "ミステリー小説", chord: "Ⅵm-Ⅳ7-Ⅲ7", info: "怪しく不思議、ちょっとコミカル。", url: "" },
+    { name: "ディストピア", chord: "Ⅵm-Ⅶ-Ⅱm-Ⅲ", info: "不穏な感じを出したいときに。", url: "" },
+    { name: "外宇宙への旅", chord: "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", info: "暗黒の宇宙空間を想起させる響き。", url: "https://youtu.be/jsRT8ee97eo?t=206" },
+    { name: "俺が好き", chord: "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7-Ⅲm7", info: "好きなのでたくさん使っちゃう。", url: "https://youtu.be/eNGSdQOG57A?t=66" },
     ];
 
 const chordProgEight =
-    [["ツーファイブ", "Ⅱm7-Ⅴ7-Ⅰ", "最も基本的な和音の流れ。"],
-    ["裏コードで代理", "Ⅱm7-♭Ⅱ7-Ⅰ", "裏コードは、トライトーンを共有しているドミナント7thコード。ルート音は五度圏で反対側に位置する。"],
-    ["フュージョン・コードで代理", "Ⅱm7-Ⅳ/Ⅴ-Ⅰ", "「♭Ⅶ/Ⅰ」は、ミクソリディアンの系譜のサウンド。「フュージョン・コード」とも呼ばれる。"],
-    ["♭Ⅶm/Ⅰで代理", "Ⅱm7-Ⅳm/Ⅴ-Ⅰ", "「♭Ⅶm/Ⅰ」は、フリジアン・ドミナントやミクソリディアン♭2ndの系譜のサウンド。"],
-    ["♭Ⅶdim/Ⅰで代理", "Ⅱm7-Ⅳdim/Ⅴ-Ⅰ", "「♭Ⅶdim/Ⅰ」は、オルタードやフリジアン♭4thの系譜のサウンド。"],
-    ["ブラックアダー・コードで代理", "Ⅱm7-Ⅳaug/Ⅴ-Ⅰ", "「♭Ⅶaug/Ⅰ」は、Lydian♭7thの系譜のサウンド。「ブラックアダー・コード」や「イキスギ・コード」とも呼ばれる。"],
-    ["バックドア・ツーファイブ", "Ⅳm7-♭Ⅶ7-Ⅰ", "同主短調のツーファイブを応用した形。"],
-    ["Ⅳへのツーファイブ", "Ⅴm7-Ⅰ7-Ⅳ", "Ⅳへのセカンダリー・ケーデンス"],
-    ["Ⅵmへのツーファイブ", "Ⅶm7-Ⅲ7-Ⅵm", "Ⅵmへのセカンダリー・ケーデンス"],
-    ["平行短調へのツーファイブ", "Ⅶm7(♭5)-Ⅲ7-Ⅵm", "Ⅵmへのセカンダリー・ケーデンス"],
-    ["クラシカル探求者", "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ", "「ナポリの6度」っぽい響きを使いたい時に。"],
-    ["ジャズの基本形", "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", "ジャズの基本的なコード進行だと思います。"],
-    ["後悔", "Ⅱm-Ⅵm/Ⅰ-Ⅶm7(♭5)-Ⅲ7", "ダークで美しい進行。"],
-    ["助走", "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", "サビ前などに有効です。"],
-    ["こなれ浮遊感", "Ⅱm7-Ⅰ△7-♭Ⅶ△7-Ⅶm7(♭5)-Ⅲ7", "メロディで下属調っぽさを出しすぎないのがポイント。"],
-    ["大気圏外へ", "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7", "マイナー7thコードのコンスタント・ストラクチャーでどこまでも行けそう。"],
-    ["平成J-popバラードの最終兵器", "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ", "ハマればものすごく素敵。"],
-    ["普通が嫌いなあなたへ", "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7", "普通なコード進行に飽きたら、#Ⅳm7(♭5)から始めちゃおう。"],
-    ["モダン・メタルの住人", "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9", "5add9(sus2)は、モダン・メタル界隈のギターフレーズに欠かせない響き。"],
-    ["ドリアン", "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅱ-Ⅲm/Ⅱ", "ドリアン・モードを取り入れたい時に。"],
-    ["ミクソリディアン", "Ⅴ-Ⅳ-Ⅰ-Ⅴ", "ミクソリディアン・モードを取り入れたい時に。"],
-    ["スペイン旅行", "Ⅲ-Ⅳ-Ⅴ-Ⅳ", "このコード進行の上でⅢスパニッシュ・フリジアンを使えば、「正解」がそこに現れる。"],
+    [{ name: "ツーファイブ", chord: "Ⅱm7-Ⅴ7-Ⅰ", info: "最も基本的な和音の流れ。", url: "" },
+    { name: "裏コードで代理", chord: "Ⅱm7-♭Ⅱ7-Ⅰ", info: "裏コードは、トライトーンを共有しているドミナント7thコード。ルート音は五度圏で反対側に位置する。", url: "" },
+    { name: "フュージョン・コードで代理", chord: "Ⅱm7-Ⅳ/Ⅴ-Ⅰ", info: "「♭Ⅶ/Ⅰ」は、ミクソリディアンの系譜のサウンド。「フュージョン・コード」とも呼ばれる。", url: "" },
+    { name: "♭Ⅶm/Ⅰで代理", chord: "Ⅱm7-Ⅳm/Ⅴ-Ⅰ", info: "「♭Ⅶm/Ⅰ」は、フリジアン・ドミナントやミクソリディアン♭2ndの系譜のサウンド。", url: "" },
+    { name: "♭Ⅶdim/Ⅰで代理", chord: "Ⅱm7-Ⅳdim/Ⅴ-Ⅰ", info: "「♭Ⅶdim/Ⅰ」は、オルタードやフリジアン♭4thの系譜のサウンド。", url: "" },
+    { name: "ブラックアダー・コードで代理", chord: "Ⅱm7-Ⅳaug/Ⅴ-Ⅰ", info: "「♭Ⅶaug/Ⅰ」は、Lydian♭7thの系譜のサウンド。「ブラックアダー・コード」や「イキスギ・コード」とも呼ばれる。", url: "" },
+    { name: "バックドア・ツーファイブ", chord: "Ⅳm7-♭Ⅶ7-Ⅰ", info: "同主短調のツーファイブを応用した形。", url: "" },
+    { name: "Ⅳへのツーファイブ", chord: "Ⅴm7-Ⅰ7-Ⅳ", chord: "Ⅳへのセカンダリー・ケーデンス", url: "" },
+    { name: "Ⅵmへのツーファイブ", chord: "Ⅶm7-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
+    { name: "平行短調へのツーファイブ", chord: "Ⅶm7(♭5)-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
+    { name: "クラシカル探求者", chord: "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ", info: "「ナポリの6度」っぽい響きを使いたい時に。", url: "" },
+    { name: "ジャズの基本形", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", info: "ジャズの基本的なコード進行だと思います。", url: "" },
+    { name: "後悔", chord: "Ⅱm-Ⅵm/Ⅰ-Ⅶm7(♭5)-Ⅲ7", info: "ダークで美しい進行。", url: "" },
+    { name: "助走", chord: "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", info: "サビ前などに有効です。", url: "" },
+    { name: "こなれ浮遊感", chord: "Ⅱm7-Ⅰ△7-♭Ⅶ△7-Ⅶm7(♭5)-Ⅲ7", info: "メロディで下属調っぽさを出しすぎないのがポイント。", url: "" },
+    { name: "大気圏外へ", chord: "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7", info: "マイナー7thコードのコンスタント・ストラクチャーでどこまでも行けそう。", url: "https://youtu.be/BOuIwJLw9Y0?t=75" },
+    { name: "平成J-popバラードの最終兵器", chord: "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ", info: "ハマればものすごく素敵。", url: "https://youtu.be/aHIR33pOUv0?t=207" },
+    { name: "普通が嫌いなあなたへ", chord: "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7", info: "普通なコード進行に飽きたら、#Ⅳm7(♭5)から始めちゃおう。", url: "" },
+    { name: "モダン・メタルの住人", chord: "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9", info: "5add9(sus2)は、モダン・メタル界隈のギターフレーズに欠かせない響き。", url: "" },
+    { name: "ドリアン", chord: "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅱ-Ⅲm/Ⅱ", info: "ドリアン・モードを取り入れたい時に。", url: "" },
+    { name: "ミクソリディアン", chord: "Ⅴ-Ⅳ-Ⅰ-Ⅴ", info: "ミクソリディアン・モードを取り入れたい時に。", url: "" },
+    { name: "スペイン旅行", chord: "Ⅲ-Ⅳ-Ⅴ-Ⅳ", info: "このコード進行の上でⅢスパニッシュ・フリジアンを使えば、「正解」がそこに現れる。", url: "" },
     ];
 
 
@@ -485,39 +485,52 @@ function ChangeChordProgressionDegree() {
     firstNum = 1;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgOne.length + 1;
-    for (let i = 1; i < length; i++) {
+
+    for (let i = 1; i < chordProgOne.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][0]}`;
+
+        if (chordProgOne[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgOne[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgOne[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][1]}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].chord}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
+
+        secondNum++
+        chordProgNum++
     };
 
     //Ⅳ始まりのコード進行
     firstNum = 4;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgFour.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgFour.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][0]}`;
+
+        if (chordProgFour[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgFour[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgFour[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][1]}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].chord}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -527,18 +540,24 @@ function ChangeChordProgressionDegree() {
     firstNum = 6;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgSix.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgSix.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][0]}`;
+
+        if (chordProgSix[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgSix[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgSix[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][1]}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].chord}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -548,18 +567,24 @@ function ChangeChordProgressionDegree() {
     firstNum = 8;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgEight.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgEight.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][0]}`;
+
+        if (chordProgEight[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgEight[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgEight[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][1]}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].chord}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -582,90 +607,116 @@ function ChangeChordProgression() {
     // 調号の画像を変更する
     document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
 
+
+
     //Ⅰ始まりのコード進行
     firstNum = 1;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgOne.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgOne.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum][0]}`;
+
+        if (chordProgOne[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgOne[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgOne[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgOne[chordProgNum][1]}`, RootNumber).replace(/-/g, " - ")}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgOne[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum][2]}`);
-        //for文を回す
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
+
         secondNum++
         chordProgNum++
     };
+
+
 
     //Ⅳ始まりのコード進行
     firstNum = 4;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgFour.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgFour.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum][0]}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgFour[chordProgNum][1]}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum][2]}`);
-        //for文を回す
-        secondNum++
-        chordProgNum++
-    };
 
+        if (chordProgFour[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgFour[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgFour[chordProgNum].name}</a>`;
+        };
+
+        //コード進行の注釈を追加する。
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgFour[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
+    };
 
     //Ⅵ始まりのコード進行
     firstNum = 6;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgSix.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgSix.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum][0]}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgSix[chordProgNum][1]}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum][2]}`);
-        //for文を回す
-        secondNum++
-        chordProgNum++
-    };
 
+        if (chordProgSix[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgSix[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgSix[chordProgNum].name}</a>`;
+        };
+
+        //コード進行の注釈を追加する。
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
+        //コード進行を表示する
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgSix[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
+        //コード進行の注釈を追加する。
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
+        //for文を回す
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
+    };
 
     //その他のコード進行
     firstNum = 8;
     secondNum = 1;
     chordProgNum = 0;
-    length = chordProgEight.length + 1;
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < chordProgEight.length + 1; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-        //コード進行の俗称・所感を表示する
-        document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum][0]}`;
+
+        if (chordProgEight[chordProgNum].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgEight[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgEight[chordProgNum].name}</a>`;
+        };
+
         //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
+        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
         //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgEight[chordProgNum][1]}`, RootNumber).replace(/-/g, " - ")}`;
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgEight[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum][2]}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
         //for文を回す
-        secondNum++
-        chordProgNum++
+        secondNum = secondNum + 1;
+        chordProgNum = chordProgNum + 1;
     };
 
     //ボタンの色を変える
