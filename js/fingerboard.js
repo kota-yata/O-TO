@@ -303,7 +303,7 @@ function ScaleAndChordsDrowing() {
                 <div class="accordion-body">
 
                 <div id="addHTML">
-                    
+
                 </div>
 
                 </div>
@@ -359,7 +359,7 @@ function LeftyFingerboardCreate() {
     document.getElementById("Tuning").innerHTML = ""
 
     //下段のフレットナンバーのtr(行)要素をtableに書き込む。
-    //フレットの数を取得する 
+    //フレットの数を取得する
     FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     Num = -1;
     //下の方のフレットナンバー
@@ -427,7 +427,7 @@ function RightyFingerboardCreate() {
     document.getElementById("Tuning").innerHTML = ""
 
     //下段のフレットナンバーのtr(行)要素をtableに書き込む。
-    //フレットの数を取得する 
+    //フレットの数を取得する
     FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     Num = FletCount;
     //下の方のフレットナンバー
@@ -774,6 +774,19 @@ function FletCreate(NumberOfStrings) {
 };
 
 
+//利き手を判定する関数
+function decide_which_hand() {
+
+    if (Number(document.getElementById("DominantHand").value) === 0) {
+        // 右利きフレットに音名を描画する
+        RightyToneNameCreate();
+    } else if (Number(document.getElementById("DominantHand").value) === 1) {
+        // 左利きフレットに音名を描画する
+        LeftyToneNameCreate();
+    };
+
+};
+
 
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function FingerboardDateInfo() {
@@ -791,7 +804,6 @@ function FingerboardDateInfo() {
     //弦の本数を設定する
     NumberOfStrings = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     document.getElementById("NumberOfStrings").selectedIndex = NumberOfStrings - 1;
-
 
     //利き手を判定
     if (Number(document.getElementById("DominantHand").value) === 0) {
