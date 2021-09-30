@@ -130,8 +130,9 @@ chord_container =
     { ChordName: "add9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー・アドナイン", Info: 'メジャー・トライアドに9thを加えたコードです。' },
     { ChordName: "add9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・アドナイン・オミットファイブ", Info: 'メジャー・トライアドに9thを加えたコードから、P5th（完全5度）の音を省略したコードです。' },
     { ChordName: "madd9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー・アドナイン", Info: 'マイナー・トライアドに9thを加えたコードです。' },
-    { ChordName: "madd9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・アドナイン・オミットファイブ", Info: 'マイナー・トライアドに9thを加えたコードたコードから、P5th（完全5度）の音を省略したコードです。<br>ハイブリッド・コードである「♭Ⅶm/Ⅰ」の転回形とも解釈できます。' },
+    { ChordName: "madd9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・アドナイン・オミットファイブ", Info: 'マイナー・トライアドに9thを加えたコードから、P5th（完全5度）の音を省略したコードです。<br>ハイブリッド・コードである「♭Ⅶm/Ⅰ」の転回形とも解釈できます。' },
     { ChordName: "add♭9", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー・アドフラットナイン", Info: 'メジャー・トライアドに♭9thを加えたコードです。' },
+    { ChordName: "add♭9(omit5)", ChordBinary: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・アドフラットナイン・オミットファイブ", Info: 'マイナー・トライアドに♭9thを加えたコードから、P5th（完全5度）の音を省略したコードです。' },
     { ChordName: "add#11", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0], Name: "メジャー・アドシャープイレブン", Info: 'メジャー・トライアドに#11thを加えたコードです。' },
 
     { ChordName: "(6/9)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス・ナイン", Info: '「6/9」などの表記もあります。<br>メジャー・トライアドにM6th（長6度）と9thの音を加えたコードです。' },
@@ -274,18 +275,21 @@ scale_Container =
     { EnglishName: "Minor Pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "5-35", Info: "「ニロ抜き短音階」とも。", Mode: "メジャー・ペンタトニックの第5モード。", Adjustment: 0 },
 
     //和風スケール
+    // 陰音階-上行系
     { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "5-29", Info: "宮城道雄-『春の海』などで用いられる和風な音階です。<br>「都節-上行形」とも。<br>「半岩戸調子」、「古今調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -5 },
     { EnglishName: "Raga Hindol", JapaneseName: "ラーガ・ヒンドル", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], addNum: 5, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -5 },
     { EnglishName: "Han-Nakazora", JapaneseName: "半中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第3モード。", Adjustment: -5 },
     { EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-29", Info: "「二重雲井調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第4モード。", Adjustment: -5 },
     { EnglishName: "Dorian Pentatonic", JapaneseName: "ドリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], addNum: 2, ForteNumber: "5-29", Info: "「雲井ペンタトニック」とも。<br>「秋風調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第5モード。", Adjustment: -5 },
 
+    // 陰音階-下行系
     { EnglishName: "In/Sakura Pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "古謡「さくらさくら」などで用いられる和風な音階です。<br>「都節-下行形」とも。<br>「平調子」、「平巾十調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -4 },
     { EnglishName: "Lydian Pentatonic", JapaneseName: "リディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -4 },
     { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モード。", Adjustment: -4 },
     { EnglishName: "Hon-Kumoi", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モード。", Adjustment: -4 },
     { EnglishName: "Raga Bhinna Shadja", JapaneseName: "ラーガ・ベニア・シャジア", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モード。", Adjustment: -4 },
 
+    // 沖縄音階
     { EnglishName: "Ionian Pentatonic", JapaneseName: "沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「琉球音階」、「ニロ抜き長音階」、「アイオニアン・ペンタトニック」とも。", Mode: "", Adjustment: 0 },
 
     { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
