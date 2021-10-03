@@ -125,8 +125,8 @@ chord_container =
     { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4にM7th（長7度）が加わったコードです。' },
     { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2にM7th（長7度）が加わったコードです。' },
 
-    { ChordName: "6", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス", Info: 'メジャー・トライアドにM6th（長6度）の音を加えたコードです。<br>「m7」の転回形とも解釈できます。<br>メジャー・トライアドに13thテンションを加えたとも解釈ができます。' },
-    { ChordName: "m6", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス", Info: 'マイナー・トライアドにM6th（長6度）の音をを加えたコードです。「m7(♭5)」の転回形とも解釈できます。<br>マイナー・トライアドに13thテンションを加えたとも解釈ができます。<br>ドリアン・モードを示唆するコードとしても使えるでしょう。' },
+    { ChordName: "6", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス", Info: 'メジャー・トライアドにM6th（長6度）の音を加えたコードです。<br>「m7」の転回形とも解釈できます。<br>メジャー・トライアドに13thテンションを加えたとも解釈できます。' },
+    { ChordName: "m6", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス", Info: 'マイナー・トライアドにM6th（長6度）の音を加えたコードです。「m7(♭5)」の転回形とも解釈できます。<br>マイナー・トライアドに13thテンションを加えたとも解釈できます。<br>ドリアン・モードを示唆するコードとしても使えるでしょう。' },
     { ChordName: "add9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー・アドナイン", Info: 'メジャー・トライアドに9thを加えたコードです。' },
     { ChordName: "add9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・アドナイン・オミットファイブ", Info: 'メジャー・トライアドに9thを加えたコードから、P5th（完全5度）の音を省略したコードです。' },
     { ChordName: "madd9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー・アドナイン", Info: 'マイナー・トライアドに9thを加えたコードです。' },
@@ -332,9 +332,9 @@ function CreateChordChoices() {
         Num--
         if (Num === 1) {
             //メジャーコードを初期の選択肢にする。
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num]['ChordBinary'].join('')}-${Num} selected>Major</option>`);
+            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('')}-${Num} selected>Major</option>`);
         } else {
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num]['ChordBinary'].join('')}-${Num}>${chord_container[Num]["ChordName"]}</option>`);
+            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('')}-${Num}>${chord_container[Num]["ChordName"]}</option>`);
         };
     };
 };
@@ -482,18 +482,18 @@ function scaleChordTableCreate() {
             //スケールのバイナリが空ならテーブルも空。
             if (scale_binary_split[ChordCountNum - 1] !== 0) {
                 //スケールの構成音でコードネームが作れるか判定する
-                if (chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 0, 12)] <= scale_binary_split[11] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 1, 12)] <= scale_binary_split[10] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 2, 12)] <= scale_binary_split[9] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 3, 12)] <= scale_binary_split[8] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 4, 12)] <= scale_binary_split[7] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 5, 12)] <= scale_binary_split[6] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 6, 12)] <= scale_binary_split[5] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 7, 12)] <= scale_binary_split[4] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 8, 12)] <= scale_binary_split[3] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 9, 12)] <= scale_binary_split[2] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 10, 12)] <= scale_binary_split[1] &&
-                    chord_container[ChordTableNum - 1]['ChordBinary'][mod(chordAdjustmentNumber - 11, 12)] <= scale_binary_split[0]) {
+                if (chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 0, 12)] <= scale_binary_split[11] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 1, 12)] <= scale_binary_split[10] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 2, 12)] <= scale_binary_split[9] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 3, 12)] <= scale_binary_split[8] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 4, 12)] <= scale_binary_split[7] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 5, 12)] <= scale_binary_split[6] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 6, 12)] <= scale_binary_split[5] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 7, 12)] <= scale_binary_split[4] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 8, 12)] <= scale_binary_split[3] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 9, 12)] <= scale_binary_split[2] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 10, 12)] <= scale_binary_split[1] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 11, 12)] <= scale_binary_split[0]) {
 
                     //調号が#か♭かを判定する。
                     if (KeySignatureNum === 0
@@ -605,7 +605,7 @@ function ChordCandidateInfo(onoff) {
     document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
     document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
 
-    TriToneText = ["<br>ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】"];
+    TriToneText = [`<br>トライトーンを含みます。ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】`];
     Sub2Text = ["<br>【このコードの手前に居がちなコード】"]
 
     //トライ・トーンを判定する
@@ -722,18 +722,18 @@ function ChordCandidateInfo(onoff) {
         Num = 0;
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
-            if (chord_container[Num]['ChordBinary'][0] === onoff[mod(RootNum + 0, 12)]
-                && chord_container[Num]['ChordBinary'][1] === onoff[mod(RootNum + 1, 12)]
-                && chord_container[Num]['ChordBinary'][2] === onoff[mod(RootNum + 2, 12)]
-                && chord_container[Num]['ChordBinary'][3] === onoff[mod(RootNum + 3, 12)]
-                && chord_container[Num]['ChordBinary'][4] === onoff[mod(RootNum + 4, 12)]
-                && chord_container[Num]['ChordBinary'][5] === onoff[mod(RootNum + 5, 12)]
-                && chord_container[Num]['ChordBinary'][6] === onoff[mod(RootNum + 6, 12)]
-                && chord_container[Num]['ChordBinary'][7] === onoff[mod(RootNum + 7, 12)]
-                && chord_container[Num]['ChordBinary'][8] === onoff[mod(RootNum + 8, 12)]
-                && chord_container[Num]['ChordBinary'][9] === onoff[mod(RootNum + 9, 12)]
-                && chord_container[Num]['ChordBinary'][10] === onoff[mod(RootNum + 10, 12)]
-                && chord_container[Num]['ChordBinary'][11] === onoff[mod(RootNum + 11, 12)]) {
+            if (chord_container[Num].ChordBinary[0] === onoff[mod(RootNum + 0, 12)]
+                && chord_container[Num].ChordBinary[1] === onoff[mod(RootNum + 1, 12)]
+                && chord_container[Num].ChordBinary[2] === onoff[mod(RootNum + 2, 12)]
+                && chord_container[Num].ChordBinary[3] === onoff[mod(RootNum + 3, 12)]
+                && chord_container[Num].ChordBinary[4] === onoff[mod(RootNum + 4, 12)]
+                && chord_container[Num].ChordBinary[5] === onoff[mod(RootNum + 5, 12)]
+                && chord_container[Num].ChordBinary[6] === onoff[mod(RootNum + 6, 12)]
+                && chord_container[Num].ChordBinary[7] === onoff[mod(RootNum + 7, 12)]
+                && chord_container[Num].ChordBinary[8] === onoff[mod(RootNum + 8, 12)]
+                && chord_container[Num].ChordBinary[9] === onoff[mod(RootNum + 9, 12)]
+                && chord_container[Num].ChordBinary[10] === onoff[mod(RootNum + 10, 12)]
+                && chord_container[Num].ChordBinary[11] === onoff[mod(RootNum + 11, 12)]) {
 
                 //完全5度が省略可能かを判定する。
                 omitP5th = 0;
