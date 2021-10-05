@@ -974,12 +974,13 @@ function ModalTextAndNoteCreate() {
                 //スケールの情報をHTMLに書き込む。
                 if (scale_Container[Num]["Mode"] === "") {
                     document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${ConfigurationNotes.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
                 } else {
                     document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]} . . .【${ConfigurationNotes.join("-")}】<font size="2">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
                 };
             } else {
+                7
                 document.getElementById(`Modal_text_${Num}`).innerHTML = "";
                 document.getElementById(`Modal_text_${Num}`).className = "";
             };
