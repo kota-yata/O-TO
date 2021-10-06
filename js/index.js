@@ -106,12 +106,12 @@ chord_container =
     { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナー・セブン・オミットファイブ", Info: '「-7(omit5)」などの表記もあります。<br>マイナーセブンから、P5th（完全5度）の音を省略したコードです。' },
     { ChordName: "m7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0], Name: "マイナー・セブン・シャープファイブ", Info: 'マイナー・セブンのP5th（完全5度）を半音上げたコードです。<br>ハイブリッド・コードである「♭Ⅶ/Ⅰ（フュージョン・コード）」の転回形とも解釈できます。' },
     { ChordName: "m7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ", Info: '「減五短七の和音」や「ハーフ・ディミニッシュ」とも呼ばれます。<br>「ハーフ・ディミニッシュ」と呼ぶ場合は、よく「Φ」を傾けた記号が用いられます。<br>ディミニッシュト・トライアドにm7th（短7度）の音が加わったコードです。<br>ツー・ファイブ・ワン進行(Ⅱm7-Ⅴ7-Ⅰ)のⅡm7の代理としてよく使われます。' },
-    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: '「減七の和音」とも呼ばれます。<br>「dim」や「〇」などの表記もあります。(※「dim」は「m(♭5)」と混同される場合があるので注意が必要です。)<br>ディミニッシュト・トライアドに減7度の音が加わったコードです。<br><br>よく経過和音（パッシング・ディミニッシュ）として使用されます。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナントセブン・コードになります。<br><br>「dim」は「diminished」の略称です。' },
+    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: '「減七の和音」とも呼ばれます。<br>「dim」や「〇」などの表記もあります。(※「dim」は「m(♭5)」と混同される場合があるので注意が必要です。)<br>ディミニッシュト・トライアドに減7度の音が加わったコードです。<br><br>よく経過和音（パッシング・ディミニッシュ）として使用されます。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナント・セブン・コードになります。<br><br>「dim」は「diminished」の略称です。' },
 
-    { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「属七の和音」とも呼ばれます。<br>メジャー・トライアドにm7th（短7度）の音が加わったコードです。' },
-    { ChordName: "7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・オミットファイブ", Info: 'ドミナントセブンからP5th（完全5度）を抜いた形。' },
+    { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「ドミナント・セブン」。「属七の和音」とも呼ばれます。<br>メジャー・トライアドにm7th（短7度）の音が加わったコードです。' },
+    { ChordName: "7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・オミットファイブ", Info: 'ドミナント・セブンからP5th（完全5度）を抜いた形。' },
     { ChordName: "aug7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "オーグメンテッド・セブン", Info: '「7+5」や「7(#5)」やなどの表記もあります。<br>オーグメンテッド・トライアドにm7th（短7度）の音が加わったコードです。<br>「7(♭13)(omit5)」と同じ構成音を持ちます。' },
-    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナントセブンのP5th（完全5度）をフラットさせたコードです。<br>ドミナントセブンのP5th（完全5度）を省略し、#11thを加えたとも解釈できるでしょう。' },
+    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナント・セブンのP5th（完全5度）をフラットさせたコードです。<br>ドミナント・セブンのP5th（完全5度）を省略し、#11thを加えたとも解釈できるでしょう。' },
 
     { ChordName: "mMaj7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1], Name: "マイナー・メジャーセブン", Info: '「短三長七の和音」とも呼ばれます。<br>「m△7」などの表記もあります。<br>マイナー・トライアドにM7th（長7度）の音が加わったコードです。' },
     { ChordName: "mMaj7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・オミットファイブ", Info: '「m△7(omit5)」などの表記もあります。<br>マイナー・トライアドにM7th（長7度）の音が加わったコードから、P5th（完全5度）の音を省略したコードです。' },
@@ -148,22 +148,22 @@ chord_container =
     { ChordName: "m(9/#11)", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0], Name: "マイナー・ナイン・シャープイレブン", Info: '「m(9,#11)」などの表記もあります。<br>マイナー・トライアドに9thと#11thの音を加えたコードです。' },
     { ChordName: "m(9/#11)(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0], Name: "マイナー・ナイン・シャープイレブン・オミットファイブ", Info: '「m(9,#11)(omit5)」などの表記もあります。<br>マイナー・トライアドに9thと#11thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
 
-    { ChordName: "7(♭9)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン", Info: 'ドミナントセブンに♭9thが加わったコードです。' },
-    { ChordName: "7(♭9)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・オミットファイブ", Info: 'ドミナントセブンに♭9thが加わったコードから、P5th（完全5度）の音を省略したコードです' },
+    { ChordName: "7(♭9)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン", Info: 'ドミナント・セブンに♭9thが加わったコードです。' },
+    { ChordName: "7(♭9)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・オミットファイブ", Info: 'ドミナント・セブンに♭9thが加わったコードから、P5th（完全5度）の音を省略したコードです' },
     { ChordName: "Maj9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーナイン", Info: '「△9」などの表記もあります。<br>メジャーセブンに9thが加わったコードです。' },
     { ChordName: "Maj9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーナイン・オミットファイブ", Info: '「△9(omit5)」などの表記もあります。<br>メジャーセブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
     { ChordName: "m9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナーナイン", Info: 'マイナー・セブンに9thが加わったコードです。' },
     { ChordName: "m9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーナイン・オミットファイブ", Info: 'マイナー・セブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナントセブンに9thが加わったコードです。' },
-    { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナントセブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナント・セブンに9thが加わったコードです。' },
+    { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナント・セブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
-    { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナントセブンに#9thが加わったコードです。<br>「ジミヘン・コード」とも呼ばれます。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
-    { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナントセブンに#9thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
-    { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナントセブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
+    { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナント・セブンに#9thが加わったコードです。<br>「ジミヘン・コード」とも呼ばれます。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
+    { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナント・セブンに#9thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
+    { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナント・セブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "m7(11)", ChordBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
     { ChordName: "m7(11)(omit5)", ChordBinary: [1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
-    { ChordName: "7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン", Info: 'ドミナントセブンに#11thが加わったコードです。' },
-    { ChordName: "7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン", Info: 'ドミナント・セブンに#11thが加わったコードです。' },
+    { ChordName: "7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
     { ChordName: "m7(♭5)add9", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドナイン", Info: '「ハーフ・ディミニッシュ」に9thが加わったコードです。' },
     { ChordName: "m7(♭5)add♭9", ChordBinary: [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドフラットナイン", Info: '「ハーフ・ディミニッシュ」に♭9thが加わったコードです。' },
@@ -177,42 +177,45 @@ chord_container =
     { ChordName: "Maj7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1], Name: "メジャーセブン・シャープイレブン・オミットファイブ", Info: '「△7(#11)(omit5)」などの表記もあります。<br>メジャーセブンに#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>リディアン・モードを示唆するコードです。' },
 
     { ChordName: "blk", ChordBinary: [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0], Name: "ブラックアダー", Info: '一部界隈で「イキスギ・コード」とも呼ばれます。<br>主に9thと#11thのサウンドが欲しい時に使えます。<br>ハイブリッド・コードである「Ⅱaug/Ⅰ」及び「#Ⅳaug/Ⅰ」及び「♭Ⅶaug/Ⅰ」の転回形とも解釈できます。' },
-    { ChordName: "7(♭13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットサーティーン", Info: 'ドミナントセブンに♭13thが加わったコードです。' },
-    { ChordName: "7(♭13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>aug7と同じ構成音を持ちます。' },
-    { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナントセブンに13thが加わったコードです。' },
-    { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(♭13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットサーティーン", Info: 'ドミナント・セブンに♭13thが加わったコードです。' },
+    { ChordName: "7(♭13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>aug7と同じ構成音を持ちます。' },
+    { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナント・セブンに13thが加わったコードです。' },
+    { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
-    { ChordName: "7(9,#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン", Info: 'ドミナントセブンに9thと#11thが加わったコードです。' },
-    { ChordName: "7(9,#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,#11)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン", Info: 'ドミナントセブンに♭9thと#11thが加わったコードです。<br>UST（アッパー・ストラクチャー・トライアド）で「#Ⅳ/Ⅰ」と表記されるコードと同じ構成音を持ちます。<br>「ペトルーシュカ和音」とも呼ばれます。' },
-    { ChordName: "7(♭9,#11)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに♭9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,#11)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン", Info: 'ドミナントセブンに#9thと#11thが加わったコードです。' },
-    { ChordName: "7(#9,#11)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン・オミットファイブ", Info: 'ドミナントセブンに#9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(9,#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン", Info: 'ドミナント・セブンに9thと#11thが加わったコードです。' },
+    { ChordName: "7(9,#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(♭9,#11)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン", Info: 'ドミナント・セブンに♭9thと#11thが加わったコードです。<br>UST（アッパー・ストラクチャー・トライアド）で「#Ⅳ/Ⅰ」と表記されるコードと同じ構成音を持ちます。<br>「ペトルーシュカ和音」とも呼ばれます。' },
+    { ChordName: "7(♭9,#11)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(#9,#11)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン", Info: 'ドミナント・セブンに#9thと#11thが加わったコードです。' },
+    { ChordName: "7(#9,#11)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに#9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
-    { ChordName: "7(9,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン", Info: 'ドミナントセブンに9thと13thが加わったコードです。' },
-    { ChordName: "7(9,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン", Info: 'ドミナントセブンに♭9thと13thが加わったコードです。' },
-    { ChordName: "7(♭9,13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに♭9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン", Info: 'ドミナントセブンに#9thと13thが加わったコードです。' },
-    { ChordName: "7(#9,13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン・オミットファイブ", Info: 'ドミナントセブンに#9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(9,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン", Info: 'ドミナント・セブンに9thと13thが加わったコードです。' },
+    { ChordName: "7(9,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(♭9,13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン", Info: 'ドミナント・セブンに♭9thと13thが加わったコードです。' },
+    { ChordName: "7(♭9,13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(#9,13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン", Info: 'ドミナント・セブンに#9thと13thが加わったコードです。' },
+    { ChordName: "7(#9,13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに#9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
-    { ChordName: "7(9,♭13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン", Info: 'ドミナントセブンに9thと♭13thが加わったコードです。' },
-    { ChordName: "7(9,♭13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナントセブンに9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,♭13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン", Info: 'ドミナントセブンに♭9thと♭13thが加わったコードです。' },
-    { ChordName: "7(♭9,♭13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナントセブンに♭9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,♭13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン", Info: 'ドミナントセブンに#9thと♭13thが加わったコードです。' },
-    { ChordName: "7(#9,♭13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナントセブンに#9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(9,♭13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン", Info: 'ドミナント・セブンに9thと♭13thが加わったコードです。' },
+    { ChordName: "7(9,♭13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(♭9,♭13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン", Info: 'ドミナント・セブンに♭9thと♭13thが加わったコードです。' },
+    { ChordName: "7(♭9,♭13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
+    { ChordName: "7(#9,♭13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン", Info: 'ドミナント・セブンに#9thと♭13thが加わったコードです。' },
+    { ChordName: "7(#9,♭13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに#9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
     { ChordName: "7sus4add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー・アドナイン", Info: '「sus9」や「9sus4」や「9sus」などの表記もあります。<br>7sus4に9thが加わったコードです。' },
     { ChordName: "7sus4add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー・アドフラットナイン", Info: '7sus4に♭9thが加わったコードです。<br>主にフリジアン・モードや、陰音階-上行系を示唆するコードです。' },
-    { ChordName: "11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "イレブン", Info: '「7(9,11)」などの表記もあります。<br>ドミナントセブンに9thと11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
+    { ChordName: "11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "イレブン", Info: '「7(9,11)」などの表記もあります。<br>ドミナント・セブンに9thと11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "Maj11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーイレブン", Info: '「△11」や「△7(9,11)」などの表記もあります。<br>メジャーセブンに9thと11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "Maj11(omit5)", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1], Name: "メジャーイレブン・オミットファイブ", Info: '「△11(omit5)」や「△7(9,11)(omit5)」などの表記もあります。<br>メジャーセブンに9thと11thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "Maj7(9,#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン", Info: '「△7(9,#11)」などの表記もあります。<br>メジャーセブンに9thと#11thが加わったコードです。' },
     { ChordName: "Maj7(9,#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・オミットファイブ", Info: '「△7(9,#11)(omit5)」などの表記もあります。<br>メジャーセブンに9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
 
     { ChordName: "m11", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナーイレブン", Info: 'マイナー・セブンに9thと11thが加わったコードです。' },
-    { ChordName: "13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], Name: "サーティーン", Info: 'ドミナントセブンに9thと11thと13thが加わったコードです。<br>ミクソリディアン・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
+    { ChordName: "13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], Name: "サーティーン", Info: 'ドミナント・セブンに9thと11thと13thが加わったコードです。<br>ミクソリディアン・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
+    { ChordName: "7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], Name: "セブン・ナイン・シャープイレブン・サーティーン", Info: 'ドミナント・セブンに9thと#11thと13thが加わったコードです。<br>リディアン・ドミナントの構成音を全て含むコード。' },
+    { ChordName: "7(9,#11,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0], Name: "セブン・ナイン・シャープイレブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと#11thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>プロメテウス・スケールの構成音を全て含むコード。<br>スクリャービンの交響詩「プロメテウス」の中で使用されており、「神秘和音」や「プロメテウス和音」とも呼ばれます。' },
+
     { ChordName: "Maj13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], Name: "メジャーサーティーン", Info: 'メジャー・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "m13", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], Name: "マイナーサーティーン", Info: 'ドリアン・スケールの構成音を全て含むコード。' },
     { ChordName: "Maj7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンに9thと#11thと13thが加わったコードです。<br>リディアン・スケールの構成音を全て含むコード。' }];
@@ -249,7 +252,7 @@ scale_Container =
     //ハーモニック・メジャースケールファミリー
     { EnglishName: "Harmonic Major", JapaneseName: "ハーモニック・メジャー", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 3, 0, 0, 1], addNum: 0, ForteNumber: "7-32", Info: "和声的長音階。", Mode: "", Adjustment: 0 },
     { EnglishName: "Dorian ♭5", JapaneseName: "ドリアン♭5", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 3, 0, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第2モード。", Adjustment: 0 },
-    { EnglishName: "Phrygian ♭4", JapaneseName: "フリジアン♭4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "ドミナントセブン・コード上で使用可能です。", Mode: "ハーモニック・メジャーの第3モード。", Adjustment: 0 },
+    { EnglishName: "Phrygian ♭4", JapaneseName: "フリジアン♭4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "ドミナント・セブン・コード上で使用可能です。", Mode: "ハーモニック・メジャーの第3モード。", Adjustment: 0 },
     { EnglishName: "Lydian ♭3", JapaneseName: "リディアン♭3", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第4モード。", Adjustment: 0 },
     { EnglishName: "Mixolydian ♭2", JapaneseName: "ミクソリディアン♭2", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第5モード。", Adjustment: 0 },
     { EnglishName: "Lydian ♯2♯5", JapaneseName: "リディアン♯2♯5", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [3, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第6モード。", Adjustment: 0 },
@@ -291,20 +294,34 @@ scale_Container =
 
     // 沖縄音階
     { EnglishName: "Ionian Pentatonic", JapaneseName: "沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「琉球音階」、「ニロ抜き長音階」、「アイオニアン・ペンタトニック」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Phrygian Pentatonic", JapaneseName: "フリジアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第2モード。", Adjustment: 0 },
+    { EnglishName: "Raga Vaijayanti", JapaneseName: "ラーガ・ヴァイジャヤンティ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第3モード。", Adjustment: 0 },
+    { EnglishName: "Raga Khamaji Durga", JapaneseName: "ラーガ・カマジ・ドゥリガ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0], addNum: 7, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第4モード。", Adjustment: 0 },
+    { EnglishName: "Aeoloritonic", JapaneseName: "エオロリトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0], addNum: 11, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第5モード。", Adjustment: 0 },
 
     { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
     { EnglishName: "Koptimic", JapaneseName: "中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "6-Z25", Info: "", Mode: "", Adjustment: 0 },
 
-    //ブルース
-    { EnglishName: "Blues Major Pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
-    { EnglishName: "Blues Minor Pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 3, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
-    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
-
     //その他のスケール
     { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 3, 3, 3, 0, 1, 3, 0, 3, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュ", diaChord4: "7", diaChord3: "", ScaleNumBinary: [3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Diminished", JapaneseName: "ディミニッシュ", diaChord4: "", diaChord3: "", ScaleNumBinary: [3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Prometheus", JapaneseName: "プロメテウス", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 0, 1, 3, 0], addNum: 5, ForteNumber: "6-34", Info: "スクリャービンの交響詩「プロメテウス」の中で使用されているスケール。<br>「ミスティック」とも。<br>構成音を全て使った和音は、「神秘和音」や「プロメテウス和音」と呼ばれます。<br>リディアン・ドミナントからP5th（完全五度）を抜いたスケールとも解釈できます。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Mixolydian Pentatonic", JapaneseName: "ミクソリディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], addNum: 7, ForteNumber: "5-29", Info: "", Mode: "", Adjustment: 0 },
+
+    //ブルース
+    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Blues Major Pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
+    { EnglishName: "Blues Minor Pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 3, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
+
+    //特殊なスケール
+    { EnglishName: "Enigmatic", JapaneseName: "エニグマティック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1], addNum: 0, ForteNumber: "7-24", Info: "アドルフォ・クレッシェンティーニが考案した、メジャーとマイナーと全音階の雰囲気を併せ持つスケール。<br>「謎の音階」とも。", Mode: "", Adjustment: 0 },
+
+    { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュト", diaChord4: "7", diaChord3: "", ScaleNumBinary: [3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Diminished", JapaneseName: "ディミニッシュト", diaChord4: "", diaChord3: "", ScaleNumBinary: [3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
+
+    { EnglishName: "Augmented", JapaneseName: "オーグメンテッド", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 3, 1, 0, 0, 1, 2, 0, 0, 1], addNum: 0, ForteNumber: "6-20", Info: "2つのオーグメンテッド・トライアドを融合したスケールです。<br>「シンメトリック・オーグメンテッド」や「マイナー・サード・ハーフステップ」とも呼ばれます。", Mode: "", Adjustment: 0 },
+
     { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 3, 0, 3, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
+
     { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 0, ForteNumber: "6-35", Info: "「全音音階」とも。オクターブを6等分したスケール。全てが全音で構成されています。", Mode: "", Adjustment: 0 },
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 2, 1, 3, 1, 1, 2, 1, 3, 1, 3, 1], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
     ];
@@ -428,10 +445,10 @@ function ScaleInformationDrawing() {
     // ドミナントコード上で使えるかを判定する
     if (scale_Container[Num]["diaChord4"] === "7") {
         document.getElementById("dominant_chord_text").innerHTML
-            = `${noteNames[RootNumber][SOF]}7（ドミナントセブン・コード）上で使用可能です。`;
+            = `${noteNames[RootNumber][SOF]}7（ドミナント・セブン・コード）上で使用可能です。`;
     } else if (scale_dec == 1371) {
         document.getElementById("dominant_chord_text").innerHTML
-            = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${flat_note_name[RootNumber]}7（ドミナントセブン・コード）上で使用可能です。`;
+            = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${flat_note_name[RootNumber]}7（ドミナント・セブン・コード）上で使用可能です。`;
     } else {
         document.getElementById("dominant_chord_text").innerHTML = "";
     };
