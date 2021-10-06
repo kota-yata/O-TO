@@ -91,16 +91,16 @@ Vue.component('right-column', {
 
         <ul>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chords.html">①コードの構成音を調べる（100種類以上）</a>
+            <a class="nav-link" href="o-to-chords.html">①コード（<span class="chord_count">110種類以上</span>）の構成音を調べる</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-scale.html">②スケールの構成音を調べる（60種類以上）</a>
+            <a class="nav-link" href="o-to-scale.html">②スケール（<span class="scale_count">70種類以上</span>）の構成音を調べる</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-modal-interchange.html">③コード・ネーム/モードを検索する</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（80種類以上）</a>
+            <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">80×12種類以上</span>）</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード（8種類の環境）</a>

@@ -19,11 +19,11 @@
   <meta charset="utf-8">
 
   <!--ページタイトル-->
-  <title>コードの構成音を調べる（100種類以上） O-TO【音楽理論ウェブアプリ】</title>
+  <title>コード（100種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】</title>
 
   <!--サイト情報-->
   <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-  <meta property="og:title" content="コードの構成音を調べる（100種類以上） O-TO【音楽理論ウェブアプリ】" />
+  <meta property="og:title" content="コード（100種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】" />
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-chords" />
   <meta property="og:locale" content="ja_JP" />
@@ -52,7 +52,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@khufrudamonotes" />
   <meta name="twitter:creator" content="@k1mu0419" />
-  <meta name="twitter:title" content="コードの構成音を調べる（100種類以上） O-TO【音楽理論ウェブアプリ】" />
+  <meta name="twitter:title" content="コード（100種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】" />
   <meta property="twitter:description"
     content="100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。" />
   <meta property="og:description" content="100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。" />
@@ -136,7 +136,7 @@
       </div>
 
       <!-- 左(メインコンテンツ) -->
-      <h3 class="Larger shadow p-3 rounded mb-5 py-3">①コードの構成音を調べる（100種類以上）</h3>
+      <h3 class="Larger shadow p-3 rounded mb-5 py-3">①コード（<span class="chord_count">100種類以上</span>）の構成音を調べる</h3>
 
       <!-- タブの中身 -->
       <div id="tabBox" class=" pb-3">
@@ -154,7 +154,7 @@
 
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
-            <p class="pt-3 pb-2">100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。<br>
+            <p class="pt-3 pb-2"><span class="chord_count">100種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるアプリです。<br>
               同時に、指定したコードの構成音を含む主なスケールも表示されます。
             <p>
             <p class="py-2">※構成音からコード・ネームを検索したい方は、<a href="o-to-modal-interchange.html">③コード/モード検索</a>をお使いください。
@@ -316,7 +316,7 @@
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
               aria-expanded="true" aria-controls="collapseTwo">
-              このコードの構成音を含む主なスケールはこちら。
+              このコードの構成音を含む主なスケール<span class="use_scale_count"></span>
             </button>
           </h2>
 
@@ -387,7 +387,8 @@
 
   <!-- JavaScriptを読み込む-->
   <script src="js/Vue.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ScaleChord.js"></script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->

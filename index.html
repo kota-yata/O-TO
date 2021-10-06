@@ -134,7 +134,7 @@
         <title-display></title-display>
       </div>
 
-      <div class="row">
+      <div class="row" id="array_count_text">
         <!-- 左カラム部分(メインコンテンツ) -->
         <div class="col-md-8">
           <h3 class="Larger shadow p-3 rounded mb-5 py-3">ようこそ！</h3>
@@ -160,7 +160,8 @@
                     <img class="pt-3 pb-3" src="image/thumbnail/chords_thumbnail.png" alt="サムネイル">
                   </a>
                   <p class="card-text">
-                    100種類以上のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
+                    <span
+                      class="chord_count">110種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるアプリです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
                   </p>
                 </div>
               </div>
@@ -173,7 +174,8 @@
                     <img class="pt-3 pb-3" src="image/thumbnail/scale_thumbnail.png" alt="サムネイル">
                   </a>
                   <p class="card-text">
-                    60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。同時に、指定したスケールの構成音を含む主なコードも表示されます。
+                    <span
+                      class="scale_count">70種類以上</span>のスケールの構成音や情報を、全てのキーで調べられるアプリです。同時に、指定したスケールの構成音を含む主なコードも表示されます。
                   </p>
                 </div>
               </div>
@@ -205,9 +207,9 @@
                     <img class="pt-3 pb-3" src="image/thumbnail/chord-progression_thumbnail.png" alt="サムネイル">
                   </a>
                   <p class="card-text">
-                    80種類以上のコード進行をまとめたアプリです。表示は全てのキーへ切り替え可能なので、実質1000以上のコード進行を確認できます。
+                    <span class="chord_prog_count">80種類以上</span>のコード進行をまとめたアプリです。表示は全てのキーへ切り替え可能なので、実質<span
+                      class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
                   </p>
-
                 </div>
               </div>
             </div>
@@ -238,7 +240,7 @@
                     <img class="pt-3 pb-3" src="image/thumbnail/modulation_thumbnail.png" alt="サムネイル">
                   </a>
                   <p class="card-text">
-                    指定した調（キー）の関係性を調べられるアプリです。60を超えるスケールや、モードを指定可能です。
+                    指定した調（キー）の関係性を調べられるアプリです。<span class="scale_count">70種類以上</span>のスケールや、モードを指定可能です。
                   </p>
                 </div>
               </div>
@@ -372,7 +374,7 @@
 
   <!-- JavaScriptを読み込む-->
   <script src="js/Vue.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->

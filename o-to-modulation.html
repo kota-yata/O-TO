@@ -157,7 +157,8 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
-                <p class="py-2">指定した調（キー）の関係性を調べられるアプリです。<br>60を超えるスケールや、モードを指定可能です。<br>
+                <p class="py-2">指定した調（キー）の関係性を調べられるアプリです。<br>
+                  <span class="scale_count">70種類以上</span>のスケールやモードを指定可能です。<br>
               </div>
 
               <!-- タブ2の中身 -->
@@ -362,7 +363,8 @@
 
   <!-- JavaScriptを読み込む-->
   <script src="js/Vue.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ScaleChord.js"></script>
 
   <!--ページのロードが終了したときに実行される関数 -->
   <script>

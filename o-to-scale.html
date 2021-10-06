@@ -19,11 +19,11 @@
   <meta charset="utf-8">
 
   <!--ページタイトル-->
-  <title>スケールの構成音を調べる（60種類以上） O-TO【音楽理論ウェブアプリ】</title>
+  <title>スケール（70種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】</title>
 
   <!--サイト情報-->
   <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-  <meta property="og:title" content="スケールの構成音を調べる（60種類以上） O-TO【音楽理論ウェブアプリ】" />
+  <meta property="og:title" content="スケール（70種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】" />
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-scale" />
 
@@ -33,8 +33,8 @@
   <meta name="twitter:image" content="https://o-to.khufrudamonotes.com/image/thumbnail/scale_thumbnail.png" />
 
   <!--ページの概要-->
-  <meta property="description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。">
-  <meta property="og:description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。">
+  <meta property="description" content="70種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。">
+  <meta property="og:description" content="70種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。">
   <meta name="keyword" content="音楽理論,音楽,スケール,音階,スケール構成音,音階構成音,スケール検索,アプリ,ウェブアプリ,Webアプリ">
 
   <!--Internet Explorer用の設定-->
@@ -52,9 +52,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@khufrudamonotes" />
   <meta name="twitter:creator" content="@k1mu0419" />
-  <meta name="twitter:title" content="スケールの構成音を調べる（60種類以上） O-TO【音楽理論ウェブアプリ】" />
-  <meta property="twitter:description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
-  <meta property="og:description" content="60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
+  <meta name="twitter:title" content="スケール（70種類以上）の構成音を調べる O-TO【音楽理論ウェブアプリ】" />
+  <meta property="twitter:description" content="70種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
+  <meta property="og:description" content="70種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。指定したスケールの構成音を含む主なコードも表示されます。" />
 
   <!--サイトアイコンの指定-->
   <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
@@ -137,7 +137,7 @@
 
       <!-- 左(メインコンテンツ) -->
 
-      <h3 class="Larger shadow p-3 rounded mb-5 py-3">②スケールの構成音を調べる（60種類以上）</h3>
+      <h3 class="Larger shadow p-3 rounded mb-5 py-3">②スケール（<span class="scale_count">70種類以上</span>）の構成音を調べる</h3>
 
       <!-- タブの中身 -->
       <div id="tabBox" class=" pb-3">
@@ -155,7 +155,9 @@
 
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
-            <p class="pt-3 pb-2">60種類以上のスケールの構成音や情報を、全てのキーで調べられるアプリです。<br>指定したスケールの構成音を含む主なコードも表示されます。</p>
+            <p class="pt-3 pb-2">
+              <span class="scale_count">70種類以上</span>のスケールの構成音や情報を、全てのキーで調べられるアプリです。<br>指定したスケールの構成音を含む主なコードも表示されます。
+            </p>
             <p class="py-2">※構成音からスケール名を検索したい方は、<a href="o-to-modal-interchange.html">③コード/モード検索</a>をお使いください。
           </div>
 
@@ -342,7 +344,7 @@
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
               aria-expanded="true" aria-controls="collapseTwo">
-              スケール構成音を含む主なコード
+              このスケールの構成音を含む主なコード<span class="use_chord_count"></span>
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
@@ -411,7 +413,8 @@
 
   <!-- JavaScriptを読み込む-->
   <script src="js/Vue.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ScaleChord.js"></script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->

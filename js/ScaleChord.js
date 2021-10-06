@@ -1,338 +1,11 @@
-
-//常に正の数の答えを返す剰余演算をする関数 (負の数の剰余演算を処理するため)
-function mod(n, m) {
-    return ((n % m) + m) % m;
-};
-
-// 四捨五入して小数点第3位までを表示する関数 (JavaScriptには元からそういう関数が無いっぽいので)
-function roundToThree(num) {
-    return +(Math.round(num + "e+3") + "e-3");
-};
-
-//音名を配列に格納する。
-const note_name = ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"];
-const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-const flat_note_name = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
-
-const clef_image = [
-    "clef/Treble_clef_with_empty_staff.svg",
-    "clef/D-flat-major_b-flat-minor.svg",
-    "clef/D-major_b-minor.svg",
-    "clef/E-flat-major_c-minor.svg",
-    "clef/E-major_c-sharp-minor.svg",
-    "clef/F-major_d-minor.svg",
-    "clef/F-sharp-major_d-sharp-minor.svg",
-    "clef/G-major_e-minor.svg",
-    "clef/A-flat-major_f-minor.svg",
-    "clef/A-major_f-sharp-minor.svg",
-    "clef/B-flat-major_g-minor.svg",
-    "clef/B-major_g-sharp-minor.svg",
-];
-
-const EIJG =
-    [["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
-    ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ファ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
-    ["ハ", "嬰ハ-変ニ", "ニ", "嬰ニ-変ホ", "ホ", "ヘ", "嬰ヘ-変ト", "ト", "嬰ト-変イ", "イ", "嬰イ-変ロ", "ロ"],
-    ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]];
-
-const EIJG2 =
-    [[["C", "C"], ["C#", "D♭"], ["D", "D"], ["D#", "E♭"], ["E", "E"], ["F", "F"], ["F#", "G♭"], ["G", "G"], ["G#", "A♭"], ["A", "A"], ["A#", "B♭"], ["B", "B"]],
-    [["ド", "ド"], ["ド#", "レ♭"], ["レ", "レ"], ["レ#", "ミ♭"], ["ミ", "ミ"], ["ファ", "ファ"], ["ファ#", "ソ♭"], ["ソ", "ソ"], ["ソ#", "ラ♭"], ["ラ", "ラ"], ["ラ#", "シ♭"], ["シ", "シ"]],
-    [["ハ", "ハ"], ["嬰ハ", "変ニ"], ["ニ", "ニ"], ["嬰ニ", "変ホ"], ["ホ", "ホ"], ["ヘ", "ヘ"], ["嬰ヘ", "変ト"], ["ト", "ト"], ["嬰ト", "変イ"], ["イ", "イ"], ["嬰イ", "変ロ"], ["ロ", "ロ"]],
-    [["C", "C"], ["Cis", "Des"], ["D", "D"], ["Dis", "Es"], ["E", "E"], ["F", "F"], ["Fis", "Ges"], ["G", "G"], ["Gis", "As"], ["A", "A"], ["Ais", "B"], ["H", "H"]]];
-
-const DegreeNames =
-    [["Ⅰ", "#Ⅰ", "Ⅱ", "#Ⅱ", "Ⅲ", "Ⅳ", "#Ⅳ", "Ⅴ", "#Ⅴ", "Ⅵ", "#Ⅵ", "Ⅶ"],
-    ["Ⅰ", "♭Ⅱ", "Ⅱ", "♭Ⅲ", "Ⅲ", "Ⅳ", "♭Ⅴ", "Ⅴ", "♭Ⅵ", "Ⅵ", "♭Ⅶ", "Ⅶ"]];
-
-//英・米式音名の多次元配列
-const noteNames =
-    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'D&#119083;', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'C'],
-    ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#/D♭'],
-    ['D', 'D', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'D'],
-    ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F&#119083;', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
-    ['E', 'E', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'F♭', 'E', 'E', 'F♭', 'E', 'D&#119082;', 'F♭', 'E', 'E', 'D&#119082;', 'E'],
-    ['F', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'F', 'F', 'E#', 'F', 'F', 'E#', 'G&#119083;', 'F', 'E#', 'E#', 'F'],
-    ['F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'F#', 'F#', 'G♭', 'G♭', 'F#', 'E&#119082;', 'F#/G♭'],
-    ['G', 'G', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'A&#119083;', 'G', 'F&#119082;', 'G', 'G', 'F&#119082;', 'A&#119083;', 'G', 'G', 'F&#119082;', 'G'],
-    ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#/A♭'],
-    ['A', 'A', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A', 'A', 'A', 'B&#119083;', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A'],
-    ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'A#/B♭'],
-    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']];
-
-//旋法名を配列に格納する。
-const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
-const after_mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
-
-//調号の数を配列に格納する。
-const key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#・♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
-
-const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(#×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
-const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
-const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
-
-const ToneCluster =
-    [[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
-
-//0なし 1あり 2シャープ 3フラット 4ダブルシャープ 5ダブルフラット 6ナチュラル
-chord_container =
-    [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「Root（ルート音）」＋「P5th（完全5度）」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
-    { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「メジャー・トライアド」。<br>最も基本的な三和音。「長三和音」とも呼ばれます。<br><br>「Root（ルート音）」＋「M3rd（長3度）」＋「P5th（完全5度）」の組み合わせです。' },
-    { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "m", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー", Info: '「マイナー・トライアド」。<br>最も基本的な三和音。「短三和音」とも呼ばれます。<br>「-」などの表記もあります。<br><br>「Root（ルート音）」＋「m3rd（短3度）」＋「P5th（完全5度）」の組み合わせです。' },
-    { ChordName: "m(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・オミットファイブ", Info: 'マイナー・トライアドから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0], Name: "メジャー・フラットファイブ", Info: 'メジャー・トライアドのP5th（完全5度）の音を半音下げたコードです。' },
-    { ChordName: "m(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0], Name: "マイナー・フラットファイブ", Info: '「減三和音」。「ディミニッシュト・トライアド」とも。<br>マイナー・トライアドのP5th（完全5度）の音を半音下げたコードです。<br>「m-5」や「dim」などの表記もあります。(※「dim」は「dim7」と混同される場合があるので注意が必要です。)<br><br>「dim」は「diminished」の略称です。<br>よく経過和音（パッシング・ディミニッシュ）として使用されます。' },
-    { ChordName: "aug", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], Name: "オーグメンテッド", Info: '「増三和音」。「オーグメンテッド・トライアド」とも。<br>「+5」や「+」や「(#5)」などの表記もあります。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは4種類しかありません。<br><br>「aug」は「augmented」の略称です。' },
-    { ChordName: "sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー", Info: '「アーメン・コード」とも。<br>解決の係留（引き延ばし）機能を持ち、ドミナント機能を持つコードの手前に配置される場合が多いです。<br>m3rd（短3度）もM3rd（長3度）も含まないため、長短調に縛られずに柔軟な使用ができます。<br>様々な用途に使える汎用性の高いコードです。<br><br>「sus」は「suspended」の略称です。<br>その名の通り、Root（ルート音）から3度の音をP4th（完全4度）に吊り上げた形の構成になっています。' },
-    { ChordName: "sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "サスツー", Info: '「2」や「sus9」などの表記もあります。<br>sus4と同じく、解決の係留（引き延ばし）機能を持ちます。<br>sus4の転回形とも解釈できます。' },
-
-    { ChordName: "Maj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン", Info: '「長七の和音」とも呼ばれます。<br>「△7」などの表記もあります。<br>メジャー・トライアドにM7th（長7度）の音が加わったコードです。' },
-    { ChordName: "Maj7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーセブン・オミットファイブ", Info: '「△7(omit5)」などの表記もあります。<br>メジャーセブンから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "augMaj7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1], Name: "オーグメンテッド・メジャーセブン", Info: '「Maj7+5」や「Maj7(#5)」などの表記もあります。<br>オーグメンテッド・トライアドにM7th（長7度）の音が加わったコードです。' },
-
-    { ChordName: "m7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン", Info: '「短七の和音」とも呼ばれます。<br>「-7」などの表記もあります。<br>マイナー・トライアドにm7th（短7度）の音が加わったコードです。' },
-    { ChordName: "m7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナー・セブン・オミットファイブ", Info: '「-7(omit5)」などの表記もあります。<br>マイナーセブンから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "m7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0], Name: "マイナー・セブン・シャープファイブ", Info: 'マイナー・セブンのP5th（完全5度）を半音上げたコードです。<br>ハイブリッド・コードである「♭Ⅶ/Ⅰ（フュージョン・コード）」の転回形とも解釈できます。' },
-    { ChordName: "m7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ", Info: '「減五短七の和音」や「ハーフ・ディミニッシュ」とも呼ばれます。<br>「ハーフ・ディミニッシュ」と呼ぶ場合は、よく「Φ」を傾けた記号が用いられます。<br>ディミニッシュト・トライアドにm7th（短7度）の音が加わったコードです。<br>ツー・ファイブ・ワン進行(Ⅱm7-Ⅴ7-Ⅰ)のⅡm7の代理としてよく使われます。' },
-    { ChordName: "dim7", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], Name: "ディミニッシュセブン", Info: '「減七の和音」とも呼ばれます。<br>「dim」や「〇」などの表記もあります。(※「dim」は「m(♭5)」と混同される場合があるので注意が必要です。)<br>ディミニッシュト・トライアドに減7度の音が加わったコードです。<br><br>よく経過和音（パッシング・ディミニッシュ）として使用されます。<br>等間隔で堆積されたコードなので、転回しても間隔は一定です。したがって、音の組み合わせは3種類しかありません。<br>いずれかのコードトーンを半音下げると、それぞれ異なるドミナント・セブン・コードになります。<br><br>「dim」は「diminished」の略称です。' },
-
-    { ChordName: "7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン", Info: '「ドミナント・セブン」。「属七の和音」とも呼ばれます。<br>メジャー・トライアドにm7th（短7度）の音が加わったコードです。' },
-    { ChordName: "7(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・オミットファイブ", Info: 'ドミナント・セブンからP5th（完全5度）を抜いた形。' },
-    { ChordName: "aug7", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "オーグメンテッド・セブン", Info: '「7+5」や「7(#5)」やなどの表記もあります。<br>オーグメンテッド・トライアドにm7th（短7度）の音が加わったコードです。<br>「7(♭13)(omit5)」と同じ構成音を持ちます。' },
-    { ChordName: "7(♭5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットファイブ", Info: 'ドミナント・セブンのP5th（完全5度）をフラットさせたコードです。<br>ドミナント・セブンのP5th（完全5度）を省略し、#11thを加えたとも解釈できるでしょう。' },
-
-    { ChordName: "mMaj7", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1], Name: "マイナー・メジャーセブン", Info: '「短三長七の和音」とも呼ばれます。<br>「m△7」などの表記もあります。<br>マイナー・トライアドにM7th（長7度）の音が加わったコードです。' },
-    { ChordName: "mMaj7(omit5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・オミットファイブ", Info: '「m△7(omit5)」などの表記もあります。<br>マイナー・トライアドにM7th（長7度）の音が加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "mMaj7(#5)", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1], Name: "マイナー・メジャーセブン・シャープファイブ", Info: 'マイナー・メジャーセブンのP5th（完全5度）の音を半音上げたコードです。' },
-    { ChordName: "mMaj7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・フラットファイブ", Info: 'マイナー・メジャーセブンのP5th（完全5度）の音を半音下げたコードです。' },
-
-    { ChordName: "7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー", Info: 'sus4にm7th（短7度）が加わったコードです。' },
-    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2にm7th（短7度）が加わったコードです。' },
-    { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: '「sus2 4」などの表記もあります。<br>sus4に9thを加えたコードです。<br>7sus4の転回形とも解釈できます。' },
-    { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: 'sus4に♭9thを加えたコードです。' },
-    { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4にM7th（長7度）が加わったコードです。' },
-    { ChordName: "Maj7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスツー", Info: 'sus2にM7th（長7度）が加わったコードです。' },
-
-    { ChordName: "6", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス", Info: 'メジャー・トライアドにM6th（長6度）の音を加えたコードです。<br>「m7」の転回形とも解釈できます。<br>メジャー・トライアドに13thテンションを加えたとも解釈できます。' },
-    { ChordName: "m6", ChordBinary: [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス", Info: 'マイナー・トライアドにM6th（長6度）の音を加えたコードです。「m7(♭5)」の転回形とも解釈できます。<br>マイナー・トライアドに13thテンションを加えたとも解釈できます。<br>ドリアン・モードを示唆するコードとしても使えるでしょう。' },
-    { ChordName: "add9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー・アドナイン", Info: 'メジャー・トライアドに9thを加えたコードです。' },
-    { ChordName: "add9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・アドナイン・オミットファイブ", Info: 'メジャー・トライアドに9thを加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "madd9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0], Name: "マイナー・アドナイン", Info: 'マイナー・トライアドに9thを加えたコードです。' },
-    { ChordName: "madd9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・アドナイン・オミットファイブ", Info: 'マイナー・トライアドに9thを加えたコードから、P5th（完全5度）の音を省略したコードです。<br>ハイブリッド・コードである「♭Ⅶm/Ⅰ」の転回形とも解釈できます。' },
-    { ChordName: "add♭9", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー・アドフラットナイン", Info: 'メジャー・トライアドに♭9thを加えたコードです。' },
-    { ChordName: "add♭9(omit5)", ChordBinary: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], Name: "マイナー・アドフラットナイン・オミットファイブ", Info: 'マイナー・トライアドに♭9thを加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "add#11", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0], Name: "メジャー・アドシャープイレブン", Info: 'メジャー・トライアドに#11thを加えたコードです。' },
-
-    { ChordName: "(6/9)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], Name: "メジャー・シックス・ナイン", Info: '「6/9」などの表記もあります。<br>メジャー・トライアドにM6th（長6度）と9thの音を加えたコードです。' },
-    { ChordName: "(6/9)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0], Name: "メジャー・シックス・ナイン・オミットファイブ", Info: '「6/9(omit5)」などの表記もあります。<br>メジャー・トライアドにM6th（長6度）と9thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "m(6/9)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], Name: "マイナー・シックス・ナイン", Info: '「m6/9」などの表記もあります。<br>マイナー・トライアドにM6th（長6度）と9thの音を加えたコードです。' },
-    { ChordName: "m(6/9)(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0], Name: "マイナー・シックス・ナイン・オミットファイブ", Info: '「m6/9(omit5)」などの表記もあります。<br>マイナー・トライアドにM6th（長6度）と9thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "(9/11)", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0], Name: "メジャー・ナイン・イレブン", Info: '「(9,11)」などの表記もあります。<br>メジャー・トライアドに9thと11thの音を加えたコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "(9/11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0], Name: "メジャー・ナイン・イレブン・オミットファイブ", Info: '「(9,11)(omit5)」などの表記もあります。<br>メジャー・トライアドに9thと11thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "m(9/11)", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0], Name: "マイナー・ナイン・イレブン", Info: '「m(9,11)」などの表記もあります。<br>マイナー・トライアドに9thと11thの音を加えたコードです。' },
-    { ChordName: "m(9/11)(omit5)", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0], Name: "マイナー・ナイン・イレブン・オミットファイブ", Info: '「m(9,11)(omit5)」などの表記もあります。<br>マイナー・トライアドに9thと11thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "(9/#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0], Name: "メジャー・ナイン・シャープイレブン", Info: '「(9,#11)」などの表記もあります。<br>メジャー・トライアドに9thと#11thの音を加えたコードです。' },
-    { ChordName: "(9/#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0], Name: "メジャー・ナイン・シャープイレブン・オミットファイブ", Info: '「(9,#11)(omit5)」などの表記もあります。<br>メジャー・トライアドに9thと#11thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "m(9/#11)", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0], Name: "マイナー・ナイン・シャープイレブン", Info: '「m(9,#11)」などの表記もあります。<br>マイナー・トライアドに9thと#11thの音を加えたコードです。' },
-    { ChordName: "m(9/#11)(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0], Name: "マイナー・ナイン・シャープイレブン・オミットファイブ", Info: '「m(9,#11)(omit5)」などの表記もあります。<br>マイナー・トライアドに9thと#11thの音を加えたコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7(♭9)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン", Info: 'ドミナント・セブンに♭9thが加わったコードです。' },
-    { ChordName: "7(♭9)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・オミットファイブ", Info: 'ドミナント・セブンに♭9thが加わったコードから、P5th（完全5度）の音を省略したコードです' },
-    { ChordName: "Maj9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1], Name: "メジャーナイン", Info: '「△9」などの表記もあります。<br>メジャーセブンに9thが加わったコードです。' },
-    { ChordName: "Maj9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1], Name: "メジャーナイン・オミットファイブ", Info: '「△9(omit5)」などの表記もあります。<br>メジャーセブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "m9", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0], Name: "マイナーナイン", Info: 'マイナー・セブンに9thが加わったコードです。' },
-    { ChordName: "m9(omit5)", ChordBinary: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0], Name: "マイナーナイン・オミットファイブ", Info: 'マイナー・セブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "9", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0], Name: "ナイン", Info: 'ドミナント・セブンに9thが加わったコードです。' },
-    { ChordName: "9(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0], Name: "ナイン・オミットファイブ", Info: 'ドミナント・セブンに9thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7(#9)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン", Info: 'ドミナント・セブンに#9thが加わったコードです。<br>「ジミヘン・コード」とも呼ばれます。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
-    { ChordName: "7(#9)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・オミットファイブ", Info: 'ドミナント・セブンに#9thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>「ジミヘン・コード」の響きを使いたいときに。<br>#9thの音は、M3rdより高く配置するの一般的です。' },
-    { ChordName: "7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・イレブン", Info: 'ドミナント・セブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "m7(11)", ChordBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
-    { ChordName: "m7(11)(omit5)", ChordBinary: [1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0], Name: "マイナー・セブン・イレブン", Info: 'マイナー・セブンに11thが加わったコードです。' },
-    { ChordName: "7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープイレブン", Info: 'ドミナント・セブンに#11thが加わったコードです。' },
-    { ChordName: "7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "m7(♭5)add9", ChordBinary: [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドナイン", Info: '「ハーフ・ディミニッシュ」に9thが加わったコードです。' },
-    { ChordName: "m7(♭5)add♭9", ChordBinary: [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドフラットナイン", Info: '「ハーフ・ディミニッシュ」に♭9thが加わったコードです。' },
-    { ChordName: "m7(♭5)add11", ChordBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドイレブン", Info: '「ハーフ・ディミニッシュ」に11thが加わったコードです。' },
-    { ChordName: "m7(♭5)add♭13", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドフラットサーティーン", Info: '「ハーフ・ディミニッシュ」に♭13thが加わったコードです。' },
-    { ChordName: "m7(♭5)add13", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0], Name: "マイナー・セブン・フラットファイブ・アドサーティーン", Info: '「ハーフ・ディミニッシュ」に13thが加わったコードです。' },
-
-    { ChordName: "Maj7(11)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・イレブン", Info: '「△7(11)」などの表記もあります。<br>メジャーセブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "Maj7(11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1], Name: "メジャーセブン・イレブン・オミットファイブ", Info: '「△7(11)(omit5)」などの表記もあります。<br>メジャーセブンに11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "Maj7(#11)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], Name: "メジャーセブン・シャープイレブン", Info: '「△7(#11)」などの表記もあります。<br>メジャーセブンに#11thが加わったコードです。<br>リディアン・モードを示唆するコードです。' },
-    { ChordName: "Maj7(#11)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1], Name: "メジャーセブン・シャープイレブン・オミットファイブ", Info: '「△7(#11)(omit5)」などの表記もあります。<br>メジャーセブンに#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>リディアン・モードを示唆するコードです。' },
-
-    { ChordName: "blk", ChordBinary: [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0], Name: "ブラックアダー", Info: '一部界隈で「イキスギ・コード」とも呼ばれます。<br>主に9thと#11thのサウンドが欲しい時に使えます。<br>ハイブリッド・コードである「Ⅱaug/Ⅰ」及び「#Ⅳaug/Ⅰ」及び「♭Ⅶaug/Ⅰ」の転回形とも解釈できます。' },
-    { ChordName: "7(♭13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットサーティーン", Info: 'ドミナント・セブンに♭13thが加わったコードです。' },
-    { ChordName: "7(♭13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>aug7と同じ構成音を持ちます。' },
-    { ChordName: "7(13)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・サーティーン", Info: 'ドミナント・セブンに13thが加わったコードです。' },
-    { ChordName: "7(13)(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7(9,#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン", Info: 'ドミナント・セブンに9thと#11thが加わったコードです。' },
-    { ChordName: "7(9,#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・ナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,#11)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン", Info: 'ドミナント・セブンに♭9thと#11thが加わったコードです。<br>UST（アッパー・ストラクチャー・トライアド）で「#Ⅳ/Ⅰ」と表記されるコードと同じ構成音を持ちます。<br>「ペトルーシュカ和音」とも呼ばれます。' },
-    { ChordName: "7(♭9,#11)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・フラットナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,#11)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン", Info: 'ドミナント・セブンに#9thと#11thが加わったコードです。' },
-    { ChordName: "7(#9,#11)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0], Name: "セブン・シャープナイン・シャープイレブン・オミットファイブ", Info: 'ドミナント・セブンに#9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7(9,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン", Info: 'ドミナント・セブンに9thと13thが加わったコードです。' },
-    { ChordName: "7(9,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・ナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン", Info: 'ドミナント・セブンに♭9thと13thが加わったコードです。' },
-    { ChordName: "7(♭9,13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・フラットナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン", Info: 'ドミナント・セブンに#9thと13thが加わったコードです。' },
-    { ChordName: "7(#9,13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0], Name: "セブン・シャープナイン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに#9thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7(9,♭13)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン", Info: 'ドミナント・セブンに9thと♭13thが加わったコードです。' },
-    { ChordName: "7(9,♭13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・ナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(♭9,♭13)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン", Info: 'ドミナント・セブンに♭9thと♭13thが加わったコードです。' },
-    { ChordName: "7(♭9,♭13)(omit5)", ChordBinary: [1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・フラットナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに♭9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-    { ChordName: "7(#9,♭13)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン", Info: 'ドミナント・セブンに#9thと♭13thが加わったコードです。' },
-    { ChordName: "7(#9,♭13)(omit5)", ChordBinary: [1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0], Name: "セブン・シャープナイン・フラットサーティーン・オミットファイブ", Info: 'ドミナント・セブンに#9thと♭13thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "7sus4add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー・アドナイン", Info: '「sus9」や「9sus4」や「9sus」などの表記もあります。<br>7sus4に9thが加わったコードです。' },
-    { ChordName: "7sus4add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー・アドフラットナイン", Info: '7sus4に♭9thが加わったコードです。<br>主にフリジアン・モードや、陰音階-上行系を示唆するコードです。' },
-    { ChordName: "11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0], Name: "イレブン", Info: '「7(9,11)」などの表記もあります。<br>ドミナント・セブンに9thと11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "Maj11", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーイレブン", Info: '「△11」や「△7(9,11)」などの表記もあります。<br>メジャーセブンに9thと11thが加わったコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "Maj11(omit5)", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1], Name: "メジャーイレブン・オミットファイブ", Info: '「△11(omit5)」や「△7(9,11)(omit5)」などの表記もあります。<br>メジャーセブンに9thと11thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "Maj7(9,#11)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン", Info: '「△7(9,#11)」などの表記もあります。<br>メジャーセブンに9thと#11thが加わったコードです。' },
-    { ChordName: "Maj7(9,#11)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・オミットファイブ", Info: '「△7(9,#11)(omit5)」などの表記もあります。<br>メジャーセブンに9thと#11thが加わったコードから、P5th（完全5度）の音を省略したコードです。' },
-
-    { ChordName: "m11", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0], Name: "マイナーイレブン", Info: 'マイナー・セブンに9thと11thが加わったコードです。' },
-    { ChordName: "13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], Name: "サーティーン", Info: 'ドミナント・セブンに9thと11thと13thが加わったコードです。<br>ミクソリディアン・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0], Name: "セブン・ナイン・シャープイレブン・サーティーン", Info: 'ドミナント・セブンに9thと#11thと13thが加わったコードです。<br>リディアン・ドミナントの構成音を全て含むコード。' },
-    { ChordName: "7(9,#11,13)(omit5)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0], Name: "セブン・ナイン・シャープイレブン・サーティーン・オミットファイブ", Info: 'ドミナント・セブンに9thと#11thと13thが加わったコードから、P5th（完全5度）の音を省略したコードです。<br>プロメテウス・スケールの構成音を全て含むコード。<br>スクリャービンの交響詩「プロメテウス」の中で使用されており、「神秘和音」や「プロメテウス和音」とも呼ばれます。' },
-
-    { ChordName: "Maj13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], Name: "メジャーサーティーン", Info: 'メジャー・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
-    { ChordName: "m13", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], Name: "マイナーサーティーン", Info: 'ドリアン・スケールの構成音を全て含むコード。' },
-    { ChordName: "Maj7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンに9thと#11thと13thが加わったコードです。<br>リディアン・スケールの構成音を全て含むコード。' }];
-
-//0なし 1あり 2シャープ 3フラット 4ダブルシャープ 5ダブルフラット 6ナチュラル
-scale_Container =
-    //メジャー・スケールファミリー
-    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-35", Info: "", Mode: "メジャーの第2モード。", Adjustment: 0 },
-    { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-35", Info: "", Mode: "メジャーの第3モード。", Adjustment: 0 },
-    { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-35", Info: "", Mode: "メジャーの第4モード。", Adjustment: 0 },
-    { EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-35", Info: "", Mode: "メジャーの第5モード。", Adjustment: 0 },
-    { EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 9, ForteNumber: "7-35", Info: "自然的短音階。モーダルな文脈では、「エオリアン・モード」。", Mode: "メジャーの第6モード。", Adjustment: 0 },
-    { EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 11, ForteNumber: "7-35", Info: "", Mode: "メジャーの第7モード。", Adjustment: 0 },
-
-    //ハーモニック・マイナースケールファミリー
-    { EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 2], addNum: 9, ForteNumber: "7-32", Info: "和声的短音階。短調の主和音への終止感を得るためのスケールです。", Mode: "", Adjustment: -9 },
-    { EnglishName: "Locrian ♮6", JapaneseName: "ロクリアン♮6", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 0, 2, 1, 0], addNum: 11, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第2モード。", Adjustment: -9 },
-    { EnglishName: "Ionian #5", JapaneseName: "アイオニアン・オーグメンテッド", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 0, 2, 1, 0, 1], addNum: 0, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第3モード。", Adjustment: -9 },
-    { EnglishName: "Dorian #4", JapaneseName: "ドリアン#4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 2, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第4モード。", Adjustment: -9 },
-    { EnglishName: "Phrygian Dominant", JapaneseName: "フリジアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 2, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "「ハーモニック・マイナー・パーフェクト・フィフス・ビロウ(Hmp5↓)」とも。", Mode: "ハーモニック・マイナーの第5モード。", Adjustment: -9 },
-    { EnglishName: "Lydian ♯2", JapaneseName: "リディアン#2", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 2, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第6モード。", Adjustment: -9 },
-    { EnglishName: "Ultra Locrian", JapaneseName: "ウルトラ・ロクリアン", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [2, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0], addNum: 8, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・マイナーの第7モード。", Adjustment: -9 },
-
-    //メロディック・マイナースケールファミリー
-    { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 0, 2], addNum: 9, ForteNumber: "7-34", Info: "旋律的短音階。ハーモニック・マイナーのメロディとしての違和感を軽減するためのスケール。<br>基本的にスケールを下行する時は、自然的短音階に変化させます。", Mode: "", Adjustment: -9 },
-    { EnglishName: "Dorian ♭2", JapaneseName: "ドリアン♭2", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 2, 0, 2, 1, 0], addNum: 11, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第2モード。", Adjustment: -9 },
-    { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーグメンテッド", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 2, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第3モード。", Adjustment: -9 },
-    { EnglishName: "Lydian Dominant ", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 2, 0, 2, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info: "「リディアン♭7」とも。", Mode: "メロディック・マイナーの第4モード。", Adjustment: -9 },
-    { EnglishName: "Mixolydian ♭6", JapaneseName: "ミクソリディアン♭6", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 2, 0, 2, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info: "「メロディック・メジャー（旋律的長音階）」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モード。", Adjustment: -9 },
-    { EnglishName: "Locrian ♮2", JapaneseName: "ロクリアン♮2", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [2, 0, 2, 1, 0, 1, 1, 0, 1, 0, 1, 0], addNum: 6, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第6モード。", Adjustment: -9 },
-    { EnglishName: "Super Locrian", JapaneseName: "スーパー・ロクリアン", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [2, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・スケールと同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
-
-    //ハーモニック・メジャースケールファミリー
-    { EnglishName: "Harmonic Major", JapaneseName: "ハーモニック・メジャー", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 3, 0, 0, 1], addNum: 0, ForteNumber: "7-32", Info: "和声的長音階。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Dorian ♭5", JapaneseName: "ドリアン♭5", diaChord4: "m7(♭5)", diaChord3: "m(♭5)", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 3, 0, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第2モード。", Adjustment: 0 },
-    { EnglishName: "Phrygian ♭4", JapaneseName: "フリジアン♭4", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-32", Info: "ドミナント・セブン・コード上で使用可能です。", Mode: "ハーモニック・メジャーの第3モード。", Adjustment: 0 },
-    { EnglishName: "Lydian ♭3", JapaneseName: "リディアン♭3", diaChord4: "mMaj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第4モード。", Adjustment: 0 },
-    { EnglishName: "Mixolydian ♭2", JapaneseName: "ミクソリディアン♭2", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0], addNum: 7, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第5モード。", Adjustment: 0 },
-    { EnglishName: "Lydian ♯2♯5", JapaneseName: "リディアン♯2♯5", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [3, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], addNum: 10, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第6モード。", Adjustment: 0 },
-    { EnglishName: "Locrian ♭♭7", JapaneseName: "ロクリアン♭♭7", diaChord4: "dim7", diaChord3: "m(♭5)", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 3, 0, 0], addNum: 11, ForteNumber: "7-32", Info: "", Mode: "ハーモニック・メジャーの第7モード。", Adjustment: 0 },
-
-    //メロディック・メジャー
-    { EnglishName: "Melodic Major", JapaneseName: "メロディック・メジャー", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 3, 0, 3, 0], addNum: 0, ForteNumber: "7-34", Info: "旋律的長音階。「ミクソリディアン♭6」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モードでもあります。", Adjustment: -5 },
-
-    //ダブル・ハーモニック
-    { EnglishName: "Double Harmonic", JapaneseName: "ダブル・ハーモニック", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 0, 1, 3, 0, 0, 1], addNum: 4, ForteNumber: "7-22", Info: "「フラメンコ・モード」や、「アラビック・スケール」などとも呼ばれます。", Mode: "", Adjustment: -4 },
-    { EnglishName: "Lydian ♯2♯6", JapaneseName: "リディアン♯2♯6", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 2, 1, 0, 2, 1, 0, 0, 2, 1], addNum: 5, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第2モード。", Adjustment: -4 },
-    { EnglishName: "Ultra Phrygian", JapaneseName: "ウルトラ・フリジアン", diaChord4: "m6", diaChord3: "", ScaleNumBinary: [1, 3, 0, 3, 3, 0, 0, 1, 3, 3, 0, 0], addNum: 8, ForteNumber: "7-22", Info: "「フリジアン♭♭7 ♭4」とも。", Mode: "ダブル・ハーモニックの第3モード。", Adjustment: -4 },
-    { EnglishName: "Hungarian Minor", JapaneseName: "ハンガリアン・マイナー", diaChord4: "m△7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 0, 0, 2, 1, 3, 0, 0, 1], addNum: 9, ForteNumber: "7-22", Info: "「Algerian」、「Egyptian」などとも。", Mode: "ダブル・ハーモニックの第4モード。", Adjustment: -4 },
-    { EnglishName: "Oriental", JapaneseName: "オリエンタル", diaChord4: "Fr+6", diaChord3: "", ScaleNumBinary: [1, 3, 0, 0, 1, 1, 3, 0, 0, 1, 3, 0], addNum: 11, ForteNumber: "7-22", Info: "「Asian」、「ミクソリディアン♭5 ♭2」、「ロクリアン♮6 ♮3」とも。", Mode: "ダブル・ハーモニックの第5モード。", Adjustment: -4 },
-    { EnglishName: "Ionian ♯5♯2", JapaneseName: "アイオニアン♯5♯2", diaChord4: "aug△7", diaChord3: "", ScaleNumBinary: [1, 0, 0, 2, 1, 1, 0, 0, 2, 1, 0, 1], addNum: 0, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第6モード。", Adjustment: -4 },
-    { EnglishName: "Locrian Double ♭♭3♭♭7", JapaneseName: "ロクリアン・ダブル♭♭3♭♭7", diaChord4: "△7", diaChord3: "", ScaleNumBinary: [1, 3, 3, 0, 0, 1, 3, 0, 3, 3, 0, 0], addNum: 3, ForteNumber: "7-22", Info: "", Mode: "ダブル・ハーモニックの第7モード。", Adjustment: -4 },
-
-    //ペンタ
-    { EnglishName: "Major Pentatonic", JapaneseName: "メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "5-35", Info: "もっとも基本的な5音階です。<br>「ヨナ抜き長音階」とも。<br>「夏山調子」と同じ構成音を持ちます。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Suspended Pentatonic", JapaneseName: "陽音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 2, ForteNumber: "5-35", Info: "「新雁金調子」や「楽調子」や「青葉調子」と同じ構成音を持ちます。", Mode: "メジャー・ペンタトニックの第2モード。", Adjustment: 0 },
-    { EnglishName: "Blues Minor", JapaneseName: "ブルース・マイナー", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0], addNum: 4, ForteNumber: "5-35", Info: "", Mode: "メジャー・ペンタトニックの第3モード。", Adjustment: 0 },
-    { EnglishName: "Ritsu", JapaneseName: "律音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], addNum: 7, ForteNumber: "5-35", Info: "古くは雅楽で用いられる音階です。<br>「乃木調子」や「水調子」と同じ構成音を持ちます。", Mode: "メジャー・ペンタトニックの第4モード。", Adjustment: 0 },
-    { EnglishName: "Minor Pentatonic", JapaneseName: "マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "5-35", Info: "「ニロ抜き短音階」とも。", Mode: "メジャー・ペンタトニックの第5モード。", Adjustment: 0 },
-
-    //和風スケール
-    // 陰音階-上行系
-    { EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "5-29", Info: "宮城道雄-『春の海』などで用いられる和風な音階です。<br>「都節-上行形」とも。<br>「半岩戸調子」、「古今調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -5 },
-    { EnglishName: "Raga Hindol", JapaneseName: "ラーガ・ヒンドル", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], addNum: 5, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -5 },
-    { EnglishName: "Han-Nakazora", JapaneseName: "半中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第3モード。", Adjustment: -5 },
-    { EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-29", Info: "「二重雲井調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第4モード。", Adjustment: -5 },
-    { EnglishName: "Dorian Pentatonic", JapaneseName: "ドリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], addNum: 2, ForteNumber: "5-29", Info: "「雲井ペンタトニック」とも。<br>「秋風調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第5モード。", Adjustment: -5 },
-
-    // 陰音階-下行系
-    { EnglishName: "In/Sakura Pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "古謡「さくらさくら」などで用いられる和風な音階です。<br>「都節-下行形」とも。<br>「平調子」、「平巾十調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -4 },
-    { EnglishName: "Lydian Pentatonic", JapaneseName: "リディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -4 },
-    { EnglishName: "Aeolian Pentatonic", JapaneseName: "エオリアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 9, ForteNumber: "5-20", Info: "「ヨナ抜き短音階」とも。", Mode: "陰音階-下行形の第3モード。", Adjustment: -4 },
-    { EnglishName: "Hon-Kumoi", JapaneseName: "本雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], addNum: 11, ForteNumber: "5-20", Info: "「雲井巾十調子」とも。", Mode: "陰音階-下行形の第4モード。", Adjustment: -4 },
-    { EnglishName: "Raga Bhinna Shadja", JapaneseName: "ラーガ・ベニア・シャジア", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "", Mode: "陰音階-下行形の第5モード。", Adjustment: -4 },
-
-    // 沖縄音階
-    { EnglishName: "Ionian Pentatonic", JapaneseName: "沖縄音階", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], addNum: 0, ForteNumber: "5-20", Info: "「琉球音階」、「ニロ抜き長音階」、「アイオニアン・ペンタトニック」とも。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Phrygian Pentatonic", JapaneseName: "フリジアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0], addNum: 4, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第2モード。", Adjustment: 0 },
-    { EnglishName: "Raga Vaijayanti", JapaneseName: "ラーガ・ヴァイジャヤンティ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1], addNum: 5, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第3モード。", Adjustment: 0 },
-    { EnglishName: "Raga Khamaji Durga", JapaneseName: "ラーガ・カマジ・ドゥリガ", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0], addNum: 7, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第4モード。", Adjustment: 0 },
-    { EnglishName: "Aeoloritonic", JapaneseName: "エオロリトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0], addNum: 11, ForteNumber: "5-20", Info: "", Mode: "沖縄音階の第5モード。", Adjustment: 0 },
-
-    { EnglishName: "Sylimic", JapaneseName: "雲井調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "6-18", Info: "", Mode: "", Adjustment: 0 },
-    { EnglishName: "Koptimic", JapaneseName: "中空調子", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0], addNum: 4, ForteNumber: "6-Z25", Info: "", Mode: "", Adjustment: 0 },
-
-    //その他のスケール
-    { EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 3, 0, 3, 3, 3, 0, 1, 3, 0, 3, 0], addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Prometheus", JapaneseName: "プロメテウス", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 0, 1, 3, 0], addNum: 5, ForteNumber: "6-34", Info: "スクリャービンの交響詩「プロメテウス」の中で使用されているスケール。<br>「ミスティック」とも。<br>構成音を全て使った和音は、「神秘和音」や「プロメテウス和音」と呼ばれます。<br>リディアン・ドミナントからP5th（完全五度）を抜いたスケールとも解釈できます。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Mixolydian Pentatonic", JapaneseName: "ミクソリディアン・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], addNum: 7, ForteNumber: "5-29", Info: "", Mode: "", Adjustment: 0 },
-
-    //ブルース
-    { EnglishName: "Blues note scale", JapaneseName: "ブルー・ノート", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 1, 3, 1, 0, 1, 3, 1], addNum: 0, ForteNumber: "10-5", Info: "メジャー・スケールに、ジャズやブルースで用いられるブルーノート(♭3,♭5,♭7)を全て入れ込んだスケール。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Blues Major Pentatonic", JapaneseName: "ブルース・メジャー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 1, 3, 1, 0, 0, 1, 0, 1, 0, 0], addNum: 0, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
-    { EnglishName: "Blues Minor Pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 3, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
-
-    //特殊なスケール
-    { EnglishName: "Enigmatic", JapaneseName: "エニグマティック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1], addNum: 0, ForteNumber: "7-24", Info: "アドルフォ・クレッシェンティーニが考案した、メジャーとマイナーと全音階の雰囲気を併せ持つスケール。<br>「謎の音階」とも。", Mode: "", Adjustment: 0 },
-
-    { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュト", diaChord4: "7", diaChord3: "", ScaleNumBinary: [3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Diminished", JapaneseName: "ディミニッシュト", diaChord4: "", diaChord3: "", ScaleNumBinary: [3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
-
-    { EnglishName: "Augmented", JapaneseName: "オーグメンテッド", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 3, 1, 0, 0, 1, 2, 0, 0, 1], addNum: 0, ForteNumber: "6-20", Info: "2つのオーグメンテッド・トライアドを融合したスケールです。<br>「シンメトリック・オーグメンテッド」や「マイナー・サード・ハーフステップ」とも呼ばれます。", Mode: "", Adjustment: 0 },
-
-    { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 3, 0, 3, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
-
-    { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 0, ForteNumber: "6-35", Info: "「全音音階」とも。オクターブを6等分したスケール。全てが全音で構成されています。", Mode: "", Adjustment: 0 },
-    { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 2, 1, 3, 1, 1, 2, 1, 3, 1, 3, 1], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
-    ];
-
+'use strict';
 
 //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
 function ChangeEIJG() {
-    root_number = Number(document.getElementById("rootNumber").value);
-    key_signature_names = Number(document.getElementById("key_signature_names").value);
+    let root_number = Number(document.getElementById("rootNumber").value);
+    let key_signature_names = Number(document.getElementById("key_signature_names").value);
 
-    num = 0;
+    let num = 0;
     for (let i = 0; i < 12; i++) {
         document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, 12)];
         num++
@@ -342,7 +15,7 @@ function ChangeEIJG() {
 //コードの選択肢を表示するためのHTML要素(option)を追加するための関数
 function CreateChordChoices() {
     //コードを格納した配列の長さを取得する。
-    Num = chord_container.length;
+    let Num = chord_container.length;
 
     //配列の数だけコードの選択肢optionを追加する。
     for (let i = 0; i < chord_container.length; i++) {
@@ -360,7 +33,7 @@ function CreateChordChoices() {
 function CeateScaleChoices(idName) {
     ScaleLanguage = "JapaneseName"
     //スケールを格納した配列の長さを取得する。
-    Num = scale_Container.length;
+    let Num = scale_Container.length;
 
     //配列の数だけスケールの選択肢optionを追加する。
     for (let i = 0; i < scale_Container.length; i++) {
@@ -377,13 +50,13 @@ function CeateScaleChoices(idName) {
 //スケール情報を描画する関数
 function ScaleInformationDrawing() {
     //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    value = document.getElementById("constituent_binary").value.split('-');
+    let value = document.getElementById("constituent_binary").value.split('-');
 
     //scale_Container配列を検索用の値
-    Num = value[1];
+    let Num = value[1];
 
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    scale_binary_split = value[0].split('').map(Number);
+    let scale_binary_split = value[0].split('').map(Number);
 
     //シャープまたはフラット指定用の数値を、スケールナンバー計算のために置き換える
     for (let i = 0; i < scale_binary_split.length; i++) {
@@ -394,16 +67,17 @@ function ScaleInformationDrawing() {
             scale_binary_split.splice(i, 1, 1);
         };
     };
-    scale_binary_reverse = scale_binary_split.reverse();
-    scale_binary_rejoin = scale_binary_reverse.join("");
-    scale_dec = parseInt(scale_binary_rejoin, 2);
+    let scale_binary_reverse = scale_binary_split.reverse();
+    let scale_binary_rejoin = scale_binary_reverse.join("");
+    let scale_dec = parseInt(scale_binary_rejoin, 2);
 
     //トニックの数値を取得する。
-    RootNumber = Number(document.getElementById("rootNumber").value);
+    let RootNumber = Number(document.getElementById("rootNumber").value);
 
-    KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
-    scaleFamilyNum = mod(RootNumber - scale_Container[Num]["addNum"] - scale_Container[Num]["Adjustment"], 12)
+    let KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
+    let scaleFamilyNum = mod(RootNumber - scale_Container[Num]["addNum"] - scale_Container[Num]["Adjustment"], 12)
 
+    let SOF;
     //調号が#か♭かを判定する。
     if (KeySignatureNum === 0
         || KeySignatureNum === 2
@@ -470,28 +144,29 @@ function ScaleInformationDrawing() {
 function scaleChordTableCreate() {
 
     //scale_Container配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    value = document.getElementById("constituent_binary").value.split('-');
+    let value = document.getElementById("constituent_binary").value.split('-');
 
     //scale_Container配列を検索用の値
-    Num = Number(value[1]);
+    let Num = Number(value[1]);
 
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    scale_binary_split = value[0].split('').map(Number);
+    let scale_binary_split = value[0].split('').map(Number);
 
     //トニックの数値を取得する。
-    RootNumber = Number(document.getElementById("rootNumber").value);
-    KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
+    let RootNumber = Number(document.getElementById("rootNumber").value);
+    let KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
 
     //一度テーブルを空にする
     document.getElementById(`scaleChordTable`).innerHTML = "";
 
+    let use_chord_count = 0;
     //全てのルート音の場合でスケールの構成音と一致するかを判定するために使う値
     let ChordTableNum = chord_container.length;
 
     for (let i = 0; i < chord_container.length; i++) {
         //tr要素を書き込む
         document.getElementById(`scaleChordTable`).insertAdjacentHTML('afterbegin', `<tr id="ChordNumber-${ChordTableNum}"></tr>`);
-        ChordCountNum = 12;
+        let ChordCountNum = 12;
         let chordAdjustmentNumber = 0;
         let noneCount = 0;
         // 登録しているコードネームの数だけfor文でコードネームを判定して書き込む
@@ -512,6 +187,7 @@ function scaleChordTableCreate() {
                     chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 10, 12)] <= scale_binary_split[1] &&
                     chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 11, 12)] <= scale_binary_split[0]) {
 
+                    let SOF;
                     //調号が#か♭かを判定する。
                     if (KeySignatureNum === 0
                         || KeySignatureNum === 2
@@ -534,6 +210,9 @@ function scaleChordTableCreate() {
                     //コードネームを書き込む
                     document.getElementById(`ChordNumber-${ChordTableNum}`)
                         .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+
+                    //構成音とマッチするコードの数をカウントする
+                    use_chord_count++;
                 } else {
                     //空のテーブル要素を書き込む
                     document.getElementById(`ChordNumber-${ChordTableNum}`)
@@ -556,7 +235,9 @@ function scaleChordTableCreate() {
             document.getElementById(`ChordNumber-${ChordTableNum}`).innerHTML = "";
         };
         ChordTableNum--;
+
     };
+    document.querySelector('.use_chord_count').innerHTML = `（${use_chord_count} / ${chord_container.length * 12}）`;
 };
 
 //スケールの情報を処理して書き込む関数(スケールで使用)
@@ -574,10 +255,10 @@ function ScaleKeySignature() {
 
 //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
 function CreateCandidate() {
-    Num = 0
+    let Num = 0
     //配列の数だけHTML要素(div)を追加する。
     for (let i = 0; i < scale_Container.length; i++) {
-        HTML_Info = document.getElementById("addHTML");
+        let HTML_Info = document.getElementById("addHTML");
         // HTML_Info.insertAdjacentHTML('beforebegin','<div>BeforeBegin</div>');
         HTML_Info.insertAdjacentHTML('beforebegin', `<div class="" id="Modal_text_${Num}"></div>`);
         Num++
@@ -586,19 +267,22 @@ function CreateCandidate() {
 
 //モーダル・インターチェンジの候補をディグリー表記で表示する関数
 function ModalCandidateDegree() {
-    Num = 0;
+    let Num = 0;
     for (let i = 0; i < scale_Container.length; i++) {
         document.getElementById(`Modal_text_${Num}`).innerHTML
             = `Ⅰ ${scale_Container[Num][ScaleLanguage]}　<font size="2"><span style="color:#808080">${scale_Container[Num]["Mode"]}</span></font>`;
         Num++
     };
+    document.querySelector('.use_scale_count').innerHTML = ``;
 };
+
 
 //コード・ネームの情報を判定する関数
 function ChordCandidateInfo(onoff) {
 
     //ルートの音の値を取得
-    RootNumber = Number(document.getElementById("rootNumber").value);
+    let RootNumber = Number(document.getElementById("rootNumber").value);
+    let SOF;
 
     //ルート音の値から大雑把にシャープとフラットの判別をする。
     if (RootNumber === 2
@@ -613,7 +297,7 @@ function ChordCandidateInfo(onoff) {
     };
 
     //コードの構成音が何音か判定した値を格納する変数
-    CandidateCount = 0;
+    let CandidateCount = 0;
     //コードの構成音が何音か判定する
     for (let i = 0; i < 11; i++) {
         CandidateCount = CandidateCount + onoff[i];
@@ -622,8 +306,8 @@ function ChordCandidateInfo(onoff) {
     document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
     document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
 
-    TriToneText = [`<br>トライトーンを含みます。ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】`];
-    Sub2Text = ["<br>【このコードの手前に居がちなコード】"]
+    let TriToneText = [`<br>トライトーンを含みます。ドミナント機能を持つコードです。<br><br>【このコードの主な解決先】`];
+    let Sub2Text = ["<br>【このコードの手前に居がちなコード】"]
 
     //トライ・トーンを判定する
     if (onoff[0] + onoff[6] === 2) {
@@ -722,7 +406,7 @@ function ChordCandidateInfo(onoff) {
     };
 
     //ベース音を判定する
-    Bass = 0;
+    let Bass = 0;
     for (let i = 0; i < 11; i++) {
         //一番左側の押されているスイッチの場所(ベース音)を判定する
         if (onoff[i] === 1) {
@@ -732,11 +416,11 @@ function ChordCandidateInfo(onoff) {
     };
 
     //コード・ネームを判定する。
-    RootNum = 0;
+    let RootNum = 0;
     //転回形を判定するためルート音をずらして12通り全てを判定する。
     for (let i = 0; i < 11; i++) {
         //コード・ネームが格納された配列の先頭に戻る。
-        Num = 0;
+        let Num = 0;
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
             if (chord_container[Num].ChordBinary[0] === onoff[mod(RootNum + 0, 12)]
@@ -753,7 +437,7 @@ function ChordCandidateInfo(onoff) {
                 && chord_container[Num].ChordBinary[11] === onoff[mod(RootNum + 11, 12)]) {
 
                 //完全5度が省略可能かを判定する。
-                omitP5th = 0;
+                let omitP5th = 0;
                 //長2度(sus2)が含まれる場合
                 if (onoff[mod(RootNum + 2, 12)] === 1 && CandidateCount < 4) {
                     omitP5th = 0;
@@ -774,7 +458,7 @@ function ChordCandidateInfo(onoff) {
                 };
 
                 //コードがメジャーかマイナーかそれ以外かを判定する。
-                MajorOrMinor = 0;
+                let MajorOrMinor = 0;
                 //長3度が含まれる場合
                 if (onoff[mod(RootNum + 4, 12)] === 1) {
                     MajorOrMinor = 0;
@@ -788,10 +472,11 @@ function ChordCandidateInfo(onoff) {
                     document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
                 };
 
-                NonRootMOm = 0;
+                let NonRootMOm = 0;
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
                 NonRootMOm = mod(RootNum - MajorOrMinor + RootNumber, 12);
 
+                let NonRootSOF;
                 //コード・ネームのシャープとフラットの判別
                 if (NonRootMOm === 2 || NonRootMOm === 4 || NonRootMOm === 6 || NonRootMOm === 7 || NonRootMOm === 9 || NonRootMOm === 11) {
                     NonRootSOF = 0;
@@ -850,8 +535,8 @@ function ChordCandidateInfo(onoff) {
     };
 
     //3音連続しているトーン・クラスターを判定する
-    NoteChain = 0;
-    tcj = 0;
+    let NoteChain = 0;
+    let tcj = 0;
     for (let i = 0; i < 11; i++) {
         //特定の場合と、+1と＋2の場所のスイッチがonかどうか判定する。
         NoteChain = onoff[mod(i, 12)] + onoff[mod(i + 1, 12)] + onoff[mod(i + 2, 12)];
@@ -866,10 +551,10 @@ function ChordCandidateInfo(onoff) {
 
     //4音以上音が連続しているトーン・クラスターを判定する(トーン・クラスターを格納した配列とマッチするものを見つける)
     RootNum = 0;
-    clear = 0;
+    let clear = 0;
     //12通りの場合について調べる。
     for (let i = 0; i < 11; i++) {
-        TCNum = 0;
+        let TCNum = 0;
         //トーン・クラスターを格納した配列と照合する。
         for (let y = 0; y < ToneCluster.length; y++) {
             if (ToneCluster[TCNum][0] === onoff[mod(RootNum + 0, 12)]
@@ -914,7 +599,7 @@ function ChordNoteSwitch() {
     ChangeEIJG();
 
     //scale_Container配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    value = document.getElementById("constituent_binary").value.split('-');
+    let value = document.getElementById("constituent_binary").value.split('-');
 
     //構成音のバイナリ値を配列「onoff」へ格納する
     onoff = value[0].split('').map(Number);
@@ -938,10 +623,11 @@ let ConfigurationNotes = [];
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(コード・コード/モード検索用)
 function ModalTextAndNoteCreate() {
     //ルート音の情報を取得する。
-    RootNumber = Number(document.getElementById("rootNumber").value);
-    Num = 0;
+    let RootNumber = Number(document.getElementById("rootNumber").value);
+    let Num = 0;
+    let use_scale_count = 0;
     //スケールを表示する言語の情報を取得する。
-    sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
+    let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
     if (sigNameNum <= 3) {
         for (let i = 0; i < scale_Container.length; i++) {
             //配列を空にする。
@@ -960,6 +646,7 @@ function ModalTextAndNoteCreate() {
                 && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
                 && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
 
+                let SOF;
                 //シャープとフラットの区別をする変数SOFに値を代入。
                 if (mod(RootNumber - scale_Container[Num]['addNum'], 12) == 0
                     || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 2
@@ -974,7 +661,7 @@ function ModalTextAndNoteCreate() {
                 };
 
                 //スケール構成音のバイナリを配列に格納する。
-                Configuration = scale_Container[Num]['ScaleNumBinary']
+                let Configuration = scale_Container[Num]['ScaleNumBinary']
 
                 //for文でスケールの構成音を生成する。
                 for (let i = 0; i < 12; i++) {
@@ -996,8 +683,8 @@ function ModalTextAndNoteCreate() {
                     document.getElementById(`Modal_text_${Num}`).innerHTML
                         = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
                 };
+                use_scale_count++;
             } else {
-                7
                 document.getElementById(`Modal_text_${Num}`).innerHTML = "";
                 document.getElementById(`Modal_text_${Num}`).className = "";
             };
@@ -1006,6 +693,7 @@ function ModalTextAndNoteCreate() {
     } else {
         //構成音を表示しない
     };
+    document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${scale_Container.length}）`;
 };
 
 //モーダル・インターチェンジの候補を表示する関数(コード・コード/モード検索用)
@@ -1013,9 +701,9 @@ function ModalTextCreate() {
     //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
     ChangeEIJG();
 
-    RootNumber = Number(document.getElementById("rootNumber").value);
+    let RootNumber = Number(document.getElementById("rootNumber").value);
 
-    Num = 0;
+    let Num = 0;
     for (let i = 0; i < scale_Container.length; i++) {
         if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
             && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
@@ -1059,7 +747,7 @@ function ModalTextCreate() {
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
 function ModalCandidateSelect() {
     //言語の情報を取得する。
-    ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
+    let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
     //言語表示なしの場合 又は 音名が選択されていないとき
     if ((0 === onoff[0]
         && 0 === onoff[1]
@@ -1142,15 +830,16 @@ function NoteSwitch(Num) {
 function modulation() {
 
     //入力された値を変数に代入する
-    b_note_num = Number(document.getElementById("b_note").value);
-    b_mode_num = scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['addNum'];
-    a_note_num = Number(document.getElementById("a_note").value);
-    a_mode_num = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['addNum'];
+    let b_note_num = Number(document.getElementById("b_note").value);
+    let b_mode_num = scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['addNum'];
+    let a_note_num = Number(document.getElementById("a_note").value);
+    let a_mode_num = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['addNum'];
 
-    b_key_num = mod(b_note_num - b_mode_num, 12);
-    a_key_num = mod(a_note_num - a_mode_num, 12);
-    modulation_num = mod(a_key_num - b_key_num, 12);
+    let b_key_num = mod(b_note_num - b_mode_num, 12);
+    let a_key_num = mod(a_note_num - a_mode_num, 12);
+    let modulation_num = mod(a_key_num - b_key_num, 12);
 
+    let b_SOF;
     //転調前のキーの主音の異名同音を判定
     if (b_key_num === 0 || b_key_num === 2 || b_key_num === 4 || b_key_num === 6 || b_key_num === 7 || b_key_num === 9 || b_key_num === 11) {
         b_SOF = 0;
@@ -1177,6 +866,7 @@ function modulation() {
     document.getElementById("result_b_key").innerHTML
         = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${b_ConfigurationNotes.join("-")}</font>`;
 
+    let a_SOF;
     //転調後のキーの主音の異名同音を判定
     if (a_key_num === 0 || a_key_num === 2 || a_key_num === 4 || a_key_num === 6 || a_key_num === 7 || a_key_num === 9 || a_key_num === 11) {
         a_SOF = 0;
@@ -1204,7 +894,7 @@ function modulation() {
         = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${a_ConfigurationNotes.join("-")}</font>`;
 
     //転調の種類を格納する配列を空で定義
-    result_modulation = [];
+    let result_modulation = [];
 
     //転調の種類を表示
     if (b_key_num === a_key_num && b_note_num === a_note_num) {
@@ -1264,37 +954,37 @@ function modulation() {
 //転調元から転調先を表示するための関数(転調の間隔)
 function keychange() {
 
-    note_number = document.getElementById("note").value;
-    mode_number = scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['addNum'];
-    after_mode_number = scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['addNum'];
+    let note_number = document.getElementById("note").value;
+    let mode_number = scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['addNum'];
+    let after_mode_number = scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['addNum'];
 
-    answer = Number(note_number) - Number(mode_number);
-    sf_0 = mod((answer - 0), 12);
-    s_1 = mod((answer - 5), 12);
-    f_1 = mod((answer - 7), 12);
-    s_2 = mod((answer - 10), 12);
-    f_2 = mod((answer - 2), 12);
-    s_3 = mod((answer - 3), 12);
-    f_3 = mod((answer - 9), 12);
-    s_4 = mod((answer - 8), 12);
-    f_4 = mod((answer - 4), 12);
-    s_5 = mod((answer - 1), 12);
-    f_5 = mod((answer - 11), 12);
-    sf_6 = mod((answer - 6), 12);
+    let answer = Number(note_number) - Number(mode_number);
+    let sf_0 = mod((answer - 0), 12);
+    let s_1 = mod((answer - 5), 12);
+    let f_1 = mod((answer - 7), 12);
+    let s_2 = mod((answer - 10), 12);
+    let f_2 = mod((answer - 2), 12);
+    let s_3 = mod((answer - 3), 12);
+    let f_3 = mod((answer - 9), 12);
+    let s_4 = mod((answer - 8), 12);
+    let f_4 = mod((answer - 4), 12);
+    let s_5 = mod((answer - 1), 12);
+    let f_5 = mod((answer - 11), 12);
+    let sf_6 = mod((answer - 6), 12);
 
     answer = Number(note_number) - Number(mode_number) + Number(after_mode_number);
-    note_sf_0 = mod((answer + 0), 12);
-    note_s_1 = mod((answer + 7), 12);
-    note_f_1 = mod((answer + 5), 12);
-    note_s_2 = mod((answer + 2), 12);
-    note_f_2 = mod((answer + 10), 12);
-    note_s_3 = mod((answer + 9), 12);
-    note_f_3 = mod((answer + 3), 12);
-    note_s_4 = mod((answer + 4), 12);
-    note_f_4 = mod((answer + 8), 12);
-    note_s_5 = mod((answer + 11), 12);
-    note_f_5 = mod((answer + 1), 12);
-    note_sf_6 = mod((answer + 6), 12);
+    let note_sf_0 = mod((answer + 0), 12);
+    let note_s_1 = mod((answer + 7), 12);
+    let note_f_1 = mod((answer + 5), 12);
+    let note_s_2 = mod((answer + 2), 12);
+    let note_f_2 = mod((answer + 10), 12);
+    let note_s_3 = mod((answer + 9), 12);
+    let note_f_3 = mod((answer + 3), 12);
+    let note_s_4 = mod((answer + 4), 12);
+    let note_f_4 = mod((answer + 8), 12);
+    let note_s_5 = mod((answer + 11), 12);
+    let note_f_5 = mod((answer + 1), 12);
+    let note_sf_6 = mod((answer + 6), 12);
 
     if (sf_0 === 0 || sf_0 === 2 || sf_0 === 4 || sf_0 === 6 || sf_0 === 7 || sf_0 === 9 || sf_0 === 11) {
         document.getElementById("result_origin").innerHTML
@@ -1412,21 +1102,22 @@ function Chordschange() {
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
     document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
 
-    tonic_note_number = Number(document.getElementById("tonic_note").value);
+    let tonic_note_number = Number(document.getElementById("tonic_note").value);
 
-    tonic = mod(tonic_note_number + 0, 12);
-    t1 = mod(tonic_note_number + 1, 12);
-    t2 = mod(tonic_note_number + 2, 12);
-    t3 = mod(tonic_note_number + 3, 12);
-    t4 = mod(tonic_note_number + 4, 12);
-    t5 = mod(tonic_note_number + 5, 12);
-    t6 = mod(tonic_note_number + 6, 12);
-    t7 = mod(tonic_note_number + 7, 12);
-    t8 = mod(tonic_note_number + 8, 12);
-    t9 = mod(tonic_note_number + 9, 12);
-    t10 = mod(tonic_note_number + 10, 12);
-    t11 = mod(tonic_note_number + 11, 12);
+    let tonic = mod(tonic_note_number + 0, 12);
+    let t1 = mod(tonic_note_number + 1, 12);
+    let t2 = mod(tonic_note_number + 2, 12);
+    let t3 = mod(tonic_note_number + 3, 12);
+    let t4 = mod(tonic_note_number + 4, 12);
+    let t5 = mod(tonic_note_number + 5, 12);
+    let t6 = mod(tonic_note_number + 6, 12);
+    let t7 = mod(tonic_note_number + 7, 12);
+    let t8 = mod(tonic_note_number + 8, 12);
+    let t9 = mod(tonic_note_number + 9, 12);
+    let t10 = mod(tonic_note_number + 10, 12);
+    let t11 = mod(tonic_note_number + 11, 12);
 
+    let SOF;
     if (tonic_note_number == 0
         || tonic_note_number == 2
         || tonic_note_number == 4
@@ -1485,7 +1176,7 @@ function Chordschange() {
     document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]} ${scale_Container[17]['diaChord4']}`;
 
     //同種短調を判定する
-    para_tonic_note_number = tonic_note_number + 3;
+    let para_tonic_note_number = tonic_note_number + 3;
 
     tonic = mod(para_tonic_note_number + 0, 12);
     t1 = mod(para_tonic_note_number + 1, 12);
@@ -1552,21 +1243,22 @@ function ChordsAndModeChange() {
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
     document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
 
-    tonic_note_number = Number(document.getElementById("tonic_note").value);
+    let tonic_note_number = Number(document.getElementById("tonic_note").value);
 
-    tonic = mod(tonic_note_number + 0, 12);
-    t1 = mod(tonic_note_number + 1, 12);
-    t2 = mod(tonic_note_number + 2, 12);
-    t3 = mod(tonic_note_number + 3, 12);
-    t4 = mod(tonic_note_number + 4, 12);
-    t5 = mod(tonic_note_number + 5, 12);
-    t6 = mod(tonic_note_number + 6, 12);
-    t7 = mod(tonic_note_number + 7, 12);
-    t8 = mod(tonic_note_number + 8, 12);
-    t9 = mod(tonic_note_number + 9, 12);
-    t10 = mod(tonic_note_number + 10, 12);
-    t11 = mod(tonic_note_number + 11, 12);
+    let tonic = mod(tonic_note_number + 0, 12);
+    let t1 = mod(tonic_note_number + 1, 12);
+    let t2 = mod(tonic_note_number + 2, 12);
+    let t3 = mod(tonic_note_number + 3, 12);
+    let t4 = mod(tonic_note_number + 4, 12);
+    let t5 = mod(tonic_note_number + 5, 12);
+    let t6 = mod(tonic_note_number + 6, 12);
+    let t7 = mod(tonic_note_number + 7, 12);
+    let t8 = mod(tonic_note_number + 8, 12);
+    let t9 = mod(tonic_note_number + 9, 12);
+    let t10 = mod(tonic_note_number + 10, 12);
+    let t11 = mod(tonic_note_number + 11, 12);
 
+    let SOF;
     if (tonic_note_number == 0
         || tonic_note_number == 2
         || tonic_note_number == 4
@@ -1627,7 +1319,7 @@ function ChordsAndModeChange() {
     document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][19]} ${scale_Container[17]['diaChord4']}<br>${scale_Container[17][ScaleLanguage]}`;
 
     //同種短調を判定する
-    para_tonic_note_number = tonic_note_number + 3;
+    let para_tonic_note_number = tonic_note_number + 3;
 
     tonic = mod(para_tonic_note_number + 0, 12);
     t1 = mod(para_tonic_note_number + 1, 12);
@@ -1641,6 +1333,7 @@ function ChordsAndModeChange() {
     t9 = mod(para_tonic_note_number + 9, 12);
     t10 = mod(para_tonic_note_number + 10, 12);
     t11 = mod(para_tonic_note_number + 11, 12);
+
 
     if (para_tonic_note_number == 0
         || para_tonic_note_number == 2
@@ -1772,7 +1465,7 @@ document.getElementById("degree_button"); function degree() {
 
 //ダイアトニック・コードの着色をリセットする関数(ダイアトニック・コード)
 function paintDiatonicChordsReset() {
-    diaNum = 1;
+    let diaNum = 1;
     for (let i = 1; i < 8; i++) {
         document.getElementById(`Major_dia_${diaNum}`).className = "text-center";
         document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "text-center";
@@ -1790,7 +1483,7 @@ function paintDiatonicChordsReset() {
 document.getElementById("paint_diatonic_chords"); function paintDiatonicChords() {
 
     paintDiatonicChordsReset()
-    paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
+    let paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
 
     if (paint_diatonic_chords == 0) {
         paintDiatonicChordsReset()
