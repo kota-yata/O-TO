@@ -156,7 +156,7 @@ function ScaleAndChordsDrowing() {
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
-                このスケールの構成音を含む主なコード<span class="use_chord_count"></span>
+                構成音を含む主なコード<span class="use_chord_count"></span>
                 </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
@@ -262,7 +262,7 @@ function ScaleAndChordsDrowing() {
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
-                このコードの構成音を含む主なスケール<span class="use_scale_count"></span>
+                構成音を含む主なスケール<span class="use_scale_count"></span>
                 </button>
             </h2>
 
