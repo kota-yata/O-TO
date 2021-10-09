@@ -1,13 +1,4 @@
-
-//常に正の数の答えを返す剰余演算をする関数 (負の数の剰余演算を処理するため)
-function mod(n, m) {
-    return ((n % m) + m) % m;
-};
-
-// 四捨五入して小数点第3位までを表示する関数 (JavaScriptには元からそういう関数が無いっぽいので)
-function roundToThree(num) {
-    return +(Math.round(num + "e+3") + "e-3");
-};
+'use strict';
 
 //1分のミリ秒数
 let one_minutes = 60000;
@@ -15,7 +6,7 @@ let one_minutes = 60000;
 //音価の表示形式を判定する関数
 function TimeTypeChecker() {
     //ドロップダウンリストから音価の表示形式のvalueを取得する。
-    time_unit = document.getElementById("time_unit").value;
+    let time_unit = document.getElementById("time_unit").value;
 
     //長さの表示形式を計算するための値を格納する変数
     let time_type;
@@ -41,7 +32,7 @@ function TimeTypeChecker() {
 //音価の計算をして音符ありで描画する関数
 function NoteLength() {
     //BPMの値を取得する
-    input_bpm = Number(document.getElementById("input_bpm").value);
+    let input_bpm = Number(document.getElementById("input_bpm").value);
 
     //音価の表示形式を判定する関数
     let { time_unit, time_type } = TimeTypeChecker();
