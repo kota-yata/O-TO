@@ -13,7 +13,7 @@ function roundToThree(num) {
 
 //コード進行を格納する多次元配列
 const chordProgOne =
-    [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "" },
+    [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "https://youtu.be/VFP5oalZn4s" },
     { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "" },
     { name: "ポップパンク進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅳ", info: "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。", url: "https://youtu.be/L0MK7qz13bU?t=64" },
     { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
