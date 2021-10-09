@@ -4,8 +4,8 @@
 function ChangeEIJG() {
     let root_number = Number(document.getElementById("rootNumber").value);
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
-
     let num = 0;
+
     for (let i = 0; i < 12; i++) {
         document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, 12)];
         num++

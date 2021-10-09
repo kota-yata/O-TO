@@ -1,7 +1,7 @@
 
 
 //主なチューニングタイプを格納した連想配列
-TuningVariation = [
+const TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4] },
     { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
     { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
@@ -47,6 +47,7 @@ TuningVariation = [
 
 //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数(指板用)
 function ScaleLanguageJEFingerBoard() {
+
     if (ScaleLanguageNum === 0) {
         ScaleLanguage = 'JapaneseName';
         document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
@@ -60,12 +61,23 @@ function ScaleLanguageJEFingerBoard() {
     ModalCandidateSelectFingerBoard();
 };
 
+
+//基本的なデータを取得する
+function DataCatch() {
+    //言語の情報を取得する。
+    let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
+    //弦の本数を取得する。
+    let NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
+
+    return { ModalSelectNum, NumberOfStrings }
+};
+
+
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(指板用)
 function ModalCandidateSelectFingerBoard() {
-    //言語の情報を取得する。
-    ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
-    //弦の本数を取得する。
-    NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
+
+    //基本的なデータを取得する
+    let { ModalSelectNum, NumberOfStrings } = DataCatch();
 
     //言語表示なしの場合 又は 音名が選択されていないとき
     if (NumberOfStrings === 0) {
@@ -99,7 +111,7 @@ function ScaleAndChordsDrowing() {
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
             `<label for="rootNumber"class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
                 <select id="rootNumber"class="form-select my-1" aria-label="Default select example"
-                    onchange="FingerboardDateInfo()">
+                    onchange="FingerboardDataInfo()">
                     <option value=0 selected>C</option>
                     <option value=1>C#-D♭</option>
                     <option value=2>D</option>
@@ -118,7 +130,7 @@ function ScaleAndChordsDrowing() {
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
             <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
-                onchange="FingerboardDateInfo()">
+                onchange="FingerboardDataInfo()">
             </select>
         </label>`);
 
@@ -204,7 +216,7 @@ function ScaleAndChordsDrowing() {
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
             `<label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">ルート
                 <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-                    onchange="FingerboardDateInfo()">
+                    onchange="FingerboardDataInfo()">
                     <option value=0 selected>C</option>
                     <option value=1>C#-D♭</option>
                     <option value=2>D</option>
@@ -223,7 +235,7 @@ function ScaleAndChordsDrowing() {
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
             <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
-                onchange="FingerboardDateInfo()">
+                onchange="FingerboardDataInfo()">
             </select>
         </label>`);
 
@@ -276,7 +288,6 @@ function ScaleAndChordsDrowing() {
                     <option value=1>イタリア式表記で構成音を表示する</option>
                     <option value=2>日本式表記で構成音を表示する</option>
                     <option value=3>ドイツ式表記で構成音を表示する</option>
-                    <option value=4>構成音を表示しない</option>
                 </select>
                 </label>
 
@@ -302,7 +313,7 @@ function ScaleAndChordsDrowing() {
         onclick="ScaleAndChordsDrowing()">スケール画面へ</button>`;
     };
     //スケール画面とコード画面ごとに必要な処理を行う関数
-    FingerboardDateInfo();
+    FingerboardDataInfo();
 };
 
 
@@ -774,16 +785,16 @@ function decide_which_hand() {
 
 
 //スケール画面とコード画面ごとに必要な処理を行う関数
-function FingerboardDateInfo() {
+function FingerboardDataInfo() {
 
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    TuningDate = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
     TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
     TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
     for (let i = 0; i < TuningInfo.length; i++) {
-        TuningDate.splice(i, 1, TuningInfo[i]);
+        TuningData.splice(i, 1, TuningInfo[i]);
     };
 
     //弦の本数を設定する
@@ -803,7 +814,7 @@ function FingerboardDateInfo() {
     StringsTuning = TuningVariation;
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningDate[i];
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningData[i];
         };
     };
 
@@ -815,13 +826,13 @@ function FingerboardDateInfo() {
 function NumberOfStringsManually() {
 
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    TuningDate = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
     TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
     TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
     for (let i = 0; i < TuningInfo.length; i++) {
-        TuningDate.splice(i, 1, TuningInfo[i]);
+        TuningData.splice(i, 1, TuningInfo[i]);
     };
 
     NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
@@ -839,7 +850,7 @@ function NumberOfStringsManually() {
     StringsTuning = TuningVariation;
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningDate[i];
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningData[i];
         };
     };
 
@@ -891,4 +902,3 @@ function Tuning(NumberOfStrings) {
     };
 
 };
-
