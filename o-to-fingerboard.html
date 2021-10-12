@@ -268,13 +268,13 @@
                 <div>
                     <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
                         <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardDateInfo()">
+                            onchange="FingerboardDataInfo()">
                         </select>
                     </label>
 
                     <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
                         <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardDateInfo()">
+                            onchange="FingerboardDataInfo()">
                             <option value=1>1</option>
                             <option value=2>2</option>
                             <option value=3>3</option>
@@ -310,7 +310,7 @@
 
                     <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
                         <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardDateInfo()">
+                            onchange="FingerboardDataInfo()">
                             <option value=0>英・米式表記</option>
                             <option value=1>イタリア式表記</option>
                             <option value=2>日本式表記</option>
@@ -451,8 +451,9 @@
     <!-- JavaScriptを読み込む-->
     <script src="js/Vue.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/fingerboard.js"></script>
     <script src="js/ScaleChord.js"></script>
+    <script src="js/fingerboard.js"></script>
+
 
     <!-- シェアボタン用のJavaScript -->
     <!-- Twitter -->

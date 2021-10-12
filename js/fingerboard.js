@@ -788,10 +788,10 @@ function decide_which_hand() {
 function FingerboardDataInfo() {
 
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
-    TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
+    let TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
-    TuningInfo = TuningVariationValue[0].split('-').map(Number);
+    let TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
     for (let i = 0; i < TuningInfo.length; i++) {
         TuningData.splice(i, 1, TuningInfo[i]);
@@ -811,7 +811,7 @@ function FingerboardDataInfo() {
     };
 
     //チューニングを変更する
-    StringsTuning = TuningVariation;
+    StringsTuning = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
             document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningData[i];
