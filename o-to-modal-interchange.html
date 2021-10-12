@@ -19,11 +19,11 @@
   <meta charset="utf-8">
 
   <!--ページタイトル-->
-  <title>コード・ネーム/モードを検索する O-TO【音楽理論ウェブアプリ】</title>
+  <title>コード・ネーム/スケール名を検索する O-TO【音楽理論ウェブアプリ】</title>
 
   <!--サイト情報-->
   <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-  <meta property="og:title" content="コード・ネーム/モードを検索する O-TO【音楽理論ウェブアプリ】" />
+  <meta property="og:title" content="コード・ネーム/スケール名を検索する O-TO【音楽理論ウェブアプリ】" />
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-modal-interchange" />
   <meta property="og:locale" content="ja_JP" />
@@ -35,9 +35,9 @@
     content="https://o-to.khufrudamonotes.com/image/thumbnail/modal-interchange_thumbnail.png" />
 
   <!--ページの概要-->
-  <meta property="description" content="構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。">
-  <meta property="og:description" content="構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。">
-  <meta name="keyword" content="音楽理論,音楽,コードネーム,コード,モーダルインターチェンジ,和音判定,コード判別,アプリ,ウェブアプリ,Webアプリ">
+  <meta property="description" content="構成音からコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。">
+  <meta property="og:description" content="構成音からコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。">
+  <meta name="keyword" content="音楽理論,音楽,コードネーム,コード,モーダルインターチェンジ,スケール名,和音判定,コード判別,スケール判別,スケール検索,コード検索,アプリ,ウェブアプリ,Webアプリ">
 
   <!--Internet Explorer用の設定-->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -54,9 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@khufrudamonotes" />
   <meta name="twitter:creator" content="@k1mu0419" />
-  <meta name="twitter:title" content="コード・ネーム/モードを検索する O-TO【音楽理論ウェブアプリ】" />
-  <meta property="twitter:description" content="構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。" />
-  <meta property="og:description" content="構成音からコード・ネームを検索できるアプリです。同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。" />
+  <meta name="twitter:title" content="コード・ネーム/スケール名を検索する O-TO【音楽理論ウェブアプリ】" />
+  <meta property="twitter:description" content="構成音からコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。" />
+  <meta property="og:description" content="構成音からコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。" />
 
   <!--サイトアイコンの指定-->
   <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
@@ -139,7 +139,7 @@
 
       <!-- 左(メインコンテンツ) -->
 
-      <h3 class="Larger shadow p-3 rounded mb-5 py-3">③コード・ネーム/モードを検索する</h3>
+      <h3 class="Larger shadow p-3 rounded mb-5 py-3">③コード・ネーム/スケール名を検索する</h3>
 
       <!-- タブの中身 -->
       <div id="tabBox" class=" pb-3">
@@ -156,7 +156,9 @@
         <div id="contents">
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
-            <p class="pt-3 pb-2">構成音からコード・ネームを検索できるアプリです。<br>同時に「コードの説明」、「使い方」、「コードの構成音を含む主なスケール」も表示されます。<br>
+            <p class="pt-3 pb-2">構成音からコード・ネームやスケール名を検索できるアプリです。<br>コードの特徴など、詳細情報も確認できます。</p>
+            <p class="pt-3 pb-2">※反対に、コード・ネームから構成音を検索したい場合は<a href="o-to-chords.html">①コード</a>、
+              スケール名から構成音を検索したい場合は<a href="o-to-scale.html">②スケール</a>をお使いください。</p>
           </div>
 
           <!-- タブ2の中身 -->
@@ -169,7 +171,7 @@
 
             <h4 class="pt-3 manual">【音名の表記】</h4>
             <p class="py-2">音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。<br>
-              初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
+              初学者の方は、イタリア式（ドレミ…）にすると、馴染みやすいかもしれません。</p>
 
             <h4 class="pt-3 manual">【コードの情報】</h4>
             <p class="py-2">コードの読み方、詳細情報が表示されます。<br>ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
@@ -366,7 +368,7 @@
       ChordCandidateInfo(onoff);
       //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
       CreateCandidate();
-      //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
+      //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/スケール名検索用)
       ModalCandidateSelect();
       //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
       ChangeEIJG();

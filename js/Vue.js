@@ -39,7 +39,7 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-scale.html">②スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード/モード検索</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール検索</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
@@ -97,7 +97,7 @@ Vue.component('right-column', {
             <a class="nav-link" href="o-to-scale.html">②スケール（<span class="scale_count">70種類以上</span>）の構成音を調べる</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード・ネーム/モードを検索する</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード・ネーム/スケール名を検索する</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">80×12種類以上</span>）</a>
