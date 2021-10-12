@@ -184,6 +184,9 @@ Vue.component('right-column', {
         <li class="nav-item">
           <a class="nav-link" href="https://khufrudamonotes.com/category/music-theory-and-dtm"target="_blank" rel="noopener noreferrer">音楽理論・DTM関連のブログ記事</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/MusicTheory_Bot"target="_blank" rel="noopener noreferrer">音楽理論bot</span></a>
+        </li>
       </ul>
 
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
