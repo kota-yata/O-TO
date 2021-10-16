@@ -15,6 +15,10 @@ img {
   height: auto;
 }
 
+.link_image:hover {
+  opacity: 0.7;
+}
+
 .note_image {
   padding: 5px;
   height: clamp(2rem, 2rem + 1vw, 4rem);
@@ -255,9 +259,19 @@ td {
 }
 
 .NoteOn {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: crimson;
   color: whitesmoke;
   font-weight: 900;
+}
+
+.NoteName_Switch_Search {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
+  cursor: pointer;
+}
+
+.NoteName_Switch_Search:hover {
+  background-color: #dcdcdc;
 }
 
 .NoteOn2 {

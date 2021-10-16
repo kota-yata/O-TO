@@ -811,6 +811,18 @@ function NoteNameColoring(onoff) {
     };
 };
 
+//構成音を着色する関数（コードスケール検索用）
+function SearchNoteNameColoring(onoff) {
+    for (let i = 0; i < 12; i++) {
+        if (onoff[i] != 0) {
+            document.getElementById(`chord_${i}`).className = "NoteOn";
+        } else if (onoff[i] === 0) {
+            document.getElementById(`chord_${i}`).className = "NoteName_Switch_Search";
+        };
+    };
+};
+
+
 //音名からモード・コード検索用のスイッチの役割を果たす関数(コード/モード検索用)
 function NoteSwitch(Num) {
     if (onoff[Num] === 0) {
@@ -818,8 +830,8 @@ function NoteSwitch(Num) {
     } else if (onoff[Num] === 1) {
         onoff[Num] = 0;
     };
-    //構成音を着色する関数
-    NoteNameColoring(onoff);
+    //構成音を着色する関数（コードスケール検索用）
+    SearchNoteNameColoring(onoff)
     //コード・ネームの情報を判定する関数
     ChordCandidateInfo(onoff);
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替えをする関数(コード・コード/モード検索用)

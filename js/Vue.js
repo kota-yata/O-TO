@@ -274,7 +274,7 @@ Vue.component('title-display', {
   template: `
     <div class="header_image">
       <a href="index.html">
-        <img class="" src="image/thumbnail/O-TO_site_header.svg" alt="ヘッダー画像">
+        <img class="link_image" src="image/thumbnail/O-TO_site_header.svg" alt="ヘッダー画像">
       </a>
     </div>
     `

@@ -28,6 +28,10 @@ img {
   height: auto;
 }
 
+.link_image:hover {
+  opacity: 0.7;
+}
+
 .header_image {
   background-position: center;
   background-size: cover;
