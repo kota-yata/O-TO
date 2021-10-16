@@ -8,6 +8,9 @@ function Sanitizing(text) {
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
 
+        .replace(/&amp;#119083;/g, "&#119083;")
+        .replace(/&amp;#119082;/g, "&#119082;")
+
         .replace(/\n/g, "<br \/>")
 
     return text;
@@ -15,6 +18,11 @@ function Sanitizing(text) {
 
 //指定したキーの音名をディグリーネームへ変換する関数
 function ToDegreeName(text, Root) {
+
+    //全角英数字を半角に変換する
+    text = text.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) - 65248);
+    });
 
     //シャープやフラットの表記ゆれを統一
     text = text
@@ -30,16 +38,13 @@ function ToDegreeName(text, Root) {
         .replace(/𝄫/g, "&#119083;")
 
         .replace(/III/g, "Ⅲ")
+        .replace(/VII/g, "Ⅶ")
         .replace(/II/g, "Ⅱ")
         .replace(/IV/g, "Ⅳ")
-        .replace(/VII/g, "Ⅶ")
         .replace(/VI/g, "Ⅵ")
         .replace(/V/g, "Ⅴ")
         .replace(/I/g, "Ⅰ")
 
-    text = text.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
-        return String.fromCharCode(s.charCodeAt(0) - 65248);
-    });
 
     let RootNumber = Number(Root);
 
@@ -248,7 +253,7 @@ function ChangeDegreeText() {
 //サンプルテキストを書き込む関数
 function ExampleTextOne() {
     document.getElementById("textarea").innerHTML
-        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n・王道進行\nF - G - Em - Am\n\n※ディグリーネームでも入力できます。\nⅥm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ\n\nⅠ△7 - Ⅱm7 - Ⅲm7 - Ⅳ△7 - Ⅴ7 - Ⅵm7 - Ⅶm7-5";
+        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n・王道進行\nF - G - Em - Am\n\n※ディグリーネームでも入力できます。\nⅥm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ\n\n※アルファベットでの代用もできます。\nI△7 - IIm7 - IIIm7 - IV△7 - V7 - VIm7 - VIIm7b5";
     ChangeDegreeText();
     ButtonInvisible();
 };
@@ -259,9 +264,10 @@ function ButtonInvisible() {
     let text = document.getElementById("textarea").value;
 
     //入力されたテキストをサニタイジングする関数
-    Sanitizing(text);
+    text = Sanitizing(text);
 
     let TextLength = text.replace(/<br \/>/g, '').length;
+
     if (TextLength === 0) {
         document.getElementById("box").innerHTML = 'こちらに変換後のテキストが表示されます。<br><br><br><br><br><br><br>';
     } else if (TextLength > 1) {
