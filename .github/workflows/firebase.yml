@@ -1,4 +1,4 @@
-name: firebase-hosting-deploy
+name: firebase-hosting-deploy-o-to
 
 #マスターブランチにプッシュされたら実行される
 on:
@@ -15,4 +15,4 @@ jobs:
         with: # 引数
           args: deploy --only hosting #変更をデプロイする
         env: # 環境変数
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}} # GitHub側に登録した環境変数を引っ張ってくる
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_}} # GitHub側に登録した環境変数を引っ張ってくる
