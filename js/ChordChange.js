@@ -50,8 +50,8 @@ function ToDegreeName(text, Root) {
         .replace(/ii/g, "Ⅱm")
         .replace(/iv/g, "Ⅳm")
         .replace(/vi/g, "Ⅵm")
-        .replace(/\sv/g, "\sⅤm")
-        .replace(/\si/g, "\sⅠm")
+        .replace(/\sv/g, " Ⅴm")
+        .replace(/\si/g, " Ⅰm")
 
 
 
