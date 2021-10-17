@@ -49,9 +49,9 @@ function ToDegreeName(text, Root) {
         .replace(/vii/g, "Ⅶm")
         .replace(/ii/g, "Ⅱm")
         .replace(/iv/g, "Ⅳm")
-        .replace(/vi/g, "Ⅵ")
-        .replace(/v/g, "Ⅴm")
-        .replace(/i/g, "Ⅰm")
+        .replace(/vi/g, "Ⅵm")
+        .replace(/\sv/g, "\sⅤm")
+        .replace(/\si/g, "\sⅠm")
 
 
 
@@ -118,9 +118,11 @@ function ToDegreeName(text, Root) {
         };
     };
 
-    //「-」は「m」に置換する。
+    //「-」は「m」に置換するなど。
     text = text
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))-/g, "$1m")
+        .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(Φ|φ)/g, "$1m7(♭5)")
+        .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(○|゜|o|O)/g, "$1dim")
 
     return text;
 };
@@ -267,7 +269,7 @@ function ChangeDegreeText() {
 //サンプルテキストを書き込む関数
 function ExampleTextOne() {
     document.getElementById("textarea").innerHTML
-        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n※「-」は、良い感じに「m」に置換されます。\nFMaj7 - G - E-7-5 - A-\n\n※ディグリーネームでも入力できます。\nⅥm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ\n\n※アルファベットでの代用もできます。\nI△7 - ii7 - iii7 - IV△7 - V7 - vi7 - vii7-5";
+        = "・カノン進行\nC - G - Am - Em - F - C - Dm - G\n\n※「-」は、良い感じに「m」に置換されます。\nFMaj7 - G - E-7-5 - A-\n\n※ディグリーネームでも入力できます。\nⅥm - Ⅳ - Ⅴ - Ⅰ - Ⅴ/Ⅶ\n\n※アルファベットでの代用もできます。\nI△7 - ii7 - iii7 - IV△7 - V7 - vi7 - vii7-5\n\n※「O」や「〇」は「dim」に、「φ」は「m7(♭5)」に置換されます。\nVIIo7 - IIIφ - vi";
     ChangeDegreeText();
     ButtonInvisible();
 };
