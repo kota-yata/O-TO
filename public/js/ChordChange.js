@@ -53,9 +53,6 @@ function ToDegreeName(text, Root) {
         .replace(/\sv/g, " Ⅴm")
         .replace(/\si/g, " Ⅰm")
 
-
-
-
     let RootNumber = Number(Root);
 
     let c = mod(RootNumber + 0, 12);

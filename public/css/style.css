@@ -280,6 +280,12 @@ td {
   font-weight: 900;
 }
 
+.NoteOn3 {
+  background-color: green;
+  color: whitesmoke;
+  font-weight: 900;
+}
+
 .NoteName {
   height: clamp(2rem, 2rem + 1vw, 5rem);
 }
