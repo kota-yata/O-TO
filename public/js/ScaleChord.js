@@ -1328,7 +1328,7 @@ function ChordsAndModeChange() {
     document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[14]['diaChord4']}<br><font size="-2">${scale_Container[14][ScaleLanguage]}</font>`;
     document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[15]['diaChord4']}<br><font size="-2">${scale_Container[15][ScaleLanguage]}</font>`;
     document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[16]['diaChord4']}<br><font size="-2">${scale_Container[16][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][19]} ${scale_Container[17]['diaChord4']}<br><font size="-2">${scale_Container[17][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]} ${scale_Container[17]['diaChord4']}<br><font size="-2">${scale_Container[17][ScaleLanguage]}</font>`;
 
     //同種短調を判定する
     let para_tonic_note_number = tonic_note_number + 3;
