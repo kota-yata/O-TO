@@ -276,6 +276,56 @@ function ModalCandidateDegree() {
     document.querySelector('.use_scale_count').innerHTML = ``;
 };
 
+const Degree_Tension_array = [
+    ["R", "", "Degree0"],
+    ["m2", "♭9", "Degree1"],
+    ["M2", "9", "Degree2"],
+    ["m3", "#9", "Degree3"],
+    ["M3", "", "Degree4"],
+    ["P4", "11", "Degree5"],
+    ["-5", "#11", "Degree6"],
+    ["P5", "", "Degree7"],
+    ["+5", "♭13", "Degree8"],
+    ["M6", "13", "Degree9"],
+    ["m7", "", "Degree10"],
+    ["M7", "", "Degree11"],
+];
+
+//コードネームに合わせて度数表記を描画する関数
+function degree_position_drow(root_position) {
+    let do_app = Number(document.getElementById("do_app").value);
+    if (do_app === 0) {
+        return;
+    };
+    let Num = 0;
+    for (let i = 0; i < 12; i++) {
+        //いったんテーブル要素を全て空にする。
+        document.getElementById(`Degree_table_${Num}`).innerHTML = ``;
+        document.getElementById(`Tension_table_${Num}`).innerHTML = ``;
+        let Num2 = 0;
+        for (let i = 0; i < 12; i++) {
+            //いったんクラスを全て削除する
+            document.getElementById(`Degree_table_${Num}`).classList.remove(`Degree${Num2}`);
+            document.getElementById(`Tension_table_${Num}`).classList.remove(`Degree${Num2}`);
+            Num2++
+        };
+        Num++
+    };
+
+    Num = 0;
+    for (let i = 0; i < 12; i++) {
+        //テキストを追加する
+        document.getElementById(`Degree_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][0]}`;
+        document.getElementById(`Tension_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][1]}`;
+        //クラスを追加する
+        document.getElementById(`Degree_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
+        if (Degree_Tension_array[mod(-root_position + Num, 12)][1] !== "") {
+            document.getElementById(`Tension_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
+        };
+        Num++
+    };
+};
+
 
 //コード・ネームの情報を判定する関数
 function ChordCandidateInfo(onoff) {
@@ -283,6 +333,9 @@ function ChordCandidateInfo(onoff) {
     //ルートの音の値を取得
     let RootNumber = Number(document.getElementById("rootNumber").value);
     let SOF;
+
+    //コードネームに合わせて度数表記を描画する関数
+    degree_position_drow(0);
 
     //ルート音の値から大雑把にシャープとフラットの判別をする。
     if (RootNumber === 2
@@ -516,9 +569,12 @@ function ChordCandidateInfo(onoff) {
                         = `<font size="2">読み方：${noteNames[mod(RootNumber + RootNum, 12)][NonRootSOF]}${chord_container[Num]["Name"]}・オーヴァー${noteNames[RootNumber][NonRootSOF]}（転回形）</font>`;
                     document.getElementById("AddChordInfoHTML").innerHTML
                         = `${chord_container[Num]["Info"]}`;
+                    degree_position_drow(mod(RootNum, 12));
                 };
+                //コードネームに合わせて度数表記を描画する関数
+                degree_position_drow(mod(RootNum, 12));
                 //マッチするものが見つかった場合はここでreturn
-                return
+                return;
             };
             //見つからなかったので、コードネームを格納した配列から、次のコードとマッチするか調べる。
             Num++
@@ -615,6 +671,9 @@ function ChordNoteSwitch() {
 
     ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
     ModalCandidateSelect();
+
+    //コードネームに合わせて度数表記を描画する関数
+    degree_position_drow(0)
 };
 
 //スケールの情報を格納する配列

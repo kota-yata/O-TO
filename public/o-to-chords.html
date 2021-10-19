@@ -201,7 +201,6 @@
 
 
       <div class="text-right">
-
         <label for="rootNumber" class="box1 col-md-10 col-xl-2 py-2 mx-2">ルート音
           <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
             onchange="ChordNoteSwitch()">
@@ -236,37 +235,38 @@
             <option value=3>ドイツ式表記</option>
           </select>
         </label>
-
       </div>
 
       <table>
         <tr>
-          <td class="Degree0">R</td>
-          <td class="Degree1">m2</td>
-          <td class="Degree2">M2</td>
-          <td class="Degree3">m3</td>
-          <td class="Degree4">M3</td>
-          <td class="Degree5">P4</td>
-          <td class="Degree6">-5</td>
-          <td class="Degree7">P5</td>
-          <td class="Degree8">+5</td>
-          <td class="Degree9">M6</td>
-          <td class="Degree10">m7</td>
-          <td class="Degree11">M7</td>
+        <tr id="Degree_table">
+          <td id="Degree_table_0"></td>
+          <td id="Degree_table_1"></td>
+          <td id="Degree_table_2"></td>
+          <td id="Degree_table_3"></td>
+          <td id="Degree_table_4"></td>
+          <td id="Degree_table_5"></td>
+          <td id="Degree_table_6"></td>
+          <td id="Degree_table_7"></td>
+          <td id="Degree_table_8"></td>
+          <td id="Degree_table_9"></td>
+          <td id="Degree_table_10"></td>
+          <td id="Degree_table_11"></td>
         </tr>
-        <tr>
-          <td></td>
-          <td class="Degree1">♭9</td>
-          <td class="Degree2">9</td>
-          <td class="Degree3">#9</td>
-          <td></td>
-          <td class="Degree5">11</td>
-          <td class="Degree6">#11</td>
-          <td></td>
-          <td class="Degree8">♭13</td>
-          <td class="Degree9">13</td>
-          <td></td>
-          <td></td>
+        <tr id="Tension_table">
+          <td id="Tension_table_0"></td>
+          <td id="Tension_table_1"></td>
+          <td id="Tension_table_2"></td>
+          <td id="Tension_table_3"></td>
+          <td id="Tension_table_4"></td>
+          <td id="Tension_table_5"></td>
+          <td id="Tension_table_6"></td>
+          <td id="Tension_table_7"></td>
+          <td id="Tension_table_8"></td>
+          <td id="Tension_table_9"></td>
+          <td id="Tension_table_10"></td>
+          <td id="Tension_table_11"></td>
+        </tr>
         </tr>
         <tr>
           <td id="chord_0" class="NoteName"></td>
@@ -369,6 +369,9 @@
       <copyright-text></copyright-text>
     </footer>
   </div>
+
+  <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
+  <data id="do_app" value=1></data>
 
   <!--ページのロードが終了したときに実行される関数 -->
   <script>

@@ -157,8 +157,8 @@
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
             <p class="pt-3 pb-2">構成音からコード・ネームやスケール名を検索できるアプリです。<br>コードの特徴など、詳細情報も確認できます。</p>
-            <p class="pt-3 pb-2">※反対に、コード・ネームから構成音を検索したい場合は<a href="o-to-chords.html">①コード</a>、
-              スケール名から構成音を検索したい場合は<a href="o-to-scale.html">②スケール</a>をお使いください。</p>
+            <p class="pt-3 pb-2">反対に、コード・ネームからコードの構成音を検索したい場合は、<a href="o-to-chords.html">①コードの構成音を調べる</a>、<br>
+              スケール名からスケールの構成音を検索したい場合は、<a href="o-to-scale.html">②スケールの構成音を調べる</a>をお使いください。</p>
           </div>
 
           <!-- タブ2の中身 -->
@@ -232,35 +232,34 @@
       </label>
 
       <p class="pt-3">音名をタップしてください。</p>
-
       <table>
-        <tr>
-          <td class="Degree0">R</td>
-          <td class="Degree1">m2</td>
-          <td class="Degree2">M2</td>
-          <td class="Degree3">m3</td>
-          <td class="Degree4">M3</td>
-          <td class="Degree5">P4</td>
-          <td class="Degree6">-5</td>
-          <td class="Degree7">P5</td>
-          <td class="Degree8">+5</td>
-          <td class="Degree9">M6</td>
-          <td class="Degree10">m7</td>
-          <td class="Degree11">M7</td>
+        <tr id="Degree_table">
+          <td id="Degree_table_0"></td>
+          <td id="Degree_table_1"></td>
+          <td id="Degree_table_2"></td>
+          <td id="Degree_table_3"></td>
+          <td id="Degree_table_4"></td>
+          <td id="Degree_table_5"></td>
+          <td id="Degree_table_6"></td>
+          <td id="Degree_table_7"></td>
+          <td id="Degree_table_8"></td>
+          <td id="Degree_table_9"></td>
+          <td id="Degree_table_10"></td>
+          <td id="Degree_table_11"></td>
         </tr>
-        <tr>
-          <td></td>
-          <td class="Degree1">♭9</td>
-          <td class="Degree2">9</td>
-          <td class="Degree3">#9</td>
-          <td></td>
-          <td class="Degree5">11</td>
-          <td class="Degree6">#11</td>
-          <td></td>
-          <td class="Degree8">♭13</td>
-          <td class="Degree9">13</td>
-          <td></td>
-          <td></td>
+        <tr id="Tension_table">
+          <td id="Tension_table_0"></td>
+          <td id="Tension_table_1"></td>
+          <td id="Tension_table_2"></td>
+          <td id="Tension_table_3"></td>
+          <td id="Tension_table_4"></td>
+          <td id="Tension_table_5"></td>
+          <td id="Tension_table_6"></td>
+          <td id="Tension_table_7"></td>
+          <td id="Tension_table_8"></td>
+          <td id="Tension_table_9"></td>
+          <td id="Tension_table_10"></td>
+          <td id="Tension_table_11"></td>
         </tr>
         <tr>
           <td id="chord_0" class="NoteName_Switch_Search" onclick="NoteSwitch(0)"></td>
@@ -361,9 +360,13 @@
     </footer>
   </div>
 
+  <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
+  <data id="do_app" value=1></data>
+
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
+
       //コード・ネームの情報を判定する関数
       ChordCandidateInfo(onoff);
       //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
