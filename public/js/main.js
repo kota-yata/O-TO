@@ -441,6 +441,9 @@ const scale_Container =
     { EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", ScaleNumBinary: [1, 3, 0, 3, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
 
     { EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 2, 0, 3, 0, 3, 0], addNum: 0, ForteNumber: "6-35", Info: "「全音音階」とも。オクターブを6等分したスケール。全てが全音で構成されています。", Mode: "", Adjustment: 0 },
+
+    { EnglishName: "Tcherepnin's 9 tone", JapaneseName: "チェレプニン", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1], addNum: 0, ForteNumber: "9-12", Info: "「Messiaen Mode」や「チェレプニンの9音階」とも。<br>アレクサンドル・チェレプニンが開発したスケールです。", Mode: "", Adjustment: 0 },
+
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 2, 1, 3, 1, 1, 2, 1, 3, 1, 3, 1], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
     ];
 
