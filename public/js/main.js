@@ -431,7 +431,7 @@ const scale_Container =
     { EnglishName: "Blues Minor Pentatonic", JapaneseName: "ブルース・マイナー・ペンタトニック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 0, 0, 1, 0, 1, 3, 1, 0, 0, 1, 0], addNum: 9, ForteNumber: "6-Z47", Info: "", Mode: "", Adjustment: 0 },
 
     //特殊なスケール
-    { EnglishName: "Enigmatic", JapaneseName: "エニグマティック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1], addNum: 0, ForteNumber: "7-24", Info: "アドルフォ・クレッシェンティーニが考案した、メジャーとマイナーと全音階の雰囲気を併せ持つスケール。<br>「謎の音階」とも。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Enigmatic", JapaneseName: "エニグマティック", diaChord4: "", diaChord3: "", ScaleNumBinary: [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1], addNum: 0, ForteNumber: "7-24", Info: "アドルフォ・クレシェンティーニが考案した、メジャーとマイナーと全音階の雰囲気を併せ持つスケール。<br>「謎の音階」とも。", Mode: "", Adjustment: 0 },
 
     { EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュト", diaChord4: "7", diaChord3: "", ScaleNumBinary: [3, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0], addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
     { EnglishName: "Diminished", JapaneseName: "ディミニッシュト", diaChord4: "", diaChord3: "", ScaleNumBinary: [3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3], addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
