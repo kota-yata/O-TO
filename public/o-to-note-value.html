@@ -33,8 +33,10 @@
   <meta name="twitter:image" content="https://o-to.khufrudamonotes.com/image/thumbnail/note-value_thumbnail.png" />
 
   <!--ページの概要-->
-  <meta property="description" content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。">
-  <meta property="og:description" content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。">
+  <meta property="description"
+    content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。小節数から曲の長さを計算できる機能もあります。">
+  <meta property="og:description"
+    content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。小節数から曲の長さを計算できる機能もあります。">
   <meta name="keyword" content="音楽理論,音楽,音価,音符計算機,音価計算,音符計算,アプリ,ウェブアプリ,Webアプリ">
 
   <!--Internet Explorer用の設定-->
@@ -53,8 +55,10 @@
   <meta name="twitter:site" content="@khufrudamonotes" />
   <meta name="twitter:creator" content="@k1mu0419" />
   <meta name="twitter:title" content="音価の計算をする O-TO【音楽理論ウェブアプリ】" />
-  <meta property="twitter:description" content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。" />
-  <meta property="og:description" content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。" />
+  <meta property="twitter:description"
+    content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。小節数から曲の長さを計算できる機能もあります。" />
+  <meta property="og:description"
+    content="指定したBPMの、18種類の「音符の長さ」を計算するアプリです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。小節数から曲の長さを計算できる機能もあります。" />
 
   <!--サイトアイコンの指定-->
   <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
@@ -157,7 +161,9 @@
 
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
-                <p class="pt-3 pb-2">指定したBPMの、18種類の「音符の長さ」を計算するアプリです。<br>表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。</p>
+                <p class="pt-3 pb-2">
+                  指定したBPMの、18種類の「音符の長さ」を計算するアプリです。<br>表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。<br><br>小節数から曲の長さを計算できる機能もあります。
+                </p>
                 <p class="py-2">※ここに無い種類の音符の長さを求めたい方は、<a href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>をお使いください。
                 </p>
               </div>
@@ -173,7 +179,10 @@
                 <h4 class="pt-3 manual">【表示形式】</h4>
                 <p class="py-2">音価の表示形式は、[<b>秒、ミリ秒、マイクロ秒、sec、ms、μs</b>]の6種類から選べます。</p>
                 <p class="py-2">ドロップダウンリストから指定すると、指定した表示形式に切り替わります。</p>
+                <p class="py-2">計算結果が小数点第4位以下を含む場合、表示される値は小数点第4位を四捨五入されたものになります。</p>
 
+                <h4 class="pt-3 manual">【小節数から曲の長さを計算する】</h4>
+                <p class="py-2">拍子と小節数を指定すると、指定BPMでの曲の長さが計算されます。</p>
               </div>
 
               <!-- タブ3の中身 -->
@@ -259,9 +268,34 @@
             </tr>
           </table>
 
+          <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+          <h3 class="Larger shadow p-3 rounded mt-3 mb-3 py-3">小節数から曲の長さを計算</h3>
+
+          <label for="Numerator" class="box2 col-3 col-xxl-2">拍子（分子）
+            <input id="Numerator" type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='2'
+              value="4" placeholder=barCount aria-label="barCount" onchange="barLength()">
+          </label>
+
+          <label for="Denominator" class="box2 col-3 col-xxl-2">拍子（分母）
+            <select id="Denominator" class="form-select my-1" aria-label="barCount" onchange="barLength()">
+              <option value=2>2</option>
+              <option value=4 selected>4</option>
+              <option value=8>8</option>
+              <option value=16>16</option>
+            </select>
+          </label>
+
+          <label for="barCount" class="box1 col-3 col-xxl-3">小節数
+            <input id=barCount type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='3' value="128"
+              placeholder=barCount aria-label="barCount" onchange="barLength()">
+          </label>
+
+          <!-- 小節数と尺の情報を追加 -->
+          <p id="barInfo" class="py-2"></p>
+
         </div>
 
-
+        <!-- ---------------------------------------------------------------------------------------------------------------------- -->
         <!-- 右カラム部分 -->
         <div id="right-column" class="col-xxl-4">
           <right-column></right-column>
@@ -284,6 +318,7 @@
     window.addEventListener('DOMContentLoaded', function () {
       //音価の計算をして描画する関数
       NoteLength();
+      barLength();
     });
   </script>
 

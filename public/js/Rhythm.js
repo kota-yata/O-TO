@@ -107,6 +107,8 @@ function NoteLength() {
         document.getElementById("time_quarter_note_quintuplet").innerHTML = "1拍5連<br><img src='./image/note/QuarterNoteQuintuplet.svg' alt='1拍5連符' title='1拍5連符' class='note_image'><br><br>";
         document.getElementById("time_half_note_triplet").innerHTML = "4拍3連<br><img src='./image/note/WholeNoteTriplets.svg' alt='4拍3連' title='4拍3連' class='note_image'><br><br>";
     };
+
+    barLength();
 };
 
 
@@ -426,3 +428,24 @@ function NoteInfo() {
     };
 };
 
+function barLength() {
+
+    let input_bpm = Number(document.getElementById("input_bpm").value);
+    let barCount = Number(document.getElementById("barCount").value);
+    let Numerator = Number(document.getElementById("Numerator").value); //分子
+    let Denominator = Number(document.getElementById("Denominator").value); //分母
+
+    let bartime = (60 / input_bpm) / (Denominator / 4) * Numerator * barCount;
+
+    let baeSec = Math.floor(bartime / 60)
+    let barMin = roundToThree(bartime - (60 * baeSec))
+
+    if (bartime < 60) {
+        document.getElementById("barInfo").innerHTML = `BPM=${input_bpm}（${Numerator}/${Denominator}拍子）${barCount}小節分の長さは、<b>${roundToThree(bartime)}秒</b>です。`;
+    } else if (bartime >= 60) {
+        document.getElementById("barInfo").innerHTML = `BPM=${input_bpm}（${Numerator}/${Denominator}拍子）${barCount}小節分の長さは、<b>${baeSec}分 ${barMin}秒（${roundToThree(bartime)}秒）</b>です。`;
+    } else {
+        document.getElementById("barInfo").innerHTML = ``
+    };
+
+};
