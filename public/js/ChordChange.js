@@ -91,7 +91,7 @@ function ToDegreeName(text, Root) {
         { NoteName: noteNames[a][20], DegreeName: '&#119083;Ⅶ' },
         { NoteName: noteNames[aisb][21], DegreeName: '♭Ⅶ' },
 
-        { NoteName: noteNames[h][23], DegreeName: '#Ⅶ' },
+        { NoteName: noteNames[c][23], DegreeName: '#Ⅶ' },
 
         { NoteName: noteNames[c][2], DegreeName: 'Ⅰ' },
         { NoteName: noteNames[d][5], DegreeName: 'Ⅱ' },
