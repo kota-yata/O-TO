@@ -221,51 +221,30 @@
             </label>
           </div>
 
-          <table>
-            <tr class="row py-2">
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-                id="time_maxima"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-                id="time_longa"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-                id="time_double_whole_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2   text-center list-group-item-info"
-                id="time_whole_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2  text-center list-group-item-success"
-                id="time_1dot_half_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-                id="time_half_note"></th>
-            </tr>
+          <!-- 音価を表示するテーブル -->
+          <table class="box_table">
+            <thead class="note_value_table">
+              <tr class="tr_long_note" id="time_maxima"></tr>
+              <tr class="tr_long_note" id="time_longa"></tr>
+              <tr class="tr_long_note" id="time_double_whole_note"></tr>
+              <tr class="tr_note" id="time_whole_note"></tr>
+              <tr class="tr_1dot_note" id="time_1dot_half_note"></tr>
+              <tr class="tr_note" id="time_half_note"></tr>
 
-            <tr class="row py-2">
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_half_note_triplet">
-              </th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-                id="time_1dot_quarter_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
-                id="time_quarter_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-                id="time_1dot_8th_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_quarter_note_triplet">
-              </th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-                id="time_8th_note"></th>
-            </tr>
+              <tr class="tr_tuplet_note" id="time_half_note_triplet"></tr>
+              <tr class="tr_1dot_note" id="time_1dot_quarter_note"></tr>
+              <tr class="tr_quarter_note" id="time_quarter_note"></tr>
+              <tr class="tr_1dot_note" id="time_1dot_8th_note"></tr>
+              <tr class="tr_tuplet_note" id="time_quarter_note_triplet"></tr>
+              <tr class="tr_note" id="time_8th_note"></tr>
 
-            <tr class="row py-2">
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-                id="time_1dot_16th_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_8th_note_tuplet">
-              </th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-                id="time_16th_note"></th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-                id="time_quarter_note_quintuplet"> </th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="time_16th_note_tuplet">
-              </th>
-              <th class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-                id="time_32th_note"></th>
-            </tr>
+              <tr class="tr_1dot_note" id="time_1dot_16th_note"></tr>
+              <tr class="tr_tuplet_note" id="time_8th_note_tuplet"></tr>
+              <tr class="tr_note" id="time_16th_note"></tr>
+              <tr class="tr_tuplet_note" id="time_quarter_note_quintuplet"></tr>
+              <tr class="tr_tuplet_note" id="time_16th_note_tuplet"></tr>
+              <tr class="tr_note" id="time_32th_note"></tr>
+            </thead>
           </table>
 
           <!-- ---------------------------------------------------------------------------------------------------------------------- -->
@@ -304,14 +283,21 @@
       </div>
 
     </main>
-
-
-    <!-- フッター -->
-    <footer id="footer">
-      <footer-template></footer-template>
-      <copyright-text></copyright-text>
-    </footer>
   </div>
+
+  <!-- フッター -->
+  <footer id="footer">
+    <footer-profile></footer-profile>
+    <footer-github></footer-github>
+    <footer-bug></footer-bug>
+    <footer-info></footer-info>
+    <footer-youtube></footer-youtube>
+    <footer-link></footer-link>
+    <share-button></share-button>
+    <img src="image/KHUFRUDAMO NOTES Logo only.png" class="site_logo displayed" alt="クフルダモノーツのロゴ"
+      title="KHUFRUDAMO NOTES Logo">
+    <footer-copyright></footer-copyright>
+  </footer>
 
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
@@ -339,8 +325,8 @@
   <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8"
     async="async"></script>
   <!-- Pocket -->
-  <script
-    type="text/javascript">!function (d, i) { if (!d.getElementById(i)) { var j = d.createElement("script"); j.id = i; j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1"; var w = d.getElementById(i); d.body.appendChild(j); } }(document, "pocket-btn-js");</script>
+  <script type="text/javascript">!function (d, i) { if (!d.getElementById(i)) { var j = d.createElement("script"); j.id = i; j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1"; var w = d.getElementById(i); d.body.appendChild(j); } }(document, "pocket-btn-js");
+  </script>
   <!-- Line -->
   <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
     defer="defer"></script>

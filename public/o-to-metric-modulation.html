@@ -303,53 +303,31 @@
 
           <div class="pb-3" id="rhythm_info"></div>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="same_length_whole_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="same_length_1dot_half_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="same_length_half_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="same_length_2dot_4th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="same_length_1dot_quarter_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="same_length_half_note_triplet">
-            </div>
-          </div>
+          <!-- BPMを表示するテーブル -->
+          <table class="box_table">
+            <thead class="note_value_table">
+              <tr class="tr_note" id="same_length_whole_note"></tr>
+              <tr class="tr_1dot_note" id="same_length_1dot_half_note"></tr>
+              <tr class="tr_note" id="same_length_half_note"></tr>
+              <tr class="tr_2dot_note" id="same_length_2dot_4th_note"></tr>
+              <tr class="tr_1dot_note" id="same_length_1dot_quarter_note"></tr>
+              <tr class="tr_tuplet_note" id="same_length_half_note_triplet"></tr>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-warning"
-              id="same_length_quarter_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="same_length_2dot_8th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="same_length_1dot_8th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="same_length_quarter_note_triplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="same_length_8th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 list-group-item-secondary text-center"
-              id="same_length_2dot_16th_note"></div>
-          </div>
+              <tr class="tr_quarter_note" id="same_length_quarter_note"></tr>
+              <tr class="tr_2dot_note" id="same_length_2dot_8th_note"></tr>
+              <tr class="tr_1dot_note" id="same_length_1dot_8th_note"></tr>
+              <tr class="tr_tuplet_note" id="same_length_quarter_note_triplet"></tr>
+              <tr class="tr_note" id="same_length_8th_note"></tr>
+              <tr class="tr_2dot_note" id="same_length_2dot_16th_note"></tr>
 
-          <div class="row py-2">
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-success"
-              id="same_length_1dot_16th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center" id="same_length_8th_note_tuplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="same_length_16th_note"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="same_length_quarter_note_quintuplet"></div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center"
-              id="same_length_16th_note_tuplet">
-            </div>
-            <div class="list-group-item item box1 col-6 col-md-4 col-xl-2 text-center list-group-item-info"
-              id="same_length_32th_note"></div>
-          </div>
+              <tr class="tr_1dot_note" id="same_length_1dot_16th_note"></tr>
+              <tr class="tr_tuplet_note" id="same_length_8th_note_tuplet"></tr>
+              <tr class="tr_note" id="same_length_16th_note"></tr>
+              <tr class="tr_tuplet_note" id="same_length_quarter_note_quintuplet"></tr>
+              <tr class="tr_tuplet_note" id="same_length_16th_note_tuplet"></tr>
+              <tr class="tr_note" id="same_length_32th_note"></tr>
+            </thead>
+          </table>
 
         </div>
 
@@ -364,8 +342,9 @@
 
     <!-- フッター -->
     <footer id="footer">
-      <footer-template></footer-template>
-      <copyright-text></copyright-text>
+      <share-button></share-button>
+      <footer-link></footer-link>
+      <footer-copyright></footer-copyright>
     </footer>
   </div>
 
