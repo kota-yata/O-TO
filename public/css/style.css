@@ -397,16 +397,20 @@ img {
   background-color: #faebd7;
 }
 .NoteOn2 {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: mediumblue;
   color: whitesmoke;
   font-weight: 900;
 }
 .NoteOn3 {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: green;
   color: whitesmoke;
   font-weight: 900;
 }
 .NoteName {
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
   height: clamp(2rem, 2rem + 1vw, 5rem);
   border: 1px solid rgb(210, 210, 210);
 }
@@ -464,11 +468,6 @@ box {
   }
   .hidden_tablet{
     display: none;
-  }
-  ul{
-    display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto auto;
   }
   #footer{
 	display: grid;
