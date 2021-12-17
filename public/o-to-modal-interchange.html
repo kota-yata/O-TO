@@ -232,48 +232,48 @@
       </label>
 
       <p class="pt-3">音名をタップしてください。</p>
-      <table>
+      <table class="box_table">
         <tr id="Degree_table">
-          <td id="Degree_table_0"></td>
-          <td id="Degree_table_1"></td>
-          <td id="Degree_table_2"></td>
-          <td id="Degree_table_3"></td>
-          <td id="Degree_table_4"></td>
-          <td id="Degree_table_5"></td>
-          <td id="Degree_table_6"></td>
-          <td id="Degree_table_7"></td>
-          <td id="Degree_table_8"></td>
-          <td id="Degree_table_9"></td>
-          <td id="Degree_table_10"></td>
-          <td id="Degree_table_11"></td>
+          <td class="box_border" id="Degree_table_0"></td>
+          <td class="box_border" id="Degree_table_1"></td>
+          <td class="box_border" id="Degree_table_2"></td>
+          <td class="box_border" id="Degree_table_3"></td>
+          <td class="box_border" id="Degree_table_4"></td>
+          <td class="box_border" id="Degree_table_5"></td>
+          <td class="box_border" id="Degree_table_6"></td>
+          <td class="box_border" id="Degree_table_7"></td>
+          <td class="box_border" id="Degree_table_8"></td>
+          <td class="box_border" id="Degree_table_9"></td>
+          <td class="box_border" id="Degree_table_10"></td>
+          <td class="box_border" id="Degree_table_11"></td>
         </tr>
         <tr id="Tension_table">
-          <td id="Tension_table_0"></td>
-          <td id="Tension_table_1"></td>
-          <td id="Tension_table_2"></td>
-          <td id="Tension_table_3"></td>
-          <td id="Tension_table_4"></td>
-          <td id="Tension_table_5"></td>
-          <td id="Tension_table_6"></td>
-          <td id="Tension_table_7"></td>
-          <td id="Tension_table_8"></td>
-          <td id="Tension_table_9"></td>
-          <td id="Tension_table_10"></td>
-          <td id="Tension_table_11"></td>
+          <td class="box_border" id="Tension_table_0"></td>
+          <td class="box_border" id="Tension_table_1"></td>
+          <td class="box_border" id="Tension_table_2"></td>
+          <td class="box_border" id="Tension_table_3"></td>
+          <td class="box_border" id="Tension_table_4"></td>
+          <td class="box_border" id="Tension_table_5"></td>
+          <td class="box_border" id="Tension_table_6"></td>
+          <td class="box_border" id="Tension_table_7"></td>
+          <td class="box_border" id="Tension_table_8"></td>
+          <td class="box_border" id="Tension_table_9"></td>
+          <td class="box_border" id="Tension_table_10"></td>
+          <td class="box_border" id="Tension_table_11"></td>
         </tr>
         <tr>
-          <td id="chord_0" class="NoteName_Switch_Search" onclick="NoteSwitch(0)"></td>
-          <td id="chord_1" class="NoteName_Switch_Search" onclick="NoteSwitch(1)"></td>
-          <td id="chord_2" class="NoteName_Switch_Search" onclick="NoteSwitch(2)"></td>
-          <td id="chord_3" class="NoteName_Switch_Search" onclick="NoteSwitch(3)"></td>
-          <td id="chord_4" class="NoteName_Switch_Search" onclick="NoteSwitch(4)"></td>
-          <td id="chord_5" class="NoteName_Switch_Search" onclick="NoteSwitch(5)"></td>
-          <td id="chord_6" class="NoteName_Switch_Search" onclick="NoteSwitch(6)"></td>
-          <td id="chord_7" class="NoteName_Switch_Search" onclick="NoteSwitch(7)"></td>
-          <td id="chord_8" class="NoteName_Switch_Search" onclick="NoteSwitch(8)"></td>
-          <td id="chord_9" class="NoteName_Switch_Search" onclick="NoteSwitch(9)"></td>
-          <td id="chord_10" class="NoteName_Switch_Search" onclick="NoteSwitch(10)"></td>
-          <td id="chord_11" class="NoteName_Switch_Search" onclick="NoteSwitch(11)"></td>
+          <td id="chord_0" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(0)"></td>
+          <td id="chord_1" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(1)"></td>
+          <td id="chord_2" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(2)"></td>
+          <td id="chord_3" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(3)"></td>
+          <td id="chord_4" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(4)"></td>
+          <td id="chord_5" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(5)"></td>
+          <td id="chord_6" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(6)"></td>
+          <td id="chord_7" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(7)"></td>
+          <td id="chord_8" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(8)"></td>
+          <td id="chord_9" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(9)"></td>
+          <td id="chord_10" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(10)"></td>
+          <td id="chord_11" class="NoteName NoteName_Switch_Search" onclick="NoteSwitch(11)"></td>
         </tr>
       </table>
 
@@ -352,13 +352,19 @@
       </div>
 
     </main>
-
-    <!-- フッター -->
-    <footer id="footer">
-      <footer-template></footer-template>
-      <copyright-text></copyright-text>
-    </footer>
   </div>
+
+  <!-- フッター -->
+  <footer id="footer">
+    <footer-profile></footer-profile>
+    <footer-github></footer-github>
+    <footer-bug></footer-bug>
+    <footer-info></footer-info>
+    <footer-twitter></footer-twitter>
+    <footer-youtube></footer-youtube>
+    <site-logo></site-logo>
+    <footer-copyright></footer-copyright>
+  </footer>
 
   <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
   <data id="do_app" value=1></data>

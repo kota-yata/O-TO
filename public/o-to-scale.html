@@ -111,6 +111,9 @@
     <head-template></head-template>
   </div>
 
+  <!--Font Awesome を読み込む-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <!--bootstrap を読み込む-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -227,8 +230,6 @@
         </div>
       </div>
 
-
-
       <div class="text-right">
 
         <label for="rootNumber" class="box1 col-md-2 col-xl-2 py-2 mx-2">トニック
@@ -268,49 +269,48 @@
 
       </div>
 
-
-      <table>
-        <tr>
-          <td class="Degree0">R</td>
-          <td class="Degree1">m2</td>
-          <td class="Degree2">M2</td>
-          <td class="Degree3">m3</td>
-          <td class="Degree4">M3</td>
-          <td class="Degree5">P4</td>
-          <td class="Degree6">-5</td>
-          <td class="Degree7">P5</td>
-          <td class="Degree8">+5</td>
-          <td class="Degree9">M6</td>
-          <td class="Degree10">m7</td>
-          <td class="Degree11">M7</td>
+      <table class="box_table">
+        <tr class="box_border">
+          <td class="box_border Degree0">R</td>
+          <td class="box_border Degree1">m2</td>
+          <td class="box_border Degree2">M2</td>
+          <td class="box_border Degree3">m3</td>
+          <td class="box_border Degree4">M3</td>
+          <td class="box_border Degree5">P4</td>
+          <td class="box_border Degree6">-5</td>
+          <td class="box_border Degree7">P5</td>
+          <td class="box_border Degree8">+5</td>
+          <td class="box_border Degree9">M6</td>
+          <td class="box_border Degree10">m7</td>
+          <td class="box_border Degree11">M7</td>
         </tr>
-        <tr>
-          <td></td>
-          <td class="Degree1">♭9</td>
-          <td class="Degree2">9</td>
-          <td class="Degree3">#9</td>
-          <td></td>
-          <td class="Degree5">11</td>
-          <td class="Degree6">#11</td>
-          <td></td>
-          <td class="Degree8">♭13</td>
-          <td class="Degree9">13</td>
-          <td></td>
-          <td></td>
+        <tr class="box_border">
+          <td class="box_border"></td>
+          <td class="box_border Degree1">♭9</td>
+          <td class="box_border Degree2">9</td>
+          <td class="box_border Degree3">#9</td>
+          <td class="box_border"></td>
+          <td class="box_border Degree5">11</td>
+          <td class="box_border Degree6">#11</td>
+          <td class="box_border"></td>
+          <td class="box_border Degree8">♭13</td>
+          <td class="box_border Degree9">13</td>
+          <td class="box_border"></td>
+          <td class="box_border"></td>
         </tr>
-        <tr>
-          <td id="chord_0" class="NoteName"></td>
-          <td id="chord_1" class="NoteName"></td>
-          <td id="chord_2" class="NoteName"></td>
-          <td id="chord_3" class="NoteName"></td>
-          <td id="chord_4" class="NoteName"></td>
-          <td id="chord_5" class="NoteName"></td>
-          <td id="chord_6" class="NoteName"></td>
-          <td id="chord_7" class="NoteName"></td>
-          <td id="chord_8" class="NoteName"></td>
-          <td id="chord_9" class="NoteName"></td>
-          <td id="chord_10" class="NoteName"></td>
-          <td id="chord_11" class="NoteName"></td>
+        <tr class="box_border">
+          <td id="chord_0" class="box_border"></td>
+          <td id="chord_1" class="box_border"></td>
+          <td id="chord_2" class="box_border"></td>
+          <td id="chord_3" class="box_border"></td>
+          <td id="chord_4" class="box_border"></td>
+          <td id="chord_5" class="box_border"></td>
+          <td id="chord_6" class="box_border"></td>
+          <td id="chord_7" class="box_border"></td>
+          <td id="chord_8" class="box_border"></td>
+          <td id="chord_9" class="box_border"></td>
+          <td id="chord_10" class="box_border"></td>
+          <td id="chord_11" class="box_border"></td>
         </tr>
       </table>
 
@@ -351,9 +351,7 @@
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample">
 
-            <!-- <div class="hidden780"> -->
-
-            <table id="scaleChord_index" class="hidden1280">
+            <table id="scaleChord_index" class="degree_box hidden_tablet">
               <tr class="">
                 <td class="Degree0">Ⅰ</td>
                 <td class="Degree1">#Ⅰ/♭Ⅱ</td>
@@ -373,7 +371,7 @@
 
             <!-- スケールの構成音を含むコード一覧を描画するテーブル -->
             <table id="scaleChordTable"></table>
-            <!-- </div> -->
+
 
           </div>
         </div>
@@ -391,14 +389,19 @@
       </div>
 
     </main>
-
-
-    <!-- フッター -->
-    <footer id="footer">
-      <footer-template></footer-template>
-      <copyright-text></copyright-text>
-    </footer>
   </div>
+
+  <!-- フッター -->
+  <footer id="footer">
+    <footer-profile></footer-profile>
+    <footer-github></footer-github>
+    <footer-bug></footer-bug>
+    <footer-info></footer-info>
+    <footer-twitter></footer-twitter>
+    <footer-youtube></footer-youtube>
+    <site-logo></site-logo>
+    <footer-copyright></footer-copyright>
+  </footer>
 
   <!--ページのロードが終了したときに実行される関数 -->
   <script>

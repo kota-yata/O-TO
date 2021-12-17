@@ -1,360 +1,158 @@
 /* フォント指定 */
-
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
+/* --------------------------------------------------------------------------------------------- */
 body {
   font-family: "Noto Sans JP", sans-serif;
   background-color: #f5f5f5;
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
-/* 画像のレスポンシブ対応 */
-
-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-.link_image:hover {
-  opacity: 0.7;
-}
-
-.note_image {
-  padding: 5px;
-  height: clamp(2rem, 2rem + 1vw, 4rem);
-  /* 中央揃え */
-  margin: 0 auto;
-}
-
-/* 主な要素 */
-h5 {
-  font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
-}
-
 a {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
+.displayed{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h5 {
+  font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 主な要素 */
 #contents p {
   font-size: 15px;
   margin: 0;
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
 #contents p.title {
   font-size: 16px;
   font-weight: bold;
 }
+#contents {
+  padding: 5px 10px;
+  border-top: 2px solid crimson;
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.manual {
+  color: crimson;
+  font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+}
+ul{
+  list-style-type: none;
+}
 
+/* --------------------------------------------------------------------------------------------- */
+/* フッター */
+#footer{
+  background-color:#ffffff;
+  padding:5px;
+  text-align: center;
+	display: grid;
+    grid-template:
+		"... ....... ....... ....... ....... ....... ....... ..." 1.5rem
+		"... footer_p footer_g footer_b footer_i footer_t footer_y ..."
+    "... ....... ....... ....... ....... ....... ....... ..." 2rem
+		"... ....... ....... share-b   share-b   ....... ....... ..."
+    "... ....... ....... site_logo site_logo ....... ....... ..."
+    "... ....... ....... footer_c footer_c ....... ....... ..."
+    "... ....... ....... ....... ....... ....... ....... ..." 1.5rem
+		/1rem 1fr 1fr 1fr 1fr 1fr 1fr 1rem;
+		;
+}
+.share-button{
+  grid-area: share-b;
+  text-align: center;
+  padding: 1rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2rem 2rem auto;
+}
+.footer_profile{
+  grid-area: footer_p;
+  white-space: nowrap;
+  padding:5px;
+}
+.footer_github{
+  grid-area: footer_g;
+  white-space: nowrap;
+  padding:5px;
+}
+.footer_bug{
+  grid-area: footer_b;
+  white-space: nowrap;
+  padding:5px;
+}
+.footer_info{
+  grid-area: footer_i;
+  white-space: nowrap;
+  padding:5px;
+}
+.footer_twitter{
+  grid-area: footer_t;
+  white-space: nowrap;
+  padding:5px;
+}
+.footer_youtube{
+  grid-area: footer_y;
+  white-space: nowrap;
+  padding:5px;
+}
+.site_logo{
+  padding:1rem;
+  grid-area: site_logo;
+  width:100px
+}
+.footer_copyright{
+  grid-area: footer_c;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 画像のレスポンシブ対応 */
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
 .header_image {
   background-position: center;
   background-size: cover;
   padding-top: 5rem;
   margin-bottom: 1.75rem;
 }
-
-#contents {
-  padding: 5px 10px;
-  border-top: 2px solid crimson;
-  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
+.link_image:hover {
+  opacity: 0.7;
 }
-
-.manual {
-  color: crimson;
-  font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
+.note_image {
+  padding: 5px;
+  height: clamp(2rem, 2rem + 1vw, 4rem);
+  /* 中央揃え */
+  margin: 0 auto;
 }
-
-/* テーブル要素 */
-
-#scaleChord_index {
-  font-weight: bold;
-}
-
-@media (min-width: 1280px) {
-  #scaleChordTable {
-    font-size: clamp(0.3rem, 0.3rem + 0.7vw, 0.7rem);
-    /* table-layout: fixed; */
-    table-layout: fixed;
-  }
-}
-
-@media (max-width: 1280px) {
-  #scaleChordTable {
-    font-size: clamp(0.3rem, 0.3rem + 0.5vw, 0.5rem);
-    /* table-layout: fixed; */
-    table-layout: auto;
-    width: 100%;
-  }
-}
-
-@media (max-width: 780px) {
-  #scaleChordTable {
-    font-size: clamp(0.3rem, 0.3rem + 0.4vw, 0.4rem);
-    /* table-layout: fixed; */
-    table-layout: fixed;
-  }
-}
-
-@media (max-width: 1280px) {
-  .hidden1280 {
-    display: none;
-  }
-}
-
-@media (max-width: 780px) {
-  .hidden780 {
-    display: none;
-  }
-}
-
-textarea {
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  background: #ffffff;
-  padding: 1em;
-  margin: 0;
-}
-
-box {
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  background: #ffffff;
-  padding: 1em;
-  margin: 0;
-}
-
-table {
-  border-collapse: collapse;
-  text-align: center;
-  width: 100%;
-  /* 幅 */
-  table-layout: fixed;
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  height: clamp(3rem, 3rem + 1vw, 2rem);
-}
-
-th,
-td {
-  padding: 4px;
-  border: 1px solid rgb(158, 158, 158);
-}
-
 .clef {
   width: 50%;
   max-width: 50%;
   height: auto;
 }
-
 #clef2 {
   width: 10%;
   max-width: 10%;
   height: auto;
 }
-
-#modulationTable {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  background: #ffffff;
-  border: 2px #808080 solid;
+.header_image {
+  background-position: center;
+  background-size: cover;
+  padding-top: 5rem;
+  margin-bottom: 1.75rem;
 }
-
-.#modulationChangeTable {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  font-weight: bold;
-}
-
-#result_modulation {
-  background: whitesmoke;
-}
-
-#modulationTable2 {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  background: #ffffff;
-  text-align: left;
-  border: 2px #808080 solid;
-}
-
-.gainsboro {
-  background: #dcdcdc;
-}
-
-/* 500px以下の画面で適用 */
-@media only screen and (max-width: 600px) {
-  table.mobile-scroll {
-    white-space: nowrap;
-    /* 折り返されないように */
-    overflow-x: auto;
-    /* 横スクロール */
-    -webkit-overflow-scrolling: touch;
-    /* スマホでスムーズにスクロールできるように */
-  }
-}
-
-/* ------------------------- */
-
-.modulationBorder0 {
-  outline: 10px solid #0588ff;
-  outline-offset: -10px;
-}
-
-.modulationBorder1 {
-  outline: 10px solid #a4c2f4;
-  outline-offset: -10px;
-}
-
-.modulationBorder2 {
-  outline: 10px solid #21daff;
-  outline-offset: -10px;
-}
-
-.modulationBorder3 {
-  outline: 10px solid #21ff95;
-  outline-offset: -10px;
-}
-
-.modulationBorder4 {
-  outline: 10px solid #01ff50;
-  outline-offset: -10px;
-}
-
-.modulationBorder5 {
-  outline: 10px solid #ffccff;
-  outline-offset: -10px;
-}
-
-.modulationBorder6 {
-  outline: 10px solid #00da15;
-  outline-offset: -10px;
-}
-
-.modulationBorder7 {
-  outline: 10px solid #fcfc04;
-  outline-offset: -10px;
-}
-
-.modulationBorder8 {
-  outline: 10px solid #ff6e01;
-  outline-offset: -10px;
-}
-
-.modulationBorder9 {
-  outline: 10px solid #ff2121;
-  outline-offset: -10px;
-}
-
-.modulationBorder10 {
-  outline: 10px solid #ff19bd;
-  outline-offset: -10px;
-}
-
-.modulationBorder11 {
-  outline: 10px solid #cc99ff;
-  outline-offset: -10px;
-}
-
-/* --------------------- */
-.ChordNotFound {
-  background-color: gainsboro;
-}
-
-.NoteOn {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  background-color: crimson;
-  color: whitesmoke;
-  font-weight: 900;
-}
-
-.NoteName_Switch_Search {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  cursor: pointer;
-}
-
-.NoteName_Switch_Search:hover {
-  background-color: #faebd7;
-}
-
-.NoteOn2 {
-  background-color: mediumblue;
-  color: whitesmoke;
-  font-weight: 900;
-}
-
-.NoteOn3 {
-  background-color: green;
-  color: whitesmoke;
-  font-weight: 900;
-}
-
-.NoteName {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-}
-
-.DegreeBlack {
-  background-color: black;
-}
-
-.Degree0 {
-  background-color: #0588ff;
-  color: whitesmoke;
-}
-
-.Degree1 {
-  background-color: #a4c2f4;
-}
-
-.Degree2 {
-  background-color: #21daff;
-}
-
-.Degree3 {
-  background-color: #21ff95;
-}
-
-.Degree4 {
-  background-color: #01ff50;
-}
-
-.Degree5 {
-  background-color: #ffccff;
-}
-
-.Degree6 {
-  background-color: #00da15;
-}
-
-.Degree7 {
-  background-color: #fcfc04;
-}
-
-.Degree8 {
-  background-color: #ff6e01;
-}
-
-.Degree9 {
-  background-color: #ff2121;
-  color: whitesmoke;
-}
-
-.Degree10 {
-  background-color: #ff19bd;
-  color: whitesmoke;
-}
-
-.Degree11 {
-  background-color: #cc99ff;
-}
-
+/* --------------------------------------------------------------------------------------------- */
 /* 説明タブ */
-
 #tabs {
   overflow: hidden;
 }
-
 #tabs input {
   display: none;
 }
-
 #tabs label {
   display: inline-block;
   line-height: 40px;
@@ -365,23 +163,388 @@ td {
   transition: 0.3s;
   border-radius: 10px 10px 0 0;
 }
-
 #tabs input:checked + label,
 #tabs label:hover {
   background: crimson;
   color: #fff;
 }
-
 #accordionExample {
   font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
-
-.ChordName {
-  font-size: clamp(0.01rem, 0.01rem + 3vw, 1rem);
-  height: clamp(2rem, 2rem + 3vw, 3rem);
-  /* 折り返されないように */
-}
-
 .ResText {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
+/* --------------------------------------------------------------------------------------------- */
+/* テーブル要素 */
+.box_table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+  table-layout: fixed;
+  height: clamp(0.5rem, 0.5rem + 1vw, 3rem);
+}
+#scaleChordTable {
+  text-align:left;
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 0.7rem);
+  border: 1px solid rgb(210, 210, 210);
+  table-layout: fixed;
+  width: 100%;
+}
+.degree_box{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+}
+.box_border{
+    border: 1px solid rgb(210, 210, 210);
+}
+.ChordName {
+  font-size: clamp(0.2rem, 0.2rem + 1vw, 1rem);
+  height: clamp(2rem, 2rem + 3vw, 3rem);
+  border: 1px solid rgb(210, 210, 210);
+}
+#scaleChord_index {
+  font-weight: bold;
+  background-color: white
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 音価のテーブル */
+.note_value_table{
+  padding-bottom: 1rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+}
+.tr_quarter_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: lightgoldenrodyellow;
+}
+.tr_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: paleturquoise;
+}
+.tr_1dot_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: palegreen;
+}
+.tr_2dot_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: gainsboro;
+}
+.tr_tuplet_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: white;
+}
+.tr_long_note{
+  border: solid 1px rgb(210, 210, 210);
+  margin: 1px;
+  background-color: gainsboro;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* 度数表記 */
+.DegreeBlack {
+  background-color: rgb(180, 180, 180);
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree0 {
+  background-color: #0588ff;
+  color: whitesmoke;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree1 {
+  background-color: #a4c2f4;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree2 {
+  background-color: #21daff;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree3 {
+  background-color: #21ff95;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree4 {
+  background-color: #01ff50;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree5 {
+  background-color: #ffccff;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree6 {
+  background-color: #00da15;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree7 {
+  background-color: #fcfc04;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree8 {
+  background-color: #ff6e01;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree9 {
+  background-color: #ff2121;
+  color: whitesmoke;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree10 {
+  background-color: #ff19bd;
+  color: whitesmoke;
+  border: solid 1px rgb(210, 210, 210);
+}
+.Degree11 {
+  background-color: #cc99ff;
+  border: solid 1px rgb(210, 210, 210);
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 転調 */
+#modulationTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  border: 2px #808080 solid;
+}
+#modulationChangeTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  font-weight: bold;
+}
+#result_modulation {
+  background: whitesmoke;
+}
+#modulationTable2 {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  text-align: left;
+  border: 2px #808080 solid;
+}
+.gainsboro {
+  background: #dcdcdc;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 転調の間隔 */
+.modulationBorder0 {
+  outline: 10px solid #0588ff;
+  outline-offset: -10px;
+}
+.modulationBorder1 {
+  outline: 10px solid #a4c2f4;
+  outline-offset: -10px;
+}
+.modulationBorder2 {
+  outline: 10px solid #21daff;
+  outline-offset: -10px;
+}
+.modulationBorder3 {
+  outline: 10px solid #21ff95;
+  outline-offset: -10px;
+}
+.modulationBorder4 {
+  outline: 10px solid #01ff50;
+  outline-offset: -10px;
+}
+.modulationBorder5 {
+  outline: 10px solid #ffccff;
+  outline-offset: -10px;
+}
+.modulationBorder6 {
+  outline: 10px solid #00da15;
+  outline-offset: -10px;
+}
+.modulationBorder7 {
+  outline: 10px solid #fcfc04;
+  outline-offset: -10px;
+}
+.modulationBorder8 {
+  outline: 10px solid #ff6e01;
+  outline-offset: -10px;
+}
+.modulationBorder9 {
+  outline: 10px solid #ff2121;
+  outline-offset: -10px;
+}
+.modulationBorder10 {
+  outline: 10px solid #ff19bd;
+  outline-offset: -10px;
+}
+.modulationBorder11 {
+  outline: 10px solid #cc99ff;
+  outline-offset: -10px;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* コード検索 */
+.ChordNotFound {
+  background-color: gainsboro;
+}
+.NoteOn {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
+  background-color: crimson;
+  color: whitesmoke;
+  font-weight: 900;
+}
+.NoteName_Switch_Search {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
+  cursor: pointer;
+}
+.NoteName_Switch_Search:hover {
+  background-color: #faebd7;
+}
+.NoteOn2 {
+  background-color: mediumblue;
+  color: whitesmoke;
+  font-weight: 900;
+}
+.NoteOn3 {
+  background-color: green;
+  color: whitesmoke;
+  font-weight: 900;
+}
+.NoteName {
+  height: clamp(2rem, 2rem + 1vw, 5rem);
+  border: 1px solid rgb(210, 210, 210);
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 移調 */
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #ffffff;
+  padding: 1em;
+  margin: 0;
+}
+box {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #ffffff;
+  padding: 1em;
+  margin: 0;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 指板 */
+#Fingerboard{
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+  table-layout: fixed;
+  font-size: clamp(0.1rem, 0.1rem + 1vw, 0.95rem);
+  white-space: nowrap;
+}
+#FletNumberUpper {
+  border: 1px solid rgb(158, 158, 158);
+  background-color: #111111;
+  color: #fff;
+}
+#FletNumberLower {
+  border: 1px solid rgb(158, 158, 158);
+  background-color: #111111;
+  color: #fff;
+}
+.FletNumberInlay {
+  border: 1px solid rgb(158, 158, 158);
+  background-color: #111111;
+  color: rgb(29, 255, 123);
+}
+/* --------------------------------------------------------------------------------------------- */
+/* レスポンシブ対応 */
+/* タブレット用のブレークポイント */
+@media only screen and (max-width: 1024px) {
+  #scaleChordTable {
+    font-size: clamp(0.1rem, 0.1rem + 0.4vw, 0.4rem);
+    table-layout: auto;
+    width: 100%;
+  }
+  .hidden_tablet{
+    display: none;
+  }
+  ul{
+    display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+  }
+  #footer{
+	display: grid;
+    grid-template:
+    "... ....... ....... ..." 1.5rem
+    "... footer_p footer_g ..."
+    "... footer_b footer_i ..."
+    "... footer_t footer_y ..."
+    "... ....... ....... ..." 2rem
+		"... site_logo site_logo ..."
+    "... ....... ....... ..." 2rem
+    "... footer_c footer_c ..."
+    "... ....... ....... ..." 1.5rem
+		/1rem 1fr 1fr 1rem;
+		;
+  }
+}
+/* --------------------------------------------------------------------------------------------- */
+/* スマホ用のブレークポイント */
+@media only screen and (max-width: 599px) {
+  .note_value_table{
+    padding: 1rem;
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
+  }
+  #scaleChordTable {
+    font-size: clamp(0.1rem, 0.1rem + 1vw, 0.4rem);
+    table-layout: fixed;
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hidden_smart_phone{
+    display: none;
+  }
+  .diatonic_table{
+    width: 100%;
+    padding: 6px;
+  }
+  .ChordName{
+    padding: auto;
+    display: inline-block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diatonic{
+    padding: 6px;
+  }
+  table.mobile-scroll {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  ul{
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+  }
+  #footer{
+	display: grid;
+    grid-template:
+    "... ....... ..." 1.5rem
+    "... footer_p ..."
+    "... footer_g ..."
+    "... footer_b ..."
+    "... footer_i ..."
+    "... footer_t ..."
+    "... footer_y ..."
+    "... ....... ..." 2rem
+    "... site_logo ..."
+    "... footer_c ..."
+    "... ....... ..." 1.5rem
+		/1rem 1fr 1rem;
+  }
+}
+/* --------------------------------------------------------------------------------------------- */

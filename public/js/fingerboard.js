@@ -174,9 +174,7 @@ function ScaleAndChordsDrowing() {
             <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
 
-                <!-- <div class="hidden780"> -->
-
-                <table id="scaleChord_index" class="hidden1280">
+                <table id="scaleChord_index" class="degree_box hidden_tablet">
                 <tr class="">
                     <td class="Degree0">Ⅰ</td>
                     <td class="Degree1">#Ⅰ/♭Ⅱ</td>
@@ -193,10 +191,8 @@ function ScaleAndChordsDrowing() {
                 </tr>
                 </table>
 
-
                 <!-- スケールの構成音を含むコード一覧を描画するテーブル -->
                 <table id="scaleChordTable"></table>
-                <!-- </div> -->
 
             </div>
             </div>
@@ -343,7 +339,7 @@ function StringsTable() {
         </tr>`)
 
         //弦のナンバーのtr(行)要素のidを書き込む
-        document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="${Num}_string"></tr>`)
+        document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr class="box_border" id="${Num}_string"></tr>`)
         Num--
     };
 };

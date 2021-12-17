@@ -209,21 +209,21 @@ function scaleChordTableCreate() {
 
                     //コードネームを書き込む
                     document.getElementById(`ChordNumber-${ChordTableNum}`)
-                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
 
                     //構成音とマッチするコードの数をカウントする
                     use_chord_count++;
                 } else {
                     //空のテーブル要素を書き込む
                     document.getElementById(`ChordNumber-${ChordTableNum}`)
-                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="ChordNotFound hidden780"></td>`);
+                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border ChordNotFound hidden_smart_phone"></td>`);
                     //一行丸ごと何も無いかチェックのためのカウント
                     noneCount++
                 };
             } else {
                 //空のテーブル要素を書き込む
                 document.getElementById(`ChordNumber-${ChordTableNum}`)
-                    .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="ChordNotFound hidden780"></td>`);
+                    .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border ChordNotFound hidden_smart_phone"></td>`);
                 //一行丸ごと何も無いかチェックのためのカウント
                 noneCount++
             };
@@ -874,9 +874,9 @@ function NoteNameColoring(onoff) {
 function SearchNoteNameColoring(onoff) {
     for (let i = 0; i < 12; i++) {
         if (onoff[i] != 0) {
-            document.getElementById(`chord_${i}`).className = "NoteOn";
+            document.getElementById(`chord_${i}`).className = "NoteName NoteOn";
         } else if (onoff[i] === 0) {
-            document.getElementById(`chord_${i}`).className = "NoteName_Switch_Search";
+            document.getElementById(`chord_${i}`).className = "NoteName NoteName_Switch_Search";
         };
     };
 };

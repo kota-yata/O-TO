@@ -5,6 +5,8 @@
 Vue.component('head-template', {
   template: `
       <div>
+      <!--Font Awesome を読み込む-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
       </div>
       `
 })
@@ -187,20 +189,47 @@ Vue.component('right-column', {
       </ul>
 
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
-          <h5>その他</h5>
+          <h5>便利だと思ったら是非シェアを！</h5>
         </div>
-      <ul>
-        <li class="nav-item">
-          <a class="nav-link" href="https://yoshito.khufrudamonotes.com/"target="_blank" rel="noopener noreferrer">開発者の自己紹介</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Yoshito924/O-TO"target="_blank" rel="noopener noreferrer">GitHub</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/contact-english"target="_blank" rel="noopener noreferrer">バグ報告などは、こちらからお願いします。</span></a>
-        </li>
-      </ul>
 
+        <div>
+          <ul>
+            <li class="py-1 nav-item">
+              <!-- Twitterのシェアボタン -->
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">
+                Tweet
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- はてなブックマークへのシェアボタン -->
+              <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+                <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加"
+                  width="20" height="20" style="border: none;" />
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- noteへのシェアボタン -->
+              <a href="https://note.com/intent/social_button" class="note-social-button"
+                data-url="https://o-to.khufrudamonotes.com/"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- pocketへのシェアボタン -->
+              <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Lineへのシェアボタン -->
+              <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
+                data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
+                style="display: none;">
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Facebookへのシェアボタン -->
+              <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width="" data-layout="button_count"
+                data-action="like" data-size="small" data-share="true"></a>
+            </li>
+          </ul>
       </div>
         `
 })
@@ -211,50 +240,73 @@ const rightColumn = new Vue({
 })
 
 
+//------------------------------------------------------------------------------------------------------------------------------------
+//フッター部分のコンポーネントを定義
 
-//フッター部分のコンポーネントを定義---------------------------------
-
-Vue.component('copyright-text', {
+Vue.component('footer-profile', {
   template: `
-    <div>
-    <!-- Twitterのシェアボタン -->
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-        data-show-count="false">Tweet</a>
+        <div class="footer_profile">
+          <a href="https://yoshito.khufrudamonotes.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-circle"></i> 開発者の自己紹介</a>
+        </div>
+      `
+})
 
-        <!-- はてなブックマークへのシェアボタン -->
-        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
-        data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
-        title="このエントリーをはてなブックマークに追加"><img
-          src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加"
-          width="20" height="20" style="border: none;" /></a>
+Vue.component('footer-github', {
+  template: `
+        <div class="footer_github">
+          <a href="https://github.com/Yoshito924/O-TO" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
+        </div>
+      `
+})
 
-      <!-- noteへのシェアボタン -->
-      <a href="https://note.com/intent/social_button" class="note-social-button" data-url="https://o-to.khufrudamonotes.com/"></a>
+Vue.component('footer-bug', {
+  template: `
+        <div class="footer_bug">
+          <a href="https://khufrudamonotes.com/contact-english" target="_blank" rel="noopener noreferrer"><i class="far fa-comment"></i>バグの報告</a>
+        </div>
+      `
+})
 
-      <!-- Facebookへのシェアボタン -->
-      <a class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width=""
-        data-layout="button" data-action="recommend" data-size="small" data-share=""></a>
+Vue.component('footer-info', {
+  template: `
+        <div class="footer_info">
+          <a href="info.html"><i class="fas fa-music"></i>このアプリについて</a>
+        </div>
+      `
+})
 
-      <!-- Facebookへのシェアボタン -->
-      <a id="fb-root"></a>
+Vue.component('footer-twitter', {
+  template: `
+        <div class="footer_twitter">
+          <a href="https://twitter.com/k1mu0419" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i>Twitter</a>
+        </div>
+      `
+})
 
-      <!-- pocketへのシェアボタン -->
-      <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
 
-      <!-- Lineへのシェアボタン -->
-      <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
-        data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
-        style="display: none;"></a>
+Vue.component('footer-youtube', {
+  template: `
+        <div class="footer_youtube">
+          <a href="https://www.youtube.com/user/kimukydr/videos" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>YouTube</a>
+        </div>
+      `
+})
 
-      <p>&copy; 2021- KHUFRUDAMO NOTES (since 2009) </p>
+Vue.component('site-logo', {
+  template: `
+    <div class="site_logo displayed">
+      <a href="https://www.youtube.com/channel/UCj1FMSo7yhgjLlCiMZG-cFw" target="_blank" rel="noopener noreferrer">
+        <img src="image/KHUFRUDAMO NOTES Logo only.png" alt="クフルダモノーツのロゴ" title="KHUFRUDAMO NOTES Logo">
+      </a>
     </div>
     `
 })
 
-Vue.component('footer-template', {
+Vue.component('footer-copyright', {
   template: `
-    <div class="float-end">
-    <a href="info.html">このアプリについて</a></div>
+        <div class="footer_copyright">
+          &copy; 2021- KHUFRUDAMO NOTES (since 2009)
+        </div>
       `
 })
 
@@ -264,8 +316,8 @@ const footer = new Vue({
   el: '#footer'
 })
 
-
-//見出し部分のコンポーネントを定義---------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
+//見出し部分のコンポーネントを定義
 
 Vue.component('title-display', {
   template: `
@@ -277,24 +329,23 @@ Vue.component('title-display', {
     `
 })
 
+
+//------------------------------------------------------------------------------------------------------------------------------------
 //見出し部分のコンポーネントのインスタンスを作成する
 const titleDisplay = new Vue({
   el: '#display'
 })
 
 
-let chordColor = new Vue({
+const chordColor = new Vue({
   el: "app",
   data: {
     check: "list-group-item col-xl text-center",
-
-    check: "list-group-item list-group-item-danger col-xl text-center"
-
+    check: "list-group-item list-group-item-danger col-xl text-center",
   },
   methods: {
 
   }
-
 })
 
 //切り替えタブを描画する
