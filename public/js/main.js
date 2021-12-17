@@ -19,6 +19,7 @@ const chordProgOne =
     { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
     { name: "カノン進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", info: "王道で美しい曲を作りたいならこれ！", url: "https://youtu.be/NlprozGcs80?t=126" },
     { name: "なめらかカノン進行", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", info: "カノン進行のベースラインをなめらかに繋がるように変形したもの。", url: "" },
+    { name: "ドラマチック", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅴm/♭Ⅶ-Ⅵ7-Ⅱm-#Ⅰaug-Ⅳ/Ⅰ-Ⅴ7/Ⅶ", info: "Ⅰメジャー始まりにもかかわらず、明るさ控え目。", url: "" },
     { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コード。", url: "" },
     { name: "いつメン", chord: "Ⅰ-Ⅵm-Ⅳ-Ⅴ", info: "いつ使っても良い。", url: "" },
     { name: "午前2時の踏切に居そう", chord: "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ", info: "参考曲：BUMP OF CHICKEN - 天体観測", url: "https://youtu.be/j7CDb610Bg0?t=33" },
@@ -35,7 +36,7 @@ const chordProgOne =
     { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き", url: "https://youtu.be/kWUV5-frRU4?t=107" },
     { name: "壮大", chord: "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "仰々しくしたいときに。", url: "" },
     { name: "遊び心", chord: "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", info: "ベースを固定しつつちょっと寄り道。", url: "" },
-    { name: "ドラマチック", chord: "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ", info: "ベースを固定しつつ大胆に寄り道。", url: "" },
+    { name: "エピック", chord: "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ", info: "ベースを固定しつつ大胆に寄り道。", url: "" },
     { name: "ブルージー", chord: "Ⅰ7-Ⅳ7-Ⅰ7-Ⅳ7-Ⅴ7-Ⅳ7-Ⅰ7-Ⅴ7", info: "ブルースっぽい響きを出したいならコレ！", url: "" },
     ];
 
