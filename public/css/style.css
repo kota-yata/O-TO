@@ -393,9 +393,7 @@ img {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   cursor: pointer;
 }
-.NoteName_Switch_Search:hover {
-  background-color: #faebd7;
-}
+
 .NoteOn2 {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: mediumblue;
@@ -459,6 +457,13 @@ box {
 }
 /* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ対応 */
+/* PCだけに適応する */
+@media only screen and (min-width: 1025px) {
+  .NoteName_Switch_Search:hover {
+  background-color: #faebd7;
+  }
+}
+
 /* タブレット用のブレークポイント */
 @media only screen and (max-width: 1024px) {
   #scaleChordTable {
