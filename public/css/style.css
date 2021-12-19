@@ -387,24 +387,20 @@ img {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: crimson;
   color: whitesmoke;
-  font-weight: 900;
 }
 .NoteName_Switch_Search {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   cursor: pointer;
 }
-
 .NoteOn2 {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: mediumblue;
   color: whitesmoke;
-  font-weight: 900;
 }
 .NoteOn3 {
   height: clamp(2rem, 2rem + 1vw, 5rem);
   background-color: green;
   color: whitesmoke;
-  font-weight: 900;
 }
 .NoteName {
   padding-top:0.5rem;
@@ -461,6 +457,15 @@ box {
 @media only screen and (min-width: 1025px) {
   .NoteName_Switch_Search:hover {
   background-color: #faebd7;
+  }
+  .NoteOn {
+  font-weight: 900;
+  }
+  .NoteOn2 {
+    font-weight: 900;
+  }
+  .NoteOn3 {
+    font-weight: 900;
   }
 }
 
