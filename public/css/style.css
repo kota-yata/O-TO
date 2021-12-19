@@ -494,7 +494,6 @@ box {
 /* スマホ用のブレークポイント */
 @media only screen and (max-width: 599px) {
   .note_value_table{
-    padding: 1rem;
     display: grid;
       grid-template-columns: 1fr 1fr 1fr ;
       grid-template-rows: auto auto auto auto auto auto auto auto;
