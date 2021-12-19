@@ -440,10 +440,18 @@ function barLength() {
     let baeSec = Math.floor(bartime / 60)
     let barMin = roundToThree(bartime - (60 * baeSec))
 
+    let bartext1 = `BPM=${input_bpm}（${Numerator}/${Denominator}拍子）${barCount}小節分の長さは、`;
+    let bartext2;
+    if (barCount % 16 === 0) {
+        bartext2 = `※${barCount}小節は<br>4小節で1セクションの場合 … ${barCount / 4}セクション<br>8小節で1セクションの場合 … ${barCount / 8}セクション<br>16小節で1セクションの場合 … ${barCount / 16}セクション<br>になります。`;
+    } else {
+        bartext2 = `※${barCount}小節は<br>4小節で1セクションの場合 … ${Math.floor(barCount / 4)}セクション＋${barCount % 4}小節<br>8小節で1セクションの場合 … ${Math.floor(barCount / 8)}セクション＋${barCount % 8}小節<br>16小節で1セクションの場合 … ${Math.floor(barCount / 16)}セクション＋${barCount % 16}小節<br>になります。`;
+    };
+
     if (bartime < 60) {
-        document.getElementById("barInfo").innerHTML = `BPM=${input_bpm}（${Numerator}/${Denominator}拍子）${barCount}小節分の長さは、<b>${roundToThree(bartime)}秒</b>です。`;
+        document.getElementById("barInfo").innerHTML = `${bartext1}<b>${roundToThree(bartime)}秒</b>です。<br><br>${bartext2}`;
     } else if (bartime >= 60) {
-        document.getElementById("barInfo").innerHTML = `BPM=${input_bpm}（${Numerator}/${Denominator}拍子）${barCount}小節分の長さは、<b>${baeSec}分 ${barMin}秒（${roundToThree(bartime)}秒）</b>です。`;
+        document.getElementById("barInfo").innerHTML = `${bartext1}<b>${baeSec}分 ${barMin}秒（${roundToThree(bartime)}秒）</b>です。<br><br>${bartext2}`;
     } else {
         document.getElementById("barInfo").innerHTML = ``
     };
