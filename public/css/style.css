@@ -385,20 +385,24 @@ img {
 }
 .NoteOn {
   height: clamp(2rem, 2rem + 1vw, 5rem);
+  border: solid 1px rgb(210, 210, 210);
   background-color: crimson;
   color: whitesmoke;
 }
 .NoteName_Switch_Search {
   height: clamp(2rem, 2rem + 1vw, 5rem);
+  border: solid 1px rgb(210, 210, 210);
   cursor: pointer;
 }
 .NoteOn2 {
   height: clamp(2rem, 2rem + 1vw, 5rem);
+  border: solid 1px rgb(210, 210, 210);
   background-color: mediumblue;
   color: whitesmoke;
 }
 .NoteOn3 {
   height: clamp(2rem, 2rem + 1vw, 5rem);
+  border: solid 1px rgb(210, 210, 210);
   background-color: green;
   color: whitesmoke;
 }

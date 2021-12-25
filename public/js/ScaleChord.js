@@ -1538,14 +1538,14 @@ document.getElementById("degree_button"); function degree() {
 function paintDiatonicChordsReset() {
     let diaNum = 1;
     for (let i = 1; i < 8; i++) {
-        document.getElementById(`Major_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "text-center";
-        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "text-center";
+        document.getElementById(`Major_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "text-center diatonic box_border";
+        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "text-center diatonic box_border";
         diaNum = diaNum + 1;
     };
 };
