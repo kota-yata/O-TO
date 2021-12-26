@@ -648,7 +648,6 @@ function ChordCandidateInfo(onoff) {
 };
 
 
-
 //コードの情報を処理して書き込む関数(コードで使用)
 function ChordNoteSwitch() {
     //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
@@ -1163,7 +1162,6 @@ function keychange() {
         document.getElementById("result_sf_zero").innerHTML
             = "#・♭+0：" + flat_note_name[note_sf_0] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[sf_0];
     };
-
 };
 
 //コードネームを切り替えるための関数(ダイアトニック・コード)
@@ -1189,13 +1187,13 @@ function Chordschange() {
     let t11 = mod(tonic_note_number + 11, 12);
 
     let SOF;
-    if (tonic_note_number == 0
-        || tonic_note_number == 2
-        || tonic_note_number == 4
-        || tonic_note_number == 6
-        || tonic_note_number == 7
-        || tonic_note_number == 9
-        || tonic_note_number == 11) {
+    if (tonic_note_number === 0
+        || tonic_note_number === 2
+        || tonic_note_number === 4
+        || tonic_note_number === 6
+        || tonic_note_number === 7
+        || tonic_note_number === 9
+        || tonic_note_number === 11) {
         SOF = 0;
     } else {
         SOF = 1;
@@ -1262,13 +1260,13 @@ function Chordschange() {
     t10 = mod(para_tonic_note_number + 10, 12);
     t11 = mod(para_tonic_note_number + 11, 12);
 
-    if (para_tonic_note_number == 0
-        || para_tonic_note_number == 2
-        || para_tonic_note_number == 4
-        || para_tonic_note_number == 6
-        || para_tonic_note_number == 7
-        || para_tonic_note_number == 9
-        || para_tonic_note_number == 11) {
+    if (para_tonic_note_number === 0
+        || para_tonic_note_number === 2
+        || para_tonic_note_number === 4
+        || para_tonic_note_number === 6
+        || para_tonic_note_number === 7
+        || para_tonic_note_number === 9
+        || para_tonic_note_number === 11) {
         SOF = 0;
     } else {
         SOF = 1;
@@ -1330,13 +1328,13 @@ function ChordsAndModeChange() {
     let t11 = mod(tonic_note_number + 11, 12);
 
     let SOF;
-    if (tonic_note_number == 0
-        || tonic_note_number == 2
-        || tonic_note_number == 4
-        || tonic_note_number == 6
-        || tonic_note_number == 7
-        || tonic_note_number == 9
-        || tonic_note_number == 11) {
+    if (tonic_note_number === 0
+        || tonic_note_number === 2
+        || tonic_note_number === 4
+        || tonic_note_number === 6
+        || tonic_note_number === 7
+        || tonic_note_number === 9
+        || tonic_note_number === 11) {
         SOF = 0;
     } else {
         SOF = 1;
@@ -1406,13 +1404,13 @@ function ChordsAndModeChange() {
     t11 = mod(para_tonic_note_number + 11, 12);
 
 
-    if (para_tonic_note_number == 0
-        || para_tonic_note_number == 2
-        || para_tonic_note_number == 4
-        || para_tonic_note_number == 6
-        || para_tonic_note_number == 7
-        || para_tonic_note_number == 9
-        || para_tonic_note_number == 11) {
+    if (para_tonic_note_number === 0
+        || para_tonic_note_number === 2
+        || para_tonic_note_number === 4
+        || para_tonic_note_number === 6
+        || para_tonic_note_number === 7
+        || para_tonic_note_number === 9
+        || para_tonic_note_number === 11) {
         SOF = 0;
     } else {
         SOF = 1;
@@ -1531,176 +1529,175 @@ document.getElementById("degree_button"); function degree() {
     document.getElementById("Para_MMin_dia_7").innerHTML = "Ⅶ m7(♭5)";
 
     document.getElementById("degree_button").className = "btn btn-success box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
-
 };
 
 //ダイアトニック・コードの着色をリセットする関数(ダイアトニック・コード)
 function paintDiatonicChordsReset() {
     let diaNum = 1;
     for (let i = 1; i < 8; i++) {
-        document.getElementById(`Major_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "text-center diatonic box_border";
-        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "text-center diatonic box_border";
-        diaNum = diaNum + 1;
+        document.getElementById(`Major_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "box_border";
+        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "box_border";
+        diaNum++;
     };
 };
 
 //ダイアトニック・コードのコードネームに対応する場所の色を変更する(ダイアトニック・コード)
-document.getElementById("paint_diatonic_chords"); function paintDiatonicChords() {
+function paintDiatonicChords() {
 
-    paintDiatonicChordsReset()
-    let paint_diatonic_chords = document.getElementById("paint_diatonic_chords").value;
+    paintDiatonicChordsReset();
+    let paint_diatonic_chords = Number(document.getElementById("paint_diatonic_chords").value);
 
-    if (paint_diatonic_chords == 0) {
+    if (paint_diatonic_chords === 0) {
         paintDiatonicChordsReset()
-    } else if (paint_diatonic_chords == 1) {
+    } else if (paint_diatonic_chords === 1) {
         //Maj7を着色
-        document.getElementById("Major_dia_1").className = "NoteOn text-center";
-        document.getElementById("Major_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_6").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 2) {
+        document.getElementById("Major_dia_1").classList.add("NoteOn");
+        document.getElementById("Major_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_6").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 2) {
         //m7を着色
-        document.getElementById("Major_dia_2").className = "NoteOn text-center";
-        document.getElementById("Major_dia_3").className = "NoteOn text-center";
-        document.getElementById("Major_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_2").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 3) {
+        document.getElementById("Major_dia_2").classList.add("NoteOn");
+        document.getElementById("Major_dia_3").classList.add("NoteOn");
+        document.getElementById("Major_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_2").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 3) {
         //7を着色
-        document.getElementById("Major_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_5").className = "NoteOn text-center";
+        document.getElementById("Major_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_5").classList.add("NoteOn");
         //ブルーに着色
-        document.getElementById("Rel_MMin_dia_5").className = "NoteOn2 text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn2 text-center";
-        document.getElementById("Para_MMin_dia_7").className = "NoteOn2 text-center";
+        document.getElementById("Rel_MMin_dia_5").classList.add("NoteOn2");
+        document.getElementById("Rel_MMaj_dia_3").classList.add("NoteOn2");
+        document.getElementById("Para_MMin_dia_7").classList.add("NoteOn2");
         //グリーンに着色
-        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn3 text-center";
-    } else if (paint_diatonic_chords == 4) {
+        document.getElementById("Rel_HMaj_dia_3").classList.add("NoteOn3");
+    } else if (paint_diatonic_chords === 4) {
         //m7(♭5)を着色
-        document.getElementById("Major_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_2").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_7").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 5) {
+        document.getElementById("Major_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_2").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_7").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 5) {
         //augMaj7を着色
-        document.getElementById("Rel_HMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_3").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 6) {
+        document.getElementById("Rel_HMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_3").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 6) {
         //dim7を着色
-        document.getElementById("Rel_HMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_7").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 7) {
+        document.getElementById("Rel_HMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_7").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 7) {
         //mMaj7を着色
-        document.getElementById("Rel_HMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_1").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 8) {
+        document.getElementById("Rel_HMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_1").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 8) {
         //メジャー・トライアドを着色
-        document.getElementById("Major_dia_1").className = "NoteOn text-center";
-        document.getElementById("Major_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_6").className = "NoteOn text-center";
+        document.getElementById("Major_dia_1").classList.add("NoteOn");
+        document.getElementById("Major_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_6").classList.add("NoteOn");
         //------------------
-        document.getElementById("Major_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_5").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 9) {
+        document.getElementById("Major_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_5").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 9) {
         //マイナー・トライアドを着色
-        document.getElementById("Major_dia_2").className = "NoteOn text-center";
-        document.getElementById("Major_dia_3").className = "NoteOn text-center";
-        document.getElementById("Major_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_3").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_5").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_2").className = "NoteOn text-center";
+        document.getElementById("Major_dia_2").classList.add("NoteOn");
+        document.getElementById("Major_dia_3").classList.add("NoteOn");
+        document.getElementById("Major_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_3").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_5").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_2").classList.add("NoteOn");
         //------------------
-        document.getElementById("Rel_HMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_4").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_1").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 10) {
+        document.getElementById("Rel_HMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_4").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_1").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 10) {
         //ディミニッシュト・トライアドを着色
-        document.getElementById("Major_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_HMin_dia_7").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_4").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_2").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_Minor_dia_2").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_2").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_7").className = "NoteOn text-center";
+        document.getElementById("Major_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_HMin_dia_7").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_4").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_2").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_Minor_dia_2").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_2").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_7").classList.add("NoteOn");
         //------------------
-        document.getElementById("Rel_HMin_dia_5").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_7").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_7").className = "NoteOn text-center";
-    } else if (paint_diatonic_chords == 11) {
+        document.getElementById("Rel_HMin_dia_5").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_7").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_7").classList.add("NoteOn");
+    } else if (paint_diatonic_chords === 11) {
         //オーグメンテッド・トライアドを着色
-        document.getElementById("Rel_HMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_MMin_dia_1").className = "NoteOn text-center";
-        document.getElementById("Rel_HMaj_dia_6").className = "NoteOn text-center";
-        document.getElementById("Rel_MMaj_dia_6").className = "NoteOn text-center";
-        document.getElementById("Para_HMin_dia_3").className = "NoteOn text-center";
-        document.getElementById("Para_MMin_dia_3").className = "NoteOn text-center";
+        document.getElementById("Rel_HMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_MMin_dia_1").classList.add("NoteOn");
+        document.getElementById("Rel_HMaj_dia_6").classList.add("NoteOn");
+        document.getElementById("Rel_MMaj_dia_6").classList.add("NoteOn");
+        document.getElementById("Para_HMin_dia_3").classList.add("NoteOn");
+        document.getElementById("Para_MMin_dia_3").classList.add("NoteOn");
     };
 };
 
@@ -1709,14 +1706,14 @@ let onoff_ChordsAndModeChange = [];
 //調べたい主音切り替え関数(ダイアトニック・コード)
 function ChordschangeAndChordsAndModeChange() {
 
-    if (onoff_ChordsAndModeChange == 1) {
+    if (onoff_ChordsAndModeChange === 1) {
         onoff_ChordsAndModeChange = 1;
         document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         ChordsAndModeChange();
 
-    } else if (onoff_ChordsAndModeChange == 0) {
+    } else if (onoff_ChordsAndModeChange === 0) {
         onoff_ChordsAndModeChange = 0;
         document.getElementById("Mode_add_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
