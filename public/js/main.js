@@ -10,14 +10,17 @@ function roundToThree(num) {
     return +(Math.round(num + "e+3") + "e-3");
 };
 
-
 //コード進行を格納する多次元配列
 const chordProgOne =
     [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "https://youtu.be/VFP5oalZn4s" },
     { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "" },
+    { name: "きれいめ", chord: "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", info: "ベースが順次進行で上昇。清潔感がある。", url: "" },
+    { name: "大団円", chord: "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "ハッピーなエンドロールみたいな。", url: "" },
+    { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き", url: "https://youtu.be/kWUV5-frRU4?t=107" },
     { name: "ポップパンク進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅳ", info: "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。", url: "https://youtu.be/L0MK7qz13bU?t=64" },
     { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
     { name: "カノン進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", info: "王道で美しい曲を作りたいならこれ！", url: "https://youtu.be/NlprozGcs80?t=126" },
+    { name: "燦然と輝く", chord: "Ⅰ-Ⅴ-♭Ⅶ-Ⅳ-♭Ⅵ-Ⅰ-Ⅱ-Ⅴ", info: "ツーファイブの動きを多く取り入れた美しい進行。", url: "https://open.spotify.com/track/0rIp51BFk96nFcMfBNKA3F?si=06b6069f87954608" },
     { name: "なめらかカノン進行", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", info: "カノン進行のベースラインをなめらかに繋がるように変形したもの。", url: "" },
     { name: "ドラマチック", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅴm/♭Ⅶ-Ⅵ7-Ⅱm-#Ⅰaug-Ⅳ/Ⅰ-Ⅴ7/Ⅶ", info: "Ⅰメジャー始まりにもかかわらず、明るさ控え目。", url: "" },
     { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コード。", url: "" },
@@ -27,13 +30,10 @@ const chordProgOne =
     { name: "リラックス", chord: "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ", info: "ベースが順次進行で上昇。凪な空気感。", url: "" },
     { name: "ヌケ感", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", info: "シンプルでモダンな雰囲気が出せる。", url: "" },
     { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ", info: "溢れ出るノスタルジー。", url: "https://youtu.be/p-RLC9ZgjhY?t=31" },
-    { name: "きれいめ", chord: "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", info: "ベースが順次進行で上昇。清潔感がある。", url: "" },
-    { name: "大団円", chord: "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "ハッピーなエンドロールみたいな。", url: "" },
-    { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "メロディック・メジャー的な響きを使いたいときに。", url: "" },
-    { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "" },
-    { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
     { name: "優雅", chord: "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", info: "パッシング・ディミニッシュはいかが？", url: "" },
-    { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き", url: "https://youtu.be/kWUV5-frRU4?t=107" },
+    { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "メロディック・メジャー的な響きを使いたいときに。", url: "" },
+    { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
+    { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "" },
     { name: "壮大", chord: "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "仰々しくしたいときに。", url: "" },
     { name: "遊び心", chord: "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", info: "ベースを固定しつつちょっと寄り道。", url: "" },
     { name: "エピック", chord: "Ⅰ-♭Ⅱ/Ⅰ-Ⅱ/Ⅰ-♭Ⅲ/Ⅰ-Ⅲ/Ⅰ", info: "ベースを固定しつつ大胆に寄り道。", url: "" },
