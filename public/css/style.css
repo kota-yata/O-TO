@@ -198,7 +198,7 @@ img {
   table-layout: fixed;
 }
 .box_border{
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid rgb(210, 210, 210)
 }
 .ChordName {
   font-size: clamp(0.2rem, 0.2rem + 1vw, 1rem);
@@ -210,7 +210,7 @@ img {
   background-color: white
 }
 /* --------------------------------------------------------------------------------------------- */
-/* 音価のテーブル */
+/* 音価のテーブル（音価の計算・メトリック・モジュレーション）*/
 .note_value_table{
   padding-bottom: 1rem;
 	display: grid;
@@ -247,7 +247,40 @@ img {
   margin: 1px;
   background-color: gainsboro;
 }
-
+/* --------------------------------------------------------------------------------------------- */
+/* コード検索 */
+.ChordNotFound {
+  background-color: gainsboro;
+}
+.NoteOn {
+  height:auto;
+  border: solid 1px rgb(210, 210, 210);
+  background-color: crimson;
+  color: whitesmoke;
+}
+.NoteName_Switch_Search {
+  height:auto;
+  border: solid 1px rgb(210, 210, 210);
+  cursor: pointer;
+}
+.NoteOn2 {
+  height:auto;
+  border: solid 1px rgb(210, 210, 210);
+  background-color: mediumblue;
+  color: whitesmoke;
+}
+.NoteOn3 {
+  height:auto;
+  border: solid 1px rgb(210, 210, 210);
+  background-color: green;
+  color: whitesmoke;
+}
+.NoteName {
+  height:auto;
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+  border: 1px solid rgb(210, 210, 210);
+}
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
@@ -306,29 +339,6 @@ img {
   border: solid 1px rgb(210, 210, 210);
 }
 /* --------------------------------------------------------------------------------------------- */
-/* 転調 */
-#modulationTable {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  background: #ffffff;
-  border: 2px #808080 solid;
-}
-#modulationChangeTable {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  font-weight: bold;
-}
-#result_modulation {
-  background: whitesmoke;
-}
-#modulationTable2 {
-  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  background: #ffffff;
-  text-align: left;
-  border: 2px #808080 solid;
-}
-.gainsboro {
-  background: #dcdcdc;
-}
-/* --------------------------------------------------------------------------------------------- */
 /* 転調の間隔 */
 .modulationBorder0 {
   outline: 10px solid #0588ff;
@@ -379,38 +389,27 @@ img {
   outline-offset: -10px;
 }
 /* --------------------------------------------------------------------------------------------- */
-/* コード検索 */
-.ChordNotFound {
-  background-color: gainsboro;
+/* 転調 */
+#modulationTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  border: 2px #808080 solid;
 }
-.NoteOn {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  border: solid 1px rgb(210, 210, 210);
-  background-color: crimson;
-  color: whitesmoke;
+#modulationChangeTable {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  font-weight: bold;
 }
-.NoteName_Switch_Search {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  border: solid 1px rgb(210, 210, 210);
-  cursor: pointer;
+#result_modulation {
+  background: whitesmoke;
 }
-.NoteOn2 {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  border: solid 1px rgb(210, 210, 210);
-  background-color: mediumblue;
-  color: whitesmoke;
+#modulationTable2 {
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  background: #ffffff;
+  text-align: left;
+  border: 2px #808080 solid;
 }
-.NoteOn3 {
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  border: solid 1px rgb(210, 210, 210);
-  background-color: green;
-  color: whitesmoke;
-}
-.NoteName {
-  padding-top:0.5rem;
-  padding-bottom:0.5rem;
-  height: clamp(2rem, 2rem + 1vw, 5rem);
-  border: 1px solid rgb(210, 210, 210);
+.gainsboro {
+  background: #dcdcdc;
 }
 /* --------------------------------------------------------------------------------------------- */
 /* 移調 */
@@ -430,6 +429,33 @@ box {
   padding: 1em;
   margin: 0;
 }
+/* --------------------------------------------------------------------------------------------- */
+/* ダイアトニックコード表*/
+.diatonic_title{
+  text-align: left;
+  padding-left: 1em;
+  width: 100%;
+  color:#111111;
+}
+.major{
+    background-color: lightskyblue;
+}
+.minor{
+    background-color: pink;
+}
+.h_minor{
+    background-color: aquamarine;
+}
+.m_minor{
+    background-color: lightgoldenrodyellow;
+}
+.h_major{
+    background-color: gainsboro;
+}
+.m_major{
+    background-color: lightsteelblue;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* 指板 */
 #Fingerboard{
@@ -455,6 +481,8 @@ box {
   background-color: #111111;
   color: rgb(29, 255, 123);
 }
+
+
 /* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ対応 */
 /* PCだけに適応する */
@@ -472,7 +500,6 @@ box {
     font-weight: 900;
   }
 }
-
 /* タブレット用のブレークポイント */
 @media only screen and (max-width: 1024px) {
   #scaleChordTable {
@@ -518,10 +545,6 @@ box {
   .hidden_smart_phone{
     display: none;
   }
-  .diatonic_table{
-    width: 100%;
-    padding: 6px;
-  }
   .ChordName{
     padding: auto;
     display: inline-block;
@@ -529,8 +552,15 @@ box {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-  .diatonic{
-    padding: 6px;
+  .diatonic_table{
+      display: inline-block;
+      width: 350px;
+      height:auto;
+      overflow-x: scroll;
+      white-space: nowrap;
+      display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
   }
   table.mobile-scroll {
     white-space: nowrap;
