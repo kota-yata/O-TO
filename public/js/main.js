@@ -47,7 +47,7 @@ const chordProgFour =
     { name: "涙を誘うウェポン", chord: "Ⅳ-Ⅴ-#Ⅴm(♭5)-Ⅵm", info: "みんな大好きパッシング・ディミニッシュ", url: "" },
     { name: "アニソン風味", chord: "Ⅳ-Ⅴ-♭Ⅵ-♭Ⅶ", info: "サビの最後あたりに入れると効果抜群！", url: "" },
     { name: "解放・救済", chord: "Ⅳ-Ⅴ-Ⅵ", info: "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。", url: "" },
-    { name: "邦楽ポップパンク進行", chord: "Ⅳ-Ⅰ-Ⅴ-Ⅵm", info: "爽やか ＋ ちょっぴり哀愁 ＝ 正解。 ポップパンク進行の派生形。", url: "https://youtu.be/kzZ6KXDM1RI?t=64" },
+    { name: "邦楽ポップパンク進行", chord: "Ⅳ-Ⅰ-Ⅴ-Ⅵm", info: "爽やか ＋ ちょっぴり哀愁 ＝ 正解。 ポップパンク進行の派生形で、邦楽でよく見かける気がする。", url: "https://youtu.be/kzZ6KXDM1RI?t=64" },
     { name: "サビ前の常連", chord: "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)", info: "「これからサビに入りますよ～」感が出ます。", url: "" },
     { name: "内なる敵", chord: "Ⅳ-Ⅵm-Ⅰm-Ⅴ/Ⅱ-♭Ⅶm/♭Ⅱ-Ⅳ/Ⅰ-Ⅶdim7-Ⅲ7/#Ⅴ-Ⅵm", info: "参考曲：Dream Theater - The Enemy Inside", url: "https://youtu.be/RoVAUUFjl0I?t=242" },
     { name: "335号室", chord: "Ⅳ△7-Ⅲm7(#5)-Ⅱm7-Ⅲm7", info: "参考曲：Larry Carlton - ROOM 335", url: "https://youtu.be/47ysdThtXgw?t=109" },
@@ -65,7 +65,7 @@ const chordProgFour =
 
 const chordProgSix =
     [{ name: "小室進行", chord: "Ⅵm-Ⅳ-Ⅴ-Ⅰ", info: "最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/35XsK9VERXM?t=97" },
-    { name: "ハリウッド映画にありそう", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "最終決戦へ向かっていけそう。ポップパンク進行の派生形。", url: "" },
+    { name: "洋楽ポップパンク進行", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "ハリウッド映画にありそう。ポップパンク進行の派生形で、洋楽でよく見かける気がする。", url: "" },
     { name: "オールラウンダー", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅴ", info: "どんなジャンルでも必要とされている。", url: "" },
     { name: "炎の呼吸", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅰ", info: "参考曲：LiSA - 炎", url: "https://youtu.be/4DxL6IKmXx4?t=10" },
     { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "" },
