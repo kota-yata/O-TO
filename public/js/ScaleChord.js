@@ -1343,49 +1343,49 @@ function ChordsAndModeChange() {
     ScaleLanguage = 'JapaneseName';
 
     document.getElementById("Major_dia").innerHTML = `${noteNames[tonic][SOF]} メジャー / ${noteNames[t9][18]} マイナー ：${sharp_key_signature[tonic]}`;
-    document.getElementById("Major_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}<br><font size="-2">${scale_Container[0][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}<br><font size="-2">${scale_Container[1][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}<br><font size="-2">${scale_Container[2][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}<br><font size="-2">${scale_Container[3][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}<br><font size="-2">${scale_Container[4][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}<br><font size="-2">${scale_Container[5][ScaleLanguage]}</font>`;
-    document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}<br><font size="-2">${scale_Container[6][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[0][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　11:${noteNames[t7][15]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[1][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[2][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}<br><font size="-2">9:${noteNames[t7][15]} 　#11:${noteNames[t11][22]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[3][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}<br><font size="-2">9:${noteNames[t9][18]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t7][15]}${scale_Container[4][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}<br><font size="-2">9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　♭13:${noteNames[t5][12]}<br>${noteNames[t9][18]}${scale_Container[5][ScaleLanguage]}</font>`;
+    document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　♭13:${noteNames[t7][15]}<br>${noteNames[t11][22]}${scale_Container[6][ScaleLanguage]}</font>`;
 
     document.getElementById("Rel_HMin_dia").innerHTML = `${noteNames[t9][SOF]} ハーモニック・マイナー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Rel_HMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}<br><font size="-2">${scale_Container[9][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}<br><font size="-2">${scale_Container[10][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}<br><font size="-2">${scale_Container[11][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}<br><font size="-2">${scale_Container[12][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}<br><font size="-2">${scale_Container[13][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}<br><font size="-2">${scale_Container[7][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}<br><font size="-2">${scale_Container[8][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[9][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[10][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[11][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}<br><font size="-2">#9:${noteNames[t8][16]}　#11:${noteNames[t11][22]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[12][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}<br><font size="-2">9:${noteNames[t9][18]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t8][16]}${scale_Container[13][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}<br><font size="-2">9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　♭13:${noteNames[t5][12]}<br>${noteNames[t9][18]}${scale_Container[7][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　13:${noteNames[t8][16]}<br>${noteNames[t11][22]}${scale_Container[8][ScaleLanguage]}</font>`;
 
     document.getElementById("Rel_MMin_dia").innerHTML = `${noteNames[t9][SOF]} メロディック・マイナー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Rel_MMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}<br><font size="-2">${scale_Container[16][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<br><font size="-2">${scale_Container[17][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<br><font size="-2">${scale_Container[18][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMin_dia_4").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<br><font size="-2">${scale_Container[19][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br><font size="-2">${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}オルタード)`;
-    document.getElementById("Rel_MMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}<br><font size="-2">${scale_Container[14][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}<br><font size="-2">${scale_Container[15][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　#11:${noteNames[t6][13]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[16][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[17][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<br><font size="-2">9:${noteNames[t6][13]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[18][ScaleLanguage]}<br>(${noteNames[t4][9]}メロディック・メジャー)</font>`;
+    document.getElementById("Rel_MMin_dia_4").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<br><font size="-2">9:${noteNames[t8][16]}　11:${noteNames[t11][22]}　♭13:${noteNames[t2][5]}<br>${noteNames[t6][13]}${scale_Container[19][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br><font size="-2">♭9:${noteNames[t9][18]}　(dim4:${noteNames[tonic][2]})　♭13:${noteNames[t4][9]}<br>${noteNames[t8][16]}${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t8][16]}オルタード)</font>`;
+    document.getElementById("Rel_MMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}<br><font size="-2">9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　13:${noteNames[t6][13]}<br>${noteNames[t9][18]}${scale_Container[14][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　13:${noteNames[t8][16]}<br>${noteNames[t11][22]}${scale_Container[15][ScaleLanguage]}</font>`;
 
     document.getElementById("Rel_HMaj_dia").innerHTML = `${noteNames[tonic][SOF]} ハーモニック・メジャー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Rel_HMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[21]['diaChord4']}<br><font size="-2">${scale_Container[21][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[22]['diaChord4']}<br><font size="-2">${scale_Container[22][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[23]['diaChord4']}<br><font size="-2">${scale_Container[23][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[24]['diaChord4']}<br><font size="-2">${scale_Container[24][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[25]['diaChord4']}<br><font size="-2">${scale_Container[25][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[26]['diaChord4']}<br><font size="-2">${scale_Container[26][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_HMaj_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[27]['diaChord4']}<br><font size="-2">${scale_Container[27][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[21]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　♭13:${noteNames[t8][17]}<br>${noteNames[tonic][2]}${scale_Container[21][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[22]['diaChord4']}<br><font size="-2">9${noteNames[t4][9]}　11:${noteNames[t7][15]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[22][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[23]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　(dim4:${noteNames[t8][17]})　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[23][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[24]['diaChord4']}<br><font size="-2">9:${noteNames[t7][15]}　#11:${noteNames[t11][22]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[24][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[25]['diaChord4']}<br><font size="-2">♭9:${noteNames[t8][17]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t7][15]}${scale_Container[25][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[26]['diaChord4']}<br><font size="-2">#9:${noteNames[t11][22]}　#11:${noteNames[t2][5]}　13:${noteNames[t5][12]}<br>${noteNames[t8][17]}${scale_Container[26][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_HMaj_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[27]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　♭13:${noteNames[t7][15]}<br>${noteNames[t11][22]}${scale_Container[27][ScaleLanguage]}</font>`;
 
     document.getElementById("Rel_MMaj_dia").innerHTML = `${noteNames[tonic][SOF]} メロディック・メジャー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Rel_MMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[28]['diaChord4']}<br><font size="-2">${scale_Container[28][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[19]['diaChord4']}<br><font size="-2">${scale_Container[19][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[20]['diaChord4']}<br><font size="-2">${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t4][9]} ${scale_Container[60]['diaChord4']}オルタード)`;
-    document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[14]['diaChord4']}<br><font size="-2">${scale_Container[14][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[15]['diaChord4']}<br><font size="-2">${scale_Container[15][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[16]['diaChord4']}<br><font size="-2">${scale_Container[16][ScaleLanguage]}</font>`;
-    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]} ${scale_Container[17]['diaChord4']}<br><font size="-2">${scale_Container[17][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[28]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　♭13:${noteNames[t8][17]}<br>${noteNames[tonic][2]}${scale_Container[28][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[19]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　11:${noteNames[t7][15]}　♭13:${noteNames[t10][21]}<br>${noteNames[t2][5]}${scale_Container[19][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[20]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　(dim4:${noteNames[t8][17]})　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t4][9]}${scale_Container[60]['diaChord4']}オルタード)</font>`;
+    document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[14]['diaChord4']}<br><font size="-2">9:${noteNames[t7][15]}　11:${noteNames[t10][21]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[14][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[15]['diaChord4']}<br><font size="-2">♭9:${noteNames[t8][17]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t7][15]}${scale_Container[15][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[16]['diaChord4']}<br><font size="-2">9:${noteNames[t10][21]}　#11:${noteNames[t2][5]}　13:${noteNames[t5][12]}<br>${noteNames[t8][17]}${scale_Container[16][ScaleLanguage]}</font>`;
+    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]} ${scale_Container[17]['diaChord4']}<br><font size="-2">9:${noteNames[tonic][2]}　#11:${noteNames[t4][9]}　13:${noteNames[t7][15]}<br>${noteNames[t10][21]}${scale_Container[17][ScaleLanguage]}</font>`;
 
     //同種短調を判定する
     let para_tonic_note_number = tonic_note_number + 3;
@@ -1417,32 +1417,32 @@ function ChordsAndModeChange() {
     };
 
     document.getElementById("Para_Minor_dia").innerHTML = `${noteNames[t9][18]} マイナー / ${noteNames[tonic][2]}メジャー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Para_Minor_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}<br><font size="-2">${scale_Container[5][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}<br><font size="-2">${scale_Container[6][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}<br><font size="-2">${scale_Container[0][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}<br><font size="-2">${scale_Container[1][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}<br><font size="-2">${scale_Container[2][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}<br><font size="-2">${scale_Container[3][ScaleLanguage]}</font>`;
-    document.getElementById("Para_Minor_dia_7").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}<br><font size="-2">${scale_Container[4][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}<br><font size="-2">9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　♭13:${noteNames[t5][12]}<br>${noteNames[t9][18]}${scale_Container[5][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　♭13:${noteNames[t7][15]}<br>${noteNames[t11][22]}${scale_Container[6][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[0][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　11:${noteNames[t7][15]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[1][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[2][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}<br><font size="-2">9:${noteNames[t7][15]} 　#11:${noteNames[t11][22]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[3][ScaleLanguage]}</font>`;
+    document.getElementById("Para_Minor_dia_7").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}<br><font size="-2">9:${noteNames[t9][18]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t7][15]}${scale_Container[4][ScaleLanguage]}</font>`;
 
 
     document.getElementById("Para_HMin_dia").innerHTML = `${noteNames[t9][18]} ハーモニック・マイナー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Para_HMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}<br><font size="-2">${scale_Container[7][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}<br><font size="-2">${scale_Container[6][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}<br><font size="-2">${scale_Container[9][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}<br><font size="-2">${scale_Container[10][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}<br><font size="-2">${scale_Container[11][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}<br><font size="-2">${scale_Container[12][ScaleLanguage]}</font>`;
-    document.getElementById("Para_HMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}<br><font size="-2">${scale_Container[13][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}<br><font size="-2">9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　♭13:${noteNames[t5][12]}<br>${noteNames[t9][18]}${scale_Container[9][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}<br><font size="-2">♭9:${noteNames[tonic][2]}　11:${noteNames[t4][9]}　13:${noteNames[t8][16]}<br>${noteNames[t11][22]}${scale_Container[10][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}<br><font size="-2">9:${noteNames[t2][5]}　11:${noteNames[t5][12]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[9][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}<br><font size="-2">9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[10][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}<br><font size="-2">♭9:${noteNames[t5][12]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[11][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}<br><font size="-2">#9:${noteNames[t8][16]}　#11:${noteNames[t11][22]}　13:${noteNames[t2][5]}<br>${noteNames[t5][12]}${scale_Container[12][ScaleLanguage]}</font>`;
+    document.getElementById("Para_HMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}<br><font size="-2">♭9:${noteNames[t9][18]}　11:${noteNames[tonic][2]}　13:${noteNames[t4][9]}<br>${noteNames[t8][16]}${scale_Container[13][ScaleLanguage]}</font>`;
 
     document.getElementById("Para_MMin_dia").innerHTML = `${noteNames[t9][18]} メロディック・マイナー：${sharp_key_signature[tonic]}`;
-    document.getElementById("Para_MMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}<br><font size="-2">${scale_Container[14][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}<br><font size="-2">${scale_Container[15][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}<br><font size="-2">${scale_Container[16][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<br><font size="-2">${scale_Container[17][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<br><font size="-2">${scale_Container[18][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_6").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<br><font size="-2">${scale_Container[19][ScaleLanguage]}</font>`;
-    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<br><font size="-2">${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t8][16]} ${scale_Container[60]['diaChord4']}オルタード)`;
+    document.getElementById("Para_MMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}<font size="-2"><br>9:${noteNames[t11][22]}　11:${noteNames[t2][5]}　13:${noteNames[t6][13]}<br>${noteNames[t9][18]}${scale_Container[14][ScaleLanguage]}</font>`;
+    document.getElementById("Para_MMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}<font size="-2"><br>9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[17][ScaleLanguage]}</font>`;
+    document.getElementById("Para_MMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}<font size="-2"><br>9:${noteNames[t2][5]}　#11:${noteNames[t6][13]}　13:${noteNames[t9][18]}<br>${noteNames[tonic][2]}${scale_Container[16][ScaleLanguage]}</font>`;
+    document.getElementById("Para_MMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<font size="-2"><br>9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[17][ScaleLanguage]}</font>`;
+    document.getElementById("Para_MMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<font size="-2"><br>9:${noteNames[t6][13]}　11:${noteNames[t9][18]}　♭13:${noteNames[tonic][2]}<br>${noteNames[t4][9]}${scale_Container[18][ScaleLanguage]}<br>(${noteNames[t4][9]}メロディック・メジャー)</font>`;
+    document.getElementById("Para_MMin_dia_6").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<font size="-2"><br>9:${noteNames[t8][16]}　11:${noteNames[t11][22]}　♭13:${noteNames[t2][5]}<br>${noteNames[t6][13]}${scale_Container[19][ScaleLanguage]}</font>`;
+    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}<font size="-2"><br>♭9:${noteNames[t9][18]}　(dim4:${noteNames[tonic][2]})　♭13:${noteNames[t4][9]}<br>${noteNames[t8][16]}${scale_Container[20][ScaleLanguage]}<br>(${noteNames[t8][16]}${scale_Container[60]['diaChord4']}オルタード)</font>`;
 
     document.getElementById("Mode_add_button").className = "btn btn-danger box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
     onoff_ChordsAndModeChange = 1;
