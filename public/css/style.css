@@ -455,7 +455,9 @@ box {
 .m_major{
     background-color: lightsteelblue;
 }
-
+.avoid_note{
+  color: rgb(172, 172, 172);
+}
 /* --------------------------------------------------------------------------------------------- */
 /* 指板 */
 #Fingerboard{
