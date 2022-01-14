@@ -16,7 +16,7 @@ const chordProgOne =
     { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "" },
     { name: "きれいめ", chord: "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", info: "ベースが順次進行で上昇。清潔感がある。", url: "https://youtu.be/BoZ0Zwab6Oc?t=3" },
     { name: "大団円", chord: "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "ハッピーなエンドロールみたいな。", url: "" },
-    { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き", url: "https://youtu.be/kWUV5-frRU4?t=107" },
+    { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き。サブドミナントマイナーがキラリと光る。", url: "https://youtu.be/kWUV5-frRU4?t=107" },
     { name: "ポップパンク進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅳ", info: "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。", url: "https://youtu.be/L0MK7qz13bU?t=64" },
     { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
     { name: "カノン進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", info: "王道で美しい曲を作りたいならこれ！", url: "https://youtu.be/NlprozGcs80?t=126" },
