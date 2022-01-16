@@ -1024,11 +1024,11 @@ function modulation() {
 //転調元から転調先を表示するための関数(転調の間隔)
 function keychange() {
 
-    let note_number = document.getElementById("note").value;
+    let note_number = Number(document.getElementById("note").value);
     let mode_number = scale_Container[Number(document.getElementById("mode").value.split('-')[1])]['addNum'];
     let after_mode_number = scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['addNum'];
 
-    let answer = Number(note_number) - Number(mode_number);
+    let answer = note_number - Number(mode_number);
     let sf_0 = mod((answer - 0), 12);
     let s_1 = mod((answer - 5), 12);
     let f_1 = mod((answer - 7), 12);
@@ -1042,7 +1042,7 @@ function keychange() {
     let f_5 = mod((answer - 11), 12);
     let sf_6 = mod((answer - 6), 12);
 
-    answer = Number(note_number) - Number(mode_number) + Number(after_mode_number);
+    answer = note_number - Number(mode_number) + Number(after_mode_number);
     let note_sf_0 = mod((answer + 0), 12);
     let note_s_1 = mod((answer + 7), 12);
     let note_f_1 = mod((answer + 5), 12);
