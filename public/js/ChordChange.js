@@ -297,7 +297,6 @@ let num = 0;
 //変化記号を決定する
 let SOF = 0;
 
-
 //スケールを表示するためのHTML要素(div)を追加するための関数
 function ChordCandidateCreate() {
 
@@ -358,8 +357,6 @@ function ChordCandidateCreate() {
         Num--
     };
 };
-
-
 
 //コード進行をディグリーネームで表示する関数
 function ChangeChordProgressionDegree() {
@@ -480,9 +477,6 @@ function ChangeChordProgressionDegree() {
     document.getElementById("b_clef_image").innerHTML = "";
 };
 
-
-
-
 //コード進行を切り替える関数
 function ChangeChordProgression() {
 
@@ -518,8 +512,6 @@ function ChangeChordProgression() {
         secondNum++
         chordProgNum++
     };
-
-
 
     //Ⅳ始まりのコード進行
     firstNum = 4;
