@@ -121,8 +121,9 @@ img {
   margin-bottom: 1.75rem;
 }
 .link_image:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
+
 .note_image {
   padding: 5px;
   height: clamp(2rem, 2rem + 1vw, 4rem);
@@ -216,6 +217,56 @@ img {
 	display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+
+.link_table1{
+  padding: 1.5rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+}
+
+.link_table2{
+  padding: 1.5rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+}
+
+.link_table3{
+  padding: 1.5rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+}
+
+.link_image2{
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  object-fit: cover;
+}
+.link_image2:hover{
+  opacity: 0.8;
+}
+
+.document-data-heading{
+  grid-area: document-data-heading;
+}
+.related-page-heading{
+  grid-area: related-page-heading;
+}
+.share-heading{
+  grid-area: share-heading;
+}
+.link_div{
+	display: grid;
+  padding: 1.5rem;
+    grid-template:
+		"document-data-heading related-page-heading share-heading"
+    /1fr 1fr 1fr;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -493,7 +544,6 @@ box {
   color: rgb(29, 255, 123);
 }
 
-
 /* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ対応 */
 /* PCだけに適応する */
@@ -535,6 +585,27 @@ box {
     "... ....... ....... ..." 1.5rem
 		/1rem 1fr 1fr 1rem;
 		;
+  }
+
+  .link_table1{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
+  }
+
+  .link_table2{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
+  }
+
+  .link_table3{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 }
 /* --------------------------------------------------------------------------------------------- */
@@ -604,6 +675,25 @@ box {
     "... footer_c ..."
     "... ....... ..." 1.5rem
 		/1rem 1fr 1rem;
+  }
+
+  .link_table1{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
+  }
+  .link_table2{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
+  }
+  .link_table3{
+    padding: 1.5rem;
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
   }
 }
 /* --------------------------------------------------------------------------------------------- */

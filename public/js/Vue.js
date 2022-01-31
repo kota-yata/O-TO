@@ -1,7 +1,6 @@
 'use strict';
 
 //headのコンポーネントを定義---------------------------------
-
 Vue.component('head-template', {
   template: `
       <div>
@@ -16,9 +15,7 @@ const headTemplate = new Vue({
   el: '#head'
 })
 
-
 //ヘッダーのコンポーネントを定義---------------------------------
-
 Vue.component('header-template', {
   template: `
       <div>
@@ -65,7 +62,6 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-fingerboard.html">⑩指板</a>
           </li>
 
-
         </ul>
       </div>
 
@@ -81,7 +77,6 @@ const headerTemplate = new Vue({
 })
 
 //リンクカードのコンポーネントを定義---------------------------------
-
 Vue.component('link-card', {
   template: `
           <div class="link_table">
@@ -241,9 +236,7 @@ const linkCard = new Vue({
   el: '#link-card'
 })
 
-
 //右カラム部分のコンポーネントを定義---------------------------------
-
 Vue.component('right-column', {
   template: `
         <div>
@@ -301,7 +294,6 @@ Vue.component('right-column', {
           </li>
         </ul>
 
-
         <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
           <h5>音楽関係の資料データ</h5>
         </div>
@@ -336,16 +328,16 @@ Vue.component('right-column', {
           <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale" target="_blank" rel="noopener noreferrer">音名と周波数の一覧（A=440Hz/12平均律）</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"target="_blank" rel="noopener noreferrer">曲情報データベース（転調・旋法・BPM）</a>
+          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">曲情報データベース（転調・旋法・BPM）</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q"target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(Spotify)</span></a>
+          <a class="nav-link" href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q" target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(Spotify)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(YouTube)</span></a>
+          <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt" target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(YouTube)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://khufrudamonotes.com/category/music-theory-and-dtm"target="_blank" rel="noopener noreferrer">音楽理論・DTM関連のブログ記事</span></a>
+          <a class="nav-link" href="https://khufrudamonotes.com/category/music-theory-and-dtm" target="_blank" rel="noopener noreferrer">音楽理論・DTM関連のブログ記事</span></a>
         </li>
       </ul>
 
@@ -400,10 +392,8 @@ const rightColumn = new Vue({
   el: '#right-column'
 })
 
-
 //------------------------------------------------------------------------------------------------------------------------------------
 //フッター部分のコンポーネントを定義
-
 Vue.component('footer-profile', {
   template: `
         <div class="footer_profile">
@@ -471,7 +461,6 @@ Vue.component('footer-copyright', {
       `
 })
 
-
 //フッター部分のインスタンスを作成する
 const footer = new Vue({
   el: '#footer'
@@ -479,7 +468,6 @@ const footer = new Vue({
 
 //------------------------------------------------------------------------------------------------------------------------------------
 //見出し部分のコンポーネントを定義
-
 Vue.component('title-display', {
   template: `
     <div class="header_image">
@@ -515,3 +503,349 @@ new Vue({
 })
 
 //------------------------------------------------------------------------------------------------------------------------------------
+//リンクテーブルのコンポーネントを定義---------------------------------
+Vue.component('link-table', {
+  template: `
+    <div>
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+            <h5>音楽アプリの一覧</h5>
+        </div>
+        <p class="pt-2">各ツール（ウェブアプリ）は、全て無料で使えます。</p>
+        <div class="link_table1">
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-chords.html">
+                        <h5 class="">①コードの構成音を調べる</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/chords_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        <span
+                            class="chord_count">110種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるツールです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-scale.html">
+                        <h5 class="">②スケールの構成音を調べる</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/scale_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        <span
+                            class="scale_count">70種類以上</span>のスケールの構成音や情報を、全てのキーで調べられるツールです。同時に、指定したスケールの構成音を含む主なコードも表示されます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-modal-interchange.html">
+                        <h5 class="">③コード・ネーム/スケール名を検索する</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/modal-interchange_thumbnail.png"
+                            alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-chord-progression.html">
+                        <h5 class="">④コード進行まとめ</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/chord-progression_thumbnail.png"
+                            alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        <span class="chord_prog_count">80種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
+                            class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-diatonic-chords.html">
+                        <h5 class="">⑤ダイアトニック・コード一覧表</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/diatonic-chords_thumbnail.png"
+                            alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        ダイアトニック・コードの一覧表ツールです。表示は全てのキーへ切り替え可能です。各コードに対応するテンションや、モード・スケールも確認できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-modulation.html">
+                        <h5 class="">⑥転調の間隔・関係調を調べる</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/modulation_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        指定した調（キー）の関係性を調べられるツールです。<span class="scale_count">70種類以上</span>のスケールや、モードを指定可能です。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-note-value.html">
+                        <h5 class="">⑦音価の計算をする</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/note-value_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        指定したBPMの、18種類の「音符の長さ」を計算するツールです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-metric-modulation.html">
+                        <h5 class="">⑧メトリック・モジュレーション</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/metric-modulation_thumbnail.png"
+                            alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        「メトリック・モジュレーション」に関係する情報を調べるツールです。様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-degree-change.html">
+                        <h5 class="">⑨コード進行のテキストを移調する</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/degree-change_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        コード進行のテキストを移調するツールです。入力したコード進行のテキストを「12キー全て」と「ディグリー・ネーム」へ変換できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="o-to-fingerboard.html">
+                        <h5 class="">⑩弦楽器の指板を可視化する</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/fingerboard_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        コードやスケールの「指板上のポジション」を可視化するツールです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/metronome">
+                        <h5 class="">メトロノーム（変拍子対応）</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/metronome_thumbnail.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        変拍子対応のメトロノームです。拍子の分子は1～30まで、分母は2,4,8,16を選択できます。加えてもう1つ別のクリックも追加できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a target="_blank" rel="noopener noreferrer"
+                        href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome">
+                        <h5 class="">メトロノーム（ポリリズム対応）</h5>
+                        <img class="link_image pt-3 pb-3" src="image/thumbnail/polyrhythm-metronome_thumbnail.png"
+                            alt="サムネイル">
+                    </a>
+                    <p class="card-text">
+                        ポリリズム対応のメトロノームです。音と視覚でポリリズムを理解できます。1～20までの数値を設定可能です。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+            <h5>音楽関係の資料・データ</h5>
+        </div>
+        <p class="pt-2">リンク先から音楽関係の資料をダウンロードできます。</p>
+        <div class="link_table2">
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">音楽理論マインドマップ(png)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/音楽理論マインドマップ.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">音楽理論の全体像を示したマインドマップです。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">五度圏(png)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/Circle-of-fifth.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">音と音の関係性を理解するために役立つ図です。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">開放弦を使わないギターコード表(pdf)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/Guitar chords chart_01.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">開放弦を使わないギターのコードフォームを数多くまとめたpdfです。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">開放弦を使ったギターコード表(pdf)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/Open-string chords chart_01.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">開放弦を使っギターのコードフォームを数多くまとめたpdfです。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">Finale 自作スクリプト集(XML)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/finaleScript_image.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">Finaleでの譜面作成に使えるスクリプト集です。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://gum.co/musictheory-mindmap" target="_blank"
+                        rel="noopener noreferrer">イコライザーの使い方(pdf)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/イコライザーの使い方 フローチャート.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">イコライジングで迷わないためのフローチャートです。</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+            <h5>関連ページへのリンク</h5>
+        </div>
+        <p class="pt-2">音楽に関係する情報へのリンク先です。</p>
+        <div class="link_table3">
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://khufrudamonotes.com/frequencies-for-equal-tempered-scale"
+                        target="_blank" rel="noopener noreferrer">音名と周波数の一覧</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/音名と周波数の一覧表.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">音名と周波数の一覧です。MIDIノートナンバーも併記してあります。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link"
+                        href="https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">曲情報データベース</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/曲情報データベース（転調・旋法・BPM）.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">転調・旋法・BPMの各観点から楽曲データをまとめていくGoogleスプレッドシートです。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link"
+                        href="https://open.spotify.com/playlist/0agzPhkKi9HDjmxq03X0ZH?si=5I1_8LMEQHmUNg-zcTJo0Q"
+                        target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(Spotify)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/転調する曲 プレイリスト(Spotify).png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">転調する曲をまとめていくプレイリストです。（現在400曲以上）</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://youtube.com/playlist?list=PLTHnsfzQ5qvRySi-Nvpl1vuZdJ413iSbt"
+                        target="_blank" rel="noopener noreferrer">転調する曲 プレイリスト(YouTube)</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/転調する曲 プレイリスト(YouTube).png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">転調する曲をまとめていく再生リストです。（現在200曲以上）</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <a class="nav-link" href="https://khufrudamonotes.com/category/music-theory-and-dtm" target="_blank"
+                        rel="noopener noreferrer">音楽理論・DTM関連のブログ記事</span>
+                        <img class="link_image2 pt-3 pb-3" src="image/thumbnail/音楽理論・DTM関連のブログ記事.png" alt="サムネイル">
+                    </a>
+                    <p class="card-text">音楽理論やDTM関係の情報をまとめたブログ記事です。</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="share-heading">
+            <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
+                <h5>便利だと思ったら是非シェアを！</h5>
+            </div>
+            <p class="pt-2">シェアしていただくと、アプリ開発の励みになります。</p>
+            <div>
+                <ul>
+                    <li class="py-1 nav-item">
+                        <!-- Twitterのシェアボタン -->
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                            data-show-count="false">
+                            Tweet
+                        </a>
+                    </li>
+                    <li class="py-1 nav-item">
+                        <!-- はてなブックマークへのシェアボタン -->
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                            data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
+                            title="このエントリーをはてなブックマークに追加">
+                            <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+                                alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                        </a>
+                    </li>
+                    <li class="py-1 nav-item">
+                        <!-- noteへのシェアボタン -->
+                        <a href="https://note.com/intent/social_button" class="note-social-button"
+                            data-url="https://o-to.khufrudamonotes.com/"></a>
+                    </li>
+                    <li class="py-1 nav-item">
+                        <!-- pocketへのシェアボタン -->
+                        <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+                    </li>
+                    <li class="py-1 nav-item">
+                        <!-- Lineへのシェアボタン -->
+                        <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
+                            data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small"
+                            data-count="true" style="display: none;">
+                        </a>
+                    </li>
+                    <li class="py-1 nav-item">
+                        <!-- Facebookへのシェアボタン -->
+                        <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width=""
+                            data-layout="button_count" data-action="like" data-size="small" data-share="true"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      `
+})
+
+//リンクカードのコンポーネントのインスタンスを作成する
+const linkTable = new Vue({
+  el: '#link-table'
+})
