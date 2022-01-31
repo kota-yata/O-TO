@@ -287,7 +287,7 @@ Vue.component('footer-twitter', {
 Vue.component('footer-youtube', {
   template: `
         <div class="footer_youtube">
-          <a href="https://www.youtube.com/user/kimukydr/videos" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>YouTube</a>
+          <a href="https://www.youtube.com/c/YoshitoKimura/featured" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>YouTube</a>
         </div>
       `
 })
