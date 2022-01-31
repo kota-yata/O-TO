@@ -209,6 +209,15 @@ img {
   font-weight: bold;
   background-color: white
 }
+
+/* リンクのテーブル*/
+.link_table{
+  padding: 1.5rem;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* 音価のテーブル（音価の計算・メトリック・モジュレーション）*/
 .note_value_table{
@@ -568,6 +577,12 @@ box {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+  /* リンクのテーブル*/
+  .link_table{
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
   }
   ul{
     display: grid;

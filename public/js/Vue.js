@@ -80,6 +80,167 @@ const headerTemplate = new Vue({
   el: '#header'
 })
 
+//リンクカードのコンポーネントを定義---------------------------------
+
+Vue.component('link-card', {
+  template: `
+          <div class="link_table">
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-chords.html">
+                  <h5 class="">①コードの構成音を調べる</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/chords_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  <span
+                    class="chord_count">110種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるツールです。同時に、指定したコードの構成音を含む主なスケールも表示されます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-scale.html">
+                  <h5 class="">②スケールの構成音を調べる</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/scale_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  <span class="scale_count">70種類以上</span>のスケールの構成音や情報を、全てのキーで調べられるツールです。同時に、指定したスケールの構成音を含む主なコードも表示されます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-modal-interchange.html">
+                  <h5 class="">③コード・ネーム/スケール名を検索する</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/modal-interchange_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  構成音からコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-chord-progression.html">
+                  <h5 class="">④コード進行まとめ</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/chord-progression_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  <span class="chord_prog_count">80種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
+                    class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-diatonic-chords.html">
+                  <h5 class="">⑤ダイアトニック・コード一覧表</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/diatonic-chords_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  ダイアトニック・コードの一覧表ツールです。表示は全てのキーへ切り替え可能です。各コードに対応するテンションや、モード・スケールも確認できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-modulation.html">
+                  <h5 class="">⑥転調の間隔・関係調を調べる</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/modulation_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  指定した調（キー）の関係性を調べられるツールです。<span class="scale_count">70種類以上</span>のスケールや、モードを指定可能です。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-note-value.html">
+                  <h5 class="">⑦音価の計算をする</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/note-value_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  指定したBPMの、18種類の「音符の長さ」を計算するツールです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-metric-modulation.html">
+                  <h5 class="">⑧メトリック・モジュレーション</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/metric-modulation_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  「メトリック・モジュレーション」に関係する情報を調べるツールです。様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-degree-change.html">
+                  <h5 class="">⑨コード進行のテキストを移調する</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/degree-change_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  コード進行のテキストを移調するツールです。入力したコード進行のテキストを「12キー全て」と「ディグリー・ネーム」へ変換できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a href="o-to-fingerboard.html">
+                  <h5 class="">⑩弦楽器の指板を可視化する</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/fingerboard_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  コードやスケールの「指板上のポジション」を可視化するツールです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/metronome">
+                  <h5 class="">メトロノーム（変拍子対応）</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/metronome_thumbnail.png" alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  変拍子対応のメトロノームです。拍子の分子は1～30まで、分母は2,4,8,16を選択できます。加えてもう1つ別のクリックも追加できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <a target="_blank" rel="noopener noreferrer"
+                  href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome">
+                  <h5 class="">メトロノーム（ポリリズム対応）</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/polyrhythm-metronome_thumbnail.png"
+                    alt="サムネイル">
+                </a>
+                <p class="card-text">
+                  ポリリズム対応のメトロノームです。音と視覚でポリリズムを理解できます。1～20までの数値を設定可能です。
+                </p>
+              </div>
+            </div>
+          </div>
+      `
+})
+
+//リンクカードのコンポーネントのインスタンスを作成する
+const linkCard = new Vue({
+  el: '#link-card'
+})
+
 
 //右カラム部分のコンポーネントを定義---------------------------------
 
@@ -311,7 +472,7 @@ Vue.component('footer-copyright', {
 })
 
 
-//インスタンスを作成する
+//フッター部分のインスタンスを作成する
 const footer = new Vue({
   el: '#footer'
 })
@@ -329,13 +490,10 @@ Vue.component('title-display', {
     `
 })
 
-
-//------------------------------------------------------------------------------------------------------------------------------------
 //見出し部分のコンポーネントのインスタンスを作成する
 const titleDisplay = new Vue({
   el: '#display'
 })
-
 
 const chordColor = new Vue({
   el: "app",
@@ -355,3 +513,5 @@ new Vue({
     isActive: '1',
   }
 })
+
+//------------------------------------------------------------------------------------------------------------------------------------
