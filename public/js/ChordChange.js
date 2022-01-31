@@ -507,7 +507,7 @@ function ChangeChordProgression() {
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgOne[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].chord}`);
 
         secondNum++
         chordProgNum++
@@ -534,7 +534,7 @@ function ChangeChordProgression() {
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgFour[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].chord}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -561,7 +561,7 @@ function ChangeChordProgression() {
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgSix[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].chord}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
@@ -588,7 +588,7 @@ function ChangeChordProgression() {
         //コード進行を表示する
         document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgEight[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
         //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
+        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].chord}`);
         //for文を回す
         secondNum = secondNum + 1;
         chordProgNum = chordProgNum + 1;
