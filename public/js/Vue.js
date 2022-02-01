@@ -239,7 +239,7 @@ const linkCard = new Vue({
 //右カラム部分のコンポーネントを定義---------------------------------
 Vue.component('right-column', {
   template: `
-        <div>
+        <div class="right_column">
 
         <div class="Larger shadow p-3 mt-0 mb-3 rounded pb-2 m-3">
           <h5>音楽理論アプリの一覧</h5>

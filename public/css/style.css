@@ -221,6 +221,7 @@ img {
 
 /* --------------------------------------------------------------------------------------------- */
 
+
 .link_table1{
   padding: 1.5rem;
 	display: grid;
@@ -570,6 +571,9 @@ box {
   }
   .hidden_tablet{
     display: none;
+  }
+  .right_column{
+  display: none;
   }
   #footer{
 	display: grid;
