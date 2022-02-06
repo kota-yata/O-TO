@@ -164,7 +164,7 @@ function Validation(text) {
     //変換してもなお変化記号が含まれる場合を判定
     if (ValidationText.includes('#') || ValidationText.includes('♭') || ValidationText.includes('&#119082;') || ValidationText.includes('&#119083;')) {
         //コードネームに含まれる場合はOK
-        if (ValidationText.includes('#5') || ValidationText.includes('♭5')) {
+        if (ValidationText.includes('#5') || ValidationText.includes('♭5') || ValidationText.includes('♭9') || ValidationText.includes('#9') || ValidationText.includes('#11') || ValidationText.includes('♭13')) {
             document.getElementById("ValidationBox").innerHTML = "";
         } else {
             document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
