@@ -940,12 +940,16 @@ function modulation() {
     //for文でスケールの構成音を生成する。
     for (let i = 0; i < 12; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-        if (b_Configuration[i] === 2) {
+        if (b_Configuration[i] === 0) {
+            //何もしない。
+        } else if (b_Configuration[i] === 42) {
             b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][0]);
-        } else if (b_Configuration[i] === 3) {
+        } else if (b_Configuration[i] === 43) {
             b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][1]);
-        } else if (b_Configuration[i] >= 1) {
+        } else if (b_Configuration[i] === 1) {
             b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][b_SOF]);
+        } else {
+            b_ConfigurationNotes.push(AllNoteNames[mod(b_note_num + i, 12)][0][Number(b_Configuration[i])]);
         };
     };
 
@@ -967,12 +971,16 @@ function modulation() {
     //for文でスケールの構成音を生成する。
     for (let i = 0; i < 12; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-        if (a_Configuration[i] === 2) {
+        if (a_Configuration[i] === 0) {
+            //何もしない。
+        } else if (a_Configuration[i] === 42) {
             a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][0]);
-        } else if (a_Configuration[i] === 3) {
+        } else if (a_Configuration[i] === 43) {
             a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][1]);
-        } else if (a_Configuration[i] >= 1) {
+        } else if (a_Configuration[i] === 1) {
             a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][a_SOF]);
+        } else {
+            a_ConfigurationNotes.push(AllNoteNames[mod(a_note_num + i, 12)][0][Number(a_Configuration[i])]);
         };
     };
 
