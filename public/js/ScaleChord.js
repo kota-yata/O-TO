@@ -22,9 +22,9 @@ function CreateChordChoices() {
         Num--
         if (Num === 1) {
             //メジャーコードを初期の選択肢にする。
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('')}-${Num} selected>Major</option>`);
+            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('/')}-${Num} selected>Major</option>`);
         } else {
-            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('')}-${Num}>${chord_container[Num]["ChordName"]}</option>`);
+            document.getElementById("constituent_binary").insertAdjacentHTML('afterbegin', `<option value=${chord_container[Num].ChordBinary.join('/')}-${Num}>${chord_container[Num]["ChordName"]}</option>`);
         };
     };
 };
@@ -40,9 +40,9 @@ function CeateScaleChoices(idName) {
         Num--
         if (Num === 0) {
             //メジャースケールを初期の選択肢にする。
-            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
+            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('/')}-${Num} selected>${scale_Container[Num][ScaleLanguage]}</option>`);
         } else {
-            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
+            document.getElementById(`${idName}`).insertAdjacentHTML('afterbegin', `<option value=${scale_Container[Num]['ScaleNumBinary'].join('/')}-${Num}>${scale_Container[Num][ScaleLanguage]}</option>`);
         };
     };
 };
@@ -54,19 +54,17 @@ function ScaleInformationDrawing() {
 
     //scale_Container配列を検索用の値
     let Num = value[1];
-
+    value[0] = value[0]
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    let scale_binary_split = value[0].split('').map(Number);
+    let scale_binary_split = value[0].split('/').map(Number);
 
     //シャープまたはフラット指定用の数値を、スケールナンバー計算のために置き換える
     for (let i = 0; i < scale_binary_split.length; i++) {
-        if (scale_binary_split[i] === 2) {
-            scale_binary_split.splice(i, 1, 1);
-        };
-        if (scale_binary_split[i] === 3) {
+        if (scale_binary_split[i] >= 2) {
             scale_binary_split.splice(i, 1, 1);
         };
     };
+
     let scale_binary_reverse = scale_binary_split.reverse();
     let scale_binary_rejoin = scale_binary_reverse.join("");
     let scale_dec = parseInt(scale_binary_rejoin, 2);
@@ -135,9 +133,8 @@ function ScaleInformationDrawing() {
         = `Scale number：「${scale_dec}」`;
 
     //構成音を着色するために構成音のバイナリを返り値として返す
-    onoff = value[0].split('').map(Number);
+    onoff = value[0].split('/').map(Number);
     return onoff
-
 };
 
 //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
@@ -150,7 +147,7 @@ function scaleChordTableCreate() {
     let Num = Number(value[1]);
 
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    let scale_binary_split = value[0].split('').map(Number);
+    let scale_binary_split = value[0].split('/').map(Number);
 
     //トニックの数値を取得する。
     let RootNumber = Number(document.getElementById("rootNumber").value);
@@ -201,15 +198,27 @@ function scaleChordTableCreate() {
                         SOF = 1;
                     };
 
-                    if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 2) {
+                    if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 1) {
+                        //コードネームを書き込む
+                        document.getElementById(`ChordNumber-${ChordTableNum}`)
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                    } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 42) {
                         SOF = 0;
-                    } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 3) {
+                        //コードネームを書き込む
+                        document.getElementById(`ChordNumber-${ChordTableNum}`)
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                    } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 43) {
                         SOF = 1;
+                        //コードネームを書き込む
+                        document.getElementById(`ChordNumber-${ChordTableNum}`)
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                    } else {
+                        //コードネームを書き込む
+                        document.getElementById(`ChordNumber-${ChordTableNum}`)
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     };
 
-                    //コードネームを書き込む
-                    document.getElementById(`ChordNumber-${ChordTableNum}`)
-                        .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+
 
                     //構成音とマッチするコードの数をカウントする
                     use_chord_count++;
@@ -655,10 +664,14 @@ function ChordNoteSwitch() {
 
     //scale_Container配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
     let value = document.getElementById("constituent_binary").value.split('-');
-
-    //構成音のバイナリ値を配列「onoff」へ格納する
-    onoff = value[0].split('').map(Number);
-
+    //構成音のバイナリ値を配列「onoff」へ格納する。
+    onoff = value[0].split('/').map(Number);
+    //シャープまたはフラット指定用に書き換えた数値を元に戻す。
+    for (let i = 0; i < onoff.length; i++) {
+        if (onoff[i] >= 2) {
+            onoff.splice(i, 1, 1);
+        };
+    };
     //コード・ネームの情報を判定する関数
     ChordCandidateInfo(onoff);
 
@@ -724,13 +737,17 @@ function ModalTextAndNoteCreate() {
                 //for文でスケールの構成音を生成する。
                 for (let i = 0; i < 12; i++) {
                     //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-                    if (Configuration[i] === 2) {
+                    if (Configuration[i] === 0) {
+                        //取り出さない（何もしない）。
+                    } else if (Configuration[i] === 42) {
                         ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][0]);
-                    } else if (Configuration[i] === 3) {
+                    } else if (Configuration[i] === 43) {
                         ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][1]);
-                    } else if (Configuration[i] >= 1) {
+                    } else if (Configuration[i] === 1) {
                         ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][SOF]);
-                    };
+                    } else {
+                        ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][sigNameNum][Number(Configuration[i])]);
+                    }
                 };
 
                 //スケールの情報をHTMLに書き込む。

@@ -344,7 +344,7 @@ function StringsTable() {
     };
 };
 
-//フィンガーボードの要素を描画する関数
+//左利き用フィンガーボードの要素を描画する関数
 function LeftyFingerboardCreate() {
     //一度フィンガーボードを空にする
     document.getElementById("Fingerboard").innerHTML = ""
@@ -412,7 +412,7 @@ function LeftyFingerboardCreate() {
     };
 };
 
-//フィンガーボードの要素を描画する関数
+//右利き用フィンガーボードの要素を描画する関数
 function RightyFingerboardCreate() {
     //一度フィンガーボードを空にする
     document.getElementById("Fingerboard").innerHTML = ""
@@ -480,7 +480,7 @@ function RightyFingerboardCreate() {
     };
 };
 
-// 右利きフレットに音名を描画する
+// 右利き用フレットに音名を描画する
 function RightyToneNameCreate() {
     for (let st = 1; st < NumberOfStrings + 1; st++) {
         //フレットの数を取得する
@@ -508,7 +508,7 @@ function RightyToneNameCreate() {
     };
 };
 
-// 左利きフレットに音名を描画する
+// 左利き用フレットに音名を描画する
 function LeftyToneNameCreate() {
     for (let st = 1; st < NumberOfStrings + 1; st++) {
         //フレットの数を取得する
@@ -539,7 +539,6 @@ function LeftyToneNameCreate() {
 };
 
 
-
 //フレット上の音名を描画する関数
 function FletCreate(NumberOfStrings) {
     //ルート音の情報を取得する。
@@ -552,7 +551,7 @@ function FletCreate(NumberOfStrings) {
     ScaleNum = Number(value[1]);
 
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    onoff = value[0].split('').map(Number);
+    onoff = value[0].split('/').map(Number);
 
     //音名の表記方法を取得する
     key_signature_names = Number(document.getElementById(`key_signature_names`).value);
@@ -585,64 +584,64 @@ function FletCreate(NumberOfStrings) {
     } else if (ScaleAndChordsDrowingSwitch === 0) {
         //コード構成音のバイナリを配列に格納する。
         Configuration = chord_container[ScaleNum]['ChordBinary'];
-        //mを判定するために「omit5」を除く
-        ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "")
+        //mを判定するために「omit5,omit3」を除く
+        ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "").replace("omit3", "")
 
         //3度の異名同音判定
         if (ChordName.includes("m")) {
-            Configuration[3] = 3;
+            Configuration[3] = 43;
         };
 
         if (ChordName.includes("♭9")) {
-            Configuration[1] = 3;
+            Configuration[1] = 43;
         };
 
         if (ChordName.includes("#9")) {
-            Configuration[3] = 2;
+            Configuration[3] = 42;
         };
 
         if (ChordName.includes("#11")) {
-            Configuration[6] = 2;
+            Configuration[6] = 42;
         };
 
         if (ChordName.includes("♭5")) {
-            Configuration[6] = 3;
+            Configuration[6] = 43;
         };
 
         if (ChordName.includes("aug")) {
-            Configuration[8] = 2;
+            Configuration[8] = 42;
         };
 
         if (ChordName.includes("#5")) {
-            Configuration[8] = 2;
+            Configuration[8] = 42;
         };
 
         if (ChordName.includes("♭13")) {
-            Configuration[8] = 3;
+            Configuration[8] = 43;
         };
 
         //7度の異名同音判定
         if (Configuration[11] >= 1 && ChordName.includes("Maj7")) {
             Configuration[11] = 1;
         } else if (ChordName.includes("m(♭5)")) {
-            Configuration[0] = 3;
-            Configuration[3] = 3;
-            Configuration[6] = 3;
+            Configuration[0] = 43;
+            Configuration[3] = 43;
+            Configuration[6] = 43;
         } else if (ChordName.includes("dim")) {
-            Configuration[0] = 3;
-            Configuration[3] = 3;
-            Configuration[6] = 3;
-            Configuration[9] = 3;
+            Configuration[0] = 43;
+            Configuration[3] = 43;
+            Configuration[6] = 43;
+            Configuration[9] = 43;
         } else if (Configuration[10] >= 1 && ChordName.includes("7")) {
-            Configuration[10] = 3;
+            Configuration[10] = 43;
         } else if (Configuration[10] >= 1 && ChordName.includes("9")) {
-            Configuration[10] = 3;
+            Configuration[10] = 43;
         };
 
         if (ChordName.includes("blk")) {
-            Configuration[2] = 2;
-            Configuration[6] = 2;
-            Configuration[10] = 2;
+            Configuration[2] = 42;
+            Configuration[6] = 42;
+            Configuration[10] = 42;
         };
 
         //シャープとフラットの区別をする変数SOFに値を代入。
@@ -662,67 +661,68 @@ function FletCreate(NumberOfStrings) {
     //for文でスケールの構成音を生成する。
     for (let i = 0; i < 12; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-        if (Configuration[i] === 2) {
+        if (Configuration[i] === 42) {
             ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][0]);
-        } else if (Configuration[i] === 3) {
+        } else if (Configuration[i] === 43) {
             ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][1]);
         } else if (Configuration[i] === 1) {
             ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][SOF]);
         } else if (Configuration[i] === 0) {
             ConfigurationNotes.push("　");
         } else {
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][Number(Configuration[i])]);
         };
     };
 
     //1：(#Ⅰ/♭Ⅱ)の処理
-    if (Configuration[1] === 2) {
+    if (Configuration[1] === 42) {
         ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][3]);
-    } else if (Configuration[1] === 3) {
+    } else if (Configuration[1] === 43) {
         ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][4]);
     };
 
     //2：(♭♭Ⅲ)の処理
-    if (Configuration[2] === 3) {
+    if (Configuration[2] === 43) {
         ConfigurationNotes.splice(2, 1, AllNoteNames[mod(RootNumber + 2, 12)][key_signature_names][7]);
     };
 
     //3：(#Ⅱ/♭Ⅲ)の処理
-    if (Configuration[3] === 2) {
+    if (Configuration[3] === 42) {
         ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][6]);
-    } else if (Configuration[3] === 3) {
+    } else if (Configuration[3] === 43) {
         ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][8]);
     };
 
     //4：(#Ⅲ/♭Ⅳ)の処理
-    if (Configuration[4] === 2) {
+    if (Configuration[4] === 42) {
         ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][10]);
-    } else if (Configuration[4] === 3) {
+    } else if (Configuration[4] === 43) {
         ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][11]);
     };
 
     //6：(#Ⅳ/♭Ⅴ)の処理
-    if (Configuration[6] === 2) {
+    if (Configuration[6] === 42) {
         ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][13]);
-    } else if (Configuration[6] === 3) {
+    } else if (Configuration[6] === 43) {
         ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][14]);
     };
 
     //8：(#Ⅴ/♭Ⅶ)の処理
-    if (Configuration[8] === 2) {
+    if (Configuration[8] === 42) {
         ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][16]);
-    } else if (Configuration[8] === 3) {
+    } else if (Configuration[8] === 43) {
         ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][17]);
     };
 
     //9：(♭♭Ⅶ)の処理
-    if (Configuration[9] === 3) {
+    if (Configuration[9] === 43) {
         ConfigurationNotes.splice(9, 1, AllNoteNames[mod(RootNumber + 9, 12)][key_signature_names][20]);
     };
 
     //10：(#Ⅴ/♭Ⅶ)の処理
-    if (Configuration[10] === 2) {
+    if (Configuration[10] === 42) {
         ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][19]);
-    } else if (Configuration[10] === 3) {
+    } else if (Configuration[10] === 43) {
         ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][21]);
     };
 
@@ -737,15 +737,13 @@ function FletCreate(NumberOfStrings) {
 
     //コード画面の場合の処理
     if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 0) {
-        //シャープまたはフラット指定用に書き換えた数値を元に戻す
+        //シャープまたはフラット指定用に書き換えた数値を元に戻す。
         for (let i = 0; i < Configuration.length; i++) {
-            if (Configuration[i] === 2) {
-                Configuration.splice(i, 1, 1);
-            };
-            if (Configuration[i] === 3) {
+            if (Configuration[i] >= 2) {
                 Configuration.splice(i, 1, 1);
             };
         };
+
         //コード・ネームの情報を判定する関数
         ChordCandidateInfo(onoff);
         //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
