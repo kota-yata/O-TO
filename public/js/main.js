@@ -368,7 +368,7 @@ const scale_Container =
 
     //メロディック・マイナースケールファミリー
     { EnglishName: "Melodic Minor", JapaneseName: "メロディック・マイナー", diaChord4: "mMaj7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 16, 0, 19], addNum: 9, ForteNumber: "7-34", Info: "旋律的短音階。ハーモニック・マイナーのメロディとしての違和感を軽減するためのスケール。<br>基本的にスケールを下行する時は、自然的短音階に変化させます。", Mode: "", Adjustment: -9 },
-    { EnglishName: "Dorian ♭2", JapaneseName: "ドリアン♭2", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 42, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第2モード。", Adjustment: -9 },
+    { EnglishName: "Dorian ♭2", JapaneseName: "ドリアン♭2", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 11, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第2モード。", Adjustment: -9 },
     { EnglishName: "Lydian Augmented", JapaneseName: "リディアン・オーグメンテッド", diaChord4: "augMaj7", diaChord3: "aug", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 42, 0, 42, 1, 0, 1], addNum: 0, ForteNumber: "7-34", Info: "", Mode: "メロディック・マイナーの第3モード。", Adjustment: -9 },
     { EnglishName: "Lydian Dominant ", JapaneseName: "リディアン・ドミナント", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 42, 0, 42, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-34", Info: "「リディアン♭7」とも。", Mode: "メロディック・マイナーの第4モード。", Adjustment: -9 },
     { EnglishName: "Mixolydian ♭6", JapaneseName: "ミクソリディアン♭6", diaChord4: "7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 43, 0, 1, 0], addNum: 4, ForteNumber: "7-34", Info: "「メロディック・メジャー（旋律的長音階）」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第5モード。", Adjustment: -9 },
