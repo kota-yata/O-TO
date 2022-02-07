@@ -709,7 +709,7 @@ Vue.component('link-table', {
                         rel="noopener noreferrer">開放弦を使ったギターコード表(pdf)</span>
                         <img class="link_image2 pt-3 pb-3" src="image/thumbnail/Open-string chords chart_01.png" alt="サムネイル">
                     </a>
-                    <p class="card-text">開放弦を使っギターのコードフォームを数多くまとめたpdfです。</p>
+                    <p class="card-text">開放弦を使ったギターのコードフォームを数多くまとめたpdfです。</p>
                 </div>
             </div>
 
