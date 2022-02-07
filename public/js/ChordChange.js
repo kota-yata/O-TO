@@ -51,8 +51,11 @@ function ToDegreeName(text, Root) {
         .replace(/ii/g, "Ⅱm")
         .replace(/iv/g, "Ⅳm")
         .replace(/vi/g, "Ⅵm")
-        .replace(/\sv/g, " Ⅴm")
-        .replace(/\si/g, " Ⅰm")
+        .replace(/v/g, "Ⅴm")
+        .replace(/i/g, "Ⅰm")
+
+        .replace(/\?/g, "・/・")
+        .replace(/\？/g, "・/・")
 
     let RootNumber = Number(Root);
 
@@ -167,7 +170,7 @@ function Validation(text) {
         if (ValidationText.includes('#5') || ValidationText.includes('♭5') || ValidationText.includes('♭9') || ValidationText.includes('#9') || ValidationText.includes('#11') || ValidationText.includes('♭13')) {
             document.getElementById("ValidationBox").innerHTML = "";
         } else {
-            document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が違う可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
+            document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が誤っている可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ</font>`;
         };
     } else {
         document.getElementById("ValidationBox").innerHTML = "";
