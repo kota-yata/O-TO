@@ -686,6 +686,9 @@ function ChordNoteSwitch() {
 
     //コードネームに合わせて度数表記を描画する関数
     degree_position_drow(0)
+
+    //ネガティブ・ハーモニーを表示する関数
+    NegativeHarmony(onoff)
 };
 
 //スケールの情報を格納する配列
