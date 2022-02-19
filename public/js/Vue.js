@@ -447,7 +447,7 @@ Vue.component('site-logo', {
   template: `
     <div class="site_logo displayed">
       <a href="https://www.youtube.com/channel/UCj1FMSo7yhgjLlCiMZG-cFw" target="_blank" rel="noopener noreferrer">
-        <img src="image/KHUFRUDAMO NOTES Logo only.png" alt="クフルダモノーツのロゴ" title="KHUFRUDAMO NOTES Logo">
+        <img src="image/KHUFRUDAMO NOTES Logo only.svg" alt="クフルダモノーツのロゴ" title="KHUFRUDAMO NOTES Logo">
       </a>
     </div>
     `
