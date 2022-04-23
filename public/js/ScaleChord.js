@@ -893,9 +893,9 @@ function NoteNameColoring(onoff) {
 function SearchNoteNameColoring(onoff) {
     for (let i = 0; i < 12; i++) {
         if (onoff[i] != 0) {
-            document.getElementById(`chord_${i}`).className = "NoteName NoteOn";
+            document.getElementById(`chord_${i}`).className = "NoteName NoteName_cursor_pointer NoteOn";
         } else if (onoff[i] === 0) {
-            document.getElementById(`chord_${i}`).className = "NoteName NoteName_Switch_Search";
+            document.getElementById(`chord_${i}`).className = "NoteName NoteName_cursor_pointer NoteName_Switch_Search";
         };
     };
 };

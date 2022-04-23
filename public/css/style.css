@@ -322,6 +322,8 @@ img {
 .NoteName_Switch_Search {
   height:auto;
   border: solid 1px rgb(210, 210, 210);
+}
+.NoteName_cursor_pointer {
   cursor: pointer;
 }
 .NoteOn2 {
