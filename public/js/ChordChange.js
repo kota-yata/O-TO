@@ -38,6 +38,8 @@ function ToDegreeName(text, Root) {
         .replace(/b/g, "♭")
         .replace(/𝄫/g, "&#119083;")
 
+        .replace(/dim/g, "○")
+
         .replace(/III/g, "Ⅲ")
         .replace(/VII/g, "Ⅶ")
         .replace(/II/g, "Ⅱ")
