@@ -3,6 +3,26 @@
 //1分のミリ秒数
 let one_minutes = 60000;
 
+//2つの整数の最小公倍数を求める関数--------------------------------------
+function lcm(a, b) {
+    let g = (n, m) => m ? g(m, n % m) : n
+    return a * b / g(a, b)
+};
+
+//2つの整数の最大公約数を求める関数--------------------------------------
+function gcd(a, b) {
+    //音符の個数が少ないときは処理を停止する。
+    let note_count = Number(document.getElementById("note_count").value);
+    if (note_count <= 0) {
+        return;
+    };
+
+    if (b === 0) {
+        return a
+    };
+    return gcd(b, a % b)
+};
+
 //音価の表示形式を判定する関数
 function TimeTypeChecker() {
     //ドロップダウンリストから音価の表示形式のvalueを取得する。
@@ -143,11 +163,11 @@ function NoteInfo() {
     //符点部分の音価(ms)を求める式...[n分音符の音価×((2^d)-1)/(2^d)]
     let dot_time = dieresis_note_time * ((2 ** (rhythm_dotted_note_type) - 1) / (2 ** rhythm_dotted_note_type));
 
-    //★入力されたの音価の合計(ms)を求める式
+    //★入力されたの音価の合計(ms)を求める式...[((n分音符の音価+符点部分の音価)*音符の個数)/連符の数]
     let note_value = ((dieresis_note_time + dot_time) * note_count) / rhythm_tuplet_type;
 
     //"x分音符"の種類を求める式...[全音符の音価÷この音符の音価]
-    let dieresis_note = rhythm_whole_note_time / note_value;
+    let dieresis_note = (rhythm_whole_note_time / note_value);
 
     //log2(x)の対数関数に"x分音符"のxの値を代入したもの。このあと小数部分は切り捨てて使う。
     let log_number = Math.floor(Math.log2(dieresis_note));
@@ -159,7 +179,22 @@ function NoteInfo() {
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = Math.round((((dieresis_note_time + dot_time) / (rhythm_whole_note_time / (ratio_number / Adjustment_number))) * Adjustment_number) + note_count - 1);
+    let ratio = note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type;
+    // ratio = Math.round((((note_value) / (rhythm_whole_note_time / (ratio_number / Adjustment_number))) * Adjustment_number) + note_count - 1);
+
+    //最大公約数を求める。
+    let gcd_num = gcd(ratio_number, ratio);
+
+    //最大公約数に関係する処理を行う。
+    if (gcd_num > 1) {
+        ratio_number = ratio_number / gcd_num;
+        ratio = ratio / gcd_num;
+        //個数が1になってしまった場合は2倍
+        if (ratio === 1) {
+            ratio_number = ratio_number * 2;
+            ratio = ratio * 2;
+        };
+    };
 
     //符尾・連桁の数とその根拠となる...「(2の累乗)分音符」の種類
     let flag_count = log_number - 2;
@@ -223,7 +258,7 @@ function NoteInfo() {
             = "集中せよ。『音楽』に。";
     } else if (note_count === -7) {
         document.getElementById("note_value").innerHTML
-            = "ひっくり返してシュークリームを食べると、クリームがこぼれにくいからオススメだよ。";
+            = "シュークリームやハンバーガーはひっくり返して食べると、中身がこぼれにくいからオススメだよ。";
     } else if (note_count === -11) {
         document.getElementById("note_value").innerHTML
             = "もう、そろそろ作業に戻りましょう。";
@@ -247,7 +282,7 @@ function NoteInfo() {
             = "好きなコード進行：Ⅵm→#Ⅳm7(♭5)→ⅣMaj7→Ⅱm7→Ⅲm7";
     } else if (note_count === -37) {
         document.getElementById("note_value").innerHTML
-            = "オススメの漫画：『風の谷のナウシカ』";
+            = "オススメの漫画：『風の谷のナウシカ』、『進撃の巨人』、『鋼の錬金術師』";
     } else if (note_count === -41) {
         document.getElementById("note_value").innerHTML
             = "雑学：スーパーマリオのステージクリアBGMを高速再生すると1UPの音になる。";
@@ -303,7 +338,7 @@ function NoteInfo() {
         document.getElementById("dieresis_note").innerHTML = "";
         document.getElementById("dieresis_note").className = "py-0";
     } else {
-        document.getElementById("dieresis_note").innerHTML = `分音符のみで表記した場合は<b>「${roundToThree(dieresis_note)}分音符」</b>になります。`;
+        document.getElementById("dieresis_note").innerHTML = `※仮に「分音符」のみで表す場合は<b>「${roundToThree(dieresis_note)}分音符」</b>になります。`;
         document.getElementById("dieresis_note").className = "py-1";
     };
 
@@ -312,50 +347,87 @@ function NoteInfo() {
         document.getElementById("dotted_note_value").innerHTML = "";
         document.getElementById("dotted_note_value").className = "py-0";
     } else {
-        document.getElementById("dotted_note_value").innerHTML = `符点音符のみで表記した場合は<b>「符点${roundToThree(dotted_note)}分音符」</b>になります。`;
+        document.getElementById("dotted_note_value").innerHTML = `※仮に「符点音符」のみで表す場合は<b>「符点${roundToThree(dotted_note)}分音符」</b>になります。`;
         document.getElementById("dotted_note_value").className = "py-1";
     };
 
+    let ratio_number_note;
+    if (ratio_number === 1) {
+        ratio_number_note = `全音符`;
+    } else if (ratio_number === 0.5) {
+        ratio_number_note = `倍全音符`;
+    } else if (ratio_number === 0.25) {
+        ratio_number_note = `ロンガ`;
+    } else if (ratio_number === 0.125) {
+        ratio_number_note = `マキシマ`;
+    } else {
+        ratio_number_note = `${ratio_number}分音符`;
+    };
+
+
+
+    //再び最小公倍数を求める
+    gcd_num = gcd(ratio_number, ratio);
+
     //連符の比の解説
-    if (note_count !== 1) {
-        document.getElementById("note_text").innerHTML = "";
-        document.getElementById("note_text").className = "py-0";
-    } else if (note_count <= 0 || rhythm_input_bpm <= 0 || rhythm_dotted_note_type < 1) {
+    if (note_count <= 0 || rhythm_tuplet_type === ratio || gcd_num == !1) {
         document.getElementById("note_text").innerHTML = "";
         document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
         document.getElementById("note_text").innerHTML
-            = `${ratio_number} 分音符が ${ratio} 個分の音価を${rhythm_tuplet_type}個に分割しています。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number}分音符との比は<b>「${rhythm_tuplet_type}：${ratio}」</b>となります。`;
+            = `${ratio_number_note}が"${ratio} 個分"の音価を、"${rhythm_tuplet_type}個"に分割した状態です。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number_note}との比は<b>「${rhythm_tuplet_type}：${ratio}」</b>です。`;
         document.getElementById("note_text").className = "py-1";
-    } else if (rhythm_tuplet_type <= 1) {
+    } else {
         document.getElementById("note_text").innerHTML = "";
-        document.getElementById("note_text").className = "py-1";
+        document.getElementById("note_text").className = "py-0";
     };
+
 
     //符尾・連桁の数の表示
     let flag_ms = rhythm_whole_note_time / flag_number;
-    let quarter_note_ms = rhythm_whole_note_time / 4;
     let flag_min_ms = rhythm_whole_note_time / flag_number_minusone;
 
-    if (rhythm_dotted_note_type >= 1 || rhythm_input_bpm <= 0) {
+    let flag_number_note;
+    if (flag_number === 1) {
+        flag_number_note = `全音符`;
+    } else if (flag_number === 0.5) {
+        flag_number_note = `倍全音符`;
+    } else if (flag_number === 0.25) {
+        flag_number_note = `ロンガ`;
+    } else if (flag_number === 0.125) {
+        flag_number_note = `マキシマ`;
+    } else {
+        flag_number_note = `${flag_number}分音符`;
+    };
+
+    let flag_number_minusone_note;
+    if (flag_number_minusone === 1) {
+        flag_number_minusone_note = `全音符`;
+    } else if (flag_number_minusone === 0.5) {
+        flag_number_minusone_note = `倍全音符`;
+    } else if (flag_number_minusone === 0.25) {
+        flag_number_minusone_note = `ロンガ`;
+    } else if (flag_number_minusone === 0.125) {
+        flag_number_minusone_note = `マキシマ`;
+    } else {
+        flag_number_minusone_note = `${flag_number_minusone}分音符`;
+    };
+
+    if (rhythm_tuplet_type === ratio) {
         document.getElementById("flag_text").innerHTML = "";
         document.getElementById("flag_text").className = "py-0";
-    } else if (note_count !== 1) {
-        document.getElementById("flag_text").innerHTML = "";
-        document.getElementById("flag_text").className = "py-0";
-    } else if (flag_count < 1) {//指定BPMでの8分音符より、「符点を含めない音価」が長い場合
-        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の4分音符(${roundToThree(quarter_note_ms * time_type) + time_unit})以上の音価です。<br>したがって、符尾・連桁の数は<b>"0本"</b>で記述されます。`;
+    } else if (flag_number > 0.125 && rhythm_tuplet_type > 1) {
+        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"0本"</b>、音符は<b>${flag_number_note}</b>で記述されます。`;
         document.getElementById("flag_text").className = "py-1";
     } else if (flag_count >= 1) {
-        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number}分音符(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone}分音符(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"${flag_count}本"</b>で記述されます。`;
+        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"${flag_count}本"</b>で記述されます。`;
         document.getElementById("flag_text").className = "py-1";
     } else {
-        document.getElementById("flag_text").innerHTML = "符尾・連桁の数が分かりません。";
-        document.getElementById("flag_text").className = "py-1";
+        document.getElementById("flag_text").innerHTML = "";
+        document.getElementById("flag_text").className = "py-0";
     };
 
     //「〇拍〇連」表記の有無
-
     if (note_count !== 1) {
         document.getElementById("haku_text").innerHTML = "";
         document.getElementById("haku_text").className = "py-0";
