@@ -179,21 +179,16 @@ function NoteInfo() {
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type;
+    let ratio = Math.round(note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type);
     // ratio = Math.round((((note_value) / (rhythm_whole_note_time / (ratio_number / Adjustment_number))) * Adjustment_number) + note_count - 1);
 
     //最大公約数を求める。
-    let gcd_num = gcd(ratio_number, ratio);
+    let gcd_num = gcd(ratio, rhythm_tuplet_type);
 
     //最大公約数に関係する処理を行う。
-    if (gcd_num > 1) {
+    if (gcd_num === 1) {
         ratio_number = ratio_number / gcd_num;
         ratio = ratio / gcd_num;
-        //個数が1になってしまった場合は2倍
-        if (ratio === 1) {
-            ratio_number = ratio_number * 2;
-            ratio = ratio * 2;
-        };
     };
 
     //符尾・連桁の数とその根拠となる...「(2の累乗)分音符」の種類
@@ -364,13 +359,8 @@ function NoteInfo() {
         ratio_number_note = `${ratio_number}分音符`;
     };
 
-
-
-    //再び最小公倍数を求める
-    gcd_num = gcd(ratio_number, ratio);
-
     //連符の比の解説
-    if (note_count <= 0 || rhythm_tuplet_type === ratio || gcd_num == !1) {
+    if (note_count <= 0 || rhythm_tuplet_type === ratio || gcd_num !== 1) {
         document.getElementById("note_text").innerHTML = "";
         document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
@@ -381,7 +371,6 @@ function NoteInfo() {
         document.getElementById("note_text").innerHTML = "";
         document.getElementById("note_text").className = "py-0";
     };
-
 
     //符尾・連桁の数の表示
     let flag_ms = rhythm_whole_note_time / flag_number;
@@ -413,7 +402,7 @@ function NoteInfo() {
         flag_number_minusone_note = `${flag_number_minusone}分音符`;
     };
 
-    if (rhythm_tuplet_type === ratio) {
+    if (rhythm_tuplet_type === ratio || note_count <= 0) {
         document.getElementById("flag_text").innerHTML = "";
         document.getElementById("flag_text").className = "py-0";
     } else if (flag_number > 0.125 && flag_count === 0 && rhythm_tuplet_type > 1) {
