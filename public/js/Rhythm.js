@@ -416,7 +416,7 @@ function NoteInfo() {
     if (rhythm_tuplet_type === ratio) {
         document.getElementById("flag_text").innerHTML = "";
         document.getElementById("flag_text").className = "py-0";
-    } else if (flag_number > 0.125 && rhythm_tuplet_type > 1) {
+    } else if (flag_number > 0.125 && flag_count === 0 && rhythm_tuplet_type > 1) {
         document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"0本"</b>、音符は<b>${flag_number_note}</b>で記述されます。`;
         document.getElementById("flag_text").className = "py-1";
     } else if (flag_count >= 1) {
