@@ -159,7 +159,6 @@
             </div>
 
             <div id="contents">
-
               <!-- タブ1の中身 -->
               <div v-if="isActive == '1'">
                 <p class="pt-3 pb-2">「メトリック・モジュレーション」に関係する情報を調べるアプリです。<br>様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。</p>
@@ -280,19 +279,20 @@
           </div>
 
           <div class="row py-2">
-            <div class="py-2" id="note_value"></div>
+
 
             <div class="accordion py-2" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-                    詳細情報
+                    この音符の情報
                   </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                   data-bs-parent="#accordionExample">
                   <div class="accordion-body">
+                    <div class="py-2" id="note_value"></div>
                     <div class="py-1" id="note_text"></div>
                     <div class="py-1" id="haku_text"></div>
                     <div class="py-1" id="flag_text">

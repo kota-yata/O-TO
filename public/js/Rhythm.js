@@ -131,7 +131,6 @@ function NoteLength() {
     barLength();
 };
 
-
 //メトリック・モジュレーションの情報を描画する関数
 function NoteInfo() {
 
@@ -200,7 +199,7 @@ function NoteInfo() {
     let dotted_note = dieresis_note * 3 / 2;
 
     //音符の表示形式を決定する処理
-    let rhythm_note_name = 0;
+    let rhythm_note_name;
     if (rhythm_note_type === 1) {
         rhythm_note_name = "全";
     } else {
@@ -208,7 +207,7 @@ function NoteInfo() {
     };
 
     //符点の表示形式を決定する処理
-    let rhythm_dot_name = 0;
+    let rhythm_dot_name;
     if (rhythm_dotted_note_type === 0) {
         rhythm_dot_name = "";
     } else if (rhythm_dotted_note_type === 1) {
@@ -220,7 +219,7 @@ function NoteInfo() {
     };
 
     //連符の表示形式を決定する処理
-    let rhythm_tuplet_name = 0;
+    let rhythm_tuplet_name;
     if (rhythm_tuplet_type === 1) {
         rhythm_tuplet_name = "";
     } else {
@@ -228,7 +227,7 @@ function NoteInfo() {
     };
 
     //個数の表示形式を決定する処理
-    let note_count_text = 0;
+    let note_count_text;
     if (note_count <= 1) {
         note_count_text = "";
     } else {
@@ -333,7 +332,7 @@ function NoteInfo() {
         document.getElementById("dieresis_note").innerHTML = "";
         document.getElementById("dieresis_note").className = "py-0";
     } else {
-        document.getElementById("dieresis_note").innerHTML = `※仮に「分音符」のみで表す場合は<b>「${roundToThree(dieresis_note)}分音符」</b>になります。`;
+        document.getElementById("dieresis_note").innerHTML = `※仮に「分音符」のみで表す場合は、<b>「${roundToThree(dieresis_note)}分音符」</b>になります。`;
         document.getElementById("dieresis_note").className = "py-1";
     };
 
@@ -342,7 +341,7 @@ function NoteInfo() {
         document.getElementById("dotted_note_value").innerHTML = "";
         document.getElementById("dotted_note_value").className = "py-0";
     } else {
-        document.getElementById("dotted_note_value").innerHTML = `※仮に「符点音符」のみで表す場合は<b>「符点${roundToThree(dotted_note)}分音符」</b>になります。`;
+        document.getElementById("dotted_note_value").innerHTML = `※仮に「符点音符」のみで表す場合は、<b>「符点${roundToThree(dotted_note)}分音符」</b>になります。`;
         document.getElementById("dotted_note_value").className = "py-1";
     };
 
@@ -487,6 +486,8 @@ function NoteInfo() {
         document.getElementById("same_length_16th_note_tuplet").innerHTML = `1拍6連<br><img src='./image/note/QuarterNoteSextuplet.svg' alt='1拍6連符' title='1拍6連符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 24) / 4))}`;
         document.getElementById("same_length_32th_note").innerHTML = `32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32) / 4))}`;
     };
+
+
 };
 
 function barLength() {
