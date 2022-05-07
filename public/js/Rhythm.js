@@ -361,7 +361,7 @@ function NoteInfo() {
     };
 
     //連符の比の解説
-    if (note_count <= 0 || rhythm_tuplet_type === ratio || gcd_num !== 1) {
+    if (note_count <= 0 || rhythm_tuplet_type === ratio) {
         document.getElementById("note_text").innerHTML = "";
         document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
