@@ -16,11 +16,10 @@ function gcd(a, b) {
     if (note_count <= 0) {
         return;
     };
-
     if (b === 0) {
         return a
     };
-    return gcd(b, a % b)
+    return gcd(b, a % b);
 };
 
 //音価の表示形式を判定する関数
@@ -178,19 +177,18 @@ function NoteInfo() {
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type;
-    // ratio = Math.round((((note_value) / (rhythm_whole_note_time / (ratio_number / Adjustment_number))) * Adjustment_number) + note_count - 1);
+    let ratio = roundToThree(note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type);
 
     //最大公約数を求める。
     let gcd_num = gcd(ratio, rhythm_tuplet_type);
 
-    console.log(gcd_num);
+    //最大公約数に小数点以下が含まれる場合の処理
+    let gcd_decimal = gcd_num - Math.floor(gcd_num);
 
-    //最大公約数に関係する処理を行う。
-    if (gcd_num < 1) {
-        ratio_number = ratio_number / gcd_num;
-        ratio = ratio / gcd_num;
-    };
+    if (gcd_decimal !== 0) {
+        ratio_number = ratio_number * (1 / gcd_decimal);
+        ratio = ratio * (1 / gcd_decimal);
+    }
 
     //符尾・連桁の数とその根拠となる...「(2の累乗)分音符」の種類
     let flag_count = log_number - 2;
