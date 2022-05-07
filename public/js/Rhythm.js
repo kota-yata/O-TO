@@ -178,14 +178,16 @@ function NoteInfo() {
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = Math.round(note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type);
+    let ratio = note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type;
     // ratio = Math.round((((note_value) / (rhythm_whole_note_time / (ratio_number / Adjustment_number))) * Adjustment_number) + note_count - 1);
 
     //最大公約数を求める。
     let gcd_num = gcd(ratio, rhythm_tuplet_type);
 
+    console.log(gcd_num);
+
     //最大公約数に関係する処理を行う。
-    if (gcd_num === 1) {
+    if (gcd_num < 1) {
         ratio_number = ratio_number / gcd_num;
         ratio = ratio / gcd_num;
     };
