@@ -175,17 +175,16 @@ function NoteInfo() {
     //符尾・連桁の数を求める式...log2(x)の対数関数に"x分音符"のxの値を代入したもの。（小数部分は切り捨てて使う。）「A」とする。
     let log_number = Math.floor(Math.log2(dieresis_note));
 
-    //-------------------------------------------------------------------
     //連符の比の調整に使う...[2^(符点の数)] 「c」とする。
     let Adjustment_number = 2 ** (rhythm_dotted_note_type);
 
     //連符を考える時、符尾・連桁の数とリンクした"連符で分割する前の分音符の数字"を求める式...[(2^A)×c)]
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
-    //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
+    //連符の比の"連符で分割する前の分音符の個数"を求める式...[{入力されたの音価の合計÷(全音符の音価÷c)}×t]
     let ratio = roundToThree((note_value / (rhythm_whole_note_time / ratio_number)) * rhythm_tuplet_type);
 
-    //連符の比を表す分音符とその個数の表記を調整する。
+    //"連符で分割する前の分音符の数字"と"連符で分割する前の分音符の個数"を調整する処理。
     let ratio_decimal = ratio - Math.floor(ratio);
     if (ratio_decimal === 0.5 || ratio_decimal === 0.25 || ratio_decimal === 0.125) {
         ratio_number = ratio_number * (1 / ratio_decimal);
