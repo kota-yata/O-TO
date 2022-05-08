@@ -139,16 +139,21 @@ function NoteInfo() {
     document.getElementById("dieresis_note").className = "py-0";
     document.getElementById("dotted_note_value").className = "py-0";
 
+    //BPMの値
     let rhythm_input_bpm = Number(document.getElementById("rhythm_input_bpm").value);
+    // 分音符の種類「n」とする。
     let rhythm_note_type = Number(document.getElementById("rhythm_note_type").value);
+    // 符点の数「d」とする。
     let rhythm_dotted_note_type = Number(document.getElementById("rhythm_dotted_note_type").value);
+    // 連符の分割数「t」とする。
     let rhythm_tuplet_type = Number(document.getElementById("rhythm_tuplet_type").value);
+    //音符の個数
     let note_count = Number(document.getElementById("note_count").value);
 
     //音価の表示形式を判定する関数
     let { time_unit, time_type } = TimeTypeChecker();
 
-    //このBPMの1拍(4分音符)の長さを求める。
+    //このBPMの1拍（4分音符）の長さを求める。
     let rhythm_common_beat_time = one_minutes / rhythm_input_bpm;
     //このBPMの全音符の長さを求める。
     let rhythm_whole_note_time = rhythm_common_beat_time * 4;
@@ -161,35 +166,33 @@ function NoteInfo() {
     //符点部分の音価(ms)を求める式...[n分音符の音価×((2^d)-1)/(2^d)]
     let dot_time = dieresis_note_time * ((2 ** (rhythm_dotted_note_type) - 1) / (2 ** rhythm_dotted_note_type));
 
-    //★入力されたの音価の合計(ms)を求める式...[((n分音符の音価+符点部分の音価)*音符の個数)/連符の数]
+    //★入力されたの音価の合計(ms)を求める式...[((n分音符の音価+符点部分の音価)*音符の個数)/連符による分割数]
     let note_value = ((dieresis_note_time + dot_time) * note_count) / rhythm_tuplet_type;
 
-    //"x分音符"の種類を求める式...[全音符の音価÷この音符の音価]
+    //"x分音符"のxの値を求める式...[全音符の音価÷この音符の音価]
     let dieresis_note = (rhythm_whole_note_time / note_value);
 
-    //log2(x)の対数関数に"x分音符"のxの値を代入したもの。このあと小数部分は切り捨てて使う。
+    //符尾・連桁の数を求める式...log2(x)の対数関数に"x分音符"のxの値を代入したもの。（小数部分は切り捨てて使う。）「A」とする。
     let log_number = Math.floor(Math.log2(dieresis_note));
 
-    //連符の比の調整に使う...[2^{連符の分割数+(符点の数-連符の分割数)] 「c」とする。
-    let Adjustment_number = 2 ** (rhythm_tuplet_type + (rhythm_dotted_note_type - rhythm_tuplet_type));
+    //-------------------------------------------------------------------
+    //連符の比の調整に使う...[2^(符点の数)] 「c」とする。
+    let Adjustment_number = 2 ** (rhythm_dotted_note_type);
 
-    //連符を考える時、符尾・連桁の数とリンクした"連符で分割する前の分音符の数字"を求める式...[2^(log2(x)×c)]
+    //連符を考える時、符尾・連桁の数とリンクした"連符で分割する前の分音符の数字"を求める式...[(2^A)×c)]
     let ratio_number = (2 ** log_number) * Adjustment_number;
 
     //連符の比の"連符で分割する前の分音符の個数"を求める式...[(n分音符の音価+符点部分の音価)÷{全音符の音価÷m]
-    let ratio = roundToThree(note_value / (rhythm_whole_note_time / ratio_number) * rhythm_tuplet_type);
+    let ratio = roundToThree((note_value / (rhythm_whole_note_time / ratio_number)) * rhythm_tuplet_type);
 
-    //最大公約数を求める。
-    let gcd_num = gcd(ratio, rhythm_tuplet_type);
+    //連符の比を表す分音符とその個数の表記を調整する。
+    let ratio_decimal = ratio - Math.floor(ratio);
+    if (ratio_decimal === 0.5 || ratio_decimal === 0.25 || ratio_decimal === 0.125) {
+        ratio_number = ratio_number * (1 / ratio_decimal);
+        ratio = ratio * (1 / ratio_decimal);
+    };
 
-    //最大公約数に小数点以下が含まれる場合の処理
-    let gcd_decimal = gcd_num - Math.floor(gcd_num);
-
-    if (gcd_decimal !== 0) {
-        ratio_number = ratio_number * (1 / gcd_decimal);
-        ratio = ratio * (1 / gcd_decimal);
-    }
-
+    //-------------------------------------------------------------------
     //符尾・連桁の数とその根拠となる...「(2の累乗)分音符」の種類
     let flag_count = log_number - 2;
     let flag_number = 2 ** log_number;
