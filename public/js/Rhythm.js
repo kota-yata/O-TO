@@ -324,7 +324,7 @@ function NoteInfo() {
             = "0より大きい値を入力してください。";
     } else {
         document.getElementById("note_value").innerHTML
-            = `<b>BPM=${roundToThree(rhythm_input_bpm)}</b>の<b>「${rhythm_dot_name + rhythm_note_name}音符${note_count_text + rhythm_tuplet_name}」</b>の音価は、<b>${roundToThree(note_value * time_type) + time_unit}</b>です。`;
+            = `<font size="6"><b>${rhythm_dot_name + rhythm_note_name}音符${note_count_text + rhythm_tuplet_name}</font><br><br>BPM = ${roundToThree(rhythm_input_bpm)}<br>音価：${roundToThree(note_value * time_type) + time_unit}</b>`;
     };
 
     //分音符のみ表記
@@ -405,7 +405,7 @@ function NoteInfo() {
         document.getElementById("flag_text").innerHTML = "";
         document.getElementById("flag_text").className = "py-0";
     } else if (flag_number > 0.125 && flag_count === 0 && rhythm_tuplet_type > 1) {
-        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"0本"</b>、音符は<b>${flag_number_note}</b>で記述されます。`;
+        document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"0本"</b>、連符の中の音符は<b>${flag_number_note}</b>で記述されます。`;
         document.getElementById("flag_text").className = "py-1";
     } else if (flag_count >= 1) {
         document.getElementById("flag_text").innerHTML = `BPM=${rhythm_input_bpm}の${flag_number_note}(${roundToThree(flag_ms * time_type) + time_unit})以下で、${flag_number_minusone_note}(${roundToThree(flag_min_ms * time_type) + time_unit})より長い音価です。<br>したがって、符尾・連桁の数は<b>"${flag_count}本"</b>で記述されます。`;
