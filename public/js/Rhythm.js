@@ -186,9 +186,16 @@ function NoteInfo() {
 
     //"連符で分割する前の分音符の数字"と"連符で分割する前の分音符の個数"を調整する処理。
     let ratio_decimal = ratio - Math.floor(ratio);
+
     if (ratio_decimal === 0.5 || ratio_decimal === 0.25 || ratio_decimal === 0.125) {
         ratio_number = ratio_number * (1 / ratio_decimal);
         ratio = ratio * (1 / ratio_decimal);
+    } else if (ratio_decimal === 0.75) {
+        ratio_number = ratio_number * 4;
+        ratio = ratio * 4;
+    } else if (ratio_decimal === 0.375 || ratio_decimal === 0.625 || ratio_decimal === 0.875) {
+        ratio_number = ratio_number * 8;
+        ratio = ratio * 8;
     };
 
     //-------------------------------------------------------------------
