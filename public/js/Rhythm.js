@@ -130,6 +130,23 @@ function NoteLength() {
     barLength();
 };
 
+//特定の数字の分音符の場合、表記を修正する関数
+function NoteNameEdit(number) {
+    let note_name;
+    if (number === 1) {
+        note_name = `全音符`;
+    } else if (number === 0.5) {
+        note_name = `倍全音符`;
+    } else if (number === 0.25) {
+        note_name = `ロンガ`;
+    } else if (number === 0.125) {
+        note_name = `マキシマ`;
+    } else {
+        note_name = `${number}分音符`;
+    };
+    return note_name;
+};
+
 //メトリック・モジュレーションの情報を描画する関数
 function NoteInfo() {
 
@@ -207,13 +224,8 @@ function NoteInfo() {
     //符点音符の連符を符点音符のみ表記に変換する式...[n×t×{1^(d-1)}]
     let dotted_note = dieresis_note * 3 / 2;
 
-    //音符の表示形式を決定する処理
-    let rhythm_note_name;
-    if (rhythm_note_type === 1) {
-        rhythm_note_name = "全";
-    } else {
-        rhythm_note_name = `${rhythm_note_type}分`;
-    };
+    //音符の表示形式を決定する処理（特定の数字の分音符の場合、表記を修正する関数）
+    let rhythm_note_name = NoteNameEdit(rhythm_note_type);
 
     //符点の表示形式を決定する処理
     let rhythm_dot_name;
@@ -333,7 +345,7 @@ function NoteInfo() {
             = "0より大きい値を入力してください。";
     } else {
         document.getElementById("note_value").innerHTML
-            = `<font size="6"><b>${rhythm_dot_name + rhythm_note_name}音符${note_count_text + rhythm_tuplet_name}</font><br><br>BPM = ${roundToThree(rhythm_input_bpm)}<br>音価：${roundToThree(note_value * time_type) + time_unit}</b>`;
+            = `<font size="6"><b>${rhythm_dot_name + rhythm_note_name}${note_count_text + rhythm_tuplet_name}</font><br><br>BPM = ${roundToThree(rhythm_input_bpm)}<br>音価：${roundToThree(note_value * time_type) + time_unit}</b>`;
     };
 
     //分音符のみ表記
@@ -354,18 +366,8 @@ function NoteInfo() {
         document.getElementById("dotted_note_value").className = "py-1";
     };
 
-    let ratio_number_note;
-    if (ratio_number === 1) {
-        ratio_number_note = `全音符`;
-    } else if (ratio_number === 0.5) {
-        ratio_number_note = `倍全音符`;
-    } else if (ratio_number === 0.25) {
-        ratio_number_note = `ロンガ`;
-    } else if (ratio_number === 0.125) {
-        ratio_number_note = `マキシマ`;
-    } else {
-        ratio_number_note = `${ratio_number}分音符`;
-    };
+    //音符の表示形式を決定する処理（特定の数字の分音符の場合、表記を修正する関数）
+    let ratio_number_note = NoteNameEdit(ratio_number);
 
     //連符の比の解説
     if (note_count <= 0 || rhythm_tuplet_type === ratio) {
@@ -384,31 +386,9 @@ function NoteInfo() {
     let flag_ms = rhythm_whole_note_time / flag_number;
     let flag_min_ms = rhythm_whole_note_time / flag_number_minusone;
 
-    let flag_number_note;
-    if (flag_number === 1) {
-        flag_number_note = `全音符`;
-    } else if (flag_number === 0.5) {
-        flag_number_note = `倍全音符`;
-    } else if (flag_number === 0.25) {
-        flag_number_note = `ロンガ`;
-    } else if (flag_number === 0.125) {
-        flag_number_note = `マキシマ`;
-    } else {
-        flag_number_note = `${flag_number}分音符`;
-    };
-
-    let flag_number_minusone_note;
-    if (flag_number_minusone === 1) {
-        flag_number_minusone_note = `全音符`;
-    } else if (flag_number_minusone === 0.5) {
-        flag_number_minusone_note = `倍全音符`;
-    } else if (flag_number_minusone === 0.25) {
-        flag_number_minusone_note = `ロンガ`;
-    } else if (flag_number_minusone === 0.125) {
-        flag_number_minusone_note = `マキシマ`;
-    } else {
-        flag_number_minusone_note = `${flag_number_minusone}分音符`;
-    };
+    //音符の表示形式を決定する処理（特定の数字の分音符の場合、表記を修正する関数）
+    let flag_number_note = NoteNameEdit(flag_number);
+    let flag_number_minusone_note = NoteNameEdit(flag_number_minusone);
 
     if (rhythm_tuplet_type === ratio || note_count <= 0) {
         document.getElementById("flag_text").innerHTML = "";
