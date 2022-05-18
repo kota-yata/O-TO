@@ -20,7 +20,7 @@ const chordProgOne =
     { name: "ポップパンク進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅳ", info: "洋楽でおそらく最もポピュラーな進行。邦楽ではⅣから始めたバージョンが重宝されがち。", url: "https://youtu.be/L0MK7qz13bU?t=64" },
     { name: "賞味期限なし", chord: "Ⅰ-Ⅴ-Ⅳ-Ⅴ", info: "結局ここに帰ってくる。", url: "" },
     { name: "カノン進行", chord: "Ⅰ-Ⅴ-Ⅵm-Ⅲm-Ⅳ-Ⅰ-Ⅱm-Ⅴ", info: "王道で美しい曲を作りたいならこれ！", url: "https://youtu.be/NlprozGcs80?t=126" },
-    { name: "燦然と輝く", chord: "Ⅰ-Ⅴ-♭Ⅶ-Ⅳ-♭Ⅵ-Ⅰ-Ⅱ-Ⅴ", info: "ツーファイブの動きを多く取り入れた美しい進行。", url: "https://open.spotify.com/track/0rIp51BFk96nFcMfBNKA3F?si=06b6069f87954608" },
+    { name: "燦然と輝く", chord: "Ⅰ-Ⅴ-♭Ⅶ-Ⅳ-♭Ⅵ-Ⅰ-Ⅱ-Ⅴ", info: "ツーファイブの動きを多く取り入れた美しい進行。", url: "https://youtu.be/lScuUaL_6cc?t=46" },
     { name: "なめらかカノン進行", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", info: "カノン進行のベースラインをなめらかに繋がるように変形したもの。", url: "" },
     { name: "ドラマチック", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅴm/♭Ⅶ-Ⅵ7-Ⅱm-#Ⅰaug-Ⅳ/Ⅰ-Ⅴ7/Ⅶ", info: "Ⅰメジャー始まりにもかかわらず、明るさ控え目。", url: "" },
     { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コード。", url: "" },
