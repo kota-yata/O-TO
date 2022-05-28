@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138258869-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138258869-1');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMRYHPQZCS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FMRYHPQZCS');
+    </script>
+
+    <!--文字エンコーディングの指定-->
+    <meta charset="utf-8">
+
+    <!--ページタイトル-->
+    <title>⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】</title>
+
+    <!--サイト情報-->
+    <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
+    <meta property="og:title" content="⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-reverse-lookup" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- 画像情報 -->
+    <meta property="og:image" content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup_thumbnail.png" />
+    <meta name="twitter:image"
+        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup_thumbnail.png" />
+
+    <!--ページの概要-->
+    <meta property="description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
+    <meta property="og:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
+    <meta name="keyword" content="音楽理論,音楽,指板,音階,指板構成音,スケール,コードネーム,コード,アプリ,ウェブアプリ,Webアプリ">
+
+    <!--Internet Explorer用の設定-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!--viewport設定(レスポンシブデザイン対応)-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--OGPタグ/Facebook-->
+    <meta property="fb:app_id" content="554281142516311">
+    <!--OGPタグ/note-->
+    <meta name="note:card" content="summary_large_image">
+
+    <!--OGPタグ/twitterカード-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@khufrudamonotes" />
+    <meta name="twitter:creator" content="@k1mu0419" />
+    <meta name="twitter:title" content="⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】" />
+    <meta property="twitter:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
+    <meta property="og:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
+
+    <!--サイトアイコンの指定-->
+    <meta name="msapplication-square70x70logo" content="image/icon/site-tile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="image/icon/site-tile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="image/icon/site-tile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="image/icon/site-tile-310x310.png">
+    <meta name="msapplication-TileColor" content="#0078d7">
+
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="image/icon/favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="image/icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="image/icon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="image/icon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="image/icon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="image/icon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="image/icon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image/icon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="image/icon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/icon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/icon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="36x36" href="image/icon/android-chrome-36x36.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="image/icon/android-chrome-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="image/icon/android-chrome-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image/icon/android-chrome-96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="image/icon/android-chrome-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="image/icon/android-chrome-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="image/icon/android-chrome-152x152.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/icon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="image/icon/android-chrome-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="image/icon/android-chrome-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="image/icon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="36x36" href="image/icon/icon-36x36.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="image/icon/icon-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="image/icon/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image/icon/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="image/icon/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="image/icon/icon-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="image/icon/icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="image/icon/icon-160x160.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/icon/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="image/icon/icon-196x196.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="image/icon/icon-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="image/icon/icon-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="image/icon/icon-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/icon/icon-16x16.png">
+    <link rel="icon" type="image/png" sizes="24x24" href="image/icon/icon-24x24.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/icon/icon-32x32.png">
+    <link rel="manifest" href="image/icon/manifest.json">
+
+    <!-- AdSense コード -->
+    <script data-ad-client="ca-pub-1796975428667007" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- headのコンポーネントを読み込む -->
+    <div id="head">
+        <head-template></head-template>
+    </div>
+
+    <!--bootstrap を読み込む-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Vue を読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ヘッダー -->
+        <header id="header">
+            <header-template></header-template>
+        </header>
+
+        <!-- メイン -->
+        <main>
+
+            <!-- 見出し -->
+            <div id="display">
+                <title-display></title-display>
+            </div>
+
+            <!-- 左(メインコンテンツ) -->
+
+            <h3 class="Larger shadow p-3 rounded mb-5 py-3">⑪指板からコード・ネームやスケール名を逆引きする</h3>
+
+            <!-- タブの中身 -->
+            <div id="tabBox" class=" pb-3">
+                <!-- タブの切り替えボタン -->
+                <div id="tabs">
+                    <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                    <label for="tab1">ガイド</label>
+                    <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                    <label for="tab2">説明書</label>
+                    <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+                    <label for="tab3">関連資料</label>
+                </div>
+
+                <div id="contents">
+
+                    <!-- タブ1の中身 -->
+                    <div v-if="isActive == '1'">
+                        <p class="pt-3 pb-2">コードやスケールの「指板上のポジション」を可視化するアプリです。<br>ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。</p>
+                        <p class="py-2">※このアプリの使い方を紹介した動画(YouTube)→<a href="https://youtu.be/JeT18JKRbnQ?t=625"
+                                target="_blank" rel="noopener noreferrer">「指板の音」を理解させます</span></a></p>
+                    </div>
+
+
+                    <!-- タブ2の中身 -->
+                    <div v-if="isActive == '2'" class="pb-2">
+
+                        <p class="py-2">弦楽器は、音名とポジションを把握しづらいです。<br>
+                            なぜなら、同じ音が複数の場所にあり、チューニングによってポジションも変化するためです。 </p>
+
+                        <p class="py-2">もちろん、主要なコードやスケールのポジションなら暗記している方も多いと思います。<br>
+                            しかし、一般的な人間の記憶力には限度があります。</p>
+
+                        <p class="py-2">たとえば、今すぐ指板上に<b>"F ダブル・ハーモニック・スケール"</b>のポジションをイメージできますか？ </p>
+                        <p class="py-2">…僕は無理です。笑</p>
+
+                        <p class="py-2">このアプリは、そんな悩みを解決するために作りました。<br>
+                            ――もう、いちいちメモを書く必要はありません。</p>
+
+                        <h4 class="pt-3 manual">【チューニングの種類】</h4>
+                        <p class="py-2"><b>ギター、ベース、ヴァイオリン</b>など主な弦楽器のチューニングをまとめました。<br>
+                            リストから選ぶだけで、対応した指板が描画されます。</p>
+                        <p class="py-2">調べたいチューニングがリストに無い場合は、画面下部の「チューニングの設定」から変更できます。</p>
+
+                        <h4 class="pt-3 manual">【利き手】</h4>
+                        <p class="py-2">画面下部の「利き手の切り替え」から右利きと左利き表示を変更できます。</p>
+
+                        <h4 class="pt-3 manual">【フレットの数】</h4>
+                        <p class="py-2">1~30の間で指定できます。</p>
+
+                        <h4 class="pt-3 manual">【音名の表記】</h4>
+                        <p class="py-2">指板の音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。</p>
+                        <p class="py-2">初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
+
+                        <h4 class="pt-3 manual">【コードとスケールの指定】</h4>
+                        <p class="py-2">コードとスケールのリストは、「○○画面へ」ボタンをタップして切り替えます。</p>
+
+                        <h4 class="pt-3 manual">【色付けのルール】</h4>
+                        <p class="py-2">指定したトニック(ルート音)に対して、移動ド的に色付けされます。<br>
+                            たとえば、トニック(ルート音)は<span class="Degree0">青色</span>、完全5度は<span class="Degree7">黄色</span>です。</p>
+                        <p class="py-2">そして、異名同音は同じ色です。<br>
+                            たとえば、長3度と減4度はどちらも<span class="Degree4">緑色</span>です。</p>
+
+                        <h4 class="pt-3 manual">【想定している用途】</h4>
+                        <lu class="py-2">
+                            <li>音名・ポジションの把握</li>
+                            <li>運指の選定</li>
+                            <li>作曲やアレンジの資料</li>
+                            <li>レッスンの教材</li>
+                        </lu>
+
+                        <h4 class="pt-3 manual">【指板の画像をダウンロード】</h4>
+                        <p class="py-2">「指板の画像をダウンロード」をクリックすると、指板の画像をダウンロードできます。<br>(※PC限定
+                            ブラウザはGoogleクローム推奨)<br>スクリーンショットを撮るのが面倒な方は、ご活用ください。</p>
+
+                        <h4 class="pt-3 manual">【コードの情報】</h4>
+                        <p class="py-2">コード画面では、コードの読み方、詳細情報が表示されます。<br>ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
+
+                        <h4 class="pt-3 manual">【コードの構成音を含む主なスケール】</h4>
+                        <p class="py-2">
+                            コードは、前後の流れや使われているキーに対しての立ち位置によって役割が変わります。<br>コードの構成音を含む主なスケールの情報は、モーダル・インターチェンジや、転調をする際の参考になるでしょう。
+                        </p>
+
+                        <h4 class="pt-3 manual">【スケールの情報】</h4>
+                        <p class="py-2">スケール画面では、スケールの名前や、情報が表示されます。</p>
+
+                        <h4 class="pt-3 manual">【Forte numberとは？】</h4>
+                        <p class="py-2">Allen Forteが提唱した、「3音以上からなる音階の集合に割り当てられた数」です。</p>
+                        <p class="py-2">同一のForte numberを持つ<b>"スケールの構成音の構造"</b>が等しくなる仕組みになっています。<br>
+                            たとえば、メジャー・スケールとナチュラル・マイナー・スケールは、<b>スタート位置が違うだけで同じ音の飛び方</b>をしています。</p>
+                        <p class="py-2">したがって、メジャー・スケールとナチュラル・マイナー・スケールは同じForte number「<b>7-35</b>」が割り当てられています。</p>
+
+                        <h4 class="pt-3 manual">【Scale numberとは？】</h4>
+                        <p class="py-2">「"スケールの構成音を12桁の2進数として表した数"を10進数に変換した数字」です。</p>
+                        <p class="py-2">たとえば、Cメジャー・スケール(ドレミファソラシ)を例に考えてみましょう。</p>
+                        <p class="py-2">スケールの構成音を「1」、そうでない音を「0」とすると、Cメジャー・スケールは「10101011010101」と表せますよね。<br>
+                            この「10101011010101」を2進数として処理するために逆に並べ替えます。</p>
+                        <p class="py-2">並べ替えた「101011010101」を10進数に変換すると「2741」になるので、メジャースケールのScale
+                            numberは「<b>2741</b>」になります。</p>
+
+                        <h4 class="pt-3 manual">【異名同音について】</h4>
+                        <p class="pt-2">※このページでは、厳密な異名同音の区別を行っていません。<br>→
+                            <a href="https://khufrudamonotes.com/enharmonic" target="_blank"
+                                rel="noopener noreferrer">異名同音を解説します【「ド#」と「レ♭」との違いとは？】</a>
+                        </p>
+                    </div>
+
+                    <!-- タブ3の中身 -->
+                    <div v-if="isActive == '3'" class="pb-2">
+                        <div class="py-2">・
+                            <a href="https://youtu.be/JeT18JKRbnQ" target="_blank"
+                                rel="noopener noreferrer">「指板の音」を理解させます</span></a>
+                            <p>指板の音を理解する方法と、このアプリの使い方の紹介動画です。</p>
+                        </div>
+                        <div class="pt-3 pb-2">・
+                            <a href="https://khufrudamonotes.com/useful-guitar-chords" target="_blank"
+                                rel="noopener noreferrer">ギター初心者が覚えるべきコード7つと その理由【TAB譜あり】</span></a>
+                            <p>伴奏や弾き語りで使えるオススメのコードを、厳選してまとめた記事です。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://gum.co/musictheory-mindmap" target="_blank"
+                                rel="noopener noreferrer">開放弦を使わないギターコード表</span></a>
+                            <p>30種類以上のコードの「開放弦を使わないコードフォーム」をまとめた楽譜(TAB併記)pdfです。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://gum.co/musictheory-mindmap" target="_blank"
+                                rel="noopener noreferrer">開放弦を使ったギターコード表</span></a>
+                            <p>「開放弦を使ったコードフォーム」を大量にまとめた楽譜(TAB併記)pdfです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <div>
+                    <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
+                        <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
+                            onchange="FingerboardGo()">
+                        </select>
+                    </label>
+
+                    <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
+                        <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
+                            onchange="FingerboardGo()">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                            <option value=11>11</option>
+                            <option value=12>12</option>
+                            <option value=13>13</option>
+                            <option value=14>14</option>
+                            <option value=15>15</option>
+                            <option value=16>16</option>
+                            <option value=17>17</option>
+                            <option value=18>18</option>
+                            <option value=19>19</option>
+                            <option value=20>20</option>
+                            <option value=21>21</option>
+                            <option value=22>22</option>
+                            <option value=23>23</option>
+                            <option value=24 selected>24</option>
+                            <option value=25>25</option>
+                            <option value=26>26</option>
+                            <option value=27>27</option>
+                            <option value=28>28</option>
+                            <option value=29>29</option>
+                            <option value=30>30</option>
+                        </select>
+                    </label>
+
+                    <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
+                        <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+                            onchange="FingerboardGo()">
+                            <option value=0>英・米式表記</option>
+                            <option value=1>イタリア式表記</option>
+                            <option value=2>日本式表記</option>
+                            <option value=3>ドイツ式表記</option>
+                        </select>
+                    </label>
+                </div>
+
+            </div>
+
+            <div id="target">
+                <!-- フレットボードをJavaScriptで描画する -->
+                <table id="Fingerboard"></table>
+            </div>
+
+            <div class="accordion py-3" id="accordionExample">
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        チューニングの設定/利き手の切り替え
+                    </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- 弦のチューニング設定をJavaScriptで描画する -->
+                            <div>
+                                <div id="Tuning">
+                                </div>
+                                <label for="NumberOfStrings" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">弦の本数<br>
+                                    <select id="NumberOfStrings" class="form-select my-1"
+                                        aria-label="Default select example" onchange="NumberOfStringsManually()">
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
+                                        <option value=6 selected>6</option>
+                                        <option value=7>7</option>
+                                        <option value=8>8</option>
+                                        <option value=9>9</option>
+                                        <option value=10>10</option>
+                                    </select>
+                                </label>
+                                <label for="DominantHand" class="box2 col-md-4 col-xl-3 pt-2 pb-2 mx-1">利き手の切り替え<br>
+                                    <select id="DominantHand" class="form-select my-1"
+                                        aria-label="Default select example" onchange="NumberOfStringsManually()">
+                                        <option value=0 selected>右利き用</option>
+                                        <option value=1>左利き用</option>
+                                    </select>
+                                </label>
+                                <div>※弦の本数は「チューニングの種類」で選択された項目が優先されます。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- コード画面とスケール画面それぞれの情報をJavaScriptで描画する -->
+                <div id="InformationBlock"></div>
+            </div>
+
+            <div id="link-table">
+                <link-table></link-table>
+            </div>
+
+
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <footer id="footer">
+        <footer-profile></footer-profile>
+        <footer-github></footer-github>
+        <footer-bug></footer-bug>
+        <footer-info></footer-info>
+        <footer-twitter></footer-twitter>
+        <footer-youtube></footer-youtube>
+        <site-logo></site-logo>
+        <footer-copyright></footer-copyright>
+    </footer>
+
+    <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
+    <data id="do_app" value=0></data>
+
+    <!--ページのロードが終了したときに実行される関数 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+
+        });
+
+    </script>
+
+    <!-- JavaScriptを読み込む-->
+    <script src="js/Vue.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ScaleChord.js"></script>
+    <script src="js/ReverseLookup.js"></script>
+
+
+    <!-- シェアボタン用のJavaScript -->
+    <!-- Twitter -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- facebook -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0"
+        nonce="s28FkDyH"></script>
+    <!-- note -->
+    <script async src="https://cdn.st-note.com/js/social_button.min.js"></script>
+    <!-- はてなブックマーク -->
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8"
+        async="async"></script>
+    <!-- Pocket -->
+    <script
+        type="text/javascript">!function (d, i) { if (!d.getElementById(i)) { var j = d.createElement("script"); j.id = i; j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1"; var w = d.getElementById(i); d.body.appendChild(j); } }(document, "pocket-btn-js");</script>
+    <!-- Line -->
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
+        defer="defer"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
