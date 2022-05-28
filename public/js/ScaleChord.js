@@ -337,10 +337,8 @@ function degree_position_drow(root_position) {
 
 
 //コード・ネームの情報を判定する関数
-function ChordCandidateInfo(onoff) {
+function ChordCandidateInfo(onoff, RootNumber) {
 
-    //ルートの音の値を取得
-    let RootNumber = Number(document.getElementById("rootNumber").value);
     let SOF;
 
     //コードネームに合わせて度数表記を描画する関数
@@ -656,7 +654,6 @@ function ChordCandidateInfo(onoff) {
     };
 };
 
-
 //コードの情報を処理して書き込む関数(コードで使用)
 function ChordNoteSwitch() {
     //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
@@ -672,8 +669,10 @@ function ChordNoteSwitch() {
             onoff.splice(i, 1, 1);
         };
     };
+    //ルートの音の値を取得
+    let RootNumber = Number(document.getElementById("rootNumber").value);
     //コード・ネームの情報を判定する関数
-    ChordCandidateInfo(onoff);
+    ChordCandidateInfo(onoff, RootNumber);
 
     //構成音を着色する関数
     NoteNameColoring(onoff);
@@ -816,7 +815,7 @@ function ModalTextCreate() {
     };
 
     //コード・ネームの情報を判定する関数
-    ChordCandidateInfo(onoff);
+    ChordCandidateInfo(onoff, RootNumber);
 
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
     ModalCandidateSelect();
@@ -910,8 +909,10 @@ function NoteSwitch(Num) {
     };
     //構成音を着色する関数（コードスケール検索用）
     SearchNoteNameColoring(onoff)
+    //ルートの音の値を取得
+    let RootNumber = Number(document.getElementById("rootNumber").value);
     //コード・ネームの情報を判定する関数
-    ChordCandidateInfo(onoff);
+    ChordCandidateInfo(onoff, RootNumber);
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替えをする関数(コード・コード/モード検索用)
     ModalCandidateSelect(onoff);
 };

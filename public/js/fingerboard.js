@@ -745,7 +745,7 @@ function FletCreate(NumberOfStrings) {
         };
 
         //コード・ネームの情報を判定する関数
-        ChordCandidateInfo(onoff);
+        ChordCandidateInfo(onoff, RootNumber);
         //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
         CreateCandidate();
         ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)

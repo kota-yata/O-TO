@@ -6,15 +6,17 @@ function FingerboardGo() {
     //フレットの数を取得する
     let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     let StringsCount = 6;
+
+    let st_array = [64, 59, 55, 50, 45, 40];
     let st = 1;
+    console.log(st)
     for (let i = 0; i < StringsCount; i++) {
-        let NoteNumber = 0;
+        let MIDI_note_number = st_array[i] + FletCount;
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
-
             document.getElementById(`${st}_string`)
-                .insertAdjacentHTML('afterbegin', `<th id="FretNumber-${st}-${FletCount - i}" class="DegreeBlack" onclick="NoteOnOff(${NoteNumber})"></th>`);
-            NoteNumber++;
+                .insertAdjacentHTML('afterbegin', `<th id="FretNumber-${st}-${FletCount - i}" class="NoteName_Switch_Search NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})"></th>`);
+            MIDI_note_number--;
         };
         //フレットボードの左端に、何弦かを表す数字とidを書き込む。
         document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id = "StringsNumber-${st}"> ${st}</th>`);
@@ -26,14 +28,65 @@ FingerboardGo();
 
 let FingerboardOnOff = [];
 
-function NoteOnOff(NoteNumber) {
-    console.log({ Num });
+//2つの数を比較して大きい方を返す関数。
+function aryMax(a, b) {
+    return Math.max(a, b);
+};
 
-    if (onoff[Num] === 0) {
-        onoff[Num] = 1;
-    } else if (onoff[Num] === 1) {
-        onoff[Num] = 0;
+//2つの数を比較して小さい方を返す関数。
+function aryMin(a, b) {
+    return Math.min(a, b);
+};
+
+
+function NoteOnOff(st, Flet, MIDI_note_number) {
+
+    //フレットボードの色を変更する
+    document.getElementById(`FretNumber-${st}-${Flet}`).classList.toggle("NoteName_Switch_Search");
+    let Toggle_status = document.getElementById(`FretNumber-${st}-${Flet}`).classList.toggle("DegreeBlack");
+
+    if (Toggle_status === false) {
+        //配列に該当のMIDIノートナンバーを追加する。
+        FingerboardOnOff.push(MIDI_note_number);
+    } else {
+        //配列から該当のMIDIノートナンバーを削除する。
+        FingerboardOnOff.splice(FingerboardOnOff.indexOf(MIDI_note_number), 1);
     };
+
+    let PitchClassOnOff;
+    let RootNumber;
+    if (FingerboardOnOff.length > 0) {
+        //2つの数を比較して小さい方を返す関数
+        RootNumber = FingerboardOnOff.reduce(aryMin);
+        //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）
+        RootNumber = mod(RootNumber, 12);
+    };
+
+    //音名スイッチのオンオフ状態を格納する配列
+    let OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //ベース音（一番低い音）を判定する
+
+    //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）
+    PitchClassOnOff = FingerboardOnOff.map(function (a) {
+        return mod(a, 12);
+    });
+
+    //ピッチクラスが存在する場合、配列OnOffに1を代入する。
+    for (let i = 0; i < PitchClassOnOff.length; i++) {
+        OnOff[PitchClassOnOff[i]] = 1;
+    };
+
+    console.log({
+        PitchClassOnOff, RootNumber, OnOff
+    });
+
+    ChordCandidateInfo(OnOff, RootNumber);
+
+    // if (onoff[Num] === 0) {
+    //     onoff[Num] = 1;
+    // } else if (onoff[Num] === 1) {
+    //     onoff[Num] = 0;
+    // };
 }
 
 
