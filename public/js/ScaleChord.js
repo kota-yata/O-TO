@@ -302,8 +302,8 @@ const Degree_Tension_array = [
 
 //コードネームに合わせて度数表記を描画する関数
 function degree_position_drow(root_position) {
-    let do_app = Number(document.getElementById("do_app").value);
-    if (do_app === 0) {
+    //指板の時は処理を実行しない
+    if (Number(document.getElementById("do_app").value) === 0 || Number(document.getElementById("do_app").value) === 1) {
         return;
     };
     let Num = 0;
@@ -334,7 +334,6 @@ function degree_position_drow(root_position) {
         Num++
     };
 };
-
 
 //コード・ネームの情報を判定する関数
 function ChordCandidateInfo(onoff, RootNumber) {
@@ -581,7 +580,8 @@ function ChordCandidateInfo(onoff, RootNumber) {
                 //コードネームに合わせて度数表記を描画する関数
                 degree_position_drow(mod(RootNum, 12));
                 //マッチするものが見つかった場合はここでreturn
-                return;
+                let BassNumber = mod(RootNum, 12);
+                return BassNumber;
             };
             //見つからなかったので、コードネームを格納した配列から、次のコードとマッチするか調べる。
             Num++

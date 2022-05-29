@@ -1,33 +1,5 @@
 'use strict';
 
-
-function FingerboardGo() {
-    RightyFingerboardCreate();
-    //フレットの数を取得する
-    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
-    let StringsCount = 6;
-
-    let st_array = [64, 59, 55, 50, 45, 40];
-    let st = 1;
-    console.log(st)
-    for (let i = 0; i < StringsCount; i++) {
-        let MIDI_note_number = st_array[i] + FletCount;
-        // フレットの数だけfor文で音名を書き込む
-        for (let i = 0; i < FletCount + 1; i++) {
-            document.getElementById(`${st}_string`)
-                .insertAdjacentHTML('afterbegin', `<th id="FretNumber-${st}-${FletCount - i}" class="NoteName_Switch_Search NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})"></th>`);
-            MIDI_note_number--;
-        };
-        //フレットボードの左端に、何弦かを表す数字とidを書き込む。
-        document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id = "StringsNumber-${st}"> ${st}</th>`);
-        st++;
-    };
-};
-
-FingerboardGo();
-
-let FingerboardOnOff = [];
-
 //2つの数を比較して大きい方を返す関数。
 function aryMax(a, b) {
     return Math.max(a, b);
@@ -38,23 +10,92 @@ function aryMin(a, b) {
     return Math.min(a, b);
 };
 
+//配列を定義する。
+let FingerboardOnOff = [];
+let FingerboardPosition = [];
+let MIDI_note_number;
+let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
+// --------------------------------------------------------------------------
+CreateTuningVariation();
+FingerboardGo();
 
+//フレットボードの要素を描画する関数
+function FingerboardGo() {
+
+    //ポジションを格納した配列をリセットする
+    FingerboardOnOff = [];
+    FingerboardPosition = [];
+
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    let TuningVariation = document.getElementById("TuningVariation").value.split(':');
+
+    //
+    let StringsCount;
+    st_array = TuningVariation[0].split('-');
+    //弦の本数得る
+    StringsCount = st_array.length;
+    console.log(st_array, TuningVariation[0]);
+
+    //フレットの数を取得する
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+    let key_signature_names = Number(document.getElementById("key_signature_names").value);
+    let st = 1;
+
+    if (Number(document.getElementById('DominantHand').value) === 1) {
+        // 左利き用の指板要素を描画
+        LeftyFingerboardCreate();
+        for (let i = 0; i < StringsCount; i++) {
+            //フレットボードの右端に、何弦かを表す数字とidを書き込む。
+            document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id = "StringsNumber-${st}">${st}</th>`);
+            MIDI_note_number = Number(st_array[i]);
+            // フレットの数だけfor文で音名を書き込む
+            for (let i = 0; i < FletCount + 1; i++) {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin',
+                        `<th id="FretNumber-${st}-${i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                MIDI_note_number++;
+            };
+            st++;
+        };
+    } else {
+        // 右利き用の指板要素を描画
+        RightyFingerboardCreate();
+        for (let i = 0; i < StringsCount; i++) {
+            MIDI_note_number = Number(st_array[i]) + FletCount;
+            // フレットの数だけfor文で音名を書き込む
+            for (let i = 0; i < FletCount + 1; i++) {
+                document.getElementById(`${st}_string`)
+                    .insertAdjacentHTML('afterbegin',
+                        `<th id="FretNumber-${st}-${FletCount - i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                MIDI_note_number--;
+            };
+            //フレットボードの左端に、何弦かを表す数字とidを書き込む。
+            document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id = "StringsNumber-${st}">${st}</th>`);
+            st++;
+        };
+    };
+};
+
+//選択した音名の情報を元に色々な処理をする関数
 function NoteOnOff(st, Flet, MIDI_note_number) {
+    //変数を定義
+    let PitchClassOnOff;
+    let RootNumber = 0;
 
     //フレットボードの色を変更する
-    document.getElementById(`FretNumber-${st}-${Flet}`).classList.toggle("NoteName_Switch_Search");
     let Toggle_status = document.getElementById(`FretNumber-${st}-${Flet}`).classList.toggle("DegreeBlack");
 
     if (Toggle_status === false) {
         //配列に該当のMIDIノートナンバーを追加する。
         FingerboardOnOff.push(MIDI_note_number);
+        FingerboardPosition.push(`FretNumber-${st}-${Flet}`);
+        console.log({ FingerboardPosition })
     } else {
         //配列から該当のMIDIノートナンバーを削除する。
         FingerboardOnOff.splice(FingerboardOnOff.indexOf(MIDI_note_number), 1);
+        FingerboardPosition.splice(FingerboardPosition.indexOf(`FretNumber-${st}-${Flet}`), 1);
     };
 
-    let PitchClassOnOff;
-    let RootNumber;
     if (FingerboardOnOff.length > 0) {
         //2つの数を比較して小さい方を返す関数
         RootNumber = FingerboardOnOff.reduce(aryMin);
@@ -66,9 +107,9 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     let OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //ベース音（一番低い音）を判定する
 
-    //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）
+    //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
-        return mod(a, 12);
+        return mod(a - RootNumber, 12);
     });
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
@@ -76,117 +117,112 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         OnOff[PitchClassOnOff[i]] = 1;
     };
 
-    console.log({
-        PitchClassOnOff, RootNumber, OnOff
-    });
-
-    ChordCandidateInfo(OnOff, RootNumber);
-
-    // if (onoff[Num] === 0) {
-    //     onoff[Num] = 1;
-    // } else if (onoff[Num] === 1) {
-    //     onoff[Num] = 0;
-    // };
-}
-
-
-
-//右利き用フィンガーボードの要素を描画する関数
-function RightyFingerboardCreate() {
-    //一度フィンガーボードを空にする
-    document.getElementById("Fingerboard").innerHTML = ""
-    document.getElementById("Tuning").innerHTML = ""
-
-    //下段のフレットナンバーのtr(行)要素をtableに書き込む。
-    //フレットの数を取得する
-    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
-    let Num = FletCount;
-    //下の方のフレットナンバー
-    document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberLower"></tr>`)
-    for (let i = 0; i < FletCount + 2; i++) {
-        //ポジションマークの数字の色を変える
-        if (Num === 0
-            || Num === 3
-            || Num === 5
-            || Num === 7
-            || Num === 9
-            || Num === 12
-            || Num === 15
-            || Num === 17
-            || Num === 19
-            || Num === 21
-            || Num === 24
-            || Num === 27
-            || Num === 29) {
-            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay">${Num}</th>`)
-        } else if (Num < 0) {
-            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay"></th>`)
-        } else {
-            document.getElementById("FletNumberLower").insertAdjacentHTML('afterbegin', `<th class="FletNumber">${Num}</th>`)
-        }
-        Num--
+    //全ての色をリセットする
+    for (let i = 0; i < 12; i++) {
+        document.getElementById(`FretNumber-${st}-${Flet}`).classList.remove(`Degree${i}`);
     };
 
-    // //指定した弦の本数だけtr(行)要素をtableに書き込む。
-    StringsTable();
+    //コード・ネームの情報を判定する関数を実行し、返り値でルート音を取得する。
+    let BassNumber = ChordCandidateInfo(OnOff, RootNumber);
+    //コードが判定できないときはルート音はそのまま
+    if (BassNumber === undefined) {
+        BassNumber = 0;
+    };
 
-    //上段のフレットナンバーのtr(行)要素をtableに書き込む。
-    Num = FletCount;
-    //上の方のフレットナンバー
-    document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberUpper"></tr>`)
-    for (let i = 0; i < FletCount + 2; i++) {
-        //ポジションマークの数字の色を変える
-        if (Num === 0
-            || Num === 3
-            || Num === 5
-            || Num === 7
-            || Num === 9
-            || Num === 12
-            || Num === 15
-            || Num === 17
-            || Num === 19
-            || Num === 21
-            || Num === 24
-            || Num === 27
-            || Num === 29) {
-            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay">${Num}</th>`)
-        } else if (Num < 0) {
-            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumberInlay"></th>`)
-        } else {
-            document.getElementById("FletNumberUpper").insertAdjacentHTML('afterbegin', `<th class="FletNumber">${Num}</th>`)
-        }
-        Num--
+    //指板の色を度数表記に基づいて変更する。
+    for (let i = 0; i < FingerboardPosition.length; i++) {
+        //全ての色をリセットする
+        for (let k = 0; k < 12; k++) {
+            document.getElementById(`${FingerboardPosition[i]}`).classList.remove(`Degree${k}`);
+        };
+        document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
+    };
+
+    //この音の組み合わせを含む主なスケールを書き込む
+    if (FingerboardOnOff.length > 0) {
+        //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
+        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber + BassNumber, 12));
+    } else {
+        //モーダル・インターチェンジの候補をディグリー表記で表示する関数
+        ModalCandidateDegree();
     };
 };
 
-//指定した弦の本数だけtr(行)要素をtableに書き込む関数
-function StringsTable() {
-    let NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
-    let Num = NumberOfStrings;
-    for (let i = 0; i < NumberOfStrings; i++) {
-        document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
-            `<label for="StringTuning_${Num}" id="TuningString_${Num}" class="box1 col-md-1 col-xl-1 py-1 mx-1">【${Num}弦】
-            <select id="StringTuning_${Num}" class="form-select my-1" aria-label="Default select example"
-            onchange="FletCreate(${NumberOfStrings})">
-                <option value=0>C</option>
-                <option value=1>C#-D♭</option>
-                <option value=2>D</option>
-                <option value=3>D#-E♭</option>
-                <option value=4>E</option>
-                <option value=5>F</option>
-                <option value=6>F#-G♭</option>
-                <option value=7>G</option>
-                <option value=8>G#-A♭</option>
-                <option value=9>A</option>
-                <option value=10>A#-B♭</option>
-                <option value=11>B</option>
-            </select>
-            </label>
-        </tr>`)
+//モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
+function ReverseLookup_ModalTextAndNoteCreate(onoff, RootNumber) {
+    let Num = 0;
+    let use_scale_count = 0;
+    //スケールを表示する言語の情報を取得する。
+    let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
+    if (sigNameNum <= 3) {
+        for (let i = 0; i < scale_Container.length; i++) {
+            //配列を空にする。
+            ConfigurationNotes.splice(0);
+            //選択された音の組み合わせがスケールの構成音と一致するか判定する。
+            if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
+                && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
+                && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
+                && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
+                && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
+                && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
+                && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
+                && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
+                && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
+                && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
+                && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
+                && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
 
-        //弦のナンバーのtr(行)要素のidを書き込む
-        document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr class="box_border" id="${Num}_string"></tr>`)
-        Num--
+                let SOF;
+                //シャープとフラットの区別をする変数SOFに値を代入。
+                if (mod(RootNumber - scale_Container[Num]['addNum'], 12) == 0
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 2
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 4
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 6
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 7
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 9
+                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 11) {
+                    SOF = 0;
+                } else {
+                    SOF = 1;
+                };
+
+                //スケール構成音のバイナリを配列に格納する。
+                let Configuration = scale_Container[Num]['ScaleNumBinary']
+
+                //for文でスケールの構成音を生成する。
+                for (let i = 0; i < 12; i++) {
+                    //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+                    if (Configuration[i] === 0) {
+                        //取り出さない（何もしない）。
+                    } else if (Configuration[i] === 42) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][0]);
+                    } else if (Configuration[i] === 43) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][1]);
+                    } else if (Configuration[i] === 1) {
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][SOF]);
+                    } else {
+                        ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][sigNameNum][Number(Configuration[i])]);
+                    }
+                };
+
+                //スケールの情報をHTMLに書き込む。
+                if (scale_Container[Num]["Mode"] === "") {
+                    document.getElementById(`Modal_text_${Num}`).innerHTML
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
+                } else {
+                    document.getElementById(`Modal_text_${Num}`).innerHTML
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
+                };
+                use_scale_count++;
+            } else {
+                document.getElementById(`Modal_text_${Num}`).innerHTML = "";
+                document.getElementById(`Modal_text_${Num}`).className = "";
+            };
+            Num++
+        };
+    } else {
+        //構成音を表示しない
     };
+    document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${scale_Container.length}）`;
 };
 

@@ -1,48 +1,45 @@
 
-
 //主なチューニングタイプを格納した連想配列
 const TuningVariation = [
-    { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 4] },
-    { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11] },
-    { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 6] },
-    { TuningName: "　ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 3] },
-    { TuningName: "　ギター　6弦：全音下げ", NumberOfStrings: 6, StringTuningStrings: [2, 9, 5, 0, 7, 2] },
-    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10] },
-    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [3, 10, 6, 1, 8, 3, 10, 5] },
+    { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 40] },
+    { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35] },
+    { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30] },
+    { TuningName: "　ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 39] },
+    { TuningName: "　ギター　6弦：全音下げ", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 38] },
+    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34] },
+    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34, 29] },
 
-    { TuningName: "　ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [4, 11, 7, 2, 9, 2] },
-    { TuningName: "　ギター　6弦：ドロップC#", NumberOfStrings: 6, StringTuningStrings: [3, 10, 6, 1, 8, 1] },
-    { TuningName: "　ギター　6弦：ドロップC", NumberOfStrings: 6, StringTuningStrings: [2, 9, 5, 0, 7, 0] },
-    { TuningName: "　ギター　6弦：ドロップB", NumberOfStrings: 6, StringTuningStrings: [1, 8, 4, 11, 6, 11] },
-    { TuningName: "　ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 9, 2] },
+    { TuningName: "　ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 38] },
+    { TuningName: "　ギター　6弦：ドロップC#", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 37] },
+    { TuningName: "　ギター　6弦：ドロップC", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 36] },
+    { TuningName: "　ギター　6弦：ドロップB", NumberOfStrings: 6, StringTuningStrings: [61, 56, 52, 47, 42, 11] },
+    { TuningName: "　ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 45, 38] },
 
-    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9] },
-    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 11, 4] },
-    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [4, 11, 7, 2, 9, 4, 9, 4] },
+    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33] },
+    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 28] },
+    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33, 28] },
 
-    { TuningName: "　ギター　6弦：オープンD", NumberOfStrings: 6, StringTuningStrings: [2, 9, 6, 2, 9, 2] },
-    { TuningName: "　ギター　6弦：オープンG", NumberOfStrings: 6, StringTuningStrings: [2, 11, 7, 2, 7, 2] },
-    { TuningName: "　ギター　6弦：オープンA", NumberOfStrings: 6, StringTuningStrings: [4, 1, 9, 4, 9, 4] },
+    { TuningName: "　ギター　6弦：オープンD", NumberOfStrings: 6, StringTuningStrings: [62, 57, 54, 50, 45, 38] },
+    { TuningName: "　ギター　6弦：オープンG", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 43, 38] },
+    { TuningName: "　ギター　6弦：オープンA", NumberOfStrings: 6, StringTuningStrings: [64, 61, 57, 52, 45, 40] },
 
-    { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
-    { TuningName: "　ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 11] },
-    { TuningName: "　ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [0, 7, 2, 9, 4, 11] },
-    { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 2] },
-    { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [7, 2, 9, 4, 9] },
+    { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
+    { TuningName: "　ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 23] },
+    { TuningName: "　ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [48, 43, 38, 33, 28, 23] },
+    { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 26] },
+    { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 21] },
 
-    { TuningName: "★ヴァイオリン　4弦", NumberOfStrings: 4, StringTuningStrings: [4, 9, 2, 7] },
-    { TuningName: "　ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [4, 9, 2, 7, 0] },
-    { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
-    { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [9, 2, 7, 0] },
-    { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [7, 2, 9, 4] },
+    { TuningName: "★ヴァイオリン　4弦", NumberOfStrings: 4, StringTuningStrings: [76, 69, 62, 55] },
+    { TuningName: "　ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [76, 69, 62, 55, 48] },
+    { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [69, 62, 55, 48] },
+    { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [45, 38, 43, 36] },
+    { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
 
-    { TuningName: "★三味線　3弦：本調子", NumberOfStrings: 3, StringTuningStrings: [0, 5, 0] },
-    { TuningName: "　三味線　3弦：二上がり", NumberOfStrings: 3, StringTuningStrings: [0, 7, 0] },
-    { TuningName: "　三味線　3弦：三下がり", NumberOfStrings: 3, StringTuningStrings: [10, 5, 0] },
+    { TuningName: "★三味線　3弦：本調子（主音ド）", NumberOfStrings: 3, StringTuningStrings: [72, 65, 60] },
+    { TuningName: "　三味線　3弦：二上がり（主音ド）", NumberOfStrings: 3, StringTuningStrings: [72, 67, 60] },
+    { TuningName: "　三味線　3弦：三下がり（主音ド）", NumberOfStrings: 3, StringTuningStrings: [74, 65, 60] },
 
-    { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [9, 4, 0, 7] },
-
-    { TuningName: "★二胡　2弦：スタンダード", NumberOfStrings: 2, StringTuningStrings: [9, 2] }
+    { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [69, 64, 60, 67] },
 ];
 
 //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数(指板用)
@@ -315,33 +312,53 @@ function ScaleAndChordsDrowing() {
 
 //指定した弦の本数だけtr(行)要素をtableに書き込む関数
 function StringsTable() {
-    // NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
-    Num = NumberOfStrings;
-    for (let i = 0; i < NumberOfStrings; i++) {
-        document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
-            `<label for="StringTuning_${Num}" id="TuningString_${Num}" class="box1 col-md-1 col-xl-1 py-1 mx-1">【${Num}弦】
-            <select id="StringTuning_${Num}" class="form-select my-1" aria-label="Default select example"
-            onchange="FletCreate(${NumberOfStrings})">
-                <option value=0>C</option>
-                <option value=1>C#-D♭</option>
-                <option value=2>D</option>
-                <option value=3>D#-E♭</option>
-                <option value=4>E</option>
-                <option value=5>F</option>
-                <option value=6>F#-G♭</option>
-                <option value=7>G</option>
-                <option value=8>G#-A♭</option>
-                <option value=9>A</option>
-                <option value=10>A#-B♭</option>
-                <option value=11>B</option>
-            </select>
-            </label>
-        </tr>`)
 
+    let NumberOfStrings;
+
+    if (Number(document.getElementById("do_app").value) === 0) {
+        //⑩弦楽器の指板を可視化するの処理
+        NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
+    } else if (Number(document.getElementById("do_app").value) === 1) {
+        //⑪指板からコード・ネームやスケール名を逆引きする
+
+        //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+        let TuningVariation = document.getElementById("TuningVariation").value.split(':');
+
+        //弦の本数を設定する
+        let StringsCount = TuningVariation[0].split('-');
+        NumberOfStrings = StringsCount.length;
+    };
+
+    let Num = NumberOfStrings;
+
+    for (let i = 0; i < NumberOfStrings; i++) {
+        //⑩弦楽器の指板を可視化するの時だけ実行する
+        if (Number(document.getElementById("do_app").value) === 0) {
+            document.getElementById("Tuning").insertAdjacentHTML('afterbegin',
+                `<label for="StringTuning_${Num}" id="TuningString_${Num}" class="box1 col-md-1 col-xl-1 py-1 mx-1">【${Num}弦】
+                <select id="StringTuning_${Num}" class="form-select my-1" aria-label="Default select example"
+                onchange="FletCreate(${NumberOfStrings})">
+                    <option value=0>C</option>
+                    <option value=1>C#-D♭</option>
+                    <option value=2>D</option>
+                    <option value=3>D#-E♭</option>
+                    <option value=4>E</option>
+                    <option value=5>F</option>
+                    <option value=6>F#-G♭</option>
+                    <option value=7>G</option>
+                    <option value=8>G#-A♭</option>
+                    <option value=9>A</option>
+                    <option value=10>A#-B♭</option>
+                    <option value=11>B</option>
+                </select>
+                </label>
+            </tr>`)
+        };
         //弦のナンバーのtr(行)要素のidを書き込む
         document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr class="box_border" id="${Num}_string"></tr>`)
         Num--
     };
+
 };
 
 //左利き用フィンガーボードの要素を描画する関数
@@ -352,8 +369,8 @@ function LeftyFingerboardCreate() {
 
     //下段のフレットナンバーのtr(行)要素をtableに書き込む。
     //フレットの数を取得する
-    FletCount = Number(document.getElementById(`NumberOfFlet`).value);
-    Num = -1;
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+    let Num = -1;
     //下の方のフレットナンバー
     document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberLower"></tr>`)
     for (let i = 0; i < FletCount + 2; i++) {
@@ -420,8 +437,8 @@ function RightyFingerboardCreate() {
 
     //下段のフレットナンバーのtr(行)要素をtableに書き込む。
     //フレットの数を取得する
-    FletCount = Number(document.getElementById(`NumberOfFlet`).value);
-    Num = FletCount;
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+    let Num = FletCount;
     //下の方のフレットナンバー
     document.getElementById("Fingerboard").insertAdjacentHTML('afterbegin', `<tr id="FletNumberLower"></tr>`)
     for (let i = 0; i < FletCount + 2; i++) {
@@ -538,7 +555,6 @@ function LeftyToneNameCreate() {
     };
 };
 
-
 //フレット上の音名を描画する関数
 function FletCreate(NumberOfStrings) {
     //ルート音の情報を取得する。
@@ -554,7 +570,7 @@ function FletCreate(NumberOfStrings) {
     onoff = value[0].split('/').map(Number);
 
     //音名の表記方法を取得する
-    key_signature_names = Number(document.getElementById(`key_signature_names`).value);
+    let key_signature_names = Number(document.getElementById(`key_signature_names`).value);
 
     //コード画像かスケール画面かを判定する値
     ScaleAndChordsDrowingSwitch = Number(document.getElementById("ScaleAndChordsChangeButton").value);
@@ -763,7 +779,6 @@ function FletCreate(NumberOfStrings) {
     return Configuration;
 };
 
-
 //利き手を判定する関数
 function decide_which_hand() {
 
@@ -777,12 +792,11 @@ function decide_which_hand() {
 
 };
 
-
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function FingerboardDataInfo() {
 
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    let TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    let TuningData = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
     let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
     let TuningInfo = TuningVariationValue[0].split('-').map(Number);
@@ -808,7 +822,8 @@ function FingerboardDataInfo() {
     StringsTuning = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningData[i];
+            //mod12でチューニングを指定する。
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], 12);
         };
     };
 
@@ -844,15 +859,13 @@ function NumberOfStringsManually() {
     StringsTuning = TuningVariation;
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = TuningData[i];
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], 12);
         };
     };
 
     //フレット上の音名を描画する関数
     FletCreate(NumberOfStrings);
 };
-
-
 
 //チューニングの選択肢を表示するためのHTML要素(option)を追加するための関数
 function CreateTuningVariation() {
@@ -874,8 +887,6 @@ function CreateTuningVariation() {
 
 };
 
-
-
 //弦のチューニングを決定する関数
 function Tuning(NumberOfStrings) {
 
@@ -884,7 +895,6 @@ function Tuning(NumberOfStrings) {
 
     //弦の本数を設定する
     StringsNum = Number(TuningValue[1]) - 1;
-    console.log(StringsNum);
     document.getElementById("NumberOfStrings").selectedIndex = TuningVariation[StringsNum]['NumberOfStrings'];
 
     //チューニングを変更する
