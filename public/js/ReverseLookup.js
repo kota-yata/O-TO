@@ -29,12 +29,10 @@ function FingerboardGo() {
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
     let TuningVariation = document.getElementById("TuningVariation").value.split(':');
 
-    //
     let StringsCount;
     st_array = TuningVariation[0].split('-');
     //弦の本数得る
     StringsCount = st_array.length;
-    console.log(st_array, TuningVariation[0]);
 
     //フレットの数を取得する
     let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
@@ -89,7 +87,6 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         //配列に該当のMIDIノートナンバーを追加する。
         FingerboardOnOff.push(MIDI_note_number);
         FingerboardPosition.push(`FretNumber-${st}-${Flet}`);
-        console.log({ FingerboardPosition })
     } else {
         //配列から該当のMIDIノートナンバーを削除する。
         FingerboardOnOff.splice(FingerboardOnOff.indexOf(MIDI_note_number), 1);

@@ -61,7 +61,9 @@ Vue.component('header-template', {
           <li class="nav-item">
             <a class="nav-link" href="o-to-fingerboard.html">⑩指板</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-reverse-lookup.html">⑪逆引き指板</a>
+          </li>
         </ul>
       </div>
 

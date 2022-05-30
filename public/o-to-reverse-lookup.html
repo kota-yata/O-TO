@@ -297,21 +297,58 @@
                             <div>
                                 <div id="Tuning">
                                 </div>
-                                <!-- <label for="NumberOfStrings" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">弦の本数<br>
-                                    <select id="NumberOfStrings" class="form-select my-1"
-                                        aria-label="Default select example" onchange="FingerboardGo();">
+
+                                <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
+                                    <select id="TuningVariation" class="form-select my-1"
+                                        aria-label="Default select example" onchange="FingerboardGo()">
+                                    </select>
+                                </label>
+
+                                <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
+                                    <select id="NumberOfFlet" class="form-select my-1"
+                                        aria-label="Default select example" onchange="FingerboardGo()">
                                         <option value=1>1</option>
                                         <option value=2>2</option>
                                         <option value=3>3</option>
                                         <option value=4>4</option>
                                         <option value=5>5</option>
-                                        <option value=6 selected>6</option>
+                                        <option value=6>6</option>
                                         <option value=7>7</option>
                                         <option value=8>8</option>
                                         <option value=9>9</option>
                                         <option value=10>10</option>
+                                        <option value=11>11</option>
+                                        <option value=12>12</option>
+                                        <option value=13>13</option>
+                                        <option value=14>14</option>
+                                        <option value=15>15</option>
+                                        <option value=16>16</option>
+                                        <option value=17>17</option>
+                                        <option value=18>18</option>
+                                        <option value=19>19</option>
+                                        <option value=20>20</option>
+                                        <option value=21>21</option>
+                                        <option value=22>22</option>
+                                        <option value=23>23</option>
+                                        <option value=24 selected>24</option>
+                                        <option value=25>25</option>
+                                        <option value=26>26</option>
+                                        <option value=27>27</option>
+                                        <option value=28>28</option>
+                                        <option value=29>29</option>
+                                        <option value=30>30</option>
                                     </select>
-                                </label> -->
+                                </label>
+
+                                <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
+                                    <select id="key_signature_names" class="form-select my-1"
+                                        aria-label="Default select example" onchange="FingerboardGo()">
+                                        <option value=0>英・米式表記</option>
+                                        <option value=1>イタリア式表記</option>
+                                        <option value=2>日本式表記</option>
+                                        <option value=3>ドイツ式表記</option>
+                                    </select>
+                                </label>
                                 <label for="DominantHand" class="box2 col-md-4 col-xl-3 pt-2 pb-2 mx-1">利き手の切り替え<br>
                                     <select id="DominantHand" class="form-select my-1"
                                         aria-label="Default select example" onchange="FingerboardGo();">
@@ -319,7 +356,6 @@
                                         <option value=1>左利き用</option>
                                     </select>
                                 </label>
-                                <div>※弦の本数は「チューニングの種類」で選択された項目が優先されます。</div>
                             </div>
                         </div>
                     </div>
@@ -327,57 +363,7 @@
             </div>
             <div class="text-right">
                 <div>
-                    <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
-                        <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardGo()">
-                        </select>
-                    </label>
 
-                    <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
-                        <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardGo()">
-                            <option value=1>1</option>
-                            <option value=2>2</option>
-                            <option value=3>3</option>
-                            <option value=4>4</option>
-                            <option value=5>5</option>
-                            <option value=6>6</option>
-                            <option value=7>7</option>
-                            <option value=8>8</option>
-                            <option value=9>9</option>
-                            <option value=10>10</option>
-                            <option value=11>11</option>
-                            <option value=12>12</option>
-                            <option value=13>13</option>
-                            <option value=14>14</option>
-                            <option value=15>15</option>
-                            <option value=16>16</option>
-                            <option value=17>17</option>
-                            <option value=18>18</option>
-                            <option value=19>19</option>
-                            <option value=20>20</option>
-                            <option value=21>21</option>
-                            <option value=22>22</option>
-                            <option value=23>23</option>
-                            <option value=24 selected>24</option>
-                            <option value=25>25</option>
-                            <option value=26>26</option>
-                            <option value=27>27</option>
-                            <option value=28>28</option>
-                            <option value=29>29</option>
-                            <option value=30>30</option>
-                        </select>
-                    </label>
-
-                    <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
-                        <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardGo()">
-                            <option value=0>英・米式表記</option>
-                            <option value=1>イタリア式表記</option>
-                            <option value=2>日本式表記</option>
-                            <option value=3>ドイツ式表記</option>
-                        </select>
-                    </label>
 
                     <!-- <label for="rootNumber" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">ルートナンバー
                         <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
