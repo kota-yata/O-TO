@@ -29,12 +29,12 @@ function FingerboardGo() {
     FingerboardOnOff = [];
     FingerboardPosition = [];
 
-    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割する。
     let TuningVariation = document.getElementById("TuningVariation").value.split(':');
 
     let StringsCount;
     st_array = TuningVariation[0].split('-');
-    //弦の本数得る
+    //弦の本数得る。
     StringsCount = st_array.length;
 
     //フレットの数を取得する
@@ -42,6 +42,8 @@ function FingerboardGo() {
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
     let st = 1;
 
+    //一度配列をリセットする。
+    position_data = [];
     if (Number(document.getElementById('DominantHand').value) === 1) {
         // 左利き用の指板要素を描画
         LeftyFingerboardCreate();
@@ -152,7 +154,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         BassNumber = 0;
     };
 
-    //指板の色を度数表記に基づいて変更する。
+    // //指板の色を度数表記に基づいて変更する。
     for (let i = 0; i < FingerboardPosition.length; i++) {
         //全ての色をリセットする
         for (let k = 0; k < 12; k++) {
@@ -161,6 +163,21 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         //指板の色を度数表記に基づいて着色する。
         document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
     };
+
+    // //そのピッチクラスが含まれる場合の処理
+    // for (let k = 0; k < 12; k++) {
+    //     if (PitchClassOnOff.includes(k)) {
+    //         //指板上全てをチェック
+    //         for (let i = 0; i < position_data.length; i++) {
+    //             //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
+    //             if (mod(position_data[i][2], 12) === k) {
+    //                 document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.add("same_pitch_class");
+    //             };
+    //         };
+    //     };
+    // };
+
+
 
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
