@@ -125,7 +125,7 @@
 
 ---
 
-**[指板からコード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-fingerboard)**
+**[指板からコード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-reverse-lookup-fingerboard)**
 
 指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるアプリです。
 コード、スケールの名前をカンタンに逆引きできます！
