@@ -26,24 +26,26 @@
     <meta charset="utf-8">
 
     <!--ページタイトル-->
-    <title>⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】</title>
+    <title>⑪指板からコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】</title>
 
     <!--サイト情報-->
     <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
-    <meta property="og:title" content="⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】" />
+    <meta property="og:title" content="⑪指板からコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】" />
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-reverse-lookup" />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- 画像情報 -->
-    <meta property="og:image" content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup_thumbnail.png" />
+    <meta property="og:image"
+        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup-fingerboard_thumbnail.png" />
     <meta name="twitter:image"
-        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup_thumbnail.png" />
+        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup-fingerboard_thumbnail.png" />
 
     <!--ページの概要-->
-    <meta property="description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
-    <meta property="og:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
-    <meta name="keyword" content="音楽理論,音楽,指板,音階,指板構成音,スケール,コードネーム,コード,アプリ,ウェブアプリ,Webアプリ">
+    <meta property="description" content="指板から選んだ構成音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
+    <meta property="og:description"
+        content="指板から選んだ構成音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。">
+    <meta name="keyword" content="音楽理論,音楽,指板,音階,逆引き検索,逆引き,スケール,コードネーム,コード,アプリ,ウェブアプリ,Webアプリ">
 
     <!--Internet Explorer用の設定-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -60,9 +62,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@khufrudamonotes" />
     <meta name="twitter:creator" content="@k1mu0419" />
-    <meta name="twitter:title" content="⑪指板からコード・ネームやスケール名を逆引きする O-TO【音楽理論ウェブアプリ】" />
-    <meta property="twitter:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
-    <meta property="og:description" content="コードやスケールの「指板上のポジション」を可視化するアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
+    <meta name="twitter:title" content="⑪指板からコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】" />
+    <meta property="twitter:description"
+        content="指板から選んだ構成音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
+    <meta property="og:description"
+        content="指板から選んだ構成音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。" />
 
     <!--サイトアイコンの指定-->
     <meta name="msapplication-square70x70logo" content="image/icon/site-tile-70x70.png">
@@ -150,7 +154,7 @@
 
             <!-- 左(メインコンテンツ) -->
 
-            <h3 class="Larger shadow p-3 rounded mb-5 py-3">⑪指板からコード・ネームやスケール名を逆引きする</h3>
+            <h3 class="Larger shadow p-3 rounded mb-5 py-3">⑪指板からコード/スケール名を逆引き検索</h3>
 
             <!-- タブの中身 -->
             <div id="tabBox" class=" pb-3">
@@ -168,34 +172,27 @@
 
                     <!-- タブ1の中身 -->
                     <div v-if="isActive == '1'">
-                        <p class="pt-3 pb-2">コードやスケールの「指板上のポジション」を可視化するアプリです。<br>ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。</p>
-                        <p class="py-2">※このアプリの使い方を紹介した動画(YouTube)→<a href="https://youtu.be/JeT18JKRbnQ?t=625"
-                                target="_blank" rel="noopener noreferrer">「指板の音」を理解させます</span></a></p>
+                        <p class="pt-3 pb-2">指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるアプリです。
+                            <br>コード、スケールの名前をカンタンに逆引きできます！
+                        </p>
+                        <p class="py-2">ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。 </p>
+                        <p class="py-2">任意のコードやスケールのポジションを確認したい場合は、<a
+                                href="o-to-fingerboard.html">⑩弦楽器の指板を可視化する</a>をお使いください。
+                        </p>
+                        <p class="py-2"><a href="o-to-modal-interchange.html">③コード/スケール名を逆引き検索</a>も併せてお使いください。</p>
                     </div>
-
 
                     <!-- タブ2の中身 -->
                     <div v-if="isActive == '2'" class="pb-2">
 
-                        <p class="py-2">弦楽器は、音名とポジションを把握しづらいです。<br>
-                            なぜなら、同じ音が複数の場所にあり、チューニングによってポジションも変化するためです。 </p>
-
-                        <p class="py-2">もちろん、主要なコードやスケールのポジションなら暗記している方も多いと思います。<br>
-                            しかし、一般的な人間の記憶力には限度があります。</p>
-
-                        <p class="py-2">たとえば、今すぐ指板上に<b>"F ダブル・ハーモニック・スケール"</b>のポジションをイメージできますか？ </p>
-                        <p class="py-2">…僕は無理です。笑</p>
-
-                        <p class="py-2">このアプリは、そんな悩みを解決するために作りました。<br>
-                            ――もう、いちいちメモを書く必要はありません。</p>
+                        <p class="py-2">――あなたのインスピレーションの名前を見つけましょう。</p>
 
                         <h4 class="pt-3 manual">【チューニングの種類】</h4>
                         <p class="py-2"><b>ギター、ベース、ヴァイオリン</b>など主な弦楽器のチューニングをまとめました。<br>
                             リストから選ぶだけで、対応した指板が描画されます。</p>
-                        <p class="py-2">調べたいチューニングがリストに無い場合は、画面下部の「チューニングの設定」から変更できます。</p>
 
                         <h4 class="pt-3 manual">【利き手】</h4>
-                        <p class="py-2">画面下部の「利き手の切り替え」から右利きと左利き表示を変更できます。</p>
+                        <p class="py-2">「利き手の切り替え」から右利きと左利き表示を変更できます。</p>
 
                         <h4 class="pt-3 manual">【フレットの数】</h4>
                         <p class="py-2">1~30の間で指定できます。</p>
@@ -204,26 +201,15 @@
                         <p class="py-2">指板の音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。</p>
                         <p class="py-2">初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
 
-                        <h4 class="pt-3 manual">【コードとスケールの指定】</h4>
-                        <p class="py-2">コードとスケールのリストは、「○○画面へ」ボタンをタップして切り替えます。</p>
+                        <h4 class="pt-3 manual">【開放弦のロック】</h4>
+                        <p class="py-2">開放弦のロックボタンで移調ボタンで開放弦を移調するかどうかを切り替えできます。</p>
+                        <p class="py-2">開放弦を使ったコードフォームを吟味する場合はロックした方が良いでしょう。</p>
 
                         <h4 class="pt-3 manual">【色付けのルール】</h4>
                         <p class="py-2">指定したトニック(ルート音)に対して、移動ド的に色付けされます。<br>
                             たとえば、トニック(ルート音)は<span class="Degree0">青色</span>、完全5度は<span class="Degree7">黄色</span>です。</p>
                         <p class="py-2">そして、異名同音は同じ色です。<br>
                             たとえば、長3度と減4度はどちらも<span class="Degree4">緑色</span>です。</p>
-
-                        <h4 class="pt-3 manual">【想定している用途】</h4>
-                        <lu class="py-2">
-                            <li>音名・ポジションの把握</li>
-                            <li>運指の選定</li>
-                            <li>作曲やアレンジの資料</li>
-                            <li>レッスンの教材</li>
-                        </lu>
-
-                        <h4 class="pt-3 manual">【指板の画像をダウンロード】</h4>
-                        <p class="py-2">「指板の画像をダウンロード」をクリックすると、指板の画像をダウンロードできます。<br>(※PC限定
-                            ブラウザはGoogleクローム推奨)<br>スクリーンショットを撮るのが面倒な方は、ご活用ください。</p>
 
                         <h4 class="pt-3 manual">【コードの情報】</h4>
                         <p class="py-2">コード画面では、コードの読み方、詳細情報が表示されます。<br>ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
@@ -283,114 +269,80 @@
                 </div>
             </div>
 
-            <div class="accordion py-3" id="accordionExample">
-                <div class="accordion-item">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                        チューニングの設定/利き手の切り替え
-                    </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <!-- 弦のチューニング設定をJavaScriptで描画する -->
-                            <div>
-                                <div id="Tuning">
-                                </div>
 
-                                <label for="TuningVariation" class="box1 col-md-5 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
-                                    <select id="TuningVariation" class="form-select my-1"
-                                        aria-label="Default select example" onchange="FingerboardGo()">
-                                    </select>
-                                </label>
-
-                                <label for="NumberOfFlet" class="box2 col-md-2 col-xl-2 pt-2 pb-2 mx-1">フレットの数
-                                    <select id="NumberOfFlet" class="form-select my-1"
-                                        aria-label="Default select example" onchange="FingerboardGo()">
-                                        <option value=1>1</option>
-                                        <option value=2>2</option>
-                                        <option value=3>3</option>
-                                        <option value=4>4</option>
-                                        <option value=5>5</option>
-                                        <option value=6>6</option>
-                                        <option value=7>7</option>
-                                        <option value=8>8</option>
-                                        <option value=9>9</option>
-                                        <option value=10>10</option>
-                                        <option value=11>11</option>
-                                        <option value=12>12</option>
-                                        <option value=13>13</option>
-                                        <option value=14>14</option>
-                                        <option value=15>15</option>
-                                        <option value=16>16</option>
-                                        <option value=17>17</option>
-                                        <option value=18>18</option>
-                                        <option value=19>19</option>
-                                        <option value=20>20</option>
-                                        <option value=21>21</option>
-                                        <option value=22>22</option>
-                                        <option value=23>23</option>
-                                        <option value=24 selected>24</option>
-                                        <option value=25>25</option>
-                                        <option value=26>26</option>
-                                        <option value=27>27</option>
-                                        <option value=28>28</option>
-                                        <option value=29>29</option>
-                                        <option value=30>30</option>
-                                    </select>
-                                </label>
-
-                                <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
-                                    <select id="key_signature_names" class="form-select my-1"
-                                        aria-label="Default select example" onchange="FingerboardGo()">
-                                        <option value=0>英・米式表記</option>
-                                        <option value=1>イタリア式表記</option>
-                                        <option value=2>日本式表記</option>
-                                        <option value=3>ドイツ式表記</option>
-                                    </select>
-                                </label>
-                                <label for="DominantHand" class="box2 col-md-4 col-xl-3 pt-2 pb-2 mx-1">利き手の切り替え<br>
-                                    <select id="DominantHand" class="form-select my-1"
-                                        aria-label="Default select example" onchange="FingerboardGo();">
-                                        <option value=0 selected>右利き用</option>
-                                        <option value=1>左利き用</option>
-                                    </select>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- 弦のチューニング設定をJavaScriptで描画する -->
+            <div id="Tuning">
             </div>
+
+            <label for="TuningVariation" class="box1 col-md-3 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
+                <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardGo()">
+                </select>
+            </label>
+
+            <label for="NumberOfFlet" class="box2 col-md-2 col-xl-1 pt-2 pb-2 mx-1">フレットの数
+                <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardGo()">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                    <option value=10>10</option>
+                    <option value=11>11</option>
+                    <option value=12>12</option>
+                    <option value=13>13</option>
+                    <option value=14>14</option>
+                    <option value=15>15</option>
+                    <option value=16>16</option>
+                    <option value=17>17</option>
+                    <option value=18>18</option>
+                    <option value=19>19</option>
+                    <option value=20>20</option>
+                    <option value=21>21</option>
+                    <option value=22>22</option>
+                    <option value=23>23</option>
+                    <option value=24 selected>24</option>
+                    <option value=25>25</option>
+                    <option value=26>26</option>
+                    <option value=27>27</option>
+                    <option value=28>28</option>
+                    <option value=29>29</option>
+                    <option value=30>30</option>
+                </select>
+            </label>
+
+            <label for="key_signature_names" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">音名の表記
+                <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardGo()">
+                    <option value=0>英・米式表記</option>
+                    <option value=1>イタリア式表記</option>
+                    <option value=2>日本式表記</option>
+                    <option value=3>ドイツ式表記</option>
+                </select>
+            </label>
+            <label for="DominantHand" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">利き手の切り替え<br>
+                <select id="DominantHand" class="form-select my-1" aria-label="Default select example"
+                    onchange="FingerboardGo();">
+                    <option value=0 selected>右利き指板</option>
+                    <option value=1>左利き指板</option>
+                </select>
+            </label>
+
+            <button id="transpose_minus" class="transpose_button" onclick="transpose(-1)">-1</button>
+            <button id="OpenStringsLock" class="LockOn lock_button" onclick="transpose(0)">開放弦のロックを解除する</button>
+            <button id="transpose_plus" class="transpose_button" onclick="transpose(1)">+1</button>
+
+            <div>音名をタップしてください。</div>
             <div class="text-right">
-                <div>
-
-
-                    <!-- <label for="rootNumber" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">ルートナンバー
-                        <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-                            onchange="FingerboardGo()">
-                            <option value=0>0</option>
-                            <option value=1>1</option>
-                            <option value=2>2</option>
-                            <option value=3>3</option>
-                            <option value=4>4</option>
-                            <option value=5>5</option>
-                            <option value=6 selected>6</option>
-                            <option value=7>7</option>
-                            <option value=8>8</option>
-                            <option value=9>9</option>
-                            <option value=10>10</option>
-                            <option value=11>11</option>
-                        </select>
-                    </label>
-                </div> -->
-
-                </div>
-
                 <div id="target">
                     <!-- フレットボードをJavaScriptで描画する -->
                     <table id="Fingerboard"></table>
                 </div>
-
 
                 <div class="accordion py-3" id="accordionExample">
                     <div class="accordion-item">
@@ -405,15 +357,16 @@
                             <div class="accordion-body">
 
                                 <!-- コードネームの判定と情報をJavaScriptで書き込む -->
-                                <div id="AddChordHTML"></div>
-                                <div id="AddChordNameHTML"></div>
-                                <div><br></div>
+                                <div id="AddChordHTML">
+                                    <font color="red">※指板上の音名を選択すると、ここに対応するコードネームが表示されます。</font>
+                                </div>
+                                <div id="AddChordNameHTML" class="pb-2"></div>
+
                                 <div id="AddChordInfoHTML"></div>
                                 <div id="AddChordInfo2HTML"></div>
                                 <div id="AddChordInfoOmit5HTML"></div>
                                 <div id="AddChordInfoTriToneHTML"></div>
                                 <div id="AddChordInfoSub2HTML"></div>
-
                             </div>
                         </div>
                     </div>
@@ -450,9 +403,7 @@
                             <div class="accordion-body">
                                 <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
                                 <div id="addHTML">
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -461,7 +412,7 @@
                 <div id="link-table">
                     <link-table></link-table>
                 </div>
-
+            </div>
 
         </main>
     </div>
@@ -487,7 +438,6 @@
             //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
             CreateCandidate();
         });
-
     </script>
 
     <!-- JavaScriptを読み込む-->
@@ -496,7 +446,6 @@
     <script src="js/ScaleChord.js"></script>
     <script src="js/fingerboard.js"></script>
     <script src="js/ReverseLookup.js"></script>
-
 
     <!-- シェアボタン用のJavaScript -->
     <!-- Twitter -->
@@ -520,7 +469,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

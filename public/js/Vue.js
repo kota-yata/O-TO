@@ -38,7 +38,7 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-scale.html">②スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール検索</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール名を逆引き</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
@@ -62,7 +62,7 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-fingerboard.html">⑩指板</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-reverse-lookup.html">⑪逆引き指板</a>
+            <a class="nav-link" href="o-to-reverse-lookup-fingerboard.html">⑪逆引き指板</a>
           </li>
         </ul>
       </div>
@@ -110,7 +110,7 @@ Vue.component('link-card', {
             <div class="card">
               <div class="card-body">
                 <a href="o-to-modal-interchange.html">
-                  <h5>③コード・ネーム/スケール名を検索する</h5>
+                  <h5>③コード/スケール名を逆引き検索</h5>
                   <img class="link_image pt-3 pb-3" src="image/thumbnail/modal-interchange_thumbnail.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
@@ -206,12 +206,12 @@ Vue.component('link-card', {
 
             <div class="card">
               <div class="card-body">
-                <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/metronome">
-                  <h5>メトロノーム（変拍子対応）</h5>
-                  <img class="link_image pt-3 pb-3" src="image/thumbnail/metronome_thumbnail.png" alt="サムネイル">
+                <a href="o-to-reverse-lookup-fingerboard.html">
+                  <h5>⑪指板からコード/スケール名を逆引き検索</h5>
+                  <img class="link_image pt-3 pb-3" src="image/thumbnail/reverse-lookup-fingerboard.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
-                  変拍子対応のメトロノームです。拍子の分子は1～30まで、分母は2,4,8,16を選択できます。加えてもう1つ別のクリックも追加できます。
+                  指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コード、スケールの名前をカンタンに逆引きできます！
                 </p>
               </div>
             </div>
@@ -255,7 +255,7 @@ Vue.component('right-column', {
             <a class="nav-link" href="o-to-scale.html">②スケール（<span class="scale_count">70種類以上</span>）の構成音を調べる</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード・ネーム/スケール名を検索する</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール名を逆引き検索</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">80×12種類以上</span>）</a>
@@ -277,6 +277,9 @@ Vue.component('right-column', {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-fingerboard.html">⑩弦楽器の指板を可視化する</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="o-to-reverse-lookup-fingerboard.html">⑪逆引き指板</a>
           </li>
         </ul>
 
@@ -547,7 +550,7 @@ Vue.component('link-table', {
               <div class="card-body">
                   <h5>
                       <a href="o-to-modal-interchange.html">
-                          ③コード・ネーム/スケール名を検索する
+                          ③コード/スケール名を逆引き検索
                       </a>
                   </h5>
 
@@ -652,12 +655,12 @@ Vue.component('link-table', {
           <div class="card">
               <div class="card-body">
                   <h5>
-                      <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/metronome">
-                          ・メトロノーム（変拍子対応）
+                      <a href="o-to-reverse-lookup-fingerboard.html">
+                          ⑪指板からコード/スケール名を逆引き検索
                       </a>
                   </h5>
                   <p class="card-text">
-                      変拍子対応のメトロノームです。拍子の分子は1～30まで、分母は2,4,8,16を選択できます。加えてもう1つ別のクリックも追加できます。
+                      指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コード、スケールの名前をカンタンに逆引きできます！
                   </p>
               </div>
           </div>

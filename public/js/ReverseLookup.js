@@ -14,10 +14,13 @@ function aryMin(a, b) {
 let FingerboardOnOff = [];
 let FingerboardPosition = [];
 let MIDI_note_number;
+let position_data = [];
+let PitchClassArray = [];
 let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
 // --------------------------------------------------------------------------
 CreateTuningVariation();
 FingerboardGo();
+
 
 //フレットボードの要素を描画する関数
 function FingerboardGo() {
@@ -51,6 +54,7 @@ function FingerboardGo() {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin',
                         `<th id="FretNumber-${st}-${i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                position_data.push([st, i, MIDI_note_number]);
                 MIDI_note_number++;
             };
             st++;
@@ -65,6 +69,7 @@ function FingerboardGo() {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin',
                         `<th id="FretNumber-${st}-${FletCount - i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                position_data.push([st, FletCount - i, MIDI_note_number]);
                 MIDI_note_number--;
             };
             //フレットボードの左端に、何弦かを表す数字とidを書き込む。
@@ -72,6 +77,26 @@ function FingerboardGo() {
             st++;
         };
     };
+
+};
+
+
+// 指板に色がついているか判定する関数
+function colored(st, Flet) {
+    for (let i = 0; i < 12; i++) {
+        if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`Degree${i}`)) {
+            return true;
+        };
+    };
+    return false;
+};
+
+// 指板にsame_pitch_classクラスがついているか判定する関数
+function samePitch(st, Flet) {
+    if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`same_pitch_class`)) {
+        return true;
+    };
+    return false;
 };
 
 //選択した音名の情報を元に色々な処理をする関数
@@ -93,6 +118,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         FingerboardPosition.splice(FingerboardPosition.indexOf(`FretNumber-${st}-${Flet}`), 1);
     };
 
+    //ルート音を算出する。
     if (FingerboardOnOff.length > 0) {
         //2つの数を比較して小さい方を返す関数
         RootNumber = FingerboardOnOff.reduce(aryMin);
@@ -102,8 +128,8 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
     //音名スイッチのオンオフ状態を格納する配列
     let OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    //ベース音（一番低い音）を判定する
 
+    //ベース音（一番低い音）を判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
         return mod(a - RootNumber, 12);
@@ -132,8 +158,51 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         for (let k = 0; k < 12; k++) {
             document.getElementById(`${FingerboardPosition[i]}`).classList.remove(`Degree${k}`);
         };
+        //指板の色を度数表記に基づいて着色する。
         document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
     };
+
+    //実音程のピッチクラスを判定する
+    //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
+    PitchClassOnOff = FingerboardOnOff.map(function (a) {
+        return mod(a, 12);
+    });
+
+    //そのピッチクラスが含まれる場合の処理
+    for (let k = 0; k < 12; k++) {
+        if (PitchClassOnOff.includes(k)) {
+            //指板上全てをチェック
+            for (let i = 0; i < position_data.length; i++) {
+                //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
+                if (mod(position_data[i][2], 12) === k) {
+                    document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.add("same_pitch_class");
+                };
+            };
+        };
+    };
+
+    //そのピッチクラスが含まれない場合の処理
+    for (let k = 0; k < 12; k++) {
+        if (PitchClassOnOff.includes(k) === false) {
+            //指板上全てをチェック
+            for (let i = 0; i < position_data.length; i++) {
+                //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
+                if (mod(position_data[i][2], 12) === k) {
+                    document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.remove("same_pitch_class");
+                };
+            };
+        };
+    };
+
+    // 指板上に選択されている音がない場合same_pitch_classクラスを全て外す。
+    for (let i = 0; i < position_data.length; i++) {
+        if (colored(position_data[i][0], position_data[i][1])) {
+            if (samePitch(position_data[i][0], position_data[i][1])) {
+                document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.remove("same_pitch_class");
+            };
+        };
+    };
+
 
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
@@ -223,3 +292,42 @@ function ReverseLookup_ModalTextAndNoteCreate(onoff, RootNumber) {
     document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${scale_Container.length}）`;
 };
 
+let transpose_st;
+let transpose_Flet;
+let transpose_MIDI_note_number;
+let transpose_direction;
+let OpenStringsLock = 1;
+
+//指板上の音を移調する関数
+function transpose(transpose_direction) {
+
+    if (transpose_direction === 0 && OpenStringsLock === 0) {
+        OpenStringsLock = 1;
+        document.getElementById("OpenStringsLock").innerHTML = "開放弦のロックを解除する"
+        document.getElementById("OpenStringsLock").classList.toggle("LockOff");
+        document.getElementById("OpenStringsLock").classList.toggle("LockOn");
+    } else if (transpose_direction === 0 && OpenStringsLock === 1) {
+        OpenStringsLock = 0;
+        document.getElementById("OpenStringsLock").innerHTML = "開放弦の移調をロックする"
+        document.getElementById("OpenStringsLock").classList.toggle("LockOff");
+        document.getElementById("OpenStringsLock").classList.toggle("LockOn");
+    };
+
+    for (let i = 0; i < FingerboardOnOff.length; i++) {
+        transpose_st = Number(FingerboardPosition[0].split('-')[1]);
+        transpose_Flet = Number(FingerboardPosition[0].split('-')[2]);
+        transpose_MIDI_note_number = Number(FingerboardOnOff[0]);
+
+        NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+
+        if (transpose_direction === -1 && transpose_Flet === 0) {
+            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+        } else if (OpenStringsLock === 1 && transpose_Flet === 0) {
+            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+        } else if (transpose_direction === 1 && transpose_Flet === Number(document.getElementById('NumberOfFlet').value)) {
+            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+        } else {
+            NoteOnOff(transpose_st, transpose_Flet + transpose_direction, transpose_MIDI_note_number + transpose_direction);
+        };
+    };
+};

@@ -320,12 +320,16 @@ img {
   background-color: crimson;
   color: whitesmoke;
 }
+
 .NoteName_Switch_Search {
   height:auto;
   border: solid 1px rgb(210, 210, 210);
 }
 .NoteName_cursor_pointer {
   cursor: pointer;
+}
+.NoteName_cursor_pointer:hover {
+	opacity:0.9;
 }
 .NoteOn2 {
   height:auto;
@@ -350,6 +354,7 @@ img {
 .DegreeBlack {
   background-color: rgb(180, 180, 180);
   border: solid 1px rgb(210, 210, 210);
+  font-weight: lighter;
 }
 .Degree0 {
   background-color: #0588ff;
@@ -548,8 +553,50 @@ box {
   color: rgb(29, 255, 123);
 }
 
+/* --------------------------------------------------------------------------------------------- */
+/* 指板 */
 .ReverseLookupBox{
 	overflow: hidden;
+}
+
+.ReverseLookupBox:hover{
+	opacity:0.7;
+}
+
+.same_pitch_class{
+  background-color: whitesmoke;
+	opacity:0.8;
+}
+
+.lock_button:hover{
+  opacity: 0.9;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.LockOn{
+  background-color: rgb(180, 180, 180);
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.LockOff{
+  color: #fff;
+  background-color: crimson;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.transpose_button{
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.transpose_button:hover{
+  opacity: 0.9;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.transpose_button:active {
+  color: #fff;
+  background-color: mediumblue;
+  border: 1px solid rgb(158, 158, 158);
 }
 
 /* --------------------------------------------------------------------------------------------- */
