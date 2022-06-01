@@ -21,7 +21,6 @@ let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
 CreateTuningVariation();
 FingerboardGo();
 
-
 //フレットボードの要素を描画する関数
 function FingerboardGo() {
 
@@ -81,7 +80,6 @@ function FingerboardGo() {
     };
 
 };
-
 
 // 指板に色がついているか判定する関数
 function colored(st, Flet) {
@@ -164,21 +162,6 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
     };
 
-    // //そのピッチクラスが含まれる場合の処理
-    // for (let k = 0; k < 12; k++) {
-    //     if (PitchClassOnOff.includes(k)) {
-    //         //指板上全てをチェック
-    //         for (let i = 0; i < position_data.length; i++) {
-    //             //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
-    //             if (mod(position_data[i][2], 12) === k) {
-    //                 document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.add("same_pitch_class");
-    //             };
-    //         };
-    //     };
-    // };
-
-
-
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
@@ -219,7 +202,6 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
             };
         };
     };
-
 
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
@@ -317,7 +299,6 @@ let OpenStringsLock = 1;
 
 //指板上の音を移調する関数
 function transpose(transpose_direction) {
-
     if (transpose_direction === 0 && OpenStringsLock === 0) {
         OpenStringsLock = 1;
         document.getElementById("OpenStringsLock").innerHTML = "開放弦のロックを解除する"
