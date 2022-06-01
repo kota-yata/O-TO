@@ -173,11 +173,11 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     for (let i = 0; i < PitchClassOnOff.length; i++) {
         OnOff[PitchClassOnOff[i]] = 1;
     };
-
+    console.log(OnOff, mod(RootNumber + BassNumber, 12))
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber - BassNumber, 12));
+        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber + BassNumber, 12));
     } else {
         //モーダル・インターチェンジの候補をディグリー表記で表示する関数
         ModalCandidateDegree();
@@ -223,6 +223,8 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
             };
         };
     };
+
+
 };
 
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
