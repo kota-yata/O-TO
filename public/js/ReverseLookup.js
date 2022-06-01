@@ -162,6 +162,27 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
     };
 
+    //音名スイッチのオンオフ状態を格納する配列をリセット
+    OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
+    PitchClassOnOff = FingerboardOnOff.map(function (a) {
+        return mod(a - RootNumber - BassNumber, 12);
+    });
+
+    //ピッチクラスが存在する場合、配列OnOffに1を代入する。
+    for (let i = 0; i < PitchClassOnOff.length; i++) {
+        OnOff[PitchClassOnOff[i]] = 1;
+    };
+    console.log(OnOff)
+    //この音の組み合わせを含む主なスケールを書き込む
+    if (FingerboardOnOff.length > 0) {
+        //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
+        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber - BassNumber, 12));
+    } else {
+        //モーダル・インターチェンジの候補をディグリー表記で表示する関数
+        ModalCandidateDegree();
+    };
+
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
@@ -203,14 +224,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         };
     };
 
-    //この音の組み合わせを含む主なスケールを書き込む
-    if (FingerboardOnOff.length > 0) {
-        //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber + BassNumber, 12));
-    } else {
-        //モーダル・インターチェンジの候補をディグリー表記で表示する関数
-        ModalCandidateDegree();
-    };
+
 };
 
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
