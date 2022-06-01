@@ -329,7 +329,7 @@ img {
   cursor: pointer;
 }
 .NoteName_cursor_pointer:hover {
-	opacity:0.9;
+	border-radius: 7px;
 }
 .NoteOn2 {
   height:auto;
@@ -352,7 +352,7 @@ img {
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
-  background-color: rgb(180, 180, 180);
+  background-color: gray;
   border: solid 1px rgb(210, 210, 210);
   font-weight: lighter;
 }
@@ -560,12 +560,11 @@ box {
 }
 
 .ReverseLookupBox:hover{
-	opacity:0.7;
+  border-radius: 7px;
 }
 
 .same_pitch_class{
-  background-color: whitesmoke;
-	opacity:0.8;
+  background-color: silver;
 }
 
 .lock_button:hover{
