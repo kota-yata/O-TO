@@ -18,8 +18,7 @@ let position_data = [];
 let PitchClassArray = [];
 let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
 // --------------------------------------------------------------------------
-CreateTuningVariation();
-FingerboardGo();
+
 
 //フレットボードの要素を描画する関数
 function FingerboardGo() {
@@ -79,6 +78,10 @@ function FingerboardGo() {
         };
     };
 
+    //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+    ModalCandidateDegree();
+    //コード・ネームの情報を判定する関数
+    ChordCandidateInfo(onoff, 0)
 };
 
 // 指板に色がついているか判定する関数
@@ -147,6 +150,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
     //コード・ネームの情報を判定する関数を実行し、返り値でルート音を取得する。
     let BassNumber = ChordCandidateInfo(OnOff, RootNumber);
+
     //コードが判定できないときはルート音はそのまま
     if (BassNumber === undefined) {
         BassNumber = 0;
@@ -159,14 +163,14 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
             document.getElementById(`${FingerboardPosition[i]}`).classList.remove(`Degree${k}`);
         };
         //指板の色を度数表記に基づいて着色する。
-        document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber, 12)}`);
+        document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber + RootNumber, 12)}`);
     };
 
     //音名スイッチのオンオフ状態を格納する配列をリセット
     OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
-        return mod(a - RootNumber - BassNumber, 12);
+        return mod(a - BassNumber, 12);
     });
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
@@ -177,7 +181,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-        ReverseLookup_ModalTextAndNoteCreate(OnOff, mod(RootNumber + BassNumber, 12));
+        ModalTextAndNoteCreate(OnOff, mod(BassNumber, 12));
     } else {
         //モーダル・インターチェンジの候補をディグリー表記で表示する関数
         ModalCandidateDegree();
@@ -227,84 +231,6 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
 };
 
-//モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-function ReverseLookup_ModalTextAndNoteCreate(onoff, RootNumber) {
-    let Num = 0;
-    let use_scale_count = 0;
-    //スケールを表示する言語の情報を取得する。
-    let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
-    if (sigNameNum <= 3) {
-        for (let i = 0; i < scale_Container.length; i++) {
-            //配列を空にする。
-            ConfigurationNotes.splice(0);
-            //選択された音の組み合わせがスケールの構成音と一致するか判定する。
-            if (scale_Container[Num]['ScaleNumBinary'][0] >= onoff[0]
-                && scale_Container[Num]['ScaleNumBinary'][1] >= onoff[1]
-                && scale_Container[Num]['ScaleNumBinary'][2] >= onoff[2]
-                && scale_Container[Num]['ScaleNumBinary'][3] >= onoff[3]
-                && scale_Container[Num]['ScaleNumBinary'][4] >= onoff[4]
-                && scale_Container[Num]['ScaleNumBinary'][5] >= onoff[5]
-                && scale_Container[Num]['ScaleNumBinary'][6] >= onoff[6]
-                && scale_Container[Num]['ScaleNumBinary'][7] >= onoff[7]
-                && scale_Container[Num]['ScaleNumBinary'][8] >= onoff[8]
-                && scale_Container[Num]['ScaleNumBinary'][9] >= onoff[9]
-                && scale_Container[Num]['ScaleNumBinary'][10] >= onoff[10]
-                && scale_Container[Num]['ScaleNumBinary'][11] >= onoff[11]) {
-
-                let SOF;
-                //シャープとフラットの区別をする変数SOFに値を代入。
-                if (mod(RootNumber - scale_Container[Num]['addNum'], 12) == 0
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 2
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 4
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 6
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 7
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 9
-                    || mod(RootNumber - scale_Container[Num]['addNum'], 12) == 11) {
-                    SOF = 0;
-                } else {
-                    SOF = 1;
-                };
-
-                //スケール構成音のバイナリを配列に格納する。
-                let Configuration = scale_Container[Num]['ScaleNumBinary']
-
-                //for文でスケールの構成音を生成する。
-                for (let i = 0; i < 12; i++) {
-                    //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-                    if (Configuration[i] === 0) {
-                        //取り出さない（何もしない）。
-                    } else if (Configuration[i] === 42) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][0]);
-                    } else if (Configuration[i] === 43) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][1]);
-                    } else if (Configuration[i] === 1) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, 12)][SOF]);
-                    } else {
-                        ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][sigNameNum][Number(Configuration[i])]);
-                    }
-                };
-
-                //スケールの情報をHTMLに書き込む。
-                if (scale_Container[Num]["Mode"] === "") {
-                    document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}</font>`;
-                } else {
-                    document.getElementById(`Modal_text_${Num}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[Num][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[Num]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[Num]['addNum'] - scale_Container[Num]['Adjustment'], 12)][SOF]}${scale_Container[Num]["Mode"]}</span></font>`;
-                };
-                use_scale_count++;
-            } else {
-                document.getElementById(`Modal_text_${Num}`).innerHTML = "";
-                document.getElementById(`Modal_text_${Num}`).className = "";
-            };
-            Num++
-        };
-    } else {
-        //構成音を表示しない
-    };
-    document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${scale_Container.length}）`;
-};
-
 let transpose_st;
 let transpose_Flet;
 let transpose_MIDI_note_number;
@@ -313,6 +239,7 @@ let OpenStringsLock = 1;
 
 //指板上の音を移調する関数
 function transpose(transpose_direction) {
+
     if (transpose_direction === 0 && OpenStringsLock === 0) {
         OpenStringsLock = 1;
         document.getElementById("OpenStringsLock").innerHTML = "開放弦のロックを解除する"
@@ -332,6 +259,7 @@ function transpose(transpose_direction) {
 
         NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
 
+        //解放弦や最高音フレットの処理
         if (transpose_direction === -1 && transpose_Flet === 0) {
             NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
         } else if (OpenStringsLock === 1 && transpose_Flet === 0) {

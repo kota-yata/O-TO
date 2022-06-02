@@ -407,6 +407,45 @@ img {
   background-color: #cc99ff;
   border: solid 1px rgb(210, 210, 210);
 }
+
+/* --------------------------------------------------------------------------------------------- */
+/* 度数表記テキスト */
+.DegreeText0 {
+  border-left: solid 1rem #0588ff;
+}
+.DegreeText1 {
+  border-left: solid 0.3rem #a4c2f4;
+}
+.DegreeText2 {
+  border-left: solid 0.3rem #21daff;
+}
+.DegreeText3 {
+  border-left: solid 0.3rem #21ff95;
+}
+.DegreeText4 {
+  border-left: solid 0.3rem #01ff50;
+}
+.DegreeText5 {
+  border-left: solid 0.3rem #ffccff;
+}
+.DegreeText6 {
+  border-left: solid 0.3rem #00da15;
+}
+.DegreeText7 {
+  border-left: solid 0.3rem #fcfc04;
+}
+.DegreeText8 {
+  border-left: solid 0.3rem #ff6e01;
+}
+.DegreeText9 {
+  border-left: solid 0.3rem #ff2121;
+}
+.DegreeText10 {
+  border-left: solid 0.3rem #ff19bd;
+}
+.DegreeText11 {
+  border-left: solid 0.3rem #cc99ff;
+}
 /* --------------------------------------------------------------------------------------------- */
 /* 転調の間隔 */
 .modulationBorder0 {

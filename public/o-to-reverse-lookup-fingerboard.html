@@ -336,9 +336,15 @@
             <button id="" class="transpose_button" onclick="FingerboardGo()">指板をリセット</button>
 
             <div class="py-1">
-                <button id="transpose_minus" class="transpose_button" onclick="transpose(-1)">-1</button>
-                <button id="OpenStringsLock" class="LockOn lock_button" onclick="transpose(0)">開放弦のロックを解除する</button>
-                <button id="transpose_plus" class="transpose_button" onclick="transpose(1)">+1</button>
+                <button id="transpose_minus" class="transpose_button" onclick="transpose(-1)">
+                    -1
+                </button>
+                <button id="OpenStringsLock" class="LockOn lock_button" onclick="transpose(0)">
+                    開放弦のロックを解除する
+                </button>
+                <button id="transpose_plus" class="transpose_button" onclick="transpose(1)">
+                    +1
+                </button>
             </div>
 
             <div>音名をタップしてください。</div>
@@ -441,6 +447,27 @@
         window.addEventListener('DOMContentLoaded', function () {
             //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
             CreateCandidate();
+            CreateTuningVariation();
+            FingerboardGo();
+        });
+        //キー入力のイベントリスナー--------------------------------------
+        window.addEventListener('keydown', event => {
+            //スペースキーでリズムのスタートとストップをする
+            if (event.code === 'KeyS') {
+                transpose(-1)
+            } else if (event.code === 'KeyS') {
+                transpose(-1)
+            } else {
+                //処理
+            };
+            //Fキーで画面表示を変更する
+            if (event.code === 'KeyF') {
+                transpose(1)
+            } else if (event.code === 'KeyF') {
+                transpose(1)
+            } else {
+                //処理
+            };
         });
     </script>
 

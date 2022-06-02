@@ -85,7 +85,7 @@ function ModalCandidateSelectFingerBoard() {
         || ModalSelectNum === 2
         || ModalSelectNum === 3) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数
-        ModalTextAndNoteCreate();
+        ModalTextAndNoteCreate(onoff, RootNumber);
     } else if (ModalSelectNum === 4) {
         //モーダル・インターチェンジの候補を表示する関数
         ModalTextCreate();
@@ -765,7 +765,7 @@ function FletCreate(NumberOfStrings) {
         //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
         CreateCandidate();
         ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-        ModalCandidateSelect();
+        ModalCandidateSelect(onoff, RootNumber);
     };
     //スケール画面の場合の処理
     if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 1) {
