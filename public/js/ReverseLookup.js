@@ -187,6 +187,9 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         ModalCandidateDegree();
     };
 
+    //ルート音のナンバーをdataタグの中に書き込む
+    document.getElementById('rootNumber').value = BassNumber;
+
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {

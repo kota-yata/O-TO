@@ -327,7 +327,7 @@
             </label>
             <label for="DominantHand" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">利き手の切り替え<br>
                 <select id="DominantHand" class="form-select my-1" aria-label="Default select example"
-                    onchange="FingerboardGo();">
+                    onchange="FingerboardGo()">
                     <option value=0 selected>右利き指板</option>
                     <option value=1>左利き指板</option>
                 </select>
@@ -396,7 +396,7 @@
 
                             <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
                                 <select id="ModalCandidateSelect" class="form-select my-1"
-                                    aria-label="Default select example" onchange="ModalCandidateSelect()">
+                                    aria-label="Default select example" onchange="FingerboardGo()">
                                     <option value=0 selected>英・米式表記で構成音を表示する</option>
                                     <option value=1>イタリア式表記で構成音を表示する</option>
                                     <option value=2>日本式表記で構成音を表示する</option>
@@ -441,6 +441,7 @@
 
     <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
     <data id="do_app" value=1></data>
+    <data id="rootNumber" value=0></data>
 
     <!--ページのロードが終了したときに実行される関数 -->
     <script>

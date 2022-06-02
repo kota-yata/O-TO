@@ -6,6 +6,11 @@ function ChangeEIJG() {
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
     let num = 0;
 
+    //逆引き指板の時は処理を実行しない
+    if (Number(document.getElementById("do_app").value) === 1) {
+        return;
+    };
+
     for (let i = 0; i < 12; i++) {
         document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, 12)];
         num++
@@ -850,7 +855,6 @@ function ModalTextCreate() {
 
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
 function ModalCandidateSelect(onoff, RootNumber) {
-    console.log(onoff)
     //言語の情報を取得する。
     let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
     //言語表示なしの場合 又は 音名が選択されていないとき
@@ -927,7 +931,6 @@ function SearchNoteNameColoring(onoff) {
         };
     };
 };
-
 
 //音名からモード・コード検索用のスイッチの役割を果たす関数(コード/モード検索用)
 function NoteSwitch(Num) {
