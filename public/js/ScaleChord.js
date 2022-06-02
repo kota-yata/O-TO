@@ -690,7 +690,6 @@ function ChordNoteSwitch() {
     //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
     CreateCandidate();
 
-
     ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
     ModalCandidateSelect(onoff, RootNumber);
 
@@ -710,7 +709,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
     //スケールを表示する言語の情報を取得する。
     let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
     //予期しない値の場合はreturn
-    if (sigNameNum >= 3) { return };
+    if (sigNameNum >= 4) { return };
 
     //全てのスケールの要素を削除
     for (let i = 0; i < scale_Container.length; i++) {
@@ -851,7 +850,7 @@ function ModalTextCreate() {
 
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
 function ModalCandidateSelect(onoff, RootNumber) {
-
+    console.log(onoff)
     //言語の情報を取得する。
     let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
     //言語表示なしの場合 又は 音名が選択されていないとき
@@ -900,8 +899,8 @@ function ScaleLanguageJE() {
         ScaleLanguageNum = 0;
     };
 
-    //モーダル・インターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-    ModalCandidateSelect(onoff, RootNumber);
+    //モーダル・インターチェンジの候補を表示する関数
+    ModalTextCreate();
 };
 
 //音名スイッチのオンオフ状態を格納する配列
