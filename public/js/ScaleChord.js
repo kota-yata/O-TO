@@ -310,32 +310,28 @@ function degree_position_drow(root_position) {
     if (Number(document.getElementById("do_app").value) === 0 || Number(document.getElementById("do_app").value) === 1) {
         return;
     };
-    let Num = 0;
+
     for (let i = 0; i < 12; i++) {
         //いったんテーブル要素を全て空にする。
-        document.getElementById(`Degree_table_${Num}`).innerHTML = ``;
-        document.getElementById(`Tension_table_${Num}`).innerHTML = ``;
-        let Num2 = 0;
-        for (let i = 0; i < 12; i++) {
+        document.getElementById(`Degree_table_${i}`).innerHTML = ``;
+        document.getElementById(`Tension_table_${i}`).innerHTML = ``;
+        for (let k = 0; k < 12; k++) {
             //いったんクラスを全て削除する
-            document.getElementById(`Degree_table_${Num}`).classList.remove(`Degree${Num2}`);
-            document.getElementById(`Tension_table_${Num}`).classList.remove(`Degree${Num2}`);
-            Num2++
+            document.getElementById(`Degree_table_${i}`).classList.remove(`Degree${k}`);
+            document.getElementById(`Tension_table_${i}`).classList.remove(`Degree${k}`);
         };
-        Num++
     };
 
-    Num = 0;
     for (let i = 0; i < 12; i++) {
         //テキストを追加する
-        document.getElementById(`Degree_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][0]}`;
-        document.getElementById(`Tension_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][1]}`;
+        document.getElementById(`Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][0]}`;
+        document.getElementById(`Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][1]}`;
+
         //クラスを追加する
-        document.getElementById(`Degree_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
-        if (Degree_Tension_array[mod(-root_position + Num, 12)][1] !== "") {
-            document.getElementById(`Tension_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
+        document.getElementById(`Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
+        if (Degree_Tension_array[mod(-root_position + i, 12)][1] !== "") {
+            document.getElementById(`Tension_table_${mod(i, 12)}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
         };
-        Num++
     };
 };
 
@@ -343,8 +339,6 @@ function degree_position_drow(root_position) {
 function ChordCandidateInfo(onoff, RootNumber) {
 
     let SOF;
-    //コードネームに合わせて度数表記を描画する関数
-    degree_position_drow(0);
 
     //ルート音の値から大雑把にシャープとフラットの判別をする。
     if (RootNumber === 2
@@ -476,6 +470,9 @@ function ChordCandidateInfo(onoff, RootNumber) {
             break;
         };
     };
+
+    //コードネームに合わせて度数表記を描画する関数
+    degree_position_drow(Bass);
 
     //返り値を格納する変数
     let BassNumber
