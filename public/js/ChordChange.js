@@ -307,61 +307,50 @@ let SOF = 0;
 //スケールを表示するためのHTML要素(div)を追加するための関数
 function ChordCandidateCreate() {
 
-    //スケールを格納した配列の長さを取得する。
-    let chordProgOne_length = chordProgOne.length;
-    let chordProgFour_length = chordProgFour.length;
-    let chordProgSix_length = chordProgSix.length;
-    let chordProgEight_length = chordProgEight.length;
-
     let HTML_Info;
 
     //配列の数だけHTML要素(div)を追加する。
-    let Num = chordProgOne_length
-    for (let i = 0; i < chordProgOne_length; i++) {
+    for (let i = 0; i < chordProgOne.length; i++) {
         HTML_Info = document.getElementById("addHTML1");
         HTML_Info.insertAdjacentHTML('afterbegin',
             `<tr>
-        <th scope="row" id="row1-${Num}"></th>
-        <td id="title1-${Num}"></td>
-        <td id="chordProg1-${Num}"></td>
-        </tr>`)
-        Num--
+        <th scope="row" id="row1-${chordProgOne.length - i}"></th>
+        <td id="title1-${chordProgOne.length - i}"></td>
+        <td id="chordProg1-${chordProgOne.length - i}"></td>
+        </tr>`);
     };
-    //配列の数だけHTML要素(div)を追加する。
-    Num = chordProgFour_length
-    for (let i = 0; i < chordProgFour_length; i++) {
+
+    for (let i = 0; i < chordProgFour.length; i++) {
         HTML_Info = document.getElementById("addHTML4");
         HTML_Info.insertAdjacentHTML('afterbegin',
             `<tr>
-        <th scope="row" id="row4-${Num}"></th>
-        <td id="title4-${Num}"></td>
-        <td id="chordProg4-${Num}"></td>
-        </tr>`)
-        Num--
+        <th scope="row" id="row4-${chordProgFour.length - i}"></th>
+        <td id="title4-${chordProgFour.length - i}"></td>
+        <td id="chordProg4-${chordProgFour.length - i}"></td>
+        </tr>`);
+        chordProgFour.length - i;
     };
     //配列の数だけHTML要素(div)を追加する。
-    Num = chordProgSix_length
-    for (let i = 0; i < chordProgSix_length; i++) {
+    for (let i = 0; i < chordProgSix.length; i++) {
         HTML_Info = document.getElementById("addHTML6");
         HTML_Info.insertAdjacentHTML('afterbegin',
             `<tr>
-        <th scope="row" id="row6-${Num}"></th>
-        <td id="title6-${Num}"></td>
-        <td id="chordProg6-${Num}"></td>
-        </tr>`)
-        Num--
+        <th scope="row" id="row6-${chordProgSix.length - i}"></th>
+        <td id="title6-${chordProgSix.length - i}"></td>
+        <td id="chordProg6-${chordProgSix.length - i}"></td>
+        </tr>`);
+        chordProgSix.length - i;
     };
     //配列の数だけHTML要素(div)を追加する。
-    Num = chordProgEight_length
-    for (let i = 0; i < chordProgEight_length; i++) {
+    for (let i = 0; i < chordProgEight.length; i++) {
         HTML_Info = document.getElementById("addHTML8");
         HTML_Info.insertAdjacentHTML('afterbegin',
             `<tr>
-        <th scope="row" id="row8-${Num}"></th>
-        <td id="title8-${Num}"></td>
-        <td id="chordProg8-${Num}"></td>
-        </tr>`)
-        Num--
+        <th scope="row" id="row8-${chordProgEight.length - i}"></th>
+        <td id="title8-${chordProgEight.length - i}"></td>
+        <td id="chordProg8-${chordProgEight.length - i}"></td>
+        </tr>`);
+        chordProgEight.length - i;
     };
 };
 
