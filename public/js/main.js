@@ -31,7 +31,7 @@ const chordProgOne =
     { name: "ヌケ感", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", info: "シンプルでモダンな雰囲気が出せる。", url: "" },
     { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ", info: "溢れ出るノスタルジー。", url: "https://youtu.be/p-RLC9ZgjhY?t=31" },
     { name: "優雅", chord: "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", info: "パッシング・ディミニッシュはいかが？", url: "" },
-    { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "メロディック・メジャー的な響きを使いたいときに。", url: "" },
+    { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "平行短調からの借用和音を絡めた響きを使いたいときに。", url: "" },
     { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
     { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "" },
     { name: "壮大", chord: "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "仰々しくしたいときに。", url: "" },
