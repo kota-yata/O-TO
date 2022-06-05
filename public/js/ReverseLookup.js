@@ -254,7 +254,6 @@ function OpenStrings_Lock(transpose_direction) {
     };
 };
 
-
 //指板上の音を移調する関数
 function transpose(transpose_direction) {
     // 描画されている逆引き指板全てに対して処理を行う
@@ -284,7 +283,6 @@ function transpose(transpose_direction) {
     };
 };
 
-
 //スケール名の弦を切り替える関数
 function ChangeLanguageFingerboard(value) {
     if (value === 0) {
@@ -296,3 +294,5 @@ function ChangeLanguageFingerboard(value) {
     };
     transpose(0);
 };
+
+

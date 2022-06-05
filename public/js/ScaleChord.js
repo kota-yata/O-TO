@@ -740,7 +740,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
 
     //本来のルート音のナンバーを変数に代入しておく
     let OriginalRoot = RootNumber;
-
+    let denominator;
     for (let y = 0; y < all_root_number.length; y++) {
         //ルートナンバーを得る
         RootNumber = mod(all_root_number[y] + OriginalRoot, 12);
@@ -818,8 +818,15 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
             let delete_number = onoff.shift();
             onoff.push(delete_number);
         };
+        //ルート音から始まるスケールだけを表示する
+        if (onlyTonicModeState === 0) {
+            denominator = scale_Container.length;
+            break;
+        } else {
+            denominator = scale_Container.length * 12;
+        };
     };
-    document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${scale_Container.length * 12}）`;
+    document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${denominator}）`;
 };
 
 //モーダル・インターチェンジの候補を表示する関数(コード・コード/モード検索用)
@@ -1776,5 +1783,58 @@ function ChordschangeAndChordsAndModeChange() {
         document.getElementById("degree_change_button").className = "btn btn-primary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
         Chordschange();
     };
+};
+
+//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
+let onlyTonicModeState = 0;
+function onlyTonicModeSwitch() {
+    if (onlyTonicModeState === 0) {
+        //ルート音から始まるスケールだけを表示する
+        document.getElementById("onlyTonicMode").innerHTML = "ルート音が主音のスケールのみ表示する"
+        document.getElementById("onlyTonicMode").classList.remove("btn-success");
+        document.getElementById("onlyTonicMode").classList.add("btn-secondary");
+        document.getElementById("onlyTonicMode").value = 1;
+        onlyTonicModeState = 1;
+    } else if (onlyTonicModeState === 1) {
+        //全てのスケールを表示する
+        document.getElementById("onlyTonicMode").innerHTML = "構成音を含む全てのスケールを表示する"
+        document.getElementById("onlyTonicMode").classList.remove("btn-secondary");
+        document.getElementById("onlyTonicMode").classList.add("btn-success");
+        document.getElementById("onlyTonicMode").value = 0;
+        onlyTonicModeState = 0;
+    };
+};
+
+//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（逆引き指板用）
+function ReverseLookupOnlyTonicModeSwitch() {
+    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
+    onlyTonicModeSwitch();
+    //指板上の音を移調する関数
+    transpose(0);
+};
+
+//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（コード用）
+function ChordOnlyTonicModeSwitch() {
+    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
+    onlyTonicModeSwitch();
+
+    ChordNoteSwitch();
+};
+
+//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（コード/スケール名を逆引き検索用）
+function modal_interchange_ChordOnlyTonicModeSwitch() {
+    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
+    onlyTonicModeSwitch();
+
+    ModalTextCreate();
+};
+
+
+//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（指板用）
+function fingerboard_ChordOnlyTonicModeSwitch() {
+    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
+    onlyTonicModeSwitch();
+
+    ModalCandidateSelectFingerBoard();
 };
 
