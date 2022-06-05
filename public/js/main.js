@@ -10,6 +10,50 @@ function roundToThree(num) {
     return +(Math.round(num + "e+3") + "e-3");
 };
 
+//主なチューニングタイプを格納した連想配列
+const TuningVariation = [
+    { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 40] },
+    { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35] },
+    { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30] },
+    { TuningName: "　ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 39] },
+    { TuningName: "　ギター　6弦：全音下げ", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 38] },
+    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34] },
+    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34, 29] },
+
+    { TuningName: "　ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 38] },
+    { TuningName: "　ギター　6弦：ドロップC#", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 37] },
+    { TuningName: "　ギター　6弦：ドロップC", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 36] },
+    { TuningName: "　ギター　6弦：ドロップB", NumberOfStrings: 6, StringTuningStrings: [61, 56, 52, 47, 42, 11] },
+    { TuningName: "　ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 45, 38] },
+
+    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33] },
+    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 28] },
+    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33, 28] },
+
+    { TuningName: "　ギター　6弦：オープンD", NumberOfStrings: 6, StringTuningStrings: [62, 57, 54, 50, 45, 38] },
+    { TuningName: "　ギター　6弦：オープンG", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 43, 38] },
+    { TuningName: "　ギター　6弦：オープンA", NumberOfStrings: 6, StringTuningStrings: [64, 61, 57, 52, 45, 40] },
+
+    { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
+    { TuningName: "　ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 23] },
+    { TuningName: "　ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [48, 43, 38, 33, 28, 23] },
+    { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 26] },
+    { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 21] },
+
+    { TuningName: "★ヴァイオリン　4弦", NumberOfStrings: 4, StringTuningStrings: [76, 69, 62, 55] },
+    { TuningName: "　ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [76, 69, 62, 55, 48] },
+    { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [69, 62, 55, 48] },
+    { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [45, 38, 43, 36] },
+    { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
+
+    { TuningName: "★三味線　3弦：本調子（主音ド）", NumberOfStrings: 3, StringTuningStrings: [72, 65, 60] },
+    { TuningName: "　三味線　3弦：二上がり（主音ド）", NumberOfStrings: 3, StringTuningStrings: [72, 67, 60] },
+    { TuningName: "　三味線　3弦：三下がり（主音ド）", NumberOfStrings: 3, StringTuningStrings: [74, 65, 60] },
+
+    { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [69, 64, 60, 67] },
+];
+
+
 //コード進行を格納する多次元配列
 const chordProgOne =
     [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "https://youtu.be/VFP5oalZn4s" },
@@ -127,7 +171,6 @@ const AllNoteNames = [
     [['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#x1D12A;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#x1D12A;', 'B'], ['シ', 'シ', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ&#x1D12A;', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'シ', 'シ', 'ド♭', 'ド♭', 'シ', 'ラ&#x1D12A;', 'シ'], ['ロ', 'ロ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', 'ロ', 'ロ', '変ハ', '変ハ', 'ロ', '重嬰イ', 'ロ'], ['H', 'H', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'H', 'H', 'Ces', 'Ces', 'H', 'Aisis', 'H']]
 ];
 
-
 //音名を配列に格納する。
 const note_name = ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"];
 const sharp_note_name = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
@@ -148,25 +191,28 @@ const clef_image = [
     "clef/B-major_g-sharp-minor.svg",
 ];
 
-const EIJG =
-    [["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
+const EIJG = [
+    ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"],
     ["ド", "ド#-レ♭", "レ", "レ#-ミ♭", "ミ", "ファ", "ファ#-ソ♭", "ソ", "ソ#-ラ♭", "ラ", "ラ#-シ♭", "シ"],
     ["ハ", "嬰ハ-変ニ", "ニ", "嬰ニ-変ホ", "ホ", "ヘ", "嬰ヘ-変ト", "ト", "嬰ト-変イ", "イ", "嬰イ-変ロ", "ロ"],
-    ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]];
+    ["C", "Cis-Des", "D", "Dis-Es", "E", "F", "Fis-Ges", "G", "Gis-As", "A", "Ais-B", "H"]
+];
 
-const EIJG2 =
-    [[["C", "C"], ["C#", "D♭"], ["D", "D"], ["D#", "E♭"], ["E", "E"], ["F", "F"], ["F#", "G♭"], ["G", "G"], ["G#", "A♭"], ["A", "A"], ["A#", "B♭"], ["B", "B"]],
+const EIJG2 = [
+    [["C", "C"], ["C#", "D♭"], ["D", "D"], ["D#", "E♭"], ["E", "E"], ["F", "F"], ["F#", "G♭"], ["G", "G"], ["G#", "A♭"], ["A", "A"], ["A#", "B♭"], ["B", "B"]],
     [["ド", "ド"], ["ド#", "レ♭"], ["レ", "レ"], ["レ#", "ミ♭"], ["ミ", "ミ"], ["ファ", "ファ"], ["ファ#", "ソ♭"], ["ソ", "ソ"], ["ソ#", "ラ♭"], ["ラ", "ラ"], ["ラ#", "シ♭"], ["シ", "シ"]],
     [["ハ", "ハ"], ["嬰ハ", "変ニ"], ["ニ", "ニ"], ["嬰ニ", "変ホ"], ["ホ", "ホ"], ["ヘ", "ヘ"], ["嬰ヘ", "変ト"], ["ト", "ト"], ["嬰ト", "変イ"], ["イ", "イ"], ["嬰イ", "変ロ"], ["ロ", "ロ"]],
-    [["C", "C"], ["Cis", "Des"], ["D", "D"], ["Dis", "Es"], ["E", "E"], ["F", "F"], ["Fis", "Ges"], ["G", "G"], ["Gis", "As"], ["A", "A"], ["Ais", "B"], ["H", "H"]]];
+    [["C", "C"], ["Cis", "Des"], ["D", "D"], ["Dis", "Es"], ["E", "E"], ["F", "F"], ["Fis", "Ges"], ["G", "G"], ["Gis", "As"], ["A", "A"], ["Ais", "B"], ["H", "H"]]
+];
 
-const DegreeNames =
-    [["Ⅰ", "#Ⅰ", "Ⅱ", "#Ⅱ", "Ⅲ", "Ⅳ", "#Ⅳ", "Ⅴ", "#Ⅴ", "Ⅵ", "#Ⅵ", "Ⅶ"],
-    ["Ⅰ", "♭Ⅱ", "Ⅱ", "♭Ⅲ", "Ⅲ", "Ⅳ", "♭Ⅴ", "Ⅴ", "♭Ⅵ", "Ⅵ", "♭Ⅶ", "Ⅶ"]];
+const DegreeNames = [
+    ["Ⅰ", "#Ⅰ", "Ⅱ", "#Ⅱ", "Ⅲ", "Ⅳ", "#Ⅳ", "Ⅴ", "#Ⅴ", "Ⅵ", "#Ⅵ", "Ⅶ"],
+    ["Ⅰ", "♭Ⅱ", "Ⅱ", "♭Ⅲ", "Ⅲ", "Ⅳ", "♭Ⅴ", "Ⅴ", "♭Ⅵ", "Ⅵ", "♭Ⅶ", "Ⅶ"]
+];
 
 //英・米式音名の多次元配列
-const noteNames =
-    [['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'D&#119083;', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'C'],
+const noteNames = [
+    ['C', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'D&#119083;', 'C', 'B#', 'C', 'C', 'B#', 'C', 'C', 'B#', 'D&#119083;', 'C', 'C', 'B#', 'C'],
     ['C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'C#', 'C#', 'D♭', 'D♭', 'C#', 'C#', 'C#/D♭'],
     ['D', 'D', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'E&#119083;', 'D', 'C&#119082;', 'D', 'D', 'C&#119082;', 'E&#119083;', 'D', 'D', 'C&#119082;', 'D'],
     ['D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'F&#119083;', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'E♭', 'D#', 'E♭', 'D#', 'D#', 'E♭', 'E♭', 'D#', 'D#', 'D#/E♭'],
@@ -177,7 +223,8 @@ const noteNames =
     ['G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'A♭', 'G#', 'A♭', 'G#', 'G#', 'A♭', 'A♭', 'G#', 'G#', 'G#/A♭'],
     ['A', 'A', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'B&#119083;', 'A', 'A', 'B&#119083;', 'A', 'G&#119082;', 'B&#119083;', 'A', 'A', 'G&#119082;', 'A'],
     ['A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'B♭', 'B♭', 'A#', 'C&#119083;', 'B♭', 'A#', 'A#', 'A#/B♭'],
-    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']];
+    ['B', 'B', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'B', 'B', 'C♭', 'C♭', 'B', 'A&#119082;', 'B']
+];
 
 //旋法名を配列に格納する。
 const mode_name = ["Major", "", "Dorian", "", "Phrygian", "Lydian", "", "Mixolydian", "", "Minor", "", "Locrian"];
@@ -190,8 +237,8 @@ const sharp_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "
 const flat_key_signature = ["(#・♭×0)", "(♭×5)", "(#×2)", "(♭×3)", "(#×4)", "(♭×1)", "(♭×6)", "(#×1)", "(♭×4)", "(#×3)", "(♭×2)", "(#×5)"];
 const modulation_type = ["#・♭+0", "♭+5", "#+2", "♭+3", "#+4", "♭+1", "#・♭+6", "#+1", "♭+4", "#+3", "♭+2", "#+5"];
 
-const ToneCluster =
-    [[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+const ToneCluster = [
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
@@ -200,11 +247,12 @@ const ToneCluster =
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
 
 //0なし 1あり 2シャープ 3フラット 4ダブルシャープ 5ダブルフラット 6ナチュラル
-const chord_container =
-    [{ ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「Root（ルート音）」＋「P5th（完全5度）」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
+const chord_container = [
+    { ChordName: "5", ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], Name: "パワーコード", Info: '「Root（ルート音）」＋「P5th（完全5度）」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
     { ChordName: "", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0], Name: "メジャー", Info: '「メジャー・トライアド」。<br>最も基本的な三和音。「長三和音」とも呼ばれます。<br><br>「Root（ルート音）」＋「M3rd（長3度）」＋「P5th（完全5度）」の組み合わせです。' },
     { ChordName: "(omit5)", ChordBinary: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], Name: "メジャー・オミットファイブ", Info: 'メジャー・トライアドから、P5th（完全5度）の音を省略したコードです。' },
 
@@ -344,12 +392,13 @@ const chord_container =
 
     { ChordName: "Maj13", ChordBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], Name: "メジャーサーティーン", Info: 'メジャー・スケールの構成音を全て含むコード。<br>M3rdとP4th(11th)はアボイドになるので、取り扱いには注意が必要です。' },
     { ChordName: "m13", ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], Name: "マイナーサーティーン", Info: 'ドリアン・スケールの構成音を全て含むコード。' },
-    { ChordName: "Maj7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンに9thと#11thと13thが加わったコードです。<br>リディアン・スケールの構成音を全て含むコード。' }];
+    { ChordName: "Maj7(9,#11,13)", ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンに9thと#11thと13thが加わったコードです。<br>リディアン・スケールの構成音を全て含むコード。' }
+];
 
 //0なし 1あり 2シャープ 3フラット 4ダブルシャープ 5ダブルフラット 6ナチュラル
-const scale_Container =
+const scale_Container = [
     //メジャー・スケールファミリー
-    [{ EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
+    { EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
     { EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], addNum: 2, ForteNumber: "7-35", Info: "", Mode: "メジャーの第2モード。", Adjustment: 0 },
     { EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], addNum: 4, ForteNumber: "7-35", Info: "", Mode: "メジャーの第3モード。", Adjustment: 0 },
     { EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], addNum: 5, ForteNumber: "7-35", Info: "", Mode: "メジャーの第4モード。", Adjustment: 0 },
@@ -453,8 +502,7 @@ const scale_Container =
     { EnglishName: "Tcherepnin's 9 tone", JapaneseName: "チェレプニン", diaChord4: "", diaChord3: "", ScaleNumBinary: [2, 4, 0, 8, 1, 1, 0, 1, 17, 1, 0, 1], addNum: 0, ForteNumber: "9-12", Info: "「Messiaen Mode」や「チェレプニンの9音階」とも。<br>アレクサンドル・チェレプニンが開発したスケールです。", Mode: "", Adjustment: 0 },
 
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [2, 3, 5, 8, 9, 12, 13, 15, 17, 18, 21, 22], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
-    ];
-
+];
 
 let chord_prog = Number(chordProgOne.length + chordProgFour.length + chordProgSix.length + chordProgEight.length);
 
