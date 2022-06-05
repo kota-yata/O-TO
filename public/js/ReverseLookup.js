@@ -1,5 +1,13 @@
 'use strict';
 
+//配列を定義する。
+let FingerboardOnOff = [];
+let FingerboardPosition = [];
+let MIDI_note_number;
+let position_data = [];
+let PitchClassArray = [];
+let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
+
 //2つの数を比較して大きい方を返す関数。
 function aryMax(a, b) {
     return Math.max(a, b);
@@ -10,16 +18,25 @@ function aryMin(a, b) {
     return Math.min(a, b);
 };
 
-//配列を定義する。
-let FingerboardOnOff = [];
-let FingerboardPosition = [];
-let MIDI_note_number;
-let position_data = [];
-let PitchClassArray = [];
-let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
+// 指板に色がついているか判定する関数
+function colored(st, Flet) {
+    for (let i = 0; i < 12; i++) {
+        if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`Degree${i}`)) {
+            return true;
+        };
+    };
+    return false;
+};
+
+// 指板にsame_pitch_classクラスがついているか判定する関数
+function samePitch(st, Flet) {
+    if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`same_pitch_class`)) {
+        return true;
+    };
+    return false;
+};
+
 // --------------------------------------------------------------------------
-
-
 //フレットボードの要素を描画する関数
 function FingerboardGo() {
 
@@ -82,24 +99,6 @@ function FingerboardGo() {
     ModalCandidateDegree();
     //コード・ネームの情報を判定する関数
     ChordCandidateInfo(onoff, 0)
-};
-
-// 指板に色がついているか判定する関数
-function colored(st, Flet) {
-    for (let i = 0; i < 12; i++) {
-        if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`Degree${i}`)) {
-            return true;
-        };
-    };
-    return false;
-};
-
-// 指板にsame_pitch_classクラスがついているか判定する関数
-function samePitch(st, Flet) {
-    if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`same_pitch_class`)) {
-        return true;
-    };
-    return false;
 };
 
 //選択した音名の情報を元に色々な処理をする関数
@@ -230,8 +229,6 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
             };
         };
     };
-
-
 };
 
 let transpose_st;
@@ -240,9 +237,10 @@ let transpose_MIDI_note_number;
 let transpose_direction;
 let OpenStringsLock = 1;
 
-//指板上の音を移調する関数
-function transpose(transpose_direction) {
 
+// 解放弦ロックのON・OFFをする関数
+function OpenStrings_Lock(transpose_direction) {
+    //解放弦のロックボタンが押されたときの処理
     if (transpose_direction === 0 && OpenStringsLock === 0) {
         OpenStringsLock = 1;
         document.getElementById("OpenStringsLock").innerHTML = "開放弦のロックを解除する"
@@ -254,23 +252,47 @@ function transpose(transpose_direction) {
         document.getElementById("OpenStringsLock").classList.toggle("LockOff");
         document.getElementById("OpenStringsLock").classList.toggle("LockOn");
     };
+};
 
+
+//指板上の音を移調する関数
+function transpose(transpose_direction) {
+    // 描画されている逆引き指板全てに対して処理を行う
     for (let i = 0; i < FingerboardOnOff.length; i++) {
+        //そのポジションの弦、フレット、MIDIノートナンバー情報を取得
         transpose_st = Number(FingerboardPosition[0].split('-')[1]);
         transpose_Flet = Number(FingerboardPosition[0].split('-')[2]);
         transpose_MIDI_note_number = Number(FingerboardOnOff[0]);
 
+        //選択した音名の情報を元に色々な処理をする関数
         NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
 
-        //解放弦や最高音フレットの処理
+        //解放弦や最高音フレットの処理（解放弦のロック判定によって処理を分岐）
         if (transpose_direction === -1 && transpose_Flet === 0) {
+            // 解放弦のロック時の-1ボタンは動かさない
             NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
         } else if (OpenStringsLock === 1 && transpose_Flet === 0) {
+            // 解放弦のロックの+1ボタンは動かさない
             NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
         } else if (transpose_direction === 1 && transpose_Flet === Number(document.getElementById('NumberOfFlet').value)) {
+            //最高音のフレットは動かさない。
             NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
         } else {
+            //それ以外の場合は移調する
             NoteOnOff(transpose_st, transpose_Flet + transpose_direction, transpose_MIDI_note_number + transpose_direction);
         };
     };
+};
+
+
+//スケール名の弦を切り替える関数
+function ChangeLanguageFingerboard(value) {
+    if (value === 0) {
+        //モーダル・インターチェンジの候補を表示する関数
+        ModalTextCreate();
+    } else {
+        //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数
+        ScaleLanguageJE();
+    };
+    transpose(0);
 };

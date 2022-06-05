@@ -339,7 +339,7 @@
                 <button id="transpose_minus" class="transpose_button" onclick="transpose(-1)">
                     -1
                 </button>
-                <button id="OpenStringsLock" class="LockOn lock_button" onclick="transpose(0)">
+                <button id="OpenStringsLock" class="LockOn lock_button" onclick="OpenStrings_Lock(0)">
                     開放弦のロックを解除する
                 </button>
                 <button id="transpose_plus" class="transpose_button" onclick="transpose(1)">
@@ -396,7 +396,7 @@
 
                             <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
                                 <select id="ModalCandidateSelect" class="form-select my-1"
-                                    aria-label="Default select example" onchange="FingerboardGo()">
+                                    aria-label="Default select example" onchange="ChangeLanguageFingerboard(0)">
                                     <option value=0 selected>英・米式表記で構成音を表示する</option>
                                     <option value=1>イタリア式表記で構成音を表示する</option>
                                     <option value=2>日本式表記で構成音を表示する</option>
@@ -407,7 +407,7 @@
                             <div>
                                 <button id="scale_language_change_button"
                                     class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
-                                    onclick="ScaleLanguageJE()">日本語⇔English</button>
+                                    onclick="ChangeLanguageFingerboard(1)">日本語⇔English</button>
                             </div>
 
                             <div class="accordion-body">
