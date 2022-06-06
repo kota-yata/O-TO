@@ -410,6 +410,12 @@ img {
 
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記テキスト */
+/* .DegreeText0 {
+
+} */
+.DegreeText:hover {
+  font-weight: bold;
+}
 .DegreeText0 {
   border-left: solid 1rem #0588ff;
 }

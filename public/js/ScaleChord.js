@@ -272,7 +272,12 @@ function CreateCandidate() {
         //ディグリー表記のために13回ループさせる。
         for (let k = 0; k < 13; k++) {
             let HTML_Info = document.getElementById("addHTML");
-            HTML_Info.insertAdjacentHTML('beforebegin', `<div class="DegreeText${k}" id="Modal_text_${k}_${i}"></div>`);
+            HTML_Info.insertAdjacentHTML('beforebegin', `<div class="DegreeText DegreeText${k}" id="Modal_text_${k}_${i}"></div>`);
+            if (scale_Container[i].Info === "") {
+                document.getElementById(`Modal_text_${k}_${i}`).setAttribute("title", `${scale_Container[i].Mode}`);
+            } else {
+                document.getElementById(`Modal_text_${k}_${i}`).setAttribute("title", `${(scale_Container[i].Info).replaceAll("<br>", "")}`);
+            };
         };
     };
 };
