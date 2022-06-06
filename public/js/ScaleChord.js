@@ -206,21 +206,21 @@ function scaleChordTableCreate() {
                     if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 1) {
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 42) {
                         SOF = 0;
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 43) {
                         SOF = 1;
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else {
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     };
 
                     //構成音とマッチするコードの数をカウントする
