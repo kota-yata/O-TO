@@ -38,7 +38,7 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-scale.html">②スケール</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール名を逆引き</a>
+            <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール逆引き</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
@@ -47,10 +47,10 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-modulation.html">⑥転調の間隔</a>
+            <a class="nav-link" href="o-to-modulation.html">⑥転調</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-note-value.html">⑦音価の計算</a>
+            <a class="nav-link" href="o-to-note-value.html">⑦音価</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
