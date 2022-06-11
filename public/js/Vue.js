@@ -53,7 +53,7 @@ Vue.component('header-template', {
             <a class="nav-link" href="o-to-note-value.html">⑦音価</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-metric-modulation.html">⑧メトリック・モジュレーション</a>
+            <a class="nav-link" href="o-to-metric-modulation.html">⑧高度なリズム</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-degree-change.html">⑨コード移調</a>
