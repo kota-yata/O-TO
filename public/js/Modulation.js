@@ -143,14 +143,5 @@ function keychange() {
     modulation_drow("#+5の転調先", "result_s_5", "after_mode", mod((answer1 - 1), 12), mod((answer2 + 11), 12));
     modulation_drow("♭+5の転調先", "result_f_5", "after_mode", mod((answer1 - 11), 12), mod((answer2 + 1), 12));
     modulation_drow("#・♭+6の転調先", "result_sf_6", "after_mode", mod((answer1 - 6), 12), mod((answer2 + 6), 12));
-    if (Number(mode_number) === Number(after_mode_number)) {
-        document.getElementById("result_sf_zero").innerHTML
-            = "【#・♭+0】<br>";
-    } else if (sf_0 === 0 || sf_0 === 2 || sf_0 === 4 || sf_0 === 6 || sf_0 === 7 || sf_0 === 9 || sf_0 === 11) {
-        document.getElementById("result_sf_zero").innerHTML
-            = "【#・♭+0の転調先】<br>" + sharp_note_name[mod((answer2 + 0), 12)] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + sharp_key_signature[sf_0];
-    } else {
-        document.getElementById("result_sf_zero").innerHTML
-            = "【#・♭+0の転調先】<br>" + flat_note_name[mod((answer2 + 0), 12)] + " " + scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['JapaneseName'] + " " + flat_key_signature[sf_0];
-    };
+    modulation_drow("#・♭+0の転調先", "result_sf_0", "after_mode", sf_0, mod((answer2 + 0), 12));
 };
