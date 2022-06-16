@@ -131,7 +131,7 @@ function keychange() {
     let sf_0 = mod((answer1 - 0), 12);
     let answer2 = note_number - Number(mode_number) + Number(after_mode_number);
 
-    modulation_drow("転調元のキー", "result_origin", "mode", sf_0, mod((answer2 + 0), 12));
+    modulation_drow("転調元のキー", "result_origin", "mode", sf_0, note_number);
     modulation_drow("#+1の転調先", "result_s_1", "after_mode", mod((answer1 - 5), 12), mod((answer2 + 7), 12));
     modulation_drow("♭+1の転調先", "result_f_1", "after_mode", mod((answer1 - 7), 12), mod((answer2 + 5), 12));
     modulation_drow("#+2の転調先", "result_s_2", "after_mode", mod((answer1 - 10), 12), mod((answer2 + 2), 12));
