@@ -557,5 +557,16 @@ function info_counter() {
 
 };
 
-//各配列の情報などの数を書き込む関数
+//各配列の情報などの数を書き込む関数を実行する。
 info_counter();
+
+//異名同音の#と♭を判定する関数
+const DetermineKeySignature = (Root) => {
+    let SharpOrFlat;
+    if (Root === 0 || Root === 2 || Root === 4 || Root === 6 || Root === 7 || Root === 9 || Root === 11) {
+        SharpOrFlat = 0;
+    } else {
+        SharpOrFlat = 1;
+    };
+    return SharpOrFlat;
+};
