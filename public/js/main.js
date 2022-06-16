@@ -53,7 +53,6 @@ const TuningVariation = [
     { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [69, 64, 60, 67] },
 ];
 
-
 //コード進行を格納する多次元配列
 const chordProgOne =
     [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "https://youtu.be/VFP5oalZn4s" },
@@ -99,7 +98,7 @@ const chordProgFour =
     { name: "レアキャラ", chord: "Ⅳ△7-Ⅲm7-♭Ⅲdim7-Ⅱm7", info: "このパッシング・ディミニッシュはあまり出てこない印象。", url: "" },
     { name: "丸サ進行", chord: "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅰ7", info: "「Just The Two Of Us進行」とも。新たな時代で「J-Popの王」の座を狙っている。", url: "https://youtu.be/i9I55MZLYYY" },
     { name: "オシャレ", chord: "Ⅳ△7-Ⅲ7-Ⅵm7-Ⅱ7", info: "丸サ進行とはひと味違うオシャレさ。", url: "https://youtu.be/zw5wH_Tr21U?t=6" },
-    { name: "おやすみ", chord: "Ⅳ△7-Ⅰ△7", info: "穏やかな気分になりたい時に。", url: "" },
+    { name: "おやすみチル", chord: "Ⅳ△7-Ⅰ△7-Ⅲsus2/#Ⅴ-Ⅲm/Ⅵ", info: "穏やかな気分になりたい時に。", url: "" },
     { name: "リディアン", chord: "Ⅳ-Ⅴ/Ⅳ", info: "リディアン・モードを取り入れたい時に。", url: "" },
     { name: "メロウな王道進行", chord: "Ⅳ△7-Ⅴ7/Ⅳ-Ⅲm7-Ⅵm7", info: "「王道進行」に、さらに砂糖を振りかけた感じ。", url: "https://youtu.be/ukyRC_fNEP0?t=77" },
     { name: "チンダル現象みがある", chord: "Ⅳ△7-Ⅳm7-Ⅲm7-Ⅵ7", info: "穏やかな昼下がりみたいな流れ。", url: "" },
