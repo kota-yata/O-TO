@@ -517,7 +517,7 @@ function LeftyToneNameCreate() {
 };
 
 //フレット上の音名を描画する関数
-function FletCreate(NumberOfStrings) {
+function FletCreate() {
     //ルート音の情報を取得する。
     RootNumber = Number(document.getElementById("rootNumber").value);
 
@@ -540,22 +540,14 @@ function FletCreate(NumberOfStrings) {
     ConfigurationNotes = [];
     ConfigurationNotes.splice(0);
 
+    let SOF;
     //スケールの場合の処理
     if (ScaleAndChordsDrowingSwitch === 1) {
         //スケール構成音のバイナリを配列に格納する。
         Configuration = scale_Container[ScaleNum]['ScaleNumBinary'];
+
         //シャープとフラットの区別をする変数SOFに値を代入。
-        if (mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 0
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 2
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 4
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 6
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 7
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 9
-            || mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12) === 11) {
-            SOF = 0;
-        } else {
-            SOF = 1;
-        };
+        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12));
 
         //コードの場合の処理
     } else if (ScaleAndChordsDrowingSwitch === 0) {
@@ -622,17 +614,7 @@ function FletCreate(NumberOfStrings) {
         };
 
         //シャープとフラットの区別をする変数SOFに値を代入。
-        if (mod(RootNumber, 12) === 0
-            || mod(RootNumber, 12) === 2
-            || mod(RootNumber, 12) === 4
-            || mod(RootNumber, 12) === 6
-            || mod(RootNumber, 12) === 7
-            || mod(RootNumber, 12) === 9
-            || mod(RootNumber, 12) === 11) {
-            SOF = 0;
-        } else {
-            SOF = 1;
-        };
+        SOF = DetermineKeySignature(mod(RootNumber, 12));
     };
 
     //for文でスケールの構成音を生成する。

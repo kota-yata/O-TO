@@ -80,19 +80,8 @@ function ScaleInformationDrawing() {
     let KeySignatureNum = mod(RootNumber - scale_Container[Num]["addNum"], 12)
     let scaleFamilyNum = mod(RootNumber - scale_Container[Num]["addNum"] - scale_Container[Num]["Adjustment"], 12)
 
-    let SOF;
     //調号が#か♭かを判定する。
-    if (KeySignatureNum === 0
-        || KeySignatureNum === 2
-        || KeySignatureNum === 4
-        || KeySignatureNum === 6
-        || KeySignatureNum === 7
-        || KeySignatureNum === 9
-        || KeySignatureNum === 11) {
-        SOF = 0;
-    } else {
-        SOF = 1;
-    };
+    let SOF = DetermineKeySignature(KeySignatureNum);
 
     //スケールファミリーの情報を表示
     if (scale_Container[Num]["Mode"] == "") {
@@ -189,19 +178,8 @@ function scaleChordTableCreate() {
                     chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 10, 12)] <= scale_binary_split[1] &&
                     chord_container[ChordTableNum - 1].ChordBinary[mod(chordAdjustmentNumber - 11, 12)] <= scale_binary_split[0]) {
 
-                    let SOF;
                     //調号が#か♭かを判定する。
-                    if (KeySignatureNum === 0
-                        || KeySignatureNum === 2
-                        || KeySignatureNum === 4
-                        || KeySignatureNum === 6
-                        || KeySignatureNum === 7
-                        || KeySignatureNum === 9
-                        || KeySignatureNum === 11) {
-                        SOF = 0;
-                    } else {
-                        SOF = 1;
-                    };
+                    let SOF = DetermineKeySignature(KeySignatureNum);
 
                     if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 1) {
                         //コードネームを書き込む
@@ -348,19 +326,8 @@ function degree_position_drow(root_position) {
 //コード・ネームの情報を判定する関数
 function ChordCandidateInfo(onoff, RootNumber) {
 
-    let SOF;
-
     //ルート音の値から大雑把にシャープとフラットの判別をする。
-    if (RootNumber === 2
-        || RootNumber === 4
-        || RootNumber === 6
-        || RootNumber === 7
-        || RootNumber === 9
-        || RootNumber === 11) {
-        SOF = 0;
-    } else {
-        SOF = 1;
-    };
+    let SOF = DetermineKeySignature(RootNumber);
 
     //コードの構成音が何音か判定した値を格納する変数
     let CandidateCount = 0;
@@ -547,13 +514,8 @@ function ChordCandidateInfo(onoff, RootNumber) {
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
                 NonRootMOm = mod(RootNum - MajorOrMinor + RootNumber, 12);
 
-                let NonRootSOF;
                 //コード・ネームのシャープとフラットの判別
-                if (NonRootMOm === 2 || NonRootMOm === 4 || NonRootMOm === 6 || NonRootMOm === 7 || NonRootMOm === 9 || NonRootMOm === 11) {
-                    NonRootSOF = 0;
-                } else {
-                    NonRootSOF = 1;
-                };
+                let NonRootSOF = DetermineKeySignature(NonRootMOm);
 
                 //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
                 if (0 === onoff[0] && Bass >= RootNumber + RootNum) {

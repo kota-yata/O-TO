@@ -561,9 +561,9 @@ function info_counter() {
 info_counter();
 
 //異名同音の#と♭を判定する関数
-const DetermineKeySignature = (Root) => {
+function DetermineKeySignature(Num) {
     let SharpOrFlat;
-    if (Root === 0 || Root === 2 || Root === 4 || Root === 6 || Root === 7 || Root === 9 || Root === 11) {
+    if (Num === 0 || Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11) {
         SharpOrFlat = 0;
     } else {
         SharpOrFlat = 1;

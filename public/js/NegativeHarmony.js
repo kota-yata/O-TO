@@ -41,8 +41,6 @@ function NegativeChangeEIJG() {
     };
 };
 
-
-
 //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
 function NegativeDegreePositionDrow(root_position) {
     let do_app = Number(document.getElementById("do_app").value);
@@ -105,31 +103,11 @@ function NegativeChordCandidateInfo(onoff) {
     //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
     NegativeDegreePositionDrow(0);
 
-    let SOF;
     //ルート音の値から大雑把にシャープとフラットの判別をする。
-    if (RootNumber === 2
-        || RootNumber === 4
-        || RootNumber === 6
-        || RootNumber === 7
-        || RootNumber === 9
-        || RootNumber === 11) {
-        SOF = 0;
-    } else {
-        SOF = 1;
-    };
+    let SOF = DetermineKeySignature(RootNumber);
 
-    let NegativeSOF;
     //ルート音の値から大雑把にシャープとフラットの判別をする。
-    if (NegativeKeyNumber === 2
-        || NegativeKeyNumber === 4
-        || NegativeKeyNumber === 6
-        || NegativeKeyNumber === 7
-        || NegativeKeyNumber === 9
-        || NegativeKeyNumber === 11) {
-        NegativeSOF = 0;
-    } else {
-        NegativeSOF = 1;
-    };
+    let NegativeSOF = DetermineKeySignature(NegativeKeyNumber);
 
     // キーセンターからの距離が等しい音のペアを書き込む
     for (let i = 0; i < 6; i++) {
@@ -317,13 +295,8 @@ function NegativeChordCandidateInfo(onoff) {
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
                 NonRootMOm = mod(RootNum - MajorOrMinor + RootNumber, 12);
 
-                let NonRootSOF;
                 //コード・ネームのシャープとフラットの判別
-                if (NonRootMOm === 2 || NonRootMOm === 4 || NonRootMOm === 6 || NonRootMOm === 7 || NonRootMOm === 9 || NonRootMOm === 11) {
-                    NonRootSOF = 0;
-                } else {
-                    NonRootSOF = 1;
-                };
+                let NonRootSOF = DetermineKeySignature(NonRootMOm);
 
                 //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
                 if (0 === onoff[0] && Bass >= RootNumber + RootNum) {
