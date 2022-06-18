@@ -24,20 +24,16 @@ function NegativeHarmony(onoff) {
 
 //ネガティヴ・ハーモニーの音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
 function NegativeChangeEIJG() {
-    //ルートの音の値を取得
-    let RootNumber = Number(document.getElementById("rootNumber").value);
 
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
-    let num = 0;
-
     //キーの主音の値を取得
     let NegativeKeyNumber = Number(document.getElementById("NegativeKeyNumber").value);
 
-    RootNumber = mod((-10 * NegativeKeyNumber) - RootNumber, 12);
+    //ルートの音の値を取得し計算
+    let RootNumber = mod((-10 * NegativeKeyNumber) - Number(document.getElementById("rootNumber").value), 12);
 
     for (let i = 0; i < 12; i++) {
-        document.getElementById(`NegativeChord_${num}`).innerHTML = EIJG[key_signature_names][mod(RootNumber + i, 12)];
-        num++
+        document.getElementById(`NegativeChord_${i}`).innerHTML = EIJG[key_signature_names][mod(RootNumber + i, 12)];
     };
 };
 
@@ -47,32 +43,25 @@ function NegativeDegreePositionDrow(root_position) {
     if (do_app === 0) {
         return;
     };
-    let Num = 0;
     for (let i = 0; i < 12; i++) {
         //いったんテーブル要素を全て空にする。
-        document.getElementById(`Negative_Degree_table_${Num}`).innerHTML = ``;
-        document.getElementById(`Negative_Tension_table_${Num}`).innerHTML = ``;
-        let Num2 = 0;
-        for (let i = 0; i < 12; i++) {
+        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = ``;
+        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = ``;
+        for (let k = 0; k < 12; k++) {
             //いったんクラスを全て削除する
-            document.getElementById(`Negative_Degree_table_${Num}`).classList.remove(`Degree${Num2}`);
-            document.getElementById(`Negative_Tension_table_${Num}`).classList.remove(`Degree${Num2}`);
-            Num2++
+            document.getElementById(`Negative_Degree_table_${i}`).classList.remove(`Degree${k}`);
+            document.getElementById(`Negative_Tension_table_${i}`).classList.remove(`Degree${k}`);
         };
-        Num++
     };
-
-    Num = 0;
     for (let i = 0; i < 12; i++) {
         //テキストを追加する
-        document.getElementById(`Negative_Degree_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][0]}`;
-        document.getElementById(`Negative_Tension_table_${Num}`).innerHTML = `${Degree_Tension_array[mod(-root_position + Num, 12)][1]}`;
+        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][0]}`;
+        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][1]}`;
         //クラスを追加する
-        document.getElementById(`Negative_Degree_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
-        if (Degree_Tension_array[mod(-root_position + Num, 12)][1] !== "") {
-            document.getElementById(`Negative_Tension_table_${Num}`).classList.add(`Degree${mod(-root_position + Num, 12)}`);
+        document.getElementById(`Negative_Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
+        if (Degree_Tension_array[mod(-root_position + i, 12)][1] !== "") {
+            document.getElementById(`Negative_Tension_table_${i}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
         };
-        Num++
     };
 };
 

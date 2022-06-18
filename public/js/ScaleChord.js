@@ -2,18 +2,14 @@
 
 //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
 function ChangeEIJG() {
-    let root_number = Number(document.getElementById("rootNumber").value);
-    let key_signature_names = Number(document.getElementById("key_signature_names").value);
-    let num = 0;
-
     //逆引き指板の時は処理を実行しない
     if (Number(document.getElementById("do_app").value) === 1) {
         return;
     };
-
+    let root_number = Number(document.getElementById("rootNumber").value);
+    let key_signature_names = Number(document.getElementById("key_signature_names").value);
     for (let i = 0; i < 12; i++) {
-        document.getElementById(`chord_${num}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, 12)];
-        num++
+        document.getElementById(`chord_${i}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, 12)];
     };
 };
 
@@ -35,8 +31,7 @@ function CreateChordChoices() {
 };
 
 //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
-function CeateScaleChoices(idName) {
-    ScaleLanguage = "JapaneseName"
+function CeateScaleChoices(idName, ScaleLanguage = "JapaneseName") {
     //スケールを格納した配列の長さを取得する。
     let Num = scale_Container.length;
 
@@ -99,7 +94,6 @@ function ScaleInformationDrawing() {
     document.getElementById("keySignatur_text").innerHTML
         = `通常、調号は${key_signature[KeySignatureNum]}で記譜されます。<br><img src="./image/${clef_image[KeySignatureNum]}" alt="調号" title="調号" id="clef2">`;
 
-
     //スケールの情報を表示
     if (scale_Container[Num]["Info"] == "") {
         document.getElementById("Scale_info_text").innerHTML = "";
@@ -128,7 +122,7 @@ function ScaleInformationDrawing() {
 
     //構成音を着色するために構成音のバイナリを返り値として返す
     onoff = value[0].split('/').map(Number);
-    return onoff
+    return onoff;
 };
 
 //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
@@ -200,7 +194,6 @@ function scaleChordTableCreate() {
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
                             .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     };
-
                     //構成音とマッチするコードの数をカウントする
                     use_chord_count++;
                 } else {
@@ -225,7 +218,6 @@ function scaleChordTableCreate() {
             document.getElementById(`ChordNumber-${ChordTableNum}`).innerHTML = "";
         };
         ChordTableNum--;
-
     };
     document.querySelector('.use_chord_count').innerHTML = `（${use_chord_count} / ${chord_container.length * 12}）`;
 };
