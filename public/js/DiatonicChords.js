@@ -116,7 +116,6 @@ function Chordschange() {
 
     document.getElementById("degree_change_button").className = "btn btn-primary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
     onoff_ChordsAndModeChange = 0;
-
 };
 
 //コードネームをモードスケール併記に切り替えるための関数(ダイアトニック・コード)
@@ -326,17 +325,15 @@ document.getElementById("degree_button"); function degree() {
 
 //ダイアトニック・コードの着色をリセットする関数(ダイアトニック・コード)
 function paintDiatonicChordsReset() {
-    let diaNum = 1;
-    for (let i = 1; i < 8; i++) {
-        document.getElementById(`Major_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Rel_HMin_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Rel_MMin_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Rel_HMaj_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Rel_MMaj_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Para_Minor_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Para_HMin_dia_${diaNum}`).className = "NoteName";
-        document.getElementById(`Para_MMin_dia_${diaNum}`).className = "NoteName";
-        diaNum++;
+    for (let i = 0; i < 7; i++) {
+        document.getElementById(`Major_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Rel_HMin_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Rel_MMin_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Rel_HMaj_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Rel_MMaj_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Para_Minor_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Para_HMin_dia_${i + 1}`).className = ('NoteName');
+        document.getElementById(`Para_MMin_dia_${i + 1}`).className = ('NoteName');
     };
 };
 
