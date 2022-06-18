@@ -288,7 +288,7 @@ const chord_container = [
     { ChordName: "mMaj7(♭5)", ChordBinary: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1], Name: "マイナー・メジャーセブン・フラットファイブ", Info: 'マイナー・メジャーセブンのP5th（完全5度）の音を半音下げたコードです。' },
 
     { ChordName: "7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], Name: "セブン・サスフォー", Info: 'sus4にm7th（短7度）が加わったコードです。' },
-    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2にm7th（短7度）が加わったコードです。<br><br>m7th（短7度）を最低音として転回すると「7sus2」とも解釈できます。' },
+    { ChordName: "7sus2", ChordBinary: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0], Name: "セブン・サスツー", Info: 'sus2にm7th（短7度）が加わったコードです。<br><br>m7th（短7度）を最低音として転回すると「(6/9)(omit5)」とも解釈できます。' },
     { ChordName: "sus4 add9", ChordBinary: [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドナイン", Info: '「sus2 4」などの表記もあります。<br>「sus4」に9thを加えたコードです。<br>P5th（完全5度）を最低音として転回すると「7sus4」とも解釈できます。' },
     { ChordName: "sus4 add♭9", ChordBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0], Name: "サスフォー・アドフラットナイン", Info: 'sus4に♭9thを加えたコードです。<br><br>♭9thを最低音として転回すると「Maj7(#11)(omit5)」とも解釈できます。' },
     { ChordName: "Maj7sus4", ChordBinary: [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1], Name: "メジャーセブン・サスフォー", Info: 'sus4にM7th（長7度）が加わったコードです。' },
