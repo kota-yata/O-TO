@@ -17,6 +17,8 @@ function ScaleLanguageJEFingerBoard() {
 
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(指板用)
 function ModalCandidateSelectFingerBoard() {
+    //ルート音の情報を取得する。
+    let RootNumber = Number(document.getElementById("rootNumber").value);
     //言語の情報を取得する。
     let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
     //弦の本数を取得する。
