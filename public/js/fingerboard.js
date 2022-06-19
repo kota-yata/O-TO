@@ -1,7 +1,7 @@
+'use strict';
 
 //モーダルインターチェンジ候補のスケール名を日本語と英語に切り替えるボタンのための関数(指板用)
 function ScaleLanguageJEFingerBoard() {
-
     if (ScaleLanguageNum === 0) {
         ScaleLanguage = 'JapaneseName';
         document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
@@ -44,7 +44,7 @@ function ModalCandidateSelectFingerBoard() {
 
 //スケール画面とコード画面の切り替えをする関数
 function ScaleAndChordsDrowing() {
-
+    //現在がスケール画面とコード画面か判別する値
     let ScaleAndChordsDrowingSwitch = Number(document.getElementById("ScaleAndChordsChangeButton").value);
 
     document.getElementById("ScaleAndChords").innerHTML = "";
@@ -226,7 +226,7 @@ function ScaleAndChordsDrowing() {
 
                 <div>
                     <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
-                        onclick="ScaleLanguageJEFingerBoard()">日本語⇔English</button>
+                        onclick="ScaleLanguageJEFingerBoard(1)">日本語⇔English</button>
                     <button id="onlyTonicMode" type="button" class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
                         onclick="fingerboard_ChordOnlyTonicModeSwitch()">
                     構成音を含む全てのスケールを表示する
@@ -255,7 +255,6 @@ function ScaleAndChordsDrowing() {
 function StringsTable() {
 
     let NumberOfStrings;
-
     if (Number(document.getElementById("do_app").value) === 0) {
         //⑩弦楽器の指板を可視化するの処理
         NumberOfStrings = Number(document.getElementById("NumberOfStrings").value); //弦の本数
@@ -435,16 +434,14 @@ function LeftyFingerboardCreate() {
 };
 
 // 右利き用フレットに音名を描画する
-function RightyToneNameCreate(RootNumber) {
+function RightyToneNameCreate(RootNumber, NumberOfStrings) {
+    //フレットの数を取得する
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     for (let st = 1; st < NumberOfStrings + 1; st++) {
-        //フレットの数を取得する
-        let FletNum = Number(document.getElementById(`NumberOfFlet`).value);
-        let FletCount = FletNum;
         //以前に描画された音名を消去する。
         document.getElementById(`${st}_string`).innerHTML = "";
         //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
         let TuningNumber = document.getElementById(`StringTuning_${st}`).value;
-
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
             if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
@@ -454,28 +451,25 @@ function RightyToneNameCreate(RootNumber) {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
             }
-            TuningNumber--
-            FletNum--
+            TuningNumber--;
         };
         //フレットボードの左端に、何弦かを表す数字とidを書き込む。
         document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
     };
+
 };
 
 // 左利き用フレットに音名を描画する
-function LeftyToneNameCreate(RootNumber) {
+function LeftyToneNameCreate(RootNumber, NumberOfStrings) {
+    //フレットの数を取得する
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     for (let st = 1; st < NumberOfStrings + 1; st++) {
-        //フレットの数を取得する
-        let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
-        let FletNum = 0;
         //以前に描画された音名を消去する。
         document.getElementById(`${st}_string`).innerHTML = "";
         //弦のチューニング項目からチューニング音を指定するvalueを読み込む。
         let TuningNumber = document.getElementById(`StringTuning_${st}`).value;
-
         //フレットボードの左端に、何弦かを表す数字とidを書き込む。
         document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id="StringsNumber-${st}">${st}</th>`);
-
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
             if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
@@ -485,15 +479,13 @@ function LeftyToneNameCreate(RootNumber) {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
             }
-            TuningNumber++
-            FletNum++
+            TuningNumber++;
         };
-
     };
 };
 
 //フレット上の音名を描画する関数
-function FletCreate() {
+function FletCreate(NumberOfStrings) {
     //ルート音の情報を取得する。
     let RootNumber = Number(document.getElementById("rootNumber").value);
 
@@ -503,9 +495,8 @@ function FletCreate() {
     //配列を検索用の値
     let ScaleNum = Number(value[1]);
 
-
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
-    let onoff = value[0].split('/').map(Number);
+    onoff = value[0].split('/').map(Number);
 
     //音名の表記方法を取得する
     let key_signature_names = Number(document.getElementById(`key_signature_names`).value);
@@ -518,6 +509,7 @@ function FletCreate() {
     ConfigurationNotes.splice(0);
 
     let SOF;
+    let Configuration;
     //スケールの場合の処理
     if (ScaleAndChordsDrowingSwitch === 1) {
         //スケール構成音のバイナリを配列に格納する。
@@ -531,7 +523,7 @@ function FletCreate() {
         //コード構成音のバイナリを配列に格納する。
         Configuration = chord_container[ScaleNum]['ChordBinary'];
         //mを判定するために「omit5,omit3」を除く
-        ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "").replace("omit3", "")
+        let ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "").replace("omit3", "")
 
         //3度の異名同音判定
         if (ChordName.includes("m")) {
@@ -665,10 +657,10 @@ function FletCreate() {
     //利き手を判定
     if (Number(document.getElementById("DominantHand").value) === 0) {
         // 右利きフレットに音名を描画する
-        RightyToneNameCreate(RootNumber);
+        RightyToneNameCreate(RootNumber, NumberOfStrings);
     } else if (Number(document.getElementById("DominantHand").value) === 1) {
         // 左利きフレットに音名を描画する
-        LeftyToneNameCreate(RootNumber);
+        LeftyToneNameCreate(RootNumber, NumberOfStrings);
     };
 
     //コード画面の場合の処理
@@ -712,7 +704,7 @@ function FingerboardDataInfo() {
     };
 
     //弦の本数を設定する
-    NumberOfStrings = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
+    let NumberOfStrings = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     document.getElementById("NumberOfStrings").selectedIndex = NumberOfStrings - 1;
 
     //利き手を判定
@@ -724,8 +716,6 @@ function FingerboardDataInfo() {
         LeftyFingerboardCreate(NumberOfStrings);
     };
 
-    //チューニングを変更する
-    StringsTuning = TuningVariation[Number(TuningVariationValue[1])]['NumberOfStrings'];
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
             //mod12でチューニングを指定する。
@@ -734,23 +724,23 @@ function FingerboardDataInfo() {
     };
 
     //フレット上の音名を描画する関数
-    FletCreate();
+    FletCreate(NumberOfStrings);
 };
 
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function NumberOfStringsManually() {
 
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
-    TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
+    let TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
-    TuningInfo = TuningVariationValue[0].split('-').map(Number);
+    let TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
     for (let i = 0; i < TuningInfo.length; i++) {
         TuningData.splice(i, 1, TuningInfo[i]);
     };
 
-    NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
+    let NumberOfStrings = Number(document.getElementById("NumberOfStrings").value);
 
     //利き手を判定
     if (Number(document.getElementById("DominantHand").value) === 0) {
@@ -761,8 +751,6 @@ function NumberOfStringsManually() {
         LeftyFingerboardCreate(NumberOfStrings);
     };
 
-    //チューニングを変更する
-    StringsTuning = TuningVariation;
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
             document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], 12);
@@ -770,13 +758,13 @@ function NumberOfStringsManually() {
     };
 
     //フレット上の音名を描画する関数
-    FletCreate();
+    FletCreate(NumberOfStrings);
 };
 
 //チューニングの選択肢を表示するためのHTML要素(option)を追加するための関数
 function CreateTuningVariation() {
     //コードを格納した配列の長さを取得する。
-    Num = TuningVariation.length;
+    let Num = TuningVariation.length;
 
     document.getElementById("TuningVariation").innerHTML = "";
 
