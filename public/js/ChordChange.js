@@ -344,9 +344,10 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
             //コード進行の注釈ツールチップを追加する。
             document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].info}`);
         } else {
-            let text;
+            //ディグリーネームを指定したキーへ変換する関数
+            let text = DegreeChange(`${ChordArray[i].chord}`, RootNumber).replace(/-/g, " - ");
             //コード進行を書き込む
-            document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${text = DegreeChange(`${ChordArray[i].chord}`, RootNumber).replace(/-/g, " - ")}`;
+            document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${text}`;
             //ディグリー表記のツールチップを追加する。
             document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].chord}`);
         };
