@@ -229,7 +229,7 @@
 
             <label for="rootNumber" class="pb-4">調べたいキーを選択する
               <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
-                onchange="ChangeChordProgression()">
+                onchange="ChangeChordProgression(1)">
                 <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
                 <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
                 <option value=2>Dメジャー / Bマイナー (#×2)</option>
@@ -244,18 +244,16 @@
                 <option value=11>Bメジャー / G#マイナー (#×5)</option>
               </select>
             </label>
-
-            <a id="b_clef_image">
-
-            </a>
+            <!-- 調号の画像を表示 -->
+            <a id="b_clef_image"> </a>
           </div>
 
           <div class="text-right">
-            <button id="degree_change_button" class="btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3"
-              onclick="ChangeChordProgression()">コードネームで表示</button>
+            <button id="degree_change_button" class="btn box1 col-10 col-md-5 col-xl-4 m-2"
+              onclick="ChangeChordProgression(1)">コードネームで表示</button>
 
-            <button id="degree_button" class="btn btn-success box1 col-8 col-md-5 col-xl-4 m-3"
-              onclick="ChangeChordProgressionDegree()">ディグリーネームで表示</button>
+            <button id="degree_button" class="btn box1 col-10 col-md-5 col-xl-4 m-2"
+              onclick="ChangeChordProgression(0)">ディグリーネームで表示</button>
           </div>
 
 
@@ -411,7 +409,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       ChordCandidateCreate();
-      ChangeChordProgressionDegree();
+      ChangeChordProgression(1);
     });
   </script>
 

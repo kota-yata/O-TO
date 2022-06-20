@@ -353,37 +353,32 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
     };
 };
 
-//コード進行をディグリーネームで表示する関数
-function ChangeChordProgressionDegree() {
-    //Ⅰ始まりのコード進行
-    WriteChord(1, chordProgOne);
-    //Ⅳ始まりのコード進行
-    WriteChord(4, chordProgFour);
-    //Ⅵ始まりのコード進行
-    WriteChord(6, chordProgSix);
-    //その他のコード進行
-    WriteChord(8, chordProgEight);
-    //調号を消す
-    document.getElementById("b_clef_image").innerHTML = "";
-    //ボタンの色を変える
-    document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-5 col-xl-4 m-3";
-    document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
-};
-
 //コード進行を切り替える関数
-function ChangeChordProgression() {
+function ChangeChordProgression(processing) {
     let RootNumber = Number(document.getElementById("rootNumber").value);
-    //Ⅰ始まりのコード進行
-    WriteChord(1, chordProgOne, 1, RootNumber);
-    //Ⅳ始まりのコード進行
-    WriteChord(4, chordProgFour, 1, RootNumber);
-    //Ⅵ始まりのコード進行
-    WriteChord(6, chordProgSix, 1, RootNumber);
-    //その他のコード進行
-    WriteChord(8, chordProgEight, 1, RootNumber);
-    // 調号の画像を変更する
-    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
-    //ボタンの色を変える
-    document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-5 col-xl-4 m-3";
-    document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
+    if (processing === 0) {
+        // 調号の画像を変更する
+        document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
+        //ボタンの色を変える
+        document.getElementById("degree_change_button").classList.remove("btn-primary");
+        document.getElementById("degree_change_button").classList.add("btn-secondary");
+        document.getElementById("degree_button").classList.remove("btn-secondary");
+        document.getElementById("degree_button").classList.add("btn-success");
+    } else {
+        // 調号の画像を変更する
+        document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
+        //ボタンの色を変える
+        document.getElementById("degree_button").classList.remove("btn-success");
+        document.getElementById("degree_button").classList.add("btn-secondary");
+        document.getElementById("degree_change_button").classList.remove("btn-secondary");
+        document.getElementById("degree_change_button").classList.add("btn-primary");
+    };
+    //Ⅰ始まりのコード進行を書き込む
+    WriteChord(1, chordProgOne, processing, RootNumber);
+    //Ⅳ始まりのコード進行を書き込む
+    WriteChord(4, chordProgFour, processing, RootNumber);
+    //Ⅵ始まりのコード進行を書き込む
+    WriteChord(6, chordProgSix, processing, RootNumber);
+    //その他のコード進行を書き込む
+    WriteChord(8, chordProgEight, processing, RootNumber);
 };
