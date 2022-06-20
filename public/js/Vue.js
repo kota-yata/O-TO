@@ -512,13 +512,12 @@ new Vue({
 Vue.component('link-table', {
   template: `
     <div>
-        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
-            <h5>音楽アプリの一覧</h5>
-        </div>
+
+        <h5 class="Larger shadow p-3 rounded mb-4 py-3">音楽アプリの一覧</h5>
+
         <p class="pt-2">各ツール（ウェブアプリ）は、全て無料で使えます。</p>
 
         <div class="link_table1">
-
           <div class="card">
               <div class="card-body">
                   <h5>
@@ -677,11 +676,11 @@ Vue.component('link-table', {
                   </p>
               </div>
           </div>
-          </div>
-
-        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
-            <h5>音楽関係の資料・データ</h5>
         </div>
+
+
+        <h5 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h5>
+
         <p class="pt-2">リンク先から音楽関係の資料をダウンロードできます。</p>
         <div class="link_table2">
             <div class="card">
@@ -746,9 +745,7 @@ Vue.component('link-table', {
         </div>
 
 
-        <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
-            <h5>関連ページへのリンク</h5>
-        </div>
+        <h5 class="Larger shadow p-3 rounded mb-4 py-3">関連ページへのリンク</h5>
         <p class="pt-2">音楽に関係する情報へのリンク先です。</p>
         <div class="link_table3">
             <div class="card">
@@ -802,89 +799,67 @@ Vue.component('link-table', {
                     <p class="card-text">音楽理論やDTM関係の情報をまとめたブログ記事です。</p>
                 </div>
             </div>
-
         </div>
 
-        <div class="share-heading">
-            <div class="Larger shadow p-3 mb-3 rounded pb-2 m-3">
-                <h5>便利だと思ったら是非シェアを！</h5>
-            </div>
-            <p class="pt-2">シェアしていただくと、アプリ開発の励みになります。</p>
-            <div>
-                <ul>
-                    <li class="py-1 nav-item">
-                        <!-- Twitterのシェアボタン -->
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                            data-show-count="false">
-                            Tweet
-                        </a>
-                    </li>
-                    <li class="py-1 nav-item">
-                        <!-- はてなブックマークへのシェアボタン -->
-                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
-                            data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
-                            title="このエントリーをはてなブックマークに追加">
-                            <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-                                alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-                        </a>
-                    </li>
-                    <li class="py-1 nav-item">
-                        <!-- noteへのシェアボタン -->
-                        <a href="https://note.com/intent/social_button" class="note-social-button"
-                            data-url="https://o-to.khufrudamonotes.com/"></a>
-                    </li>
-                    <li class="py-1 nav-item">
-                        <!-- pocketへのシェアボタン -->
-                        <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
-                    </li>
-                    <li class="py-1 nav-item">
-                        <!-- Lineへのシェアボタン -->
-                        <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
-                            data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small"
-                            data-count="true" style="display: none;">
-                        </a>
-                    </li>
-                    <li class="py-1 nav-item">
-                        <!-- Facebookへのシェアボタン -->
-                        <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width=""
-                            data-layout="button_count" data-action="like" data-size="small" data-share="true"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div>
+            <h5 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h5>
 
-        <h3 class="Larger shadow p-3 rounded mb-5 py-3">サポートのお願い</h3>
-
-          <p>継続的なサイト運営、コンテンツ制作のためにあなたのサポートが必要です。</p>
-
-          <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
-              rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
-              target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>からサポートをお願いいたします。</p>
-
+          <p class="pt-2">シェアしていただくと、アプリ開発の励みになります。</p>
           <ul>
-            <li>→ <a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
-                rel="noreferrer noopener">PayPal.Meの決済リンク</a>
+            <li class="py-1 nav-item">
+              <!-- Twitterのシェアボタン -->
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                data-show-count="false">
+                Tweet
+              </a>
             </li>
-            <li>→ <a href="https://buy.stripe.com/9AQdTx6y006YbDy001" target="_blank"
-                rel="noreferrer noopener">stripeの決済リンク</a>
+            <li class="py-1 nav-item">
+              <!-- はてなブックマークへのシェアボタン -->
+              <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
+                title="このエントリーをはてなブックマークに追加">
+                <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+                  alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- noteへのシェアボタン -->
+              <a href="https://note.com/intent/social_button" class="note-social-button"
+                data-url="https://o-to.khufrudamonotes.com/"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- pocketへのシェアボタン -->
+              <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Lineへのシェアボタン -->
+              <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
+                data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
+                style="display: none;">
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Facebookへのシェアボタン -->
+              <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width="" data-layout="button_count"
+                data-action="like" data-size="small" data-share="true"></a>
             </li>
           </ul>
+        </div>
 
-          <p class="has-small-font-size">
-            ※リンク先へ飛んだだけでは決済は行われません。
-          </p>
 
-          <p class="has-small-font-size">
-            ※PayPal.Meは<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
-              rel="noreferrer noopener">リンク先</a>へアクセスし、「送信」を選択してください。
-          </p>
+			<div>
+				<h5 class="Larger shadow p-3 rounded mb-4 py-3">オンラインレッスンのお知らせ</h5>
 
-          <p>いつもありがとうございます。</p>
+				<p>現在、音楽理論・作曲・DTMのオンラインレッスンを受け付けております！詳細は、下記のリンク先にまとめてあります。</p>
 
-          <p style="text-align: left" class="py-2  pb-3">
-            開発者：<a href="https://yoshito.khufrudamonotes.com/" target="_blank"
-              rel="noreferrer noopener">キムラヨシト</a>(KHUFRUDAMO NOTES)
-          </p>
+				<p class="pb-5">→
+					<a href="https://khufrudamonotes.com/online-lesson-description" target="_blank" rel="noreferrer noopener">
+						<strong>音楽理論、作曲、DTM オンラインレッスンのご案内</strong>
+					</a>
+				</p>
+			</div>
+
+
     </div>
       `
 })
