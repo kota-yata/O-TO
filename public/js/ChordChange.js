@@ -356,17 +356,15 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
 //コード進行を切り替える関数
 function ChangeChordProgression(processing) {
     let RootNumber = Number(document.getElementById("rootNumber").value);
+    // 調号の画像を変更する
+    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
     if (processing === 0) {
-        // 調号の画像を変更する
-        document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
         //ボタンの色を変える
         document.getElementById("degree_change_button").classList.remove("btn-primary");
         document.getElementById("degree_change_button").classList.add("btn-secondary");
         document.getElementById("degree_button").classList.remove("btn-secondary");
         document.getElementById("degree_button").classList.add("btn-success");
     } else {
-        // 調号の画像を変更する
-        document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
         //ボタンの色を変える
         document.getElementById("degree_button").classList.remove("btn-success");
         document.getElementById("degree_button").classList.add("btn-secondary");
