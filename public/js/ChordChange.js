@@ -297,299 +297,92 @@ function ButtonInvisible() {
     };
 };
 
-let firstNum = 0;
-let secondNum = 0;
-let num = 0;
-
-//変化記号を決定する
-let SOF = 0;
-
-//スケールを表示するためのHTML要素(div)を追加するための関数
-function ChordCandidateCreate() {
-
+//スケールを表示するHTML要素(div)を書き込むための関数
+function WriteChordHTML(f, ChordArray) {
     let HTML_Info;
+    //配列の数だけHTML要素(div)を書き込む。
+    for (let i = 0; i < ChordArray.length; i++) {
+        HTML_Info = document.getElementById(`addHTML${f}`);
+        HTML_Info.insertAdjacentHTML('afterbegin',
+            `<tr>
+        <th scope="row" id="row${f}-${ChordArray.length - i}"></th>
+        <td id="title${f}-${ChordArray.length - i}"></td>
+        <td id="chordProg${f}-${ChordArray.length - i}"></td>
+        </tr>`);
+    };
+};
 
-    //配列の数だけHTML要素(div)を追加する。
-    for (let i = 0; i < chordProgOne.length; i++) {
-        HTML_Info = document.getElementById("addHTML1");
-        HTML_Info.insertAdjacentHTML('afterbegin',
-            `<tr>
-        <th scope="row" id="row1-${chordProgOne.length - i}"></th>
-        <td id="title1-${chordProgOne.length - i}"></td>
-        <td id="chordProg1-${chordProgOne.length - i}"></td>
-        </tr>`);
-    };
+//スケールを表示するHTML要素(div)を書き込む関数
+function ChordCandidateCreate() {
+    //Ⅰ始まりのコード進行
+    WriteChordHTML(1, chordProgOne);
+    //Ⅳ始まりのコード進行
+    WriteChordHTML(4, chordProgFour);
+    //Ⅵ始まりのコード進行
+    WriteChordHTML(6, chordProgSix);
+    //その他のコード進行
+    WriteChordHTML(8, chordProgEight);
+};
 
-    for (let i = 0; i < chordProgFour.length; i++) {
-        HTML_Info = document.getElementById("addHTML4");
-        HTML_Info.insertAdjacentHTML('afterbegin',
-            `<tr>
-        <th scope="row" id="row4-${chordProgFour.length - i}"></th>
-        <td id="title4-${chordProgFour.length - i}"></td>
-        <td id="chordProg4-${chordProgFour.length - i}"></td>
-        </tr>`);
-        chordProgFour.length - i;
-    };
-    //配列の数だけHTML要素(div)を追加する。
-    for (let i = 0; i < chordProgSix.length; i++) {
-        HTML_Info = document.getElementById("addHTML6");
-        HTML_Info.insertAdjacentHTML('afterbegin',
-            `<tr>
-        <th scope="row" id="row6-${chordProgSix.length - i}"></th>
-        <td id="title6-${chordProgSix.length - i}"></td>
-        <td id="chordProg6-${chordProgSix.length - i}"></td>
-        </tr>`);
-        chordProgSix.length - i;
-    };
-    //配列の数だけHTML要素(div)を追加する。
-    for (let i = 0; i < chordProgEight.length; i++) {
-        HTML_Info = document.getElementById("addHTML8");
-        HTML_Info.insertAdjacentHTML('afterbegin',
-            `<tr>
-        <th scope="row" id="row8-${chordProgEight.length - i}"></th>
-        <td id="title8-${chordProgEight.length - i}"></td>
-        <td id="chordProg8-${chordProgEight.length - i}"></td>
-        </tr>`);
-        chordProgEight.length - i;
+// コード進行を書き込む関数
+function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
+    for (let i = 0; i < ChordArray.length; i++) {
+        //コード進行のナンバーを表示する
+        document.getElementById(`row${f}-${i + 1}`).innerHTML = i + 1;
+        if (ChordArray[i].url === "") {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${f}-${i + 1}`).innerHTML = `${ChordArray[i].name}`;
+        } else {
+            //コード進行の俗称・所感を表示する
+            document.getElementById(`title${f}-${i + 1}`).innerHTML = `<a href="${ChordArray[i].url}" target="_blank" rel="noopener noreferrer">${ChordArray[i].name}</a>`;
+        };
+        //コード進行の注釈ツールチップを追加する。
+        document.getElementById(`title${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].info}`);
+        if (processing === 0) {
+            //コード進行（ディグリー表記）を書き込む
+            document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${ChordArray[i].chord}`;
+            //コード進行の注釈ツールチップを追加する。
+            document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].info}`);
+        } else {
+            let text;
+            //コード進行を書き込む
+            document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${text = DegreeChange(`${ChordArray[i].chord}`, RootNumber).replace(/-/g, " - ")}`;
+            //ディグリー表記のツールチップを追加する。
+            document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].chord}`);
+        };
     };
 };
 
 //コード進行をディグリーネームで表示する関数
 function ChangeChordProgressionDegree() {
-
     //Ⅰ始まりのコード進行
-    let firstNum = 1;
-    let secondNum = 1;
-    let chordProgNum = 0;
-
-    for (let i = 1; i < chordProgOne.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgOne[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgOne[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgOne[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].chord}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
-
-        secondNum++
-        chordProgNum++
-    };
-
+    WriteChord(1, chordProgOne);
     //Ⅳ始まりのコード進行
-    firstNum = 4;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgFour.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgFour[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgFour[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgFour[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].chord}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
+    WriteChord(4, chordProgFour);
     //Ⅵ始まりのコード進行
-    firstNum = 6;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgSix.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgSix[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgSix[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgSix[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].chord}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
+    WriteChord(6, chordProgSix);
     //その他のコード進行
-    firstNum = 8;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgEight.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgEight[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgEight[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgEight[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].chord}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
+    WriteChord(8, chordProgEight);
+    //調号を消す
+    document.getElementById("b_clef_image").innerHTML = "";
     //ボタンの色を変える
     document.getElementById("degree_button").className = "btn btn-success box1 col-8 col-md-5 col-xl-4 m-3";
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
-    //調号を消す
-    document.getElementById("b_clef_image").innerHTML = "";
 };
 
 //コード進行を切り替える関数
 function ChangeChordProgression() {
-
     let RootNumber = Number(document.getElementById("rootNumber").value);
+    //Ⅰ始まりのコード進行
+    WriteChord(1, chordProgOne, 1, RootNumber);
+    //Ⅳ始まりのコード進行
+    WriteChord(4, chordProgFour, 1, RootNumber);
+    //Ⅵ始まりのコード進行
+    WriteChord(6, chordProgSix, 1, RootNumber);
+    //その他のコード進行
+    WriteChord(8, chordProgEight, 1, RootNumber);
     // 調号の画像を変更する
     document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
-
-    let text;
-
-    //Ⅰ始まりのコード進行
-    let firstNum = 1;
-    let secondNum = 1;
-    let chordProgNum = 0;
-    for (let i = 1; i < chordProgOne.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgOne[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgOne[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgOne[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgOne[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgOne[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgOne[chordProgNum].chord}`);
-
-        secondNum++
-        chordProgNum++
-    };
-
-    //Ⅳ始まりのコード進行
-    firstNum = 4;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgFour.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgFour[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgFour[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgFour[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgFour[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgFour[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgFour[chordProgNum].chord}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
-    //Ⅵ始まりのコード進行
-    firstNum = 6;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgSix.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgSix[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgSix[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgSix[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgSix[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgSix[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgSix[chordProgNum].chord}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
-    //その他のコード進行
-    firstNum = 8;
-    secondNum = 1;
-    chordProgNum = 0;
-    for (let i = 1; i < chordProgEight.length + 1; i++) {
-        //コード進行のナンバーを表示する
-        document.getElementById(`row${firstNum}-${secondNum}`).innerHTML = chordProgNum + 1;
-
-        if (chordProgEight[chordProgNum].url === "") {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `${chordProgEight[chordProgNum].name}`;
-        } else {
-            //コード進行の俗称・所感を表示する
-            document.getElementById(`title${firstNum}-${secondNum}`).innerHTML = `<a href="${chordProgEight[chordProgNum].url}" target="_blank" rel="noopener noreferrer">${chordProgEight[chordProgNum].name}</a>`;
-        };
-
-        //コード進行の注釈を追加する。
-        document.getElementById(`title${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].info}`);
-        //コード進行を表示する
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).innerHTML = `${text = DegreeChange(`${chordProgEight[chordProgNum].chord}`, RootNumber).replace(/-/g, " - ")}`;
-        //コード進行の注釈を追加する。
-        document.getElementById(`chordProg${firstNum}-${secondNum}`).setAttribute("title", `${chordProgEight[chordProgNum].chord}`);
-        //for文を回す
-        secondNum = secondNum + 1;
-        chordProgNum = chordProgNum + 1;
-    };
-
     //ボタンの色を変える
     document.getElementById("degree_change_button").className = "btn btn-primary box1 col-8 col-md-5 col-xl-4 m-3";
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-8 col-md-5 col-xl-4 m-3";
