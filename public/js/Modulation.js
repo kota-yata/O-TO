@@ -112,13 +112,9 @@ function modulation() {
 
 //転調先のキーを書き込む関数
 const modulation_drow = (labelText, writingId1, writingId2, answer1, answer2) => {
-    if (answer1 === 0 || answer1 === 2 || answer1 === 4 || answer1 === 6 || answer1 === 7 || answer1 === 9 || answer1 === 11) {
-        document.getElementById(`${writingId1}`).innerHTML
-            = `【${labelText}】<br>${sharp_note_name[answer2]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${sharp_key_signature[answer1]}`;
-    } else {
-        document.getElementById(`${writingId1}`).innerHTML
-            = `【${labelText}】<br>${flat_note_name[answer2]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${flat_key_signature[answer1]}`;
-    };
+    let SOF = DetermineKeySignature(answer1);
+    document.getElementById(`${writingId1}`).innerHTML
+        = `【${labelText}】<br>${EIJG2[0][answer2][SOF]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${key_signature[answer1]}`;
 };
 
 //転調元から転調先を表示するための関数(転調の間隔)

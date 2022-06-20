@@ -108,7 +108,7 @@ function ScaleInformationDrawing() {
             = `${noteNames[RootNumber][SOF]}7（ドミナント・セブン・コード）上で使用可能です。`;
     } else if (scale_dec == 1371) {
         document.getElementById("dominant_chord_text").innerHTML
-            = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${flat_note_name[RootNumber]}7（ドミナント・セブン・コード）上で使用可能です。`;
+            = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${noteNames[RootNumber][SOF]}7（ドミナント・セブン・コード）上で使用可能です。`;
     } else {
         document.getElementById("dominant_chord_text").innerHTML = "";
     };
@@ -761,10 +761,10 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
                 //スケールの情報をHTMLに書き込む。
                 if (scale_Container[i]["Mode"] === "") {
                     document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}</font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}</font>`;
                 } else {
                     document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${sharp_key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i]['addNum'] - scale_Container[i]['Adjustment'], 12)][SOF]}${scale_Container[i]["Mode"]}</span></font>`;
+                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i]['addNum'] - scale_Container[i]['Adjustment'], 12)][SOF]}${scale_Container[i]["Mode"]}</span></font>`;
                 };
                 use_scale_count++;
             } else {
