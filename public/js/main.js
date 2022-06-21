@@ -10,6 +10,16 @@ function roundToThree(num) {
     return +(Math.round(num + "e+3") + "e-3");
 };
 
+//2つの数を比較して大きい方を返す関数
+function aryMax(a, b) {
+    return Math.max(a, b);
+};
+
+//2つの数を比較して小さい方を返す関数
+function aryMin(a, b) {
+    return Math.min(a, b);
+};
+
 //主なチューニングタイプを格納した連想配列
 const TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 40] },
@@ -242,9 +252,6 @@ const DegreeNames = [
     ["Ⅰ", "#Ⅰ", "Ⅱ", "#Ⅱ", "Ⅲ", "Ⅳ", "#Ⅳ", "Ⅴ", "#Ⅴ", "Ⅵ", "#Ⅵ", "Ⅶ"],
     ["Ⅰ", "♭Ⅱ", "Ⅱ", "♭Ⅲ", "Ⅲ", "Ⅳ", "♭Ⅴ", "Ⅴ", "♭Ⅵ", "Ⅵ", "♭Ⅶ", "Ⅶ"]
 ];
-
-
-
 
 const ToneCluster = [
     [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -513,8 +520,18 @@ const scale_Container = [
     { EnglishName: "Chromatic", JapaneseName: "クロマチック", diaChord4: "", diaChord3: "", ScaleNumBinary: [2, 3, 5, 8, 9, 12, 13, 15, 17, 18, 21, 22], addNum: 0, ForteNumber: "12-1", Info: "「半音階」とも。", Mode: "", Adjustment: 0 }
 ];
 
-let chord_prog = Number(chordProgOne.length + chordProgFour.length + chordProgSix.length + chordProgEight.length);
+//異名同音の#と♭を判定する関数
+function DetermineKeySignature(Num) {
+    let SharpOrFlat;
+    if (Num === 0 || Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11) {
+        SharpOrFlat = 0;
+    } else {
+        SharpOrFlat = 1;
+    };
+    return SharpOrFlat;
+};
 
+let chord_prog = Number(chordProgOne.length + chordProgFour.length + chordProgSix.length + chordProgEight.length);
 //各配列の情報などの数を書き込む関数
 function info_counter() {
 
@@ -566,17 +583,6 @@ function info_counter() {
     };
 
 };
-
 //各配列の情報などの数を書き込む関数を実行する。
 info_counter();
 
-//異名同音の#と♭を判定する関数
-function DetermineKeySignature(Num) {
-    let SharpOrFlat;
-    if (Num === 0 || Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11) {
-        SharpOrFlat = 0;
-    } else {
-        SharpOrFlat = 1;
-    };
-    return SharpOrFlat;
-};

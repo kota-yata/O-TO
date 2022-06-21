@@ -8,16 +8,6 @@ let position_data = [];
 let PitchClassArray = [];
 let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
 
-//2つの数を比較して大きい方を返す関数。
-function aryMax(a, b) {
-    return Math.max(a, b);
-};
-
-//2つの数を比較して小さい方を返す関数。
-function aryMin(a, b) {
-    return Math.min(a, b);
-};
-
 // 指板に色がついているか判定する関数
 function colored(st, Flet) {
     for (let i = 0; i < 12; i++) {
@@ -148,7 +138,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     };
 
     //コード・ネームの情報を判定する関数を実行し、返り値でルート音を取得する。
-    let BassNumber = ChordCandidateInfo(OnOff, RootNumber);
+    let [BassNumber, result] = ChordCandidateInfo(OnOff, RootNumber);
 
     //コードが判定できないときはルート音はそのまま
     if (BassNumber === undefined) {
@@ -236,7 +226,6 @@ let transpose_Flet;
 let transpose_MIDI_note_number;
 let transpose_direction;
 let OpenStringsLock = 1;
-
 
 // 解放弦ロックのON・OFFをする関数
 function OpenStrings_Lock(transpose_direction) {

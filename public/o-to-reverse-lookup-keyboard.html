@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KVGNZDX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Vue を読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <!--文字エンコーディングの指定-->
+    <meta charset="utf-8">
+
+    <!--ページタイトル-->
+    <title>MIDIキーボードでコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】</title>
+
+    <!--サイト情報-->
+    <meta property="og:site_name" content="O-TO【音楽理論ウェブアプリ】" />
+    <meta property="og:title" content="MIDIキーボードでコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://o-to.khufrudamonotes.com/o-to-reverse-lookup-keyboard" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- 画像情報 -->
+    <meta property="og:image"
+        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup-keyboard_thumbnail.png" />
+    <meta name="twitter:image"
+        content="https://o-to.khufrudamonotes.com/image/thumbnail/reverse-lookup-keyboard_thumbnail.png" />
+
+    <!--ページの概要-->
+    <meta property="description" content="MIDIキーボードで入力した音に対応するコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。">
+    <meta property="og:description" content="MIDIキーボードで入力した音に対応するコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。">
+    <meta name="keyword"
+        content="音楽理論,音楽,コードネーム,コード,モーダルインターチェンジ,スケール名,和音判定,コード判別,スケール判別,スケール検索,コード検索,アプリ,ウェブアプリ,Webアプリ">
+    <!--Internet Explorer用の設定-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!--viewport設定(レスポンシブデザイン対応)-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--OGPタグ/Facebook-->
+    <meta property="fb:app_id" content="554281142516311">
+    <!--OGPタグ/note-->
+    <meta name="note:card" content="summary_large_image">
+
+    <!--OGPタグ/twitterカード-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@khufrudamonotes" />
+    <meta name="twitter:creator" content="@k1mu0419" />
+    <meta name="twitter:title" content="MIDIキーボードでコード/スケール名を逆引き検索 O-TO【音楽理論ウェブアプリ】" />
+    <meta property="twitter:description" content="MIDIキーボードで入力した音に対応するコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。" />
+    <meta property="og:description" content="MIDIキーボードで入力した音に対応するコード・ネームやスケール名を検索できるアプリです。コードの特徴など、詳細情報も確認できます。" />
+    <!--サイトアイコンの指定-->
+    <meta name="msapplication-square70x70logo" content="image\icon\site-tile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="image\icon\site-tile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="image\icon\site-tile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="image\icon\site-tile-310x310.png">
+    <meta name="msapplication-TileColor" content="#0078d7">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="image\icon\favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="image\icon\favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="image\icon\apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="image\icon\apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="image\icon\apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="image\icon\apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="image\icon\apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image\icon\apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="image\icon\apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image\icon\apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image\icon\apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="36x36" href="image\icon\android-chrome-36x36.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="image\icon\android-chrome-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="image\icon\android-chrome-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image\icon\android-chrome-96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="image\icon\android-chrome-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="image\icon\android-chrome-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="image\icon\android-chrome-152x152.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image\icon\android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="image\icon\android-chrome-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="image\icon\android-chrome-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="image\icon\android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="36x36" href="image\icon\icon-36x36.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="image\icon\icon-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="image\icon\icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image\icon\icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="image\icon\icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="image\icon\icon-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="image\icon\icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="image\icon\icon-160x160.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image\icon\icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="image\icon\icon-196x196.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="image\icon\icon-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="image\icon\icon-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="image\icon\icon-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image\icon\icon-16x16.png">
+    <link rel="icon" type="image/png" sizes="24x24" href="image\icon\icon-24x24.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image\icon\icon-32x32.png">
+    <link rel="manifest" href="image\icon\manifest.json">
+
+    <!-- AdSense コード -->
+    <script data-ad-client="ca-pub-1796975428667007" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- headのコンポーネントを読み込む -->
+    <div id="head">
+        <head-template></head-template>
+    </div>
+
+    <!--bootstrap を読み込む-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVGNZDX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+
+        <!-- ヘッダー -->
+        <header id="header">
+            <header-template></header-template>
+        </header>
+
+        <!-- メイン -->
+        <main>
+
+            <!-- 見出し -->
+            <div id="display">
+                <title-display></title-display>
+            </div>
+
+            <!-- 左(メインコンテンツ) -->
+
+            <h3 class="Larger shadow p-3 rounded mb-5 py-3">MIDIキーボードでコード/スケール名を逆引き検索</h3>
+
+            <!-- タブの中身 -->
+            <div id="tabBox" class=" pb-3">
+                <!-- タブの切り替えボタン -->
+                <div id="tabs">
+                    <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                    <label for="tab1">ガイド</label>
+                    <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                    <label for="tab2">説明書</label>
+                    <input type="radio" value="3" id="tab3" v-model="isActive"></input>
+                    <label for="tab3">関連資料</label>
+                </div>
+
+                <div id="contents">
+                    <!-- タブ1の中身 -->
+                    <div v-if="isActive == '1'">
+                        <p class="py-2">
+                            MIDIキーボードで入力した音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。<br>コードの特徴など、詳細情報も確認できます。</p>
+                        <p class="py-2">PC環境かつ、ブラウザはGoogleChrome推奨です。
+                        </p>
+                        <p class="pt-1">※コード・ネームからコードの構成音を検索したい方 → <a href="o-to-chords.html">①コードの構成音を調べる</a>をお使いください。
+                        </p>
+                        <p class="pb-2">※スケール名からスケールの構成音を検索したい方 → <a href="o-to-scale.html">②スケールの構成音を調べる</a>をお使いください。
+                        </p>
+                        <p class="py-2">※構成音からスケール名を検索したい方 → <a
+                                href="o-to-modal-interchange.html">③コード/スケール名を逆引き検索</a>をお使いください。</p>
+                        <p class="py-2">※ギタリスト（弦楽器奏者）の方 →<a
+                                href="o-to-reverse-lookup-fingerboard.html">⑪指板からコード/スケール名を逆引き検索</a>がオススメです。</p>
+                    </div>
+
+                    <!-- タブ2の中身 -->
+                    <div v-if="isActive == '2'" class="pb-2">
+
+                        <p class="py-2">――あなたのインスピレーションの名前を見つけましょう。</p>
+
+                        <h4 class="pt-3 manual">【使い方】</h4>
+                        <p class="py-2">①【接続中のMIDIデバイス】にお使いのMIDIキーボードが表示されているのを確認します。<br>②鍵盤を弾きます。<br>③コード・ネームが判定されます。
+                        </p>
+
+                        <h4 class="pt-3 manual">【音名の表記】</h4>
+                        <p class="py-2">音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。<br>
+                            初学者の方は、イタリア式（ドレミ…）にすると、馴染みやすいかもしれません。</p>
+
+                        <h4 class="pt-3 manual">【コードの情報】</h4>
+                        <p class="py-2">コードの読み方、詳細情報が表示されます。<br>ドミナント機能を持つコードの場合は、主な解決先も表示されます。</p>
+
+                        <h4 class="pt-3 manual">【コードの構成音を含む主なスケール】</h4>
+                        <p class="py-2">
+                            コードは、前後の流れや使われているキーに対しての立ち位置によって役割が変わります。<br>コードの構成音を含む主なスケールの情報は、モーダル・インターチェンジや、転調をする際の参考になるでしょう。
+                        </p>
+
+                        <h4 class="pt-3 manual">【異名同音について】</h4>
+                        <p class="pt-2">※このページでは、厳密な異名同音の区別を行っていません。<br>→
+                            <a href="https://khufrudamonotes.com/enharmonic" target="_blank"
+                                rel="noopener noreferrer">異名同音を解説します【「ド#」と「レ♭」との違いとは？】</a>
+                        </p>
+                    </div>
+
+                    <!-- タブ3の中身 -->
+                    <div v-if="isActive == '3'" class="pb-2">
+                        <div class="pt-3 pb-2">・
+                            <a href="https://khufrudamonotes.com/music-theory-roadmap" target="_blank"
+                                rel="noopener noreferrer">【音楽理論
+                                修得ロードマップ】音楽理論は何から勉強すればいい？</span></a>
+                            <p>音楽理論の学習ロードマップです。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://khufrudamonotes.com/slash-chords" target="_blank"
+                                rel="noopener noreferrer">分数コードの解説【転回形/UST/ハイブリッド・コード】</span></a>
+                            <p>分数コードの解説記事です。</p>
+                        </div>
+                        <div class="py-2">・
+                            <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank"
+                                rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a>
+                            <p>代理コードと、UST(アッパー・ストラクチャー・トライアド)やハイブリッド・コードの考え方をまとめた記事です。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 接続されているMIDIデバイスを表示する -->
+            <div class="pt-3" id="ConnectedDeviceName"></div>
+
+            <label for="key_signature_names" class="box1 col-md-5 col-xl-2 py-2 mx-2">音名の表記
+                <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
+                    onchange="ChangeEIJG()">
+                    <option value=0>英・米式表記</option>
+                    <option value=1>イタリア式表記</option>
+                    <option value=2>日本式表記</option>
+                    <option value=3>ドイツ式表記</option>
+                </select>
+            </label>
+
+            <p class="pt-3">入力されている音が表示されます。</p>
+            <table class="box_table">
+                <tr id="Degree_table">
+                    <td class="box_border" id="Degree_table_0"></td>
+                    <td class="box_border" id="Degree_table_1"></td>
+                    <td class="box_border" id="Degree_table_2"></td>
+                    <td class="box_border" id="Degree_table_3"></td>
+                    <td class="box_border" id="Degree_table_4"></td>
+                    <td class="box_border" id="Degree_table_5"></td>
+                    <td class="box_border" id="Degree_table_6"></td>
+                    <td class="box_border" id="Degree_table_7"></td>
+                    <td class="box_border" id="Degree_table_8"></td>
+                    <td class="box_border" id="Degree_table_9"></td>
+                    <td class="box_border" id="Degree_table_10"></td>
+                    <td class="box_border" id="Degree_table_11"></td>
+                </tr>
+                <tr id="Tension_table">
+                    <td class="box_border" id="Tension_table_0"></td>
+                    <td class="box_border" id="Tension_table_1"></td>
+                    <td class="box_border" id="Tension_table_2"></td>
+                    <td class="box_border" id="Tension_table_3"></td>
+                    <td class="box_border" id="Tension_table_4"></td>
+                    <td class="box_border" id="Tension_table_5"></td>
+                    <td class="box_border" id="Tension_table_6"></td>
+                    <td class="box_border" id="Tension_table_7"></td>
+                    <td class="box_border" id="Tension_table_8"></td>
+                    <td class="box_border" id="Tension_table_9"></td>
+                    <td class="box_border" id="Tension_table_10"></td>
+                    <td class="box_border" id="Tension_table_11"></td>
+                </tr>
+                <tr>
+                    <td id="chord_0" class="NoteName"></td>
+                    <td id="chord_1" class="NoteName"></td>
+                    <td id="chord_2" class="NoteName"></td>
+                    <td id="chord_3" class="NoteName"></td>
+                    <td id="chord_4" class="NoteName"></td>
+                    <td id="chord_5" class="NoteName"></td>
+                    <td id="chord_6" class="NoteName"></td>
+                    <td id="chord_7" class="NoteName"></td>
+                    <td id="chord_8" class="NoteName"></td>
+                    <td id="chord_9" class="NoteName"></td>
+                    <td id="chord_10" class="NoteName">
+                    </td>
+                    <td id="chord_11" class="NoteName">
+                    </td>
+                </tr>
+            </table>
+
+            <!-- ピアノ鍵盤を描画する -->
+            <table id="KeyboardTable">
+                <tr id="Keyboard">
+
+                </tr>
+            </table>
+
+            <div class="accordion py-3" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            コードネームの自動判定
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            <!-- コードネームの判定と情報をJavaScriptで書き込む -->
+                            <div id="AddChordHTML"></div>
+                            <div id="AddChordNameHTML"></div>
+                            <div><br></div>
+                            <div id="AddChordInfoHTML"></div>
+                            <div id="AddChordInfo2HTML"></div>
+                            <div id="AddChordInfoOmit5HTML"></div>
+                            <div id="AddChordInfoTriToneHTML"></div>
+                            <div id="AddChordInfoSub2HTML"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion py-3" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            この音の組み合わせを含む主なスケール<span class="use_scale_count"></span>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+
+                        <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
+                            <select id="ModalCandidateSelect" class="form-select my-1"
+                                aria-label="Default select example" onchange="ModalTextCreate()">
+                                <option value=0 selected>英・米式表記で構成音を表示する</option>
+                                <option value=1>イタリア式表記で構成音を表示する</option>
+                                <option value=2>日本式表記で構成音を表示する</option>
+                                <option value=3>ドイツ式表記で構成音を表示する</option>
+                            </select>
+                        </label>
+
+                        <div>
+                            <button id="scale_language_change_button"
+                                class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
+                                onclick="ScaleLanguageJE()">日本語⇔English</button>
+                            <button id="onlyTonicMode" type="button"
+                                class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
+                                onclick="modal_interchange_ChordOnlyTonicModeSwitch()">
+                                構成音を含む全てのスケールを表示する
+                            </button>
+                        </div>
+
+                        <div class="accordion-body">
+                            <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
+                            <div id="addHTML">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ルート音を設定するためのドロップダウンリスト（非表示） -->
+            <label for="rootNumber" class="visibility_hidden">
+                <select id="rootNumber" class="" aria-label="">
+                    <option value=0>C </option>
+                    <option value=1>C#-D♭</option>
+                    <option value=2>D</option>
+                    <option value=3>D#-E♭</option>
+                    <option value=4>E</option>
+                    <option value=5>F</option>
+                    <option value=6>F#-G♭</option>
+                    <option value=7>G</option>
+                    <option value=8>G#-A♭</option>
+                    <option value=9>A</option>
+                    <option value=10>A#-B♭</option>
+                    <option value=11>B</option>
+                </select>
+            </label>
+
+            <div id="link-table">
+                <link-table></link-table>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <footer id="footer">
+        <footer-profile></footer-profile>
+        <footer-github></footer-github>
+        <footer-bug></footer-bug>
+        <footer-info></footer-info>
+        <footer-twitter></footer-twitter>
+        <footer-youtube></footer-youtube>
+        <site-logo></site-logo>
+        <footer-copyright></footer-copyright>
+    </footer>
+
+    <!-- コードネームに合わせて度数表記を描画する関数を実行するか判定する用の値 -->
+    <data id="do_app" value=2></data>
+
+    <!--ページのロードが終了したときに実行される関数 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
+            ChangeEIJG();
+            //コード・ネームの情報を判定する関数
+            ChordCandidateInfo(onoff);
+            //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
+            CreateCandidate();
+            //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/スケール名検索用)
+            ModalCandidateSelect(onoff);
+        });
+    </script>
+
+    <!-- JavaScriptを読み込む-->
+    <script src="js/Vue.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ScaleChord.js"></script>
+    <script src="js/MIDI_key.js"></script>
+
+    <!-- シェアボタン用のJavaScript -->
+    <!-- Twitter -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- facebook -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0"
+        nonce="s28FkDyH"></script>
+    <!-- note -->
+    <script async src="https://cdn.st-note.com/js/social_button.min.js"></script>
+    <!-- はてなブックマーク -->
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8"
+        async="async"></script>
+    <!-- Pocket -->
+    <script
+        type="text/javascript">!function (d, i) { if (!d.getElementById(i)) { var j = d.createElement("script"); j.id = i; j.src = "https://widgets.getpocket.com/v1/j/btn.js?v=1"; var w = d.getElementById(i); d.body.appendChild(j); } }(document, "pocket-btn-js");</script>
+    <!-- Line -->
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
+        defer="defer"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
