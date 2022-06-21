@@ -159,7 +159,7 @@ WriteKeyboard();
 // 指定された鍵盤の色を変える関数
 const SelectedKeyboard = (MIDI_note_number_array, Root) => {
     //一旦全ての着色をリセットする。
-    for (i = 108; i > 20; i--) {
+    for (let i = 108; i > 20; i--) {
         for (let j = 0; j < 12; j++) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
         };
