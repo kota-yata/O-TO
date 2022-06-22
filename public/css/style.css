@@ -373,7 +373,7 @@ img {
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree3 {
-  background-color: #21ff95;
+  background-color: #66cdaa;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree4 {
@@ -432,7 +432,7 @@ img {
   padding-left: 0.2rem;
 }
 .DegreeText3 {
-  border-left: solid 0.4rem #21ff95;
+  border-left: solid 0.4rem #66cdaa;
   padding-left: 0.2rem;
 }
 .DegreeText4 {
@@ -482,7 +482,7 @@ img {
   outline-offset: -10px;
 }
 .modulationBorder3 {
-  outline: 10px solid #21ff95;
+  outline: 10px solid #66cdaa;
   outline-offset: -10px;
 }
 .modulationBorder4 {
@@ -694,7 +694,7 @@ box {
   background-color: #21daff;
 }
 .Selected_keyboard3 {
-  background-color: #21ff95;
+  background-color: #66cdaa;
 }
 .Selected_keyboard4 {
   background-color: #01ff50;
