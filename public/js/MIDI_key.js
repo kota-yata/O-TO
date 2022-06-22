@@ -5,7 +5,8 @@ let midi;
 //MIDIデバイスへのアクセスが成功したときに実行される処理
 const success = (midiAccess) => {
     midi = midiAccess;
-    console.log("MIDI READY");
+    console.log("MIDIデバイスの接続に成功しました。");
+    //MIDIAccessオブジェクトのInputsを取得してイベントに対して関数を渡す
     setInputs(midiAccess);
 };
 
@@ -13,41 +14,40 @@ const success = (midiAccess) => {
 const failure = (msg) => {
     console.log(`MIDI FAILED - ${msg}`);
     // アラートで表示
-    alert(`MIDIデバイスの接続に失敗しました。推奨ブラウザはGoogleChromeです。 - ${msg}`);
+    alert(`MIDIデバイスの接続に失敗しました。このアプリは、PC環境かつGoogleChrome、Edge推奨です。 - ${msg}`);
 };
 
 //MIDIAccessオブジェクトのInputsを取得してイベントに対して関数を渡す
 const setInputs = (midiAccess) => {
     let inputs = midiAccess.inputs;
-    document.getElementById("ConnectedDeviceName").innerHTML = '';
     let ConnectedDeviceNames = [];
     //接続されているMIDIデバイスを表示する。
     inputs.forEach((key, port) => {
         //コンソールに出力
         console.log("[" + key.state + "] manufacturer:" + key.manufacturer + " / name:" + key.name + " / port:" + port);
         //HTMLへ出力
-        ConnectedDeviceNames.push(`${key.name}`)
+        ConnectedDeviceNames.push(`${key.name}`);
         key.onmidimessage = onMidiMessage;
     });
+    document.getElementById("ConnectedDeviceName").innerHTML = '';
     document.getElementById("ConnectedDeviceName").innerHTML = `<span style="color:#dc143c">【接続中のMIDIデバイス】</span>${ConnectedDeviceNames}`;
 };
 
 //MIDIデバイスへアクセスする
 // navigator.requestMIDIAccess({ sysex: true })
 //     .then(success, failure);
-navigator.requestMIDIAccess()
-    .then(success, failure);
+navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
 
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
-const onMidiMessage = (event) => {
+const onMidiMessage = (e) => {
     let str = [];
-    for (let i = 0; i < event.data.length; i++) {
-        str.push(event.data[i]);
+    for (let i = 0; i < e.data.length; i++) {
+        str.push(e.data[i]);
     };
 
     //鍵盤を押した時と、離した時だけ実行される処理
-    if (str[0] !== 248) {
+    if (str[0] <= 145) {
         KeyAction(str);
     };
 };
@@ -71,6 +71,8 @@ const KeyAction = (str) => {
         };
         //配列にMIDIノートナンバーを追加
         MIDI_note_number_array.push(str[1]);
+        console.log(str[1]);
+        Play(str[1]);
     };
 
     // キーオフ時の設定
@@ -131,7 +133,7 @@ const KeyAction = (str) => {
 
     //指定された鍵盤の色を変える関数
     SelectedKeyboard(MIDI_note_number_array, BassNumber);
-
+    console.log(MIDI_note_number_array, BassNumber, result);
     if (counter === 12) {
         //もし何の音も選択されていない（配列onoffが全て0）の場合にスケール名をディグリー表記にする
         ModalCandidateDegree();
@@ -154,7 +156,7 @@ const WriteKeyboard = () => {
         };
     };
 };
-WriteKeyboard();
+
 
 // 指定された鍵盤の色を変える関数
 const SelectedKeyboard = (MIDI_note_number_array, Root) => {
@@ -171,3 +173,56 @@ const SelectedKeyboard = (MIDI_note_number_array, Root) => {
     };
 };
 
+//-----------------------------------------------------
+//ページがロードされたときに関数initを実行するイベントリスナーを設定する
+window.addEventListener('load', init, false);
+
+//変数contextを定義する
+let context;
+
+//AudioContextを作成する関数
+function init() {
+    try {
+        //webkitプレフィックスをつける。（WebKit使用のブラウザに対応するため）
+        window.AudioContext
+            = window.AudioContext || window.webkitAudioContext;
+        //AudioContextを生成する
+        context = new AudioContext();
+        console.log('init!');
+    } catch (e) {
+        //try内の処理がエラーの場合、それをユーザーに伝える。
+        alert('このブラウザではWeb Audio APIはサポートされていません。（音が出せません。）Web Audio API is not supported by this browser. (Cannot play sound.)');
+    };
+    return context;
+};
+
+// MIDIノートナンバーを渡すと周波数を返す関数
+const ConvertMIDItoHZ = (MIDI_note_number) => {
+    return 2 ** ((MIDI_note_number - 69) / 12) * 440;
+};
+
+function Play(MIDI_note_number) {
+    init();
+    const Oscillator = context.createOscillator();
+    //矩形波にする
+    Oscillator.type = (typeof Oscillator.type === 'string') ? 'square' : 1;
+    // MIDIノートナンバーを渡すと周波数を返す関数
+    let frequency = ConvertMIDItoHZ(MIDI_note_number);
+    Oscillator.frequency.value = frequency;
+    //ゲインノードを作成
+    const gain = context.createGain();
+    let input_volume = Number(document.getElementById("input_volume").value)
+    //ヴォリュームを決定する
+    gain.gain.value = input_volume * 0.1;
+    //ノードを繋げる
+    Oscillator.connect(gain).connect(context.destination);
+    //音を鳴らす
+    Oscillator.start(0.001);
+    Oscillator.stop(0.401);
+    return [Oscillator];
+};
+
+// function Stop(MIDI_note_number, Oscillator) {
+//     //音を消す。
+//     Oscillator.stop(0.001);
+// };
