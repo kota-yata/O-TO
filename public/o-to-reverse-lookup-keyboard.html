@@ -146,9 +146,12 @@
             <h3 class="Larger shadow p-3 rounded mb-5 py-3">MIDIキーボードでコード/スケール名を逆引き検索</h3>
 
             <div id="DisappearingContents1" class="">
-                <p class="pb-3">※このページの機能はPC推奨です。ブラウザは<b>GoogleChrome</b>や、<b>Edge</b>を使ってください。（<a
+                <p class="pb-3">※このページの機能はPC推奨です。ブラウザは、<b><a href="https://www.google.co.jp/intl/ja/chrome/"
+                            target="_blank" rel="noopener noreferrer">Google Chrome</a></b>や<b><a
+                            href="https://www.microsoft.com/ja-jp/edge" target="_blank"
+                            rel="noopener noreferrer">Microsoft Edge</a></b>を使ってください。（現時点では<a
                         href="https://caniuse.com/?search=Web%20MIDI%20API" target="_blank"
-                        rel="noopener noreferrer">現時点ではSafariやFirefoxは非対応</a>です。）
+                        rel="noopener noreferrer">SafariやFirefoxは非対応</a>です。）
                 </p>
             </div>
 
@@ -184,7 +187,7 @@
                         <h4 class="pt-3 manual">【使い方】</h4>
                         <p class="py-2">①ブラウザがMIDIデバイスの使用許可を求めてくるので許可します。<br>
                             ②「使用を開始する」ボタンを押します。<br>
-                            ③【接続中のMIDIデバイス】にお使いのMIDIキーボードが表示されているのを確認します。<br>
+                            ③【接続中のMIDIデバイス】に、お使いのMIDIキーボードが表示されているのを確認します。<br>
                             ④必要に応じて音量を調整します。<br>
                             ⑤MIDIキーボードを弾きます。<br>
                             ⑥コード/スケール名が判定されます。
@@ -247,15 +250,16 @@
                 <h4 class="pt-2 manual">【使い方】</h4>
                 <p class="py-2">①ブラウザがMIDIデバイスの使用許可を求めてくるので許可します。<br>
                     ②上記の「使用を開始する」ボタンを押します。<br>
-                    ③【接続中のMIDIデバイス】にお使いのMIDIキーボードが表示されているのを確認します。<br>
+                    ③【接続中のMIDIデバイス】に、お使いのMIDIキーボードが表示されているのを確認します。<br>
                     ④必要に応じて音量を調整します。<br>
                     ⑤MIDIキーボードを弾きます。<br>
                     ⑥コード/スケール名が判定されます。
                 </p>
             </div>
 
-            <!-- 接続されているMIDIデバイスを表示する -->
+            <!-- 「使用を開始する」ボタンによって出現する要素 -->
             <div id="AppearContents" class="display_none">
+                <!-- 接続されているMIDIデバイスを表示する -->
                 <div class="pt-3" id="ConnectedDeviceName"></div>
                 <label for="key_signature_names" class="box1 col-md-5 col-xl-2 py-2 mx-2">音名の表記
                     <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
