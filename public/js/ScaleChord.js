@@ -537,11 +537,9 @@ function ChordCandidateInfo(onoff, RootNumber) {
                         = `<font size="2">読み方：${noteNames[mod(RootNumber + i, 12)][NonRootSOF]}${chord_container[j]["Name"]}・オーヴァー${noteNames[RootNumber][NonRootSOF]}（転回形）</font>`;
                     document.getElementById("AddChordInfoHTML").innerHTML
                         = `${chord_container[j]["Info"]}`;
-                    degree_position_drow(mod(i, 12));
                 };
                 //コードネームに合わせて度数表記を描画する関数
                 degree_position_drow(mod(i, 12));
-
                 //マッチするものが見つかった場合はここでreturn
                 BassNumber = mod(RootNumber + i, 12);
                 return [BassNumber, true];;
@@ -551,9 +549,12 @@ function ChordCandidateInfo(onoff, RootNumber) {
         //このルート音では見つからなかった場合、次のルート音でループに入る。
         //マッチするもの無し
         if (i === 11) {
-            document.getElementById("AddChordHTML").innerHTML = `<font size="6">N.C.</font>`;
-            document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：ノン・コード</font>`;
-            document.getElementById("AddChordInfoHTML").innerHTML = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※基本的に「UST（アッパー・ストラクチャー・トライアド）」及び、「ハイブリッド・コード」での解釈の可能性は表示されません。<br>→ <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank" rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a></span></font>`;
+            document.getElementById("AddChordHTML").innerHTML
+                = `<font size="6">N.C.</font>`;
+            document.getElementById("AddChordNameHTML").innerHTML
+                = `<font size="2">読み方：ノン・コード</font>`;
+            document.getElementById("AddChordInfoHTML").innerHTML
+                = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※基本的に「UST（アッパー・ストラクチャー・トライアド）」及び、「ハイブリッド・コード」での解釈の可能性は表示されません。<br>→ <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank" rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a></span></font>`;
             document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
         };
     };
