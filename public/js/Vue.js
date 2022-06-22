@@ -40,6 +40,9 @@ Vue.component('header-template', {
           <li class="nav-item">
             <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール逆引き</a>
           </li>
+          <li class="nav-item pc_only">
+            <a class="nav-link" href="o-to-reverse-lookup-keyboard.html">(MIDI)</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行</a>
           </li>
@@ -114,7 +117,7 @@ Vue.component('link-card', {
                   <img class="link_image pt-3 pb-3" src="image/thumbnail/modal-interchange_thumbnail.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
-                  構成音からコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。
+                  構成音からコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。<br><a href="o-to-reverse-lookup-keyboard.html">MIDIキーボード対応版はこちら。</a>
                 </p>
               </div>
             </div>
@@ -256,6 +259,9 @@ Vue.component('right-column', {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-modal-interchange.html">③コード/スケール名を逆引き検索</a>
+          </li>
+          <li class="nav-item pc_only">
+            <a class="nav-link" href="o-to-reverse-lookup-keyboard.html">- (MIDIキーボードで逆引き検索)</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">80×12種類以上</span>）</a>
@@ -554,7 +560,7 @@ Vue.component('link-table', {
                   </h5>
 
                   <p class="card-text">
-                      選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。
+                      選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。<br><a href="o-to-reverse-lookup-keyboard.html">MIDIキーボード対応版はこちら。</a>
                   </p>
               </div>
           </div>

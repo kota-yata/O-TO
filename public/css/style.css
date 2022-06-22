@@ -731,7 +731,7 @@ box {
   }
 /* レスポンシブ対応 */
 @media only screen and (max-width: 1400px) {
-  .pc_only {
+  .pc_only{
   display:none;
   }
 };
