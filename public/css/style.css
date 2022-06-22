@@ -671,6 +671,15 @@ box {
     display: inline-block;
     height: 80px;
     width: 24px;
+    font-size:0.08rem;
+    overflow: hidden;
+}
+.WhiteKey {
+    text-align: center;
+    overflow: hidden;
+    color: #eeeeee;
+    bottom: 0;
+    vertical-align: bottom;
 }
 .BlackKey {
     background-color: black;
@@ -678,6 +687,9 @@ box {
     margin-left: -0.6%;
     position: absolute;
     width: 14px;
+    font-size:0.08rem;
+    color: #222222;
+    overflow: hidden;
 }
 
 .Selected_keyboard{

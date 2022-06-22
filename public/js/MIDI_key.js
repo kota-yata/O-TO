@@ -144,18 +144,24 @@ const KeyAction = (str) => {
 
 // 鍵盤を描画する関数
 const WriteKeyboard = () => {
-    //ボタンを消す
-    document.getElementById("WriteKeyboard_button").classList.add("display_none");
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 108; i > 20; i--) {
         if (mod(i, 12) === 1 || mod(i, 12) === 3 || mod(i, 12) === 6 || mod(i, 12) === 8 || mod(i, 12) === 10) {
             document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
-                `<td class="pianokey BlackKey" id="MIDI_note_number-${i}"></td>`);
+                `<td class="pianokey BlackKey" id="MIDI_note_number-${i}">${i}</td>`);
         } else {
             document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
-                `<td class="pianokey" id="MIDI_note_number-${i}"></td>`);
+                `<td class="pianokey WhiteKey" id="MIDI_note_number-${i}">${i}</td>`);
         };
     };
+};
+
+const initButton = () => {
+    //ボタンを消す
+    document.getElementById("WriteKeyboard_button").classList.add("display_none");
+    document.getElementById("DisappearingContents1").classList.add("display_none");
+    document.getElementById("DisappearingContents2").classList.add("display_none");
+    document.getElementById("AppearContents").classList.remove("display_none");
 };
 
 
@@ -222,6 +228,6 @@ function Play(MIDI_note_number) {
     //ノードを繋げる
     Oscillator.connect(gain).connect(context.destination);
     //音を鳴らす
-    Oscillator.start(0.001);
-    Oscillator.stop(0.401);
+    Oscillator.start(0.0001);
+    Oscillator.stop(0.25);
 };
