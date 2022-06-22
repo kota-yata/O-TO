@@ -71,7 +71,7 @@ const KeyAction = (str) => {
         };
         //配列にMIDIノートナンバーを追加
         MIDI_note_number_array.push(str[1]);
-        console.log(str[1]);
+        //音を鳴らす
         Play(str[1]);
     };
 
@@ -133,7 +133,6 @@ const KeyAction = (str) => {
 
     //指定された鍵盤の色を変える関数
     SelectedKeyboard(MIDI_note_number_array, BassNumber);
-    console.log(MIDI_note_number_array, BassNumber, result);
     if (counter === 12) {
         //もし何の音も選択されていない（配列onoffが全て0）の場合にスケール名をディグリー表記にする
         ModalCandidateDegree();
@@ -145,6 +144,8 @@ const KeyAction = (str) => {
 
 // 鍵盤を描画する関数
 const WriteKeyboard = () => {
+    //ボタンを消す
+    document.getElementById("WriteKeyboard_button").classList.add("display_none");
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 108; i > 20; i--) {
         if (mod(i, 12) === 1 || mod(i, 12) === 3 || mod(i, 12) === 6 || mod(i, 12) === 8 || mod(i, 12) === 10) {
@@ -188,7 +189,7 @@ function init() {
             = window.AudioContext || window.webkitAudioContext;
         //AudioContextを生成する
         context = new AudioContext();
-        console.log('init!');
+        console.log('new AudioContext');
     } catch (e) {
         //try内の処理がエラーの場合、それをユーザーに伝える。
         alert('このブラウザではWeb Audio APIはサポートされていません。（音が出せません。）Web Audio API is not supported by this browser. (Cannot play sound.)');
@@ -202,6 +203,10 @@ const ConvertMIDItoHZ = (MIDI_note_number) => {
 };
 
 function Play(MIDI_note_number) {
+    let input_volume = Number(document.getElementById("input_volume").value)
+    if (input_volume === 0) {
+        return;
+    };
     init();
     const Oscillator = context.createOscillator();
     //矩形波にする
@@ -211,7 +216,7 @@ function Play(MIDI_note_number) {
     Oscillator.frequency.value = frequency;
     //ゲインノードを作成
     const gain = context.createGain();
-    let input_volume = Number(document.getElementById("input_volume").value)
+
     //ヴォリュームを決定する
     gain.gain.value = input_volume * 0.1;
     //ノードを繋げる
@@ -219,10 +224,4 @@ function Play(MIDI_note_number) {
     //音を鳴らす
     Oscillator.start(0.001);
     Oscillator.stop(0.401);
-    return [Oscillator];
 };
-
-// function Stop(MIDI_note_number, Oscillator) {
-//     //音を消す。
-//     Oscillator.stop(0.001);
-// };

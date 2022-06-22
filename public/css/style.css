@@ -726,11 +726,14 @@ box {
   .visibility_hidden{
     visibility: hidden;
   }
+  .display_none{
+      display:none;
+  }
 /* レスポンシブ対応 */
 @media only screen and (max-width: 1400px) {
-  .pianokey {
+  .pc_only {
   display:none;
-}
+  }
 };
 
 /* PCだけに適応する */
