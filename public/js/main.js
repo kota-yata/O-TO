@@ -523,7 +523,7 @@ const scale_Container = [
 //異名同音の#と♭を判定する関数
 function DetermineKeySignature(Num) {
     let SharpOrFlat;
-    if (Num === 0 || Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11) {
+    if (Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11) {
         SharpOrFlat = 0;
     } else {
         SharpOrFlat = 1;
