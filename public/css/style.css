@@ -733,6 +733,11 @@ box {
   background-color: #cc99ff;
 }
 
+.clef3 {
+  padding:0.2rem;
+  width: 15%;
+  }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 見せたくない要素 */
   .visibility_hidden{
@@ -741,6 +746,7 @@ box {
   .display_none{
       display:none;
   }
+
 /* レスポンシブ対応 */
 @media only screen and (max-width: 1400px) {
   .pc_only{
@@ -761,12 +767,6 @@ box {
   }
   .NoteOn3 {
     font-weight: 900;
-  }
-  #clef3 {
-  padding: 0.5rem;
-  width: 10%;
-  max-width: 10%;
-  height: auto;
   }
 }
 /* タブレット用のブレークポイント */
@@ -818,12 +818,8 @@ box {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-  #clef3 {
-  padding: 0.5rem;
-  width: 30%;
-  max-width: 30%;
-  height: auto;
-  }
+
+
 
 }
 /* --------------------------------------------------------------------------------------------- */
