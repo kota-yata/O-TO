@@ -206,7 +206,7 @@ const ConvertMIDItoHZ = (MIDI_note_number) => {
 
 function Play(MIDI_note_number) {
     let input_volume = Number(document.getElementById("input_volume").value);
-    // ヴォリュームが0の場合はここでreturn
+    // // ヴォリュームが0の場合はここでreturn
     if (input_volume === 0) {
         return;
     };
@@ -220,6 +220,7 @@ function Play(MIDI_note_number) {
     //ゲインノードを作成
     const gain = context.createGain();
     //ヴォリュームを決定する
+    console.log(input_volume)
     gain.gain.value = input_volume * 0.1;
     //ノードを繋げる
     Oscillator.connect(gain).connect(context.destination);
