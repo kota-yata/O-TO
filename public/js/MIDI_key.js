@@ -60,29 +60,36 @@ let audioSource;
 const KeyAction = (str) => {
     // キーオン時の設定
     if (str[0] === 144) {
+        //配列にMIDIノートナンバーを追加
+        MIDI_note_number_array.push(str[1]);
         //ベース音を判定
-        //onoffに弾いている音を追加
+        //弾いている音はonoffで1にする
         for (let i = 0; i < 12; i++) {
             if (i === mod(str[1], 12)) {
                 onoff[mod(i - BeforeBassNumber, 12)] = 1;
             };
         };
-        //配列にMIDIノートナンバーを追加
-        MIDI_note_number_array.push(str[1]);
         //音を鳴らす
         Play(str[1]);
     };
 
     // キーオフ時の設定
     if (str[0] === 128) {
-        //onoffから離した音を削除
-        for (let i = 0; i < 12; i++) {
-            if (i === mod(str[1], 12)) {
-                onoff[mod(i - BeforeBassNumber, 12)] = 0;
-            };
-        };
         //配列からMIDIノートナンバーを削除
         MIDI_note_number_array.splice(MIDI_note_number_array.indexOf(str[1]), 1);
+        //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
+        let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
+            return mod(num, 12)
+        });
+        //同じピッチクラスの音が無い場合
+        if (MIDI_note_number_array2.indexOf(mod(str[1], 12)) === -1) {
+            //弾いていないピッチクラスの音はonoffで0にする
+            for (let i = 0; i < 12; i++) {
+                if (i === mod(str[1], 12)) {
+                    onoff[mod(i - BeforeBassNumber, 12)] = 0;
+                };
+            };
+        };
     };
 
     //ベース音を判定
@@ -220,7 +227,6 @@ function Play(MIDI_note_number) {
     //ゲインノードを作成
     const gain = context.createGain();
     //ヴォリュームを決定する
-    console.log(input_volume)
     gain.gain.value = input_volume * 0.1;
     //ノードを繋げる
     Oscillator.connect(gain).connect(context.destination);
