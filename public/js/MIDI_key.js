@@ -34,8 +34,6 @@ const setInputs = (midiAccess) => {
 };
 
 //MIDIデバイスへアクセスする
-// navigator.requestMIDIAccess({ sysex: true })
-//     .then(success, failure);
 navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
 
 //-----------------------------------------------------
@@ -156,6 +154,7 @@ const WriteKeyboard = () => {
     };
 };
 
+// 「使用を開始する」ボタン用
 const initButton = () => {
     //ボタンを消す
     document.getElementById("WriteKeyboard_button").classList.add("display_none");
@@ -163,7 +162,6 @@ const initButton = () => {
     document.getElementById("DisappearingContents2").classList.add("display_none");
     document.getElementById("AppearContents").classList.remove("display_none");
 };
-
 
 // 指定された鍵盤の色を変える関数
 const SelectedKeyboard = (MIDI_note_number_array, Root) => {
@@ -181,8 +179,6 @@ const SelectedKeyboard = (MIDI_note_number_array, Root) => {
 };
 
 //-----------------------------------------------------
-//ページがロードされたときに関数initを実行するイベントリスナーを設定する
-window.addEventListener('load', init, false);
 
 //変数contextを定義する
 let context;
@@ -203,13 +199,14 @@ function init() {
     return context;
 };
 
-// MIDIノートナンバーを渡すと周波数を返す関数
+// MIDIノートナンバーを周波数に変換する関数
 const ConvertMIDItoHZ = (MIDI_note_number) => {
     return 2 ** ((MIDI_note_number - 69) / 12) * 440;
 };
 
 function Play(MIDI_note_number) {
-    let input_volume = Number(document.getElementById("input_volume").value)
+    let input_volume = Number(document.getElementById("input_volume").value);
+    // ヴォリュームが0の場合はここでreturn
     if (input_volume === 0) {
         return;
     };
@@ -217,12 +214,11 @@ function Play(MIDI_note_number) {
     const Oscillator = context.createOscillator();
     //矩形波にする
     Oscillator.type = (typeof Oscillator.type === 'string') ? 'square' : 1;
-    // MIDIノートナンバーを渡すと周波数を返す関数
+    // MIDIノートナンバーを周波数に変換する
     let frequency = ConvertMIDItoHZ(MIDI_note_number);
     Oscillator.frequency.value = frequency;
     //ゲインノードを作成
     const gain = context.createGain();
-
     //ヴォリュームを決定する
     gain.gain.value = input_volume * 0.1;
     //ノードを繋げる
