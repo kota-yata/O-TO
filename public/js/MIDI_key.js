@@ -186,12 +186,10 @@ const SelectedKeyboard = (MIDI_note_number_array, Root) => {
 };
 
 //-----------------------------------------------------
-
 //変数contextを定義する
 let context;
-
 //AudioContextを作成する関数
-function init() {
+const init = () => {
     try {
         //webkitプレフィックスをつける。（WebKit使用のブラウザに対応するため）
         window.AudioContext
@@ -211,7 +209,7 @@ const ConvertMIDItoHZ = (MIDI_note_number) => {
     return 2 ** ((MIDI_note_number - 69) / 12) * 440;
 };
 
-function Play(MIDI_note_number) {
+const Play = (MIDI_note_number) => {
     let input_volume = Number(document.getElementById("input_volume").value);
     // // ヴォリュームが0の場合はここでreturn
     if (input_volume === 0) {
