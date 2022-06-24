@@ -358,31 +358,33 @@ function Sub2(onoff, RootNumber, num = 0, Sub2Text) {
 //コードのベース音が♯か♭かを判定する関数
 function DetermineBassSignature(SOF, ChordName, Root) {
     let BassSOF;
-
-    if (Root === 2 || Root === 5 || Root === 7 || Root === 9 || Root === 11) {
-        BassSOF = SOF;
-    } else if (ChordName.match("♭9") && Root === 1) {
+    if (Root === 1 && ChordName.match("♭9")) {
         BassSOF = 4;
-    } else if (ChordName.match("#9") && Root === 3) {
+    } else if (Root === 3 && ChordName.match("#9")) {
         BassSOF = 6;
-    } else if (ChordName.match("#11") && Root === 6) {
+    } else if (Root === 6 && ChordName.match("#11")) {
         BassSOF = 13;
-    } else if (ChordName.match("♭5") && Root === 6) {
+    } else if (Root === 6 && ChordName.match("♭5")) {
         BassSOF = 14;
-    } else if (ChordName.match("#5") && Root === 8) {
+    } else if (Root === 6 && ChordName === "dim7") {
+        BassSOF = 14;
+    } else if (Root === 8 && ChordName.match("#5")) {
         BassSOF = 16;
-    } else if (ChordName.match("aug") && Root === 8) {
+    } else if (Root === 8 && ChordName.match("aug")) {
         BassSOF = 16;
-    } else if (ChordName.match("♭13") && Root === 8) {
+    } else if (Root === 8 && ChordName.match("♭13")) {
         BassSOF = 17;
-    } else if (ChordName.match("m") && Root === 3) {
+    } else if (Root === 9 && ChordName === "dim7") {
+        BassSOF = 20;
+    } else if (Root === 3 && ChordName.charAt(0) === "m") {
         BassSOF = 8;
-    } else if (ChordName.match("7") && Root === 10) {
+    } else if (Root === 10 && ChordName.charAt(0) === "7") {
+        BassSOF = SOF;
+    } else if (Root === 2 || Root === 5 || Root === 7 || Root === 9 || Root === 11) {
         BassSOF = SOF;
     } else {
         BassSOF = SOF;
     };
-
     return BassSOF;
 };
 

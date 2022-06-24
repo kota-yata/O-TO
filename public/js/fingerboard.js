@@ -434,7 +434,7 @@ function LeftyFingerboardCreate() {
 };
 
 // 右利き用フレットに音名を描画する
-function RightyToneNameCreate(RootNumber, NumberOfStrings) {
+function RightyToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes) {
     //フレットの数を取得する
     let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     for (let st = 1; st < NumberOfStrings + 1; st++) {
@@ -460,7 +460,7 @@ function RightyToneNameCreate(RootNumber, NumberOfStrings) {
 };
 
 // 左利き用フレットに音名を描画する
-function LeftyToneNameCreate(RootNumber, NumberOfStrings) {
+function LeftyToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes) {
     //フレットの数を取得する
     let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
     for (let st = 1; st < NumberOfStrings + 1; st++) {
@@ -488,181 +488,73 @@ function LeftyToneNameCreate(RootNumber, NumberOfStrings) {
 function FletCreate(NumberOfStrings) {
     //ルート音の情報を取得する。
     let RootNumber = Number(document.getElementById("rootNumber").value);
-
-    //配列を検索用の値とスケール構成音のバイナリ値を取得し、「-」でそれぞれ分割
+    //配列を検索用の値とスケール及びコードの構成音のバイナリ値を取得し、「-」でそれぞれ分割
     let value = document.getElementById("constituent_binary").value.split('-');
-
-    //配列を検索用の値
+    //スケール及びコードの配列を検索用の値
     let ScaleNum = Number(value[1]);
-
-    //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
+    //スケール及びコードのバイナリ値を配列に格納する
     onoff = value[0].split('/').map(Number);
-
-    //音名の表記方法を取得する
+    //スケール及びコードの音名の表記方法を取得する
     let key_signature_names = Number(document.getElementById(`key_signature_names`).value);
-
     //コード画像かスケール画面かを判定する値
     let ScaleAndChordsDrowingSwitch = Number(document.getElementById("ScaleAndChordsChangeButton").value);
-
     //構成音を格納する配列を定義する
-    ConfigurationNotes = [];
+    let ConfigurationNotes = [];
     ConfigurationNotes.splice(0);
-
     let SOF;
-    let Configuration;
-    //スケールの場合の処理
+    let Configuration = ["", "", "", "", "", "", "", "", "", "", "", ""];
     if (ScaleAndChordsDrowingSwitch === 1) {
-        //スケール構成音のバイナリを配列に格納する。
-        Configuration = scale_Container[ScaleNum]['ScaleNumBinary'];
-
+        //スケールの場合の処理
         //シャープとフラットの区別をする変数SOFに値を代入。
-        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum]['addNum'], 12));
-
-        //コードの場合の処理
+        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum].addNum, 12));
+        for (let i = 0; i < 12; i++) {
+            if (onoff[i] >= 1) {
+                Configuration[i] = onoff[i]
+            };
+        };
     } else if (ScaleAndChordsDrowingSwitch === 0) {
-        //コード構成音のバイナリを配列に格納する。
-        Configuration = chord_container[ScaleNum]['ChordBinary'];
-        //mを判定するために「omit5,omit3」を除く
-        let ChordName = chord_container[ScaleNum]['ChordName'].replace("omit5", "").replace("omit3", "")
-
-        //3度の異名同音判定
-        if (ChordName.includes("m")) {
-            Configuration[3] = 43;
+        //コードの場合の処理
+        //コードネームの名前を配列から取り出す（mを判定するために「omit5,omit3」を除く）
+        let ChordName = chord_container[ScaleNum].ChordName.replace("omit5", "").replace("omit3", "");
+        let HowToRead = chord_container[ScaleNum].Name;
+        let Minor = 0;
+        //マイナーコードをキーの調号に合わせるための処理
+        if (onoff[mod(i + 3, 12)] === 1 && HowToRead.match("マイナー")) {
+            // マイナーコードの場合
+            Minor = 9;
         };
-
-        if (ChordName.includes("♭9")) {
-            Configuration[1] = 43;
+        //コード・ネームのシャープとフラットを判定するための値を計算する。
+        let SOF = DetermineKeySignature(mod(RootNumber - Minor, 12));
+        //それぞれの異名同音を判定する
+        for (let i = 0; i < 12; i++) {
+            if (onoff[i] === 1) {
+                Configuration[i] = DetermineBassSignature(SOF, ChordName, i)
+            };
         };
-
-        if (ChordName.includes("#9")) {
-            Configuration[3] = 42;
-        };
-
-        if (ChordName.includes("#11")) {
-            Configuration[6] = 42;
-        };
-
-        if (ChordName.includes("♭5")) {
-            Configuration[6] = 43;
-        };
-
-        if (ChordName.includes("aug")) {
-            Configuration[8] = 42;
-        };
-
-        if (ChordName.includes("#5")) {
-            Configuration[8] = 42;
-        };
-
-        if (ChordName.includes("♭13")) {
-            Configuration[8] = 43;
-        };
-
-        //7度の異名同音判定
-        if (Configuration[11] >= 1 && ChordName.includes("Maj7")) {
-            Configuration[11] = 1;
-        } else if (ChordName.includes("m(♭5)")) {
-            Configuration[0] = 43;
-            Configuration[3] = 43;
-            Configuration[6] = 43;
-        } else if (ChordName.includes("dim")) {
-            Configuration[0] = 43;
-            Configuration[3] = 43;
-            Configuration[6] = 43;
-            Configuration[9] = 43;
-        } else if (Configuration[10] >= 1 && ChordName.includes("7")) {
-            Configuration[10] = 43;
-        } else if (Configuration[10] >= 1 && ChordName.includes("9")) {
-            Configuration[10] = 43;
-        };
-
-        if (ChordName.includes("blk")) {
-            Configuration[2] = 42;
-            Configuration[6] = 42;
-            Configuration[10] = 42;
-        };
-
-        //シャープとフラットの区別をする変数SOFに値を代入。
-        SOF = DetermineKeySignature(mod(RootNumber, 12));
     };
-
-    //for文でスケールの構成音を生成する。
+    //for文で構成音を生成する。
     for (let i = 0; i < 12; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
         if (Configuration[i] === 42) {
-            ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][0]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][0]);
         } else if (Configuration[i] === 43) {
-            ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][1]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][1]);
         } else if (Configuration[i] === 1) {
-            ConfigurationNotes.push(EIJG2[key_signature_names][mod(RootNumber + i, 12)][SOF]);
-        } else if (Configuration[i] === 0) {
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][Configuration[i]]);
+        } else if (Configuration[i] === "") {
             ConfigurationNotes.push("　");
         } else {
             ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][Number(Configuration[i])]);
         };
     };
-
-    //1：(#Ⅰ/♭Ⅱ)の処理
-    if (Configuration[1] === 42) {
-        ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][3]);
-    } else if (Configuration[1] === 43) {
-        ConfigurationNotes.splice(1, 1, AllNoteNames[mod(RootNumber + 1, 12)][key_signature_names][4]);
-    };
-
-    //2：(♭♭Ⅲ)の処理
-    if (Configuration[2] === 43) {
-        ConfigurationNotes.splice(2, 1, AllNoteNames[mod(RootNumber + 2, 12)][key_signature_names][7]);
-    };
-
-    //3：(#Ⅱ/♭Ⅲ)の処理
-    if (Configuration[3] === 42) {
-        ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][6]);
-    } else if (Configuration[3] === 43) {
-        ConfigurationNotes.splice(3, 1, AllNoteNames[mod(RootNumber + 3, 12)][key_signature_names][8]);
-    };
-
-    //4：(#Ⅲ/♭Ⅳ)の処理
-    if (Configuration[4] === 42) {
-        ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][10]);
-    } else if (Configuration[4] === 43) {
-        ConfigurationNotes.splice(4, 1, AllNoteNames[mod(RootNumber + 4, 12)][key_signature_names][11]);
-    };
-
-    //6：(#Ⅳ/♭Ⅴ)の処理
-    if (Configuration[6] === 42) {
-        ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][13]);
-    } else if (Configuration[6] === 43) {
-        ConfigurationNotes.splice(6, 1, AllNoteNames[mod(RootNumber + 6, 12)][key_signature_names][14]);
-    };
-
-    //8：(#Ⅴ/♭Ⅶ)の処理
-    if (Configuration[8] === 42) {
-        ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][16]);
-    } else if (Configuration[8] === 43) {
-        ConfigurationNotes.splice(8, 1, AllNoteNames[mod(RootNumber + 8, 12)][key_signature_names][17]);
-    };
-
-    //9：(♭♭Ⅶ)の処理
-    if (Configuration[9] === 43) {
-        ConfigurationNotes.splice(9, 1, AllNoteNames[mod(RootNumber + 9, 12)][key_signature_names][20]);
-    };
-
-    //10：(#Ⅴ/♭Ⅶ)の処理
-    if (Configuration[10] === 42) {
-        ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][19]);
-    } else if (Configuration[10] === 43) {
-        ConfigurationNotes.splice(10, 1, AllNoteNames[mod(RootNumber + 10, 12)][key_signature_names][21]);
-    };
-
     //利き手を判定
     if (Number(document.getElementById("DominantHand").value) === 0) {
         // 右利きフレットに音名を描画する
-        RightyToneNameCreate(RootNumber, NumberOfStrings);
+        RightyToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes);
     } else if (Number(document.getElementById("DominantHand").value) === 1) {
         // 左利きフレットに音名を描画する
-        LeftyToneNameCreate(RootNumber, NumberOfStrings);
+        LeftyToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes);
     };
-
     //コード画面の場合の処理
     if (Number(document.getElementById("ScaleAndChordsChangeButton").value) === 0) {
         //シャープまたはフラット指定用に書き換えた数値を元に戻す。
@@ -685,18 +577,15 @@ function FletCreate(NumberOfStrings) {
         //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
         scaleChordTableCreate()
     };
-
     //構成音を戻り値として返す
     return Configuration;
 };
 
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function FingerboardDataInfo() {
-
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
     let TuningData = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
     let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
-
     let TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
     for (let i = 0; i < TuningInfo.length; i++) {
