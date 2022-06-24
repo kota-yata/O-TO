@@ -356,7 +356,7 @@ function Sub2(onoff, RootNumber, num = 0, Sub2Text) {
 };
 
 //コードのベース音が♯か♭かを判定する関数
-function DetermineBassSignature(SOF, ChordName, HowToRead, Root) {
+function DetermineBassSignature(SOF, ChordName, Root) {
     let BassSOF;
 
     if (Root === 2 || Root === 5 || Root === 7 || Root === 9 || Root === 11) {
@@ -477,10 +477,17 @@ function ChordCandidateInfo(onoff, RootNumber) {
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
                 let HowToRead = chord_container[j].Name;
+                let Minor = 0;
+                //マイナーコードをキーの調号に合わせるための処理
+                if (onoff[mod(i + 3, 12)] === 1 && HowToRead.match("マイナー")) {
+                    // マイナーコードの場合
+                    Minor = 9;
+                };
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
-                let SOF = DetermineKeySignature(mod(i + RootNumber, 12));
+                let SOF = DetermineKeySignature(mod(i + RootNumber - Minor, 12));
+
                 //コードのベース音が♯か♭かを判定する
-                let BassSOF = DetermineBassSignature(SOF, ChordName, HowToRead, mod(LowestNoteNumber - i - RootNumber, 12));
+                let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, 12));
 
                 //軸音を含まないコード・ネームの判定（判定基準：ベース音の方がルート音よりも左側にある）
                 if (0 === onoff[0] && 0 === mod(LowestNoteNumber - i - RootNumber, 12)) {

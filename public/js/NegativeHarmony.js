@@ -185,10 +185,17 @@ function NegativeChordCandidateInfo(onoff) {
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
                 let HowToRead = chord_container[j].Name;
+                let Minor = 0;
+                //マイナーコードをキーの調号に合わせるための処理
+                if (onoff[mod(i + 3, 12)] === 1 && HowToRead.match("マイナー")) {
+                    // マイナーコードの場合
+                    Minor = 9;
+                };
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
-                let SOF = DetermineKeySignature(mod(i + RootNumber, 12));
+                let SOF = DetermineKeySignature(mod(i + RootNumber - Minor, 12));
+
                 //コードのベース音が♯か♭かを判定する
-                let BassSOF = DetermineBassSignature(SOF, ChordName, HowToRead, mod(LowestNoteNumber - i - RootNumber, 12));
+                let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, 12));
                 //iはルート音　iからLowestNoteNumer弾くとベースのナンバーが分かる
 
                 //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
