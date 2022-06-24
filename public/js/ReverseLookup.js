@@ -29,7 +29,6 @@ function samePitch(st, Flet) {
 // --------------------------------------------------------------------------
 //フレットボードの要素を描画する関数
 function FingerboardGo() {
-
     //ポジションを格納した配列をリセットする
     FingerboardOnOff = [];
     FingerboardPosition = [];
@@ -49,9 +48,9 @@ function FingerboardGo() {
 
     //一度配列をリセットする。
     position_data = [];
+    //フィンガーボードの要素を描画する関数
+    FingerboardCreate();
     if (Number(document.getElementById('DominantHand').value) === 1) {
-        // 左利き用の指板要素を描画
-        LeftyFingerboardCreate();
         for (let i = 0; i < StringsCount; i++) {
             //フレットボードの右端に、何弦かを表す数字とidを書き込む。
             document.getElementById(`${st}_string`).insertAdjacentHTML('afterbegin', `<th id = "StringsNumber-${st}">${st}</th>`);
@@ -67,8 +66,6 @@ function FingerboardGo() {
             st++;
         };
     } else {
-        // 右利き用の指板要素を描画
-        RightyFingerboardCreate();
         for (let i = 0; i < StringsCount; i++) {
             MIDI_note_number = Number(st_array[i]) + FletCount;
             // フレットの数だけfor文で音名を書き込む
@@ -176,8 +173,14 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         ModalCandidateDegree();
     };
 
-    //ルート音のナンバーをdataタグの中に書き込む
-    document.getElementById('rootNumber').value = BassNumber;
+    let do_app = document.getElementById("do_app").value;
+    if (do_app === 2) {
+        //ルート音のナンバーをdataタグの中に書き込む
+        document.getElementById('rootNumber2').value = BassNumber;
+    } else {
+        //ルート音のナンバーをdataタグの中に書き込む
+        document.getElementById('rootNumber').value = BassNumber;
+    };
 
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整

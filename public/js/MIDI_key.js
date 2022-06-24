@@ -34,8 +34,8 @@ const setInputs = (midiAccess) => {
 };
 
 //MIDIデバイスへアクセスする
-navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
-
+navigator.requestMIDIAccess().then(success, failure);
+// { sysex: true }
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
 const onMidiMessage = (e) => {
@@ -147,11 +147,19 @@ const KeyAction = (str) => {
     };
 };
 
+// MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
+const DetermineBlackKey = (n) => {
+    n = mod(n, 12);
+    if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
+        return true;
+    };
+    return false;
+};
 // 鍵盤を描画する関数
 const WriteKeyboard = () => {
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 108; i > 20; i--) {
-        if (mod(i, 12) === 1 || mod(i, 12) === 3 || mod(i, 12) === 6 || mod(i, 12) === 8 || mod(i, 12) === 10) {
+        if (DetermineBlackKey(i)) {
             document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
                 `<td class="pianokey BlackKey" id="MIDI_note_number-${i}">${i}</td>`);
         } else {
@@ -161,6 +169,65 @@ const WriteKeyboard = () => {
     };
 };
 
+//指板の要素を描画する関数
+const WriteFingerboard = () => {
+
+    //一度フィンガーボードを空にする
+    document.getElementById("Fingerboard").innerHTML = ""
+    document.getElementById("Tuning").innerHTML = ""
+    //下の方のフレットナンバーのtr（行）要素をtableに書き込む
+    WriteFletNumber_tr('Lower');
+
+    //指板の要素を書き込む処理------------------------
+    //フレットの数を取得する
+    let FletCount = Number(document.getElementById(`NumberOfFlet`).value);
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「:」でそれぞれ分割
+    let TuningVariation = document.getElementById("TuningVariation").value.split(':');
+    //弦のMIDIノートナンバー
+    let StringsMIDI = TuningVariation[0].split('-').map(Number);
+    //弦の本数
+    let NumberOfStrings = StringsMIDI.length;
+    // 音名の表記
+    let key_signature_names = Number(document.getElementById("key_signature_names").value);
+    //弦のナンバーのtr（行）要素とidを書き込む
+    for (let i = 0; i < NumberOfStrings; i++) {
+        document.getElementById("Fingerboard")
+            .insertAdjacentHTML('afterbegin', `<tr class="box_border" id="${NumberOfStrings - i}_string"></tr>`)
+    };
+    //配列を空にする。
+    FingerboardPosition = [];
+    // 弦のth（行）要素とidを書き込む
+    if (Number(document.getElementById("DominantHand").value) === 0) {
+        //右利き
+        for (let i = 0; i < NumberOfStrings; i++) {
+            for (let j = 0; j < FletCount + 1; j++) {
+                document.getElementById(`${NumberOfStrings - i}_string`)
+                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j}">${EIJG[key_signature_names][mod((FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j), 12)]}</th>`);
+                //全ての指板ポジションを表すデータを配列に格納
+                FingerboardPosition.push(`FretNumber-${NumberOfStrings - i}-${FletCount - j}-${FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j}`);
+            };
+            //何弦か表す数字を書き込む
+            document.getElementById(`${NumberOfStrings - i}_string`)
+                .insertAdjacentHTML('afterbegin', `<th>${NumberOfStrings - i}</th>`);
+        };
+    } else {
+        //左利き
+        for (let i = 0; i < NumberOfStrings; i++) {
+            //何弦か表す数字を書き込む
+            document.getElementById(`${NumberOfStrings - i}_string`)
+                .insertAdjacentHTML('afterbegin', `<th>${NumberOfStrings - i}</th>`);
+            for (let j = 0; j < FletCount + 1; j++) {
+                document.getElementById(`${NumberOfStrings - i}_string`)
+                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${StringsMIDI[NumberOfStrings - i - 1] + j}">${EIJG[key_signature_names][mod(((StringsMIDI[NumberOfStrings - i - 1]) + j), 12)]}</th>`);
+                //全ての指板ポジションを表すデータを配列に格納
+                FingerboardPosition.push(`FretNumber-${NumberOfStrings - i}-${FletCount - j}-${StringsMIDI[NumberOfStrings - i - 1] + j}`);
+            };
+        };
+    };
+    //上の方のフレットナンバーのtr（行）要素をtableに書き込む
+    WriteFletNumber_tr('Upper');
+};
+
 // 「使用を開始する」ボタン用
 const initButton = () => {
     //ボタンを消す
@@ -168,11 +235,21 @@ const initButton = () => {
     document.getElementById("DisappearingContents1").classList.add("display_none");
     document.getElementById("DisappearingContents2").classList.add("display_none");
     document.getElementById("AppearContents").classList.remove("display_none");
+    //チューニングのバリエーションを読み込む関数
+    CreateTuningVariation();
+    // 指板を描画する関数
+    WriteFingerboard();
 };
 
-// 指定された鍵盤の色を変える関数
+//MIDIキーボードでコード/スケール名を逆引き検索用の音名切り替え
+const ChangeFingerboardAndEIJG = () => {
+    ChangeEIJG();
+    WriteFingerboard();
+};
+
+// 指定されたポジションの色を変える関数
 const SelectedKeyboard = (MIDI_note_number_array, Root) => {
-    //一旦全ての着色をリセットする。
+    //一旦全ての鍵盤の着色をリセットする。
     for (let i = 108; i > 20; i--) {
         for (let j = 0; j < 12; j++) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
@@ -182,6 +259,21 @@ const SelectedKeyboard = (MIDI_note_number_array, Root) => {
     for (let i = 0; i < MIDI_note_number_array.length; i++) {
         let j = mod(MIDI_note_number_array[i] - Root, 12);
         document.getElementById(`MIDI_note_number-${MIDI_note_number_array[i]}`).classList.toggle(`Selected_keyboard${j}`);
+    };
+
+    //一旦全ての指板の着色をリセットする。
+    WriteFingerboard();
+    //度数に基づいて着色する。
+    for (let i = 0; i < MIDI_note_number_array.length; i++) {
+        //度数表記
+        let j = mod(MIDI_note_number_array[i] - Root, 12);
+        //全ての指板ポジションに対してマッチするかチェックする
+        for (let k = 0; k < FingerboardPosition.length; k++) {
+            let F = FingerboardPosition[k].split('-');
+            if (Number(F[3]) === MIDI_note_number_array[i]) {
+                document.getElementById(`${FingerboardPosition[k]}`).classList.toggle(`Degree${j}`);
+            };
+        };
     };
 };
 

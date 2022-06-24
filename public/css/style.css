@@ -355,58 +355,71 @@ img {
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
+  overflow: hidden;
   background-color: gray;
   border: solid 1px rgb(210, 210, 210);
   font-weight: lighter;
 }
 .Degree0 {
+  overflow: hidden;
   background-color: #0588ff;
   color: whitesmoke;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree1 {
+  overflow: hidden;
   background-color: #a4c2f4;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree2 {
+  overflow: hidden;
   background-color: #21daff;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree3 {
+  overflow: hidden;
   background-color: #66cdaa;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree4 {
+  overflow: hidden;
   background-color: #01ff50;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree5 {
+  overflow: hidden;
   background-color: #ffccff;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree6 {
+  overflow: hidden;
   background-color: #e9967a;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree7 {
+  overflow: hidden;
   background-color: #fcfc04;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree8 {
+  overflow: hidden;
   background-color: #ff6e01;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree9 {
+  overflow: hidden;
   background-color: #ff2121;
   color: white;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree10 {
+  overflow: hidden;
   background-color: #ff19bd;
   color: white;
   border: solid 1px rgb(210, 210, 210);
 }
 .Degree11 {
+  overflow: hidden;
   background-color: #cc99ff;
   border: solid 1px rgb(210, 210, 210);
 }

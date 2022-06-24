@@ -268,7 +268,7 @@
                 <div class="pt-3" id="ConnectedDeviceName"></div>
                 <label for="key_signature_names" class="box1 col-md-5 col-xl-2 py-2 mx-2">音名の表記
                     <select id="key_signature_names" class="form-select my-1" aria-label="Default select example"
-                        onchange="ChangeEIJG()">
+                        onchange="ChangeFingerboardAndEIJG()">
                         <option value=0>英・米式表記</option>
                         <option value=1>イタリア式表記</option>
                         <option value=2>日本式表記</option>
@@ -282,7 +282,71 @@
                         oninput="document.getElementById('input_volume_value').value=`音量：${this.value}`" onchange="" />
                 </label>
 
+                <!-- 弦のチューニング設定をJavaScriptで描画する -->
+                <div id="Tuning">
+                </div>
+
+
+                <label for="DominantHand" class="box2 col-md-3 col-xl-2 pt-2 pb-2 mx-1">利き手の切り替え<br>
+                    <select id="DominantHand" class="form-select my-1" aria-label="Default select example"
+                        onchange="WriteFingerboard()">
+                        <option value=0 selected>右利き指板</option>
+                        <option value=1>左利き指板</option>
+                    </select>
+                </label>
+
+
+                <label for="TuningVariation" class="box1 col-md-3 col-xl-3 pt-2 pb-2 mx-1">チューニングの種類
+                    <select id="TuningVariation" class="form-select my-1" aria-label="Default select example"
+                        onchange="WriteFingerboard()">
+                    </select>
+                </label>
+
+                <label for="NumberOfFlet" class="box2 col-md-2 col-xl-1 pt-2 pb-2 mx-1">フレットの数
+                    <select id="NumberOfFlet" class="form-select my-1" aria-label="Default select example"
+                        onchange="WriteFingerboard()">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=21>21</option>
+                        <option value=22>22</option>
+                        <option value=23>23</option>
+                        <option value=24 selected>24</option>
+                        <option value=25>25</option>
+                        <option value=26>26</option>
+                        <option value=27>27</option>
+                        <option value=28>28</option>
+                        <option value=29>29</option>
+                        <option value=30>30</option>
+                    </select>
+                </label>
+
                 <p class="pt-3">入力されている音が表示されます。（たくさん入力すると音が出なくなる場合があります。数秒待つか、ブラウザを更新してください。）</p>
+
+                <!-- フレットボードをJavaScriptで描画する -->
+                <div class="pb-2">
+
+                    <table id="Fingerboard">
+                    </table>
+                </div>
+
                 <table class="box_table">
                     <tr id="Degree_table">
                         <td class="box_border" id="Degree_table_0"></td>
@@ -330,7 +394,7 @@
                     </tr>
                 </table>
 
-                <!-- ピアノ鍵盤を描画する -->
+                <!-- ピアノ鍵盤をJavaScriptで描画する -->
                 <table id="KeyboardTable" class="pc_only">
                     <tr id="Keyboard">
                     </tr>
@@ -468,6 +532,8 @@
     <script src="js/main.js"></script>
     <script src="js/ScaleChord.js"></script>
     <script src="js/MIDI_key.js"></script>
+    <script src="js/fingerboard.js"></script>
+    <script src="js/ReverseLookup.js"></script>
 
     <!-- シェアボタン用のJavaScript -->
     <!-- Twitter -->
