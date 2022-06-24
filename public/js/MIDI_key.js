@@ -34,8 +34,8 @@ const setInputs = (midiAccess) => {
 };
 
 //MIDIデバイスへアクセスする
-navigator.requestMIDIAccess().then(success, failure);
-// { sysex: true }
+navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
+
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
 const onMidiMessage = (e) => {
