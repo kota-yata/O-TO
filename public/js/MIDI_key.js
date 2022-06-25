@@ -271,25 +271,34 @@ const ConvertMIDItoHZ = (MIDI_note_number) => {
 };
 
 const Play = (MIDI_note_number) => {
-    let input_volume = Number(document.getElementById("input_volume").value);
+    let input_volume = Number(document.getElementById("input_volume").value) * 0.1;
     // // ヴォリュームが0の場合はここでreturn
     if (input_volume === 0) {
         return;
     };
     init();
-    const Oscillator = context.createOscillator();
-    //矩形波にする
-    Oscillator.type = (typeof Oscillator.type === 'string') ? 'square' : 1;
+    const Oscillator = context.createOscillator(); 7
+    //波形を決定する
+    let waveform = document.getElementById("waveform").value;
+    Oscillator.type = waveform;
     // MIDIノートナンバーを周波数に変換する
     let frequency = ConvertMIDItoHZ(MIDI_note_number);
     Oscillator.frequency.value = frequency;
     //ゲインノードを作成
     const gain = context.createGain();
-    //ヴォリュームを決定する
-    gain.gain.value = input_volume * 0.1;
+
+    //現在時刻を取得する
+    let startTime = context.currentTime;
+    //startTimeの音量をセット
+    gain.gain.setValueAtTime(input_volume, startTime);
+    // フェードアウトまでの時間
+    let endTime = startTime + 0.25;
+    //フェードアウト後のヴォリュームとフェードアウトまでの時間を渡す
+    gain.gain.linearRampToValueAtTime(input_volume, endTime - 0.01);
+    gain.gain.linearRampToValueAtTime(0, endTime);
     //ノードを繋げる
     Oscillator.connect(gain).connect(context.destination);
     //音を鳴らす
-    Oscillator.start(0.0001);
-    Oscillator.stop(0.25);
+    Oscillator.start(0.001);
+    Oscillator.stop(endTime);
 };

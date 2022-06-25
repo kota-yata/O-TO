@@ -249,7 +249,7 @@
                 onclick="initButton()">使用を開始する</button>
 
             <div id="DisappearingContents2" class="">
-                <p class="pt-2">Q.なぜ、↑「使用を開始する」ボタンを押す必要があるのですか？</p>
+                <p class="pt-2">Q.なぜ↑「使用を開始する」ボタンを押す必要があるのですか？</p>
                 <p class="pb-2">A.近年のブラウザは、ページを読み込んでからユーザーが操作をするまで勝手に音を鳴らせない仕様だからです。</p>
 
                 <h4 class="pt-2 manual">【使い方】</h4>
@@ -276,11 +276,22 @@
                     </select>
                 </label>
 
+                <label for="waveform" class="box2 col-md-3 col-xl-3 pt-2 pb-2 mx-1">音色の選択<br>
+                    <select id="waveform" class="form-select my-1" aria-label="Default select example"
+                        onchange="WriteFingerboard()">
+                        <option value=sine>正弦波（サイン・ウェイヴ）</option>
+                        <option value=sawtooth>鋸歯状波（ソートゥース・ウェイヴ）</option>
+                        <option value=square selected>矩形波（スクウェア・ウェイヴ）</option>
+                        <option value=triangle>三角波（トライアングル・ウェイヴ）</option>
+                    </select>
+                </label>
+
                 <label for="input_volume" id="input-range" class="input-range pt-1">
                     <output id="input_volume_value">音量：1</output>
                     <input id="input_volume" type="range" value="1" min="0" max="10" step="1"
                         oninput="document.getElementById('input_volume_value').value=`音量：${this.value}`" onchange="" />
                 </label>
+
 
                 <!-- 弦のチューニング設定をJavaScriptで描画する -->
                 <div id="Tuning">
