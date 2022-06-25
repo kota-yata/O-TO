@@ -612,18 +612,43 @@ const DetermineBlackKey = (n) => {
     return false;
 };
 
+//鍵盤を画面サイズに合わせて動的に描画するために使うグローバル変数
+let NumberOfKeys;
+let MIDINN_OfTopNote;
 // 鍵盤を描画する関数
 const WriteKeyboard = () => {
     //一度鍵盤を空にする
     document.getElementById(`Keyboard`).innerHTML = '';
+    //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「:」でそれぞれ分割
+    let TuningVariation = document.getElementById("TuningVariation").value.split(':');
+    //弦のMIDIノートナンバー
+    let StringsMIDI = TuningVariation[0].split('-').map(Number);
+    let MIDINN_Min = StringsMIDI.reduce(aryMin);
+
+    let KeyWidth = 87 - Math.floor((1500 - document.body.offsetWidth) / 11.5);
+    //十分な画面横幅の場合は88鍵盤を描画する
+    if (document.body.offsetWidth >= 1400) {
+        NumberOfKeys = 87;
+        MIDINN_OfTopNote = 108;
+    } else if (KeyWidth <= 24) {
+        //十分な鍵盤数を描画できない場合
+        NumberOfKeys = -1;
+        MIDINN_OfTopNote = 0;
+    } else {
+        NumberOfKeys = KeyWidth;
+        MIDINN_OfTopNote = MIDINN_Min + NumberOfKeys;
+    };
     //配列の数だけHTML要素(div)を書き込む。
-    for (let i = 108; i > 20; i--) {
+    for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
         if (DetermineBlackKey(i)) {
             document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
                 `<td class="pianokey BlackKey" id="MIDI_note_number-${i}">${i}</td>`);
         } else {
             document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
                 `<td class="pianokey WhiteKey" id="MIDI_note_number-${i}">${i}</td>`);
+        };
+        if (i === 21) {
+            break;
         };
     };
 };

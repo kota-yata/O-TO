@@ -395,7 +395,7 @@
                 </table>
 
                 <!-- ピアノ鍵盤をJavaScriptで描画する -->
-                <table id="KeyboardTable" class="pc_only">
+                <table id="KeyboardTable">
                     <tr id="Keyboard">
                     </tr>
                 </table>
@@ -561,6 +561,10 @@
             CreateCandidate();
             //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/スケール名検索用)
             ModalCandidateSelect(onoff);
+        });
+        //鍵盤を画面サイズに合わせて動的に描画する
+        window.addEventListener('resize', function () {
+            WriteKeyboard()
         });
     </script>
 

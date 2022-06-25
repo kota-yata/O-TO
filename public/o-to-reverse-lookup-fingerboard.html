@@ -342,7 +342,7 @@
             </div>
 
             <!-- ピアノ鍵盤をJavaScriptで描画する -->
-            <table id="KeyboardTable" class="pc_only">
+            <table id="KeyboardTable">
                 <tr id="Keyboard">
                 </tr>
             </table>
@@ -457,6 +457,11 @@
             CreateCandidate();
             CreateTuningVariation();
             FingerboardGo();
+        });
+        //鍵盤を画面サイズに合わせて動的に描画する
+        //鍵盤を画面サイズに合わせて動的に描画する
+        window.addEventListener('resize', function () {
+            WriteKeyboard()
         });
     </script>
 

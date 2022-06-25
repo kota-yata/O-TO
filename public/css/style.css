@@ -139,6 +139,10 @@ img {
   max-width: 10%;
   height: auto;
 }
+.clef3 {
+  padding:0.2rem;
+  width: 15%;
+}
 
 .header_image {
   background-position: center;
@@ -674,6 +678,47 @@ box {
 }
 
 /* --------------------------------------------------------------------------------------------- */
+
+.Selected_keyboard{
+    background-color: crimson!important;
+}
+.Selected_keyboard0 {
+  background-color: #0588ff!important;
+}
+.Selected_keyboard1 {
+  background-color: #a4c2f4!important;
+}
+.Selected_keyboard2 {
+  background-color: #21daff!important;
+}
+.Selected_keyboard3 {
+  background-color: #66cdaa!important;
+}
+.Selected_keyboard4 {
+  background-color: #01ff50!important;
+}
+.Selected_keyboard5 {
+  background-color: #ffccff!important;
+}
+.Selected_keyboard6 {
+  background-color: #e9967a!important;
+}
+.Selected_keyboard7 {
+  background-color: #fcfc04!important;
+}
+.Selected_keyboard8 {
+  background-color: #ff6e01!important;
+}
+.Selected_keyboard9 {
+  background-color: #ff2121!important;
+}
+.Selected_keyboard10 {
+  background-color: #ff19bd!important;
+}
+.Selected_keyboard11 {
+  background-color: #cc99ff!important;
+}
+
 #KeyboardTable {
     margin: 1rem auto;
     max-width: auto;
@@ -704,52 +749,6 @@ box {
     color: #222222;
     overflow: hidden;
 }
-
-.Selected_keyboard{
-    background-color: crimson;
-}
-
-.Selected_keyboard0 {
-  background-color: #0588ff;
-}
-.Selected_keyboard1 {
-  background-color: #a4c2f4;
-}
-.Selected_keyboard2 {
-  background-color: #21daff;
-}
-.Selected_keyboard3 {
-  background-color: #66cdaa;
-}
-.Selected_keyboard4 {
-  background-color: #01ff50;
-}
-.Selected_keyboard5 {
-  background-color: #ffccff;
-}
-.Selected_keyboard6 {
-  background-color: #e9967a;
-}
-.Selected_keyboard7 {
-  background-color: #fcfc04;
-}
-.Selected_keyboard8 {
-  background-color: #ff6e01;
-}
-.Selected_keyboard9 {
-  background-color: #ff2121;
-}
-.Selected_keyboard10 {
-  background-color: #ff19bd;
-}
-.Selected_keyboard11 {
-  background-color: #cc99ff;
-}
-
-.clef3 {
-  padding:0.2rem;
-  width: 15%;
-  }
 
 /* --------------------------------------------------------------------------------------------- */
 /* 見せたくない要素 */
@@ -832,8 +831,16 @@ box {
       grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 
-
-
+  .BlackKey {
+      background-color: black;
+      height: 45px;
+      margin-left: -1.8%;
+      position: absolute;
+      width: 14px;
+      font-size:0.08rem;
+      color: #222222;
+      overflow: hidden;
+  }
 }
 /* --------------------------------------------------------------------------------------------- */
 /* スマホ用のブレークポイント */

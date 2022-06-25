@@ -230,16 +230,19 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
 // 指定された鍵盤のポジションの色を変える関数
 function SelectedKeyboard(Root, array) {
-    //一旦全ての鍵盤の着色をリセットする。
-    for (let i = 108; i > 20; i--) {
+    //一旦全ての鍵盤の着色をリセットする
+    for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
         for (let j = 0; j < 12; j++) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
         };
     };
-    //度数に基づいて着色する。
+    //度数に基づいて着色する
     for (let i = 0; i < array.length; i++) {
-        let j = mod(array[i] - Root, 12);
-        document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
+        //鍵盤が描画されている場合のみ処理を実行する
+        if (document.getElementById(`MIDI_note_number-${array[i]}`) !== null) {
+            let j = mod(array[i] - Root, 12);
+            document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
+        };
     };
 };
 
