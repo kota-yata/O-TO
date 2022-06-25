@@ -255,22 +255,27 @@ function transpose(transpose_direction) {
         transpose_Flet = Number(FingerboardPosition[0].split('-')[2]);
         transpose_MIDI_note_number = Number(FingerboardOnOff[0]);
 
-        //選択した音名の情報を元に色々な処理をする関数
-        NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
-
-        //解放弦や最高音フレットの処理（解放弦のロック判定によって処理を分岐）
-        if (transpose_direction === -1 && transpose_Flet === 0) {
-            // 解放弦のロック時の-1ボタンは動かさない
-            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
-        } else if (OpenStringsLock === 1 && transpose_Flet === 0) {
-            // 解放弦のロックの+1ボタンは動かさない
-            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
-        } else if (transpose_direction === 1 && transpose_Flet === Number(document.getElementById('NumberOfFlet').value)) {
-            //最高音のフレットは動かさない。
-            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+        //もし、移動先に既に選択されている音があったら
+        if (FingerboardPosition.includes(`FretNumber-${transpose_st}-${transpose_Flet + transpose_direction}`)) {
+            NoteOnOff(transpose_st, transpose_Flet + transpose_direction * 1, transpose_MIDI_note_number + transpose_direction * 1);
+            NoteOnOff(transpose_st, transpose_Flet + transpose_direction * 2, transpose_MIDI_note_number + transpose_direction * 2);
         } else {
-            //それ以外の場合は移調する
-            NoteOnOff(transpose_st, transpose_Flet + transpose_direction, transpose_MIDI_note_number + transpose_direction);
+            //選択した音名の情報を元に色々な処理をする関数
+            NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+            //解放弦や最高音フレットの処理（解放弦のロック判定によって処理を分岐）
+            if (transpose_direction === -1 && transpose_Flet === 0) {
+                // 解放弦のロック時の-1ボタンは動かさない
+                NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+            } else if (OpenStringsLock === 1 && transpose_Flet === 0) {
+                // 解放弦のロックの+1ボタンは動かさない
+                NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+            } else if (transpose_direction === 1 && transpose_Flet === Number(document.getElementById('NumberOfFlet').value)) {
+                //最高音のフレットは動かさない。
+                NoteOnOff(transpose_st, transpose_Flet, transpose_MIDI_note_number);
+            } else {
+                //それ以外の場合は移調する
+                NoteOnOff(transpose_st, transpose_Flet + transpose_direction, transpose_MIDI_note_number + transpose_direction);
+            };
         };
     };
 };
