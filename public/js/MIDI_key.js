@@ -137,35 +137,13 @@ const KeyAction = (str) => {
     let [BassNumber, result] = ChordCandidateInfo(onoff, CurrentBassNumber);
 
     //指定された鍵盤の色を変える関数
-    SelectedKeyboard(MIDI_note_number_array, BassNumber);
+    SelectedPosition(MIDI_note_number_array, BassNumber);
     if (counter === 12) {
         //もし何の音も選択されていない（配列onoffが全て0）の場合にスケール名をディグリー表記にする
         ModalCandidateDegree();
     };
     if (result !== true) {
         degree_position_drow(0);
-    };
-};
-
-// MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
-const DetermineBlackKey = (n) => {
-    n = mod(n, 12);
-    if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
-        return true;
-    };
-    return false;
-};
-// 鍵盤を描画する関数
-const WriteKeyboard = () => {
-    //配列の数だけHTML要素(div)を書き込む。
-    for (let i = 108; i > 20; i--) {
-        if (DetermineBlackKey(i)) {
-            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
-                `<td class="pianokey BlackKey" id="MIDI_note_number-${i}">${i}</td>`);
-        } else {
-            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
-                `<td class="pianokey WhiteKey" id="MIDI_note_number-${i}">${i}</td>`);
-        };
     };
 };
 
@@ -247,19 +225,10 @@ const ChangeFingerboardAndEIJG = () => {
     WriteFingerboard();
 };
 
-// 指定されたポジションの色を変える関数
-const SelectedKeyboard = (MIDI_note_number_array, Root) => {
-    //一旦全ての鍵盤の着色をリセットする。
-    for (let i = 108; i > 20; i--) {
-        for (let j = 0; j < 12; j++) {
-            document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
-        };
-    };
-    //度数に基づいて着色する。
-    for (let i = 0; i < MIDI_note_number_array.length; i++) {
-        let j = mod(MIDI_note_number_array[i] - Root, 12);
-        document.getElementById(`MIDI_note_number-${MIDI_note_number_array[i]}`).classList.toggle(`Selected_keyboard${j}`);
-    };
+// 指定された鍵盤と指板のポジションの色を変える関数
+const SelectedPosition = (MIDI_note_number_array, Root) => {
+    // 指定された鍵盤のポジションの色を変える関数
+    SelectedKeyboard(Root, MIDI_note_number_array);
 
     //一旦全ての指板の着色をリセットする。
     WriteFingerboard();

@@ -603,3 +603,25 @@ function info_counter() {
 //各配列の情報などの数を書き込む関数を実行する。
 info_counter();
 
+// MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
+const DetermineBlackKey = (n) => {
+    n = mod(n, 12);
+    if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
+        return true;
+    };
+    return false;
+};
+
+// 鍵盤を描画する関数
+const WriteKeyboard = () => {
+    //配列の数だけHTML要素(div)を書き込む。
+    for (let i = 108; i > 20; i--) {
+        if (DetermineBlackKey(i)) {
+            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
+                `<td class="pianokey BlackKey" id="MIDI_note_number-${i}">${i}</td>`);
+        } else {
+            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
+                `<td class="pianokey WhiteKey" id="MIDI_note_number-${i}">${i}</td>`);
+        };
+    };
+};
