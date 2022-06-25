@@ -393,18 +393,16 @@ function EnharmonicRejudgement(SOF, BassSOF, RootNote, BaseNote) {
     if (RootNote.includes("#")) {
         //ルート音が♯なのにベース音が♭
         if (BaseNote.includes("♭") || BaseNote.includes("&#119083;")) {
-            console.log(RootNote, BaseNote);
             BassSOF = SOF;
         };
     };
     if (RootNote.includes("♭")) {
         //ルート音が♭なのにベース音が#
         if (BaseNote.charAt(1) === "#" || BaseNote.includes("&#119082;")) {
-            console.log(RootNote, BaseNote);
             BassSOF = SOF;
         };
     };
-    return [SOF, BassSOF];
+    return BassSOF;
 };
 
 //コード・ネームの情報を判定する関数（大雑把に言うと、トライトーンの判定、コードネームの判定、トーンクラスターの判定をしている。）
@@ -511,7 +509,7 @@ function ChordCandidateInfo(onoff, RootNumber) {
                 let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, 12));
 
                 //異名同音判定が正しいか検証する
-                [SOF, BassSOF] = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, 12)][SOF], noteNames[LowestNoteNumber][BassSOF]);
+                BassSOF = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, 12)][SOF], noteNames[LowestNoteNumber][BassSOF]);
 
                 //軸音を含まないコード・ネームの判定（判定基準：ベース音の方がルート音よりも左側にある）
                 if (0 === onoff[0] && 0 === mod(LowestNoteNumber - i - RootNumber, 12)) {

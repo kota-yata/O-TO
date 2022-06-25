@@ -198,7 +198,7 @@ function NegativeChordCandidateInfo(onoff) {
                 let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, 12));
 
                 //異名同音判定が正しいか検証する
-                [SOF, BassSOF] = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, 12)][SOF], noteNames[mod(LowestNoteNumber, 12)][BassSOF]);
+                BassSOF = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, 12)][SOF], noteNames[mod(LowestNoteNumber, 12)][BassSOF]);
 
                 //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
                 if (0 === mod(LowestNoteNumber - i - RootNumber, 12)) {

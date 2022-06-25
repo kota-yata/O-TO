@@ -422,8 +422,11 @@ function FletCreate(NumberOfStrings) {
         for (let i = 0; i < 12; i++) {
             if (onoff[i] === 1) {
                 Configuration[i] = DetermineBassSignature(SOF, ChordName, i)
+                //異名同音判定が正しいか検証する
+                Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, 12)][Configuration[i]]);
             };
         };
+        // console.log(Configuration);
     };
     //for文で構成音を生成する。
     for (let i = 0; i < 12; i++) {
