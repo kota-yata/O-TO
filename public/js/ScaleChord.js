@@ -379,7 +379,9 @@ function DetermineBassSignature(SOF, ChordName, Root) {
     } else if (Root === 3 && ChordName.charAt(0) === "m") {
         BassSOF = 8;
     } else if (Root === 10 && ChordName.charAt(0) === "7") {
-        BassSOF = SOF;
+        BassSOF = 21;
+    } else if (Root === 11 && ChordName.match("Maj7")) {
+        BassSOF = 22;
     } else if (Root === 2 || Root === 5 || Root === 7 || Root === 9 || Root === 11) {
         BassSOF = SOF;
     } else {
