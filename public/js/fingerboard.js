@@ -412,7 +412,7 @@ function FletCreate(NumberOfStrings) {
         let HowToRead = chord_container[ScaleNum].Name;
         let Minor = 0;
         //マイナーコードをキーの調号に合わせるための処理
-        if (onoff[mod(i + 3, 12)] === 1 && HowToRead.match("マイナー")) {
+        if (onoff[3] === 1 && HowToRead.match("マイナー")) {
             // マイナーコードの場合
             Minor = 9;
         };
