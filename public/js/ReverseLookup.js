@@ -85,7 +85,9 @@ function FingerboardGo() {
     //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
     ModalCandidateDegree();
     //コード・ネームの情報を判定する関数
-    ChordCandidateInfo(onoff, 0)
+    ChordCandidateInfo(onoff, 0);
+    // 鍵盤を描画する関数
+    WriteKeyboard();
 };
 
 //選択した音名の情報を元に色々な処理をする関数

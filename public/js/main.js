@@ -614,6 +614,8 @@ const DetermineBlackKey = (n) => {
 
 // 鍵盤を描画する関数
 const WriteKeyboard = () => {
+    //一度鍵盤を空にする
+    document.getElementById(`Keyboard`).innerHTML = '';
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 108; i > 20; i--) {
         if (DetermineBlackKey(i)) {
