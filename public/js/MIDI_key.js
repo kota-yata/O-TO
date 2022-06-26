@@ -3,7 +3,7 @@
 let midi;
 
 //MIDIデバイスへのアクセスが成功したときに実行される処理
-const success = (midiAccess) => {
+function success(midiAccess) {
     midi = midiAccess;
     console.log("MIDIデバイスの接続に成功しました。");
     //MIDIAccessオブジェクトのInputsを取得してイベントに対して関数を渡す
@@ -11,18 +11,18 @@ const success = (midiAccess) => {
 };
 
 //MIDIデバイスへのアクセスが失敗したときに実行される処理
-const failure = (msg) => {
+function failure(msg) {
     console.log(`MIDI FAILED - ${msg}`);
     // アラートで表示
     alert(`MIDIデバイスの接続に失敗しました。このアプリは、PC環境かつGoogleChrome、Edge推奨です。 - ${msg}`);
 };
 
 //MIDIAccessオブジェクトのInputsを取得してイベントに対して関数を渡す
-const setInputs = (midiAccess) => {
+function setInputs(midiAccess) {
     let inputs = midiAccess.inputs;
     let ConnectedDeviceNames = [];
     //接続されているMIDIデバイスを表示する。
-    inputs.forEach((key, port) => {
+    inputs.forEach(function (key, port) {
         //コンソールに出力
         console.log("[" + key.state + "] manufacturer:" + key.manufacturer + " / name:" + key.name + " / port:" + port);
         //HTMLへ出力
@@ -38,7 +38,7 @@ navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
 
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
-const onMidiMessage = (e) => {
+function onMidiMessage(e) {
     let str = [];
     for (let i = 0; i < e.data.length; i++) {
         str.push(e.data[i]);
@@ -57,7 +57,7 @@ let BeforeBassNumber = 0;
 let Oscillator;
 let audioSource;
 //鍵盤を押した時と、離した時だけ実行される処理
-const KeyAction = (str) => {
+function KeyAction(str) {
     // キーオン時の設定
     if (str[0] === 144) {
         //配列にMIDIノートナンバーを追加
@@ -148,7 +148,7 @@ const KeyAction = (str) => {
 };
 
 //指板の要素を描画する関数
-const WriteFingerboard = () => {
+function WriteFingerboard() {
 
     //一度フィンガーボードを空にする
     document.getElementById("Fingerboard").innerHTML = ""
@@ -207,7 +207,7 @@ const WriteFingerboard = () => {
 };
 
 // 「使用を開始する」ボタン用
-const initButton = () => {
+function initButton() {
     //ボタンを消す
     document.getElementById("WriteKeyboard_button").classList.add("display_none");
     document.getElementById("DisappearingContents1").classList.add("display_none");
@@ -220,13 +220,13 @@ const initButton = () => {
 };
 
 //MIDIキーボードでコード/スケール名を逆引き検索用の音名切り替え
-const ChangeFingerboardAndEIJG = () => {
+function ChangeFingerboardAndEIJG() {
     ChangeEIJG();
     WriteFingerboard();
 };
 
 // 指定された鍵盤と指板のポジションの色を変える関数
-const SelectedPosition = (MIDI_note_number_array, Root) => {
+function SelectedPosition(MIDI_note_number_array, Root) {
     // 指定された鍵盤のポジションの色を変える関数
     SelectedKeyboard(Root, MIDI_note_number_array);
 
@@ -250,7 +250,7 @@ const SelectedPosition = (MIDI_note_number_array, Root) => {
 //変数contextを定義する
 let context;
 //AudioContextを作成する関数
-const init = () => {
+function init() {
     try {
         //webkitプレフィックスをつける。（WebKit使用のブラウザに対応するため）
         window.AudioContext
@@ -266,11 +266,11 @@ const init = () => {
 };
 
 // MIDIノートナンバーを周波数に変換する関数
-const ConvertMIDItoHZ = (MIDI_note_number) => {
+function ConvertMIDItoHZ(MIDI_note_number) {
     return 2 ** ((MIDI_note_number - 69) / 12) * 440;
 };
 
-const Play = (MIDI_note_number) => {
+function Play(MIDI_note_number) {
     let input_volume = Number(document.getElementById("input_volume").value) * 0.1;
     // // ヴォリュームが0の場合はここでreturn
     if (input_volume === 0) {

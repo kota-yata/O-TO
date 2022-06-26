@@ -111,7 +111,7 @@ function modulation() {
 };
 
 //転調先のキーを書き込む関数
-const modulation_drow = (labelText, writingId1, writingId2, answer1, answer2) => {
+function modulation_drow(labelText, writingId1, writingId2, answer1, answer2) {
     let SOF = DetermineKeySignature(answer1);
     document.getElementById(`${writingId1}`).innerHTML
         = `【${labelText}】<br>${EIJG2[0][answer2][SOF]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${key_signature[answer1]}`;

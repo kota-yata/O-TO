@@ -604,7 +604,7 @@ function info_counter() {
 info_counter();
 
 // MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
-const DetermineBlackKey = (n) => {
+function DetermineBlackKey(n) {
     n = mod(n, 12);
     if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
         return true;
@@ -616,7 +616,7 @@ const DetermineBlackKey = (n) => {
 let NumberOfKeys;
 let MIDINN_OfTopNote;
 // 鍵盤を描画する関数
-const WriteKeyboard = () => {
+function WriteKeyboard() {
     //一度鍵盤を空にする
     document.getElementById(`Keyboard`).innerHTML = '';
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「:」でそれぞれ分割
