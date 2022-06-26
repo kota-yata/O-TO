@@ -178,21 +178,21 @@ function scaleChordTableCreate() {
                     if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 1) {
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replace(/<br>/g, "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 42) {
                         SOF = 0;
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replace(/<br>/g, "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else if (scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1] === 43) {
                         SOF = 1;
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replace(/<br>/g, "")}" class="box_border Degree${ChordCountNum - 1}">${noteNames[mod((RootNumber + ChordCountNum - 1), 12)][SOF]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     } else {
                         //コードネームを書き込む
                         document.getElementById(`ChordNumber-${ChordTableNum}`)
-                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replaceAll("<br>", "")}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
+                            .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - 1}" title="${(chord_container[ChordTableNum - 1].Info).replace(/<br>/g, "")}" class="box_border Degree${ChordCountNum - 1}">${AllNoteNames[mod((RootNumber + ChordCountNum - 1), 12)][0][scale_Container[Num]['ScaleNumBinary'][ChordCountNum - 1]]}${chord_container[ChordTableNum - 1]['ChordName']}</td>`);
                     };
                     //構成音とマッチするコードの数をカウントする
                     use_chord_count++;
@@ -246,7 +246,7 @@ function CreateCandidate() {
             if (scale_Container[i].Info === "") {
                 document.getElementById(`Modal_text_${k}_${i}`).setAttribute("title", `${scale_Container[i].Mode}`);
             } else {
-                document.getElementById(`Modal_text_${k}_${i}`).setAttribute("title", `${(scale_Container[i].Info).replaceAll("<br>", "")}`);
+                document.getElementById(`Modal_text_${k}_${i}`).setAttribute("title", `${(scale_Container[i].Info).replace(/<br>/g, "")}`);
             };
         };
     };
@@ -429,9 +429,9 @@ function ChordCandidateInfo(onoff, RootNumber) {
     //トライトーンが含まれてコードの構成音が3音以上の場合トライ・トーンの情報を書き込む
     if (TriToneText.length >= 2 && HowManyTones.length >= 2) {
         document.getElementById("AddChordInfoTriToneHTML").innerHTML
-            = TriToneText.join().replaceAll(",", "");
+            = TriToneText.join().replace(/,/g, "");
         document.getElementById("AddChordInfoSub2HTML").innerHTML
-            = Sub2Text.join().replaceAll(",", "");
+            = Sub2Text.join().replace(/,/g, "");
     };
 
     //5音以上のコードを判定する。
