@@ -20,6 +20,9 @@ function aryMin(a, b) {
     return Math.min(a, b);
 };
 
+//オクターブは12半音
+const Octave = 12;
+
 //主なチューニングタイプを格納した連想配列
 const TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 40] },
@@ -182,6 +185,21 @@ const AllNoteNames = [
 
 //音名を配列に格納する。
 const note_name = ["C", "C#-D♭", "D", "D#-E♭", "E", "F", "F#-G♭", "G", "G#-A♭", "A", "A#-B♭", "B"];
+
+const Degree_Tension_array = [
+    ["R", "", "Degree0"],
+    ["m2", "♭9", "Degree1"],
+    ["M2", "9", "Degree2"],
+    ["m3", "#9", "Degree3"],
+    ["M3", "", "Degree4"],
+    ["P4", "11", "Degree5"],
+    ["-5", "#11", "Degree6"],
+    ["P5", "", "Degree7"],
+    ["+5", "♭13", "Degree8"],
+    ["M6", "13", "Degree9"],
+    ["m7", "", "Degree10"],
+    ["M7", "", "Degree11"],
+];
 
 //英・米式音名の多次元配列
 const noteNames = [
@@ -612,7 +630,7 @@ info_counter();
 
 // MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
 function DetermineBlackKey(n) {
-    n = mod(n, 12);
+    n = mod(n, Octave);
     if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
         return true;
     };
@@ -638,7 +656,7 @@ function WriteKeyboard() {
     if (document.body.offsetWidth >= 1400) {
         NumberOfKeys = 87;
         MIDINN_OfTopNote = 108;
-    } else if (KeyWidth <= 24) {
+    } else if (KeyWidth <= Octave * 2) {
         //十分な鍵盤数を描画できない場合
         NumberOfKeys = -1;
         MIDINN_OfTopNote = 0;

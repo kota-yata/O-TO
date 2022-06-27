@@ -64,9 +64,9 @@ function KeyAction(str) {
         MIDI_note_number_array.push(str[1]);
         //ベース音を判定
         //弾いている音はonoffで1にする
-        for (let i = 0; i < 12; i++) {
-            if (i === mod(str[1], 12)) {
-                onoff[mod(i - BeforeBassNumber, 12)] = 1;
+        for (let i = 0; i < Octave; i++) {
+            if (i === mod(str[1], Octave)) {
+                onoff[mod(i - BeforeBassNumber, Octave)] = 1;
             };
         };
         //音を鳴らす
@@ -79,14 +79,14 @@ function KeyAction(str) {
         MIDI_note_number_array.splice(MIDI_note_number_array.indexOf(str[1]), 1);
         //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
         let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
-            return mod(num, 12)
+            return mod(num, Octave)
         });
         //同じピッチクラスの音が無い場合
-        if (MIDI_note_number_array2.indexOf(mod(str[1], 12)) === -1) {
+        if (MIDI_note_number_array2.indexOf(mod(str[1], Octave)) === -1) {
             //弾いていないピッチクラスの音はonoffで0にする
-            for (let i = 0; i < 12; i++) {
-                if (i === mod(str[1], 12)) {
-                    onoff[mod(i - BeforeBassNumber, 12)] = 0;
+            for (let i = 0; i < Octave; i++) {
+                if (i === mod(str[1], Octave)) {
+                    onoff[mod(i - BeforeBassNumber, Octave)] = 0;
                 };
             };
         };
@@ -97,7 +97,7 @@ function KeyAction(str) {
         //2つの数を比較して小さい方を返す関数でベース音を判定
         CurrentBassNumber = MIDI_note_number_array.reduce(aryMin);
         //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）
-        CurrentBassNumber = mod(CurrentBassNumber, 12);
+        CurrentBassNumber = mod(CurrentBassNumber, Octave);
     } else {
         CurrentBassNumber = 0;
         onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -109,7 +109,7 @@ function KeyAction(str) {
     //配列onoffをベース音に基づいて並び替える
     if (BeforeBassNumber !== CurrentBassNumber) {
         //どの順番で鍵盤を押しても正しく判定されるようにする。
-        for (let i = 0; i < mod(CurrentBassNumber - BeforeBassNumber, 12); i++) {
+        for (let i = 0; i < mod(CurrentBassNumber - BeforeBassNumber, Octave); i++) {
             let a = onoff.shift();
             onoff.push(a);
         };
@@ -119,7 +119,7 @@ function KeyAction(str) {
 
     //選択されている音を書き込む
     let counter = 0;
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         if (onoff[i] === 1) {
             document.getElementById(`chord_${i}`).classList.add("NoteOn");
         } else {
@@ -180,7 +180,7 @@ function WriteFingerboard() {
         for (let i = 0; i < NumberOfStrings; i++) {
             for (let j = 0; j < FletCount + 1; j++) {
                 document.getElementById(`${NumberOfStrings - i}_string`)
-                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j}">${EIJG[key_signature_names][mod((FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j), 12)]}</th>`);
+                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j}">${EIJG[key_signature_names][mod((FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j), Octave)]}</th>`);
                 //全ての指板ポジションを表すデータを配列に格納
                 FingerboardPosition.push(`FretNumber-${NumberOfStrings - i}-${FletCount - j}-${FletCount + (StringsMIDI[NumberOfStrings - i - 1]) - j}`);
             };
@@ -196,7 +196,7 @@ function WriteFingerboard() {
                 .insertAdjacentHTML('afterbegin', `<th>${NumberOfStrings - i}</th>`);
             for (let j = 0; j < FletCount + 1; j++) {
                 document.getElementById(`${NumberOfStrings - i}_string`)
-                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${StringsMIDI[NumberOfStrings - i - 1] + j}">${EIJG[key_signature_names][mod(((StringsMIDI[NumberOfStrings - i - 1]) + j), 12)]}</th>`);
+                    .insertAdjacentHTML('afterbegin', `<th class="box_border DegreeBlack" id="FretNumber-${NumberOfStrings - i}-${FletCount - j}-${StringsMIDI[NumberOfStrings - i - 1] + j}">${EIJG[key_signature_names][mod(((StringsMIDI[NumberOfStrings - i - 1]) + j), Octave)]}</th>`);
                 //全ての指板ポジションを表すデータを配列に格納
                 FingerboardPosition.push(`FretNumber-${NumberOfStrings - i}-${FletCount - j}-${StringsMIDI[NumberOfStrings - i - 1] + j}`);
             };
@@ -235,7 +235,7 @@ function SelectedPosition(MIDI_note_number_array, Root) {
     //度数に基づいて着色する。
     for (let i = 0; i < MIDI_note_number_array.length; i++) {
         //度数表記
-        let j = mod(MIDI_note_number_array[i] - Root, 12);
+        let j = mod(MIDI_note_number_array[i] - Root, Octave);
         //全ての指板ポジションに対してマッチするかチェックする
         for (let k = 0; k < FingerboardPosition.length; k++) {
             let F = FingerboardPosition[k].split('-');

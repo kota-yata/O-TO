@@ -7,18 +7,18 @@ function Chordschange() {
 
     let tonic_note_number = Number(document.getElementById("tonic_note").value);
 
-    let tonic = mod(tonic_note_number + 0, 12);
-    let t1 = mod(tonic_note_number + 1, 12);
-    let t2 = mod(tonic_note_number + 2, 12);
-    let t3 = mod(tonic_note_number + 3, 12);
-    let t4 = mod(tonic_note_number + 4, 12);
-    let t5 = mod(tonic_note_number + 5, 12);
-    let t6 = mod(tonic_note_number + 6, 12);
-    let t7 = mod(tonic_note_number + 7, 12);
-    let t8 = mod(tonic_note_number + 8, 12);
-    let t9 = mod(tonic_note_number + 9, 12);
-    let t10 = mod(tonic_note_number + 10, 12);
-    let t11 = mod(tonic_note_number + 11, 12);
+    let tonic = mod(tonic_note_number + 0, Octave);
+    let t1 = mod(tonic_note_number + 1, Octave);
+    let t2 = mod(tonic_note_number + 2, Octave);
+    let t3 = mod(tonic_note_number + 3, Octave);
+    let t4 = mod(tonic_note_number + 4, Octave);
+    let t5 = mod(tonic_note_number + 5, Octave);
+    let t6 = mod(tonic_note_number + 6, Octave);
+    let t7 = mod(tonic_note_number + 7, Octave);
+    let t8 = mod(tonic_note_number + 8, Octave);
+    let t9 = mod(tonic_note_number + 9, Octave);
+    let t10 = mod(tonic_note_number + 10, Octave);
+    let t11 = mod(tonic_note_number + 11, Octave);
 
     //異名同音の#と♭を判定する
     let SOF = DetermineKeySignature(tonic_note_number);
@@ -71,18 +71,18 @@ function Chordschange() {
     //同種短調を判定する
     let para_tonic_note_number = tonic_note_number + 3;
 
-    tonic = mod(para_tonic_note_number + 0, 12);
-    t1 = mod(para_tonic_note_number + 1, 12);
-    t2 = mod(para_tonic_note_number + 2, 12);
-    t3 = mod(para_tonic_note_number + 3, 12);
-    t4 = mod(para_tonic_note_number + 4, 12);
-    t5 = mod(para_tonic_note_number + 5, 12);
-    t6 = mod(para_tonic_note_number + 6, 12);
-    t7 = mod(para_tonic_note_number + 7, 12);
-    t8 = mod(para_tonic_note_number + 8, 12);
-    t9 = mod(para_tonic_note_number + 9, 12);
-    t10 = mod(para_tonic_note_number + 10, 12);
-    t11 = mod(para_tonic_note_number + 11, 12);
+    tonic = mod(para_tonic_note_number + 0, Octave);
+    t1 = mod(para_tonic_note_number + 1, Octave);
+    t2 = mod(para_tonic_note_number + 2, Octave);
+    t3 = mod(para_tonic_note_number + 3, Octave);
+    t4 = mod(para_tonic_note_number + 4, Octave);
+    t5 = mod(para_tonic_note_number + 5, Octave);
+    t6 = mod(para_tonic_note_number + 6, Octave);
+    t7 = mod(para_tonic_note_number + 7, Octave);
+    t8 = mod(para_tonic_note_number + 8, Octave);
+    t9 = mod(para_tonic_note_number + 9, Octave);
+    t10 = mod(para_tonic_note_number + 10, Octave);
+    t11 = mod(para_tonic_note_number + 11, Octave);
 
     //異名同音の#と♭を判定する
     SOF = DetermineKeySignature(para_tonic_note_number);
@@ -127,18 +127,18 @@ function ChordsAndModeChange() {
 
     let tonic_note_number = Number(document.getElementById("tonic_note").value);
 
-    let tonic = mod(tonic_note_number + 0, 12);
-    let t1 = mod(tonic_note_number + 1, 12);
-    let t2 = mod(tonic_note_number + 2, 12);
-    let t3 = mod(tonic_note_number + 3, 12);
-    let t4 = mod(tonic_note_number + 4, 12);
-    let t5 = mod(tonic_note_number + 5, 12);
-    let t6 = mod(tonic_note_number + 6, 12);
-    let t7 = mod(tonic_note_number + 7, 12);
-    let t8 = mod(tonic_note_number + 8, 12);
-    let t9 = mod(tonic_note_number + 9, 12);
-    let t10 = mod(tonic_note_number + 10, 12);
-    let t11 = mod(tonic_note_number + 11, 12);
+    let tonic = mod(tonic_note_number + 0, Octave);
+    let t1 = mod(tonic_note_number + 1, Octave);
+    let t2 = mod(tonic_note_number + 2, Octave);
+    let t3 = mod(tonic_note_number + 3, Octave);
+    let t4 = mod(tonic_note_number + 4, Octave);
+    let t5 = mod(tonic_note_number + 5, Octave);
+    let t6 = mod(tonic_note_number + 6, Octave);
+    let t7 = mod(tonic_note_number + 7, Octave);
+    let t8 = mod(tonic_note_number + 8, Octave);
+    let t9 = mod(tonic_note_number + 9, Octave);
+    let t10 = mod(tonic_note_number + 10, Octave);
+    let t11 = mod(tonic_note_number + 11, Octave);
 
     //異名同音の#と♭を判定する
     let SOF = DetermineKeySignature(tonic_note_number);
@@ -193,18 +193,18 @@ function ChordsAndModeChange() {
     //同種短調を判定する
     let para_tonic_note_number = tonic_note_number + 3;
 
-    tonic = mod(para_tonic_note_number + 0, 12);
-    t1 = mod(para_tonic_note_number + 1, 12);
-    t2 = mod(para_tonic_note_number + 2, 12);
-    t3 = mod(para_tonic_note_number + 3, 12);
-    t4 = mod(para_tonic_note_number + 4, 12);
-    t5 = mod(para_tonic_note_number + 5, 12);
-    t6 = mod(para_tonic_note_number + 6, 12);
-    t7 = mod(para_tonic_note_number + 7, 12);
-    t8 = mod(para_tonic_note_number + 8, 12);
-    t9 = mod(para_tonic_note_number + 9, 12);
-    t10 = mod(para_tonic_note_number + 10, 12);
-    t11 = mod(para_tonic_note_number + 11, 12);
+    tonic = mod(para_tonic_note_number + 0, Octave);
+    t1 = mod(para_tonic_note_number + 1, Octave);
+    t2 = mod(para_tonic_note_number + 2, Octave);
+    t3 = mod(para_tonic_note_number + 3, Octave);
+    t4 = mod(para_tonic_note_number + 4, Octave);
+    t5 = mod(para_tonic_note_number + 5, Octave);
+    t6 = mod(para_tonic_note_number + 6, Octave);
+    t7 = mod(para_tonic_note_number + 7, Octave);
+    t8 = mod(para_tonic_note_number + 8, Octave);
+    t9 = mod(para_tonic_note_number + 9, Octave);
+    t10 = mod(para_tonic_note_number + 10, Octave);
+    t11 = mod(para_tonic_note_number + 11, Octave);
 
     //異名同音の#と♭を判定する
     SOF = DetermineKeySignature(para_tonic_note_number);

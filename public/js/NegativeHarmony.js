@@ -5,9 +5,9 @@ function NegativeHarmony(onoff) {
 
     let onoff2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    for (let i = 0; i < 12; i++) {
-        if (onoff[mod(i, 12)] === 1) {
-            onoff2.splice(mod(7 - i, 12), 1, 1)
+    for (let i = 0; i < Octave; i++) {
+        if (onoff[mod(i, Octave)] === 1) {
+            onoff2.splice(mod(7 - i, Octave), 1, 1)
         };
     };
 
@@ -30,10 +30,10 @@ function NegativeChangeEIJG() {
     let NegativeKeyNumber = Number(document.getElementById("NegativeKeyNumber").value);
 
     //ルートの音の値を取得し計算
-    let RootNumber = mod((-10 * NegativeKeyNumber) - Number(document.getElementById("rootNumber").value), 12);
+    let RootNumber = mod((-10 * NegativeKeyNumber) - Number(document.getElementById("rootNumber").value), Octave);
 
-    for (let i = 0; i < 12; i++) {
-        document.getElementById(`NegativeChord_${i}`).innerHTML = EIJG[key_signature_names][mod(RootNumber + i, 12)];
+    for (let i = 0; i < Octave; i++) {
+        document.getElementById(`NegativeChord_${i}`).innerHTML = EIJG[key_signature_names][mod(RootNumber + i, Octave)];
     };
 };
 
@@ -43,31 +43,31 @@ function NegativeDegreePositionDrow(root_position) {
     if (do_app === 0) {
         return;
     };
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //いったんテーブル要素を全て空にする。
         document.getElementById(`Negative_Degree_table_${i}`).innerHTML = ``;
         document.getElementById(`Negative_Tension_table_${i}`).innerHTML = ``;
-        for (let k = 0; k < 12; k++) {
+        for (let k = 0; k < Octave; k++) {
             //いったんクラスを全て削除する
             document.getElementById(`Negative_Degree_table_${i}`).classList.remove(`Degree${k}`);
             document.getElementById(`Negative_Tension_table_${i}`).classList.remove(`Degree${k}`);
         };
     };
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //テキストを追加する
-        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][0]}`;
-        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, 12)][1]}`;
+        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][0]}`;
+        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][1]}`;
         //クラスを追加する
-        document.getElementById(`Negative_Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
-        if (Degree_Tension_array[mod(-root_position + i, 12)][1] !== "") {
-            document.getElementById(`Negative_Tension_table_${i}`).classList.add(`Degree${mod(-root_position + i, 12)}`);
+        document.getElementById(`Negative_Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
+        if (Degree_Tension_array[mod(-root_position + i, Octave)][1] !== "") {
+            document.getElementById(`Negative_Tension_table_${i}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
         };
     };
 };
 
 //ネガティヴ・ハーモニーの構成音を着色する関数
 function NegativeNoteNameColoring(onoff) {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         if (onoff[i] != 0) {
             document.getElementById(`NegativeChord_${i}`).className = "NoteName NoteOn";
         } else if (onoff[i] === 0) {
@@ -84,7 +84,7 @@ function NegativeChordCandidateInfo(onoff) {
 
     //ルートの音の値を取得
     let RootNumber = Number(document.getElementById("rootNumber").value);
-    RootNumber = mod((-10 * NegativeKeyNumber) - RootNumber, 12);
+    RootNumber = mod((-10 * NegativeKeyNumber) - RootNumber, Octave);
 
     //指定されたキーの調号を表示する。
     document.getElementById("Negative_clef_image").innerHTML = `<img src="./image/${clef_image[NegativeKeyNumber]}" alt="調号" title="調号" class="clef3">`;
@@ -102,7 +102,7 @@ function NegativeChordCandidateInfo(onoff) {
     // キーセンターからの距離が等しい音のペアを書き込む
     for (let i = 0; i < 6; i++) {
         document.getElementById(`NegativeNotePair_${i}`).innerHTML
-            = `${noteNames[mod(NegativeKeyNumber - (i * 7), 12)][NegativeSOF]} - ${noteNames[mod(NegativeKeyNumber - (i * 5) + 7, 12)][NegativeSOF]}`;
+            = `${noteNames[mod(NegativeKeyNumber - (i * 7), Octave)][NegativeSOF]} - ${noteNames[mod(NegativeKeyNumber - (i * 5) + 7, Octave)][NegativeSOF]}`;
     };
 
     //コードの構成音が何音か判定するための配列
@@ -139,40 +139,40 @@ function NegativeChordCandidateInfo(onoff) {
     for (let i = 0; i < 11; i++) {
         //一番左側の押されているスイッチの場所（最低音）を判定する
         if (onoff[i] === 1) {
-            LowestNoteNumber = mod(i + RootNumber, 12);
+            LowestNoteNumber = mod(i + RootNumber, Octave);
             break;
         };
     };
 
     //転回形を判定するためルート音をずらして12通り全てを判定する。
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
-            if (chord_container[j].ChordBinary[0] === onoff[mod(i + 0, 12)]
-                && chord_container[j].ChordBinary[1] === onoff[mod(i + 1, 12)]
-                && chord_container[j].ChordBinary[2] === onoff[mod(i + 2, 12)]
-                && chord_container[j].ChordBinary[3] === onoff[mod(i + 3, 12)]
-                && chord_container[j].ChordBinary[4] === onoff[mod(i + 4, 12)]
-                && chord_container[j].ChordBinary[5] === onoff[mod(i + 5, 12)]
-                && chord_container[j].ChordBinary[6] === onoff[mod(i + 6, 12)]
-                && chord_container[j].ChordBinary[7] === onoff[mod(i + 7, 12)]
-                && chord_container[j].ChordBinary[8] === onoff[mod(i + 8, 12)]
-                && chord_container[j].ChordBinary[9] === onoff[mod(i + 9, 12)]
-                && chord_container[j].ChordBinary[10] === onoff[mod(i + 10, 12)]
-                && chord_container[j].ChordBinary[11] === onoff[mod(i + 11, 12)]) {
+            if (chord_container[j].ChordBinary[0] === onoff[mod(i + 0, Octave)]
+                && chord_container[j].ChordBinary[1] === onoff[mod(i + 1, Octave)]
+                && chord_container[j].ChordBinary[2] === onoff[mod(i + 2, Octave)]
+                && chord_container[j].ChordBinary[3] === onoff[mod(i + 3, Octave)]
+                && chord_container[j].ChordBinary[4] === onoff[mod(i + 4, Octave)]
+                && chord_container[j].ChordBinary[5] === onoff[mod(i + 5, Octave)]
+                && chord_container[j].ChordBinary[6] === onoff[mod(i + 6, Octave)]
+                && chord_container[j].ChordBinary[7] === onoff[mod(i + 7, Octave)]
+                && chord_container[j].ChordBinary[8] === onoff[mod(i + 8, Octave)]
+                && chord_container[j].ChordBinary[9] === onoff[mod(i + 9, Octave)]
+                && chord_container[j].ChordBinary[10] === onoff[mod(i + 10, Octave)]
+                && chord_container[j].ChordBinary[11] === onoff[mod(i + 11, Octave)]) {
 
                 //完全5度が省略可能かを判定する。
                 let omitP5th = 0;
                 //長2度(sus2)が含まれる場合
-                if (onoff[mod(i + 2, 12)] === 1 && HowManyTones.length < 4) {
+                if (onoff[mod(i + 2, Octave)] === 1 && HowManyTones.length < 4) {
                     omitP5th = 0;
                     document.getElementById("AddNegativeChordInfoOmit5HTML").innerHTML = ``;
                     //完全4度(sus4)が含まれる場合
-                } else if (onoff[mod(i + 5, 12)] === 1 && HowManyTones.length < 4) {
+                } else if (onoff[mod(i + 5, Octave)] === 1 && HowManyTones.length < 4) {
                     omitP5th = 0;
                     document.getElementById("AddNegativeChordInfoOmit5HTML").innerHTML = ``;
                     //完全5度が含まれており省略可能な場合
-                } else if (onoff[mod(i + 7, 12)] === 1) {
+                } else if (onoff[mod(i + 7, Octave)] === 1) {
                     omitP5th = 1;
                     document.getElementById("AddNegativeChordInfoOmit5HTML").innerHTML
                         = `<br>Root（ルート音）に対してP5th（完全5度）の音は、必要に応じて省略が可能です。`;
@@ -185,35 +185,41 @@ function NegativeChordCandidateInfo(onoff) {
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
                 let HowToRead = chord_container[j].Name;
-                let Minor = 0;
-                //マイナーコードをキーの調号に合わせるための処理
-                if (onoff[mod(i + 3, 12)] === 1 && HowToRead.match("マイナー")) {
-                    // マイナーコードの場合
-                    Minor = 9;
+                let adjustment = 0;
+
+                //コードをキーの調号に合わせるための処理
+                if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m\\(♭5\\)") ||
+                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m7\\(♭5\\)") ||
+                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("dim7")) {
+                    adjustment = 11;
+                } else if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("blk")) {
+                    adjustment = 2;
+                } else if (onoff[mod(i + 3, Octave)] === 1 && ChordName.charAt(0) === "m") {
+                    adjustment = 9;
                 };
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
-                let SOF = DetermineKeySignature(mod(i + RootNumber - Minor, 12));
+                let SOF = DetermineKeySignature(mod(i + RootNumber - adjustment, Octave));
 
                 //コードのベース音が♯か♭かを判定する
-                let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, 12));
+                let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, Octave));
 
                 //異名同音判定が正しいか検証する
-                BassSOF = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, 12)][SOF], noteNames[mod(LowestNoteNumber, 12)][BassSOF]);
+                BassSOF = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, Octave)][SOF], noteNames[mod(LowestNoteNumber, Octave)][BassSOF]);
 
                 //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
-                if (0 === mod(LowestNoteNumber - i - RootNumber, 12)) {
+                if (0 === mod(LowestNoteNumber - i - RootNumber, Octave)) {
                     document.getElementById("AddNegativeChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, 12)][SOF]}${ChordName}</font>`;
+                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}</font>`;
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, 12)][SOF]}${HowToRead}`;
+                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
                         = `${chord_container[i].Info}`;
                     //軸音を含まないコード・ネームの展開形の判定(判定基準：ルート音のスイッチが押されていない)
-                } else if (0 !== mod(LowestNoteNumber - i - RootNumber, 12)) {
+                } else if (0 !== mod(LowestNoteNumber - i - RootNumber, Octave)) {
                     document.getElementById("AddNegativeChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, 12)][SOF]}${ChordName}/${noteNames[mod(LowestNoteNumber, 12)][BassSOF]}</font>`;
+                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}/${noteNames[mod(LowestNoteNumber, Octave)][BassSOF]}</font>`;
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, 12)][SOF]}${HowToRead}・オーヴァー${noteNames[mod(LowestNoteNumber, 12)][BassSOF]}（転回形）</font>`;
+                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[mod(LowestNoteNumber, Octave)][BassSOF]}（転回形）</font>`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
                         = `${chord_container[i].Info}`;
                     //軸音を含むコード・ネームの判定(判定基準：初回ループ時)
@@ -227,14 +233,14 @@ function NegativeChordCandidateInfo(onoff) {
                     //軸音を含むコード・ネームの転回形の判定
                 } else {
                     document.getElementById("AddNegativeChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, 12)][SOF]}${ChordName}/${noteNames[RootNumber][BassSOF]}</font>`;
+                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}/${noteNames[RootNumber][BassSOF]}</font>`;
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, 12)][SOF]}${HowToRead}・オーヴァー${noteNames[RootNumber][BassSOF]}（転回形）</font>`;
+                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[RootNumber][BassSOF]}（転回形）</font>`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
                         = `${chord_container[i].Info}`;
                 };
                 //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
-                NegativeDegreePositionDrow(mod(i, 12));
+                NegativeDegreePositionDrow(mod(i, Octave));
                 //マッチするものが見つかった場合はここでreturn
                 return;
             };
@@ -255,7 +261,7 @@ function NegativeChordCandidateInfo(onoff) {
     let tcj = 0;
     for (let i = 0; i < 11; i++) {
         //特定の場合と、+1と＋2の場所のスイッチがonかどうか判定する。
-        NoteChain = onoff[mod(i, 12)] + onoff[mod(i + 1, 12)] + onoff[mod(i + 2, 12)];
+        NoteChain = onoff[mod(i, Octave)] + onoff[mod(i + 1, Octave)] + onoff[mod(i + 2, Octave)];
         //3音以上連続している部分を見つける。
         if (NoteChain === 3) {
             tcj = 1;
@@ -271,18 +277,18 @@ function NegativeChordCandidateInfo(onoff) {
     for (let i = 0; i < 11; i++) {
         //トーン・クラスターを格納した配列と照合する。
         for (let y = 0; y < ToneCluster.length; y++) {
-            if (ToneCluster[y][0] === onoff[mod(i + 0, 12)]
-                && ToneCluster[y][1] === onoff[mod(i + 1, 12)]
-                && ToneCluster[y][2] === onoff[mod(i + 2, 12)]
-                && ToneCluster[y][3] === onoff[mod(i + 3, 12)]
-                && ToneCluster[y][4] === onoff[mod(i + 4, 12)]
-                && ToneCluster[y][5] === onoff[mod(i + 5, 12)]
-                && ToneCluster[y][6] === onoff[mod(i + 6, 12)]
-                && ToneCluster[y][7] === onoff[mod(i + 7, 12)]
-                && ToneCluster[y][8] === onoff[mod(i + 8, 12)]
-                && ToneCluster[y][9] === onoff[mod(i + 9, 12)]
-                && ToneCluster[y][10] === onoff[mod(i + 10, 12)]
-                && ToneCluster[y][11] === onoff[mod(i + 11, 12)]
+            if (ToneCluster[y][0] === onoff[mod(i + 0, Octave)]
+                && ToneCluster[y][1] === onoff[mod(i + 1, Octave)]
+                && ToneCluster[y][2] === onoff[mod(i + 2, Octave)]
+                && ToneCluster[y][3] === onoff[mod(i + 3, Octave)]
+                && ToneCluster[y][4] === onoff[mod(i + 4, Octave)]
+                && ToneCluster[y][5] === onoff[mod(i + 5, Octave)]
+                && ToneCluster[y][6] === onoff[mod(i + 6, Octave)]
+                && ToneCluster[y][7] === onoff[mod(i + 7, Octave)]
+                && ToneCluster[y][8] === onoff[mod(i + 8, Octave)]
+                && ToneCluster[y][9] === onoff[mod(i + 9, Octave)]
+                && ToneCluster[y][10] === onoff[mod(i + 10, Octave)]
+                && ToneCluster[y][11] === onoff[mod(i + 11, Octave)]
                 || tcj === 1) {
                 document.getElementById("AddNegativeChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
                 document.getElementById("AddNegativeChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;

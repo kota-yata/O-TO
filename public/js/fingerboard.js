@@ -356,12 +356,12 @@ function ToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes, Dominan
         };
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
-            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)] === "　") {
+            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)] === "　") {
                 document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</td>`);
+                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)]}</td>`);
             } else {
                 document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), 12)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), 12)]}</Strong></td>`);
+                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), Octave)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)]}</Strong></td>`);
             }
             //利き手による条件分岐
             if (DominantHand === 0) {
@@ -399,8 +399,8 @@ function FletCreate(NumberOfStrings) {
     if (ScaleAndChordsDrowingSwitch === 1) {
         //スケールの場合の処理
         //シャープとフラットの区別をする変数SOFに値を代入。
-        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum].addNum, 12));
-        for (let i = 0; i < 12; i++) {
+        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum].addNum, Octave));
+        for (let i = 0; i < Octave; i++) {
             if (onoff[i] >= 1) {
                 Configuration[i] = onoff[i]
             };
@@ -417,30 +417,30 @@ function FletCreate(NumberOfStrings) {
             Minor = 9;
         };
         //コード・ネームのシャープとフラットを判定するための値を計算する。
-        let SOF = DetermineKeySignature(mod(RootNumber - Minor, 12));
+        let SOF = DetermineKeySignature(mod(RootNumber - Minor, Octave));
         //それぞれの異名同音を判定する
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < Octave; i++) {
             if (onoff[i] === 1) {
                 Configuration[i] = DetermineBassSignature(SOF, ChordName, i)
                 //異名同音判定が正しいか検証する
-                Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, 12)][Configuration[i]]);
+                Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, Octave)][Configuration[i]]);
             };
         };
         // console.log(Configuration);
     };
     //for文で構成音を生成する。
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
         if (Configuration[i] === 42) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][0]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][0]);
         } else if (Configuration[i] === 43) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][1]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][1]);
         } else if (Configuration[i] === 1) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][Configuration[i]]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
         } else if (Configuration[i] === "") {
             ConfigurationNotes.push("　");
         } else {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][key_signature_names][Number(Configuration[i])]);
+            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Number(Configuration[i])]);
         };
     };
 
@@ -494,7 +494,7 @@ function FingerboardDataInfo() {
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
             //mod12でチューニングを指定する。
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], 12);
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], Octave);
         };
     };
 
@@ -521,7 +521,7 @@ function NumberOfStringsManually() {
 
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], 12);
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], Octave);
         };
     };
 

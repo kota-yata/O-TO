@@ -10,7 +10,7 @@ let st_array = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
 
 // 指板に色がついているか判定する関数
 function colored(st, Flet) {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         if (document.getElementById(`FretNumber-${st}-${Flet}`).classList.contains(`Degree${i}`)) {
             return true;
         };
@@ -59,7 +59,7 @@ function FingerboardGo() {
             for (let i = 0; i < FletCount + 1; i++) {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin',
-                        `<th id="FretNumber-${st}-${i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                        `<th id="FretNumber-${st}-${i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, Octave)]}</th>`);
                 position_data.push([st, i, MIDI_note_number]);
                 MIDI_note_number++;
             };
@@ -72,7 +72,7 @@ function FingerboardGo() {
             for (let i = 0; i < FletCount + 1; i++) {
                 document.getElementById(`${st}_string`)
                     .insertAdjacentHTML('afterbegin',
-                        `<th id="FretNumber-${st}-${FletCount - i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, 12)]}</th>`);
+                        `<th id="FretNumber-${st}-${FletCount - i}" class="ReverseLookupBox NoteName_cursor_pointer DegreeBlack" onclick="NoteOnOff(${st},${FletCount - i},${MIDI_note_number})">${EIJG[key_signature_names][mod(MIDI_note_number, Octave)]}</th>`);
                 position_data.push([st, FletCount - i, MIDI_note_number]);
                 MIDI_note_number--;
             };
@@ -114,7 +114,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         //2つの数を比較して小さい方を返す関数
         RootNumber = FingerboardOnOff.reduce(aryMin);
         //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）
-        RootNumber = mod(RootNumber, 12);
+        RootNumber = mod(RootNumber, Octave);
     };
 
     //音名スイッチのオンオフ状態を格納する配列をリセット
@@ -123,7 +123,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     //ベース音（一番低い音）を判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
-        return mod(a - RootNumber, 12);
+        return mod(a - RootNumber, Octave);
     });
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
@@ -132,7 +132,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     };
 
     //全ての色をリセットする
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         document.getElementById(`FretNumber-${st}-${Flet}`).classList.remove(`Degree${i}`);
     };
 
@@ -147,18 +147,18 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     // //指板の色を度数表記に基づいて変更する。
     for (let i = 0; i < FingerboardPosition.length; i++) {
         //全ての色をリセットする
-        for (let k = 0; k < 12; k++) {
+        for (let k = 0; k < Octave; k++) {
             document.getElementById(`${FingerboardPosition[i]}`).classList.remove(`Degree${k}`);
         };
         //指板の色を度数表記に基づいて着色する。
-        document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber + RootNumber, 12)}`);
+        document.getElementById(`${FingerboardPosition[i]}`).classList.add(`Degree${mod(PitchClassOnOff[i] - BassNumber + RootNumber, Octave)}`);
     };
 
     //音名スイッチのオンオフ状態を格納する配列をリセット
     onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
-        return mod(a - BassNumber, 12);
+        return mod(a - BassNumber, Octave);
     });
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
@@ -169,7 +169,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-        ModalTextAndNoteCreate(onoff, mod(BassNumber, 12));
+        ModalTextAndNoteCreate(onoff, mod(BassNumber, Octave));
     } else {
         //モーダル・インターチェンジの候補をディグリー表記で表示する関数
         ModalCandidateDegree();
@@ -187,16 +187,16 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     //実音程のピッチクラスを判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
-        return mod(a, 12);
+        return mod(a, Octave);
     });
 
     //そのピッチクラスが含まれる場合の処理
-    for (let k = 0; k < 12; k++) {
+    for (let k = 0; k < Octave; k++) {
         if (PitchClassOnOff.includes(k)) {
             //指板上全てをチェック
             for (let i = 0; i < position_data.length; i++) {
                 //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
-                if (mod(position_data[i][2], 12) === k) {
+                if (mod(position_data[i][2], Octave) === k) {
                     document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.add("same_pitch_class");
                 };
             };
@@ -204,12 +204,12 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     };
 
     //そのピッチクラスが含まれない場合の処理
-    for (let k = 0; k < 12; k++) {
+    for (let k = 0; k < Octave; k++) {
         if (PitchClassOnOff.includes(k) === false) {
             //指板上全てをチェック
             for (let i = 0; i < position_data.length; i++) {
                 //一致するピッチクラスのポジションにsame_pitch_classクラスを付与する。
-                if (mod(position_data[i][2], 12) === k) {
+                if (mod(position_data[i][2], Octave) === k) {
                     document.getElementById(`FretNumber-${position_data[i][0]}-${position_data[i][1]}`).classList.remove("same_pitch_class");
                 };
             };
@@ -233,7 +233,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 function SelectedKeyboard(Root, array) {
     //一旦全ての鍵盤の着色をリセットする
     for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
-        for (let j = 0; j < 12; j++) {
+        for (let j = 0; j < Octave; j++) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
         };
     };
@@ -243,7 +243,7 @@ function SelectedKeyboard(Root, array) {
     for (let i = 0; i < array2.length; i++) {
         //鍵盤が描画されている場合のみ処理を実行する
         if (document.getElementById(`MIDI_note_number-${array2[i]}`) !== null) {
-            let j = mod(array2[i] - Root, 12);
+            let j = mod(array2[i] - Root, Octave);
             document.getElementById(`MIDI_note_number-${array2[i]}`).classList.toggle(`Selected_keyboard${j}`);
         };
     };

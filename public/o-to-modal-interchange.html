@@ -245,6 +245,11 @@
       </label>
 
       <p class="pt-3">音名をタップしてください。</p>
+      <!-- ピアノ鍵盤をJavaScriptで描画する -->
+      <table id="KeyboardTable">
+        <tr id="Keyboard">
+        </tr>
+      </table>
       <table class="box_table">
         <tr id="Degree_table">
           <td class="box_border" id="Degree_table_0"></td>
@@ -352,11 +357,9 @@
 
             <div class="accordion-body">
               <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
-              <div id="addHTML">
-
-              </div>
-
+              <div id="addHTML"> </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -387,7 +390,6 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-
       //コード・ネームの情報を判定する関数
       ChordCandidateInfo(onoff);
       //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数

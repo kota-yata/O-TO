@@ -7,26 +7,26 @@ function modulation() {
     let a_note_num = Number(document.getElementById("a_note").value);
     let a_mode_num = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['addNum'];
 
-    let b_key_num = mod(b_note_num - b_mode_num, 12);
-    let a_key_num = mod(a_note_num - a_mode_num, 12);
-    let modulation_num = mod(a_key_num - b_key_num, 12);
+    let b_key_num = mod(b_note_num - b_mode_num, Octave);
+    let a_key_num = mod(a_note_num - a_mode_num, Octave);
+    let modulation_num = mod(a_key_num - b_key_num, Octave);
     //転調前のキーの主音の異名同音を判定
     let b_SOF = DetermineKeySignature(b_key_num);
     let b_Configuration = scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['ScaleNumBinary'];
     let b_ConfigurationNotes = [];
     //for文でスケールの構成音を生成する。
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
         if (b_Configuration[i] === 0) {
             //何もしない。
         } else if (b_Configuration[i] === 42) {
-            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][0]);
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, Octave)][0]);
         } else if (b_Configuration[i] === 43) {
-            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][1]);
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, Octave)][1]);
         } else if (b_Configuration[i] === 1) {
-            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, 12)][b_SOF]);
+            b_ConfigurationNotes.push(EIJG2[0][mod(b_note_num + i, Octave)][b_SOF]);
         } else {
-            b_ConfigurationNotes.push(AllNoteNames[mod(b_note_num + i, 12)][0][Number(b_Configuration[i])]);
+            b_ConfigurationNotes.push(AllNoteNames[mod(b_note_num + i, Octave)][0][Number(b_Configuration[i])]);
         };
     };
 
@@ -38,18 +38,18 @@ function modulation() {
     let a_Configuration = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['ScaleNumBinary'];
     let a_ConfigurationNotes = [];
     //for文でスケールの構成音を生成する。
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < Octave; i++) {
         //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
         if (a_Configuration[i] === 0) {
             //何もしない。
         } else if (a_Configuration[i] === 42) {
-            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][0]);
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, Octave)][0]);
         } else if (a_Configuration[i] === 43) {
-            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][1]);
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, Octave)][1]);
         } else if (a_Configuration[i] === 1) {
-            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, 12)][a_SOF]);
+            a_ConfigurationNotes.push(EIJG2[0][mod(a_note_num + i, Octave)][a_SOF]);
         } else {
-            a_ConfigurationNotes.push(AllNoteNames[mod(a_note_num + i, 12)][0][Number(a_Configuration[i])]);
+            a_ConfigurationNotes.push(AllNoteNames[mod(a_note_num + i, Octave)][0][Number(a_Configuration[i])]);
         };
     };
 
@@ -103,7 +103,7 @@ function modulation() {
     //HTMLに転調の種類を書き込む
     document.getElementById("result_modulation").innerHTML = ` ${result_modulation}`;
     //転調の種類のテーブルのテーマをリセットする
-    for (let step = 0; step < 12; step++) {
+    for (let step = 0; step < Octave; step++) {
         document.getElementById("result_modulation").classList.remove(`modulationBorder${step}`);
     };
     //転調の種類のテーブルのテーマを色付けする
@@ -124,20 +124,20 @@ function keychange() {
     let after_mode_number = scale_Container[Number(document.getElementById("after_mode").value.split('-')[1])]['addNum'];
 
     let answer1 = note_number - Number(mode_number);
-    let sf_0 = mod((answer1 - 0), 12);
+    let sf_0 = mod((answer1 - 0), Octave);
     let answer2 = note_number - Number(mode_number) + Number(after_mode_number);
 
     modulation_drow("転調元のキー", "result_origin", "mode", sf_0, note_number);
-    modulation_drow("#+1の転調先", "result_s_1", "after_mode", mod((answer1 - 5), 12), mod((answer2 + 7), 12));
-    modulation_drow("♭+1の転調先", "result_f_1", "after_mode", mod((answer1 - 7), 12), mod((answer2 + 5), 12));
-    modulation_drow("#+2の転調先", "result_s_2", "after_mode", mod((answer1 - 10), 12), mod((answer2 + 2), 12));
-    modulation_drow("♭+2の転調先", "result_f_2", "after_mode", mod((answer1 - 2), 12), mod((answer2 + 10), 12));
-    modulation_drow("#+3の転調先", "result_s_3", "after_mode", mod((answer1 - 3), 12), mod((answer2 + 9), 12));
-    modulation_drow("♭+3の転調先", "result_f_3", "after_mode", mod((answer1 - 9), 12), mod((answer2 + 3), 12));
-    modulation_drow("#+4の転調先", "result_s_4", "after_mode", mod((answer1 - 8), 12), mod((answer2 + 4), 12));
-    modulation_drow("♭+4の転調先", "result_f_4", "after_mode", mod((answer1 - 4), 12), mod((answer2 + 8), 12));
-    modulation_drow("#+5の転調先", "result_s_5", "after_mode", mod((answer1 - 1), 12), mod((answer2 + 11), 12));
-    modulation_drow("♭+5の転調先", "result_f_5", "after_mode", mod((answer1 - 11), 12), mod((answer2 + 1), 12));
-    modulation_drow("#・♭+6の転調先", "result_sf_6", "after_mode", mod((answer1 - 6), 12), mod((answer2 + 6), 12));
-    modulation_drow("#・♭+0の転調先", "result_sf_0", "after_mode", sf_0, mod((answer2 + 0), 12));
+    modulation_drow("#+1の転調先", "result_s_1", "after_mode", mod((answer1 - 5), Octave), mod((answer2 + 7), Octave));
+    modulation_drow("♭+1の転調先", "result_f_1", "after_mode", mod((answer1 - 7), Octave), mod((answer2 + 5), Octave));
+    modulation_drow("#+2の転調先", "result_s_2", "after_mode", mod((answer1 - 10), Octave), mod((answer2 + 2), Octave));
+    modulation_drow("♭+2の転調先", "result_f_2", "after_mode", mod((answer1 - 2), Octave), mod((answer2 + 10), Octave));
+    modulation_drow("#+3の転調先", "result_s_3", "after_mode", mod((answer1 - 3), Octave), mod((answer2 + 9), Octave));
+    modulation_drow("♭+3の転調先", "result_f_3", "after_mode", mod((answer1 - 9), Octave), mod((answer2 + 3), Octave));
+    modulation_drow("#+4の転調先", "result_s_4", "after_mode", mod((answer1 - 8), Octave), mod((answer2 + 4), Octave));
+    modulation_drow("♭+4の転調先", "result_f_4", "after_mode", mod((answer1 - 4), Octave), mod((answer2 + 8), Octave));
+    modulation_drow("#+5の転調先", "result_s_5", "after_mode", mod((answer1 - 1), Octave), mod((answer2 + 11), Octave));
+    modulation_drow("♭+5の転調先", "result_f_5", "after_mode", mod((answer1 - 11), Octave), mod((answer2 + 1), Octave));
+    modulation_drow("#・♭+6の転調先", "result_sf_6", "after_mode", mod((answer1 - 6), Octave), mod((answer2 + 6), Octave));
+    modulation_drow("#・♭+0の転調先", "result_sf_0", "after_mode", sf_0, mod((answer2 + 0), Octave));
 };
