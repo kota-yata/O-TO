@@ -56,7 +56,6 @@ function ScaleInformationDrawing() {
 
     //scale_Container配列を検索用の値
     let Num = value[1];
-    value[0] = value[0]
     //スケールのバイナリ値を、10進数のスケールナンバーに変換する。
     let scale_binary_split = value[0].split('/').map(Number);
 
@@ -75,22 +74,22 @@ function ScaleInformationDrawing() {
     let RootNumber = Number(document.getElementById("rootNumber").value);
 
     let KeySignatureNum = mod(RootNumber - scale_Container[Num].addNum, 12)
-    let scaleFamilyNum = mod(RootNumber - scale_Container[Num].addNum - scale_Container[Num]["Adjustment"], 12)
+    let scaleFamilyNum = mod(RootNumber - scale_Container[Num].addNum - scale_Container[Num].Adjustment, 12)
 
     //調号が#か♭かを判定する。
     let SOF = DetermineKeySignature(KeySignatureNum);
 
     //スケールファミリーの情報を表示
-    if (scale_Container[Num]["Mode"] == "") {
+    if (scale_Container[Num].Mode == "") {
         document.getElementById("Scale_Family_text").innerHTML = "<br>";
     } else {
         document.getElementById("Scale_Family_text").innerHTML
-            = `<br>${noteNames[scaleFamilyNum][SOF]} ${scale_Container[Num]["Mode"]}`;
+            = `<br>${noteNames[scaleFamilyNum][SOF]} ${scale_Container[Num].Mode}`;
     };
 
     //スケールの名前を表示する
     document.getElementById("Scale_name_text").innerHTML
-        = `English : <strong>${noteNames[RootNumber][SOF]} ${scale_Container[Num]['EnglishName']}</strong> <br>日本語 :<strong> ${noteNames[RootNumber][SOF]} ${scale_Container[Num]['JapaneseName']}</strong>`;
+        = `English : <strong>${noteNames[RootNumber][SOF]} ${scale_Container[Num].EnglishName}</strong> <br>日本語 :<strong> ${noteNames[RootNumber][SOF]} ${scale_Container[Num].JapaneseName}</strong>`;
 
     //スケールの調号を判定する
     document.getElementById("keySignatur_text").innerHTML
@@ -258,7 +257,7 @@ function ModalCandidateDegree() {
     //Iの場合を書き込む
     for (let i = 0; i < scale_Container.length; i++) {
         document.getElementById(`Modal_text_12_${i}`).innerHTML
-            = `Ⅰ ${scale_Container[i][ScaleLanguage]}　<font size="2"><span style="color:#808080">${scale_Container[i]["Mode"]}</span></font>`;
+            = `Ⅰ ${scale_Container[i][ScaleLanguage]}　<font size="2"><span style="color:#808080">${scale_Container[i].Mode}</span></font>`;
     };
     document.querySelector('.use_scale_count').innerHTML = ``;
 };
@@ -662,12 +661,10 @@ let ConfigurationNotes = [];
 
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(コード・コード/モード検索用)
 function ModalTextAndNoteCreate(onoff, RootNumber) {
-
     //スケールを表示する言語の情報を取得する。
     let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
     //予期しない値の場合はreturn
     if (sigNameNum >= 4) { return };
-
     //全てのスケールの要素を削除
     for (let i = 0; i < scale_Container.length; i++) {
         //ディグリー表記のために13回ループさせる。
@@ -675,21 +672,21 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
             document.getElementById(`Modal_text_${k}_${i}`).innerHTML = "";
         };
     };
-
     //一致するスケールの数
     let use_scale_count = 0;
-
     // 選択されている全ての構成音のルートのルートナンバーを格納する配列
     let all_root_number = [];
-    //全てのオンオフとRootNumberを生成する
-
-    //ピッチクラスが存在する場合、配列OnOffに1を代入する。
-    for (let i = 0; i < 12; i++) {
-        if (onoff[i] === 1) {
-            all_root_number.push(i)
+    //構成音を含む全てのスケールを表示する場合、全てのオンオフとRootNumberを生成する
+    if (onlyTonicModeState === 0) {
+        all_root_number = [0];
+    } else {
+        //ピッチクラスが存在する場合、配列OnOffに1を代入する。
+        for (let i = 0; i < 12; i++) {
+            if (onoff[i] === 1) {
+                all_root_number.push(i)
+            };
         };
     };
-
     //本来のルート音のナンバーを変数に代入しておく
     let OriginalRoot = RootNumber;
     let denominator;
@@ -717,24 +714,10 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
                 && scale_Container[i].ScaleNumBinary[9] >= onoff[9]
                 && scale_Container[i].ScaleNumBinary[10] >= onoff[10]
                 && scale_Container[i].ScaleNumBinary[11] >= onoff[11]) {
-
-                let SOF;
-                //シャープとフラットの区別をする変数SOFに値を代入。
-                if (mod(RootNumber - scale_Container[i]['addNum'], 12) == 0
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 2
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 4
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 6
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 7
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 9
-                    || mod(RootNumber - scale_Container[i]['addNum'], 12) == 11) {
-                    SOF = 0;
-                } else {
-                    SOF = 1;
-                };
-
+                // 異名同音を判定
+                let SOF = DetermineKeySignature(mod(RootNumber - scale_Container[i].addNum, 12));
                 //スケール構成音のバイナリを配列に格納する。
                 let Configuration = scale_Container[i].ScaleNumBinary
-
                 //for文でスケールの構成音を生成する。
                 for (let i = 0; i < 12; i++) {
                     //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
@@ -750,14 +733,13 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
                         ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, 12)][sigNameNum][Number(Configuration[i])]);
                     };
                 };
-
                 //スケールの情報をHTMLに書き込む。
-                if (scale_Container[i]["Mode"] === "") {
-                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}</font>`;
+                if (scale_Container[i].Mode === "") {
+                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`)
+                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, 12)]}</font>`;
                 } else {
-                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`).innerHTML
-                        = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i]['addNum'], 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i]['addNum'] - scale_Container[i]['Adjustment'], 12)][SOF]}${scale_Container[i]["Mode"]}</span></font>`;
+                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, 12)}_${i}`)
+                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, 12)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i].addNum - scale_Container[i]['Adjustment'], 12)][SOF]}${scale_Container[i].Mode}</span></font>`;
                 };
                 use_scale_count++;
             } else {
@@ -785,13 +767,10 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
 function ModalTextCreate() {
     //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
     ChangeEIJG();
-
     //ルート音を取得する
     let RootNumber = Number(document.getElementById('rootNumber').value);
-
     //コード・ネームの情報を判定する関数
     let [BassNumber, result] = ChordCandidateInfo(onoff, RootNumber);
-
     let count = 0;
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
     for (let i = 0; i < mod(BassNumber - RootNumber, 12); i++) {
@@ -799,17 +778,14 @@ function ModalTextCreate() {
         onoff.push(delete_number);
         count++;
     };
-
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
     ModalCandidateSelect(onoff, BassNumber);
-
     // 配列を元に戻すための値
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
     for (let i = 0; i < onoff.length - count; i++) {
         let delete_number = onoff.shift();
         onoff.push(delete_number);
     };
-
 };
 
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
@@ -866,7 +842,7 @@ function ScaleLanguageJE() {
     ModalTextCreate();
 };
 
-//音名スイッチのオンオフ状態を格納する配列
+//音名スイッチのオンオフ状態を格納するグローバル配列
 let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 //構成音を着色する関数
@@ -880,26 +856,20 @@ function NoteNameColoring(onoff) {
     };
 };
 
-//構成音を着色する関数（コードスケール検索用）
-function SearchNoteNameColoring(onoff) {
-    for (let i = 0; i < 12; i++) {
-        if (onoff[i] !== 0) {
-            document.getElementById(`chord_${i}`).className = "NoteName NoteName_cursor_pointer NoteOn";
-        } else if (onoff[i] === 0) {
-            document.getElementById(`chord_${i}`).className = "NoteName NoteName_cursor_pointer NoteName_Switch_Search";
-        };
-    };
-};
-
 //音名からモード・コード検索用のスイッチの役割を果たす関数(コード/モード検索用)
 function NoteSwitch(Num) {
+    //音名スイッチのオンオフ状態を格納するグローバル配列に書き込む
     if (onoff[Num] === 0) {
         onoff[Num] = 1;
     } else if (onoff[Num] === 1) {
         onoff[Num] = 0;
     };
-    //構成音を着色する関数（コードスケール検索用）
-    SearchNoteNameColoring(onoff)
+    // 選択した音を着色・脱色する
+    if (onoff[Num] !== 0) {
+        document.getElementById(`chord_${Num}`).className = "NoteName NoteName_cursor_pointer NoteOn";
+    } else if (onoff[Num] === 0) {
+        document.getElementById(`chord_${Num}`).className = "NoteName NoteName_cursor_pointer NoteName_Switch_Search";
+    };
     //モーダル・インターチェンジの候補を表示する関数
     ModalTextCreate();
 };
