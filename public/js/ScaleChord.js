@@ -389,6 +389,22 @@ function EnharmonicRejudgement(SOF, BassSOF, RootNote, BaseNote) {
     return BassSOF;
 };
 
+// コードの異名同音をある程度調整する関数
+function AdjustmentEnharmonic(ChordName, m3rd, aug5) {
+    let adjustment = 0;
+    //コードをキーの調号に合わせるための処理
+    if (aug5 === 1 && ChordName.match("m\\(♭5\\)") ||
+        aug5 === 1 && ChordName.match("m7\\(♭5\\)") ||
+        aug5 === 1 && ChordName.match("dim7")) {
+        adjustment = 11;
+    } else if (aug5 === 1 && ChordName.match("blk")) {
+        adjustment = 2;
+    } else if (m3rd === 1 && ChordName.charAt(0) === "m") {
+        adjustment = 9;
+    };
+    return adjustment;
+};
+
 //コードネームを格納するグローバル変数
 let CHORD_NAME;
 //コード・ネームの情報を判定する関数（大雑把に言うと、トライトーンの判定、コードネームの判定、トーンクラスターの判定をしている。）
@@ -481,20 +497,12 @@ function ChordCandidateInfo(onoff, RootNumber) {
 
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
+                //グローバル変数へ代入する
                 CHORD_NAME = ChordName;
                 let HowToRead = chord_container[j].Name;
-                let adjustment = 0;
 
-                //コードをキーの調号に合わせるための処理
-                if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m\\(♭5\\)") ||
-                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m7\\(♭5\\)") ||
-                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("dim7")) {
-                    adjustment = 11;
-                } else if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("blk")) {
-                    adjustment = 2;
-                } else if (onoff[mod(i + 3, Octave)] === 1 && ChordName.charAt(0) === "m") {
-                    adjustment = 9;
-                };
+                // コードの異名同音をある程度調整するための値を計算する
+                let adjustment = AdjustmentEnharmonic(ChordName, onoff[mod(i + 3, Octave)], onoff[mod(i + 6, Octave)]);
 
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
                 let SOF = DetermineKeySignature(mod(i + RootNumber - adjustment, Octave));

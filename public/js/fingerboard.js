@@ -407,17 +407,13 @@ function FletCreate(NumberOfStrings) {
         };
     } else if (ScaleAndChordsDrowingSwitch === 0) {
         //コードの場合の処理
-        //コードネームの名前を配列から取り出す（mを判定するために「omit5,omit3」を除く）
-        let ChordName = chord_container[ScaleNum].ChordName.replace("omit5", "").replace("omit3", "");
-        let HowToRead = chord_container[ScaleNum].Name;
-        let Minor = 0;
-        //マイナーコードをキーの調号に合わせるための処理
-        if (onoff[3] === 1 && HowToRead.match("マイナー")) {
-            // マイナーコードの場合
-            Minor = 9;
-        };
+        //コードネームの名前を配列から取り出す
+        let ChordName = chord_container[ScaleNum].ChordName;
+
+        // コードの異名同音をある程度調整するための値を計算する
+        let adjustment = AdjustmentEnharmonic(ChordName, onoff[3], onoff[6]);
         //コード・ネームのシャープとフラットを判定するための値を計算する。
-        let SOF = DetermineKeySignature(mod(RootNumber - Minor, Octave));
+        let SOF = DetermineKeySignature(mod(RootNumber - adjustment, Octave));
         //それぞれの異名同音を判定する
         for (let i = 0; i < Octave; i++) {
             if (onoff[i] === 1) {
@@ -426,7 +422,6 @@ function FletCreate(NumberOfStrings) {
                 Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, Octave)][Configuration[i]]);
             };
         };
-        // console.log(Configuration);
     };
     //for文で構成音を生成する。
     for (let i = 0; i < Octave; i++) {

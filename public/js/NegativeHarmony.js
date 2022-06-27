@@ -185,18 +185,10 @@ function NegativeChordCandidateInfo(onoff) {
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
                 let HowToRead = chord_container[j].Name;
-                let adjustment = 0;
 
-                //コードをキーの調号に合わせるための処理
-                if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m\\(♭5\\)") ||
-                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("m7\\(♭5\\)") ||
-                    onoff[mod(i + 6, Octave)] === 1 && ChordName.match("dim7")) {
-                    adjustment = 11;
-                } else if (onoff[mod(i + 6, Octave)] === 1 && ChordName.match("blk")) {
-                    adjustment = 2;
-                } else if (onoff[mod(i + 3, Octave)] === 1 && ChordName.charAt(0) === "m") {
-                    adjustment = 9;
-                };
+                // コードの異名同音をある程度調整するための値を計算する
+                let adjustment = AdjustmentEnharmonic(ChordName, onoff[mod(i + 3, Octave)], onoff[mod(i + 6, Octave)]);
+
                 //コード・ネームのシャープとフラットを判定するための値を計算する。
                 let SOF = DetermineKeySignature(mod(i + RootNumber - adjustment, Octave));
 
