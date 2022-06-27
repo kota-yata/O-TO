@@ -236,12 +236,14 @@ function SelectedKeyboard(Root, array) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
         };
     };
+    //重複するMIDIノートナンバーを削除する
+    let array2 = Array.from(new Set(array));
     //度数に基づいて着色する
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array2.length; i++) {
         //鍵盤が描画されている場合のみ処理を実行する
-        if (document.getElementById(`MIDI_note_number-${array[i]}`) !== null) {
-            let j = mod(array[i] - Root, 12);
-            document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
+        if (document.getElementById(`MIDI_note_number-${array2[i]}`) !== null) {
+            let j = mod(array2[i] - Root, 12);
+            document.getElementById(`MIDI_note_number-${array2[i]}`).classList.toggle(`Selected_keyboard${j}`);
         };
     };
 };
