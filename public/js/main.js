@@ -660,3 +660,22 @@ function WriteKeyboard() {
         };
     };
 };
+
+// レスポンシブ鍵盤を描画する関数
+function WriteResponsiveKeyboard(nok, motn) {
+    //一度鍵盤を空にする
+    document.getElementById(`Keyboard`).innerHTML = '';
+    NumberOfKeys = nok;
+    MIDINN_OfTopNote = motn;
+    //配列の数だけHTML要素(div)を書き込む。
+    for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
+        if (DetermineBlackKey(i)) {
+            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
+                `<td class="ResponsivePianokey ResponsiveBlackKey" id="MIDI_note_number-${i}"></td>`);
+        } else {
+            document.getElementById(`Keyboard`).insertAdjacentHTML('afterbegin',
+                `<td class="ResponsivePianokey ResponsiveWhiteKey" id="MIDI_note_number-${i}"></td>`);
+        };
+    };
+};
+

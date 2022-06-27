@@ -224,6 +224,10 @@ function ScaleKeySignature() {
     //構成音を着色
     NoteNameColoring(onoff);
 
+    //トニックの数値を取得する。
+    let Root = Number(document.getElementById("rootNumber").value);
+    KeyboardColoring(onoff, Root)
+
     //スケールの構成音を含む主なコード一覧のテーブルを描画する関数
     scaleChordTableCreate();
 };
@@ -400,6 +404,8 @@ function EnharmonicRejudgement(SOF, BassSOF, RootNote, BaseNote) {
     return BassSOF;
 };
 
+//コードネームを格納するグローバル変数
+let CHORD_NAME;
 //コード・ネームの情報を判定する関数（大雑把に言うと、トライトーンの判定、コードネームの判定、トーンクラスターの判定をしている。）
 function ChordCandidateInfo(onoff, RootNumber) {
     //コード情報をリセット
@@ -490,6 +496,7 @@ function ChordCandidateInfo(onoff, RootNumber) {
 
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
+                CHORD_NAME = ChordName;
                 let HowToRead = chord_container[j].Name;
                 let Minor = 0;
                 //マイナーコードをキーの調号に合わせるための処理
@@ -643,6 +650,9 @@ function ChordNoteSwitch() {
     //構成音を着色する関数
     NoteNameColoring(onoff);
 
+    //構成音に則ってキーボードを着色する関数
+    KeyboardColoring(onoff, RootNumber);
+
     //モーダル・インターチェンジ候補を表示するためのHTML要素(div)を追加するための関数
     CreateCandidate();
 
@@ -650,11 +660,12 @@ function ChordNoteSwitch() {
     ModalCandidateSelect(onoff, RootNumber);
 
     //コードネームに合わせて度数表記を描画する関数
-    degree_position_drow(0)
+    degree_position_drow(0);
 
     //ネガティブ・ハーモニーを表示する関数
-    NegativeHarmony(onoff)
+    NegativeHarmony(onoff);
 };
+
 
 //スケールの情報を格納する配列
 let ConfigurationNotes = [];
@@ -851,6 +862,92 @@ function NoteNameColoring(onoff) {
             document.getElementById(`chord_${i}`).className = "NoteName";
         };
     };
+};
+
+//構成音に則ってキーボードを着色する関数
+function KeyboardColoring(onoff, Root) {
+
+    //一旦全ての鍵盤の着色をリセットする
+    for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
+        for (let j = 0; j < 12; j++) {
+            document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
+        };
+    };
+
+    let array = [];
+
+    //鍵盤が足らない場合は増やす（13テンションを含むEとFがルートのコードの場合）
+    if (Root === 4 && DetermineCompoundInterval(9) === true
+        || Root === 5 && DetermineCompoundInterval(9) === true) {
+        WriteResponsiveKeyboard(36, 89);
+    } else {
+        WriteResponsiveKeyboard(31, 84);
+    };
+
+    //良い感じに鍵盤の真ん中の方で着色する
+    if (CHORD_NAME === undefined && Root <= 8) {
+        Root += 12;
+    } else if (Root <= 5) {
+        Root += 12;
+    };
+
+    // 配列onoffをMIDIノートナンバーに変換する
+    for (let i = 0; i < 12; i++) {
+        if (onoff[i] >= 1) {
+            let CompoundInterval = DetermineCompoundInterval(i);
+            if (CompoundInterval === true) {
+                array.push(Root + 60 + i);
+            } else {
+                array.push(Root + 48 + i);
+            };
+        };
+    };
+
+    //スケールの時はルートの1オクターブ上も着色する
+    if (CHORD_NAME === undefined) {
+        array.push(Root + 60);
+    };
+
+    //度数に基づいて着色する
+    for (let i = 0; i < array.length; i++) {
+        //鍵盤が描画されている場合のみ処理を実行する
+        if (document.getElementById(`MIDI_note_number-${array[i]}`) !== null) {
+            let j = mod(array[i] - Root, 12);
+            document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
+        };
+    };
+};
+
+//複音程かどうかを判定する関数
+function DetermineCompoundInterval(Root) {
+    let CompoundInterval = false;
+
+    //グローバル変数が定義されていない場合
+    if (CHORD_NAME === undefined) {
+        return CompoundInterval;
+    };
+
+    if (Root === 1 && CHORD_NAME.match("♭9")) {
+        CompoundInterval = true;
+    } else if (Root === 2 && CHORD_NAME.match("9") || Root === 2 && CHORD_NAME.match("blk")) {
+        CompoundInterval = true;
+    } else if (Root === 3 && CHORD_NAME.match("#9")) {
+        CompoundInterval = true;
+    };
+
+    if (Root === 5 && CHORD_NAME.match("11") || Root === 2 && CHORD_NAME.match("11")) {
+        CompoundInterval = true;
+    } else if (Root === 6 && CHORD_NAME.match("#11")) {
+        CompoundInterval = true;
+    };
+
+    if (Root === 8 && CHORD_NAME.match("♭13")) {
+        CompoundInterval = true;
+    } else if (Root === 9 && CHORD_NAME.match("13") || Root === 5 && CHORD_NAME.match("13") || Root === 2 && CHORD_NAME.match("13")) {
+        CompoundInterval = true;
+    };
+
+    return CompoundInterval;
 };
 
 //音名からモード・コード検索用のスイッチの役割を果たす関数(コード/モード検索用)

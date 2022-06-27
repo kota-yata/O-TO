@@ -277,8 +277,14 @@
             <option value=3>ドイツ式表記</option>
           </select>
         </label>
-
       </div>
+
+      <!-- ピアノ鍵盤をJavaScriptで描画する -->
+      <table id="KeyboardTable">
+        <tr id="Keyboard">
+        </tr>
+      </table>
+
 
       <table class="box_table">
         <tr class="box_border">
@@ -412,6 +418,8 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
+      // レスポンシブ鍵盤を描画する関数
+      WriteResponsiveKeyboard(31, 84);
       //スケールの選択肢を表示するためのHTML要素(option)を追加するための関数
       CeateScaleChoices("constituent_binary");
       //スケールの情報を処理して書き込む関数

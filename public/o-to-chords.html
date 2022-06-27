@@ -228,7 +228,6 @@
         </div>
       </div>
 
-
       <div class="text-right">
         <label for="rootNumber" class="box1 col-md-10 col-xl-2 py-2 mx-2">ルート音
           <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
@@ -265,6 +264,12 @@
           </select>
         </label>
       </div>
+
+      <!-- ピアノ鍵盤をJavaScriptで描画する -->
+      <table id="KeyboardTable">
+        <tr id="Keyboard">
+        </tr>
+      </table>
 
       <table class="box_table">
         <tr>
@@ -517,6 +522,8 @@
   <!--ページのロードが終了したときに実行される関数 -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
+      // レスポンシブ鍵盤を描画する関数
+      WriteResponsiveKeyboard(31, 84);
       //コードの選択肢を表示するためのHTML要素(option)を追加するための関数
       CreateChordChoices();
       //コードの情報を処理して書き込む関数(コードで使用)
