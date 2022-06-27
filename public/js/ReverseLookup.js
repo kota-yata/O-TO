@@ -117,8 +117,8 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
         RootNumber = mod(RootNumber, 12);
     };
 
-    //音名スイッチのオンオフ状態を格納する配列
-    let OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //音名スイッチのオンオフ状態を格納する配列をリセット
+    onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     //ベース音（一番低い音）を判定する
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
@@ -128,7 +128,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
     for (let i = 0; i < PitchClassOnOff.length; i++) {
-        OnOff[PitchClassOnOff[i]] = 1;
+        onoff[PitchClassOnOff[i]] = 1;
     };
 
     //全ての色をリセットする
@@ -137,7 +137,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     };
 
     //コード・ネームの情報を判定する関数を実行し、返り値でルート音を取得する。
-    let [BassNumber, result] = ChordCandidateInfo(OnOff, RootNumber);
+    let [BassNumber, result] = ChordCandidateInfo(onoff, RootNumber);
 
     //コードが判定できないときはルート音はそのまま
     if (BassNumber === undefined) {
@@ -155,7 +155,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
     };
 
     //音名スイッチのオンオフ状態を格納する配列をリセット
-    OnOff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     //ピッチクラスへ変換（MIDIノートナンバーをmod12で計算する）＋ベース音の調整
     PitchClassOnOff = FingerboardOnOff.map(function (a) {
         return mod(a - BassNumber, 12);
@@ -163,13 +163,13 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
     //ピッチクラスが存在する場合、配列OnOffに1を代入する。
     for (let i = 0; i < PitchClassOnOff.length; i++) {
-        OnOff[PitchClassOnOff[i]] = 1;
+        onoff[PitchClassOnOff[i]] = 1;
     };
 
     //この音の組み合わせを含む主なスケールを書き込む
     if (FingerboardOnOff.length > 0) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(指板からコード・ネームやスケール名を逆引きする用)
-        ModalTextAndNoteCreate(OnOff, mod(BassNumber, 12));
+        ModalTextAndNoteCreate(onoff, mod(BassNumber, 12));
     } else {
         //モーダル・インターチェンジの候補をディグリー表記で表示する関数
         ModalCandidateDegree();
@@ -224,6 +224,7 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
             };
         };
     };
+
     // 指定された鍵盤のポジションの色を変える関数
     SelectedKeyboard(BassNumber, FingerboardOnOff);
 };

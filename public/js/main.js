@@ -552,6 +552,9 @@ function DetermineKeySignature(Num) {
     return SharpOrFlat;
 };
 
+//音名スイッチのオンオフ状態を格納するグローバル配列
+let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 let chord_prog = Number(chordProgOne.length + chordProgFour.length + chordProgSix.length + chordProgEight.length);
 //各配列の情報などの数を書き込む関数
 function info_counter() {

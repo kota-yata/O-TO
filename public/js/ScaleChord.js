@@ -842,9 +842,6 @@ function ScaleLanguageJE() {
     ModalTextCreate();
 };
 
-//音名スイッチのオンオフ状態を格納するグローバル配列
-let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
 //構成音を着色する関数
 function NoteNameColoring(onoff) {
     for (let i = 0; i < 12; i++) {
