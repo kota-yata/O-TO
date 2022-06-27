@@ -623,9 +623,10 @@ function WriteKeyboard() {
     let TuningVariation = document.getElementById("TuningVariation").value.split(':');
     //弦のMIDIノートナンバー
     let StringsMIDI = TuningVariation[0].split('-').map(Number);
+    //弦楽器の最低音を取得
     let MIDINN_Min = StringsMIDI.reduce(aryMin);
 
-    let KeyWidth = 87 - Math.floor((1500 - document.body.offsetWidth) / 11.5);
+    let KeyWidth = 87 - Math.floor((1500 - document.body.offsetWidth) / 13);
     //十分な画面横幅の場合は88鍵盤を描画する
     if (document.body.offsetWidth >= 1400) {
         NumberOfKeys = 87;
