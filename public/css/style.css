@@ -738,8 +738,9 @@ box {
     overflow: hidden;
 }
 .WhiteKey {
+    background-color: white;
     text-align: center;
-    color: #eeeeee;
+    color: #fcfcfc;
     bottom: 0;
     vertical-align: bottom;
 }
@@ -750,7 +751,7 @@ box {
     position: absolute;
     margin-left: -7px;
     font-size:0.08rem;
-    color: #222222;
+    color: black;
 }
 /* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ鍵盤 */
@@ -763,9 +764,10 @@ box {
     overflow: hidden;
 }
 .ResponsiveWhiteKey {
+    background-color: white;
     text-align: center;
     overflow: hidden;
-    color: #eeeeee;
+    color: white;
     bottom: 0;
     vertical-align: bottom;
 }
@@ -775,7 +777,7 @@ box {
     width: 1.8vw;
     margin-left: -0.9vw;
     position: absolute;
-    color: #222222;
+    color: black;
 }
 
 /* --------------------------------------------------------------------------------------------- */
