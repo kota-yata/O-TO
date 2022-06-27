@@ -876,7 +876,7 @@ function NoteSwitch(Num) {
 
 //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
 let onlyTonicModeState = 0;
-function onlyTonicModeSwitch() {
+function onlyTonicModeSwitch(app_num) {
     if (onlyTonicModeState === 0) {
         //ルート音から始まるスケールだけを表示する
         document.getElementById("onlyTonicMode").innerHTML = "ルート音が主音のスケールのみ表示する"
@@ -892,37 +892,19 @@ function onlyTonicModeSwitch() {
         document.getElementById("onlyTonicMode").value = 0;
         onlyTonicModeState = 0;
     };
+    if (app_num === 1) {
+        //（コード用）
+        ChordNoteSwitch();
+    } else if (app_num === 3) {
+        //（コード/スケール名を逆引き検索用）
+        //モーダル・インターチェンジの候補を表示する関数
+        ModalTextCreate();
+    } else if (app_num === 10) {
+        // （指板用）
+        ModalCandidateSelectFingerBoard();
+    } else if (app_num === 11) {
+        // （逆引き指板用）
+        //指板上の音を移調する関数
+        transpose(0);
+    };
 };
-
-//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（逆引き指板用）
-function ReverseLookupOnlyTonicModeSwitch() {
-    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
-    onlyTonicModeSwitch();
-    //指板上の音を移調する関数
-    transpose(0);
-};
-
-//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（コード用）
-function ChordOnlyTonicModeSwitch() {
-    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
-    onlyTonicModeSwitch();
-
-    ChordNoteSwitch();
-};
-
-//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（コード/スケール名を逆引き検索用）
-function modal_interchange_ChordOnlyTonicModeSwitch() {
-    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
-    onlyTonicModeSwitch();
-    //モーダル・インターチェンジの候補を表示する関数
-    ModalTextCreate();
-};
-
-//ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ（指板用）
-function fingerboard_ChordOnlyTonicModeSwitch() {
-    //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
-    onlyTonicModeSwitch();
-
-    ModalCandidateSelectFingerBoard();
-};
-
