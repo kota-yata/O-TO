@@ -1,0 +1,11 @@
+
+@mixin DegreeColor($BGC,$Color:black) {
+    color: $Color;
+    background-color:$BGC;
+    overflow: hidden;
+    border: solid 1px $BorderColor;
+}
+
+@mixin FontSize() {
+    font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
+}

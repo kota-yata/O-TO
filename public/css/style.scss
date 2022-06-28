@@ -1,4 +1,6 @@
-@charset "UTF-8";
+// 別のscssファイルを読み込む
+@import"./_functions.scss";
+@import"./_variables.scss";
 /* フォント指定 */
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
 /* --------------------------------------------------------------------------------------------- */
@@ -7,21 +9,17 @@ body {
   background-color: #f5f5f5;
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
 a {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
-.displayed {
+.displayed{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 h5 {
   font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 主な要素 */
 #contents p {
@@ -29,94 +27,89 @@ h5 {
   margin: 0;
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
 #contents p.title {
   font-size: 16px;
   font-weight: bold;
 }
-
 #contents {
   padding: 5px 10px;
-  border-top: 2px solid crimson;
+  border-top: 2px solid $mainColor;
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-
 .manual {
-  color: crimson;
+  color: $mainColor;
   font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
 }
-
-ul {
+ul{
   list-style-type: none;
 }
 
 /* --------------------------------------------------------------------------------------------- */
 /* フッター */
-#footer {
-  background-color: #ffffff;
-  padding: 5px;
+#footer{
+  background-color:#ffffff;
+  padding:5px;
   text-align: center;
-  display: grid;
-  grid-template: "... ....... ....... ....... ....... ....... ....... ..." 1.5rem "... footer_p footer_g footer_b footer_i footer_t footer_y ..." "... ....... ....... ....... ....... ....... ....... ..." 2rem "... ....... ....... share-b   share-b   ....... ....... ..." "... ....... ....... site_logo site_logo ....... ....... ..." "... ....... ....... footer_c footer_c ....... ....... ..." "... ....... ....... ....... ....... ....... ....... ..." 1.5rem/1rem 1fr 1fr 1fr 1fr 1fr 1fr 1rem;
+	display: grid;
+    grid-template:
+		"... ....... ....... ....... ....... ....... ....... ..." 1.5rem
+		"... footer_p footer_g footer_b footer_i footer_t footer_y ..."
+    "... ....... ....... ....... ....... ....... ....... ..." 2rem
+		"... ....... ....... share-b   share-b   ....... ....... ..."
+    "... ....... ....... site_logo site_logo ....... ....... ..."
+    "... ....... ....... footer_c footer_c ....... ....... ..."
+    "... ....... ....... ....... ....... ....... ....... ..." 1.5rem
+		/1rem 1fr 1fr 1fr 1fr 1fr 1fr 1rem;
+		;
 }
-
-.share-button {
+.share-button{
   grid-area: share-b;
   text-align: center;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2rem 2rem auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2rem 2rem auto;
 }
-
-.footer_profile {
+.footer_profile{
   grid-area: footer_p;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.footer_github {
+.footer_github{
   grid-area: footer_g;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.footer_bug {
+.footer_bug{
   grid-area: footer_b;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.footer_info {
+.footer_info{
   grid-area: footer_i;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.footer_twitter {
+.footer_twitter{
   grid-area: footer_t;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.footer_youtube {
+.footer_youtube{
   grid-area: footer_y;
   white-space: nowrap;
-  padding: 5px;
+  padding:5px;
 }
-
-.site_logo {
-  padding: 1rem;
+.site_logo{
+  padding:1rem;
   grid-area: site_logo;
-  width: 100px;
+  width:100px
 }
-
-.footer_copyright {
+.footer_copyright{
   grid-area: footer_c;
   white-space: nowrap;
   padding-top: 2px;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 画像のレスポンシブ対応 */
 img {
@@ -124,39 +117,33 @@ img {
   max-width: 100%;
   height: auto;
 }
-
 .header_image {
   background-position: center;
   background-size: cover;
   padding-top: 5rem;
   margin-bottom: 1.75rem;
 }
-
 .link_image:hover {
   opacity: 0.8;
 }
-
 .note_image {
   padding: 5px;
   height: clamp(2rem, 2rem + 1vw, 4rem);
   /* 中央揃え */
   margin: 0 auto;
 }
-
 .clef {
   width: 50%;
   max-width: 50%;
   height: auto;
 }
-
 #clef2 {
   width: 10%;
   max-width: 10%;
   height: auto;
 }
-
 .clef3 {
-  padding: 0.2rem;
+  padding:0.2rem;
   width: 15%;
 }
 
@@ -166,17 +153,14 @@ img {
   padding-top: 5rem;
   margin-bottom: 1.75rem;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 説明タブ */
 #tabs {
   overflow: hidden;
 }
-
 #tabs input {
   display: none;
 }
-
 #tabs label {
   display: inline-block;
   line-height: 40px;
@@ -187,21 +171,17 @@ img {
   transition: 0.3s;
   border-radius: 10px 10px 0 0;
 }
-
 #tabs input:checked + label,
 #tabs label:hover {
-  background: crimson;
+  background: $mainColor;
   color: #fff;
 }
-
 #accordionExample {
   font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
-
 .ResText {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* テーブル要素 */
 .box_table {
@@ -211,143 +191,129 @@ img {
   table-layout: fixed;
   height: clamp(0.5rem, 0.5rem + 1vw, 3rem);
 }
-
 #scaleChordTable {
-  text-align: left;
+  text-align:left;
   font-size: clamp(0.5rem, 0.5rem + 1vw, 0.7rem);
   border: 1px solid rgb(210, 210, 210);
   table-layout: fixed;
   width: 100%;
 }
-
-.degree_box {
+.degree_box{
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
   text-align: center;
   table-layout: fixed;
 }
-
-.box_border {
-  border: 1px solid rgb(210, 210, 210);
+.box_border{
+  border: 1px solid rgb(210, 210, 210)
 }
-
-.box_border:hover {
+.box_border:hover{
   font-weight: bold;
 }
-
 .ChordName {
   font-size: clamp(0.2rem, 0.2rem + 1vw, 1rem);
   height: clamp(2rem, 2rem + 3vw, 3rem);
   border: 1px solid rgb(210, 210, 210);
 }
-
 #scaleChord_index {
   font-weight: bold;
-  background-color: white;
+  background-color: white
 }
 
 /* リンクのテーブル*/
-.link_table {
+.link_table{
   padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
 /* --------------------------------------------------------------------------------------------- */
-.link_table1 {
+
+.link_table1{
   padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
-.link_table2 {
+.link_table2{
   padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
-.link_table3 {
+.link_table3{
   padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
-.link_image2 {
+.link_image2{
   width: 200px;
   height: 200px;
   text-align: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
-.link_image2:hover {
+.link_image2:hover{
   opacity: 0.8;
 }
 
-.document-data-heading {
+.document-data-heading{
   grid-area: document-data-heading;
 }
-
-.related-page-heading {
+.related-page-heading{
   grid-area: related-page-heading;
 }
-
-.share-heading {
+.share-heading{
   grid-area: share-heading;
 }
-
-.link_div {
-  display: grid;
+.link_div{
+	display: grid;
   padding: 1.5rem;
-  grid-template: "document-data-heading related-page-heading share-heading"/1fr 1fr 1fr;
+    grid-template:
+		"document-data-heading related-page-heading share-heading"
+    /1fr 1fr 1fr;
 }
 
 /* --------------------------------------------------------------------------------------------- */
 /* 音価のテーブル（音価の計算・メトリック・モジュレーション）*/
-.note_value_table {
+.note_value_table{
   padding-bottom: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
 }
-
-.tr_quarter_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_quarter_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: lightgoldenrodyellow;
 }
-
-.tr_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: paleturquoise;
 }
-
-.tr_1dot_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_1dot_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: palegreen;
 }
-
-.tr_2dot_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_2dot_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: gainsboro;
 }
-
-.tr_tuplet_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_tuplet_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: white;
 }
-
-.tr_long_note {
-  border: solid 1px rgb(210, 210, 210);
+.tr_long_note{
+  border: solid 1px $BorderColor;
   margin: 1px;
   background-color: gainsboro;
 }
@@ -357,296 +323,210 @@ img {
 .ChordNotFound {
   background-color: gainsboro;
 }
-
 .NoteOn {
-  height: auto;
-  border: solid 1px rgb(210, 210, 210);
-  background-color: crimson;
+  height:auto;
+  border: solid 1px $BorderColor;
+  background-color: $mainColor;
   color: whitesmoke;
 }
-
 .NoteName_Switch_Search {
-  height: auto;
-  border: solid 1px rgb(210, 210, 210);
+  height:auto;
+  border: solid 1px $BorderColor;
 }
-
 .NoteName_cursor_pointer {
   cursor: pointer;
+  &:hover{
+    border-radius: 7px;
+  }
 }
-.NoteName_cursor_pointer:hover {
-  border-radius: 7px;
-}
-
 .NoteOn2 {
-  height: auto;
-  border: solid 1px rgb(210, 210, 210);
+  height:auto;
+  border: solid 1px $BorderColor;
   background-color: mediumblue;
   color: whitesmoke;
 }
-
 .NoteOn3 {
-  height: auto;
-  border: solid 1px rgb(210, 210, 210);
+  height:auto;
+  border: solid 1px $BorderColor;
   background-color: green;
   color: whitesmoke;
 }
-
 .NoteName {
-  height: auto;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border: solid 1px rgb(210, 210, 210);
+  height:auto;
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+  border: solid 1px $BorderColor;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
   overflow: hidden;
   background-color: gray;
-  border: solid 1px rgb(210, 210, 210);
+  border: solid 1px $BorderColor;
   font-weight: lighter;
 }
-
 .Degree0 {
-  color: white;
-  background-color: #0588ff;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor0,white);
 }
-
 .Degree1 {
-  color: black;
-  background-color: #a4c2f4;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor1);
 }
-
 .Degree2 {
-  color: black;
-  background-color: #21daff;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor2);
 }
-
 .Degree3 {
-  color: black;
-  background-color: #66cdaa;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor3);
 }
-
 .Degree4 {
-  color: black;
-  background-color: #01ff50;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor4);
 }
-
 .Degree5 {
-  color: black;
-  background-color: #ffccff;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor5);
 }
-
 .Degree6 {
-  color: black;
-  background-color: #e9967a;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor6);
 }
-
 .Degree7 {
-  color: black;
-  background-color: #fcfc04;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor7);
 }
-
 .Degree8 {
-  color: black;
-  background-color: #ff6e01;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor8);
 }
-
 .Degree9 {
-  color: white;
-  background-color: #ff2121;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor9,white);
 }
-
 .Degree10 {
-  color: white;
-  background-color: #ff19bd;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor10,white);
 }
-
 .Degree11 {
-  color: black;
-  background-color: #cc99ff;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+  @include DegreeColor($DegreeColor11);
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記テキスト */
 .DegreeText:hover {
   font-weight: bold;
 }
-
 .DegreeText0 {
-  border-left: solid 0.8rem #0588ff;
+  border-left: solid 0.8rem $DegreeColor0;
   padding-left: 0.2rem;
 }
-
 .DegreeText1 {
-  border-left: solid 0.3rem #a4c2f4;
+  border-left: solid 0.3rem $DegreeColor1;
   padding-left: 0.2rem;
 }
-
 .DegreeText2 {
-  border-left: solid 0.5rem #21daff;
+  border-left: solid 0.5rem $DegreeColor2;
   padding-left: 0.2rem;
 }
-
 .DegreeText3 {
-  border-left: solid 0.4rem #66cdaa;
+  border-left: solid 0.4rem $DegreeColor3;
   padding-left: 0.2rem;
 }
-
 .DegreeText4 {
-  border-left: solid 0.5rem #01ff50;
+  border-left: solid 0.5rem $DegreeColor4;
   padding-left: 0.2rem;
 }
-
 .DegreeText5 {
-  border-left: solid 0.3rem #ffccff;
+  border-left: solid 0.3rem $DegreeColor5;
   padding-left: 0.2rem;
 }
-
 .DegreeText6 {
-  border-left: solid 0.2rem #e9967a;
+  border-left: solid 0.2rem $DegreeColor6;
   padding-left: 0.2rem;
 }
-
 .DegreeText7 {
-  border-left: solid 0.3rem #fcfc04;
+  border-left: solid 0.3rem $DegreeColor7;
   padding-left: 0.2rem;
 }
-
 .DegreeText8 {
-  border-left: solid 0.2rem #ff6e01;
+  border-left: solid 0.2rem $DegreeColor8;
   padding-left: 0.2rem;
 }
-
 .DegreeText9 {
-  border-left: solid 0.4rem #ff2121;
+  border-left: solid 0.4rem $DegreeColor9;
   padding-left: 0.2rem;
 }
-
 .DegreeText10 {
-  border-left: solid 0.2rem #ff19bd;
+  border-left: solid 0.2rem $DegreeColor10;
   padding-left: 0.2rem;
 }
-
 .DegreeText11 {
-  border-left: solid 0.3rem #cc99ff;
+  border-left: solid 0.3rem $DegreeColor11;
   padding-left: 0.2rem;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 転調の間隔 */
 .modulationBorder0 {
-  outline: 10px solid #0588ff;
+  outline: 10px solid $DegreeColor0;
   outline-offset: -10px;
 }
-
 .modulationBorder1 {
-  outline: 10px solid #a4c2f4;
+  outline: 10px solid $DegreeColor1;
   outline-offset: -10px;
 }
-
 .modulationBorder2 {
-  outline: 10px solid #21daff;
+  outline: 10px solid $DegreeColor2;
   outline-offset: -10px;
 }
-
 .modulationBorder3 {
-  outline: 10px solid #66cdaa;
+  outline: 10px solid $DegreeColor3;
   outline-offset: -10px;
 }
-
 .modulationBorder4 {
-  outline: 10px solid #01ff50;
+  outline: 10px solid $DegreeColor4;
   outline-offset: -10px;
 }
-
 .modulationBorder5 {
-  outline: 10px solid #ffccff;
+  outline: 10px solid $DegreeColor5;
   outline-offset: -10px;
 }
-
 .modulationBorder6 {
-  outline: 10px solid #e9967a;
+  outline: 10px solid $DegreeColor6;
   outline-offset: -10px;
 }
-
 .modulationBorder7 {
-  outline: 10px solid #fcfc04;
+  outline: 10px solid $DegreeColor7;
   outline-offset: -10px;
 }
-
 .modulationBorder8 {
-  outline: 10px solid #ff6e01;
+  outline: 10px solid $DegreeColor8;
   outline-offset: -10px;
 }
-
 .modulationBorder9 {
-  outline: 10px solid #ff2121;
+  outline: 10px solid $DegreeColor9;
   outline-offset: -10px;
 }
-
 .modulationBorder10 {
-  outline: 10px solid #ff19bd;
+  outline: 10px solid $DegreeColor10;
   outline-offset: -10px;
 }
-
 .modulationBorder11 {
-  outline: 10px solid #cc99ff;
+  outline: 10px solid $DegreeColor11;
   outline-offset: -10px;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 転調 */
 #modulationTable {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   background: #ffffff;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
-
 #modulationChangeTable {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   font-weight: bold;
 }
-
 #result_modulation {
   background: whitesmoke;
 }
-
 #modulationTable2 {
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   background: #ffffff;
   text-align: left;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
-
 .gainsboro {
   background: #dcdcdc;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 移調 */
 textarea {
@@ -657,7 +537,6 @@ textarea {
   padding: 1em;
   margin: 0;
 }
-
 box {
   width: 100%;
   box-sizing: border-box;
@@ -666,53 +545,38 @@ box {
   padding: 1em;
   margin: 0;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* ダイアトニックコード表*/
-.diatonic_title {
+.diatonic_title{
   text-align: left;
   padding-left: 1em;
   width: 100%;
-  color: #111111;
+  color:#111111;
 }
-
-.major {
-  color: white;
-  background-color: #0588ff;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+.major{
+    @include DegreeColor($DegreeColor0,white);
 }
-
-.minor {
-  color: white;
-  background-color: #ff2121;
-  overflow: hidden;
-  border: solid 1px rgb(210, 210, 210);
+.minor{
+    @include DegreeColor($DegreeColor9,white);
 }
-
-.h_minor {
-  background-color: aquamarine;
+.h_minor{
+    background-color: aquamarine;
 }
-
-.m_minor {
-  background-color: lightgoldenrodyellow;
+.m_minor{
+    background-color: lightgoldenrodyellow;
 }
-
-.h_major {
-  background-color: gainsboro;
+.h_major{
+    background-color: gainsboro;
 }
-
-.m_major {
-  background-color: lightsteelblue;
+.m_major{
+    background-color: lightsteelblue;
 }
-
-.avoid_note {
+.avoid_note{
   color: rgb(172, 172, 172);
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 指板 */
-#Fingerboard {
+#Fingerboard{
   border-collapse: collapse;
   text-align: center;
   width: 100%;
@@ -720,225 +584,199 @@ box {
   font-size: clamp(0.1rem, 0.1rem + 1vw, 0.95rem);
   white-space: nowrap;
 }
-
 #FletNumberUpper {
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
   background-color: #111111;
   color: #fff;
 }
-
 #FletNumberLower {
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
   background-color: #111111;
   color: #fff;
 }
-
 .FletNumberInlay {
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
   background-color: #111111;
   color: rgb(29, 255, 123);
 }
-
-.FletNumber {
-  border: 1px solid rgb(210, 210, 210);
+.FletNumber{
+  border: 1px solid $BorderColor;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 指板 */
-.ReverseLookupBox {
-  overflow: hidden;
+.ReverseLookupBox{
+	overflow: hidden;
 }
 
-.ReverseLookupBox:hover {
+.ReverseLookupBox:hover{
   border-radius: 7px;
 }
 
-.same_pitch_class {
+.same_pitch_class{
   background-color: silver;
 }
 
-.lock_button:hover {
+.lock_button:hover{
   opacity: 0.9;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
 
-.LockOn {
+.LockOn{
   background-color: rgb(180, 180, 180);
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
 
-.LockOff {
+.LockOff{
   color: #fff;
-  background-color: crimson;
-  border: 1px solid rgb(210, 210, 210);
+  background-color: $mainColor;
+  border: 1px solid $BorderColor;
 }
 
-.transpose_button {
-  border: 1px solid rgb(210, 210, 210);
+.transpose_button{
+  border: 1px solid $BorderColor;
 }
 
-.transpose_button:hover {
+.transpose_button:hover{
   opacity: 0.9;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
 
 .transpose_button:active {
   color: #fff;
   background-color: mediumblue;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid $BorderColor;
 }
 
 /* --------------------------------------------------------------------------------------------- */
-.Selected_keyboard {
-  background-color: crimson !important;
-}
 
+.Selected_keyboard{
+    background-color: $mainColor!important;
+}
 .Selected_keyboard0 {
-  background-color: #0588ff !important;
+  background-color: $DegreeColor0!important;
 }
-
 .Selected_keyboard1 {
-  background-color: #a4c2f4 !important;
+  background-color: $DegreeColor1!important;
 }
-
 .Selected_keyboard2 {
-  background-color: #21daff !important;
+  background-color: $DegreeColor2!important;
 }
-
 .Selected_keyboard3 {
-  background-color: #66cdaa !important;
+  background-color: $DegreeColor3!important;
 }
-
 .Selected_keyboard4 {
-  background-color: #01ff50 !important;
+  background-color: $DegreeColor4!important;
 }
-
 .Selected_keyboard5 {
-  background-color: #ffccff !important;
+  background-color: $DegreeColor5!important;
 }
-
 .Selected_keyboard6 {
-  background-color: #e9967a !important;
+  background-color: $DegreeColor6!important;
 }
-
 .Selected_keyboard7 {
-  background-color: #fcfc04 !important;
+  background-color: $DegreeColor7!important;
 }
-
 .Selected_keyboard8 {
-  background-color: #ff6e01 !important;
+  background-color: $DegreeColor8!important;
 }
-
 .Selected_keyboard9 {
-  background-color: #ff2121 !important;
+  background-color: $DegreeColor9!important;
 }
-
 .Selected_keyboard10 {
-  background-color: #ff19bd !important;
+  background-color: $DegreeColor10!important;
 }
-
 .Selected_keyboard11 {
-  background-color: #cc99ff !important;
+  background-color: $DegreeColor11!important;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* 鍵盤 */
 #KeyboardTable {
-  display: table;
-  text-align: center;
-  width: 100%;
-  margin: 1rem auto;
-  position: relative;
-  white-space: nowrap;
+    display: table;
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    position: relative;
+    white-space: nowrap;
 }
-
 .pianokey {
-  display: table-cell;
-  border: 1px solid rgb(210, 210, 210);
-  display: inline-block;
-  width: 24px;
-  height: 80px;
-  font-size: 0.08rem;
-  overflow: hidden;
+    display: table-cell;
+    border: 1px solid $BorderColor;
+    display: inline-block;
+    width: 24px;
+    height: 80px;
+    font-size:0.08rem;
+    overflow: hidden;
 }
-
 .WhiteKey {
-  background-color: white;
-  text-align: center;
-  color: #fcfcfc;
-  bottom: 0;
-  vertical-align: bottom;
+    background-color: white;
+    text-align: center;
+    color: #fcfcfc;
+    bottom: 0;
+    vertical-align: bottom;
 }
-
 .BlackKey {
-  background-color: black;
-  width: 14px;
-  height: 45px;
-  position: absolute;
-  margin-left: -7px;
-  font-size: 0.08rem;
-  color: black;
+    background-color: black;
+    width: 14px;
+    height: 45px;
+    position: absolute;
+    margin-left: -7px;
+    font-size:0.08rem;
+    color: black;
 }
-
 /* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ鍵盤 */
 .ResponsivePianokey {
-  display: table-cell;
-  border: 1px solid rgb(210, 210, 210);
-  display: inline-block;
-  width: 3.4vw;
-  height: 7.5vw;
-  overflow: hidden;
+    display: table-cell;
+    border: 1px solid $BorderColor;
+    display: inline-block;
+    width: 3.4vw;
+    height: 7.5vw;
+    overflow: hidden;
 }
-
 .ResponsiveWhiteKey {
-  background-color: white;
-  text-align: center;
-  overflow: hidden;
-  color: white;
-  bottom: 0;
-  vertical-align: bottom;
+    background-color: white;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    bottom: 0;
+    vertical-align: bottom;
 }
-
 .ResponsiveBlackKey {
-  background-color: black;
-  height: 4vw;
-  width: 1.8vw;
-  margin-left: -0.9vw;
-  position: absolute;
-  color: black;
+    background-color: black;
+    height: 4vw;
+    width: 1.8vw;
+    margin-left: -0.9vw;
+    position: absolute;
+    color: black;
 }
 
 /* --------------------------------------------------------------------------------------------- */
 /* 見せたくない要素 */
-.visibility_hidden {
-  visibility: hidden;
-}
-
-.display_none {
-  display: none;
-}
+  .visibility_hidden{
+    visibility: hidden;
+  }
+  .display_none{
+      display:none;
+  }
 
 /* レスポンシブ対応 */
 @media only screen and (max-width: 1400px) {
-  .pc_only {
-    display: none;
+  .pc_only{
+  display:none;
   }
-}
+};
+
 /* PCだけに適応する */
 @media only screen and (min-width: 1025px) {
   .NoteName_Switch_Search:hover {
-    background-color: #faebd7;
+  background-color: #faebd7;
   }
-
   .NoteOn {
-    font-weight: 900;
+  font-weight: 900;
   }
-
   .NoteOn2 {
     font-weight: 900;
   }
-
   .NoteOn3 {
     font-weight: 900;
   }
@@ -950,50 +788,57 @@ box {
     table-layout: auto;
     width: 100%;
   }
-
-  .hidden_tablet {
+  .hidden_tablet{
     display: none;
   }
-
-  .right_column {
-    display: none;
+  .right_column{
+  display: none;
+  }
+  #footer{
+	display: grid;
+    grid-template:
+    "... ....... ....... ..." 1.5rem
+    "... footer_p footer_g ..."
+    "... footer_b footer_i ..."
+    "... footer_t footer_y ..."
+    "... ....... ....... ..." 2rem
+		"... site_logo site_logo ..."
+    "... ....... ....... ..." 2rem
+    "... footer_c footer_c ..."
+    "... ....... ....... ..." 1.5rem
+		/1rem 1fr 1fr 1rem;
+		;
   }
 
-  #footer {
-    display: grid;
-    grid-template: "... ....... ....... ..." 1.5rem "... footer_p footer_g ..." "... footer_b footer_i ..." "... footer_t footer_y ..." "... ....... ....... ..." 2rem "... site_logo site_logo ..." "... ....... ....... ..." 2rem "... footer_c footer_c ..." "... ....... ....... ..." 1.5rem/1rem 1fr 1fr 1rem;
-  }
-
-  .link_table1 {
+  .link_table1{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 
-  .link_table2 {
+  .link_table2{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 
-  .link_table3 {
+  .link_table3{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 }
 /* --------------------------------------------------------------------------------------------- */
 /* スマホ用のブレークポイント */
 @media only screen and (max-width: 599px) {
-  .note_value_table {
+  .note_value_table{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   #scaleChordTable {
     font-size: clamp(0.1rem, 0.1rem + 1vw, 0.4rem);
     table-layout: fixed;
@@ -1002,73 +847,76 @@ box {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
-  .hidden_smart_phone {
+  .hidden_smart_phone{
     display: none;
   }
-
-  .ChordName {
+  .ChordName{
     padding: auto;
     display: inline-block;
     overflow-x: scroll;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
-  .diatonic_table {
-    display: inline-block;
-    width: 350px;
-    height: auto;
-    overflow-x: scroll;
-    white-space: nowrap;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+  .diatonic_table{
+      display: inline-block;
+      width: 350px;
+      height:auto;
+      overflow-x: scroll;
+      white-space: nowrap;
+      display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
   }
-
   table.mobile-scroll {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-
   /* リンクのテーブル*/
-  .link_table {
+  .link_table{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  }
+  ul{
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+  }
+  #footer{
+	display: grid;
+    grid-template:
+    "... ....... ..." 1.5rem
+    "... footer_p ..."
+    "... footer_g ..."
+    "... footer_b ..."
+    "... footer_i ..."
+    "... footer_t ..."
+    "... footer_y ..."
+    "... ....... ..." 2rem
+    "... site_logo ..."
+    "... footer_c ..."
+    "... ....... ..." 1.5rem
+		/1rem 1fr 1rem;
   }
 
-  ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
-  }
-
-  #footer {
-    display: grid;
-    grid-template: "... ....... ..." 1.5rem "... footer_p ..." "... footer_g ..." "... footer_b ..." "... footer_i ..." "... footer_t ..." "... footer_y ..." "... ....... ..." 2rem "... site_logo ..." "... footer_c ..." "... ....... ..." 1.5rem/1rem 1fr 1rem;
-  }
-
-  .link_table1 {
+  .link_table1{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
   }
-
-  .link_table2 {
+  .link_table2{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
   }
-
-  .link_table3 {
+  .link_table3{
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto ;
   }
 }
-/* --------------------------------------------------------------------------------------------- *//*# sourceMappingURL=style.css.map */
+/* --------------------------------------------------------------------------------------------- */
