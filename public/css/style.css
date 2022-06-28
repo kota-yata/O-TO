@@ -794,50 +794,62 @@ box {
 }
 
 .Selected_keyboard0 {
+  color: white !important;
   background-color: #0588ff !important;
 }
 
 .Selected_keyboard1 {
+  color: black !important;
   background-color: #a4c2f4 !important;
 }
 
 .Selected_keyboard2 {
+  color: black !important;
   background-color: #21daff !important;
 }
 
 .Selected_keyboard3 {
+  color: black !important;
   background-color: #66cdaa !important;
 }
 
 .Selected_keyboard4 {
+  color: black !important;
   background-color: #01ff50 !important;
 }
 
 .Selected_keyboard5 {
+  color: black !important;
   background-color: #ffccff !important;
 }
 
 .Selected_keyboard6 {
+  color: black !important;
   background-color: #e9967a !important;
 }
 
 .Selected_keyboard7 {
+  color: black !important;
   background-color: #fcfc04 !important;
 }
 
 .Selected_keyboard8 {
+  color: black !important;
   background-color: #ff6e01 !important;
 }
 
 .Selected_keyboard9 {
+  color: white !important;
   background-color: #ff2121 !important;
 }
 
 .Selected_keyboard10 {
+  color: white !important;
   background-color: #ff19bd !important;
 }
 
 .Selected_keyboard11 {
+  color: black !important;
   background-color: #cc99ff !important;
 }
 
@@ -854,7 +866,7 @@ box {
 
 .pianokey {
   display: table-cell;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid black;
   display: inline-block;
   width: 24px;
   height: 80px;
@@ -884,7 +896,7 @@ box {
 /* レスポンシブ鍵盤 */
 .ResponsivePianokey {
   display: table-cell;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid black;
   display: inline-block;
   width: 3.4vw;
   height: 7.5vw;

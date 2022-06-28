@@ -653,40 +653,40 @@ box {
     background-color: $mainColor!important;
 }
 .Selected_keyboard0 {
-  background-color: $DegreeColor0!important;
+  @include SelectedKeyboardColor($DegreeColor0,white);
 }
 .Selected_keyboard1 {
-  background-color: $DegreeColor1!important;
+  @include SelectedKeyboardColor($DegreeColor1);
 }
 .Selected_keyboard2 {
-  background-color: $DegreeColor2!important;
+  @include SelectedKeyboardColor($DegreeColor2);
 }
 .Selected_keyboard3 {
-  background-color: $DegreeColor3!important;
+  @include SelectedKeyboardColor($DegreeColor3);
 }
 .Selected_keyboard4 {
-  background-color: $DegreeColor4!important;
+  @include SelectedKeyboardColor($DegreeColor4);
 }
 .Selected_keyboard5 {
-  background-color: $DegreeColor5!important;
+  @include SelectedKeyboardColor($DegreeColor5);
 }
 .Selected_keyboard6 {
-  background-color: $DegreeColor6!important;
+  @include SelectedKeyboardColor($DegreeColor6);
 }
 .Selected_keyboard7 {
-  background-color: $DegreeColor7!important;
+  @include SelectedKeyboardColor($DegreeColor7);
 }
 .Selected_keyboard8 {
-  background-color: $DegreeColor8!important;
+  @include SelectedKeyboardColor($DegreeColor8);
 }
 .Selected_keyboard9 {
-  background-color: $DegreeColor9!important;
+  @include SelectedKeyboardColor($DegreeColor9,white);
 }
 .Selected_keyboard10 {
-  background-color: $DegreeColor10!important;
+  @include SelectedKeyboardColor($DegreeColor10,white);
 }
 .Selected_keyboard11 {
-  background-color: $DegreeColor11!important;
+  @include SelectedKeyboardColor($DegreeColor11);
 }
 /* --------------------------------------------------------------------------------------------- */
 /* 鍵盤 */
@@ -700,7 +700,7 @@ box {
 }
 .pianokey {
     display: table-cell;
-    border: 1px solid $BorderColor;
+    border: 1px solid black;
     display: inline-block;
     width: 24px;
     height: 80px;
@@ -727,7 +727,7 @@ box {
 /* レスポンシブ鍵盤 */
 .ResponsivePianokey {
     display: table-cell;
-    border: 1px solid $BorderColor;
+    border: 1px solid black;
     display: inline-block;
     width: 3.4vw;
     height: 7.5vw;

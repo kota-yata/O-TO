@@ -6,6 +6,12 @@
     border: solid 1px $BorderColor;
 }
 
+@mixin SelectedKeyboardColor($BGC,$Color:black) {
+    color: $Color!important;
+    background-color:$BGC!important;
+}
+
+
 @mixin FontSize() {
     font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
