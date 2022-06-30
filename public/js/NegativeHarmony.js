@@ -121,9 +121,9 @@ function NegativeChordCandidateInfo(onoff) {
     //トライトーンが含まれてコードの構成音が3音以上の場合トライ・トーンの情報を書き込む
     if (TriToneText.length >= 2 && HowManyTones.length >= 2) {
         document.getElementById("AddChordInfoTriToneHTML").innerHTML
-            = TriToneText.join().replaceAll(",", "");
+            = TriToneText.join().replace(/,/g, "");
         document.getElementById("AddChordInfoSub2HTML").innerHTML
-            = Sub2Text.join().replaceAll(",", "");
+            = Sub2Text.join().replace(/,/g, "");
     };
 
     //5音以上のコードを判定する。
@@ -182,6 +182,8 @@ function NegativeChordCandidateInfo(onoff) {
                     document.getElementById("AddNegativeChordInfoOmit5HTML").innerHTML = ``;
                 };
 
+
+
                 //コードネームの名前を配列から取り出す
                 let ChordName = chord_container[j].ChordName;
                 let HowToRead = chord_container[j].Name;
@@ -205,7 +207,7 @@ function NegativeChordCandidateInfo(onoff) {
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
                         = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
-                        = `${chord_container[i].Info}`;
+                        = `${chord_container[j].Info}`;
                     //軸音を含まないコード・ネームの展開形の判定(判定基準：ルート音のスイッチが押されていない)
                 } else if (0 !== mod(LowestNoteNumber - i - RootNumber, Octave)) {
                     document.getElementById("AddNegativeChordHTML").innerHTML
@@ -213,7 +215,7 @@ function NegativeChordCandidateInfo(onoff) {
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
                         = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[mod(LowestNoteNumber, Octave)][BassSOF]}（転回形）</font>`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
-                        = `${chord_container[i].Info}`;
+                        = `${chord_container[j].Info}`;
                     //軸音を含むコード・ネームの判定(判定基準：初回ループ時)
                 } else if (i === 0) {
                     document.getElementById("AddNegativeChordHTML").innerHTML
@@ -221,7 +223,7 @@ function NegativeChordCandidateInfo(onoff) {
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
                         = `<font size="2">読み方：${noteNames[RootNumber][SOF]}${HowToRead}</font>`
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
-                        = `${chord_container[i].Info}`;
+                        = `${chord_container[j].Info}`;
                     //軸音を含むコード・ネームの転回形の判定
                 } else {
                     document.getElementById("AddNegativeChordHTML").innerHTML
@@ -229,7 +231,7 @@ function NegativeChordCandidateInfo(onoff) {
                     document.getElementById("AddNegativeChordNameHTML").innerHTML
                         = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[RootNumber][BassSOF]}（転回形）</font>`;
                     document.getElementById("AddNegativeChordInfoHTML").innerHTML
-                        = `${chord_container[i].Info}`;
+                        = `${chord_container[j].Info}`;
                 };
                 //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
                 NegativeDegreePositionDrow(mod(i, Octave));
