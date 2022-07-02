@@ -405,6 +405,21 @@ function FletCreate(NumberOfStrings) {
                 Configuration[i] = onoff[i]
             };
         };
+        //for文で構成音を生成する。
+        for (let i = 0; i < Octave; i++) {
+            //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+            if (Configuration[i] === 42) {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][0]);
+            } else if (Configuration[i] === 43) {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][1]);
+            } else if (Configuration[i] === 1) {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][SOF]);
+            } else if (Configuration[i] === "") {
+                ConfigurationNotes.push("　");
+            } else {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
+            };
+        };
     } else if (ScaleAndChordsDrowingSwitch === 0) {
         //コードの場合の処理
         //コードネームの名前を配列から取り出す
@@ -422,22 +437,19 @@ function FletCreate(NumberOfStrings) {
                 Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, Octave)][Configuration[i]]);
             };
         };
-    };
-    //for文で構成音を生成する。
-    for (let i = 0; i < Octave; i++) {
-        //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
-        if (Configuration[i] === 42) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][0]);
-        } else if (Configuration[i] === 43) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][1]);
-        } else if (Configuration[i] === 1) {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
-        } else if (Configuration[i] === "") {
-            ConfigurationNotes.push("　");
-        } else {
-            ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Number(Configuration[i])]);
+        //for文で構成音を生成する。
+        for (let i = 0; i < Octave; i++) {
+            //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
+            if (Configuration[i] === 1) {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
+            } else if (Configuration[i] === "") {
+                ConfigurationNotes.push("　");
+            } else {
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Number(Configuration[i])]);
+            };
         };
     };
+
 
     //利き手を判定し、フレットに音名を描画する
     ToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes, Number(document.getElementById("DominantHand").value));
