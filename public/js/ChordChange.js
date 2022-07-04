@@ -26,7 +26,7 @@ function ToDegreeName(text, Root) {
 
     //シャープやフラットの表記ゆれを統一
     text = text
-        .replace(/N.C./g, "@")
+        .replace(/N.C./g, "^")
         .replace(/＃/g, "#")
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
@@ -128,7 +128,7 @@ function ToDegreeName(text, Root) {
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(Φ|φ)/g, "$1m7(♭5)")
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(○|゜|o|O)/g, "$1dim")
         .replace(/!/g, "omit")
-        .replace(/@/g, "N.C.")
+        .replace(/\^/g, "N.C.")
 
     return text;
 };
