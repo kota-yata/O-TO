@@ -350,7 +350,8 @@
                     </select>
                 </label>
 
-                <p class="pt-3">入力されている音が表示されます。（たくさん入力すると音が出なくなる場合があります。数秒待つか、ブラウザを更新してください。）</p>
+                <p class="pt-3">入力されている音が表示されます。<span
+                        class="NonChord">（たくさん入力すると音が出なくなる場合があります。数秒待つか、ブラウザを更新してください。）</span></p>
 
                 <!-- フレットボードをJavaScriptで描画する -->
                 <div class="pb-2">
@@ -412,9 +413,8 @@
                     </tr>
                 </table>
 
-                <div id="ChordProg">
-                    <span class="InfoPoint">【コード履歴】</span>
-                    <span class="NonChord">（直近に入力したコードが10個まで表示されます。ページをロードしてから全てのコード履歴はページ下部で確認できます。）</span>
+
+                <div id="ChordProg" onclick="ChordHistoryReset()">
                 </div>
 
                 <div class="accordion py-3" id="accordionExample">
@@ -496,7 +496,9 @@
 
                             <div class="accordion-body">
                                 <button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>
-                                <div id="AllChordProg"><span class="InfoPoint"></div>
+
+                                <div id="AllChordProg">
+                                </div>
 
                             </div>
                         </div>
@@ -594,6 +596,8 @@
             CreateCandidate();
             //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/スケール名検索用)
             ModalCandidateSelect(onoff);
+
+            ChordHistoryReset();
         });
         //鍵盤を画面サイズに合わせて動的に描画する
         window.addEventListener('resize', function () {

@@ -326,14 +326,14 @@ function WritePastChord() {
             let C = CHORD_NAME.replace(/\,/g, "_");
             // 配列に現在のコード・ネームを追加する。
             CHORD_NAME_ARRAY.unshift(`<span class="highlight">${C}</span>　`);
-            ALL_CHORD_NAME_ARRAY.push(`<span class="highlight">${C}</span>　`);
+            ALL_CHORD_NAME_ARRAY.push(`<span class="highlight ReadabilityShell">${C}</span>　`);
             //コード履歴は、最大10コードまでにする。
-            if (CHORD_NAME_ARRAY.length === 10) {
+            if (CHORD_NAME_ARRAY.length === 8) {
                 CHORD_NAME_ARRAY.pop();
             };
             //コード履歴をHTMLに書き込む
             document.getElementById('ChordProg').innerHTML
-                = `<span class="InfoPoint">【コード履歴】</span>${CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
+                = `<span class="InfoPoint">【コード履歴】</span>${CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}<button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>`;
             document.getElementById('AllChordProg').innerHTML
                 = `${ALL_CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
             //次に前回のコードと比較するために現在のコード・ネームを変数に代入しておく。
@@ -346,7 +346,12 @@ function WritePastChord() {
 
 // コード履歴をリセットする関数
 function ChordHistoryReset() {
+    CHORD_NAME_ARRAY = [];
     ALL_CHORD_NAME_ARRAY = [];
+    document.getElementById('ChordProg').innerHTML
+        = ` <span class="InfoPoint">【コード履歴】</span>
+            <span class="NonChord">（直近に入力したコードが8個まで表示されます。全てのコード履歴はページ下部で確認できます。）</span>
+            <button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>`;
     document.getElementById('AllChordProg').innerHTML
-        = ``;
+        = `<span class="NonChord">コード履歴は、前回のコードの右側に追加されていきます。</span>`;
 };
