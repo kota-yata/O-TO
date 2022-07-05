@@ -412,6 +412,11 @@
                     </tr>
                 </table>
 
+                <div id="ChordProg">
+                    <span class="InfoPoint">【コード履歴】</span>
+                    <span class="NonChord">（直近に入力したコードが10個まで表示されます。ページをロードしてから全てのコード履歴はページ下部で確認できます。）</span>
+                </div>
+
                 <div class="accordion py-3" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -425,14 +430,9 @@
                             <div class="accordion-body">
 
                                 <!-- コードネームの判定と情報をJavaScriptで書き込む -->
-                                <div id="AddChordHTML"></div>
-                                <div id="AddChordNameHTML"></div>
-                                <div><br></div>
-                                <div id="AddChordInfoHTML"></div>
-                                <div id="AddChordInfo2HTML"></div>
-                                <div id="AddChordInfoOmit5HTML"></div>
-                                <div id="AddChordInfoTriToneHTML"></div>
-                                <div id="AddChordInfoSub2HTML"></div>
+                                <div id="chord-template">
+                                    <chord-template></chord-template>
+                                </div>
 
                             </div>
                         </div>
@@ -450,38 +450,59 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
-
-                            <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
-                                <select id="ModalCandidateSelect" class="form-select my-1"
-                                    aria-label="Default select example" onchange="ModalTextCreate()">
-                                    <option value=0 selected>英・米式表記で構成音を表示する</option>
-                                    <option value=1>イタリア式表記で構成音を表示する</option>
-                                    <option value=2>日本式表記で構成音を表示する</option>
-                                    <option value=3>ドイツ式表記で構成音を表示する</option>
-                                </select>
-                            </label>
-
-                            <div>
-                                <button id="scale_language_change_button"
-                                    class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
-                                    onclick="ScaleLanguageJE()">日本語⇔English</button>
-                                <button id="onlyTonicMode" type="button"
-                                    class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
-                                    onclick="modal_interchange_ChordOnlyTonicModeSwitch()">
-                                    構成音を含む全てのスケールを表示する
-                                </button>
-                            </div>
-
                             <div class="accordion-body">
+
+                                <label for="ModalCandidateSelect" class="box1 col-md-10 col-xl-4 pt-2 pb-0 mx-2">
+                                    <select id="ModalCandidateSelect" class="form-select my-1"
+                                        aria-label="Default select example" onchange="ModalTextCreate()">
+                                        <option value=0 selected>英・米式表記で構成音を表示する</option>
+                                        <option value=1>イタリア式表記で構成音を表示する</option>
+                                        <option value=2>日本式表記で構成音を表示する</option>
+                                        <option value=3>ドイツ式表記で構成音を表示する</option>
+                                    </select>
+                                </label>
+
+                                <div class="pb-1">
+                                    <button id="scale_language_change_button"
+                                        class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
+                                        onclick="ScaleLanguageJE()">日本語⇔English</button>
+                                    <button id="onlyTonicMode" type="button"
+                                        class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
+                                        onclick="onlyTonicModeSwitch(3.5)">
+                                        構成音を含む全てのスケールを表示する
+                                    </button>
+                                </div>
+
                                 <!--JavaScriptによってページがロードされた後に候補となるスケールを表示する -->
                                 <div id="addHTML">
-
                                 </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="accordion py-3" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                全てのコード履歴<span class="use_scale_count"></span>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+
+                            <div class="accordion-body">
+                                <button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>
+                                <div id="AllChordProg"><span class="InfoPoint"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- ルート音を設定するためのドロップダウンリスト（非表示） -->
                 <label for="rootNumber" class="visibility_hidden">
@@ -502,42 +523,6 @@
                 </label>
             </div>
 
-            <h5 class="Larger shadow p-3 rounded mb-5 py-3">オススメのMIDIキーボード</h5>
-            <div class="pb-3">
-                <!-- START MoshimoAffiliateEasyLink -->
-                <script type="text/javascript">
-                    (function (b, c, f, g, a, d, e) {
-                        b.MoshimoAffiliateObject = a;
-                        b[a] = b[a] || function () {
-                            arguments.currentScript = c.currentScript
-                                || c.scripts[c.scripts.length - 2]; (b[a].q = b[a].q || []).push(arguments)
-                        };
-                        c.getElementById(a) || (d = c.createElement(f), d.src = g,
-                            d.id = a, e = c.getElementsByTagName("body")[0], e.appendChild(d))
-                    })
-                        (window, document, "script", "//dn.msmstatic.com/site/cardlink/bundle.js?20220329", "msmaflink");
-                    msmaflink({ "n": "KORG 定番 USB MIDIキーボード microKEY-25 音楽制作 DTM 省スペースで自宅制作に最適 すぐに始められるソフトウェアライセンス込み 25鍵", "b": "KORG(コルグ)", "t": "MICROKEY25", "d": "https:\/\/m.media-amazon.com", "c_p": "\/images\/I", "p": ["\/31OW3zc+kiL._SL500_.jpg", "\/41Gs8fyqTML._SL500_.jpg", "\/41trMyU-oyL._SL500_.jpg", "\/41friNiuT7L._SL500_.jpg", "\/410UR-xhT3L._SL500_.jpg", "\/41vuNakpE3L._SL500_.jpg", "\/51S4rIeAtRL._SL500_.jpg", "\/51DMy03cwvL._SL500_.jpg"], "u": { "u": "https:\/\/www.amazon.co.jp\/dp\/B007VQIBB6", "t": "amazon", "r_v": "" }, "v": "2.1", "b_l": [{ "id": 1, "u_tx": "Amazonで見る", "u_bc": "#f79256", "u_url": "https:\/\/www.amazon.co.jp\/dp\/B007VQIBB6", "a_id": 1706687, "p_id": 170, "pl_id": 27060, "pc_id": 185, "s_n": "amazon", "u_so": 1 }, { "id": 2, "u_tx": "楽天市場で見る", "u_bc": "#f76956", "u_url": "https:\/\/search.rakuten.co.jp\/search\/mall\/KORG%20%E5%AE%9A%E7%95%AA%20USB%20MIDI%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%20microKEY-25%20%E9%9F%B3%E6%A5%BD%E5%88%B6%E4%BD%9C%20DTM%20%E7%9C%81%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%A7%E8%87%AA%E5%AE%85%E5%88%B6%E4%BD%9C%E3%81%AB%E6%9C%80%E9%81%A9%20%E3%81%99%E3%81%90%E3%81%AB%E5%A7%8B%E3%82%81%E3%82%89%E3%82%8C%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E8%BE%BC%E3%81%BF%2025%E9%8D%B5\/", "a_id": 1706682, "p_id": 54, "pl_id": 27059, "pc_id": 54, "s_n": "rakuten", "u_so": 2 }, { "id": 3, "u_tx": "Yahoo!ショッピングで見る", "u_bc": "#66a7ff", "u_url": "https:\/\/shopping.yahoo.co.jp\/search?first=1\u0026p=KORG%20%E5%AE%9A%E7%95%AA%20USB%20MIDI%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%20microKEY-25%20%E9%9F%B3%E6%A5%BD%E5%88%B6%E4%BD%9C%20DTM%20%E7%9C%81%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%A7%E8%87%AA%E5%AE%85%E5%88%B6%E4%BD%9C%E3%81%AB%E6%9C%80%E9%81%A9%20%E3%81%99%E3%81%90%E3%81%AB%E5%A7%8B%E3%82%81%E3%82%89%E3%82%8C%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E8%BE%BC%E3%81%BF%2025%E9%8D%B5", "a_id": 1706688, "p_id": 1225, "pl_id": 27061, "pc_id": 1925, "s_n": "yahoo", "u_so": 3 }], "eid": "ZOJA4", "s": "s" });
-                </script>
-                <div id="msmaflink-ZOJA4">リンク</div>
-                <!-- MoshimoAffiliateEasyLink END -->
-
-                <!-- START MoshimoAffiliateEasyLink -->
-                <script type="text/javascript">
-                    (function (b, c, f, g, a, d, e) {
-                        b.MoshimoAffiliateObject = a;
-                        b[a] = b[a] || function () {
-                            arguments.currentScript = c.currentScript
-                                || c.scripts[c.scripts.length - 2]; (b[a].q = b[a].q || []).push(arguments)
-                        };
-                        c.getElementById(a) || (d = c.createElement(f), d.src = g,
-                            d.id = a, e = c.getElementsByTagName("body")[0], e.appendChild(d))
-                    })
-                        (window, document, "script", "//dn.msmstatic.com/site/cardlink/bundle.js?20220329", "msmaflink");
-                    msmaflink({ "n": "KORG 定番 USB MIDIキーボード nanoKEY2 BK ブラック 音楽制作 DTM コンパクト設計で持ち運びに最適 すぐに始められるソフトウェアライセンス込み 25鍵", "b": "KORG(コルグ)", "t": "NANOKEY2BK", "d": "https:\/\/m.media-amazon.com", "c_p": "\/images\/I", "p": ["\/31hzmd2w8ZS._SL500_.jpg", "\/41eE85JxYPS._SL500_.jpg", "\/31RBFenMf2S._SL500_.jpg", "\/31-+0kEg3aS._SL500_.jpg", "\/31ZWpO1nnOS._SL500_.jpg", "\/41kpqB8f8YS._SL500_.jpg", "\/51PWagbL-KS._SL500_.jpg", "\/51esttbl3gS._SL500_.jpg"], "u": { "u": "https:\/\/www.amazon.co.jp\/dp\/B004M8UZG0", "t": "amazon", "r_v": "" }, "v": "2.1", "b_l": [{ "id": 1, "u_tx": "Amazonで見る", "u_bc": "#f79256", "u_url": "https:\/\/www.amazon.co.jp\/dp\/B004M8UZG0", "a_id": 1706687, "p_id": 170, "pl_id": 27060, "pc_id": 185, "s_n": "amazon", "u_so": 1 }, { "id": 2, "u_tx": "楽天市場で見る", "u_bc": "#f76956", "u_url": "https:\/\/search.rakuten.co.jp\/search\/mall\/KORG%20%E5%AE%9A%E7%95%AA%20USB%20MIDI%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%20nanoKEY2%20BK%20%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%20%E9%9F%B3%E6%A5%BD%E5%88%B6%E4%BD%9C%20DTM%20%E3%82%B3%E3%83%B3%E3%83%91%E3%82%AF%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%A7%E6%8C%81%E3%81%A1%E9%81%8B%E3%81%B3%E3%81%AB%E6%9C%80%E9%81%A9%20%E3%81%99%E3%81%90%E3%81%AB%E5%A7%8B%E3%82%81%E3%82%89%E3%82%8C%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E8%BE%BC%E3%81%BF%2025%E9%8D%B5\/", "a_id": 1706682, "p_id": 54, "pl_id": 27059, "pc_id": 54, "s_n": "rakuten", "u_so": 2 }, { "id": 3, "u_tx": "Yahoo!ショッピングで見る", "u_bc": "#66a7ff", "u_url": "https:\/\/shopping.yahoo.co.jp\/search?first=1\u0026p=KORG%20%E5%AE%9A%E7%95%AA%20USB%20MIDI%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%20nanoKEY2%20BK%20%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%20%E9%9F%B3%E6%A5%BD%E5%88%B6%E4%BD%9C%20DTM%20%E3%82%B3%E3%83%B3%E3%83%91%E3%82%AF%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%A7%E6%8C%81%E3%81%A1%E9%81%8B%E3%81%B3%E3%81%AB%E6%9C%80%E9%81%A9%20%E3%81%99%E3%81%90%E3%81%AB%E5%A7%8B%E3%82%81%E3%82%89%E3%82%8C%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E8%BE%BC%E3%81%BF%2025%E9%8D%B5", "a_id": 1706688, "p_id": 1225, "pl_id": 27061, "pc_id": 1925, "s_n": "yahoo", "u_so": 3 }], "eid": "zCTGF", "s": "s" });
-                </script>
-                <div id="msmaflink-zCTGF">リンク</div>
-                <!-- MoshimoAffiliateEasyLink END -->
-            </div>
 
             <div id="link-table">
                 <link-table></link-table>

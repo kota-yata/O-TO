@@ -357,6 +357,51 @@ img {
   padding-bottom:0.5rem;
   border: solid 1px $BorderColor;
 }
+
+/* --------------------------------------------------------------------------------------------- */
+// コード情報
+#ChordInfoTable{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom:1px dashed #111111;
+}
+
+.tableFixed{
+  table-layout:fixed;
+}
+
+.NameOfChord{
+  font-size: clamp(2rem, 0.1rem + 2.5vw, 3rem);
+}
+
+.HowToReadChord{
+  font-size:  clamp(0.2rem, 0.3rem + 0.5vw, 1rem);
+}
+
+.NonChord{
+  opacity: 0.7;
+}
+
+.HybridChord{
+  color: $mainColor;
+  margin: 0;
+  padding: 0;
+}
+.OtherInterpretations {
+  color: $mainColor;
+
+}
+.InfoPoint {
+  color: green;
+}
+
+.highlight{
+  background-color: $DegreeColor7;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {

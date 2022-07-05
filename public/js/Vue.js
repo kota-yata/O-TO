@@ -15,6 +15,36 @@ const headTemplate = new Vue({
   el: '#head'
 })
 
+//コードネームの判定と情報のコンポーネントを定義---------------------------------
+Vue.component('chord-template', {
+  template: `
+            <div>
+              <table id="ChordInfoTable">
+                <tr>
+                  <td id="NameOfChord" class="NameOfChord"></td>
+                  <td id="NameOfHybridChord" class="NameOfChord HybridChord"></td>
+                </tr>
+                <tr>
+                  <td id="HowToReadChordName" class="HowToReadChord"></td>
+                  <td id="HowToReadHybridChordName" class="HowToReadChord HybridChord"></td>
+                </tr>
+              </table>
+
+              <div id="ChordInfo"></div>
+              <div id="Omit5Info"></div>
+              <div id="HowManyChordTone"></div>
+              <div id="TriToneInfo"></div>
+              <div id="Sub2Info"></div>
+              <div id="OtherInterpretations"></div>
+            </div>
+      `
+})
+
+//コードネームの判定と情報のコンポーネントのインスタンスを作成する
+const chordTemplate = new Vue({
+  el: '#chord-template'
+})
+
 //ヘッダーのコンポーネントを定義---------------------------------
 Vue.component('header-template', {
   template: `

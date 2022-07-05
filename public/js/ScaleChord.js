@@ -405,47 +405,181 @@ function AdjustmentEnharmonic(ChordName, m3rd, aug5) {
     return adjustment;
 };
 
+//ハイブリッド・コードを求める関数
+function HybridChord(onoff, SOF, RootNumber) {
+    // いったん空にする
+    document.getElementById('NameOfHybridChord').innerHTML = ``
+    document.getElementById('HowToReadHybridChordName').innerHTML = ``
+    //各種情報を格納する配列を定義
+    let hcArray = {
+        NameOfChord: [],
+        ChordName: [],
+        HowToRead: [],
+        rootName: [],
+        bassName: [],
+        onoff: [],
+        iNum: [],
+        jNum: [],
+        HowManyTones: [],
+        bassAdd: 0,
+        LowestNoteNumber: 0,
+        readabillity: true
+    };
+    //コード構成音を格納した配列をコピーする。
+    hcArray.onoff = onoff.slice();
+
+    for (let i = 0; i <= Octave; i++) {
+        //一番左側の押されているスイッチの場所（最低音）を判定する。
+        if (hcArray.onoff[i] === 1) {
+            //本当のベース音を削除。
+            hcArray.onoff[i] = 0;
+            hcArray.bassAdd = i;
+            break;
+        };
+    };
+    //べースの音名を取り出す
+    hcArray.bassName.push(`${noteNames[mod(RootNumber + hcArray.bassAdd, Octave)][SOF]}`);
+
+    //ハイブリッド・コードの分子に当たるコードの最低音を判定する。
+    for (let i = 0; i <= Octave; i++) {
+        //一番左側の押されているスイッチの場所（最低音）を判定する
+        if (hcArray.onoff[i] === 1) {
+            hcArray.LowestNoteNumber = mod(i + RootNumber, Octave);
+            // 再低音を配列から削除する
+            break;
+        };
+    };
+
+    // 残った最低音が先頭になるように配列を並び替える
+    for (let i = 0; i < hcArray.LowestNoteNumber; i++) {
+        let hc_delete_number = hcArray.onoff.shift();
+        hcArray.onoff.push(hc_delete_number);
+    };
+
+    // 別の解釈の可能性を格納する配列
+    let OtherInterpretationsArray = [];
+    //分子コードの構成音が何音か判定するための配列を作成
+    hcArray.HowManyTones = hcArray.onoff.filter(n => n === 1);
+    for (let i = 0; i < Octave; i++) {
+        //コード・ネームが格納された配列から、マッチするものを見つける。
+        for (let j = 0; j < chord_container.length; j++) {
+            if (chord_container[j].ChordBinary[0] === hcArray.onoff[mod(i + 0, Octave)]
+                && chord_container[j].ChordBinary[1] === hcArray.onoff[mod(i + 1, Octave)]
+                && chord_container[j].ChordBinary[2] === hcArray.onoff[mod(i + 2, Octave)]
+                && chord_container[j].ChordBinary[3] === hcArray.onoff[mod(i + 3, Octave)]
+                && chord_container[j].ChordBinary[4] === hcArray.onoff[mod(i + 4, Octave)]
+                && chord_container[j].ChordBinary[5] === hcArray.onoff[mod(i + 5, Octave)]
+                && chord_container[j].ChordBinary[6] === hcArray.onoff[mod(i + 6, Octave)]
+                && chord_container[j].ChordBinary[7] === hcArray.onoff[mod(i + 7, Octave)]
+                && chord_container[j].ChordBinary[8] === hcArray.onoff[mod(i + 8, Octave)]
+                && chord_container[j].ChordBinary[9] === hcArray.onoff[mod(i + 9, Octave)]
+                && chord_container[j].ChordBinary[10] === hcArray.onoff[mod(i + 10, Octave)]
+                && chord_container[j].ChordBinary[11] === hcArray.onoff[mod(i + 11, Octave)]) {
+                //コードネームの名前と読み方を配列から取り出す
+                hcArray.ChordName.push(chord_container[j].ChordName);
+                hcArray.HowToRead.push(chord_container[j].Name);
+                //調整用の値を変数に代入
+                hcArray.iNum.push(i);
+                hcArray.jNum.push(j);
+                hcArray.rootName.push(`${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, Octave)][SOF]}`);
+
+                if (chord_container[j].ChordName.match("omit")) {
+                    //何もしない
+                } else if (hcArray.HowManyTones.length >= 3) {
+                    //分子コードが3音以上の場合は別解釈として格納する
+                    OtherInterpretationsArray
+                        .push(`・${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, Octave)][SOF]}${chord_container[j].ChordName}/${hcArray.bassName}（ハイブリッド・コード）<br>`);
+                };
+            };
+        };
+    };
+
+    if (hcArray.ChordName.length !== 0) {
+        //ハイブリッド・コード表記が「見やすいか」を判定
+        if (hcArray.rootName[0] === hcArray.bassName) {
+            //ベース音が同一の場合
+            hcArray.readabillity = false;
+        } else if (hcArray.ChordName[0].match("N.C.")
+            || hcArray.ChordName[0].match("omit")
+            || hcArray.ChordName[0].match("blk")
+            || hcArray.ChordName[0].match("add")
+            || hcArray.ChordName[0].match("#5")
+            || hcArray.ChordName[0].match(",")
+            || hcArray.ChordName[0].match("\/")) {
+            // 特定のコードネームの場合
+            hcArray.readabillity = false;
+        } else if (hcArray.HowManyTones.length >= 5 || hcArray.HowManyTones.length <= 2) {
+            //分子コードが3音以外の場合
+            hcArray.readabillity = false;
+        };
+
+        hcArray.NameOfChord[0] = `${hcArray.rootName[0]}${hcArray.ChordName[0]}/${hcArray.bassName}`;
+        hcArray.HowToRead[0] = `読み方：${hcArray.rootName[0]}${hcArray.HowToRead[0]}・オーヴァー${hcArray.bassName}（ハイブリッド・コードとして解釈）`;
+
+        document.getElementById("ChordInfoTable").classList.remove("tableFixed");
+
+        //「見やすい」ハイブリッド・コードの場合だけ大きく書き込む。
+        if (hcArray.readabillity === true) {
+            document.getElementById('NameOfHybridChord')
+                .innerHTML = `${hcArray.NameOfChord[0]}`;
+            //コードネームをグローバル変数へ代入する
+            CHORD_NAME = `${hcArray.NameOfChord[0]}`;
+            document.getElementById('HowToReadHybridChordName')
+                .innerHTML = `${hcArray.HowToRead[0]}`;
+            //書き込んだ場合、別解釈からは取り除く。
+            OtherInterpretationsArray.shift();
+            document.getElementById("ChordInfoTable").classList.add("tableFixed");
+        };
+    };
+    // 別解釈をreturn
+    return OtherInterpretationsArray;
+};
+
 //コードネームを格納するグローバル変数
 let CHORD_NAME;
 //コード・ネームの情報を判定する関数（大雑把に言うと、トライトーンの判定、コードネームの判定、トーンクラスターの判定をしている。）
-function ChordCandidateInfo(onoff, RootNumber) {
-    //コード情報をリセット
-    document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-    document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
+function ChordCandidateInfo(onoff, RootNumber = 0) {
 
-    //コードの構成音が何音か判定するための配列
-    let HowManyTones = onoff.filter(n => n === 1);
+    //コード情報をリセットする
+    document.getElementById("NameOfChord").innerHTML
+        = `<span class="NonChord">N.C.</span>`;
+    document.getElementById("HowToReadChordName").innerHTML
+        = `<span class="NonChord">読み方：ノン・コード</span>`;
+    document.getElementById("ChordInfo").innerHTML
+        = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。
+                <br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>
+                ※「ハイブリッド・コード」での解釈は、表記が煩雑にならないものだけが表示されます。<br>
+                ※「UST（アッパー・ストラクチャー・トライアド）」での解釈の可能性は表示されません。<br>
+                → <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank" rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a></span></font>`;
+    document.getElementById("HowManyChordTone").innerHTML = ``;
+    document.getElementById("Omit5Info").innerHTML = ``;
+    document.getElementById("TriToneInfo").innerHTML = ``;
+    document.getElementById("Sub2Info").innerHTML = ``;
+    document.getElementById("OtherInterpretations").innerHTML = ``;
 
-    // トライトーンの判定をする
-    let TriToneText = [`<br>トライトーンを含むので、ドミナント機能を持ちます。<br><br>【このコードの主な解決先】`];
-    let Sub2Text = ["<br>【このコードの手前に居がちなコード】"]
-    TriToneText = TriTone(onoff, RootNumber, 0, TriToneText);
-    Sub2Text = Sub2(onoff, RootNumber, 0, Sub2Text);
-    TriToneText = TriTone(onoff, RootNumber, 1, TriToneText);
-    Sub2Text = Sub2(onoff, RootNumber, 1, Sub2Text);
-    TriToneText = TriTone(onoff, RootNumber, 2, TriToneText);
-    Sub2Text = Sub2(onoff, RootNumber, 2, Sub2Text);
-
-    //トライトーンが含まれてコードの構成音が3音以上の場合トライ・トーンの情報を書き込む
-    if (TriToneText.length >= 2 && HowManyTones.length >= 2) {
-        document.getElementById("AddChordInfoTriToneHTML").innerHTML
-            = TriToneText.join().replace(/,/g, "");
-        document.getElementById("AddChordInfoSub2HTML").innerHTML
-            = Sub2Text.join().replace(/,/g, "");
+    //---------------------------------------
+    //返り値を格納する変数
+    let BassNumber;
+    //各情報を格納する配列を定義する。
+    let info_Array = {
+        ChordName: [],
+        HowToRead: [],
+        ChordInfo: [],
+        HowManyChordTone: [],
+        Omit5: [],
+        TriTone: [],
+        Sub2: [],
+        iNum: [],
+        jNum: []
     };
 
-    //5音以上のコードを判定する。
-    if (HowManyTones.length >= 5) {
-        document.getElementById("AddChordInfo2HTML").innerHTML
-            = `<br>5種類以上の異なるピッチクラスを使用するコードです。<br>混乱を防ぐために、ボイシング（和音の積み方）の併記を推奨します。`;
-    } else {
-        document.getElementById("AddChordInfo2HTML").innerHTML = ``;
-    };
+    //コードの構成音が何音か判定するための配列を作成する。
+    info_Array.HowManyChordTone = onoff.filter(n => n === 1);
 
     //最低音を判定する
     let LowestNoteNumber = 0;
     for (let i = 0; i < 11; i++) {
-        //一番左側の押されているスイッチの場所（最低音）を判定する
+        //一番左側の押されているスイッチの場所（最低音）を判定する。
         if (onoff[i] === 1) {
             LowestNoteNumber = mod(i + RootNumber, Octave);
             break;
@@ -454,8 +588,60 @@ function ChordCandidateInfo(onoff, RootNumber) {
 
     //コードネームに合わせて度数表記を描画する関数
     degree_position_drow(LowestNoteNumber);
-    //返り値を格納する変数
-    let BassNumber;
+
+    //---------------------------------------
+    // トライトーンの判定をする
+    info_Array.TriTone = [`<br>トライトーンを含むので、ドミナント機能を持ちます。<br><br><span class="InfoPoint">【このコードの主な解決先】</span>`];
+    info_Array.TriTone = TriTone(onoff, RootNumber, 0, info_Array.TriTone);
+    info_Array.TriTone = TriTone(onoff, RootNumber, 1, info_Array.TriTone);
+    info_Array.TriTone = TriTone(onoff, RootNumber, 2, info_Array.TriTone);
+
+    info_Array.Sub2 = [`<br><span class="InfoPoint">【このコードの手前に居がちなコード】</span>`]
+    info_Array.Sub2 = Sub2(onoff, RootNumber, 0, info_Array.Sub2);
+    info_Array.Sub2 = Sub2(onoff, RootNumber, 1, info_Array.Sub2);
+    info_Array.Sub2 = Sub2(onoff, RootNumber, 2, info_Array.Sub2);
+
+    //トライトーンが含まれる場合トライ・トーンの情報を書き込む。
+    if (info_Array.TriTone.length >= 2) {
+        document.getElementById("TriToneInfo").innerHTML
+            = info_Array.TriTone.join().replace(/,/g, "");
+        document.getElementById("Sub2Info").innerHTML
+            = info_Array.Sub2.join().replace(/,/g, "");
+    };
+
+    //---------------------------------------
+    if (info_Array.HowManyChordTone.length >= 8) {
+        // 8音以上だった場合はここでretrun（判定するまでもなくトーンクラスター）
+        document.getElementById("NameOfChord").innerHTML = `Tone cluster`;
+        document.getElementById("HowToReadChordName").innerHTML = `読み方：トーン・クラスター`;
+        document.getElementById("ChordInfo").innerHTML = `「音塊」や「密集音群」とも呼ばれます。<br>隣り合う3つ以上の音を含む和音です。`;
+        BassNumber = LowestNoteNumber;
+        return [BassNumber, false];
+    } else if (info_Array.HowManyChordTone.length >= 5) {
+        //5音以上のコードの場合、注釈を追加。
+        document.getElementById("HowManyChordTone").innerHTML
+            = `<br>5種類以上の異なるピッチクラスが使用されています。混乱を防ぐために、ボイシング（和音の積み方）の併記を推奨します。`;
+    };
+
+    //---------------------------------------
+    //トーン・クラスター（3半音連続している部分の有無）を判定する。
+    if (info_Array.HowManyChordTone.length >= 3) {
+        let NoteChain = 0;
+        for (let i = 0; i < Octave; i++) {
+            //トーンクラスターを見つける。（特定の音と、+1と＋2の場所のスイッチがonかどうか判定）
+            NoteChain = onoff[mod(i, Octave)] + onoff[mod(i + 1, Octave)] + onoff[mod(i + 2, Octave)];
+            // トーンクラスターだった場合はここでretrun
+            if (NoteChain >= 3) {
+                document.getElementById("NameOfChord").innerHTML = `Tone cluster`;
+                document.getElementById("HowToReadChordName").innerHTML = `読み方：トーン・クラスター`;
+                document.getElementById("ChordInfo").innerHTML = `「音塊」や「密集音群」とも呼ばれます。<br>隣り合う3つ以上の音を含む和音です。`;
+                BassNumber = RootNumber;
+                return [BassNumber, false];
+            };
+        };
+    };
+
+    //---------------------------------------
     //コード・ネームを判定する。
     //転回形を判定するためルート音をずらして12通り全てを判定する。
     for (let i = 0; i < Octave; i++) {
@@ -473,154 +659,111 @@ function ChordCandidateInfo(onoff, RootNumber) {
                 && chord_container[j].ChordBinary[9] === onoff[mod(i + 9, Octave)]
                 && chord_container[j].ChordBinary[10] === onoff[mod(i + 10, Octave)]
                 && chord_container[j].ChordBinary[11] === onoff[mod(i + 11, Octave)]) {
-
-                //完全5度が省略可能かを判定する。
-                let omitP5th = 0;
-                //長2度(sus2)が含まれる場合
-                if (onoff[mod(i + 2, Octave)] === 1 && HowManyTones.length < 4) {
-                    omitP5th = 0;
-                    document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
-                    //完全4度(sus4)が含まれる場合
-                } else if (onoff[mod(i + 5, Octave)] === 1 && HowManyTones.length < 4) {
-                    omitP5th = 0;
-                    document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
-                    //完全5度が含まれており省略可能な場合
-                } else if (onoff[mod(i + 7, Octave)] === 1) {
-                    omitP5th = 1;
-                    document.getElementById("AddChordInfoOmit5HTML").innerHTML
-                        = `<br>Root（ルート音）に対してP5th（完全5度）の音は、必要に応じて省略が可能です。`;
-                    ///完全5度が含まれない場合
-                } else {
-                    omitP5th = 0;
-                    document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
-                };
-
                 //コードネームの名前を配列から取り出す
-                let ChordName = chord_container[j].ChordName;
-                //グローバル変数へ代入する
-                CHORD_NAME = ChordName;
-                let HowToRead = chord_container[j].Name;
-
-                // コードの異名同音をある程度調整するための値を計算する
-                let adjustment = AdjustmentEnharmonic(ChordName, onoff[mod(i + 3, Octave)], onoff[mod(i + 6, Octave)]);
-
-                //コード・ネームのシャープとフラットを判定するための値を計算する。
-                let SOF = DetermineKeySignature(mod(i + RootNumber - adjustment, Octave));
-
-                //コードのベース音が♯か♭かを判定する
-                let BassSOF = DetermineBassSignature(SOF, ChordName, mod(LowestNoteNumber - i - RootNumber, Octave));
-
-                //異名同音判定が正しいか検証する
-                BassSOF = EnharmonicRejudgement(SOF, BassSOF, noteNames[mod(RootNumber + i, Octave)][SOF], noteNames[LowestNoteNumber][BassSOF]);
-
-                //軸音を含まないコード・ネームの判定（判定基準：ベース音の方がルート音よりも左側にある）
-                if (0 === onoff[0] && 0 === mod(LowestNoteNumber - i - RootNumber, Octave)) {
-                    document.getElementById("AddChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}`;
-                    document.getElementById("AddChordInfoHTML").innerHTML
-                        = `${chord_container[j].Info}`;
-                    //軸音を含まないコード・ネームの展開形の判定（判定基準：ルート音のスイッチが押されていない）
-                } else if (0 === onoff[0]) {
-                    document.getElementById("AddChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}/${noteNames[LowestNoteNumber][BassSOF]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[LowestNoteNumber][BassSOF]}（転回形）</font>`;
-                    document.getElementById("AddChordInfoHTML").innerHTML
-                        = `${chord_container[j].Info}`;
-                    //軸音を含むコード・ネームの判定（判定基準：初回ループ時）
-                } else if (i === 0) {
-                    document.getElementById("AddChordHTML").innerHTML
-                        = `<font size="6">${noteNames[RootNumber][SOF]} ${ChordName}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[RootNumber][SOF]}${HowToRead}</font>`
-                    document.getElementById("AddChordInfoHTML").innerHTML
-                        = `${chord_container[j].Info}`;
-                    //軸音を含むコード・ネームの転回形の判定
-                } else {
-                    document.getElementById("AddChordHTML").innerHTML
-                        = `<font size="6">${noteNames[mod(RootNumber + i, Octave)][SOF]}${ChordName}/${noteNames[RootNumber][BassSOF]}</font>`;
-                    document.getElementById("AddChordNameHTML").innerHTML
-                        = `<font size="2">読み方：${noteNames[mod(RootNumber + i, Octave)][SOF]}${HowToRead}・オーヴァー${noteNames[RootNumber][BassSOF]}（転回形）</font>`;
-                    document.getElementById("AddChordInfoHTML").innerHTML
-                        = `${chord_container[j].Info}`;
-                };
-                //コードネームに合わせて度数表記を描画する関数
-                degree_position_drow(mod(i, Octave));
-                //マッチするものが見つかった場合はここでreturn
-                BassNumber = mod(RootNumber + i, Octave);
-                return [BassNumber, true];;
+                info_Array.ChordName.push(chord_container[j].ChordName);
+                info_Array.HowToRead.push(chord_container[j].Name);
+                info_Array.ChordInfo.push(chord_container[j].Info);
+                info_Array.iNum.push(i);
+                info_Array.jNum.push(j);
             };
-            //見つからなかったので、コードネームを格納した配列から、次のコードとマッチするか調べる。
-        };
-        //このルート音では見つからなかった場合、次のルート音でループに入る。
-        //マッチするもの無し
-        if (i === 11) {
-            document.getElementById("AddChordHTML").innerHTML
-                = `<font size="6">N.C.</font>`;
-            document.getElementById("AddChordNameHTML").innerHTML
-                = `<font size="2">読み方：ノン・コード</font>`;
-            document.getElementById("AddChordInfoHTML").innerHTML
-                = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。<br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>※基本的に「UST（アッパー・ストラクチャー・トライアド）」及び、「ハイブリッド・コード」での解釈の可能性は表示されません。<br>→ <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank" rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a></span></font>`;
-            document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
         };
     };
 
     //---------------------------------------
-    //3音連続しているトーン・クラスターを判定する
-    let NoteChain = 0;
-    let tcj = 0;
-    for (let i = 0; i < 11; i++) {
-        //特定の場合と、+1と＋2の場所のスイッチがonかどうか判定する。
-        NoteChain = onoff[mod(i, Octave)] + onoff[mod(i + 1, Octave)] + onoff[mod(i + 2, Octave)];
-        //3音以上連続している部分を見つける。
-        if (NoteChain === 3) {
-            tcj = 1;
-            break;
-        } else {
-            NoteChain = 0;
-        };
-    };
+    //ハイブリッド・コードを判定する
+    let SOF = DetermineKeySignature(mod(LowestNoteNumber + RootNumber, Octave))
+    // 別の解釈を格納する配列
+    let OtherInterpretationsArray = { title: `<span class="OtherInterpretations">【このコードの別解釈】</span>`, HybridChord: [], Chord: [] };
+    OtherInterpretationsArray.HybridChord = HybridChord(onoff, SOF, RootNumber);
 
-    //4音以上音が連続しているトーン・クラスターを判定する(トーン・クラスターを格納した配列とマッチするものを見つける)
-    let clear = 0;
-    //12通りの場合について調べる。
-    for (let i = 0; i < Octave; i++) {
-        //トーン・クラスターを格納した配列と照合する。
-        for (let y = 0; y < ToneCluster.length; y++) {
-            if (ToneCluster[y][0] === onoff[mod(i + 0, Octave)]
-                && ToneCluster[y][1] === onoff[mod(i + 1, Octave)]
-                && ToneCluster[y][2] === onoff[mod(i + 2, Octave)]
-                && ToneCluster[y][3] === onoff[mod(i + 3, Octave)]
-                && ToneCluster[y][4] === onoff[mod(i + 4, Octave)]
-                && ToneCluster[y][5] === onoff[mod(i + 5, Octave)]
-                && ToneCluster[y][6] === onoff[mod(i + 6, Octave)]
-                && ToneCluster[y][7] === onoff[mod(i + 7, Octave)]
-                && ToneCluster[y][8] === onoff[mod(i + 8, Octave)]
-                && ToneCluster[y][9] === onoff[mod(i + 9, Octave)]
-                && ToneCluster[y][10] === onoff[mod(i + 10, Octave)]
-                && ToneCluster[y][11] === onoff[mod(i + 11, Octave)]
-                || tcj === 1) {
-                document.getElementById("AddChordHTML").innerHTML = `<font size="6">Tone cluster</font>`;
-                document.getElementById("AddChordNameHTML").innerHTML = `<font size="2">読み方：トーン・クラスター</font>`;
-                document.getElementById("AddChordInfoHTML").innerHTML = `「音塊」「密集音群」とも。<br>隣り合う3つ以上の音を含む和音です。`;
-                document.getElementById("AddChordInfoSub2HTML").innerHTML = ``;
-                document.getElementById("AddChordInfoTriToneHTML").innerHTML = ``;
-                document.getElementById("AddChordInfo2HTML").innerHTML = ``;
-                document.getElementById("AddChordInfoOmit5HTML").innerHTML = ``;
-                // 戻り値を返す
-                BassNumber = RootNumber;
-                return [BassNumber, false];
+    //コードネームの情報をHTMLに書き込む
+    if (info_Array.ChordName.length > 0) {
+        //---------------------------------------
+        // コードの異名同音をある程度調整するための値を計算する
+        let adjustment = AdjustmentEnharmonic(info_Array.ChordName[0], onoff[mod(info_Array.iNum[0] + 3, Octave)], onoff[mod(info_Array.iNum[0] + 6, Octave)]);
+        //コード・ネームのシャープとフラットを判定するための値を計算する。
+        SOF = DetermineKeySignature(mod(info_Array.iNum[0] + RootNumber - adjustment, Octave));
+        //コードのベース音が♯か♭かを判定する
+        let BassSOF = DetermineBassSignature(SOF, info_Array.ChordName[0], mod(LowestNoteNumber - info_Array.iNum[0] - RootNumber, Octave));
+        //コードのルート音
+        let RootName = noteNames[mod(RootNumber + info_Array.iNum[0], Octave)][SOF];
+
+        //異名同音判定が正しいか検証する
+        BassSOF = EnharmonicRejudgement(SOF, BassSOF, RootName, noteNames[LowestNoteNumber][BassSOF]);
+
+        //---------------------------------------
+        if (onoff[mod(RootNumber + info_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(RootNumber + info_Array.iNum[0] + 5, Octave)] === 1) {
+            info_Array.Omit5.push(`<br>M3rd（長3度）とP4th(11th)はアボイドになるので、取り扱いには注意が必要です。`);
+        };
+        //完全5度が省略可能かを判定する。
+        if (onoff[mod(RootNumber + info_Array.iNum[0] + 7, Octave)] === 1 && info_Array.HowManyChordTone.length >= 3) {
+            info_Array.Omit5.push(`<br>Root（ルート音）に対してP5th（完全5度）の音は、状況に応じて省略が可能です。`);
+            if (info_Array.ChordName[0].match("sus") || info_Array.ChordName[0].match("omit5")) {
+                //長2度(sus2)や完全4度(sus4)の場合をはじく。
+                info_Array.Omit5.pop();
             };
         };
-        if (clear === 1) {
-            //トーン・クラスターと一致した場合はreturn
-            // 戻り値を返す
-            BassNumber = RootNumber;
-            return [BassNumber, false];
+        document.getElementById("Omit5Info").innerHTML = info_Array.Omit5.join().replace(/\,/g, "");
+
+        //---------------------------------------
+        //その他の解釈を配列に格納していく。
+        for (let i = 1; i < info_Array.ChordName.length; i++) {
+            let top = `${noteNames[mod(RootNumber + info_Array.iNum[i], Octave)][SOF]}`;
+            let bottom = `${noteNames[LowestNoteNumber][BassSOF]}`;
+            if (info_Array.ChordName[i] === "dim7"
+                || info_Array.ChordName[i] === "aug") {
+                //何もしない
+            } else if (top === bottom) {
+                OtherInterpretationsArray.Chord
+                    .push(`・${top}${info_Array.ChordName[i]}<br>`);
+            } else {
+                OtherInterpretationsArray.Chord
+                    .push(`・${top}${info_Array.ChordName[i]}/${bottom}（転回形）<br>`);
+            };
         };
+        //コードネーム内の「,」を正確に表示するための処理
+        for (let i = 0; i < OtherInterpretationsArray.Chord.length; i++) {
+            OtherInterpretationsArray.Chord[i] = OtherInterpretationsArray.Chord[i].replace(/\,/g, "_");
+        };
+        //その他の解釈が存在する場合、HTMLに書き込む
+        if (OtherInterpretationsArray.Chord.length >= 1 || OtherInterpretationsArray.HybridChord.length >= 1) {
+            document.getElementById("OtherInterpretations").innerHTML
+                = `<br>${OtherInterpretationsArray.title}<br>
+                ${OtherInterpretationsArray.Chord.join().replace(/\,/g, "").replace(/_/g, ",")}
+                ${OtherInterpretationsArray.HybridChord.join().replace(/\,/g, "").replace(/_/g, ",")}`;
+        };
+
+        //---------------------------------------
+        // コードネームと読み方と情報を書き込む
+        if (0 === mod(LowestNoteNumber - info_Array.iNum[0] - RootNumber, Octave)) {
+            //コードネームをグローバル変数へ代入する
+            CHORD_NAME = `${RootName}${info_Array.ChordName[0]}`;
+            //転回形ではない
+            document.getElementById("NameOfChord").innerHTML
+                = `${CHORD_NAME}`;
+            document.getElementById("HowToReadChordName").innerHTML
+                = `読み方：${RootName}${info_Array.HowToRead[0]}`;
+            document.getElementById("ChordInfo").innerHTML
+                = `${info_Array.ChordInfo[0]}`;
+        } else {
+            //展開形
+            //コードネームをグローバル変数へ代入する
+            CHORD_NAME = `${RootName}${info_Array.ChordName[0]}/${noteNames[LowestNoteNumber][BassSOF]}`;
+            document.getElementById("NameOfChord").innerHTML
+                = `${CHORD_NAME}`;
+            document.getElementById("HowToReadChordName").innerHTML
+                = `読み方：${RootName}${info_Array.HowToRead[0]}・オーヴァー${noteNames[LowestNoteNumber][BassSOF]}（転回形）`;
+            document.getElementById("ChordInfo").innerHTML
+                = `${info_Array.ChordInfo[0]}`;
+        };
+        //コードネームに合わせて度数表記を描画する関数
+        degree_position_drow(mod(info_Array.iNum[0], Octave));
+        //---------------------------------------
+        //マッチするものが見つかった場合はここでreturn
+        BassNumber = mod(RootNumber + info_Array.iNum[0], Octave);
+        return [BassNumber, true];
     };
+
     // 戻り値を返す
     BassNumber = LowestNoteNumber;
     return [BassNumber, false];
@@ -961,7 +1104,7 @@ function NoteSwitch(Num) {
     if (onoff[Num] !== 0) {
         document.getElementById(`chord_${Num}`).className = "NoteName NoteName_cursor_pointer NoteOn";
     } else if (onoff[Num] === 0) {
-        document.getElementById(`chord_${Num}`).className = "NoteName NoteName_cursor_pointer NoteName_Switch_Search";
+        document.getElementById(`chord_${Num}`).className = "NoteName NoteName_cursor_pointer NoteName_Switchc_Search";
     };
     //モーダル・インターチェンジの候補を表示する関数
     ModalTextCreate();
@@ -992,6 +1135,8 @@ function onlyTonicModeSwitch(app_num) {
         //（コード/スケール名を逆引き検索用）
         //モーダル・インターチェンジの候補を表示する関数
         ModalTextCreate();
+    } else if (app_num === 3.5) {
+        WriteFingerboard();
     } else if (app_num === 10) {
         // （指板用）
         ModalCandidateSelectFingerBoard();

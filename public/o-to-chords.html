@@ -331,14 +331,9 @@
             <div class="accordion-body">
 
               <!-- コードネームの判定と情報をJavaScriptで書き込む -->
-              <div id="AddChordHTML"></div>
-              <div id="AddChordNameHTML"></div>
-              <div><br></div>
-              <div id="AddChordInfoHTML"></div>
-              <div id="AddChordInfo2HTML"></div>
-              <div id="AddChordInfoOmit5HTML"></div>
-              <div id="AddChordInfoTriToneHTML"></div>
-              <div id="AddChordInfoSub2HTML"></div>
+              <div id="chord-template">
+                <chord-template></chord-template>
+              </div>
 
             </div>
           </div>
@@ -373,7 +368,7 @@
               <button id="scale_language_change_button" class="btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2"
                 onclick="ScaleLanguageJE()">日本語⇔English</button>
               <button id="onlyTonicMode" type="button" class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
-                onclick="onlyTonicModeSwitch(1)">
+                onclick="onlyTonicModeSwitch(3.5)">
                 構成音を含む全てのスケールを表示する
               </button>
             </div>
@@ -396,7 +391,7 @@
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
               aria-expanded="true" aria-controls="collapseThree">
-              ネガティヴ・バージョンのコード
+              ネガティヴ・ヴァージョンのコード
             </button>
           </h2>
           <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
@@ -422,15 +417,12 @@
                     <option value=11>Bメジャー / G#マイナー (#×5)</option>
                   </select>
                 </label>
-
-                <a id="Negative_clef_image" class="">
-                </a>
               </div>
 
-              <div class="py-2">【ネガティヴ・ハーモニー理論に基づく代理コード】</div>
+              <div class="accordion py-2">【ネガティヴ・ハーモニー理論に基づく代理コード】</div>
               <!-- コードネームの判定と情報をJavaScriptで書き込む -->
-              <div id="AddNegativeChordHTML"></div>
-              <div id="AddNegativeChordNameHTML"></div>
+              <div id="AddNegativeChordHTML" class="NameOfChord"></div>
+              <div id="AddNegativeChordNameHTML" class="HowToReadChord"></div>
               <div><br></div>
               <table class="box_table">
                 <tr>
@@ -486,6 +478,7 @@
               <div id="AddNegativeChordInfoSub2HTML"></div>
               <div><br></div>
               <div class="accordion py-2">【このキーでキーセンターからの距離が等しい音のペア】</div>
+              <a id="Negative_clef_image" class=""> </a><br>
               <a id="NegativeNotePair_0"></a><br>
               <a id="NegativeNotePair_1"></a><br>
               <a id="NegativeNotePair_2"></a><br>

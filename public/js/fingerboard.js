@@ -196,14 +196,23 @@ function ScaleAndChordsDrowing() {
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
-                <div id="AddChordHTML"></div>
-                <div id="AddChordNameHTML"></div>
-                <div><br></div>
-                <div id="AddChordInfoHTML"></div>
-                <div id="AddChordInfo2HTML"></div>
-                <div id="AddChordInfoOmit5HTML"></div>
-                <div id="AddChordInfoTriToneHTML"></div>
-                <div id="AddChordInfoSub2HTML"></div>
+                <table id="ChordInfoTable">
+                    <tr>
+                        <td id="NameOfChord" class="NameOfChord"></td>
+                        <td id="NameOfHybridChord" class="NameOfChord HybridChord"></td>
+                    </tr>
+                    <tr>
+                        <td id="HowToReadChordName" class="HowToReadChord"></td>
+                        <td id="HowToReadHybridChordName" class="HowToReadChord HybridChord"></td>
+                    </tr>
+                </table>
+
+                <div id="ChordInfo"></div>
+                <div id="Omit5Info"></div>
+                <div id="HowManyChordTone"></div>
+                <div id="TriToneInfo"></div>
+                <div id="Sub2Info"></div>
+                <div id="OtherInterpretations"></div>
 
                 </div>
             </div>
