@@ -90,6 +90,8 @@ function KeyAction(str) {
                 };
             };
         };
+        //コード履歴機能
+        WritePastChord();
     };
 
     //ベース音を判定
@@ -301,4 +303,50 @@ function Play(MIDI_note_number) {
     //音を鳴らす
     Oscillator.start(0.001);
     Oscillator.stop(endTime);
+};
+
+//コード履歴を表示するために使うグローバル変数
+let ONE = performance.now();
+let TWO = 0;
+let BEFORE_CHORD_NAME;
+let CHORD_NAME_ARRAY = [];
+let ALL_CHORD_NAME_ARRAY = [];
+//コード履歴機能
+function WritePastChord() {
+    //以前に処理が実行されたときからの差分を求める
+    TWO = performance.now() - ONE;
+
+    if (BEFORE_CHORD_NAME !== CHORD_NAME) {
+        if (TWO > 150 && CHORD_NAME.match("N.C.")) {
+            //次に前回のコードと比較するために現在のコード・ネームを変数に代入しておく。
+            BEFORE_CHORD_NAME = CHORD_NAME;
+            //前回の処理から150ms経過している場合に処理を実行する（アルペジオに過剰に反応しないようにするため）
+        } else if (TWO > 150) {
+            //配列を結合するときにコードネームの「,」が消えないようにする。
+            let C = CHORD_NAME.replace(/\,/g, "_");
+            // 配列に現在のコード・ネームを追加する。
+            CHORD_NAME_ARRAY.unshift(`<span class="highlight">${C}</span>　`);
+            ALL_CHORD_NAME_ARRAY.push(`<span class="highlight">${C}</span>　`);
+            //コード履歴は、最大10コードまでにする。
+            if (CHORD_NAME_ARRAY.length === 10) {
+                CHORD_NAME_ARRAY.pop();
+            };
+            //コード履歴をHTMLに書き込む
+            document.getElementById('ChordProg').innerHTML
+                = `<span class="InfoPoint">【コード履歴】</span>${CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
+            document.getElementById('AllChordProg').innerHTML
+                = `${ALL_CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
+            //次に前回のコードと比較するために現在のコード・ネームを変数に代入しておく。
+            BEFORE_CHORD_NAME = CHORD_NAME;
+        };
+    };
+    //次の処理のために現在の時間を代入しておく。
+    ONE = performance.now();
+};
+
+// コード履歴をリセットする関数
+function ChordHistoryReset() {
+    ALL_CHORD_NAME_ARRAY = [];
+    document.getElementById('AllChordProg').innerHTML
+        = ``;
 };
