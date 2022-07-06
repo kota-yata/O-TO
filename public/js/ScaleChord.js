@@ -718,8 +718,7 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     document.getElementById("ChordInfo").innerHTML
         = `選択された音の組み合わせに対応するコード・ネームは見つかりませんでした。
                 <br><font size="2"><span style="color:#808080">※コード・ネームには、様々な表記や解釈の可能性があります。ここに示されるものが全てではありません。<br>
-                ※「ハイブリッド・コード」での解釈は、表記が煩雑にならないものだけが表示されます。<br>
-                ※「UST（アッパー・ストラクチャー・トライアド）」での解釈の可能性は表示されません。<br>
+                ※「ハイブリッド・コード」及び「UST（アッパー・ストラクチャー・トライアド）」での解釈は、表記が煩雑にならないものだけが表示されます。<br>
                 → <a href="https://khufrudamonotes.com/u-s-t-hybrid-chords" target="_blank" rel="noopener noreferrer">代理コードと、USTやハイブリッド・コードの考え方</span></a></span></font>`;
     document.getElementById("HowManyChordTone").innerHTML = ``;
     document.getElementById("Omit5Info").innerHTML = ``;
