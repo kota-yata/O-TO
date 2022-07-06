@@ -405,7 +405,7 @@ img {
   width: 100%;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  border-bottom: 1px dashed #111111;
+  border-bottom: 1px dashed silver;
 }
 
 .tableFixed {
@@ -445,10 +445,29 @@ img {
   border: dashed 1px silver;
 }
 
-.ReadabilityShell {
-  margin-top: 1rem;
-  line-height: 2rem;
-  border: dashed 1px silver;
+.HybridChordColor {
+  color: crimson;
+}
+
+.USTColor {
+  color: mediumblue;
+}
+
+.ChordInfo {
+  display: grid;
+  grid-template: "InfoArea ChordoArea"/7fr 3fr;
+}
+
+.InfoArea {
+  grid-area: InfoArea;
+}
+
+.ChordoArea {
+  grid-area: ChordoArea;
+}
+
+.ChordoAreaCharacter {
+  border-left: dashed 1px silver;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1027,6 +1046,16 @@ box {
   #footer {
     display: grid;
     grid-template: "... ....... ....... ..." 1.5rem "... footer_p footer_g ..." "... footer_b footer_i ..." "... footer_t footer_y ..." "... ....... ....... ..." 2rem "... site_logo site_logo ..." "... ....... ....... ..." 2rem "... footer_c footer_c ..." "... ....... ....... ..." 1.5rem/1rem 1fr 1fr 1rem;
+  }
+
+  .ChordInfo {
+    display: grid;
+    grid-template: "InfoArea" "ChordoArea"/1fr;
+  }
+
+  .ChordoAreaCharacter {
+    margin-top: 1rem;
+    border: 0px none;
   }
 
   .link_table1 {

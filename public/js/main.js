@@ -284,6 +284,7 @@ const ToneCluster = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
+const TriadNumber = [1, 3, 5, 6, 7, 8];
 // コード・ネームを格納した配列
 const chord_container = [
     { ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], ChordName: "5", Name: "パワーコード", Info: '「Root（ルート音）」＋「P5th（完全5度）」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },

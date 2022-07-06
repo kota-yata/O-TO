@@ -366,25 +366,20 @@ img {
   width: 100%;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  border-bottom:1px dashed #111111;
+  border-bottom:1px dashed $BorderColor;
 }
-
 .tableFixed{
   table-layout:fixed;
 }
-
 .NameOfChord{
   font-size: clamp(2rem, 0.1rem + 2.5vw, 3rem);
 }
-
 .HowToReadChord{
   font-size:  clamp(0.2rem, 0.3rem + 0.5vw, 1rem);
 }
-
 .NonChord{
   opacity: 0.7;
 }
-
 .HybridChord{
   color: $mainColor;
   margin: 0;
@@ -392,25 +387,38 @@ img {
 }
 .OtherInterpretations {
   color: $mainColor;
-
 }
 .InfoPoint {
   color: green;
 }
-
 .highlight{
   background-color:lemonchiffon;
   margin-top: 1rem;
   line-height: 2rem;
-  border: dashed 1px silver;
+  border: dashed 1px $BorderColor;
 }
-
-.ReadabilityShell{
-  margin-top: 1rem;
-  line-height: 2rem;
-  border: dashed 1px silver;
+.HybridChordColor{
+  color: $mainColor;
 }
-
+.USTColor{
+  color: mediumblue;
+}
+.ChordInfo{
+	display: grid;
+    grid-template:
+    "InfoArea ChordoArea"
+		/7fr 3fr;
+		;
+}
+.InfoArea{
+  grid-area: InfoArea;
+}
+.ChordoArea{
+  grid-area: ChordoArea;
+}
+.ChordoAreaCharacter{
+  border-left: dashed 1px $BorderColor;
+}
 
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
@@ -863,6 +871,19 @@ box {
     "... ....... ....... ..." 1.5rem
 		/1rem 1fr 1fr 1rem;
 		;
+  }
+
+  .ChordInfo{
+    display: grid;
+      grid-template:
+      "InfoArea"
+      "ChordoArea"
+      /1fr;
+      ;
+  }
+  .ChordoAreaCharacter{
+    margin-top: 1rem;
+    border: 0px none;
   }
 
   .link_table1{

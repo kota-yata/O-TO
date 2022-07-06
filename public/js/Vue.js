@@ -22,20 +22,25 @@ Vue.component('chord-template', {
               <table id="ChordInfoTable">
                 <tr>
                   <td id="NameOfChord" class="NameOfChord"></td>
-                  <td id="NameOfHybridChord" class="NameOfChord HybridChord"></td>
+                  <td id="NameOfSlashChord" class="NameOfChord"></td>
                 </tr>
                 <tr>
                   <td id="HowToReadChordName" class="HowToReadChord"></td>
-                  <td id="HowToReadHybridChordName" class="HowToReadChord HybridChord"></td>
+                  <td id="HowToReadSlashChordName" class="HowToReadChord"></td>
                 </tr>
               </table>
-
-              <div id="ChordInfo"></div>
-              <div id="Omit5Info"></div>
-              <div id="HowManyChordTone"></div>
-              <div id="TriToneInfo"></div>
-              <div id="Sub2Info"></div>
-              <div id="OtherInterpretations"></div>
+              <div class="ChordInfo">
+                <div class="InfoArea">
+                    <div id="ChordInfo"></div>
+                    <div id="Omit5Info"></div>
+                    <div id="HowManyChordTone"></div>
+                    <div id="TriToneInfo"></div>
+                    <div id="Sub2Info"></div>
+                </div>
+                <div class="ChordArea ChordoAreaCharacter">
+                  <div id="OtherInterpretations"></div>
+                </div>
+              </div>
             </div>
       `
 })
