@@ -533,8 +533,6 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
         };
     };
 
-    console.log(ustArray.TopChordName, ustArray.BottomChordName)
-
     // スラッシュコードの色付けをリセットする
     SlashChordClassRemove();
     let wrote = false;
