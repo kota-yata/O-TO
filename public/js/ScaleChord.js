@@ -431,7 +431,8 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
         TopChordOnoff: [[], [], [], [], [], []],
         iNum: [],
         mNum: [],
-        HowManyTones: []
+        HowManyTones: [],
+        Found: [false, false, false, false, false, false],
     };
     // 別の解釈の可能性を格納する配列
     let OtherInterpretationsArray = [];
@@ -493,7 +494,6 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
             //一番左側の押されているスイッチの場所（最低音）を判定する
             if (ustArray.TopChordOnoff[j][i] === 1) {
                 ustArray.TopLowestNoteNumber.push(mod(i + RootNumber, Octave));
-                // 再低音を配列から削除する
                 break;
             };
         };
@@ -503,7 +503,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
             ustArray.TopChordOnoff[j].push(dn);
         };
         //TopChordOnoffから分子のトライアドを判定する
-        loopA: for (let m = 0; m < Octave; m++) {
+        for (let m = 0; m < Octave; m++) {
             //コード・ネームが格納された配列から、マッチするトライアドを見つける。
             for (let k = 0; k < TriadNumber.length; k++) {
                 if (chord_container[TriadNumber[k]].ChordBinary[0] === ustArray.TopChordOnoff[j][mod(m + 0, Octave)]
@@ -522,14 +522,22 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
                     ustArray.TopChordName.push(chord_container[TriadNumber[k]].ChordName);
                     ustArray.TopHowToRead.push(chord_container[TriadNumber[k]].Name);
                     ustArray.mNum.push(m);
+                    ustArray.Found[j] = true;
                 };
             };
         };
+        if (ustArray.Found[j] === false) {
+            ustArray.TopChordName.push(undefined);
+            ustArray.TopHowToRead.push('ノン・コード');
+            ustArray.mNum.push(0);
+        };
     };
+
+    console.log(ustArray.TopChordName, ustArray.BottomChordName)
 
     // スラッシュコードの色付けをリセットする
     SlashChordClassRemove();
-
+    let wrote = false;
     for (let i = 0; i < ustArray.TopChordName.length; i++) {
 
         if (ustArray.TopChordName[i] !== undefined && ustArray.BottomChordName[i] !== undefined) {
@@ -541,7 +549,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
                 .push(`・<span class="USTColor">${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]} /${noteNames[RootNumber][SOF]} ${ustArray.BottomChordName[i]}</span><br>`);
 
             //最初に配列へ入れたUSTをHTMLに大きく書き込む。
-            if (i === 0) {
+            if (wrote === false) {
                 document.getElementById('NameOfSlashChord')
                     .innerHTML = `${ustArray.NameOfChord[0]}`;
                 document.getElementById('HowToReadSlashChordName')
@@ -555,6 +563,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
                 document.getElementById("NameOfSlashChord").classList.add("USTColor");
                 document.getElementById("HowToReadSlashChordName").classList.add("USTColor");
             };
+            wrote = true;
         };
     };
 
