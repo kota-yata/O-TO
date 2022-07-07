@@ -455,12 +455,14 @@ const TriadNumber = [
 ];
 const UST_BottomChordNumber = [
     1, 3, 5, 6, 7,
-    8, 9,
+    8, 9,//ここまでトライアド
     10, 13, 14,
-    17, 19, 22, 25, 29,
+    17, 18, 19, 22, 25,
+    29,
 ];
 
-function ff() {
+//コードのナンバーをチェックするための関数
+function ChordNumberCheck() {
     for (let i = 0; i < chord_container.length; i++) {
         console.log(`${i}：${chord_container[i].ChordName}`);
     };
