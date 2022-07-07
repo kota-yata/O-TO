@@ -284,7 +284,6 @@ const ToneCluster = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
-const TriadNumber = [1, 3, 5, 6, 7, 8];
 // コード・ネームを格納した配列
 const chord_container = [
     { ChordBinary: [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], ChordName: "5", Name: "パワーコード", Info: '「Root（ルート音）」＋「P5th（完全5度）」の組み合わせ。<br>シンプルな響きで、エレクトリック・ギターなど歪み成分の多い音色とも相性が良いです。' },
@@ -450,6 +449,22 @@ const chord_container = [
     { ChordBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], ChordName: "m13", Name: "マイナーサーティーン", Info: 'ドリアン・スケールの構成音を全て含むコードです。' },
     { ChordBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], ChordName: "Maj7(9,#11,13)", Name: "メジャーセブン・ナイン・シャープイレブン・サーティーン", Info: 'メジャーセブンに9thと#11thと13thが加わったコードです。<br>リディアン・スケールの構成音を全て含むコードです。' }
 ];
+
+const TriadNumber = [
+    1, 3, 5, 6, 7, 8
+];
+const UST_BottomChordNumber = [
+    1, 3, 5, 6, 7,
+    8, 9,
+    10, 13, 14,
+    17, 19, 22, 25, 29,
+];
+
+function ff() {
+    for (let i = 0; i < chord_container.length; i++) {
+        console.log(`${i}：${chord_container[i].ChordName}`);
+    };
+};
 
 //0なし 1あり 2シャープ 3フラット 4ダブルシャープ 5ダブルフラット 6ナチュラル
 const scale_Container = [

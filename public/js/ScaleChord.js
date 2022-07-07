@@ -428,7 +428,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
         rootName: [],
         bassName: [],
         onoff: [],
-        TopChordOnoff: [[], [], [], [], [], []],
+        TopChordOnoff: [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []],
         iNum: [],
         mNum: [],
         HowManyTones: [],
@@ -442,8 +442,8 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
     //分子コードの構成音が何音か判定するための配列を作成
     ustArray.HowManyTones = ustArray.onoff.filter(n => n === 1);
 
-    //6音以外はUSTとして解釈するとかえってややこしいから、ここではじく。
-    if (ustArray.HowManyTones.length !== 6) {
+    //5音以下はUSTとして解釈するとかえってややこしいから、ここではじく。
+    if (ustArray.HowManyTones.length <= 5) {
         return OtherInterpretationsArray;
     };
 
@@ -462,22 +462,22 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
     };
 
     //コード・ネームが格納された配列から、マッチするトライアドを見つける。（分母のトライアドを判定）
-    for (let i = 0; i < TriadNumber.length; i++) {
-        if (chord_container[TriadNumber[i]].ChordBinary[0] <= ustArray.onoff[0]
-            && chord_container[TriadNumber[i]].ChordBinary[1] <= ustArray.onoff[1]
-            && chord_container[TriadNumber[i]].ChordBinary[2] <= ustArray.onoff[2]
-            && chord_container[TriadNumber[i]].ChordBinary[3] <= ustArray.onoff[3]
-            && chord_container[TriadNumber[i]].ChordBinary[4] <= ustArray.onoff[4]
-            && chord_container[TriadNumber[i]].ChordBinary[5] <= ustArray.onoff[5]
-            && chord_container[TriadNumber[i]].ChordBinary[6] <= ustArray.onoff[6]
-            && chord_container[TriadNumber[i]].ChordBinary[7] <= ustArray.onoff[7]
-            && chord_container[TriadNumber[i]].ChordBinary[8] <= ustArray.onoff[8]
-            && chord_container[TriadNumber[i]].ChordBinary[9] <= ustArray.onoff[9]
-            && chord_container[TriadNumber[i]].ChordBinary[10] <= ustArray.onoff[10]
-            && chord_container[TriadNumber[i]].ChordBinary[11] <= ustArray.onoff[11]) {
+    for (let i = 0; i < UST_BottomChordNumber.length; i++) {
+        if (chord_container[UST_BottomChordNumber[i]].ChordBinary[0] <= ustArray.onoff[0]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[1] <= ustArray.onoff[1]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[2] <= ustArray.onoff[2]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[3] <= ustArray.onoff[3]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[4] <= ustArray.onoff[4]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[5] <= ustArray.onoff[5]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[6] <= ustArray.onoff[6]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[7] <= ustArray.onoff[7]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[8] <= ustArray.onoff[8]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[9] <= ustArray.onoff[9]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[10] <= ustArray.onoff[10]
+            && chord_container[UST_BottomChordNumber[i]].ChordBinary[11] <= ustArray.onoff[11]) {
             //コードネームの名前と読み方を配列から取り出す
-            ustArray.BottomChordName.push(chord_container[TriadNumber[i]].ChordName);
-            ustArray.BottomHowToRead.push(chord_container[TriadNumber[i]].Name);
+            ustArray.BottomChordName.push(chord_container[UST_BottomChordNumber[i]].ChordName);
+            ustArray.BottomHowToRead.push(chord_container[UST_BottomChordNumber[i]].Name);
             //どのコードかを記憶
             ustArray.iNum.push(i);
         };
@@ -486,8 +486,8 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
     //分子のコードを判定していく。
     for (let j = 0; j < ustArray.BottomChordName.length; j++) {
         // 分母のトライアドを配列から削除
-        for (let i = 0; i < chord_container[TriadNumber[ustArray.iNum[j]]].ChordBinary.length; i++) {
-            ustArray.TopChordOnoff[j].push(ustArray.onoff[i] - chord_container[TriadNumber[ustArray.iNum[j]]].ChordBinary[i])
+        for (let i = 0; i < 12; i++) {
+            ustArray.TopChordOnoff[j].push(ustArray.onoff[i] - chord_container[UST_BottomChordNumber[ustArray.iNum[j]]].ChordBinary[i])
         };
         //分子に当たるコードの最低音を判定する。
         for (let i = 0; i <= Octave; i++) {
@@ -540,11 +540,11 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
 
         if (ustArray.TopChordName[i] !== undefined && ustArray.BottomChordName[i] !== undefined) {
             ustArray.NameOfChord
-                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]} /${noteNames[RootNumber][SOF]} ${ustArray.BottomChordName[i]}`);
+                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}`);
             ustArray.HowToRead
                 .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopHowToRead[i]}・オーヴァー・${noteNames[RootNumber][SOF]} ${ustArray.BottomHowToRead[i]}（USTとして解釈）`);
             OtherInterpretationsArray
-                .push(`・<span class="USTColor">${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]} /${noteNames[RootNumber][SOF]} ${ustArray.BottomChordName[i]}</span><br>`);
+                .push(`・<span class="USTColor">${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}</span><br>`);
 
             //最初に配列へ入れたUSTをHTMLに大きく書き込む。
             if (wrote === false) {
