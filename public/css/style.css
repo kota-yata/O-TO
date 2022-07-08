@@ -155,11 +155,6 @@ img {
   height: auto;
 }
 
-.clef3 {
-  padding: 0.2rem;
-  width: 15%;
-}
-
 .header_image {
   background-position: center;
   background-size: cover;
@@ -405,7 +400,7 @@ img {
   width: 100%;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  border-bottom: 1px dashed silver;
+  border-bottom: 1px dashed rgb(210, 210, 210);
 }
 
 .tableFixed {
@@ -442,7 +437,7 @@ img {
   background-color: lemonchiffon;
   margin-top: 1rem;
   line-height: 2rem;
-  border: dashed 1px silver;
+  border: dashed 1px rgb(210, 210, 210);
 }
 
 .HybridChordColor {
@@ -467,7 +462,30 @@ img {
 }
 
 .ChordoAreaCharacter {
-  border-left: dashed 1px silver;
+  border-left: dashed 1px rgb(210, 210, 210);
+}
+
+/* --------------------------------------------------------------------------------------------- */
+.N_key {
+  margin-top: 1rem;
+  border-top: dashed 1px rgb(210, 210, 210);
+  display: grid;
+  grid-template: "N_clef N_Pair"/1fr 3fr;
+}
+
+.N_clef {
+  grid-area: N_clef;
+  border-right: dashed 1px rgb(210, 210, 210);
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+
+.N_Pair {
+  grid-area: N_Pair;
+}
+
+.N_clef_img {
+  padding-left: 1rem;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1124,6 +1142,16 @@ box {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .N_key {
+    border-top: dashed 1px rgb(210, 210, 210);
+    display: grid;
+    grid-template: "N_clef" "N_Pair"/1fr;
+  }
+
+  .N_clef {
+    display: none;
   }
 
   /* リンクのテーブル*/

@@ -142,10 +142,6 @@ img {
   max-width: 10%;
   height: auto;
 }
-.clef3 {
-  padding:0.2rem;
-  width: 15%;
-}
 
 .header_image {
   background-position: center;
@@ -418,6 +414,34 @@ img {
 }
 .ChordoAreaCharacter{
   border-left: dashed 1px $BorderColor;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+// ネガティブハーモニー用
+.N_key{
+  margin-top: 1rem;
+  border-top: dashed 1px $BorderColor;
+	display: grid;
+    grid-template:
+    "N_clef N_Pair"
+		/1fr 3fr;
+		;
+};
+
+.N_clef{
+  grid-area:N_clef;
+  border-right: dashed 1px $BorderColor;
+  padding-right:1rem;
+  margin-right:1rem;
+};
+
+.N_Pair{
+  grid-area:N_Pair;
+};
+
+.N_clef_img {
+  padding-left:1rem;
+
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -948,6 +972,20 @@ box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  //-----------------------
+  .N_key{
+  border-top: dashed 1px $BorderColor;
+	display: grid;
+    grid-template:
+    "N_clef"
+    "N_Pair"
+		/1fr;
+		;
+  };
+  .N_clef{
+    display: none;
+  };
+  //-----------------------
   /* リンクのテーブル*/
   .link_table{
     display: grid;

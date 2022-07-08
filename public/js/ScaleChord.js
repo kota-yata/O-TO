@@ -448,13 +448,8 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
     };
 
     //コードの最低音を取得する
-    for (let i = 0; i <= Octave; i++) {
-        //一番左側の押されているスイッチの場所（最低音）を判定する。
-        if (ustArray.onoff[i] === 1) {
-            ustArray.LowestNoteNumber = i;
-            break;
-        };
-    };
+    ustArray.LowestNoteNumber = FindLowestNoteNumber(ustArray.onoff);
+
     //コードの最低音が先頭になるように配列を並び替える
     for (let i = 0; i < ustArray.LowestNoteNumber; i++) {
         let dn = ustArray.onoff.shift();
@@ -616,14 +611,8 @@ function HybridChord(onoff, SOF, RootNumber) {
     hcArray.bassName.push(`${noteNames[mod(RootNumber + hcArray.bassAdd, Octave)][SOF]}`);
 
     //ハイブリッド・コードの分子に当たるコードの最低音を判定する。
-    for (let i = 0; i <= Octave; i++) {
-        //一番左側の押されているスイッチの場所（最低音）を判定する
-        if (hcArray.onoff[i] === 1) {
-            hcArray.LowestNoteNumber = mod(i + RootNumber, Octave);
-            // 再低音を配列から削除する
-            break;
-        };
-    };
+    hcArray.LowestNoteNumber = FindLowestNoteNumber(hcArray.onoff);
+    hcArray.LowestNoteNumber = mod(hcArray.LowestNoteNumber + RootNumber, Octave);
 
     // 残った最低音が先頭になるように配列を並び替える
     for (let i = 0; i < hcArray.LowestNoteNumber; i++) {
@@ -712,6 +701,19 @@ function HybridChord(onoff, SOF, RootNumber) {
     return OtherInterpretationsArray;
 };
 
+//配列の中から最低音を判定するする関数
+function FindLowestNoteNumber(onoff) {
+    let LowestNoteNumber = 0;
+    for (let i = 0; i <= Octave; i++) {
+        //一番左側の押されているスイッチの場所（最低音）を判定する。
+        if (onoff[i] === 1) {
+            LowestNoteNumber = i;
+            break;
+        };
+    };
+    return LowestNoteNumber;
+};
+
 //コードネームを格納するグローバル変数
 let CHORD_NAME;
 //コード・ネームの情報を判定する関数（大雑把に言うと、トライトーンの判定、コードネームの判定、トーンクラスターの判定をしている。）
@@ -754,13 +756,8 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     info_Array.HowManyChordTone = onoff.filter(n => n === 1);
 
     //最低音を判定する
-    for (let i = 0; i < 11; i++) {
-        //一番左側の押されているスイッチの場所（最低音）を判定する。
-        if (onoff[i] === 1) {
-            info_Array.LowestNoteNumber = mod(i + RootNumber, Octave);
-            break;
-        };
-    };
+    info_Array.LowestNoteNumber = FindLowestNoteNumber(onoff);
+    info_Array.LowestNoteNumber = mod(info_Array.LowestNoteNumber + RootNumber, Octave);
 
     //コードネームに合わせて度数表記を描画する関数
     degree_position_drow(info_Array.LowestNoteNumber);
@@ -864,7 +861,6 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     };
 
     //---------------------------------------
-
     //コードネームの情報をHTMLに書き込む
     if (info_Array.ChordName.length > 0) {
         //---------------------------------------
