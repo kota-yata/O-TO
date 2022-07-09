@@ -7,7 +7,7 @@
 
 ---
 
-**[コードの構成音を調べる](https://o-to.khufrudamonotes.com/o-to-chords)**
+**[① コードの構成音を調べる](https://o-to.khufrudamonotes.com/o-to-chords)**
 
 主なコード 110 種類以上の構成音を確認できます。
 
@@ -27,7 +27,7 @@
 
 ---
 
-**[スケールの構成音を調べる](https://o-to.khufrudamonotes.com/o-to-scale)**
+**[② スケールの構成音を調べる](https://o-to.khufrudamonotes.com/o-to-scale)**
 
 70 種類以上の音階の構成音を視覚的に確認できます。
 
@@ -37,7 +37,7 @@
 
 ---
 
-**[コード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-modal-interchange)**
+**[③ コード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-modal-interchange)**
 
 構成音を選択するだけで瞬時に
 
@@ -51,7 +51,17 @@
 
 ---
 
-**[コード進行まとめ](https://o-to.khufrudamonotes.com/o-to-chord-progression)**
+**[MIDI キーボードでコード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-reverse-lookup-keyboard)**
+
+MIDI キーボードで入力した音に対応するコード・ネームやスケール名を逆引き検索できるアプリです。
+
+（仮想 MIDI ドライバーを使用すれば、MIDI キーボードがなくても使えます。）
+
+コードの特徴など、詳細情報も確認できます。
+
+---
+
+**[④ コード進行まとめ](https://o-to.khufrudamonotes.com/o-to-chord-progression)**
 
 よく使用されている気がするコード進行のパターンを 80 種類以上まとめました。
 
@@ -61,7 +71,7 @@
 
 ---
 
-**[ダイアトニック・コード](https://o-to.khufrudamonotes.com/o-to-diatonic-chords)**
+**[⑤ ダイアトニック・コード](https://o-to.khufrudamonotes.com/o-to-diatonic-chords)**
 
 主なダイアトニックコードの一覧表です。
 
@@ -73,7 +83,7 @@
 
 ---
 
-**[転調の間隔・調の関係を調べる](https://o-to.khufrudamonotes.com/o-to-modulation)**
+**[⑥ 転調の間隔・調の関係を調べる](https://o-to.khufrudamonotes.com/o-to-modulation)**
 
 転調の間隔を簡単に調べられます。
 
@@ -82,7 +92,7 @@
 
 ---
 
-**[音価の計算](https://o-to.khufrudamonotes.com/o-to-note-value)**
+**[⑦ 音価の計算](https://o-to.khufrudamonotes.com/o-to-note-value)**
 
 シンプルに音価の計算ができるだけです。
 
@@ -93,7 +103,7 @@
 
 ---
 
-**[メトリック・モジュレーション](https://o-to.khufrudamonotes.com/o-to-metric-modulation)**
+**[⑧ メトリック・モジュレーション](https://o-to.khufrudamonotes.com/o-to-metric-modulation)**
 
 メトリック・モジュレーションに関係する情報を調べられます。
 
@@ -104,7 +114,7 @@
 
 ---
 
-**[コード進行のテキストを移調する](https://o-to.khufrudamonotes.com/o-to-degree-change)**
+**[⑨ コード進行のテキストを移調する](https://o-to.khufrudamonotes.com/o-to-degree-change)**
 
 入力したコード進行を、任意のキーやディグリーネームへ一瞬で書き換えます。
 
@@ -116,7 +126,7 @@
 
 ---
 
-**[弦楽器の指板を可視化する](https://o-to.khufrudamonotes.com/o-to-fingerboard)**
+**[⑩ 弦楽器の指板を可視化する](https://o-to.khufrudamonotes.com/o-to-fingerboard)**
 
 弦楽器の指板を、設定したスケールやコードの情報に基づいて色付け・可視化できます！
 運指の選定、作曲、教材などさまざまな用途にお使いいただけるかと思います。
@@ -125,7 +135,7 @@
 
 ---
 
-**[指板からコード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-reverse-lookup-fingerboard)**
+**[⑪ 指板からコード/スケール名を逆引き検索](https://o-to.khufrudamonotes.com/o-to-reverse-lookup-fingerboard)**
 
 指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるアプリです。
 コード、スケールの名前をカンタンに逆引きできます！
