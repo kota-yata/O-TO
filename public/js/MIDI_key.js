@@ -137,6 +137,8 @@ function KeyAction(str) {
 
     //コードネームを判定する。
     let [BassNumber, result] = ChordCandidateInfo(onoff, CurrentBassNumber);
+    //ネガティブ・ハーモニーを表示する関数
+    NegativeHarmony(onoff);
 
     //指定された鍵盤の色を変える関数
     SelectedPosition(MIDI_note_number_array, BassNumber);
