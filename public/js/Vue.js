@@ -19,7 +19,7 @@ const headTemplate = new Vue({
 Vue.component('chord-template', {
   template: `
             <div>
-              <table id="ChordInfoTable">
+              <table id="MainChordInfoTable" class="ChordInfoTable">
                 <tr>
                   <td id="NameOfChord" class="NameOfChord"></td>
                   <td id="NameOfSlashChord" class="NameOfChord"></td>
@@ -48,6 +48,106 @@ Vue.component('chord-template', {
 //コードネームの判定と情報のコンポーネントのインスタンスを作成する
 const chordTemplate = new Vue({
   el: '#chord-template'
+})
+
+//ネガティヴ化したコードネームの判定と情報のコンポーネントを定義---------------------------------
+Vue.component('negative-chord-template', {
+  template: `
+              <div>
+                <div id="NegativeSubstitutionInfo" class="InfoPoint py-2">ネガティヴ・ハーモニー理論に基づく代理コード</div>
+
+                <!-- コードネームの判定と情報をJavaScriptで書き込む -->
+                <table class="ChordInfoTable">
+                  <tr>
+                    <td id="N_NameOfChord" class="NameOfChord"></td>
+                  </tr>
+                  <tr>
+                    <td id="N_HowToReadChordName" class="HowToReadChord"></td>
+                  </tr>
+                </table>
+
+                <div class="ChordInfo">
+                  <div class="InfoArea">
+                    <div id="N_ChordInfo"></div>
+                    <div id="N_Omit5Info"></div>
+                    <div id="N_HowManyChordTone"></div>
+                    <div id="N_TriToneInfo"></div>
+                    <div id="N_Sub2Info"></div>
+                  </div>
+
+                  <div class="ChordArea ChordoAreaCharacter">
+                    <div id="N_OtherInterpretations"></div>
+                  </div>
+                </div>
+
+                <div><br></div>
+                <table class="box_table">
+                  <tr id="Negative_Degree_table">
+                    <td class="box_border" id="Negative_Degree_table_0"></td>
+                    <td class="box_border" id="Negative_Degree_table_1"></td>
+                    <td class="box_border" id="Negative_Degree_table_2"></td>
+                    <td class="box_border" id="Negative_Degree_table_3"></td>
+                    <td class="box_border" id="Negative_Degree_table_4"></td>
+                    <td class="box_border" id="Negative_Degree_table_5"></td>
+                    <td class="box_border" id="Negative_Degree_table_6"></td>
+                    <td class="box_border" id="Negative_Degree_table_7"></td>
+                    <td class="box_border" id="Negative_Degree_table_8"></td>
+                    <td class="box_border" id="Negative_Degree_table_9"></td>
+                    <td class="box_border" id="Negative_Degree_table_10"></td>
+                    <td class="box_border" id="Negative_Degree_table_11"></td>
+                  </tr>
+                  <tr id="Negative_Tension_table">
+                    <td class="box_border" id="Negative_Tension_table_0"></td>
+                    <td class="box_border" id="Negative_Tension_table_1"></td>
+                    <td class="box_border" id="Negative_Tension_table_2"></td>
+                    <td class="box_border" id="Negative_Tension_table_3"></td>
+                    <td class="box_border" id="Negative_Tension_table_4"></td>
+                    <td class="box_border" id="Negative_Tension_table_5"></td>
+                    <td class="box_border" id="Negative_Tension_table_6"></td>
+                    <td class="box_border" id="Negative_Tension_table_7"></td>
+                    <td class="box_border" id="Negative_Tension_table_8"></td>
+                    <td class="box_border" id="Negative_Tension_table_9"></td>
+                    <td class="box_border" id="Negative_Tension_table_10"></td>
+                    <td class="box_border" id="Negative_Tension_table_11"></td>
+                  </tr>
+                  <tr>
+                    <td id="NegativeChord_0" class="NoteName"></td>
+                    <td id="NegativeChord_1" class="NoteName"></td>
+                    <td id="NegativeChord_2" class="NoteName"></td>
+                    <td id="NegativeChord_3" class="NoteName"></td>
+                    <td id="NegativeChord_4" class="NoteName"></td>
+                    <td id="NegativeChord_5" class="NoteName"></td>
+                    <td id="NegativeChord_6" class="NoteName"></td>
+                    <td id="NegativeChord_7" class="NoteName"></td>
+                    <td id="NegativeChord_8" class="NoteName"></td>
+                    <td id="NegativeChord_9" class="NoteName"></td>
+                    <td id="NegativeChord_10" class="NoteName"></td>
+                    <td id="NegativeChord_11" class="NoteName"></td>
+                  </tr>
+                </table>
+
+                <div class="N_key">
+                  <div class="N_clef">
+                    <div id="Negative_clef_image" class="N_clef_img"></div>
+                  </div>
+                  <div class="N_Pair">
+                    <div id="EqualKeyCenterInfo" class="InfoPoint py-2">キーセンターから距離が等しい音のペア</div>
+                    <a id="NegativeNotePair_0"></a><br>
+                    <a id="NegativeNotePair_1"></a><br>
+                    <a id="NegativeNotePair_2"></a><br>
+                    <a id="NegativeNotePair_3"></a><br>
+                    <a id="NegativeNotePair_4"></a><br>
+                    <a id="NegativeNotePair_5"></a><br>
+                    <div id="NegativePairAnnotation" class="pt-3"></div>
+                  </div>
+                </div>
+              </div>
+      `
+})
+
+//ネガティヴ化したコードネームの判定と情報のコンポーネントのインスタンスを作成する
+const negativeChordTemplate = new Vue({
+  el: '#negative-chord-template'
 })
 
 //ヘッダーのコンポーネントを定義---------------------------------

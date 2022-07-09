@@ -355,6 +355,49 @@
         </div>
       </div>
 
+      <!-- ネガティヴ・バージョンのコード -->
+      <div class="accordion py-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+              aria-expanded="true" aria-controls="collapseThree">
+              ネガティヴ・ヴァージョンのコード
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+
+            <div class="accordion-body">
+              <div>
+                <label for="NegativeKeyNumber" class="box1 col-md-4 col-xl-4 py-2 mx-2 ib">キーを指定してください。
+                  <select id="NegativeKeyNumber" class="form-select my-1" aria-label="Default select example"
+                    onchange="ModalTextCreate()">
+                    <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
+                    <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
+                    <option value=2>Dメジャー / Bマイナー (#×2)</option>
+                    <option value=3>E♭メジャー / Cマイナー (♭×3)</option>
+                    <option value=4>Eメジャー / C#マイナー (#×4)</option>
+                    <option value=5 selected>Fメジャー / Dマイナー (♭×1)</option>
+                    <option value=6>F#メジャー / D#マイナー (#×6)</option>
+                    <option value=7>Gメジャー / Eマイナー (#×1)</option>
+                    <option value=8>A♭メジャー / Fマイナー (♭×4)</option>
+                    <option value=9>Aメジャー / F#マイナー (#×3)</option>
+                    <option value=10>B♭メジャー / Gマイナー (♭×2)</option>
+                    <option value=11>Bメジャー / G#マイナー (#×5)</option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- ネガティヴ化されたコードネームの判定と情報をJavaScriptで書き込む -->
+              <div id="negative-chord-template">
+                <negative-chord-template></negative-chord-template>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="link-table">
         <link-table></link-table>
       </div>
@@ -387,6 +430,8 @@
       CreateCandidate();
       //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/スケール名検索用)
       ModalCandidateSelect(onoff);
+      //ネガティブ・ハーモニーを表示する関数
+      NegativeHarmony(onoff);
       //音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
       ChangeEIJG();
     });
@@ -396,6 +441,7 @@
   <script src="js/Vue.js"></script>
   <script src="js/main.js"></script>
   <script src="js/ScaleChord.js"></script>
+  <script src="js/NegativeHarmony.js"></script>
 
   <!-- シェアボタン用のJavaScript -->
   <!-- Twitter -->

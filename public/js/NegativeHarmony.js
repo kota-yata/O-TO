@@ -1,44 +1,30 @@
 'use strict';
 
+//ネガティヴ・ハーモニーを表示する関数
+function NegativeHarmony(onoff) {
+    //ネガティヴ・ハーモニーのコード・ネームの情報を判定する関数
+    let nh_onoff = NegativeChordCandidateInfo(onoff);
+
+    //ネガティヴ・ハーモニーの構成音を着色する関数
+    NegativeNoteNameColoring(nh_onoff);
+
+    //ネガティヴ・ハーモニーの音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
+    NegativeChangeEIJG();
+};
+
 //ネガティヴ・ハーモニーの音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
 function NegativeChangeEIJG() {
 
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
-    //キーの主音の値を取得
     let NegativeKeyNumber = Number(document.getElementById("NegativeKeyNumber").value);
 
-    //ルートの音の値を取得し計算
-    let RootNumber = mod((-10 * NegativeKeyNumber) - Number(document.getElementById("rootNumber").value), Octave);
-
     for (let i = 0; i < Octave; i++) {
-        document.getElementById(`NegativeChord_${i}`).innerHTML = EIJG[key_signature_names][mod(RootNumber + i, Octave)];
+        document.getElementById(`NegativeChord_${i}`).innerHTML = EIJG[key_signature_names][mod(NegativeKeyNumber + i, Octave)];
     };
-};
-
-//ネガティヴ・ハーモニーを表示する関数
-function NegativeHarmony(onoff) {
-
-    let onoff2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    for (let i = 0; i < Octave; i++) {
-        if (onoff[mod(i, Octave)] === 1) {
-            onoff2.splice(mod(7 - i, Octave), 1, 1)
-        };
-    };
-
-    //ネガティヴ・ハーモニーのコード・ネームの情報を判定する関数
-    NegativeChordCandidateInfo(onoff2);
-
-    //ネガティヴ・ハーモニーの構成音を着色する関数
-    NegativeNoteNameColoring(onoff2);
-
-    //ネガティヴ・ハーモニーの音名の表記形式を英米式/イタリア式/日本式/ドイツ式に切り替える関数
-    NegativeChangeEIJG();
-
 };
 
 //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
-function NegativeDegreePositionDrow(root_position) {
+function NegativeDegreePositionDrow(root) {
     let do_app = Number(document.getElementById("do_app").value);
     if (do_app === 0) {
         return;
@@ -55,12 +41,12 @@ function NegativeDegreePositionDrow(root_position) {
     };
     for (let i = 0; i < Octave; i++) {
         //テキストを追加する
-        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][0]}`;
-        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][1]}`;
+        document.getElementById(`Negative_Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root + i, Octave)][0]}`;
+        document.getElementById(`Negative_Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root + i, Octave)][1]}`;
         //クラスを追加する
-        document.getElementById(`Negative_Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
-        if (Degree_Tension_array[mod(-root_position + i, Octave)][1] !== "") {
-            document.getElementById(`Negative_Tension_table_${i}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
+        document.getElementById(`Negative_Degree_table_${i}`).classList.add(`Degree${mod(-root + i, Octave)}`);
+        if (Degree_Tension_array[mod(-root + i, Octave)][1] !== "") {
+            document.getElementById(`Negative_Tension_table_${i}`).classList.add(`Degree${mod(-root + i, Octave)}`);
         };
     };
 };
@@ -74,6 +60,19 @@ function NegativeNoteNameColoring(onoff) {
             document.getElementById(`NegativeChord_${i}`).className = "NoteName";
         };
     };
+};
+
+//配列をネガティブ化する関数
+function changeNegative(onoff, n_KeyNumber) {
+
+    let origin_onoff = onoff;
+    let n_onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    for (let i = 0; i < Octave; i++) {
+        n_onoff[i] = origin_onoff[mod(mod(Octave - (5 + i), Octave) + n_KeyNumber, Octave)];
+    };
+
+    return n_onoff;
 };
 
 //ネガティヴ・ハーモニーのコード・ネームの情報を判定する関数
@@ -95,7 +94,7 @@ function NegativeChordCandidateInfo(onoff) {
         OriginalRootNumber: 0,
         RootNumber: 0,
         SOF: 0,
-        onoff: [],
+        onoff: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         HowManyTones: [],
     };
 
@@ -113,6 +112,11 @@ function NegativeChordCandidateInfo(onoff) {
     document.getElementById("N_Omit5Info").innerHTML = ``;
     document.getElementById("N_TriToneInfo").innerHTML = ``;
     document.getElementById("N_Sub2Info").innerHTML = ``;
+    document.getElementById("N_OtherInterpretations").innerHTML = ``;
+
+    document.getElementById("NegativeSubstitutionInfo").innerHTML = ``;
+    document.getElementById("EqualKeyCenterInfo").innerHTML = ``;
+    document.getElementById("NegativePairAnnotation").innerHTML = ``;
 
     //---------------------------------------
     //指定キーの値を取得
@@ -128,13 +132,39 @@ function NegativeChordCandidateInfo(onoff) {
             = `${noteNames[mod(nh_Array.KeyNumber - (i * 7), Octave)][nh_Array.SOF]} - ${noteNames[mod(nh_Array.KeyNumber - (i * 5) + 7, Octave)][nh_Array.SOF]}`;
     };
 
+    //詳細情報を書き込む
+    if (CHORD_NAME !== undefined) {
+        document.getElementById(`NegativeSubstitutionInfo`).innerHTML
+            = `「${noteNames[nh_Array.KeyNumber][nh_Array.SOF]}メジャー/${noteNames[mod(nh_Array.KeyNumber + 9, Octave)][nh_Array.SOF]}マイナー${key_signature2[nh_Array.KeyNumber][nh_Array.SOF]}」で「${CHORD_NAME}」をネガティヴ化したコード`;
+    };
+
+    document.getElementById(`EqualKeyCenterInfo`).innerHTML
+        = `「${noteNames[nh_Array.KeyNumber][nh_Array.SOF]}メジャー/${noteNames[mod(nh_Array.KeyNumber + 9, Octave)][nh_Array.SOF]}マイナー${key_signature2[nh_Array.KeyNumber][nh_Array.SOF]}」のキーセンターから距離が等しい音のペア`;
+    document.getElementById("NegativePairAnnotation").innerHTML
+        = `<span class="NonChord">※このキーでのネガティヴ化は、「${noteNames[mod(nh_Array.KeyNumber + 3, Octave)][nh_Array.SOF]}メジャー/${noteNames[mod(nh_Array.KeyNumber + 0, Octave)][nh_Array.SOF]}マイナー${key_signature2[mod(nh_Array.KeyNumber + 3, Octave)][nh_Array.SOF]}からの借用」とも捉えられるでしょう。</span>
+        <br>→ <a href="https://khufrudamonotes.com/negative-harmony-app" target="_blank" rel="noopener noreferrer">ネガティヴ・ハーモニーの解説</span></a></span></font>`;
+
+    //---------------------------------------
+    // 別の解釈を格納する配列
+    let OtherInterpretationsArray = {
+        title: `<span class="InfoPoint">【このコードの別解釈】</span>`,
+        Chord: []
+    };
+
     //---------------------------------------
     //ルートの音の値を取得
     nh_Array.OriginalRootNumber = Number(document.getElementById("rootNumber").value);
-    nh_Array.RootNumber = mod((-10 * nh_Array.KeyNumber) - nh_Array.OriginalRootNumber, Octave);
+    nh_Array.RootNumber = mod(nh_Array.KeyNumber - nh_Array.OriginalRootNumber, Octave);
 
-    // 配列をコピーする
-    nh_Array.onoff = onoff;
+    //---------------------------------------
+    //配列をネガティブ化する
+    nh_Array.onoff = changeNegative(onoff, nh_Array.KeyNumber);
+
+    // 配列をルート音に対応させるために並び替える
+    for (let i = 0; i < nh_Array.OriginalRootNumber; i++) {
+        let dn = nh_Array.onoff.shift();
+        nh_Array.onoff.push(dn);
+    };
 
     //コードの最低音を取得する
     nh_Array.LowestNoteNumber = FindLowestNoteNumber(nh_Array.onoff);
@@ -143,14 +173,14 @@ function NegativeChordCandidateInfo(onoff) {
 
     //---------------------------------------
     //トライ・トーンを判定する
-    let TriToneText = [`<br>トライトーンを含むので、ドミナント機能を持ちます。<br><br><span class="InfoPoint">【このコードの主な解決先】</span>`];
-    let Sub2Text = [`<br><span class="InfoPoint">【このコードの手前に居がちなコード】</span>`]
-    TriToneText = TriTone(nh_Array.onoff, nh_Array.RootNumber, 0, TriToneText);
-    Sub2Text = Sub2(nh_Array.onoff, nh_Array.RootNumber, 0, Sub2Text);
-    TriToneText = TriTone(nh_Array.onoff, nh_Array.RootNumber, 1, TriToneText);
-    Sub2Text = Sub2(nh_Array.onoff, nh_Array.RootNumber, 1, Sub2Text);
-    TriToneText = TriTone(nh_Array.onoff, nh_Array.RootNumber, 2, TriToneText);
-    Sub2Text = Sub2(nh_Array.onoff, nh_Array.RootNumber, 2, Sub2Text);
+    nh_Array.TriTone = [`<br>トライトーンを含むので、ドミナント機能を持ちます。<br><br><span class="InfoPoint">【このコードの主な解決先】</span>`];
+    nh_Array.Sub2 = [`<br><span class="InfoPoint">【このコードの手前に居がちなコード】</span>`]
+    nh_Array.TriTone = TriTone(nh_Array.onoff, nh_Array.KeyNumber, 0, nh_Array.TriTone);
+    nh_Array.Sub2 = Sub2(nh_Array.onoff, nh_Array.KeyNumber, 0, nh_Array.Sub2);
+    nh_Array.TriTone = TriTone(nh_Array.onoff, nh_Array.KeyNumber, 1, nh_Array.TriTone);
+    nh_Array.Sub2 = Sub2(nh_Array.onoff, nh_Array.KeyNumber, 1, nh_Array.Sub2);
+    nh_Array.TriTone = TriTone(nh_Array.onoff, nh_Array.KeyNumber, 2, nh_Array.TriTone);
+    nh_Array.Sub2 = Sub2(nh_Array.onoff, nh_Array.KeyNumber, 2, nh_Array.Sub2);
 
     //トライトーンが含まれる場合トライ・トーンの情報を書き込む。
     if (nh_Array.TriTone.length >= 2) {
@@ -194,21 +224,22 @@ function NegativeChordCandidateInfo(onoff) {
         // コードの異名同音をある程度調整するための値を計算する
         let adjustment = AdjustmentEnharmonic(nh_Array.ChordName[0], nh_Array.onoff[mod(nh_Array.iNum[0] + 3, Octave)], nh_Array.onoff[mod(nh_Array.iNum[0] + 6, Octave)]);
         //コード・ネームのシャープとフラットを判定するための値を計算する。
-        nh_Array.SOF = DetermineKeySignature(mod(nh_Array.iNum[0] + nh_Array.RootNumber - adjustment, Octave));
+        nh_Array.SOF = DetermineKeySignature(mod(nh_Array.iNum[0] - adjustment, Octave));
         //コードのベース音が♯か♭かを判定する
-        let BassSOF = DetermineBassSignature(nh_Array.SOF, nh_Array.ChordName[0], mod(nh_Array.LowestNoteNumber - nh_Array.iNum[0] - nh_Array.RootNumber, Octave));
+        let BassSOF = DetermineBassSignature(nh_Array.SOF, nh_Array.ChordName[0], mod(nh_Array.KeyNumber + nh_Array.LowestNoteNumber, Octave));
         //コードのルート音
-        let RootName = noteNames[mod(nh_Array.RootNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF];
+        let RootName = noteNames[mod(nh_Array.KeyNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF];
 
         //異名同音判定が正しいか検証する
-        BassSOF = EnharmonicRejudgement(nh_Array.SOF, BassSOF, RootName, noteNames[mod(nh_Array.RootNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]);
+        BassSOF = EnharmonicRejudgement(nh_Array.SOF, BassSOF, RootName, noteNames[mod(nh_Array.KeyNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]);
+
 
         //---------------------------------------
-        if (onoff[mod(nh_Array.RootNumber + nh_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(nh_Array.RootNumber + nh_Array.iNum[0] + 5, Octave)] === 1) {
+        if (onoff[mod(nh_Array.KeyNumber + nh_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(nh_Array.KeyNumber + nh_Array.iNum[0] + 5, Octave)] === 1) {
             nh_Array.Omit5.push(`<br>M3rd（長3度）とP4th(11th)はアボイドになるので、取り扱いには注意が必要です。`);
         };
         //完全5度が省略可能かを判定する。
-        if (onoff[mod(nh_Array.RootNumber + nh_Array.iNum[0] + 7, Octave)] === 1 && nh_Array.HowManyChordTone.length >= 3) {
+        if (onoff[mod(nh_Array.KeyNumber + nh_Array.iNum[0] + 7, Octave)] === 1 && nh_Array.HowManyChordTone.length >= 3) {
             nh_Array.Omit5.push(`<br>Root（ルート音）に対してP5th（完全5度）の音は、状況に応じて省略が可能です。`);
             if (nh_Array.ChordName[0].match("sus") || nh_Array.ChordName[0].match("omit5")) {
                 //長2度(sus2)や完全4度(sus4)の場合をはじく。
@@ -218,25 +249,57 @@ function NegativeChordCandidateInfo(onoff) {
         document.getElementById("N_Omit5Info").innerHTML = nh_Array.Omit5.join().replace(/\,/g, "");
 
         //---------------------------------------
-        //軸音を含まないコード・ネームの判定(判定基準：ベース音の方がルート音よりも左側にある)
-        //コードネームをグローバル変数へ代入する
+        //その他の解釈を配列に格納していく。
+        for (let i = 1; i < nh_Array.ChordName.length; i++) {
+            let top = `${noteNames[mod(nh_Array.KeyNumber + nh_Array.iNum[i], Octave)][nh_Array.SOF]}`;
+            let bottom = `${noteNames[mod(nh_Array.KeyNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]}`;
+            if (nh_Array.ChordName[i] === "dim7"
+                || nh_Array.ChordName[i] === "aug") {
+                //何もしない
+            } else if (top === bottom) {
+                OtherInterpretationsArray.Chord
+                    .push(`・${top}${nh_Array.ChordName[i]}<br>`);
+            } else {
+                OtherInterpretationsArray.Chord
+                    .push(`・${top}${nh_Array.ChordName[i]}/${bottom}<br>`);
+            };
+        };
+        //コードネーム内の「,」を正確に表示するための処理
+        for (let i = 0; i < OtherInterpretationsArray.Chord.length; i++) {
+            OtherInterpretationsArray.Chord[i] = OtherInterpretationsArray.Chord[i].replace(/\,/g, "_");
+        };
+
+        //その他の解釈が存在する場合、まとめてHTMLに書き込む。
+        if (OtherInterpretationsArray.Chord.length >= 1) {
+            document.getElementById("N_OtherInterpretations").innerHTML
+                = `${OtherInterpretationsArray.title}<br>
+                ${OtherInterpretationsArray.Chord.join().replace(/\,/g, "").replace(/_/g, ",")}`;
+        };
+
+        //---------------------------------------
         let n_ChordName = `${RootName}${nh_Array.ChordName[0]}`;
         if (nh_Array.LowestNoteNumber === nh_Array.iNum[0]) {
             document.getElementById("N_NameOfChord").innerHTML
                 = `${n_ChordName}`;
             document.getElementById("N_HowToReadChordName").innerHTML
-                = `読み方：${noteNames[mod(nh_Array.RootNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF]}${nh_Array.HowToRead[0]}`;
+                = `読み方：${noteNames[mod(nh_Array.KeyNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF]}${nh_Array.HowToRead[0]}`;
         } else {
             document.getElementById("N_NameOfChord").innerHTML
-                = `${n_ChordName}/${noteNames[mod(nh_Array.RootNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]}`;
+                = `${n_ChordName}/${noteNames[mod(nh_Array.KeyNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]}`;
             document.getElementById("N_HowToReadChordName").innerHTML
-                = `読み方：${noteNames[mod(nh_Array.RootNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF]}${nh_Array.HowToRead[0]}
-                ・オーヴァー${noteNames[mod(nh_Array.RootNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]}（転回形）`;
+                = `読み方：${noteNames[mod(nh_Array.KeyNumber + nh_Array.iNum[0], Octave)][nh_Array.SOF]}${nh_Array.HowToRead[0]}
+                ・オーヴァー${noteNames[mod(nh_Array.KeyNumber + nh_Array.LowestNoteNumber, Octave)][BassSOF]}（転回形）`;
         };
         document.getElementById("N_ChordInfo").innerHTML
             = `${chord_container[nh_Array.jNum[0]].Info}`;
     };
 
+    if (nh_Array.iNum[0] === undefined) {
+        nh_Array.iNum[0] = 0;
+    };
+
     //コードネームに合わせてネガティヴ・ハーモニーの度数表記を描画する関数
     NegativeDegreePositionDrow(nh_Array.iNum[0]);
+
+    return nh_Array.onoff;
 };

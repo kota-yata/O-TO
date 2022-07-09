@@ -407,7 +407,7 @@ function AdjustmentEnharmonic(ChordName, m3rd, aug5) {
 
 //スラッシュコードの色付けをリセットする関数
 function SlashChordClassRemove() {
-    document.getElementById("ChordInfoTable").classList.remove("tableFixed");
+    document.getElementById("MainChordInfoTable").classList.remove("tableFixed");
     document.getElementById("NameOfSlashChord").classList.remove("HybridChordColor");
     document.getElementById("HowToReadSlashChordName").classList.remove("HybridChordColor");
     document.getElementById("NameOfSlashChord").classList.remove("USTColor");
@@ -552,7 +552,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
                 //書き込んだコードは配列から削除する。
                 OtherInterpretationsArray.shift();
                 //クラスを付与する。
-                document.getElementById("ChordInfoTable").classList.add("tableFixed");
+                document.getElementById("MainChordInfoTable").classList.add("tableFixed");
                 document.getElementById("NameOfSlashChord").classList.add("USTColor");
                 document.getElementById("HowToReadSlashChordName").classList.add("USTColor");
             };
@@ -692,7 +692,7 @@ function HybridChord(onoff, SOF, RootNumber) {
             //書き込んだ場合、別解釈からは取り除く。
             OtherInterpretationsArray.shift();
             //クラスを付与する。
-            document.getElementById("ChordInfoTable").classList.add("tableFixed");
+            document.getElementById("MainChordInfoTable").classList.add("tableFixed");
             document.getElementById("NameOfSlashChord").classList.add("HybridChordColor");
             document.getElementById("HowToReadSlashChordName").classList.add("HybridChordColor");
         };
@@ -1114,6 +1114,8 @@ function ModalTextCreate() {
     let RootNumber = Number(document.getElementById('rootNumber').value);
     //コード・ネームの情報を判定する関数
     let [BassNumber, result] = ChordCandidateInfo(onoff, RootNumber);
+    //ネガティブ・ハーモニーを表示する関数
+    NegativeHarmony(onoff);
     let count = 0;
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
     for (let i = 0; i < mod(BassNumber - RootNumber, Octave); i++) {

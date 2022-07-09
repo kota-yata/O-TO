@@ -196,7 +196,7 @@ function ScaleAndChordsDrowing() {
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
-                <table id="ChordInfoTable">
+                <table id="MainChordInfoTable" class="ChordInfoTable">
                     <tr>
                         <td id="NameOfChord" class="NameOfChord"></td>
                         <td id="NameOfSlashChord" class="NameOfChord"></td>
