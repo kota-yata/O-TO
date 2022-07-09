@@ -20,6 +20,10 @@ a {
 h5 {
   font-size: clamp(0.8rem, 0.8rem + 1vw, 1.3rem);
 }
+.MainTextColor {
+  font-weight: bold;
+  color: $mainColor;
+}
 /* --------------------------------------------------------------------------------------------- */
 /* 主な要素 */
 #contents p {
