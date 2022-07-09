@@ -86,6 +86,8 @@ function FingerboardGo() {
     ModalCandidateDegree();
     //コード・ネームの情報を判定する関数
     ChordCandidateInfo(onoff, 0);
+    //ネガティブ・ハーモニーを表示する関数
+    NegativeHarmony(onoff);
     // 鍵盤を描画する関数
     WriteKeyboard();
 };
@@ -138,6 +140,9 @@ function NoteOnOff(st, Flet, MIDI_note_number) {
 
     //コード・ネームの情報を判定する関数を実行し、返り値でルート音を取得する。
     let [BassNumber, result] = ChordCandidateInfo(onoff, RootNumber);
+
+    //ネガティブ・ハーモニーを表示する関数
+    NegativeHarmony(onoff);
 
     //コードが判定できないときはルート音はそのまま
     if (BassNumber === undefined) {
