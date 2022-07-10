@@ -416,6 +416,7 @@ function SlashChordClassRemove() {
 
 //アッパー・ストラクチャー・トライアドを求める関数
 function UpperStructureTriad(onoff, SOF, RootNumber) {
+
     let ustArray = {
         NameOfChord: [],
         HowToRead: [],
@@ -439,7 +440,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
 
     //コード構成音を格納した配列をコピーする。
     ustArray.onoff = onoff.slice();
-    //分子コードの構成音が何音か判定するための配列を作成
+    //コードの構成音が何音か判定するための配列を作成
     ustArray.HowManyTones = ustArray.onoff.filter(n => n === 1);
 
     //5音以下はUSTとして解釈するとかえってややこしいから、ここではじく。
@@ -566,9 +567,7 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
 
 //ハイブリッド・コードを求める関数
 function HybridChord(onoff, SOF, RootNumber) {
-    // いったん空にする
-    document.getElementById('NameOfSlashChord').innerHTML = ``
-    document.getElementById('HowToReadSlashChordName').innerHTML = ``
+
     //各種情報を格納する配列を定義
     let hcArray = {
         NameOfChord: [],
@@ -734,6 +733,9 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     document.getElementById("TriToneInfo").innerHTML = ``;
     document.getElementById("Sub2Info").innerHTML = ``;
     document.getElementById("OtherInterpretations").innerHTML = ``;
+    // スラッシュコードも空にする
+    document.getElementById('NameOfSlashChord').innerHTML = ``
+    document.getElementById('HowToReadSlashChordName').innerHTML = ``
 
     //---------------------------------------
     //返り値を格納する変数
