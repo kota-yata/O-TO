@@ -121,11 +121,21 @@ img {
   max-width: 100%;
   height: auto;
 }
+.site_icon{
+  position: relative;top:-2px;
+  object-fit: cover;
+  width: 30px;
+  padding:0 auto;
+  margin-right:2px;
+  &:hover{
+    opacity: 0.8;
+  }
+}
 .header_image {
   background-position: center;
   background-size: cover;
-  padding-top: 5rem;
-  margin-bottom: 1.75rem;
+  padding-top: 4rem;
+  margin-bottom: 1.2rem;
 }
 .link_image:hover {
   opacity: 0.8;
@@ -147,12 +157,7 @@ img {
   height: auto;
 }
 
-.header_image {
-  background-position: center;
-  background-size: cover;
-  padding-top: 5rem;
-  margin-bottom: 1.75rem;
-}
+
 /* --------------------------------------------------------------------------------------------- */
 /* 説明タブ */
 #tabs {
@@ -849,14 +854,20 @@ box {
   .display_none{
       display:none;
   }
-
+/* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ対応 */
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1420px) {
   .pc_only{
   display:none;
   }
 };
 
+@media only screen and (min-width: 1399px) {
+  .pc_only_none{
+  display:none;
+  }
+}
+/* --------------------------------------------------------------------------------------------- */
 /* PCだけに適応する */
 @media only screen and (min-width: 1025px) {
   .NoteName_Switch_Search:hover {
@@ -872,6 +883,7 @@ box {
     font-weight: 900;
   }
 }
+/* --------------------------------------------------------------------------------------------- */
 /* タブレット用のブレークポイント */
 @media only screen and (max-width: 1024px) {
   #scaleChordTable {
@@ -900,7 +912,6 @@ box {
 		/1rem 1fr 1fr 1rem;
 		;
   }
-
   .ChordInfo{
     display: grid;
       grid-template:
@@ -913,21 +924,18 @@ box {
     margin-top: 1rem;
     border: 0px none;
   }
-
   .link_table1{
     padding: 1.5rem;
     display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   .link_table2{
     padding: 1.5rem;
     display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   .link_table3{
     padding: 1.5rem;
     display: grid;

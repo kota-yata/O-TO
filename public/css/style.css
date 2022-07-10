@@ -130,11 +130,24 @@ img {
   height: auto;
 }
 
+.site_icon {
+  position: relative;
+  top: -2px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 30px;
+  padding: 0 auto;
+  margin-right: 2px;
+}
+.site_icon:hover {
+  opacity: 0.8;
+}
+
 .header_image {
   background-position: center;
   background-size: cover;
-  padding-top: 5rem;
-  margin-bottom: 1.75rem;
+  padding-top: 4rem;
+  margin-bottom: 1.2rem;
 }
 
 .link_image:hover {
@@ -158,13 +171,6 @@ img {
   width: 10%;
   max-width: 10%;
   height: auto;
-}
-
-.header_image {
-  background-position: center;
-  background-size: cover;
-  padding-top: 5rem;
-  margin-bottom: 1.75rem;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1026,30 +1032,35 @@ box {
   display: none;
 }
 
+/* --------------------------------------------------------------------------------------------- */
 /* レスポンシブ対応 */
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1420px) {
   .pc_only {
     display: none;
   }
 }
+@media only screen and (min-width: 1399px) {
+  .pc_only_none {
+    display: none;
+  }
+}
+/* --------------------------------------------------------------------------------------------- */
 /* PCだけに適応する */
 @media only screen and (min-width: 1025px) {
   .NoteName_Switch_Search:hover {
     background-color: #faebd7;
   }
-
   .NoteOn {
     font-weight: 900;
   }
-
   .NoteOn2 {
     font-weight: 900;
   }
-
   .NoteOn3 {
     font-weight: 900;
   }
 }
+/* --------------------------------------------------------------------------------------------- */
 /* タブレット用のブレークポイント */
 @media only screen and (max-width: 1024px) {
   #scaleChordTable {
@@ -1057,44 +1068,36 @@ box {
     table-layout: auto;
     width: 100%;
   }
-
   .hidden_tablet {
     display: none;
   }
-
   .right_column {
     display: none;
   }
-
   #footer {
     display: grid;
     grid-template: "... ....... ....... ..." 1.5rem "... footer_p footer_g ..." "... footer_b footer_i ..." "... footer_t footer_y ..." "... ....... ....... ..." 2rem "... site_logo site_logo ..." "... ....... ....... ..." 2rem "... footer_c footer_c ..." "... ....... ....... ..." 1.5rem/1rem 1fr 1fr 1rem;
   }
-
   .ChordInfo {
     display: grid;
     grid-template: "InfoArea" "ChordoArea"/1fr;
   }
-
   .ChordoAreaCharacter {
     margin-top: 1rem;
     border: 0px none;
   }
-
   .link_table1 {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   .link_table2 {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   .link_table3 {
     padding: 1.5rem;
     display: grid;
@@ -1110,7 +1113,6 @@ box {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto;
   }
-
   #scaleChordTable {
     font-size: clamp(0.1rem, 0.1rem + 1vw, 0.4rem);
     table-layout: fixed;
@@ -1119,11 +1121,9 @@ box {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
   .hidden_smart_phone {
     display: none;
   }
-
   .ChordName {
     padding: auto;
     display: inline-block;
@@ -1131,7 +1131,6 @@ box {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
   .diatonic_table {
     display: inline-block;
     width: 350px;
@@ -1142,55 +1141,46 @@ box {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
   }
-
   table.mobile-scroll {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-
   .N_key {
     border-top: dashed 1px rgb(210, 210, 210);
     display: grid;
     grid-template: "N_clef" "N_Pair"/1fr;
   }
-
   .N_clef {
     display: none;
   }
-
   /* リンクのテーブル*/
   .link_table {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
   }
-
   ul {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
   }
-
   #footer {
     display: grid;
     grid-template: "... ....... ..." 1.5rem "... footer_p ..." "... footer_g ..." "... footer_b ..." "... footer_i ..." "... footer_t ..." "... footer_y ..." "... ....... ..." 2rem "... site_logo ..." "... footer_c ..." "... ....... ..." 1.5rem/1rem 1fr 1rem;
   }
-
   .link_table1 {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
   }
-
   .link_table2 {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
   }
-
   .link_table3 {
     padding: 1.5rem;
     display: grid;

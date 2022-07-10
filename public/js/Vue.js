@@ -157,7 +157,10 @@ Vue.component('header-template', {
       <nav class="navbar navbar-expand-xxl navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
 
-      <a class="navbar-brand text-white" href="index.html">O-TO</a>
+      <a class="navbar-brand text-white" href="index.html">
+        <img class="site_icon" src="image/O-TO_Favicon.svg" alt="サイトアイコン">
+        <span class="pc_only_none">O-TO</span>
+      </a>
 
       <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -165,7 +168,6 @@ Vue.component('header-template', {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
           <li class="nav-item">
             <a class="nav-link" href="o-to-chords.html">①コード</a>
           </li>
