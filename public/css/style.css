@@ -290,7 +290,6 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .link_image2:hover {
   opacity: 0.8;
 }
@@ -877,7 +876,6 @@ box {
 .transpose_button {
   border: 1px solid rgb(210, 210, 210);
 }
-
 .transpose_button:hover {
   opacity: 0.9;
   border: 1px solid rgb(210, 210, 210);
