@@ -1126,7 +1126,7 @@ function ModalTextCreate() {
         count++;
     };
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-    ModalCandidateSelect(onoff, BassNumber);
+    ModalCandidateSelect(onoff, RootNumber);
     // 配列を元に戻すための値
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
     for (let i = 0; i < onoff.length - count; i++) {
@@ -1307,16 +1307,17 @@ function NoteSwitch(Num) {
 //ルート音から始まるスケールだけを表示するか否かを切り替えるスイッチ
 let onlyTonicModeState = 0;
 function onlyTonicModeSwitch(app_num) {
+    document.getElementById("onlyTonicMode").innerHTML = ``
     if (onlyTonicModeState === 0) {
         //ルート音から始まるスケールだけを表示する
-        document.getElementById("onlyTonicMode").innerHTML = "ルート音が主音のスケールのみ表示する"
+        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-down-left-and-up-right-to-center"></i> 構成音を含む全てのスケールを表示中`
         document.getElementById("onlyTonicMode").classList.remove("btn-success");
         document.getElementById("onlyTonicMode").classList.add("btn-secondary");
         document.getElementById("onlyTonicMode").value = 1;
         onlyTonicModeState = 1;
     } else if (onlyTonicModeState === 1) {
         //全てのスケールを表示する
-        document.getElementById("onlyTonicMode").innerHTML = "構成音を含む全てのスケールを表示する"
+        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-up-right-and-down-left-from-center"></i>  構成音を含む全てのスケールを表示する`
         document.getElementById("onlyTonicMode").classList.remove("btn-secondary");
         document.getElementById("onlyTonicMode").classList.add("btn-success");
         document.getElementById("onlyTonicMode").value = 0;

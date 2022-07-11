@@ -251,7 +251,7 @@ function ScaleAndChordsDrowing() {
                         onclick="ScaleLanguageJEFingerBoard(1)">日本語⇔English</button>
                     <button id="onlyTonicMode" type="button" class="btn btn-success box1 col-10 col-md-6 col-xl-4 mx-2 mt-2"
                         onclick="onlyTonicModeSwitch(10)">
-                    構成音を含む全てのスケールを表示する
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i> 構成音を含む全てのスケールを表示する
                     </button>
                 </div>
 
