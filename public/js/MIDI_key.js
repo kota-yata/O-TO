@@ -34,8 +34,8 @@ function setInputs(midiAccess) {
 };
 
 //MIDIデバイスへアクセスする
-// navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
-navigator.requestMIDIAccess().then(success, failure);
+navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
+
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
 function onMidiMessage(e) {
