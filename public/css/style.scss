@@ -156,7 +156,37 @@ img {
   max-width: 10%;
   height: auto;
 }
+/* --------------------------------------------------------------------------------------------- */
+// ボタン
 
+.OriginalButton{
+  cursor: pointer;
+  border: 1px solid $BorderColor;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius:10px;
+  &:hover{
+    opacity: 0.9;
+  }
+  &:active{
+    color: black;
+    background-color:white;
+    border: 1px solid $BorderColor;
+  }
+}
+
+.OriginalButtonOn{
+  color: whitesmoke;
+  background-color: $mainColor;
+  &:hover{
+    background-color: $mainColor;
+  }
+  &:active{
+    color: black;
+    background-color:white;
+    border: 1px solid $BorderColor;
+  }
+}
 
 /* --------------------------------------------------------------------------------------------- */
 /* 説明タブ */
@@ -225,7 +255,6 @@ img {
   font-weight: bold;
   background-color: white
 }
-
 /* リンクのテーブル*/
 .link_table{
   padding: 1.5rem;
@@ -730,17 +759,15 @@ box {
 .transpose_button{
   border: 1px solid $BorderColor;
   &:hover{
-  opacity: 0.9;
-  border: 1px solid $BorderColor;
+    opacity: 0.9;
+    border: 1px solid $BorderColor;
+  }
+  &:active {
+  color: #fff;
+    background-color: mediumblue;
+    border: 1px solid $BorderColor;
   }
 }
-
-.transpose_button:active {
-  color: #fff;
-  background-color: mediumblue;
-  border: 1px solid $BorderColor;
-}
-
 /* --------------------------------------------------------------------------------------------- */
 
 .Selected_keyboard{

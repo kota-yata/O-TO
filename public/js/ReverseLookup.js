@@ -239,7 +239,9 @@ function SelectedKeyboard(Root, array) {
     //一旦全ての鍵盤の着色をリセットする
     for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
         for (let j = 0; j < Octave; j++) {
-            document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
+            if (document.getElementById(`MIDI_note_number-${i}`) !== null) {
+                document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
+            };
         };
     };
     //重複するMIDIノートナンバーを削除する

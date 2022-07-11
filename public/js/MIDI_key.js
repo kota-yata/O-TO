@@ -34,8 +34,8 @@ function setInputs(midiAccess) {
 };
 
 //MIDIデバイスへアクセスする
-navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
-
+// navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
+navigator.requestMIDIAccess().then(success, failure);
 //-----------------------------------------------------
 //MIDIデバイスからメッセージが送られる時に実行
 function onMidiMessage(e) {
@@ -56,17 +56,38 @@ let CurrentBassNumber;
 let BeforeBassNumber = 0;
 let Oscillator;
 let audioSource;
+let CHORD_KEEP = true;
 //鍵盤を押した時と、離した時だけ実行される処理
 function KeyAction(str) {
     // キーオン時の設定
     if (str[0] === 144) {
         //配列にMIDIノートナンバーを追加
-        MIDI_note_number_array.push(str[1]);
-        //ベース音を判定
-        //弾いている音はonoffで1にする
-        for (let i = 0; i < Octave; i++) {
-            if (i === mod(str[1], Octave)) {
-                onoff[mod(i - BeforeBassNumber, Octave)] = 1;
+        if (MIDI_note_number_array.includes(str[1])) {
+            //既に含まれている場合は削除する
+            MIDI_note_number_array = MIDI_note_number_array.filter(function (v) {
+                return v !== str[1];
+            });
+            //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
+            let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
+                return mod(num, Octave);
+            });
+            //同じピッチクラスの音が無い場合
+            if (MIDI_note_number_array2.indexOf(mod(str[1], Octave)) === -1) {
+                //弾いていないピッチクラスの音はonoffで0にする
+                for (let i = 0; i < Octave; i++) {
+                    if (i === mod(str[1], Octave)) {
+                        onoff[mod(i - BeforeBassNumber, Octave)] = 0;
+                    };
+                };
+            };
+        } else {
+            MIDI_note_number_array.push(str[1]);
+            //ベース音を判定
+            //弾いている音はonoffで1にする
+            for (let i = 0; i < Octave; i++) {
+                if (i === mod(str[1], Octave)) {
+                    onoff[mod(i - BeforeBassNumber, Octave)] = 1;
+                };
             };
         };
         //音を鳴らす
@@ -74,12 +95,12 @@ function KeyAction(str) {
     };
 
     // キーオフ時の設定
-    if (str[0] === 128) {
+    if (str[0] === 128 && CHORD_KEEP === false) {
         //配列からMIDIノートナンバーを削除
         MIDI_note_number_array.splice(MIDI_note_number_array.indexOf(str[1]), 1);
         //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
         let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
-            return mod(num, Octave)
+            return mod(num, Octave);
         });
         //同じピッチクラスの音が無い場合
         if (MIDI_note_number_array2.indexOf(mod(str[1], Octave)) === -1) {
@@ -148,6 +169,24 @@ function KeyAction(str) {
     };
     if (result !== true) {
         degree_position_drow(0);
+    };
+};
+
+// コード情報をキープするか否か切り替える関数
+function ChordKeep() {
+    if (CHORD_KEEP === false) {
+        CHORD_KEEP = true;
+        MIDI_note_number_array = [];
+        document.getElementById("ChordKeep").innerHTML = `<i class="fa-solid fa-clock"></i> 入力をキープ中`;
+        document.getElementById("ChordKeep").classList.remove('OriginalButtonOn');
+        document.getElementById("ChordKeep").classList.add('OriginalButtonOn');
+    } else if (CHORD_KEEP === true) {
+        CHORD_KEEP = false;
+        MIDI_note_number_array = [];
+        let dummy_str = [128, 60, 72]
+        KeyAction(dummy_str);
+        document.getElementById("ChordKeep").classList.remove('OriginalButtonOn');
+        document.getElementById("ChordKeep").innerHTML = `<i class="fa-solid fa-stopwatch"></i> 入力をキープする`;
     };
 };
 
@@ -274,6 +313,7 @@ function ConvertMIDItoHZ(MIDI_note_number) {
     return 2 ** ((MIDI_note_number - 69) / 12) * 440;
 };
 
+//音を鳴らすための関数
 function Play(MIDI_note_number) {
     let input_volume = Number(document.getElementById("input_volume").value) * 0.1;
     // // ヴォリュームが0の場合はここでreturn
@@ -308,34 +348,36 @@ function Play(MIDI_note_number) {
 };
 
 //コード履歴を表示するために使うグローバル変数
-let ONE = performance.now();
-let TWO = 0;
+let TIME_ONE = performance.now();
+let TIME_TWO = 0;
 let BEFORE_CHORD_NAME;
 let CHORD_NAME_ARRAY = [];
 let ALL_CHORD_NAME_ARRAY = [];
+let MAX_CHORD_LOG = 8;
 //コード履歴機能
 function WritePastChord() {
     //以前に処理が実行されたときからの差分を求める
-    TWO = performance.now() - ONE;
+    TIME_TWO = performance.now() - TIME_ONE;
 
     if (BEFORE_CHORD_NAME !== CHORD_NAME) {
-        if (TWO > 150 && CHORD_NAME.match("N.C.")) {
+        if (TIME_TWO > 150 && CHORD_NAME.match("N.C.")) {
             //次に前回のコードと比較するために現在のコード・ネームを変数に代入しておく。
             BEFORE_CHORD_NAME = CHORD_NAME;
             //前回の処理から150ms経過している場合に処理を実行する（アルペジオに過剰に反応しないようにするため）
-        } else if (TWO > 150) {
+        } else if (TIME_TWO > 150) {
             //配列を結合するときにコードネームの「,」が消えないようにする。
             let C = CHORD_NAME.replace(/\,/g, "_");
             // 配列に現在のコード・ネームを追加する。
             CHORD_NAME_ARRAY.unshift(`<span class="highlight">${C}</span>　`);
             ALL_CHORD_NAME_ARRAY.push(`<span class="highlight ReadabilityShell">${C}</span>　`);
             //コード履歴は、最大10コードまでにする。
-            if (CHORD_NAME_ARRAY.length === 8) {
+            if (CHORD_NAME_ARRAY.length > MAX_CHORD_LOG) {
                 CHORD_NAME_ARRAY.pop();
             };
             //コード履歴をHTMLに書き込む
             document.getElementById('ChordProg').innerHTML
-                = `<span class="InfoPoint">【コード履歴】</span>${CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}<button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>`;
+                = `<button id="" class="OriginalButton" onclick="ChordHistoryReset()"><i class="fa-solid fa-trash"></i> 履歴をリセット</button><span class="InfoPoint">【コード履歴(${CHORD_NAME_ARRAY.length}/${MAX_CHORD_LOG})】</span>
+                ${CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
             document.getElementById('AllChordProg').innerHTML
                 = `${ALL_CHORD_NAME_ARRAY.join().replace(/\,/g, "").replace(/_/g, ",")}`;
             //次に前回のコードと比較するために現在のコード・ネームを変数に代入しておく。
@@ -343,7 +385,7 @@ function WritePastChord() {
         };
     };
     //次の処理のために現在の時間を代入しておく。
-    ONE = performance.now();
+    TIME_ONE = performance.now();
 };
 
 // コード履歴をリセットする関数
@@ -351,9 +393,9 @@ function ChordHistoryReset() {
     CHORD_NAME_ARRAY = [];
     ALL_CHORD_NAME_ARRAY = [];
     document.getElementById('ChordProg').innerHTML
-        = ` <span class="InfoPoint">【コード履歴】</span>
-            <span class="NonChord">（直近に入力したコードが8個まで表示されます。全てのコード履歴はページ下部で確認できます。）</span>
-            <button id="" class="transpose_button" onclick="ChordHistoryReset()">履歴をリセット</button>`;
+        = `<button id="" class="OriginalButton" onclick="ChordHistoryReset()"><i class="fa-solid fa-trash"></i> 履歴をリセット</button><span class="InfoPoint">【コード履歴(${CHORD_NAME_ARRAY.length}/${MAX_CHORD_LOG})】</span>
+            <span class="NonChord">（直近に入力したコードが${MAX_CHORD_LOG}個まで表示されます。全てのコード履歴はページ下部で確認できます。）</span>`;
     document.getElementById('AllChordProg').innerHTML
         = `<span class="NonChord">コード履歴は、前回のコードの右側に追加されていきます。</span>`;
 };
+
