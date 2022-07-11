@@ -267,12 +267,12 @@ function OpenStrings_Lock(transpose_direction) {
     //解放弦のロックボタンが押されたときの処理
     if (transpose_direction === 0 && OpenStringsLock === 0) {
         OpenStringsLock = 1;
-        document.getElementById("OpenStringsLock").innerHTML = "開放弦のロックを解除する"
+        document.getElementById("OpenStringsLock").innerHTML = `<i class="fa-solid fa-lock"></i> 開放弦の移調ロックを解除する`;
         document.getElementById("OpenStringsLock").classList.toggle("LockOff");
         document.getElementById("OpenStringsLock").classList.toggle("LockOn");
     } else if (transpose_direction === 0 && OpenStringsLock === 1) {
         OpenStringsLock = 0;
-        document.getElementById("OpenStringsLock").innerHTML = "開放弦の移調をロックする"
+        document.getElementById("OpenStringsLock").innerHTML = `<i class="fa-solid fa-unlock"></i> 開放弦の移調ロックを解除中`;
         document.getElementById("OpenStringsLock").classList.toggle("LockOff");
         document.getElementById("OpenStringsLock").classList.toggle("LockOn");
     };

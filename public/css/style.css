@@ -185,8 +185,8 @@ img {
   opacity: 0.9;
 }
 .OriginalButton:active {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: green;
   border: 1px solid rgb(210, 210, 210);
 }
 
@@ -198,8 +198,8 @@ img {
   background-color: crimson;
 }
 .OriginalButtonOn:active {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: green;
   border: 1px solid rgb(210, 210, 210);
 }
 

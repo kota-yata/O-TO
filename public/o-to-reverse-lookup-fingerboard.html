@@ -195,8 +195,8 @@
                         <p class="py-2">指板の音名は、英・米式、イタリア式、日本式、ドイツ式の4種類から選べます。</p>
                         <p class="py-2">初学者の方は、イタリア式(ドレミ…)にすると、馴染みやすいかもしれません。</p>
 
-                        <h4 class="pt-3 manual">【開放弦のロック】</h4>
-                        <p class="py-2">開放弦のロックボタンで移調ボタンで開放弦を移調するかどうかを切り替えできます。</p>
+                        <h4 class="pt-3 manual">【 開放弦の移調ロック】</h4>
+                        <p class="py-2"> 「開放弦の移調ロック」ボタンで移調ボタンで開放弦を移調するかどうかを切り替えできます。</p>
                         <p class="py-2">開放弦を使ったコードフォームを吟味する場合はロックした方が良いでしょう。</p>
 
                         <h4 class="pt-3 manual">【色付けのルール】</h4>
@@ -331,14 +331,15 @@
                 </select>
             </label>
 
-            <button id="" class="transpose_button" onclick="FingerboardGo()">指板をリセット</button>
+            <button id="" class="OriginalButton" onclick="FingerboardGo()"><i
+                    class="fa-solid fa-trash"></i>指板をリセット</button>
 
             <div class="py-1">
                 <button id="transpose_minus" class="transpose_button" onclick="transpose(-1)">
                     -1
                 </button>
                 <button id="OpenStringsLock" class="LockOn lock_button" onclick="OpenStrings_Lock(0)">
-                    開放弦のロックを解除する
+                    <i class="fa-solid fa-lock"></i> 開放弦の移調ロックを解除する
                 </button>
                 <button id="transpose_plus" class="transpose_button" onclick="transpose(1)">
                     +1
