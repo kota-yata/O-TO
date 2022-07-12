@@ -1332,6 +1332,8 @@ function onlyTonicModeSwitch(app_num) {
         ModalTextCreate();
     } else if (app_num === 3.5) {
         WriteFingerboard();
+        //モーダル・インターチェンジの候補を表示する関数
+        ModalTextCreate();
     } else if (app_num === 10) {
         // （指板用）
         ModalCandidateSelectFingerBoard();
