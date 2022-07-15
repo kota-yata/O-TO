@@ -176,7 +176,17 @@ function Validation(text) {
         if (ValidationText.includes('#5') || ValidationText.includes('♭5') || ValidationText.includes('♭9') || ValidationText.includes('#9') || ValidationText.includes('#11') || ValidationText.includes('♭13')) {
             document.getElementById("ValidationBox").innerHTML = "";
         } else {
-            document.getElementById("ValidationBox").innerHTML = `<font color="red">【正しく変換できませんでした。】<br>・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>・「ディグリーネームの変化記号」の位置が誤っている可能性があります。<br>　※ディグリーネームの変化記号は、ローマ数字の左側に書きます。<br>　例：#Ⅳ<br><br>【バグの疑いがある場合】<br>お手数をおかけしますが、ページ下部の「バグの報告」より入力したコード進行とともにその旨をお知らせください。</font>`;
+            document.getElementById("ValidationBox").innerHTML
+                = `<font color="red">【正しく変換できませんでした。】<br>
+                ・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>
+                ・"ディグリーネームの変化記号"の位置を確認してください。<br>
+                　※"ディグリーネームの変化記号"は、<b>ローマ数字の左側</b>に書きます。<br>
+                　→例：#Ⅳ<br>
+                <br>
+                【その他・バグの疑いがある場合】<br>
+                お手数をおかけします。<br>
+                「<a href="https://khufrudamonotes.com/contact-english" target="_blank" rel="noreferrer noopener"><b>バグの報告</b></a>」より「<b>入力したコード進行テキスト</b>」とともにお知らせください。</font>
+                <br><br>`;
         };
     } else {
         document.getElementById("ValidationBox").innerHTML = "";
