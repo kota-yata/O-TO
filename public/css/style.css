@@ -488,18 +488,18 @@ img {
 
 .ChordInfo {
   display: grid;
-  grid-template: "InfoArea ChordoArea"/7fr 3fr;
+  grid-template: "InfoArea ChordArea"/7fr 3fr;
 }
 
 .InfoArea {
   grid-area: InfoArea;
 }
 
-.ChordoArea {
-  grid-area: ChordoArea;
+.ChordArea {
+  grid-area: ChordArea;
 }
 
-.ChordoAreaCharacter {
+.ChordAreaCharacter {
   border-left: dashed 1px rgb(210, 210, 210);
 }
 
@@ -646,27 +646,27 @@ img {
 }
 
 .DegreeText4 {
-  border-left: solid 0.5rem #01ff50;
+  border-left: solid 0.4rem #01ff50;
   padding-left: 0.2rem;
 }
 
 .DegreeText5 {
-  border-left: solid 0.3rem #ffccff;
+  border-left: solid 0.5rem #ffccff;
   padding-left: 0.2rem;
 }
 
 .DegreeText6 {
-  border-left: solid 0.2rem #e9967a;
+  border-left: solid 0.3rem #e9967a;
   padding-left: 0.2rem;
 }
 
 .DegreeText7 {
-  border-left: solid 0.3rem #fcfc04;
+  border-left: solid 0.7rem #fcfc04;
   padding-left: 0.2rem;
 }
 
 .DegreeText8 {
-  border-left: solid 0.2rem #ff6e01;
+  border-left: solid 0.3rem #ff6e01;
   padding-left: 0.2rem;
 }
 
@@ -676,7 +676,7 @@ img {
 }
 
 .DegreeText10 {
-  border-left: solid 0.2rem #ff19bd;
+  border-left: solid 0.3rem #ff19bd;
   padding-left: 0.2rem;
 }
 

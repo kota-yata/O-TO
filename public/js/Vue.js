@@ -37,7 +37,7 @@ Vue.component('chord-template', {
                     <div id="TriToneInfo"></div>
                     <div id="Sub2Info"></div>
                 </div>
-                <div class="ChordArea ChordoAreaCharacter">
+                <div class="ChordArea ChordAreaCharacter">
                   <div id="OtherInterpretations"></div>
                 </div>
               </div>

@@ -6,11 +6,23 @@
     border: solid 1px $BorderColor;
 }
 
+// 選択されている鍵盤のカラー
 @mixin SelectedKeyboardColor($BGC,$Color:black) {
     color: $Color!important;
     background-color:$BGC!important;
 }
 
+// スケール候補の左側のバー
+@mixin DegreeText($Color,$width:0.3rem){
+    border-left: solid $width $Color;
+    padding-left: 0.2rem;
+}
+
+// 転調の枠の色
+@mixin ModulationBorder($Color) {
+    outline: 10px solid $Color;
+    outline-offset: -10px;
+}
 
 @mixin FontSize() {
     font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);

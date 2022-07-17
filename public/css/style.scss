@@ -435,17 +435,17 @@ img {
 .ChordInfo{
 	display: grid;
     grid-template:
-    "InfoArea ChordoArea"
+    "InfoArea ChordArea"
 		/7fr 3fr;
 		;
 }
 .InfoArea{
   grid-area: InfoArea;
 }
-.ChordoArea{
-  grid-area: ChordoArea;
+.ChordArea{
+  grid-area: ChordArea;
 }
-.ChordoAreaCharacter{
+.ChordAreaCharacter{
   border-left: dashed 1px $BorderColor;
 }
 
@@ -474,7 +474,6 @@ img {
 
 .N_clef_img {
   padding-left:1rem;
-
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -527,102 +526,78 @@ img {
   font-weight: bold;
 }
 .DegreeText0 {
-  border-left: solid 0.8rem $DegreeColor0;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor0,0.8rem);
 }
 .DegreeText1 {
-  border-left: solid 0.3rem $DegreeColor1;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor1);
 }
 .DegreeText2 {
-  border-left: solid 0.5rem $DegreeColor2;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor2,0.5rem);
 }
 .DegreeText3 {
-  border-left: solid 0.4rem $DegreeColor3;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor3,0.4rem);
 }
 .DegreeText4 {
-  border-left: solid 0.5rem $DegreeColor4;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor4,0.4rem);
 }
 .DegreeText5 {
-  border-left: solid 0.3rem $DegreeColor5;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor5,0.5rem);
 }
 .DegreeText6 {
-  border-left: solid 0.2rem $DegreeColor6;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor6);
 }
 .DegreeText7 {
-  border-left: solid 0.3rem $DegreeColor7;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor7,0.7rem);
 }
 .DegreeText8 {
-  border-left: solid 0.2rem $DegreeColor8;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor8);
 }
 .DegreeText9 {
-  border-left: solid 0.4rem $DegreeColor9;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor9,0.4rem);
 }
 .DegreeText10 {
-  border-left: solid 0.2rem $DegreeColor10;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor10);
 }
 .DegreeText11 {
-  border-left: solid 0.3rem $DegreeColor11;
-  padding-left: 0.2rem;
+  @include DegreeText($DegreeColor11,0.3rem);
 }
 /* --------------------------------------------------------------------------------------------- */
 /* 転調の間隔 */
 .modulationBorder0 {
-  outline: 10px solid $DegreeColor0;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor0);
 }
 .modulationBorder1 {
-  outline: 10px solid $DegreeColor1;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor1);
 }
 .modulationBorder2 {
-  outline: 10px solid $DegreeColor2;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor2);
 }
 .modulationBorder3 {
-  outline: 10px solid $DegreeColor3;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor3);
 }
 .modulationBorder4 {
-  outline: 10px solid $DegreeColor4;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor4);
 }
 .modulationBorder5 {
-  outline: 10px solid $DegreeColor5;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor5);
 }
 .modulationBorder6 {
-  outline: 10px solid $DegreeColor6;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor6);
 }
 .modulationBorder7 {
-  outline: 10px solid $DegreeColor7;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor7);
 }
 .modulationBorder8 {
-  outline: 10px solid $DegreeColor8;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor8);
 }
 .modulationBorder9 {
-  outline: 10px solid $DegreeColor9;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor9);
 }
 .modulationBorder10 {
-  outline: 10px solid $DegreeColor10;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor10);
 }
 .modulationBorder11 {
-  outline: 10px solid $DegreeColor11;
-  outline-offset: -10px;
+  @include ModulationBorder($DegreeColor11);
 }
 /* --------------------------------------------------------------------------------------------- */
 /* 転調 */
