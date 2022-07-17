@@ -320,34 +320,30 @@ img {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
 }
-.tr_quarter_note{
-  border: solid 1px $BorderColor;
+#note_value{
+  margin-bottom: 1rem;
+  border-bottom:1px dashed $BorderColor;
+}
+.note_value_tr{
   margin: 1px;
+  border: solid 1px $BorderColor;
+}
+.tr_quarter_note{
   background-color: lightgoldenrodyellow;
 }
 .tr_note{
-  border: solid 1px $BorderColor;
-  margin: 1px;
   background-color: paleturquoise;
 }
 .tr_1dot_note{
-  border: solid 1px $BorderColor;
-  margin: 1px;
   background-color: palegreen;
 }
 .tr_2dot_note{
-  border: solid 1px $BorderColor;
-  margin: 1px;
   background-color: gainsboro;
 }
 .tr_tuplet_note{
-  border: solid 1px $BorderColor;
-  margin: 1px;
   background-color: white;
 }
 .tr_long_note{
-  border: solid 1px $BorderColor;
-  margin: 1px;
   background-color: gainsboro;
 }
 
