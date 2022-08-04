@@ -47,6 +47,12 @@ function TimeTypeChecker() {
     return { time_unit, time_type };
 };
 
+// テンポを手軽に倍にするボタン用の関数
+function renewalTempo(multiplier) {
+    let new_bpm = Number(document.getElementById("input_bpm").value) * multiplier;
+    document.getElementById("input_bpm").value = new_bpm;
+    NoteLength();
+};
 
 //音価の計算をして音符ありで描画する関数
 function NoteLength() {
@@ -508,4 +514,5 @@ function barLength() {
         document.getElementById("barInfo").innerHTML = ``
     };
 };
+
 

@@ -206,25 +206,31 @@
             </div>
           </div>
 
-          <div class="row py-2">
+          <label for="input_bpm" class="box1 row-cols-md-3 col-xxl-4">BPM
+            <input id=input_bpm type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='3'
+              value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength()">
+          </label>
 
-            <label for="input_bpm" class="box1 col-6 col-xxl-4">BPM
-              <input id=input_bpm type="number" class="form-control my-1 mb-3" pattern="^[0-9]+$" maxlength='3'
-                value="120" placeholder=BPM aria-label="BPM" onchange="NoteLength()">
-            </label>
+          <button class="OriginalButton" onclick="renewalTempo(2)">
+            ×2
+          </button>
 
-            <label for="time_unit" class="box2 col-6 col-xxl-2">表示形式
-              <select id="time_unit" class="form-select my-1" aria-label="Default select example"
-                onchange="NoteLength()">
-                <option value=秒>秒</option>
-                <option value=ミリ秒>ミリ秒</option>
-                <option value=マイクロ秒>マイクロ秒</option>
-                <option value=sec>sec</option>
-                <option value=ms selected>ms</option>
-                <option value=μs>μs</option>
-              </select>
-            </label>
-          </div>
+          <button class="OriginalButton" onclick="renewalTempo(0.5)">
+            ×1/2
+          </button>
+
+          <label for="time_unit" class="box2 col-3 col-xxl-2">表示形式
+            <select id="time_unit" class="form-select my-1" aria-label="Default select example" onchange="NoteLength()">
+              <option value=秒>秒</option>
+              <option value=ミリ秒>ミリ秒</option>
+              <option value=マイクロ秒>マイクロ秒</option>
+              <option value=sec>sec</option>
+              <option value=ms selected>ms</option>
+              <option value=μs>μs</option>
+            </select>
+          </label>
+
+
 
           <!-- 音価を表示するテーブル -->
           <table class="box_table">
