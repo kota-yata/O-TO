@@ -290,28 +290,6 @@ function SelectedPosition(MIDI_note_number_array, Root) {
 };
 
 //-----------------------------------------------------
-//変数contextを定義する
-let context;
-//AudioContextを作成する関数
-function init() {
-    try {
-        //webkitプレフィックスをつける。（WebKit使用のブラウザに対応するため）
-        window.AudioContext
-            = window.AudioContext || window.webkitAudioContext;
-        //AudioContextを生成する
-        context = new AudioContext();
-        console.log('new AudioContext');
-    } catch (e) {
-        //try内の処理がエラーの場合、それをユーザーに伝える。
-        alert('このブラウザではWeb Audio APIはサポートされていません。（音が出せません。）Web Audio API is not supported by this browser. (Cannot play sound.)');
-    };
-    return context;
-};
-
-// MIDIノートナンバーを周波数に変換する関数
-function ConvertMIDItoHZ(MIDI_note_number) {
-    return 2 ** ((MIDI_note_number - 69) / 12) * 440;
-};
 
 //音を鳴らすための関数
 function Play(MIDI_note_number) {
@@ -321,7 +299,7 @@ function Play(MIDI_note_number) {
         return;
     };
     init();
-    const Oscillator = context.createOscillator(); 7
+    const Oscillator = context.createOscillator();
     //波形を決定する
     let waveform = document.getElementById("waveform").value;
     Oscillator.type = waveform;

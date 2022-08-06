@@ -20,6 +20,30 @@ function aryMin(a, b) {
     return Math.min(a, b);
 };
 
+//変数contextを定義する
+let context;
+
+//AudioContextを作成する関数
+function init() {
+    try {
+        //webkitプレフィックスをつける。（WebKit使用のブラウザに対応するため）
+        window.AudioContext
+            = window.AudioContext || window.webkitAudioContext;
+        //AudioContextを生成する
+        context = new AudioContext();
+        console.log('new AudioContext');
+    } catch (e) {
+        //try内の処理がエラーの場合、それをユーザーに伝える。
+        alert('このブラウザではWeb Audio APIはサポートされていません。（音が出せません。）Web Audio API is not supported by this browser. (Cannot play sound.)');
+    };
+    return context;
+};
+
+// MIDIノートナンバーを周波数に変換する関数
+function ConvertMIDItoHZ(MIDI_note_number) {
+    return 2 ** ((MIDI_note_number - 69) / 12) * 440;
+};
+
 //オクターブは12半音
 const Octave = 12;
 
@@ -147,13 +171,13 @@ const chordProgEight =
     { name: "裏コードで代理", chord: "Ⅱm7-♭Ⅱ7-Ⅰ", info: "裏コードは、トライトーンを共有しているドミナント7thコードです。ルート音は五度圏で反対側に位置する。", url: "" },
     { name: "フュージョン・コードで代理", chord: "Ⅱm7-Ⅳ/Ⅴ-Ⅰ", info: "「♭Ⅶ/Ⅰ」は、ミクソリディアンの系譜のサウンド。「フュージョン・コード」とも呼ばれる。", url: "" },
     { name: "♭Ⅶm/Ⅰで代理", chord: "Ⅱm7-Ⅳm/Ⅴ-Ⅰ", info: "「♭Ⅶm/Ⅰ」は、フリジアン・ドミナントやミクソリディアン♭2ndの系譜のサウンド。", url: "" },
-    { name: "♭Ⅶdim/Ⅰで代理", chord: "Ⅱm7-Ⅳdim/Ⅴ-Ⅰ", info: "「♭Ⅶdim/Ⅰ」は、オルタードやフリジアン♭4thの系譜のサウンド。", url: "" },
+    { name: "♭Ⅶm(♭5)/Ⅰで代理", chord: "Ⅱm7-Ⅳm(♭5)/Ⅴ-Ⅰ", info: "「♭Ⅶm(♭5)/Ⅰ」は、オルタードやフリジアン♭4thの系譜のサウンド。", url: "" },
     { name: "ブラックアダー・コードで代理", chord: "Ⅱm7-Ⅳaug/Ⅴ-Ⅰ", info: "「♭Ⅶaug/Ⅰ」は、Lydian♭7thの系譜のサウンド。「ブラックアダー・コード」や「イキスギ・コード」とも呼ばれる。", url: "" },
     { name: "バックドア・ツーファイブ", chord: "Ⅳm7-♭Ⅶ7-Ⅰ", info: "同主短調のツーファイブを応用した形。", url: "" },
     { name: "Ⅳへのツーファイブ", chord: "Ⅴm7-Ⅰ7-Ⅳ", info: "Ⅳへのセカンダリー・ケーデンス", url: "" },
     { name: "Ⅵmへのツーファイブ", chord: "Ⅶm7-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
     { name: "平行短調へのツーファイブ", chord: "Ⅶm7(♭5)-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
-    { name: "クラシカル探求者", chord: "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳdim/Ⅶ-Ⅰ", info: "「ナポリの6度」っぽい響きを使いたい時に。", url: "" },
+    { name: "クラシカル探求者", chord: "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳm(♭5)/Ⅶ-Ⅰ", info: "「ナポリの6度」っぽい響きを使いたい時に。", url: "" },
     { name: "ジャズの基本形", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", info: "ジャズの基本的なコード進行だと思います。", url: "" },
     { name: "後悔", chord: "Ⅱm-Ⅵm/Ⅰ-Ⅶm7(♭5)-Ⅲ7", info: "ダークで美しい進行。", url: "" },
     { name: "助走", chord: "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", info: "サビ前などに有効です。", url: "" },

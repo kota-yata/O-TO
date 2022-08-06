@@ -312,15 +312,17 @@ function ButtonInvisible() {
 //スケールを表示するHTML要素(div)を書き込むための関数
 function WriteChordHTML(f, ChordArray) {
     let HTML_Info;
+    HTML_Info = document.getElementById(`addHTML${f}`);
+    HTML_Info.innerHTML = ""
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 0; i < ChordArray.length; i++) {
-        HTML_Info = document.getElementById(`addHTML${f}`);
         HTML_Info.insertAdjacentHTML('afterbegin',
             `<tr>
-        <th scope="row" id="row${f}-${ChordArray.length - i}"></th>
-        <td id="title${f}-${ChordArray.length - i}"></td>
-        <td id="chordProg${f}-${ChordArray.length - i}"></td>
-        </tr>`);
+                <th scope="row" id="row${f}-${ChordArray.length - i}"></th>
+                <td id="title${f}-${ChordArray.length - i}"></td>
+                <td id="chordProg${f}-${ChordArray.length - i}"></td>
+            </tr>`
+        );
     };
 };
 
@@ -338,6 +340,7 @@ function ChordCandidateCreate() {
 
 // コード進行を書き込む関数
 function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
+
     for (let i = 0; i < ChordArray.length; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${f}-${i + 1}`).innerHTML = i + 1;
@@ -350,6 +353,7 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
         };
         //コード進行の注釈ツールチップを追加する。
         document.getElementById(`title${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].info}`);
+
         if (processing === 0) {
             //コード進行（ディグリー表記）を書き込む
             document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${ChordArray[i].chord}`;
@@ -360,6 +364,11 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
             let text = DegreeChange(`${ChordArray[i].chord}`, RootNumber).replace(/-/g, " - ");
             //コード進行を書き込む
             document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${text}`;
+            //再生するボタンを追加する
+            document.getElementById(`chordProg${f}-${i + 1}`).addEventListener('click', function () { ChordSound(text) }, false);
+            document.getElementById(`chordProg${f}-${i + 1}`).classList.add("CursorPointer");
+            document.getElementById(`row${f}-${i + 1}`).addEventListener('click', function () { ChordSound(text) }, false);
+            document.getElementById(`row${f}-${i + 1}`).classList.add("CursorPointer");
             //ディグリー表記のツールチップを追加する。
             document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].chord}`);
         };
@@ -368,6 +377,8 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
 
 //コード進行を切り替える関数
 function ChangeChordProgression(processing) {
+    //スケールを表示するHTML要素(div)を書き込む関数
+    ChordCandidateCreate();
     let RootNumber = Number(document.getElementById("rootNumber").value);
     // 調号の画像を変更する
     document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[RootNumber]}" alt="調号" title="調号" id="clef2">`;
