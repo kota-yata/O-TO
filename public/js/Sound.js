@@ -30,7 +30,7 @@ const enharmonicNotePattern = [
     "F#", "G♭", "E&#119082;",
     "F&#119082;", "A&#119083;",
     "G#", "A♭",
-    "A", "G&#119082;", "B&#119083;",
+    "G&#119082;", "B&#119083;",
     "A#", "B♭", "C&#119083;",
     "A&#119082;", "C♭",
     "C", "D", "E", "F", "G", "A", "B"
@@ -94,6 +94,7 @@ function ChordSound(chordText) {
             BassNoteArray.push('Root');
         };
 
+
         // コードのルート音の音名を取得する
         for (let j = 0; j < enharmonicNotePattern.length; j++) {
             if (chordsTextArray[i].includes(enharmonicNotePattern[j])) {
@@ -135,7 +136,7 @@ function ChordSound(chordText) {
             if (chordsTextArray[i] === chord_container[j].ChordName) {
                 ChordNumArray.push(j);
                 break;
-            } else if (j === chord_container.length - 1) {
+            } else if (chord_container.length - 1 <= j) {
                 ChordNumArray.push("N.C.");
             };
         };
@@ -153,12 +154,14 @@ function ChordSound(chordText) {
         };
     };
 
+
     //AudioContextを作成する関数
     init();
 
     // コードを1秒おきに再生する。
     for (let i = 0; i < MIDINoteNumberArray.length; i++) {
         setTimeout(function () {
+
             playSound(MIDINoteNumberArray[i]);
         }, 1000 * i)
     };
