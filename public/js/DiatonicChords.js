@@ -24,49 +24,49 @@ function Chordschange() {
     let SOF = DetermineKeySignature(tonic_note_number);
 
     document.getElementById("Major_dia").innerHTML = `${noteNames[tonic][SOF]} メジャー / ${noteNames[t9][18]} マイナー ：${key_signature[tonic]}`;
-    document.getElementById("Major_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}`;
-    document.getElementById("Major_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}`;
-    document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}`;
-    document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}`;
-    document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}`;
-    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}`;
-    document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}`;
+    document.getElementById("Major_dia_1").innerHTML = `${noteNames[tonic][2]}${scale_Container[0]['diaChord4']}`;
+    document.getElementById("Major_dia_2").innerHTML = `${noteNames[t2][5]}${scale_Container[1]['diaChord4']}`;
+    document.getElementById("Major_dia_3").innerHTML = `${noteNames[t4][9]}${scale_Container[2]['diaChord4']}`;
+    document.getElementById("Major_dia_4").innerHTML = `${noteNames[t5][12]}${scale_Container[3]['diaChord4']}`;
+    document.getElementById("Major_dia_5").innerHTML = `${noteNames[t7][15]}${scale_Container[4]['diaChord4']}`;
+    document.getElementById("Major_dia_6").innerHTML = `${noteNames[t9][18]}${scale_Container[5]['diaChord4']}`;
+    document.getElementById("Major_dia_7").innerHTML = `${noteNames[t11][22]}${scale_Container[6]['diaChord4']}`;
 
     document.getElementById("Rel_HMin_dia").innerHTML = `${noteNames[t9][SOF]} ハーモニック・マイナー：${key_signature[tonic]}`;
-    document.getElementById("Rel_HMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}`;
-    document.getElementById("Rel_HMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_1").innerHTML = `${noteNames[tonic][2]}${scale_Container[9]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_2").innerHTML = `${noteNames[t2][5]}${scale_Container[10]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_3").innerHTML = `${noteNames[t4][9]}${scale_Container[11]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_4").innerHTML = `${noteNames[t5][12]}${scale_Container[12]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_5").innerHTML = `${noteNames[t8][16]}${scale_Container[13]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_6").innerHTML = `${noteNames[t9][18]}${scale_Container[7]['diaChord4']}`;
+    document.getElementById("Rel_HMin_dia_7").innerHTML = `${noteNames[t11][22]}${scale_Container[8]['diaChord4']}`;
 
     document.getElementById("Rel_MMin_dia").innerHTML = `${noteNames[t9][SOF]} メロディック・マイナー：${key_signature[tonic]}`;
-    document.getElementById("Rel_MMin_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_4").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_6").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}`;
-    document.getElementById("Rel_MMin_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_1").innerHTML = `${noteNames[tonic][2]}${scale_Container[16]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_2").innerHTML = `${noteNames[t2][5]}${scale_Container[17]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_3").innerHTML = `${noteNames[t4][9]}${scale_Container[18]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_4").innerHTML = `${noteNames[t6][13]}${scale_Container[19]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_5").innerHTML = `${noteNames[t8][16]}${scale_Container[20]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_6").innerHTML = `${noteNames[t9][18]}${scale_Container[14]['diaChord4']}`;
+    document.getElementById("Rel_MMin_dia_7").innerHTML = `${noteNames[t11][22]}${scale_Container[15]['diaChord4']}`;
 
     document.getElementById("Rel_HMaj_dia").innerHTML = `${noteNames[tonic][SOF]} ハーモニック・メジャー：${key_signature[tonic]}`;
-    document.getElementById("Rel_HMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[21]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[22]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[23]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[24]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[25]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[26]['diaChord4']}`;
-    document.getElementById("Rel_HMaj_dia_7").innerHTML = `${noteNames[t11][22]} ${scale_Container[27]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_1").innerHTML = `${noteNames[tonic][2]}${scale_Container[21]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_2").innerHTML = `${noteNames[t2][5]}${scale_Container[22]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_3").innerHTML = `${noteNames[t4][9]}${scale_Container[23]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_4").innerHTML = `${noteNames[t5][12]}${scale_Container[24]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_5").innerHTML = `${noteNames[t7][15]}${scale_Container[25]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_6").innerHTML = `${noteNames[t8][17]}${scale_Container[26]['diaChord4']}`;
+    document.getElementById("Rel_HMaj_dia_7").innerHTML = `${noteNames[t11][22]}${scale_Container[27]['diaChord4']}`;
 
     document.getElementById("Rel_MMaj_dia").innerHTML = `${noteNames[tonic][SOF]} メロディック・メジャー：${key_signature[tonic]}`;
-    document.getElementById("Rel_MMaj_dia_1").innerHTML = `${noteNames[tonic][2]} ${scale_Container[28]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_2").innerHTML = `${noteNames[t2][5]} ${scale_Container[19]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]} ${scale_Container[20]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]} ${scale_Container[14]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]} ${scale_Container[15]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]} ${scale_Container[16]['diaChord4']}`;
-    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]} ${scale_Container[17]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_1").innerHTML = `${noteNames[tonic][2]}${scale_Container[28]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_2").innerHTML = `${noteNames[t2][5]}${scale_Container[19]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_3").innerHTML = `${noteNames[t4][9]}${scale_Container[20]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_4").innerHTML = `${noteNames[t5][12]}${scale_Container[14]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_5").innerHTML = `${noteNames[t7][15]}${scale_Container[15]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_6").innerHTML = `${noteNames[t8][17]}${scale_Container[16]['diaChord4']}`;
+    document.getElementById("Rel_MMaj_dia_7").innerHTML = `${noteNames[t10][21]}${scale_Container[17]['diaChord4']}`;
 
     //同種短調を判定する
     let para_tonic_note_number = tonic_note_number + 3;
@@ -88,31 +88,31 @@ function Chordschange() {
     SOF = DetermineKeySignature(para_tonic_note_number);
 
     document.getElementById("Para_Minor_dia").innerHTML = `${noteNames[t9][18]} マイナー / ${noteNames[tonic][2]}メジャー：${key_signature[tonic]}`;
-    document.getElementById("Para_Minor_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[5]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[6]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[0]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[1]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[2]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[3]['diaChord4']}`;
-    document.getElementById("Para_Minor_dia_7").innerHTML = `${noteNames[t7][15]} ${scale_Container[4]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_1").innerHTML = `${noteNames[t9][18]}${scale_Container[5]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_2").innerHTML = `${noteNames[t11][22]}${scale_Container[6]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_3").innerHTML = `${noteNames[tonic][2]}${scale_Container[0]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_4").innerHTML = `${noteNames[t2][5]}${scale_Container[1]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_5").innerHTML = `${noteNames[t4][9]}${scale_Container[2]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_6").innerHTML = `${noteNames[t5][12]}${scale_Container[3]['diaChord4']}`;
+    document.getElementById("Para_Minor_dia_7").innerHTML = `${noteNames[t7][15]}${scale_Container[4]['diaChord4']}`;
 
     document.getElementById("Para_HMin_dia").innerHTML = `${noteNames[t9][18]} ハーモニック・マイナー：${key_signature[tonic]}`;
-    document.getElementById("Para_HMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[7]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[8]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[9]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[10]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[11]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_6").innerHTML = `${noteNames[t5][12]} ${scale_Container[12]['diaChord4']}`;
-    document.getElementById("Para_HMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[13]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_1").innerHTML = `${noteNames[t9][18]}${scale_Container[7]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_2").innerHTML = `${noteNames[t11][22]}${scale_Container[8]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_3").innerHTML = `${noteNames[tonic][2]}${scale_Container[9]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_4").innerHTML = `${noteNames[t2][5]}${scale_Container[10]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_5").innerHTML = `${noteNames[t4][9]}${scale_Container[11]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_6").innerHTML = `${noteNames[t5][12]}${scale_Container[12]['diaChord4']}`;
+    document.getElementById("Para_HMin_dia_7").innerHTML = `${noteNames[t8][16]}${scale_Container[13]['diaChord4']}`;
 
     document.getElementById("Para_MMin_dia").innerHTML = `${noteNames[t9][18]} メロディック・マイナー：${key_signature[tonic]}`;
-    document.getElementById("Para_MMin_dia_1").innerHTML = `${noteNames[t9][18]} ${scale_Container[14]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_2").innerHTML = `${noteNames[t11][22]} ${scale_Container[15]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_3").innerHTML = `${noteNames[tonic][2]} ${scale_Container[16]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_4").innerHTML = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_5").innerHTML = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_6").innerHTML = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}`;
-    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]} ${scale_Container[20]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_1").innerHTML = `${noteNames[t9][18]}${scale_Container[14]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_2").innerHTML = `${noteNames[t11][22]}${scale_Container[15]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_3").innerHTML = `${noteNames[tonic][2]}${scale_Container[16]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_4").innerHTML = `${noteNames[t2][5]}${scale_Container[17]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_5").innerHTML = `${noteNames[t4][9]}${scale_Container[18]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_6").innerHTML = `${noteNames[t6][13]}${scale_Container[19]['diaChord4']}`;
+    document.getElementById("Para_MMin_dia_7").innerHTML = `${noteNames[t8][16]}${scale_Container[20]['diaChord4']}`;
 
     document.getElementById("degree_change_button").className = "btn btn-primary box1 col-10 offset-2 col-md-4 col-xl-3 m-2"
     onoff_ChordsAndModeChange = 0;
@@ -242,7 +242,7 @@ function ChordsAndModeChange() {
 };
 
 //ディグリーネームで表示するための関数(ダイアトニック・コード)
-document.getElementById("degree_button"); function degree() {
+function degree() {
 
     document.getElementById("degree_change_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";
     document.getElementById("degree_button").className = "btn btn-secondary box1 col-10 offset-2 col-md-4 col-xl-3 m-2";

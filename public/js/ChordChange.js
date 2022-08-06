@@ -340,7 +340,6 @@ function ChordCandidateCreate() {
 
 // コード進行を書き込む関数
 function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
-
     for (let i = 0; i < ChordArray.length; i++) {
         //コード進行のナンバーを表示する
         document.getElementById(`row${f}-${i + 1}`).innerHTML = i + 1;

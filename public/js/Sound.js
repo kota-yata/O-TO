@@ -66,11 +66,15 @@ function ConvertToNoteNumber(NoteStr) {
     return noteNumber;
 };
 
-function ChordSound(chordText) {
+//コード進行のテキストをMIDIノートナンバーへ変換する関数
+function ChordTextToMIDINoteNumber(chordText) {
     //テキストの「-」を削除する。
     chordText = chordText.replace(/　/g, " ").replace(/ -/g, "")
     //コードの表記ゆれを矯正する。
-    chordText = chordText.replace(/△/g, "Maj").replace(/5add9/g, "sus2")
+    chordText = chordText
+        .replace(/△/g, "Maj")
+        .replace(/5add9/g, "sus2")
+        .replace(/-/g, "m")
     //テキストをコードネームごとに分割する。
     let chordsTextArray = chordText.split(' ').filter(s => s !== "");
     let ChordNumArray = [];
@@ -93,7 +97,6 @@ function ChordSound(chordText) {
         } else {
             BassNoteArray.push('Root');
         };
-
 
         // コードのルート音の音名を取得する
         for (let j = 0; j < enharmonicNotePattern.length; j++) {
@@ -154,18 +157,24 @@ function ChordSound(chordText) {
         };
     };
 
+    return MIDINoteNumberArray;
+};
 
-    //AudioContextを作成する関数
+function ChordSound(chordText) {
+    //コード進行のテキストをMIDIノートナンバーへ変換する
+    let MIDINoteNumberArray = ChordTextToMIDINoteNumber(chordText);
+
+    //AudioContextを作成する
     init();
 
     // コードを1秒おきに再生する。
     for (let i = 0; i < MIDINoteNumberArray.length; i++) {
         setTimeout(function () {
-
             playSound(MIDINoteNumberArray[i]);
         }, 1000 * i)
     };
 };
+
 
 // コードの音を鳴らす関数
 function playSound(MIDINoteNumberArray) {
