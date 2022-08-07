@@ -190,6 +190,10 @@ img {
 
 .CursorPointer{
   cursor: pointer;
+    &:hover{
+    font-weight: bold;
+    background-color: aqua;
+  }
 }
 
 /* --------------------------------------------------------------------------------------------- */
