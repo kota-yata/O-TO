@@ -109,7 +109,7 @@ const chordProgOne =
     { name: "モノクローム", chord: "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7", info: "カノン進行冒頭の定番変形パターンのひとつ。Ⅵmへのセカンダリー・ケーデンスを差し込んだもの。", url: "https://youtu.be/ony539T074w?t=2" },
     { name: "リラックス", chord: "Ⅰ-Ⅱm7-Ⅰ/Ⅲ-Ⅳ", info: "ベースが順次進行で上昇。凪な空気感。", url: "" },
     { name: "ヌケ感", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", info: "シンプルでモダンな雰囲気が出せる。", url: "" },
-    { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵｍ-Ⅴ", info: "溢れ出るノスタルジー。", url: "https://youtu.be/p-RLC9ZgjhY?t=31" },
+    { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵm-Ⅴ", info: "溢れ出るノスタルジー。", url: "https://youtu.be/p-RLC9ZgjhY?t=31" },
     { name: "優雅", chord: "Ⅰ△7-#Ⅰdim7-Ⅱm7-Ⅴ7", info: "パッシング・ディミニッシュはいかが？", url: "" },
     { name: "幻想的", chord: "Ⅰ-♭Ⅶ-♭Ⅵ-♭Ⅶ", info: "平行短調からの借用和音を絡めた響きを使いたいときに。", url: "" },
     { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
