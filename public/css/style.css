@@ -208,7 +208,11 @@ img {
 }
 .CursorPointer:hover {
   font-weight: bold;
-  background-color: aqua;
+  background-color: #faebd7;
+}
+.CursorPointer:active {
+  background-color: crimson;
+  color: white;
 }
 
 /* --------------------------------------------------------------------------------------------- */

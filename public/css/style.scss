@@ -191,8 +191,12 @@ img {
 .CursorPointer{
   cursor: pointer;
     &:hover{
-    font-weight: bold;
-    background-color: aqua;
+      font-weight: bold;
+      background-color: #faebd7;
+  }
+    &:active{
+      background-color: $mainColor;
+      color: white;
   }
 }
 
