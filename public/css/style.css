@@ -1183,6 +1183,13 @@ box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .ChordInfo {
+    display: grid;
+    grid-template: "InfoArea" "..." 1rem "ChordArea"/1fr;
+  }
+  .ChordAreaCharacter {
+    border-left: none;
+  }
   .N_key {
     border-top: dashed 1px rgb(210, 210, 210);
     display: grid;
