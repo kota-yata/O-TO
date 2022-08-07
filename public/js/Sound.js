@@ -160,18 +160,28 @@ function ChordTextToMIDINoteNumber(chordText) {
     return MIDINoteNumberArray;
 };
 
+let TIMER_ID_ARRAY = [];
+
 function ChordSound(chordText) {
+
     //コード進行のテキストをMIDIノートナンバーへ変換する
     let MIDINoteNumberArray = ChordTextToMIDINoteNumber(chordText);
+
+    //既に再生されているコード音があれば停止する
+    for (let i = 0; i < TIMER_ID_ARRAY.length; i++) {
+        clearTimeout(TIMER_ID_ARRAY[i])
+    };
+    TIMER_ID_ARRAY = [];
 
     //AudioContextを作成する
     init();
 
     // コードを1秒おきに再生する。
     for (let i = 0; i < MIDINoteNumberArray.length; i++) {
-        setTimeout(function () {
+        let TIMER_ID = setTimeout(function () {
             playSound(MIDINoteNumberArray[i]);
         }, 1000 * i)
+        TIMER_ID_ARRAY.push(TIMER_ID);
     };
 };
 
