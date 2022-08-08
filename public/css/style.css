@@ -505,10 +505,12 @@ img {
 
 .InfoArea {
   grid-area: InfoArea;
+  overflow: hidden;
 }
 
 .ChordArea {
   grid-area: ChordArea;
+  overflow: hidden;
 }
 
 .ChordAreaCharacter {

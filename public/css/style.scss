@@ -453,9 +453,11 @@ img {
 }
 .InfoArea{
   grid-area: InfoArea;
+  overflow: hidden;
 }
 .ChordArea{
   grid-area: ChordArea;
+  overflow: hidden;
 }
 .ChordAreaCharacter{
   border-left: dashed 1px $BorderColor;
