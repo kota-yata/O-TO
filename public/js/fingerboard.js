@@ -196,28 +196,26 @@ function ScaleAndChordsDrowing() {
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
-                <table id="MainChordInfoTable" class="ChordInfoTable">
-                    <tr>
-                        <td id="NameOfChord" class="NameOfChord"></td>
-                        <td id="NameOfSlashChord" class="NameOfChord"></td>
-                    </tr>
-                    <tr>
-                        <td id="HowToReadChordName" class="HowToReadChord"></td>
-                        <td id="HowToReadSlashChordName" class="HowToReadChord"></td>
-                    </tr>
-                </table>
-                <div class="ChordInfo">
-                    <div class="InfoArea">
-                        <div id="ChordInfo"></div>
-                        <div id="Omit5Info"></div>
-                        <div id="HowManyChordTone"></div>
-                        <div id="TriToneInfo"></div>
-                        <div id="Sub2Info"></div>
+
+                    <div id="MainChordInfoTable" class="ChordInfoTable">
+                        <div id="NameOfChord" class="NameOfChord"></div>
+                        <div id="NameOfSlashChord" class="NameOfChord"></div>
+                        <div id="HowToReadChordName" class="HowToReadChord"></div>
+                        <div id="HowToReadSlashChordName" class="HowToReadChord"></div>
                     </div>
-                    <div class="ChordArea ChordAreaCharacter">
-                        <div id="OtherInterpretations"></div>
+                    <div class="ChordInfo">
+                        <div class="InfoArea">
+                            <div id="ChordInfo"></div>
+                            <div id="Omit5Info"></div>
+                            <div id="HowManyChordTone"></div>
+                            <div id="TriToneInfo"></div>
+                            <div id="Sub2Info"></div>
+                        </div>
+                        <div class="ChordArea ChordAreaCharacter">
+                            <div id="OtherInterpretations"></div>
+                        </div>
                     </div>
-                </div>
+
 
                 </div>
             </div>

@@ -445,7 +445,7 @@ img {
 
 /* --------------------------------------------------------------------------------------------- */
 .ChordInfoTable {
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
   width: 100%;
   padding-bottom: 0.5rem;
@@ -496,6 +496,27 @@ img {
 
 .USTColor {
   color: mediumblue;
+}
+
+#MainChordInfoTable {
+  display: grid;
+  grid-template: "NameOfChord NameOfSlashChord " "HowToReadChordName HowToReadSlashChordName"/1fr 1fr;
+}
+
+#NameOfChord {
+  grid-area: NameOfChord;
+}
+
+#HowToReadChordName {
+  grid-area: HowToReadChordName;
+}
+
+#NameOfSlashChord {
+  grid-area: NameOfSlashChord;
+}
+
+#HowToReadSlashChordName {
+  grid-area: HowToReadSlashChordName;
 }
 
 .ChordInfo {
@@ -1119,7 +1140,7 @@ box {
   }
   .ChordInfo {
     display: grid;
-    grid-template: "InfoArea" "ChordoArea"/1fr;
+    grid-template: "InfoArea" "..." 1rem "ChordArea"/1fr;
   }
   .ChordoAreaCharacter {
     margin-top: 1rem;
@@ -1185,12 +1206,12 @@ box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .ChordInfo {
-    display: grid;
-    grid-template: "InfoArea" "..." 1rem "ChordArea"/1fr;
-  }
   .ChordAreaCharacter {
     border-left: none;
+  }
+  #MainChordInfoTable {
+    display: grid;
+    grid-template: "NameOfChord" "HowToReadChordName" "NameOfSlashChord" "HowToReadSlashChordName"/1fr;
   }
   .N_key {
     border-top: dashed 1px rgb(210, 210, 210);

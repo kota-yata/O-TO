@@ -18,18 +18,14 @@ const headTemplate = new Vue({
 //コードネームの判定と情報のコンポーネントを定義---------------------------------
 Vue.component('chord-template', {
   template: `
-            <div>
-              <table id="MainChordInfoTable" class="ChordInfoTable">
-                <tr>
-                  <td id="NameOfChord" class="NameOfChord"></td>
-                  <td id="NameOfSlashChord" class="NameOfChord"></td>
-                </tr>
-                <tr>
-                  <td id="HowToReadChordName" class="HowToReadChord"></td>
-                  <td id="HowToReadSlashChordName" class="HowToReadChord"></td>
-                </tr>
-              </table>
-              <div class="ChordInfo">
+        <div>
+            <div id="MainChordInfoTable" class="ChordInfoTable">
+                <div id="NameOfChord" class="NameOfChord"></div>
+                <div id="NameOfSlashChord" class="NameOfChord"></div>
+                <div id="HowToReadChordName" class="HowToReadChord"></div>
+                <div id="HowToReadSlashChordName" class="HowToReadChord"></div>
+            </div>
+            <div class="ChordInfo">
                 <div class="InfoArea">
                     <div id="ChordInfo"></div>
                     <div id="Omit5Info"></div>
@@ -38,10 +34,10 @@ Vue.component('chord-template', {
                     <div id="Sub2Info"></div>
                 </div>
                 <div class="ChordArea ChordAreaCharacter">
-                  <div id="OtherInterpretations"></div>
+                    <div id="OtherInterpretations"></div>
                 </div>
-              </div>
             </div>
+        </div>
       `
 })
 

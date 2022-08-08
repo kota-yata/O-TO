@@ -402,7 +402,7 @@ img {
 /* --------------------------------------------------------------------------------------------- */
 // コード情報
 .ChordInfoTable{
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
   width: 100%;
   padding-bottom: 0.5rem;
@@ -444,6 +444,27 @@ img {
 .USTColor{
   color: mediumblue;
 }
+
+#MainChordInfoTable{
+  display: grid;
+      grid-template:
+  "NameOfChord NameOfSlashChord "
+  "HowToReadChordName HowToReadSlashChordName"
+	/1fr 1fr;
+	;
+}
+#NameOfChord{
+  grid-area: NameOfChord;
+}
+#HowToReadChordName{
+  grid-area: HowToReadChordName;
+}
+#NameOfSlashChord{
+  grid-area: NameOfSlashChord;
+}
+#HowToReadSlashChordName{
+  grid-area: HowToReadSlashChordName;
+}
 .ChordInfo{
 	display: grid;
     grid-template:
@@ -474,18 +495,15 @@ img {
 		/1fr 3fr;
 		;
 };
-
 .N_clef{
   grid-area:N_clef;
   border-right: dashed 1px $BorderColor;
   padding-right:1rem;
   margin-right:1rem;
 };
-
 .N_Pair{
   grid-area:N_Pair;
 };
-
 .N_clef_img {
   padding-left:1rem;
 }
@@ -534,6 +552,7 @@ img {
 .Degree11 {
   @include DegreeColor($DegreeColor11);
 }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記テキスト */
 .DegreeText:hover {
@@ -575,6 +594,7 @@ img {
 .DegreeText11 {
   @include DegreeText($DegreeColor11,0.3rem);
 }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 転調の間隔 */
 .modulationBorder0 {
@@ -613,6 +633,7 @@ img {
 .modulationBorder11 {
   @include ModulationBorder($DegreeColor11);
 }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 転調 */
 #modulationTable {
@@ -636,6 +657,7 @@ img {
 .gainsboro {
   background: #dcdcdc;
 }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 移調 */
 textarea {
@@ -711,6 +733,7 @@ box {
 .FletNumber{
   border: 1px solid $BorderColor;
 }
+
 /* --------------------------------------------------------------------------------------------- */
 /* 指板 */
 .ReverseLookupBox{
@@ -753,8 +776,8 @@ box {
     border: 1px solid $BorderColor;
   }
 }
-/* --------------------------------------------------------------------------------------------- */
 
+/* --------------------------------------------------------------------------------------------- */
 .Selected_keyboard{
     background-color: $mainColor!important;
 }
@@ -923,12 +946,16 @@ box {
 		;
   }
   .ChordInfo{
-    display: grid;
-      grid-template:
-      "InfoArea"
-      "ChordoArea"
-      /1fr;
-      ;
+	display: grid;
+    grid-template:
+    "InfoArea"
+    "..." 1rem
+    "ChordArea"
+		/1fr;
+		;
+  }
+  .ChordAreaCharacter{
+  border-left:none;
   }
   .ChordoAreaCharacter{
     margin-top: 1rem;
@@ -994,21 +1021,17 @@ box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-
-  .ChordInfo{
-	display: grid;
-    grid-template:
-    "InfoArea"
-    "..." 1rem
-    "ChordArea"
+  //-----------------------
+  #MainChordInfoTable{
+    display: grid;
+        grid-template:
+    "NameOfChord"
+    "HowToReadChordName"
+    "NameOfSlashChord"
+    "HowToReadSlashChordName"
 		/1fr;
 		;
   }
-
-  .ChordAreaCharacter{
-  border-left:none;
-  }
-
   //-----------------------
   .N_key{
   border-top: dashed 1px $BorderColor;
