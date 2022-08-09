@@ -160,13 +160,11 @@ function ChordTextToMIDINoteNumber(chordText) {
     return MIDINoteNumberArray;
 };
 
+//setTimeout用のグローバル変数
 let TIMER_ID_ARRAY = [];
 
-function ChordSound(chordText) {
-
-    //コード進行のテキストをMIDIノートナンバーへ変換する
-    let MIDINoteNumberArray = ChordTextToMIDINoteNumber(chordText);
-
+//MIDIノートナンバーの配列を渡すと音を再生する関数
+function confirmationSound(Array, NoteLength = 1000) {
     //既に再生されているコード音があれば停止する
     for (let i = 0; i < TIMER_ID_ARRAY.length; i++) {
         clearTimeout(TIMER_ID_ARRAY[i])
@@ -177,17 +175,22 @@ function ChordSound(chordText) {
     init();
 
     // コードを1秒おきに再生する。
-    for (let i = 0; i < MIDINoteNumberArray.length; i++) {
+    for (let i = 0; i < Array.length; i++) {
         let TIMER_ID = setTimeout(function () {
-            playSound(MIDINoteNumberArray[i]);
-        }, 1000 * i)
+            playSound(Array[i], NoteLength);
+        }, NoteLength * i)
         TIMER_ID_ARRAY.push(TIMER_ID);
     };
 };
 
+function ChordSound(chordText) {
+    //コード進行のテキストをMIDIノートナンバーへ変換する
+    let MIDINoteNumberArray = ChordTextToMIDINoteNumber(chordText);
+    confirmationSound(MIDINoteNumberArray)
+};
 
 // コードの音を鳴らす関数
-function playSound(MIDINoteNumberArray) {
+function playSound(MIDINoteNumberArray, NoteLength) {
     for (let k = 0; k < MIDINoteNumberArray.length; k++) {
         let input_volume = Number(document.getElementById("input_volume").value) * 0.025;
         // // ヴォリュームが0の場合はここでreturn
@@ -207,7 +210,7 @@ function playSound(MIDINoteNumberArray) {
         //startTimeの音量をセット
         gain.gain.setValueAtTime(input_volume, startTime);
         // フェードアウトまでの時間
-        let endTime = startTime + 0.6;
+        let endTime = startTime + (NoteLength / 1000) - 0.2;
         //フェードアウト後のヴォリュームとフェードアウトまでの時間を渡す
         gain.gain.linearRampToValueAtTime(input_volume, endTime - 0.01);
         gain.gain.linearRampToValueAtTime(0, endTime);

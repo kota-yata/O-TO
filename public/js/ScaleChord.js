@@ -1210,8 +1210,6 @@ function KeyboardColoring(onoff, Root) {
         };
     };
 
-    let array = [];
-
     //鍵盤が足らない場合は増やす（13テンションを含むEとFがルートのコードの場合）
     if (Root === 4 && DetermineCompoundInterval(9) === true
         || Root === 5 && DetermineCompoundInterval(9) === true) {
@@ -1226,6 +1224,8 @@ function KeyboardColoring(onoff, Root) {
     } else if (Root <= 5) {
         Root += Octave;
     };
+
+    let array = [];
 
     // 配列onoffをMIDIノートナンバーに変換する
     for (let i = 0; i < Octave; i++) {
@@ -1251,6 +1251,33 @@ function KeyboardColoring(onoff, Root) {
             let j = mod(array[i] - Root, Octave);
             document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
         };
+    };
+
+    //音声で確認するための音を格納する配列
+    let confirmationArray = []
+
+    if (CHORD_NAME === undefined) {
+        for (let i = 0; i < array.length; i++) {
+            //スケールの時は1音ずつ格納する
+            confirmationArray.push([array[i]])
+        };
+        //低い音から並び替える
+        confirmationArray.sort();
+        //ボタンイベントとして登録する
+        document.getElementById("playButton")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArray, 500);
+            }, false);
+    } else {
+        // コードの時はまとめて配列に格納する
+        confirmationArray.push(array);
+        //ボタンイベントとして登録する
+        document.getElementById("playButton")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArray, 600);
+            }, false);
     };
 };
 
