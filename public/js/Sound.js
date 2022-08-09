@@ -148,13 +148,22 @@ function ChordTextToMIDINoteNumber(chordText) {
         for (let j = 0; j < Octave; j++) {
             if (chord_container[ChordNumArray[i]].ChordBinary[j] === 1) {
                 // ベースに近い順番で並べる。（ベース音のオクターブ上の値÷2より大きい場合-12する）
-                if (RootNoteArray[i] <= (RootNoteArray[i] + j) + Octave / 2 * 6) {
+                if (RootNoteArray[i] <= ((RootNoteArray[i] + j) + Octave * 6) - 6) {
                     MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + Octave * 5);
                 } else {
                     MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + Octave * 6);
                 };
             };
         };
+        //ボイシングを整える
+        for (let j = 0; j < MIDINoteNumberArray[i].length; j++) {
+            if (BassNoteArray[i] + (Octave * 6) < MIDINoteNumberArray[i][j]) {
+                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] - Octave;
+            } else if (BassNoteArray[0] + (Octave * 4) > MIDINoteNumberArray[i][j] && j !== 0) {
+                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] + Octave;
+            };
+        };
+        MIDINoteNumberArray[i].sort();
     };
 
     return MIDINoteNumberArray;
