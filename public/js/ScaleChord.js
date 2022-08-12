@@ -1177,11 +1177,13 @@ let ScaleLanguageNum = 1;
 function ScaleLanguageJE() {
     if (ScaleLanguageNum === 0) {
         ScaleLanguage = 'JapaneseName';
-        document.getElementById("scale_language_change_button").className = "btn btn-primary box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        document.getElementById("scale_language_change_button").classList.remove("btn-danger");
+        document.getElementById("scale_language_change_button").classList.add("btn-primary");
         ScaleLanguageNum = 1;
     } else if (ScaleLanguageNum === 1) {
         ScaleLanguage = 'EnglishName';
-        document.getElementById("scale_language_change_button").className = "btn btn-danger box1 col-10 col-md-3 col-xl-2 mx-2 mt-2";
+        document.getElementById("scale_language_change_button").classList.remove("btn-primary");
+        document.getElementById("scale_language_change_button").classList.add("btn-danger");
         ScaleLanguageNum = 0;
     };
 
