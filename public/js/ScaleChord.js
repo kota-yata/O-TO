@@ -762,7 +762,7 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     info_Array.LowestNoteNumber = mod(info_Array.LowestNoteNumber + RootNumber, Octave);
 
     //コードネームに合わせて度数表記を描画する関数
-    degree_position_drow(info_Array.LowestNoteNumber);
+    degree_position_drow(mod(info_Array.LowestNoteNumber - RootNumber, Octave));
 
     //---------------------------------------
     // トライトーンの判定をする
