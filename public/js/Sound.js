@@ -1,10 +1,5 @@
 'use strict';
 
-// 一番基本的なベースMIDIノートナンバーを決める
-// ベースを判定する
-
-// let chordText = "Am - E♭ - A - Fm - Am - B♭m - Dm - F#m"
-
 const enharmonicNotes = [
     "C", "B#", "D&#119083;",
     "C#", "D♭", "B&#119082;",
@@ -230,3 +225,4 @@ function playSound(MIDINoteNumberArray, NoteLength) {
         Oscillator.stop(endTime);
     };
 };
+
