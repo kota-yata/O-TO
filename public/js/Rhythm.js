@@ -460,7 +460,7 @@ function NoteInfo() {
         document.getElementById("same_length_32th_note").innerHTML = "32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>---";
     } else {
         document.getElementById("rhythm_info").innerHTML
-            = `<b>${roundToThree(rhythm_input_bpm)} BPM</b>の<b>「${rhythm_dot_name}${rhythm_note_name}${note_count_text + rhythm_tuplet_name}」</b>と同じ音価を持つ「主な音符とそのBPM」は、以下の通りです。`;
+            = `<b>BPM=${roundToThree(rhythm_input_bpm)}</b>の<b>「${rhythm_dot_name}${rhythm_note_name}${note_count_text + rhythm_tuplet_name}」</b>と<b>同じ音価(${roundToThree(note_value * time_type) + time_unit})</b>を持つ主な音符のBPMは、以下の通りです。`;
 
         document.getElementById("same_length_whole_note").innerHTML = `全音符<br><img src='./image/note/wholeNote.svg' alt='全音符' title='全音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 1) / 4))}`;
         document.getElementById("same_length_1dot_half_note").innerHTML = `付点2分<br><img src='./image/note/DHalfNote.svg' alt='付点2分音符' title='付点2分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 4 / 3) / 4))}`;
