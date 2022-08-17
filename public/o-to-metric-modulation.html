@@ -204,12 +204,12 @@
           </div>
 
           <div class="row">
-            <label for="rhythm_input_bpm" class="box1 col-6 col-xxl-2">BPM
+            <label for="rhythm_input_bpm" class="box1 col-6 col-md-2">BPM
               <input id="rhythm_input_bpm" type="number" class="form-control my-1" pattern="^[0-9]+$" maxlength='3'
                 value="120" placeholder=BPM aria-label="BPM" onchange="NoteInfo()">
             </label>
 
-            <label for="rhythm_note_type" class="box1 col-6 col-xxl-2">分音符の種類
+            <label for="rhythm_note_type" class="box1 col-6 col-md-2">分音符の種類
               <select id="rhythm_note_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=1>全音符</option>
@@ -223,7 +223,7 @@
               </select>
             </label>
 
-            <label for="rhythm_dotted_note_type" class="box1 col-6 col-xxl-2">付点の有無
+            <label for="rhythm_dotted_note_type" class="box1 col-6 col-md-2">付点の有無
               <select id="rhythm_dotted_note_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=0>なし</option>
@@ -234,7 +234,7 @@
               </select>
             </label>
 
-            <label for="rhythm_tuplet_type" class="box1 col-6 col-xxl-2">連符の種類
+            <label for="rhythm_tuplet_type" class="box1 col-6 col-md-2">連符の種類
               <select id="rhythm_tuplet_type" class="form-select my-1" aria-label="Default select example"
                 onchange="NoteInfo()">
                 <option value=1>なし</option>
@@ -266,12 +266,12 @@
           </div>
 
           <div class="row">
-            <label for="note_count" class="box1 col-6 col-xxl-2">この音符の個数
+            <label for="note_count" class="box1 col-6 col-md-3 col-xl-2">この音符の個数
               <input id="note_count" type="number" class="form-control my-1 mb-3" inputmode="decimal" maxlength="3"
                 value="1" placeholder="この音符の個数" aria-label="この音符の個数" onchange="NoteInfo()">
             </label>
 
-            <label for="time_unit" class="box1 col-6 col-xxl-2">表示形式
+            <label for="time_unit" class="box1 col-6 col-md-2">表示形式
               <select id="time_unit" class="form-select my-1" aria-label="Default select example" onchange="NoteInfo()">
                 <option value="ms">ms</option>
                 <option value="μs">μs</option>
