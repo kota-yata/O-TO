@@ -162,8 +162,7 @@ img {
 .OriginalButton{
   cursor: pointer;
   border: 1px solid $BorderColor;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  margin: 0.5rem;
   border-radius:10px;
   &:hover{
     opacity: 0.9;
@@ -173,6 +172,11 @@ img {
     background-color:green;
     border: 1px solid $BorderColor;
   }
+}
+
+//コードやスケールの音を再生させる機能が分かりやすくするためにカーソルをポインターにする。
+#NoteNameBox{
+  cursor: pointer;
 }
 
 .OriginalButtonOn{

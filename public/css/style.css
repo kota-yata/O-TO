@@ -177,8 +177,7 @@ img {
 .OriginalButton {
   cursor: pointer;
   border: 1px solid rgb(210, 210, 210);
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  margin: 0.5rem;
   border-radius: 10px;
 }
 .OriginalButton:hover {
@@ -188,6 +187,10 @@ img {
   color: white;
   background-color: green;
   border: 1px solid rgb(210, 210, 210);
+}
+
+#NoteNameBox {
+  cursor: pointer;
 }
 
 .OriginalButtonOn {
@@ -1142,6 +1145,9 @@ box {
     display: grid;
     grid-template: "InfoArea" "..." 1rem "ChordArea"/1fr;
   }
+  .ChordAreaCharacter {
+    border-left: none;
+  }
   .ChordoAreaCharacter {
     margin-top: 1rem;
     border: 0px none;
@@ -1205,9 +1211,6 @@ box {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-  }
-  .ChordAreaCharacter {
-    border-left: none;
   }
   #MainChordInfoTable {
     display: grid;

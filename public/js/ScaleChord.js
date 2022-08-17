@@ -1255,6 +1255,12 @@ function KeyboardColoring(onoff, Root) {
         };
     };
 
+    //コードやスケールの音を再生するイベントを付与する
+    addPlayButtonEvent(array);
+};
+
+//コードやスケールの音を再生するイベントを付与する関数
+function addPlayButtonEvent(array) {
     //音声で確認するための音を格納する配列
     let confirmationArray = []
 
@@ -1269,13 +1275,49 @@ function KeyboardColoring(onoff, Root) {
         document.getElementById("playButton")
             .addEventListener("click", function () {
                 //MIDIノートナンバーの配列を渡すと音を再生する関数
-                confirmationSound(confirmationArray, 500);
+                confirmationSound(confirmationArray, 400);
+            }, false);
+        document.getElementById("Keyboard")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArray, 400);
+            }, false);
+        document.getElementById("NoteNameBox")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArray, 400);
             }, false);
     } else {
+        // アルペジオで再生する
+        let confirmationArpeggioArray = [];
+        for (let i = 0; i < array.length; i++) {
+            //スケールの時は1音ずつ格納する
+            confirmationArpeggioArray.push([array[i]])
+        };
+        //低い音から並び替える
+        confirmationArpeggioArray.sort();
+        //ボタンイベントとして登録する
+        document.getElementById("playArpeggioButton")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArpeggioArray, 400);
+            }, false);
+        document.getElementById("Keyboard")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArpeggioArray, 400);
+            }, false);
+        //---------------------------
+        //コードで再生する
         // コードの時はまとめて配列に格納する
         confirmationArray.push(array);
         //ボタンイベントとして登録する
         document.getElementById("playButton")
+            .addEventListener("click", function () {
+                //MIDIノートナンバーの配列を渡すと音を再生する関数
+                confirmationSound(confirmationArray, 600);
+            }, false);
+        document.getElementById("NoteNameBox")
             .addEventListener("click", function () {
                 //MIDIノートナンバーの配列を渡すと音を再生する関数
                 confirmationSound(confirmationArray, 600);
