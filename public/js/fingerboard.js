@@ -62,7 +62,7 @@ function ScaleAndChordsDrowing() {
     if (ScaleAndChordsDrowingSwitch === 0) {
         //音名の選択肢を書き込む
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
-            `<label for="rootNumber"class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">トニック
+            `<label for="rootNumber"class="col-4 col-md-2 py-2 mx-2">トニック
                 <select id="rootNumber"class="form-select my-1" aria-label="Default select example"
                     onchange="FingerboardDataInfo()">
                     <option value=0 selected>C</option>
@@ -81,7 +81,7 @@ function ScaleAndChordsDrowing() {
             </label>`);
         //スケールのメニューを書き込む
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいスケール
+            <label for="constituent_binary" class="col-6 col-md-4 py-2 mx-2">調べたいスケール
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDataInfo()">
             </select>
@@ -158,7 +158,7 @@ function ScaleAndChordsDrowing() {
         scaleChordTableCreate();
     } else if (ScaleAndChordsDrowingSwitch === 1) {
         document.getElementById("RootTonic").insertAdjacentHTML('afterbegin',
-            `<label for="rootNumber" class="col-md-2 col-xl-1 pt-2 pb-2 mx-1">ルート
+            `<label for="rootNumber" class="col-4 col-md-2 py-2 mx-2">ルート
                 <select id="rootNumber" class="form-select my-1" aria-label="Default select example"
                     onchange="FingerboardDataInfo()">
                     <option value=0 selected>C</option>
@@ -176,7 +176,7 @@ function ScaleAndChordsDrowing() {
                 </select>
             </label>`);
         document.getElementById("ScaleAndChords").insertAdjacentHTML('afterbegin', `
-            <label for="constituent_binary" class="col-md-4 col-xl-3 pt-2 pb-2 mx-1">調べたいコード
+            <label for="constituent_binary" class="col-6 col-md-4 py-2 mx-2">調べたいコード
             <select id="constituent_binary" class="form-select my-1" aria-label="Default select example"
                 onchange="FingerboardDataInfo()">
             </select>
