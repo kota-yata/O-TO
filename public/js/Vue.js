@@ -155,7 +155,7 @@ Vue.component('header-template', {
 
       <a class="navbar-brand text-white" href="index.html">
         <img class="site_icon" src="image/O-TO_Favicon.svg" alt="サイトアイコン">
-        <span class="pc_only_none">O-TO</span>
+        <span class="pc_only_none">音楽理論ウェブアプリ</span>
       </a>
 
       <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
