@@ -557,7 +557,7 @@ Vue.component('footer-github', {
 Vue.component('footer-bug', {
   template: `
         <div class="footer_bug">
-          <a href="https://khufrudamonotes.com/contact-english" target="_blank" rel="noopener noreferrer"><i class="far fa-comment"></i>バグの報告</a>
+          <a href="https://khufrudamonotes.com/contact-english" target="_blank" rel="noopener noreferrer"><i class="far fa-comment"></i>バグや不具合の報告</a>
         </div>
       `
 })
