@@ -886,8 +886,6 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
             info_Array.Omit5.push(`<br><br>M3rd（長3度）に対してP4th(11th)はアボイド・ノートになります。取り扱いには注意が必要です。`);
         };
 
-
-
         document.getElementById("Omit5Info").innerHTML = info_Array.Omit5.join().replace(/\,/g, "");
 
         //---------------------------------------
@@ -1003,7 +1001,8 @@ function ChordNoteSwitch() {
 let ConfigurationNotes = [];
 
 //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数(コード・コード/モード検索用)
-function ModalTextAndNoteCreate(onoff, RootNumber) {
+function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
+
     //スケールを表示する言語の情報を取得する。
     let sigNameNum = Number(document.getElementById("ModalCandidateSelect").value);
     //予期しない値の場合はreturn
@@ -1015,6 +1014,18 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
             document.getElementById(`Modal_text_${k}_${i}`).innerHTML = "";
         };
     };
+
+    //配列を深いコピーする（元のグローバル変数であるonoffは変更されて欲しくないないため）
+    let modal_onoff = Array.from(onoff);
+
+    //コードが転回形の場合、modal_onoffをルート音に合わせた形ではなく、元に戻す。
+    if (BassNumber !== RootNumber) {
+        for (let i = 0; i < mod(RootNumber - BassNumber, Octave); i++) {
+            let delete_number = modal_onoff.shift();
+            modal_onoff.push(delete_number);
+        };
+    };
+
     //一致するスケールの数
     let use_scale_count = 0;
     // 選択されている全ての構成音のルートのルートナンバーを格納する配列
@@ -1023,9 +1034,9 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
     if (onlyTonicModeState === 0) {
         all_root_number = [0];
     } else {
-        //ピッチクラスが存在する場合、配列OnOffに1を代入する。
+        //ピッチクラスが存在する場合、配列modal_onoffに1を代入する。
         for (let i = 0; i < Octave; i++) {
-            if (onoff[i] === 1) {
+            if (modal_onoff[i] === 1) {
                 all_root_number.push(i)
             };
         };
@@ -1033,30 +1044,31 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
     //本来のルート音のナンバーを変数に代入しておく
     let OriginalRoot = RootNumber;
     let denominator;
+
     for (let y = 0; y < all_root_number.length; y++) {
         //ルートナンバーを得る
         RootNumber = mod(all_root_number[y] + OriginalRoot, Octave);
-        //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
+        //modal_onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
         for (let k = 0; k < all_root_number[y]; k++) {
-            let delete_number = onoff.shift();
-            onoff.push(delete_number);
+            let delete_number = modal_onoff.shift();
+            modal_onoff.push(delete_number);
         };
         for (let i = 0; i < scale_Container.length; i++) {
             //配列を空にする。
             ConfigurationNotes.splice(0);
             //選択された音の組み合わせがスケールの構成音と一致するか判定する。
-            if (scale_Container[i].ScaleNumBinary[0] >= onoff[0]
-                && scale_Container[i].ScaleNumBinary[1] >= onoff[1]
-                && scale_Container[i].ScaleNumBinary[2] >= onoff[2]
-                && scale_Container[i].ScaleNumBinary[3] >= onoff[3]
-                && scale_Container[i].ScaleNumBinary[4] >= onoff[4]
-                && scale_Container[i].ScaleNumBinary[5] >= onoff[5]
-                && scale_Container[i].ScaleNumBinary[6] >= onoff[6]
-                && scale_Container[i].ScaleNumBinary[7] >= onoff[7]
-                && scale_Container[i].ScaleNumBinary[8] >= onoff[8]
-                && scale_Container[i].ScaleNumBinary[9] >= onoff[9]
-                && scale_Container[i].ScaleNumBinary[10] >= onoff[10]
-                && scale_Container[i].ScaleNumBinary[11] >= onoff[11]) {
+            if (scale_Container[i].ScaleNumBinary[0] >= modal_onoff[0]
+                && scale_Container[i].ScaleNumBinary[1] >= modal_onoff[1]
+                && scale_Container[i].ScaleNumBinary[2] >= modal_onoff[2]
+                && scale_Container[i].ScaleNumBinary[3] >= modal_onoff[3]
+                && scale_Container[i].ScaleNumBinary[4] >= modal_onoff[4]
+                && scale_Container[i].ScaleNumBinary[5] >= modal_onoff[5]
+                && scale_Container[i].ScaleNumBinary[6] >= modal_onoff[6]
+                && scale_Container[i].ScaleNumBinary[7] >= modal_onoff[7]
+                && scale_Container[i].ScaleNumBinary[8] >= modal_onoff[8]
+                && scale_Container[i].ScaleNumBinary[9] >= modal_onoff[9]
+                && scale_Container[i].ScaleNumBinary[10] >= modal_onoff[10]
+                && scale_Container[i].ScaleNumBinary[11] >= modal_onoff[11]) {
                 // 異名同音を判定
                 let SOF = DetermineKeySignature(mod(RootNumber - scale_Container[i].addNum, Octave));
                 //スケール構成音のバイナリを配列に格納する。
@@ -1092,8 +1104,8 @@ function ModalTextAndNoteCreate(onoff, RootNumber) {
         };
         //各ルートの場合を想定するため配列をズラした配列を、一旦もとに戻す。
         for (let k = 0; k < Octave - all_root_number[y]; k++) {
-            let delete_number = onoff.shift();
-            onoff.push(delete_number);
+            let delete_number = modal_onoff.shift();
+            modal_onoff.push(delete_number);
         };
         //ルート音から始まるスケールだけを表示する
         if (onlyTonicModeState === 0) {
@@ -1124,7 +1136,7 @@ function ModalTextCreate() {
         count++;
     };
     //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-    ModalCandidateSelect(onoff, RootNumber);
+    ModalCandidateSelect(onoff, RootNumber, BassNumber);
     // 配列を元に戻すための値
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
     for (let i = 0; i < onoff.length - count; i++) {
@@ -1134,7 +1146,7 @@ function ModalTextCreate() {
 };
 
 //モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-function ModalCandidateSelect(onoff, RootNumber) {
+function ModalCandidateSelect(onoff, RootNumber, BassNumber) {
     //言語の情報を取得する。
     let ModalSelectNum = Number(document.getElementById("ModalCandidateSelect").value);
     //言語表示なしの場合 又は 音名が選択されていないとき
@@ -1157,7 +1169,7 @@ function ModalCandidateSelect(onoff, RootNumber) {
         || ModalSelectNum === 2
         || ModalSelectNum === 3) {
         //モーダル・インターチェンジの候補をスケールの構成音とともに表示する関数
-        ModalTextAndNoteCreate(onoff, RootNumber);
+        ModalTextAndNoteCreate(onoff, RootNumber, BassNumber);
     } else if (ModalSelectNum === 4) {
         //モーダル・インターチェンジの候補を表示する関数
         ModalTextCreate();
