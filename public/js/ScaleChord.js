@@ -976,7 +976,7 @@ function ChordNoteSwitch() {
     let RootNumber = Number(document.getElementById("rootNumber").value);
 
     //コード・ネームの情報を判定する関数
-    ChordCandidateInfo(onoff, RootNumber);
+    let [BassNumber, result] = ChordCandidateInfo(onoff, RootNumber);
 
     //構成音を着色する関数
     NoteNameColoring(onoff);
@@ -988,7 +988,7 @@ function ChordNoteSwitch() {
     CreateCandidate();
 
     ////モーダルインターチェンジ候補のスケールの構成音の表示・非表示の切り替え(コード・コード/モード検索用)
-    ModalCandidateSelect(onoff, RootNumber);
+    ModalCandidateSelect(onoff, RootNumber, BassNumber);
 
     //コードネームに合わせて度数表記を描画する関数
     degree_position_drow(0);
