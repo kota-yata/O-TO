@@ -870,17 +870,24 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
         BassSOF = EnharmonicRejudgement(SOF, BassSOF, RootName, noteNames[info_Array.LowestNoteNumber][BassSOF]);
 
         //---------------------------------------
-        if (onoff[mod(RootNumber + info_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(RootNumber + info_Array.iNum[0] + 5, Octave)] === 1) {
-            info_Array.Omit5.push(`<br>M3rd（長3度）とP4th(11th)はアボイドになるので、取り扱いには注意が必要です。`);
-        };
         //完全5度が省略可能かを判定する。
-        if (onoff[mod(RootNumber + info_Array.iNum[0] + 7, Octave)] === 1 && info_Array.HowManyChordTone.length >= 3) {
+        if (onoff[mod(info_Array.iNum[0] + 7, Octave)] === 1 && info_Array.HowManyChordTone.length >= 3) {
             info_Array.Omit5.push(`<br>Root（ルート音）に対してP5th（完全5度）の音は、状況に応じて省略が可能です。`);
             if (info_Array.ChordName[0].match("sus") || info_Array.ChordName[0].match("omit5")) {
                 //長2度(sus2)や完全4度(sus4)の場合をはじく。
                 info_Array.Omit5.pop();
             };
         };
+        if (onoff[mod(info_Array.iNum[0] + 7, Octave)] === 1 && onoff[mod(info_Array.iNum[0] + 8, Octave)] === 1) {
+            info_Array.Omit5.push(`<br>P5th（完全5度）に対して♭13thはアボイド・ノートになります。♭13thテンションを使用したい場合は（特に意図がなければ）P5th（完全5度）の省略を推奨します。`);
+        };
+
+        if (onoff[mod(info_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(info_Array.iNum[0] + 5, Octave)] === 1) {
+            info_Array.Omit5.push(`<br><br>M3rd（長3度）に対してP4th(11th)はアボイド・ノートになります。取り扱いには注意が必要です。`);
+        };
+
+
+
         document.getElementById("Omit5Info").innerHTML = info_Array.Omit5.join().replace(/\,/g, "");
 
         //---------------------------------------
