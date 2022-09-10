@@ -184,6 +184,7 @@ const chordProgEight =
     { name: "助走", chord: "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", info: "サビ前などに有効です。", url: "" },
     { name: "こなれ浮遊感", chord: "Ⅱm7-Ⅰ△7-♭Ⅶ△7-Ⅶm7(♭5)-Ⅲ7", info: "メロディで下属調っぽさを出しすぎないのがポイント。", url: "" },
     { name: "大気圏外へ", chord: "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7", info: "マイナー7thコードのコンスタント・ストラクチャーでどこまでも行けそう。", url: "https://youtu.be/BOuIwJLw9Y0?t=75" },
+    { name: "中継ぎ請負人", chord: "Ⅲm7-Ⅳ-Ⅴ-Ⅵm", info: "Bメロなどをじわじわ盛り上げてくれる。", url: "" },
     { name: "平成J-popバラードの最終兵器", chord: "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ", info: "ハマればものすごく素敵。", url: "https://youtu.be/aHIR33pOUv0?t=207" },
     { name: "普通が嫌いなあなたへ", chord: "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7", info: "普通なコード進行に飽きたら、#Ⅳm7(♭5)から始めちゃおう。", url: "" },
     { name: "モダン・メタルの住人", chord: "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9", info: "5add9(sus2)は、モダン・メタル界隈のギターフレーズに欠かせない響き。", url: "" },
