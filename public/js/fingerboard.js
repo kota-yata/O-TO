@@ -407,7 +407,10 @@ function FletCreate(NumberOfStrings) {
     let ConfigurationNotes = [];
     ConfigurationNotes.splice(0);
     let SOF;
-    let Configuration = ["", "", "", "", "", "", "", "", "", "", "", ""];
+    let Configuration
+        = ["", "", "", "", "",
+            "", "", "", "", "",
+            "", "", "", "", "",];
     if (ScaleAndChordsDrowingSwitch === 1) {
         //スケールの場合の処理
         //シャープとフラットの区別をする変数SOFに値を代入。
@@ -462,7 +465,6 @@ function FletCreate(NumberOfStrings) {
         };
     };
 
-
     //利き手を判定し、フレットに音名を描画する
     ToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes, Number(document.getElementById("DominantHand").value));
 
@@ -495,7 +497,10 @@ function FletCreate(NumberOfStrings) {
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function FingerboardDataInfo() {
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    let TuningData = [64, 59, 55, 50, 45, 40, 35, 30, 25, 20];
+    let TuningData = [
+        64, 59, 55, 50, 45,
+        40, 35, 30, 25, 20,
+        15, 10, 5, 0];
     let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
     let TuningInfo = TuningVariationValue[0].split('-').map(Number);
 
@@ -524,7 +529,10 @@ function FingerboardDataInfo() {
 //スケール画面とコード画面ごとに必要な処理を行う関数
 function NumberOfStringsManually() {
     //主なチューニングタイプを格納した連想配列を検索用の値と構成音のバイナリ値を取得し、「-」でそれぞれ分割
-    let TuningData = [4, 11, 7, 2, 9, 4, 11, 6, 1, 8];
+    let TuningData = [
+        4, 11, 7, 2, 9,
+        4, 11, 6, 1, 8,
+        3, 10, 5, 0];
     let TuningVariationValue = document.getElementById("TuningVariation").value.split(':');
 
     let TuningInfo = TuningVariationValue[0].split('-').map(Number);
@@ -560,9 +568,13 @@ function CreateTuningVariation() {
         Num--
         if (Num === 0) {
             //メジャーコードを初期の選択肢にする。
-            document.getElementById("TuningVariation").insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings'].join('-')}:${Num} selected>${TuningVariation[Num]["TuningName"]}</option>`);
+            document.getElementById("TuningVariation")
+                .insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings']
+                    .join('-')}:${Num} selected>${TuningVariation[Num]["TuningName"]}</option>`);
         } else {
-            document.getElementById("TuningVariation").insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings'].join('-')}:${Num}>${TuningVariation[Num]["TuningName"]}</option>`);
+            document.getElementById("TuningVariation")
+                .insertAdjacentHTML('afterbegin', `<option value=${TuningVariation[Num]['StringTuningStrings']
+                    .join('-')}:${Num}>${TuningVariation[Num]["TuningName"]}</option>`);
         };
     };
 
