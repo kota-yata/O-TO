@@ -94,7 +94,7 @@ const TuningVariation = [
 //コード進行を格納する多次元配列
 const chordProgOne =
     [{ name: "シンプル・イズ・ベスト", chord: "Ⅰ-Ⅳ-Ⅴ", info: "トニック！サブドミナント！ドミナント！", url: "https://youtu.be/VFP5oalZn4s" },
-    { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "" },
+    { name: "きっとみんな好き", chord: "Ⅰ-Ⅳ-Ⅵm-Ⅴ", info: "メジャー感とマイナー感の絶妙なハーモニー。", url: "https://youtu.be/T6wbugWrfLU?t=61" },
     { name: "きれいめ", chord: "Ⅰ/Ⅲ-Ⅳ-Ⅴ-Ⅵm", info: "ベースが順次進行で上昇。清潔感がある。", url: "https://youtu.be/BoZ0Zwab6Oc?t=3" },
     { name: "大団円", chord: "Ⅰ-Ⅰ/Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "ハッピーなエンドロールみたいな。", url: "" },
     { name: "煌びやか", chord: "Ⅰ-Ⅳm6/Ⅰ", info: "華やかで奥行きのある響き。サブドミナントマイナーがキラリと光る。", url: "https://youtu.be/kWUV5-frRU4?t=107" },
@@ -130,6 +130,7 @@ const chordProgFour =
     { name: "解放・救済", chord: "Ⅳ-Ⅴ-Ⅵ", info: "モダンな雰囲気が出る。ピカルディ終止っぽいサウンド感。", url: "https://youtu.be/Ajr18Yw5xdY?t=47" },
     { name: "邦楽ポップパンク進行", chord: "Ⅳ-Ⅰ-Ⅴ-Ⅵm", info: "爽やか ＋ ちょっぴり哀愁 ＝ 正解。 ポップパンク進行の派生形で、邦楽でよく見かける気がする。", url: "https://youtu.be/kzZ6KXDM1RI?t=64" },
     { name: "サビ前の常連", chord: "Ⅳ-#Ⅳm(♭5)-Ⅴ-#Ⅴm(♭5)", info: "「これからサビに入りますよ～」感が出ます。", url: "" },
+    { name: "砂糖", chord: "Ⅳ-Ⅵm-Ⅱm-Ⅰ", info: "参考曲：Maroon 5 - Sugar", url: "https://youtu.be/09R8_2nJtjg?t=73" },
     { name: "内なる敵", chord: "Ⅳ-Ⅵm-Ⅰm-Ⅴ/Ⅱ-♭Ⅶm/♭Ⅱ-Ⅳ/Ⅰ-Ⅶdim7-Ⅲ7/#Ⅴ-Ⅵm", info: "参考曲：Dream Theater - The Enemy Inside", url: "https://youtu.be/RoVAUUFjl0I?t=242" },
     { name: "335号室", chord: "Ⅳ△7-Ⅲm7(#5)-Ⅱm7-Ⅲm7", info: "参考曲：Larry Carlton - ROOM 335", url: "https://youtu.be/47ysdThtXgw?t=109" },
     { name: "ゲーム音楽の香り", chord: "Ⅳ△7-Ⅲm7-♭Ⅲ△7-Ⅱm7", info: "△7とm7を繰り返して半音ずつ下がっていく形。", url: "https://youtu.be/8Eysl9hk_4I?t=65" },
@@ -145,17 +146,18 @@ const chordProgFour =
     ];
 
 const chordProgSix =
-    [{ name: "小室進行", chord: "Ⅵm-Ⅳ-Ⅴ-Ⅰ", info: "最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/35XsK9VERXM?t=97" },
-    { name: "洋楽ポップパンク進行", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "ハリウッド映画にありそう。ポップパンク進行の派生形で、洋楽でよく見かける気がする。", url: "https://youtu.be/PDSkFeMVNFs?t=68" },
+    [{ name: "小室進行", chord: "Ⅵm-Ⅳ-Ⅴ-Ⅰ", info: "言わずと知れたJ-POP最強格の進行。最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/35XsK9VERXM?t=97" },
+    { name: "洋楽ポップパンク進行", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "ハリウッド映画にありそう。ポップパンク進行の派生形で、洋楽でよく見かける気がする。", url: "https://youtu.be/Fp8msa5uYsc?t=33" },
     { name: "オールラウンダー", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅴ", info: "どんなジャンルでも必要とされている。", url: "https://youtu.be/60ItHLz5WEA" },
     { name: "炎の呼吸", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅰ", info: "参考曲：LiSA - 炎", url: "https://youtu.be/4DxL6IKmXx4?t=10" },
-    { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "" },
+    { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "https://youtu.be/CX-un4obyU0?t=109" },
     { name: "鉄板のベース半音下降", chord: "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", info: "みんな8億万回は聴いている。", url: "" },
     { name: "スタイリッシュ", chord: "Ⅵm9-Ⅱm7-Ⅲm7", info: "研ぎ澄まされた都会的な響き", url: "" },
-    { name: "情熱的", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅴ/Ⅶ", info: "力強くいきたい時に。", url: "" },
+    { name: "情熱的", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ", info: "力強くいきたい時に。最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/gdZLi9oWNZg?t=24" },
     { name: "お前はタンゴ？", chord: "Ⅵm-Ⅱm-Ⅲ-Ⅵm", info: "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)", url: "" },
     { name: "バロックなゼクエンツ", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", info: "気分はバロック時代。", url: "https://youtu.be/ZPdk5GaIDjo?t=68" },
     { name: "貴様の形状", chord: "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", info: "参考曲：Ed Sheeran - Shape of You", url: "https://youtu.be/JGwWNGJdvx8?t=5" },
+    { name: "穴場スポット", chord: "Ⅵm-Ⅲm-Ⅳ-Ⅰ", info: "意外とよくいそうでいない。", url: "https://youtu.be/DwTinTO0o9I?t=121" },
     { name: "近未来", chord: "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", info: "ベースを固定しつつ上を動かす形。", url: "https://youtu.be/WSX6ZRX4_-Q?t=24" },
     { name: "困難を伴う前進", chord: "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", info: "ベースが段階的に上昇。シリアスな空気感。", url: "" },
     { name: "サスペンス半音上昇", chord: "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", info: "マイナーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/zKBCSBfP9TI?t=13" },

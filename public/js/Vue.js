@@ -262,7 +262,7 @@ Vue.component('link-card', {
                   <img class="link_image pt-3 pb-3" src="image/thumbnail/chord-progression_thumbnail.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
-                  <span class="chord_prog_count">80種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
+                  <span class="chord_prog_count">90種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
                     class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
                 </p>
               </div>
@@ -397,7 +397,7 @@ Vue.component('right-column', {
             <a class="nav-link" href="o-to-reverse-lookup-keyboard.html">- (MIDIキーボードで逆引き検索)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">80×12種類以上</span>）</a>
+            <a class="nav-link" href="o-to-chord-progression.html">④コード進行まとめ（<span class="chord_prog_count12">90×12種類以上</span>）</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="o-to-diatonic-chords.html">⑤ダイアトニック・コード（8種類の環境）</a>
@@ -706,7 +706,7 @@ Vue.component('link-table', {
                       </a>
                   </h5>
                   <p class="card-text">
-                      <span class="chord_prog_count">80種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
+                      <span class="chord_prog_count">90種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
                           class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
                   </p>
               </div>
