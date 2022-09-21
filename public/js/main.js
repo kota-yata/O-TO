@@ -146,7 +146,7 @@ const chordProgFour =
 
 const chordProgSix =
     [{ name: "小室進行", chord: "Ⅵm-Ⅳ-Ⅴ-Ⅰ", info: "最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/35XsK9VERXM?t=97" },
-    { name: "洋楽ポップパンク進行", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "ハリウッド映画にありそう。ポップパンク進行の派生形で、洋楽でよく見かける気がする。", url: "" },
+    { name: "洋楽ポップパンク進行", chord: "Ⅵm-Ⅳ-Ⅰ-Ⅴ", info: "ハリウッド映画にありそう。ポップパンク進行の派生形で、洋楽でよく見かける気がする。", url: "https://youtu.be/PDSkFeMVNFs?t=68" },
     { name: "オールラウンダー", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅴ", info: "どんなジャンルでも必要とされている。", url: "https://youtu.be/60ItHLz5WEA" },
     { name: "炎の呼吸", chord: "Ⅵm-Ⅴ-Ⅳ-Ⅰ", info: "参考曲：LiSA - 炎", url: "https://youtu.be/4DxL6IKmXx4?t=10" },
     { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "" },
