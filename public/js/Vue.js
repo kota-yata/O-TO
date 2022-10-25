@@ -817,6 +817,64 @@ Vue.component('link-table', {
           </div>
         </div>
 
+      <div>
+        <h5 class="Larger shadow p-3 rounded mb-4 py-3">
+          バグ報告のお願い
+        </h5>
+
+        <p>
+        もし、バグや不具合を発見した場合は、お手数をおかけしますが<a href="https://khufrudamonotes.com/contact-english" target="_blank"
+            rel="noreferrer noopener">コンタクトページ</a>から報告していただけるとありがたいです。</p>
+        </p>
+
+        <p class="pb-4">その他、当ウェブアプリに関するご意見 ご感想などもお気軽にご連絡ください。</p>
+      </div>
+
+
+        <div>
+            <h5 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h5>
+
+          <p class="pt-2">SNSなどでシェアしていただくと、アプリ開発の励みになります！</p>
+          <ul>
+            <li class="py-1 nav-item">
+              <!-- Twitterのシェアボタン -->
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                data-show-count="false">
+                Tweet
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- はてなブックマークへのシェアボタン -->
+              <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
+                title="このエントリーをはてなブックマークに追加">
+                <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+                  alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- noteへのシェアボタン -->
+              <a href="https://note.com/intent/social_button" class="note-social-button"
+                data-url="https://o-to.khufrudamonotes.com/"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- pocketへのシェアボタン -->
+              <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Lineへのシェアボタン -->
+              <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
+                data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
+                style="display: none;">
+              </a>
+            </li>
+            <li class="py-1 nav-item">
+              <!-- Facebookへのシェアボタン -->
+              <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width="" data-layout="button_count"
+                data-action="like" data-size="small" data-share="true"></a>
+            </li>
+          </ul>
+        </div>
 
         <h5 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h5>
 
@@ -940,63 +998,36 @@ Vue.component('link-table', {
             </div>
         </div>
 
-        <div>
-            <h5 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h5>
-
-          <p class="pt-2">シェアしていただくと、アプリ開発の励みになります。</p>
-          <ul>
-            <li class="py-1 nav-item">
-              <!-- Twitterのシェアボタン -->
-              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                data-show-count="false">
-                Tweet
-              </a>
-            </li>
-            <li class="py-1 nav-item">
-              <!-- はてなブックマークへのシェアボタン -->
-              <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
-                data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
-                title="このエントリーをはてなブックマークに追加">
-                <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-                  alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-              </a>
-            </li>
-            <li class="py-1 nav-item">
-              <!-- noteへのシェアボタン -->
-              <a href="https://note.com/intent/social_button" class="note-social-button"
-                data-url="https://o-to.khufrudamonotes.com/"></a>
-            </li>
-            <li class="py-1 nav-item">
-              <!-- pocketへのシェアボタン -->
-              <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
-            </li>
-            <li class="py-1 nav-item">
-              <!-- Lineへのシェアボタン -->
-              <a class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
-                data-url="https://o-to.khufrudamonotes.com/" data-color="default" data-size="small" data-count="true"
-                style="display: none;">
-              </a>
-            </li>
-            <li class="py-1 nav-item">
-              <!-- Facebookへのシェアボタン -->
-              <a class="fb-like" data-href="https://o-to.khufrudamonotes.com/" data-width="" data-layout="button_count"
-                data-action="like" data-size="small" data-share="true"></a>
-            </li>
-          </ul>
-        </div>
-
-
 			<div>
 				<h5 class="Larger shadow p-3 rounded mb-4 py-3">オンラインレッスンのお知らせ</h5>
 
 				<p>現在、音楽理論・作曲・DTMのオンラインレッスンを受け付けております！詳細は、下記のリンク先にまとめてあります。</p>
 
-				<p class="pb-5">→
+				<p class="pb-4">→
 					<a href="https://khufrudamonotes.com/online-lesson-description" target="_blank" rel="noreferrer noopener">
 						<strong>音楽理論、作曲、DTM オンラインレッスンのご案内</strong>
 					</a>
 				</p>
 			</div>
+
+      <div>
+        <h5 class="Larger shadow p-3 rounded mb-4 py-3">
+          投げ銭サポートのお願い
+        </h5>
+
+        <p>継続的なサイト運営、コンテンツ制作のためにサポートをお願いいたします。</p>
+        <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
+            rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
+            target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>から投げ銭を受け付けております。</p>
+        <!-- wp:paragraph {"fontSize":"small"} -->
+        <p class="has-small-font-size">※PayPal.Meの場合は<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
+            target="_blank" rel="noreferrer noopener">以下のリンク</a>へアクセスし、「送信」を選択してください。</p>
+
+        <p class="pb-4">→
+          <a href="https://buy.stripe.com/9AQdTx6y006YbDy001" target="_blank"
+              rel="noreferrer noopener">https://buy.stripe.com/9AQdTx6y006YbDy001</a>（※リンク先へ飛んだだけでは決済は行われません。）
+        </p>
+      </div>
 
 
     </div>
