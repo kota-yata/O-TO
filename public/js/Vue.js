@@ -652,18 +652,18 @@ Vue.component('link-table', {
   template: `
     <div>
 
-        <h5 class="Larger shadow p-3 rounded mb-4 py-3">音楽アプリの一覧</h5>
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">音楽アプリの一覧</h3>
 
         <p class="pt-2">各ツール（ウェブアプリ）は、全て無料で使えます。</p>
 
         <div class="link_table1">
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-chords.html">
                           ①コードの構成音を調べる
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       <span
                           class="chord_count">110種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるツールです。同時に、指定したコードの構成音を含む主なスケールと、ネガティヴ・ハーモニー理論に基づく代理コードも表示されます。
@@ -673,11 +673,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-scale.html">
                           ②スケールの構成音を調べる
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       <span class="scale_count">70種類以上</span>のスケールの構成音や情報を、全てのキーで調べられるツールです。同時に、指定したスケールの構成音を含む主なコードも表示されます。
                   </p>
@@ -686,11 +686,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-modal-interchange.html">
                           ③コード/スケール名を逆引き検索
                       </a>
-                  </h5>
+                  </h4>
 
                   <p class="card-text">
                       選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コードの特徴など、詳細情報も確認できます。<br><a href="o-to-reverse-lookup-keyboard.html">MIDIキーボード対応版はこちら。</a>
@@ -700,11 +700,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-chord-progression.html">
                           ④コード進行まとめ
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       <span class="chord_prog_count">90種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
                           class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
@@ -714,11 +714,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-diatonic-chords.html">
                           ⑤ダイアトニック・コード一覧表
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       ダイアトニック・コードの一覧表ツールです。表示は全てのキーへ切り替え可能です。各コードに対応するテンションや、モード・スケールも確認できます。
                   </p>
@@ -727,11 +727,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-modulation.html">
                           ⑥転調の間隔・関係調を調べる
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       指定した調（キー）の関係性を調べられるツールです。<span class="scale_count">70種類以上</span>のスケールや、モードを指定可能です。
                   </p>
@@ -740,11 +740,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-note-value.html">
                           ⑦音価の計算をする
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       指定したBPMの、18種類の「音符の長さ」を計算するツールです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
                   </p>
@@ -753,11 +753,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-metric-modulation.html">
                           ⑧メトリック・モジュレーション
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       「メトリック・モジュレーション」に関係する情報を調べるツールです。様々な「音符の音価」と、「同じ音価を持つ別の音符のBPM」が簡単に分かります。
                   </p>
@@ -766,11 +766,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-degree-change.html">
                           ⑨コード進行のテキストを移調する
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       コード進行のテキストを移調するツールです。入力したコード進行のテキストを「12キー全て」と「ディグリー・ネーム」へ変換できます。
                   </p>
@@ -779,11 +779,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-fingerboard.html">
                           ⑩弦楽器の指板を可視化する
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       コードやスケールの「指板上のポジション」を可視化するツールです。ギターだけではなく、ベース、多弦楽器、レフティー表示も可能です。
                   </p>
@@ -792,11 +792,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a href="o-to-reverse-lookup-fingerboard.html">
                           ⑪指板からコード/スケール名を逆引き検索
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       指板から選んだ構成音に対応するコード・ネームやスケール名を検索できるツールです。コード、スケールの名前をカンタンに逆引きできます！
                   </p>
@@ -805,11 +805,11 @@ Vue.component('link-table', {
 
           <div class="card">
               <div class="card-body">
-                  <h5>
+                  <h4>
                       <a target="_blank" rel="noopener noreferrer" href="https://mwsr.khufrudamonotes.com/polyrhythm-metronome">
                           ・メトロノーム（ポリリズム対応）
                       </a>
-                  </h5>
+                  </h4>
                   <p class="card-text">
                       ポリリズム対応のメトロノームです。音と視覚でポリリズムを理解できます。1～20までの数値を設定可能です。
                   </p>
@@ -818,9 +818,9 @@ Vue.component('link-table', {
         </div>
 
       <div>
-        <h5 class="Larger shadow p-3 rounded mb-4 py-3">
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">
           バグ報告のお願い
-        </h5>
+        </h3>
 
         <p>
         もし、バグや不具合を発見した場合は、お手数をおかけしますが<a href="https://khufrudamonotes.com/contact-english" target="_blank"
@@ -832,7 +832,7 @@ Vue.component('link-table', {
 
 
         <div>
-            <h5 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h5>
+            <h3 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h3>
 
           <p class="pt-2">SNSなどでシェアしていただくと、アプリ開発の励みになります！</p>
           <ul>
@@ -876,7 +876,7 @@ Vue.component('link-table', {
           </ul>
         </div>
 
-        <h5 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h5>
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h3>
 
         <p class="pt-2">リンク先から音楽関係の資料をダウンロードできます。</p>
         <div class="link_table2">
@@ -942,7 +942,7 @@ Vue.component('link-table', {
         </div>
 
 
-        <h5 class="Larger shadow p-3 rounded mb-4 py-3">関連ページへのリンク</h5>
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">関連ページへのリンク</h3>
         <p class="pt-2">音楽に関係する情報へのリンク先です。</p>
         <div class="link_table3">
             <div class="card">
@@ -999,7 +999,7 @@ Vue.component('link-table', {
         </div>
 
 			<div>
-				<h5 class="Larger shadow p-3 rounded mb-4 py-3">オンラインレッスンのお知らせ</h5>
+				<h3 class="Larger shadow p-3 rounded mb-4 py-3">オンラインレッスンのお知らせ</h3>
 
 				<p>現在、音楽理論・作曲・DTMのオンラインレッスンを受け付けております！詳細は、下記のリンク先にまとめてあります。</p>
 
@@ -1011,9 +1011,9 @@ Vue.component('link-table', {
 			</div>
 
       <div>
-        <h5 class="Larger shadow p-3 rounded mb-4 py-3">
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">
           投げ銭サポートのお願い
-        </h5>
+        </h3>
 
         <p>継続的なサイト運営、コンテンツ制作のためにサポートをお願いいたします。</p>
         <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
@@ -1029,6 +1029,50 @@ Vue.component('link-table', {
         </p>
       </div>
 
+      <div>
+        <h3 class="Larger shadow p-3 rounded mb-5 py-3">
+          このアプリを作った経緯
+        </h3>
+
+        <p class="pb-3">
+          まず、音楽を作る作業の中には「コレは創造的とは言えないなぁ…。」と感じるものがたくさんありました。<br>
+          <br>
+          たとえば、五度圏を見ながら音の流れを考えたり、エフェクト処理の設定値の参考にするために音価を計算したりする時間です。<br>
+          これらの作業は、ある程度流れを理解してしまえば単純で退屈な作業です。<br>
+          <br>
+          もちろん、音楽に一定のクオリティを担保するためには必要な作業ではあります。<br>
+          <br>
+          ただ、ここに時間をかけたからといって、その分だけ音楽が良くなるわけではないです。<br>
+          むしろ、瞬時に処理できた方が<b>"より創造的な部分"</b>に対して試行錯誤する時間を多く確保できます。<br>
+          <br>
+          ———「こんなものはコンピューターに考えさせればいい！」<br>
+          <br>
+          そう思い、Excelで自分用に計算プログラムを作ったのがこのアプリの始まりです。<br>
+          <br>
+          <br>
+          そして、しばしば見かける「音楽理論は不必要」論にもうんざりしていました。<br>
+          <br>
+          尤もらしい理由を並べて、これから音楽理論を勉強しようとするミュージシャンのやる気を削がないでもらいたいと感じます。<br>
+          <b>どんな形にせよ音楽を続けるなら音楽理論の知識は必要ですし、勉強して損はしません。</b> <br>
+          <br>
+          一方で、音楽理論を理解する大変さも分かります。<br>
+          なぜなら、僕自身が独学で音楽理論を学習し、苦労したからです。<br>
+          <br>
+          だからこそ思うのです。<br>
+          <br>
+          「もっと音楽理論を簡単に理解し、利用できたなら良いよね。」と。<br>
+          そして、「『音楽理論が不必要』と言う人は、音楽理論が簡単に利用できたとしてもそう感じるのかな？」と。<br>
+          <br>
+          そういった思いから、「音楽制作や音楽理論の学習を補助するウェブアプリ」の目指して出来上がったのがこの「<span class="MainTextColor">音楽理論ウェブアプリ
+            O-TO</span>(Ongaku Tools)」です。<br>
+          <br>
+          ここに音楽理論の全てがあるわけではないです。<br>
+          <br>
+          しかし、音楽をやる上で役立つものが揃っているはずです。<br>
+          <br>
+          このウェブアプリがより良い音楽を奏でる一助となれば幸いです。<br>
+        </p>
+      </div>
 
     </div>
       `
