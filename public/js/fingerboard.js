@@ -269,6 +269,8 @@ function ScaleAndChordsDrowing() {
     };
     //スケール画面とコード画面ごとに必要な処理を行う関数
     FingerboardDataInfo();
+    //ヴォリューム調整バーの表示・非表示。
+    document.getElementById("fingerboardVolume").classList.toggle("display_none");
 };
 
 //指定した弦の本数だけtr(行)要素をtableに書き込む関数
