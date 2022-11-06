@@ -555,10 +555,10 @@ const scale_Container = [
     //和風スケール
     // 陰音階-上行系
     { ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0], EnglishName: "Insen", JapaneseName: "陰音階-上行系 ", diaChord4: "", diaChord3: "", addNum: 4, ForteNumber: "5-29", Info: "宮城道雄-『春の海』などで用いられる和風な音階です。<br>「都節-上行形」とも。<br>「半岩戸調子」、「古今調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -5 },
-    { ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], EnglishName: "Raga Hindol", JapaneseName: "ラーガ・ヒンドル", diaChord4: "", diaChord3: "", addNum: 5, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第2モード。", Adjustment: -5 },
-    { ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0], EnglishName: "Han-Nakazora", JapaneseName: "半中空調子", diaChord4: "", diaChord3: "", addNum: 9, ForteNumber: "5-29", Info: "", Mode: "陰音階-下行形の第3モード。", Adjustment: -5 },
-    { ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック ", diaChord4: "", diaChord3: "", addNum: 11, ForteNumber: "5-29", Info: "「二重雲井調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第4モード。", Adjustment: -5 },
-    { ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], EnglishName: "Dorian Pentatonic", JapaneseName: "ドリアン・ペンタトニック", diaChord4: "", diaChord3: "", addNum: 2, ForteNumber: "5-29", Info: "「雲井ペンタトニック」とも。<br>「秋風調子」と同じ構成音を持ちます。", Mode: "陰音階-下行形の第5モード。", Adjustment: -5 },
+    { ScaleNumBinary: [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], EnglishName: "Raga Hindol", JapaneseName: "ラーガ・ヒンドル", diaChord4: "", diaChord3: "", addNum: 5, ForteNumber: "5-29", Info: "", Mode: "陰音階-上行形の第2モード。", Adjustment: -5 },
+    { ScaleNumBinary: [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0], EnglishName: "Han-Nakazora", JapaneseName: "半中空調子", diaChord4: "", diaChord3: "", addNum: 9, ForteNumber: "5-29", Info: "", Mode: "陰音階-上行形の第3モード。", Adjustment: -5 },
+    { ScaleNumBinary: [1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0], EnglishName: "Locrian Pentatonic", JapaneseName: "ロクリアン・ペンタトニック ", diaChord4: "", diaChord3: "", addNum: 11, ForteNumber: "5-29", Info: "「二重雲井調子」と同じ構成音を持ちます。", Mode: "陰音階-上行形の第4モード。", Adjustment: -5 },
+    { ScaleNumBinary: [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0], EnglishName: "Dorian Pentatonic", JapaneseName: "ドリアン・ペンタトニック", diaChord4: "", diaChord3: "", addNum: 2, ForteNumber: "5-29", Info: "「雲井ペンタトニック」とも。<br>「秋風調子」と同じ構成音を持ちます。", Mode: "陰音階-上行形の第5モード。", Adjustment: -5 },
 
     // 陰音階-下行系
     { ScaleNumBinary: [1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0], EnglishName: "In/Sakura Pentatonic", JapaneseName: "陰音階-下行形", diaChord4: "", diaChord3: "", addNum: 4, ForteNumber: "5-20", Info: "古謡「さくらさくら」などで用いられる和風な音階です。<br>「都節-下行形」とも。<br>「平調子」、「平巾十調子」と同じ構成音を持ちます。", Mode: "", Adjustment: -4 },
