@@ -164,7 +164,7 @@ const chordProgSix =
     { name: "困難を伴う前進", chord: "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", info: "ベースが段階的に上昇。シリアスな空気感。", url: "" },
     { name: "サスペンス半音上昇", chord: "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", info: "マイナーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/zKBCSBfP9TI?t=13" },
     { name: "遂に自由に…", chord: "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", info: "参考曲：Dream Theater - Finally Free", url: "https://youtu.be/tdZKo7hPzmE?t=169" },
-    { name: "月光が差す", chord: "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", info: "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章", url: "https://youtu.be/OsOUcikyGRk?t=464" },
+    { name: "月光が差す", chord: "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", info: "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章", url: "https://youtu.be/zucBfXpCA6s" },
     { name: "ミステリー小説", chord: "Ⅵm-Ⅳ7-Ⅲ7", info: "怪しく不思議、ちょっとコミカル。", url: "" },
     { name: "ディストピア", chord: "Ⅵm-Ⅶ-Ⅱm-Ⅲ", info: "不穏な感じを出したいときに。", url: "" },
     { name: "外宇宙への旅", chord: "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", info: "暗黒の宇宙空間を想起させる響き。", url: "" },
