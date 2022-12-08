@@ -104,7 +104,7 @@ const chordProgOne =
     { name: "燦然と輝く", chord: "Ⅰ-Ⅴ-♭Ⅶ-Ⅳ-♭Ⅵ-Ⅰ-Ⅱ-Ⅴ", info: "ツーファイブの動きを多く取り入れた美しい進行。", url: "https://youtu.be/lScuUaL_6cc?t=46" },
     { name: "なめらかカノン進行", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅵm-Ⅲm/Ⅴ-Ⅳ-Ⅰ/Ⅲ-Ⅱm-Ⅴ", info: "カノン進行のベースラインをなめらかに繋がるように変形したもの。", url: "" },
     { name: "ドラマチック", chord: "Ⅰ-Ⅴ/Ⅶ-Ⅴm/♭Ⅶ-Ⅵ7-Ⅱm-#Ⅰaug-Ⅳ/Ⅰ-Ⅴ7/Ⅶ", info: "Ⅰメジャー始まりにもかかわらず、明るさ控え目。", url: "" },
-    { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コードです。", url: "" },
+    { name: "イチロクニーゴー", chord: "Ⅰ-Ⅵm-Ⅱm-Ⅴ", info: "オールディーズでよく耳にする、シンプルで万能な循環コード。リズム・チェンジ（George GershwinのI Got Rhythmのコード進行）の基本形とも考えられるでしょう。", url: "https://youtu.be/fpy0YjjriZg?t=59" },
     { name: "いつメン", chord: "Ⅰ-Ⅵm-Ⅳ-Ⅴ", info: "いつ使っても良い。", url: "" },
     { name: "午前2時の踏切に居そう", chord: "Ⅰadd9-Ⅵm7-Ⅴ-Ⅳ", info: "参考曲：BUMP OF CHICKEN - 天体観測", url: "https://youtu.be/j7CDb610Bg0?t=33" },
     { name: "モノクローム", chord: "Ⅰ-Ⅶm7(♭5)-Ⅲ7-Ⅵm7-Ⅴ", info: "カノン進行冒頭の定番変形パターンのひとつ。Ⅵmへのセカンダリー・ケーデンスを差し込んだもの。", url: "https://youtu.be/ony539T074w?t=2" },
