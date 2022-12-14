@@ -279,12 +279,26 @@ function SelectedPosition(MIDI_note_number_array, Root) {
     for (let i = 0; i < MIDI_note_number_array.length; i++) {
         //度数表記
         let j = mod(MIDI_note_number_array[i] - Root, Octave);
+
+        //全ての指板ポジションに対してオクターブ関係にあるポジションをチェックする
+        for (let k = 0; k < FingerboardPosition.length; k++) {
+            let F = FingerboardPosition[k].split('-');
+            if (!MIDI_note_number_array.includes(F[3])
+                && mod(Number(F[3]), Octave) === mod(MIDI_note_number_array[i], Octave)
+                && document.getElementById(`${FingerboardPosition[k]}`).classList.contains(`Degree${j}`) === false) {
+                document.getElementById(`${FingerboardPosition[k]}`).classList.add(`same_pitch_class`);
+            };
+        };
+
         //全ての指板ポジションに対してマッチするかチェックする
         for (let k = 0; k < FingerboardPosition.length; k++) {
             let F = FingerboardPosition[k].split('-');
-            if (Number(F[3]) === MIDI_note_number_array[i]) {
+            if (Number(F[3]) === MIDI_note_number_array[i] && document.getElementById(`${FingerboardPosition[k]}`).classList.contains(`same_pitch_class`)) {
+                document.getElementById(`${FingerboardPosition[k]}`).classList.remove(`same_pitch_class`);
                 document.getElementById(`${FingerboardPosition[k]}`).classList.toggle(`Degree${j}`);
-            };
+            } else if (Number(F[3]) === MIDI_note_number_array[i]) {
+                document.getElementById(`${FingerboardPosition[k]}`).classList.toggle(`Degree${j}`);
+            }
         };
     };
 };
