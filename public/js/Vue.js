@@ -299,7 +299,7 @@ Vue.component('link-card', {
                   <img class="link_image pt-3 pb-3" src="image/thumbnail/note-value_thumbnail.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
-                  指定したBPMの、18種類の「音符の長さ」を計算するツールです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
+                  「音価」を計算するアプリです。BPMを指定するだけで18種類の音符の長さがまとめて確認できます。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
                 </p>
               </div>
             </div>
@@ -746,7 +746,7 @@ Vue.component('link-table', {
                       </a>
                   </h4>
                   <p class="card-text">
-                      指定したBPMの、18種類の「音符の長さ」を計算するツールです。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
+                      「音価」を計算するアプリです。BPMを指定するだけで18種類の音符の長さがまとめて確認できます。表示は秒、ミリ秒、マイクロ秒、sec、ms、μsに切り替え可能です。
                   </p>
               </div>
           </div>
