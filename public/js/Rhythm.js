@@ -381,7 +381,7 @@ function NoteInfo() {
         document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
         document.getElementById("note_text").innerHTML
-            = `${ratio_number_note}が"${ratio} 個分"の音価を、"${rhythm_tuplet_type}個"に分割した状態です。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number_note}との比は<b>「${rhythm_tuplet_type}：${ratio}」</b>です。`;
+            = `${ratio_number_note}が"${ratio}個分"の音価を、"${rhythm_tuplet_type}個"に分割した状態です。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number_note}との比は<b>「${rhythm_tuplet_type}：${ratio}」</b>です。`;
         document.getElementById("note_text").className = "py-1";
     } else {
         document.getElementById("note_text").innerHTML = "";
