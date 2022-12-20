@@ -51,35 +51,38 @@ const Octave = 12;
 //主なチューニングタイプを格納した連想配列
 const TuningVariation = [
     { TuningName: "★ギター　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 40] },
-    { TuningName: "　ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35] },
-    { TuningName: "　ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30] },
     { TuningName: "　ギター　6弦：半音下げ", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 39] },
     { TuningName: "　ギター　6弦：全音下げ", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 38] },
-    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34] },
-    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34, 29] },
-
     { TuningName: "　ギター　6弦：ドロップD", NumberOfStrings: 6, StringTuningStrings: [64, 59, 55, 50, 45, 38] },
     { TuningName: "　ギター　6弦：ドロップC#", NumberOfStrings: 6, StringTuningStrings: [63, 58, 54, 49, 44, 37] },
     { TuningName: "　ギター　6弦：ドロップC", NumberOfStrings: 6, StringTuningStrings: [62, 57, 53, 48, 43, 36] },
     { TuningName: "　ギター　6弦：ドロップB", NumberOfStrings: 6, StringTuningStrings: [61, 56, 52, 47, 42, 11] },
     { TuningName: "　ギター　6弦：ダブル・ドロップD", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 45, 38] },
-
-    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33] },
-    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 28] },
-    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33, 28] },
-
     { TuningName: "　ギター　6弦：オープンD", NumberOfStrings: 6, StringTuningStrings: [62, 57, 54, 50, 45, 38] },
     { TuningName: "　ギター　6弦：オープンG", NumberOfStrings: 6, StringTuningStrings: [62, 59, 55, 50, 43, 38] },
     { TuningName: "　ギター　6弦：オープンA", NumberOfStrings: 6, StringTuningStrings: [64, 61, 57, 52, 45, 40] },
 
+    { TuningName: "▷ギター　7弦：スタンダード", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35] },
+    { TuningName: "　ギター　7弦：半音下げ", NumberOfStrings: 7, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34] },
+    { TuningName: "　ギター　7弦：ドロップA", NumberOfStrings: 7, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33] },
+
+    { TuningName: "▷ギター　8弦：スタンダード", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30] },
+    { TuningName: "　ギター　8弦：半音下げ", NumberOfStrings: 8, StringTuningStrings: [63, 58, 54, 49, 44, 39, 34, 29] },
+    { TuningName: "　ギター　8弦：ドロップE", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 28] },
+    { TuningName: "　ギター　8弦：Djent", NumberOfStrings: 8, StringTuningStrings: [64, 59, 55, 50, 45, 40, 33, 28] },
+
+    { TuningName: "▷ギター　9弦：スタンダード", NumberOfStrings: 9, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30, 25] },
+    { TuningName: "▷ギター　10弦：スタンダード", NumberOfStrings: 10, StringTuningStrings: [64, 59, 55, 50, 45, 40, 35, 30, 25, 20] },
+
     { TuningName: "★ベース　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
-    { TuningName: "　ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 23] },
-    { TuningName: "　ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [48, 43, 38, 33, 28, 23] },
     { TuningName: "　ベース　4弦：ドロップD", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 26] },
+
+    { TuningName: "▷ベース　5弦：スタンダード", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 23] },
     { TuningName: "　ベース　5弦：ドロップA", NumberOfStrings: 5, StringTuningStrings: [43, 38, 33, 28, 21] },
+    { TuningName: "▷ベース　6弦：スタンダード", NumberOfStrings: 6, StringTuningStrings: [48, 43, 38, 33, 28, 23] },
 
     { TuningName: "★ヴァイオリン　4弦", NumberOfStrings: 4, StringTuningStrings: [76, 69, 62, 55] },
-    { TuningName: "　ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [76, 69, 62, 55, 48] },
+    { TuningName: "▷ヴァイオリン　5弦", NumberOfStrings: 5, StringTuningStrings: [76, 69, 62, 55, 48] },
     { TuningName: "★ヴィオラ　4弦", NumberOfStrings: 4, StringTuningStrings: [69, 62, 55, 48] },
     { TuningName: "★チェロ　4弦", NumberOfStrings: 4, StringTuningStrings: [45, 38, 43, 36] },
     { TuningName: "★コントラバス　4弦", NumberOfStrings: 4, StringTuningStrings: [43, 38, 33, 28] },
@@ -89,6 +92,9 @@ const TuningVariation = [
     { TuningName: "　三味線　3弦：三下がり（主音ド）", NumberOfStrings: 3, StringTuningStrings: [74, 65, 60] },
 
     { TuningName: "★ウクレレ　4弦：スタンダード", NumberOfStrings: 4, StringTuningStrings: [69, 64, 60, 67] },
+
+    { TuningName: "★チャップマン・スティック　10弦：スタンダード", NumberOfStrings: 10, StringTuningStrings: [62, 57, 52, 47, 42, 24, 31, 38, 45, 52] },
+    { TuningName: "▷チャップマン・スティック　12弦：スタンダード", NumberOfStrings: 12, StringTuningStrings: [62, 57, 52, 47, 42, 37, 24, 31, 38, 45, 52, 59] },
 ];
 
 //コード進行を格納する多次元配列
