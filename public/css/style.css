@@ -1189,7 +1189,6 @@ box {
     display: block;
     overflow-x: scroll;
     white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
   }
   .hidden_smart_phone {
     display: none;
@@ -1199,7 +1198,6 @@ box {
     display: inline-block;
     overflow-x: scroll;
     white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
   }
   .diatonic_table {
     display: inline-block;
@@ -1214,7 +1212,6 @@ box {
   table.mobile-scroll {
     white-space: nowrap;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
   #MainChordInfoTable {
     display: grid;
