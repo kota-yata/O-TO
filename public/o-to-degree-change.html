@@ -167,9 +167,15 @@
                         </p>
 
                         <h4 class="pt-3 manual">【使い方】</h4>
-                        <p class="py-2">①入力するコード進行のキーを設定してください。</p>
-                        <p class="py-2">②コード進行のテキストを入力するか、貼り付けてください。</p>
-                        <p class="py-2">③変換したいキーを選んでください。</p>
+                        <p class="py-1">①入力するコード進行のキーを設定してください。</p>
+                        <p class="py-1">②コード進行のテキストを入力するか、貼り付けてください。</p>
+                        <p class="py-1">③変換したいキーを選んでください。</p>
+
+                        <p class="py-3">
+                            「変換前のキーから＋1」および「変換前のキーから-1」ボタンを押すと、簡単に半音単位の移調が可能です。
+                            <br>2回押すと全音、3回押すと半音3つ分…といった具合移調されます。
+                            <br>新たにキーを選択すると、このボタンの効力はリセットされます。
+                        </p>
 
                         <h4 class="pt-3 manual">【想定している用途】</h4>
 
@@ -260,21 +266,23 @@
                         </select>
                     </label>
                     <a id="b_clef_image">
-
                     </a>
                     <!-- サンプルボタン -->
                     <div id="ExampleTextButton">
                         <button class="btn btn-primary box1 col-xxl-6 m-3" onclick="ExampleTextOne()"><i
                                 class="fa-solid fa-pen"></i> コード進行サンプルを入力する</button>
                     </div>
-
-                    <!-- コード進行入力テキストエリア -->
-                    <TEXTAREA id="textarea" maxlength="100000" cols="80" rows="15"
-                        placeholder="②こちらにコード進行のテキストを入力してください。※保存機能はありません。元データを保存した上でお使いください。"></TEXTAREA>
+                    <div class="pt-3">
+                        <!-- コード進行入力テキストエリア -->
+                        <TEXTAREA id="textarea" maxlength="100000" cols="80" rows="15"
+                            placeholder="②こちらにコード進行のテキストを入力してください。※保存機能はありません。元データを保存した上でお使いください。"></TEXTAREA>
+                    </div>
                 </div>
 
                 <!-- ここから分割されたページの右側 -->
+
                 <div class="col-md-6">
+
                     <label for="AfterRootNumber">③変換後のキーを設定してください。
                         <select id="AfterRootNumber" class="form-select my-1" aria-label="Default select example"
                             onchange="ChangeDegreeText()">
@@ -294,8 +302,17 @@
                         </select>
                     </label>
                     <a id="a_clef_image">
-
                     </a>
+                    <div class="py-1">
+                        <button id="ChangeDegreeEasyButton_minus" class="transpose_button"
+                            onclick="ChangeDegreeEasyButton(-1)">
+                            変換前のキーから-1
+                        </button>
+                        <button id="ChangeDegreeEasyButton_plus" class="transpose_button"
+                            onclick="ChangeDegreeEasyButton(1)">
+                            変換前のキーから+1
+                        </button>
+                    </div>
                     <!-- 修正後テキスト -->
                     <div id="ValidationBox">
                     </div>

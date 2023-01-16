@@ -248,18 +248,20 @@ function DegreeChange(text, Root) {
 
 //コードネームを変換して転記する関数
 function ChangeDegreeText() {
-
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
-    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    let AfterRootNumber;
+    if (TRANSPOSE_POINT > 0) {
+        AfterRootNumber = TRANSPOSE_POINT
+    } else {
+        AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    };
 
     //指定したキーの音名をディグリーネームへ変換する関数
     text = ToDegreeName(text, BeforeRootNumber);
-
     //入力されたテキストをサニタイジングする関数
     text = Sanitizing(text);
-
     //正誤判定を行うプログラム
     Validation(text);
 
@@ -282,6 +284,54 @@ function ChangeDegreeText() {
         // 調号の画像を変更する
         document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
     };
+
+    //ドロップダウンリストから選択した場合は値をリセットする
+    TRANSPOSE_POINT = 0;
+};
+
+// どれだけ移調するかのデータを格納するグローバル変数
+let TRANSPOSE_POINT = 0;
+// 簡単に移調できるボタンのための関数
+function ChangeDegreeEasyButton(Point) {
+    //テキストエリア内のテキストを取得
+    let text = document.getElementById("textarea").value;
+    let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
+    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    // ボタンが押されるごとに数値を加減する
+    TRANSPOSE_POINT = mod(BeforeRootNumber + TRANSPOSE_POINT + Point, Octave);
+    AfterRootNumber = TRANSPOSE_POINT;
+
+    //指定したキーの音名をディグリーネームへ変換する関数
+    text = ToDegreeName(text, BeforeRootNumber);
+    //入力されたテキストをサニタイジングする関数
+    text = Sanitizing(text);
+    //正誤判定を行うプログラム
+    Validation(text);
+
+    //ディグリーネーム表記の処理
+    if (AfterRootNumber === 12) {
+        //処理なし
+    } else {
+        //ディグリーネームから任意のキーのコードネームへ変換する。
+        text = DegreeChange(text, TRANSPOSE_POINT);
+    };
+
+    //表示ボックスに書き込む
+    document.getElementById("box").innerHTML = text;
+
+    // 調号の画像を変更する
+    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[BeforeRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    if (AfterRootNumber === 12) {
+        document.getElementById("a_clef_image").innerHTML = "";
+    } else {
+        // 調号の画像を変更する
+        document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    };
+
+    //セレクトボックスのキー表記を変更する
+    document.getElementById("AfterRootNumber").options[AfterRootNumber].selected = true;
+    //グローバル変数の値を調整する
+    TRANSPOSE_POINT = TRANSPOSE_POINT - BeforeRootNumber;
 };
 
 //サンプルテキストを書き込む関数
