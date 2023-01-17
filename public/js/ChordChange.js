@@ -251,12 +251,7 @@ function ChangeDegreeText() {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
-    let AfterRootNumber;
-    if (TRANSPOSE_POINT > 0) {
-        AfterRootNumber = TRANSPOSE_POINT
-    } else {
-        AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
-    };
+    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
 
     //指定したキーの音名をディグリーネームへ変換する関数
     text = ToDegreeName(text, BeforeRootNumber);
@@ -285,8 +280,7 @@ function ChangeDegreeText() {
         document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
     };
 
-    //ドロップダウンリストから選択した場合は値をリセットする
-    TRANSPOSE_POINT = 0;
+
 };
 
 // どれだけ移調するかのデータを格納するグローバル変数
