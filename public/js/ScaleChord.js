@@ -8,8 +8,8 @@ function ChangeEIJG() {
     };
     let root_number = Number(document.getElementById("rootNumber").value);
     let key_signature_names = Number(document.getElementById("key_signature_names").value);
-    for (let i = 0; i < Octave; i++) {
-        document.getElementById(`chord_${i}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, Octave)];
+    for (let i = 0; i < OCTAVE; i++) {
+        document.getElementById(`chord_${i}`).innerHTML = EIJG[key_signature_names][mod(root_number + i, OCTAVE)];
     };
 };
 
@@ -73,8 +73,8 @@ function ScaleInformationDrawing() {
     //トニックの数値を取得する。
     let RootNumber = Number(document.getElementById("rootNumber").value);
 
-    let KeySignatureNum = mod(RootNumber - scale_Container[Num].addNum, Octave)
-    let scaleFamilyNum = mod(RootNumber - scale_Container[Num].addNum - scale_Container[Num].Adjustment, Octave)
+    let KeySignatureNum = mod(RootNumber - scale_Container[Num].addNum, OCTAVE)
+    let scaleFamilyNum = mod(RootNumber - scale_Container[Num].addNum - scale_Container[Num].Adjustment, OCTAVE)
 
     //調号が#か♭かを判定する。
     let SOF = DetermineKeySignature(KeySignatureNum);
@@ -147,27 +147,27 @@ function scaleChordTableCreate() {
         let ChordCountNum = 11;
         let noneCount = 0;
         // 登録しているコードネームの数だけfor文でコードネームを判定して書き込む
-        for (let k = 0; k < Octave; k++) {
+        for (let k = 0; k < OCTAVE; k++) {
             //スケールのバイナリが空ならテーブルも空。
             if (scale_binary_split[ChordCountNum - k] !== 0) {
                 //スケールの構成音でコードネームが作れるか判定する
-                if (chord_container[ChordTableNum - 1].ChordBinary[mod(k - 0, Octave)] <= scale_binary_split[11] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 1, Octave)] <= scale_binary_split[10] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 2, Octave)] <= scale_binary_split[9] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 3, Octave)] <= scale_binary_split[8] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 4, Octave)] <= scale_binary_split[7] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 5, Octave)] <= scale_binary_split[6] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 6, Octave)] <= scale_binary_split[5] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 7, Octave)] <= scale_binary_split[4] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 8, Octave)] <= scale_binary_split[3] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 9, Octave)] <= scale_binary_split[2] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 10, Octave)] <= scale_binary_split[1] &&
-                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 11, Octave)] <= scale_binary_split[0]) {
+                if (chord_container[ChordTableNum - 1].ChordBinary[mod(k - 0, OCTAVE)] <= scale_binary_split[11] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 1, OCTAVE)] <= scale_binary_split[10] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 2, OCTAVE)] <= scale_binary_split[9] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 3, OCTAVE)] <= scale_binary_split[8] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 4, OCTAVE)] <= scale_binary_split[7] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 5, OCTAVE)] <= scale_binary_split[6] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 6, OCTAVE)] <= scale_binary_split[5] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 7, OCTAVE)] <= scale_binary_split[4] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 8, OCTAVE)] <= scale_binary_split[3] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 9, OCTAVE)] <= scale_binary_split[2] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 10, OCTAVE)] <= scale_binary_split[1] &&
+                    chord_container[ChordTableNum - 1].ChordBinary[mod(k - 11, OCTAVE)] <= scale_binary_split[0]) {
 
                     //調号が#か♭かを判定する。
                     let SOF = DetermineKeySignature(scale_Container[Number(value[1])].ScaleNumBinary[ChordCountNum - k]);
                     //コードネームを変数に格納する。
-                    let chordText = `${AllNoteNames[mod((RootNumber + ChordCountNum - k), Octave)][0][SOF]}${chord_container[ChordTableNum - 1].ChordName}`
+                    let chordText = `${AllNoteNames[mod((RootNumber + ChordCountNum - k), OCTAVE)][0][SOF]}${chord_container[ChordTableNum - 1].ChordName}`
                     //コードネームを書き込む。
                     document.getElementById(`ChordNumber-${ChordTableNum}`)
                         .insertAdjacentHTML('afterbegin', `<td id="${ChordTableNum - 1}-${ChordCountNum - k}" title="${(chord_container[ChordTableNum - 1].Info)
@@ -203,7 +203,7 @@ function scaleChordTableCreate() {
         ChordTableNum--;
     };
     //コードネームのヒット件数を表示する。
-    document.querySelector('.use_chord_count').innerHTML = `（${use_chord_count} / ${chord_container.length * Octave}）`;
+    document.querySelector('.use_chord_count').innerHTML = `（${use_chord_count} / ${chord_container.length * OCTAVE}）`;
 };
 
 //スケールの情報を処理して書き込む関数(スケールで使用)
@@ -264,26 +264,26 @@ function degree_position_drow(root_position) {
         return;
     };
 
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         //いったんテーブル要素を全て空にする。
         document.getElementById(`Degree_table_${i}`).innerHTML = ``;
         document.getElementById(`Tension_table_${i}`).innerHTML = ``;
-        for (let k = 0; k < Octave; k++) {
+        for (let k = 0; k < OCTAVE; k++) {
             //いったんクラスを全て削除する
             document.getElementById(`Degree_table_${i}`).classList.remove(`Degree${k}`);
             document.getElementById(`Tension_table_${i}`).classList.remove(`Degree${k}`);
         };
     };
 
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         //テキストを追加する
-        document.getElementById(`Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][0]}`;
-        document.getElementById(`Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, Octave)][1]}`;
+        document.getElementById(`Degree_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, OCTAVE)][0]}`;
+        document.getElementById(`Tension_table_${i}`).innerHTML = `${Degree_Tension_array[mod(-root_position + i, OCTAVE)][1]}`;
 
         //クラスを追加する
-        document.getElementById(`Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
-        if (Degree_Tension_array[mod(-root_position + i, Octave)][1] !== "") {
-            document.getElementById(`Tension_table_${mod(i, Octave)}`).classList.add(`Degree${mod(-root_position + i, Octave)}`);
+        document.getElementById(`Degree_table_${i}`).classList.add(`Degree${mod(-root_position + i, OCTAVE)}`);
+        if (Degree_Tension_array[mod(-root_position + i, OCTAVE)][1] !== "") {
+            document.getElementById(`Tension_table_${mod(i, OCTAVE)}`).classList.add(`Degree${mod(-root_position + i, OCTAVE)}`);
         };
     };
 };
@@ -294,16 +294,16 @@ function TriTone(onoff, RootNumber, num = 0, TriToneText) {
     let SOF = DetermineKeySignature(RootNumber);
     if (onoff[num] + onoff[num + 6] === 2) {
         TriToneText.push(`<br>
-            ${noteNames[mod(RootNumber + num + 1, Octave)][SOF]}　${noteNames[mod(RootNumber + num + 1, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num + 4, Octave)][SOF]}　${noteNames[mod(RootNumber + num + 4, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num - 2, Octave)][SOF]}　${noteNames[mod(RootNumber + num - 2, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num - 5, Octave)][SOF]}　${noteNames[mod(RootNumber + num - 5, Octave)][SOF]}m　`);
+            ${noteNames[mod(RootNumber + num + 1, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num + 1, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num + 4, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num + 4, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num - 2, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num - 2, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num - 5, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num - 5, OCTAVE)][SOF]}m　`);
     } else if (onoff[num + 3] + onoff[num + 9] === 2) {
         TriToneText.push(`<br>
-            ${noteNames[mod(RootNumber + num + 4, Octave)][SOF]}　${noteNames[mod(RootNumber + num + 4, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num - 5, Octave)][SOF]}　${noteNames[mod(RootNumber + num - 5, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num - 2, Octave)][SOF]}　${noteNames[mod(RootNumber + num - 2, Octave)][SOF]}m　
-            ${noteNames[mod(RootNumber + num + 1, Octave)][SOF]}　${noteNames[mod(RootNumber + num + 1, Octave)][SOF]}m`);
+            ${noteNames[mod(RootNumber + num + 4, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num + 4, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num - 5, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num - 5, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num - 2, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num - 2, OCTAVE)][SOF]}m　
+            ${noteNames[mod(RootNumber + num + 1, OCTAVE)][SOF]}　${noteNames[mod(RootNumber + num + 1, OCTAVE)][SOF]}m`);
     };
     return TriToneText;
 };
@@ -314,16 +314,16 @@ function Sub2(onoff, RootNumber, num = 0, Sub2Text) {
     let SOF = DetermineKeySignature(RootNumber);
     if (onoff[num] + onoff[num + 6] === 2) {
         Sub2Text.push(`<br>
-            ${noteNames[mod(RootNumber + num + 3, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num + 3, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num + 6, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num + 6, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num - 0, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num - 0, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num - 3, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num - 3, Octave)][SOF]}m7(♭5)`);
+            ${noteNames[mod(RootNumber + num + 3, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num + 3, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num + 6, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num + 6, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num - 0, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num - 0, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num - 3, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num - 3, OCTAVE)][SOF]}m7(♭5)`);
     } else if (onoff[num + 3] + onoff[num + 9] === 2) {
         Sub2Text.push(`<br>
-            ${noteNames[mod(RootNumber + num + 6, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num + 6, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num - 3, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num - 3, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num - 0, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num - 0, Octave)][SOF]}m7(♭5)　
-            ${noteNames[mod(RootNumber + num + 3, Octave)][SOF]}m7　${noteNames[mod(RootNumber + num + 3, Octave)][SOF]}m7(♭5)`);
+            ${noteNames[mod(RootNumber + num + 6, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num + 6, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num - 3, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num - 3, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num - 0, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num - 0, OCTAVE)][SOF]}m7(♭5)　
+            ${noteNames[mod(RootNumber + num + 3, OCTAVE)][SOF]}m7　${noteNames[mod(RootNumber + num + 3, OCTAVE)][SOF]}m7(♭5)`);
     };
     return Sub2Text;
 };
@@ -477,10 +477,10 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
             ustArray.TopChordOnoff[j].push(ustArray.onoff[i] - chord_container[UST_BottomChordNumber[ustArray.iNum[j]]].ChordBinary[i])
         };
         //分子に当たるコードの最低音を判定する。
-        for (let i = 0; i <= Octave; i++) {
+        for (let i = 0; i <= OCTAVE; i++) {
             //一番左側の押されているスイッチの場所（最低音）を判定する
             if (ustArray.TopChordOnoff[j][i] === 1) {
-                ustArray.TopLowestNoteNumber.push(mod(i + RootNumber, Octave));
+                ustArray.TopLowestNoteNumber.push(mod(i + RootNumber, OCTAVE));
                 break;
             };
         };
@@ -490,21 +490,21 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
             ustArray.TopChordOnoff[j].push(dn);
         };
         //TopChordOnoffから分子のトライアドを判定する
-        for (let m = 0; m < Octave; m++) {
+        for (let m = 0; m < OCTAVE; m++) {
             //コード・ネームが格納された配列から、マッチするトライアドを見つける。
             for (let k = 0; k < TriadNumber.length; k++) {
-                if (chord_container[TriadNumber[k]].ChordBinary[0] === ustArray.TopChordOnoff[j][mod(m + 0, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[1] === ustArray.TopChordOnoff[j][mod(m + 1, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[2] === ustArray.TopChordOnoff[j][mod(m + 2, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[3] === ustArray.TopChordOnoff[j][mod(m + 3, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[4] === ustArray.TopChordOnoff[j][mod(m + 4, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[5] === ustArray.TopChordOnoff[j][mod(m + 5, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[6] === ustArray.TopChordOnoff[j][mod(m + 6, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[7] === ustArray.TopChordOnoff[j][mod(m + 7, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[8] === ustArray.TopChordOnoff[j][mod(m + 8, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[9] === ustArray.TopChordOnoff[j][mod(m + 9, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[10] === ustArray.TopChordOnoff[j][mod(m + 10, Octave)]
-                    && chord_container[TriadNumber[k]].ChordBinary[11] === ustArray.TopChordOnoff[j][mod(m + 11, Octave)]) {
+                if (chord_container[TriadNumber[k]].ChordBinary[0] === ustArray.TopChordOnoff[j][mod(m + 0, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[1] === ustArray.TopChordOnoff[j][mod(m + 1, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[2] === ustArray.TopChordOnoff[j][mod(m + 2, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[3] === ustArray.TopChordOnoff[j][mod(m + 3, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[4] === ustArray.TopChordOnoff[j][mod(m + 4, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[5] === ustArray.TopChordOnoff[j][mod(m + 5, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[6] === ustArray.TopChordOnoff[j][mod(m + 6, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[7] === ustArray.TopChordOnoff[j][mod(m + 7, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[8] === ustArray.TopChordOnoff[j][mod(m + 8, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[9] === ustArray.TopChordOnoff[j][mod(m + 9, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[10] === ustArray.TopChordOnoff[j][mod(m + 10, OCTAVE)]
+                    && chord_container[TriadNumber[k]].ChordBinary[11] === ustArray.TopChordOnoff[j][mod(m + 11, OCTAVE)]) {
                     //コード・ネームを配列から取り出す。
                     ustArray.TopChordName.push(chord_container[TriadNumber[k]].ChordName);
                     ustArray.TopHowToRead.push(chord_container[TriadNumber[k]].Name);
@@ -527,11 +527,11 @@ function UpperStructureTriad(onoff, SOF, RootNumber) {
 
         if (ustArray.TopChordName[i] !== undefined && ustArray.BottomChordName[i] !== undefined) {
             ustArray.NameOfChord
-                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}`);
+                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, OCTAVE)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}`);
             ustArray.HowToRead
-                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopHowToRead[i]}・オーヴァー・${noteNames[RootNumber][SOF]} ${ustArray.BottomHowToRead[i]}（USTとして解釈）`);
+                .push(`${noteNames[mod(ustArray.mNum[i] + RootNumber, OCTAVE)][SOF]}${ustArray.TopHowToRead[i]}・オーヴァー・${noteNames[RootNumber][SOF]} ${ustArray.BottomHowToRead[i]}（USTとして解釈）`);
             OtherInterpretationsArray
-                .push(`・<span class="USTColor">${noteNames[mod(ustArray.mNum[i] + RootNumber, Octave)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}</span><br>`);
+                .push(`・<span class="USTColor">${noteNames[mod(ustArray.mNum[i] + RootNumber, OCTAVE)][SOF]}${ustArray.TopChordName[i]}/${noteNames[RootNumber][SOF]}${ustArray.BottomChordName[i]}</span><br>`);
 
             //最初に配列へ入れたUSTをHTMLに大きく書き込む。
             if (wrote === false) {
@@ -587,7 +587,7 @@ function HybridChord(onoff, SOF, RootNumber) {
         return OtherInterpretationsArray;
     };
 
-    for (let i = 0; i <= Octave; i++) {
+    for (let i = 0; i <= OCTAVE; i++) {
         //一番左側の押されているスイッチの場所（最低音）を判定する。
         if (hcArray.onoff[i] === 1) {
             //本当のベース音を削除。
@@ -598,11 +598,11 @@ function HybridChord(onoff, SOF, RootNumber) {
     };
 
     //べースの音名を取り出す
-    hcArray.bassName.push(`${noteNames[mod(RootNumber + hcArray.bassAdd, Octave)][SOF]}`);
+    hcArray.bassName.push(`${noteNames[mod(RootNumber + hcArray.bassAdd, OCTAVE)][SOF]}`);
 
     //ハイブリッド・コードの分子に当たるコードの最低音を判定する。
     hcArray.LowestNoteNumber = FindLowestNoteNumber(hcArray.onoff);
-    hcArray.LowestNoteNumber = mod(hcArray.LowestNoteNumber + RootNumber, Octave);
+    hcArray.LowestNoteNumber = mod(hcArray.LowestNoteNumber + RootNumber, OCTAVE);
 
     // 残った最低音が先頭になるように配列を並び替える
     for (let i = 0; i < hcArray.LowestNoteNumber; i++) {
@@ -612,35 +612,35 @@ function HybridChord(onoff, SOF, RootNumber) {
 
     //分子コードの構成音が何音か判定するための配列を作成
     hcArray.HowManyTones = hcArray.onoff.filter(n => n === 1);
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
-            if (chord_container[j].ChordBinary[0] === hcArray.onoff[mod(i + 0, Octave)]
-                && chord_container[j].ChordBinary[1] === hcArray.onoff[mod(i + 1, Octave)]
-                && chord_container[j].ChordBinary[2] === hcArray.onoff[mod(i + 2, Octave)]
-                && chord_container[j].ChordBinary[3] === hcArray.onoff[mod(i + 3, Octave)]
-                && chord_container[j].ChordBinary[4] === hcArray.onoff[mod(i + 4, Octave)]
-                && chord_container[j].ChordBinary[5] === hcArray.onoff[mod(i + 5, Octave)]
-                && chord_container[j].ChordBinary[6] === hcArray.onoff[mod(i + 6, Octave)]
-                && chord_container[j].ChordBinary[7] === hcArray.onoff[mod(i + 7, Octave)]
-                && chord_container[j].ChordBinary[8] === hcArray.onoff[mod(i + 8, Octave)]
-                && chord_container[j].ChordBinary[9] === hcArray.onoff[mod(i + 9, Octave)]
-                && chord_container[j].ChordBinary[10] === hcArray.onoff[mod(i + 10, Octave)]
-                && chord_container[j].ChordBinary[11] === hcArray.onoff[mod(i + 11, Octave)]) {
+            if (chord_container[j].ChordBinary[0] === hcArray.onoff[mod(i + 0, OCTAVE)]
+                && chord_container[j].ChordBinary[1] === hcArray.onoff[mod(i + 1, OCTAVE)]
+                && chord_container[j].ChordBinary[2] === hcArray.onoff[mod(i + 2, OCTAVE)]
+                && chord_container[j].ChordBinary[3] === hcArray.onoff[mod(i + 3, OCTAVE)]
+                && chord_container[j].ChordBinary[4] === hcArray.onoff[mod(i + 4, OCTAVE)]
+                && chord_container[j].ChordBinary[5] === hcArray.onoff[mod(i + 5, OCTAVE)]
+                && chord_container[j].ChordBinary[6] === hcArray.onoff[mod(i + 6, OCTAVE)]
+                && chord_container[j].ChordBinary[7] === hcArray.onoff[mod(i + 7, OCTAVE)]
+                && chord_container[j].ChordBinary[8] === hcArray.onoff[mod(i + 8, OCTAVE)]
+                && chord_container[j].ChordBinary[9] === hcArray.onoff[mod(i + 9, OCTAVE)]
+                && chord_container[j].ChordBinary[10] === hcArray.onoff[mod(i + 10, OCTAVE)]
+                && chord_container[j].ChordBinary[11] === hcArray.onoff[mod(i + 11, OCTAVE)]) {
                 //コードネームの名前と読み方を配列から取り出す
                 hcArray.ChordName.push(chord_container[j].ChordName);
                 hcArray.HowToRead.push(chord_container[j].Name);
                 //調整用の値を変数に代入
                 hcArray.iNum.push(i);
                 hcArray.jNum.push(j);
-                hcArray.rootName.push(`${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, Octave)][SOF]}`);
+                hcArray.rootName.push(`${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, OCTAVE)][SOF]}`);
 
                 if (chord_container[j].ChordName.match("omit")) {
                     //何もしない
                 } else if (hcArray.HowManyTones.length >= 3) {
                     //分子コードが3音以上の場合は別解釈として格納する
                     OtherInterpretationsArray
-                        .push(`・<span class="HybridChordColor">${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, Octave)][SOF]}${chord_container[j].ChordName}/${hcArray.bassName}</span><br>`);
+                        .push(`・<span class="HybridChordColor">${noteNames[mod(RootNumber + hcArray.LowestNoteNumber + i, OCTAVE)][SOF]}${chord_container[j].ChordName}/${hcArray.bassName}</span><br>`);
                 };
             };
         };
@@ -694,7 +694,7 @@ function HybridChord(onoff, SOF, RootNumber) {
 //配列の中から最低音を判定するする関数
 function FindLowestNoteNumber(onoff) {
     let LowestNoteNumber = 0;
-    for (let i = 0; i <= Octave; i++) {
+    for (let i = 0; i <= OCTAVE; i++) {
         //一番左側の押されているスイッチの場所（最低音）を判定する。
         if (onoff[i] === 1) {
             LowestNoteNumber = i;
@@ -750,10 +750,10 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
 
     //最低音を判定する
     info_Array.LowestNoteNumber = FindLowestNoteNumber(onoff);
-    info_Array.LowestNoteNumber = mod(info_Array.LowestNoteNumber + RootNumber, Octave);
+    info_Array.LowestNoteNumber = mod(info_Array.LowestNoteNumber + RootNumber, OCTAVE);
 
     //コードネームに合わせて度数表記を描画する関数
-    degree_position_drow(mod(info_Array.LowestNoteNumber - RootNumber, Octave));
+    degree_position_drow(mod(info_Array.LowestNoteNumber - RootNumber, OCTAVE));
 
     //---------------------------------------
     // トライトーンの判定をする
@@ -799,7 +799,7 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     };
 
     //大まかな異名同音の判定
-    let SOF = DetermineKeySignature(mod(info_Array.LowestNoteNumber + RootNumber, Octave));
+    let SOF = DetermineKeySignature(mod(info_Array.LowestNoteNumber + RootNumber, OCTAVE));
 
     //ハイブリッド・コードを判定する
     OtherInterpretationsArray.HybridChord = HybridChord(onoff, SOF, RootNumber);
@@ -811,9 +811,9 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     //トーン・クラスター（3半音連続している部分の有無）を判定する。
     if (info_Array.HowManyChordTone.length >= 3) {
         let NoteChain = 0;
-        for (let i = 0; i < Octave; i++) {
+        for (let i = 0; i < OCTAVE; i++) {
             //トーンクラスターを見つける。（特定の音と、+1と＋2の場所のスイッチがonかどうか判定）
-            NoteChain = onoff[mod(i, Octave)] + onoff[mod(i + 1, Octave)] + onoff[mod(i + 2, Octave)];
+            NoteChain = onoff[mod(i, OCTAVE)] + onoff[mod(i + 1, OCTAVE)] + onoff[mod(i + 2, OCTAVE)];
             // トーンクラスターだった場合はここでretrun
             if (NoteChain >= 3) {
                 document.getElementById("NameOfChord").innerHTML = `Tone cluster`;
@@ -828,21 +828,21 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     //---------------------------------------
     //コード・ネームを判定する。
     //転回形を判定するためルート音をずらして12通り全てを判定する。
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         //コード・ネームが格納された配列から、マッチするものを見つける。
         for (let j = 0; j < chord_container.length; j++) {
-            if (chord_container[j].ChordBinary[0] === onoff[mod(i + 0, Octave)]
-                && chord_container[j].ChordBinary[1] === onoff[mod(i + 1, Octave)]
-                && chord_container[j].ChordBinary[2] === onoff[mod(i + 2, Octave)]
-                && chord_container[j].ChordBinary[3] === onoff[mod(i + 3, Octave)]
-                && chord_container[j].ChordBinary[4] === onoff[mod(i + 4, Octave)]
-                && chord_container[j].ChordBinary[5] === onoff[mod(i + 5, Octave)]
-                && chord_container[j].ChordBinary[6] === onoff[mod(i + 6, Octave)]
-                && chord_container[j].ChordBinary[7] === onoff[mod(i + 7, Octave)]
-                && chord_container[j].ChordBinary[8] === onoff[mod(i + 8, Octave)]
-                && chord_container[j].ChordBinary[9] === onoff[mod(i + 9, Octave)]
-                && chord_container[j].ChordBinary[10] === onoff[mod(i + 10, Octave)]
-                && chord_container[j].ChordBinary[11] === onoff[mod(i + 11, Octave)]) {
+            if (chord_container[j].ChordBinary[0] === onoff[mod(i + 0, OCTAVE)]
+                && chord_container[j].ChordBinary[1] === onoff[mod(i + 1, OCTAVE)]
+                && chord_container[j].ChordBinary[2] === onoff[mod(i + 2, OCTAVE)]
+                && chord_container[j].ChordBinary[3] === onoff[mod(i + 3, OCTAVE)]
+                && chord_container[j].ChordBinary[4] === onoff[mod(i + 4, OCTAVE)]
+                && chord_container[j].ChordBinary[5] === onoff[mod(i + 5, OCTAVE)]
+                && chord_container[j].ChordBinary[6] === onoff[mod(i + 6, OCTAVE)]
+                && chord_container[j].ChordBinary[7] === onoff[mod(i + 7, OCTAVE)]
+                && chord_container[j].ChordBinary[8] === onoff[mod(i + 8, OCTAVE)]
+                && chord_container[j].ChordBinary[9] === onoff[mod(i + 9, OCTAVE)]
+                && chord_container[j].ChordBinary[10] === onoff[mod(i + 10, OCTAVE)]
+                && chord_container[j].ChordBinary[11] === onoff[mod(i + 11, OCTAVE)]) {
                 //コードネームの名前を配列から取り出す
                 info_Array.ChordName.push(chord_container[j].ChordName);
                 info_Array.HowToRead.push(chord_container[j].Name);
@@ -858,31 +858,31 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
     if (info_Array.ChordName.length > 0) {
         //---------------------------------------
         // コードの異名同音をある程度調整するための値を計算する
-        let adjustment = AdjustmentEnharmonic(info_Array.ChordName[0], onoff[mod(info_Array.iNum[0] + 3, Octave)], onoff[mod(info_Array.iNum[0] + 6, Octave)]);
+        let adjustment = AdjustmentEnharmonic(info_Array.ChordName[0], onoff[mod(info_Array.iNum[0] + 3, OCTAVE)], onoff[mod(info_Array.iNum[0] + 6, OCTAVE)]);
         //コード・ネームのシャープとフラットを判定するための値を計算する。
-        SOF = DetermineKeySignature(mod(info_Array.iNum[0] + RootNumber - adjustment, Octave));
+        SOF = DetermineKeySignature(mod(info_Array.iNum[0] + RootNumber - adjustment, OCTAVE));
         //コードのベース音が♯か♭かを判定する
-        let BassSOF = DetermineBassSignature(SOF, info_Array.ChordName[0], mod(info_Array.LowestNoteNumber - info_Array.iNum[0] - RootNumber, Octave));
+        let BassSOF = DetermineBassSignature(SOF, info_Array.ChordName[0], mod(info_Array.LowestNoteNumber - info_Array.iNum[0] - RootNumber, OCTAVE));
         //コードのルート音
-        let RootName = noteNames[mod(RootNumber + info_Array.iNum[0], Octave)][SOF];
+        let RootName = noteNames[mod(RootNumber + info_Array.iNum[0], OCTAVE)][SOF];
 
         //異名同音判定が正しいか検証する
         BassSOF = EnharmonicRejudgement(SOF, BassSOF, RootName, noteNames[info_Array.LowestNoteNumber][BassSOF]);
 
         //---------------------------------------
         //完全5度が省略可能かを判定する。
-        if (onoff[mod(info_Array.iNum[0] + 7, Octave)] === 1 && info_Array.HowManyChordTone.length >= 3) {
+        if (onoff[mod(info_Array.iNum[0] + 7, OCTAVE)] === 1 && info_Array.HowManyChordTone.length >= 3) {
             info_Array.Omit5.push(`<br>Root（ルート音）に対してP5th（完全5度）の音は、状況に応じて省略が可能です。`);
             if (info_Array.ChordName[0].match("sus") || info_Array.ChordName[0].match("omit5")) {
                 //長2度(sus2)や完全4度(sus4)の場合をはじく。
                 info_Array.Omit5.pop();
             };
         };
-        if (onoff[mod(info_Array.iNum[0] + 7, Octave)] === 1 && onoff[mod(info_Array.iNum[0] + 8, Octave)] === 1) {
+        if (onoff[mod(info_Array.iNum[0] + 7, OCTAVE)] === 1 && onoff[mod(info_Array.iNum[0] + 8, OCTAVE)] === 1) {
             info_Array.Omit5.push(`<br>P5th（完全5度）に対して♭13thはアボイド・ノートになります。♭13thテンションを使用したい場合は（特に意図がなければ）P5th（完全5度）の省略を推奨します。`);
         };
 
-        if (onoff[mod(info_Array.iNum[0] + 4, Octave)] === 1 && onoff[mod(info_Array.iNum[0] + 5, Octave)] === 1) {
+        if (onoff[mod(info_Array.iNum[0] + 4, OCTAVE)] === 1 && onoff[mod(info_Array.iNum[0] + 5, OCTAVE)] === 1) {
             info_Array.Omit5.push(`<br><br>M3rd（長3度）に対してP4th(11th)はアボイド・ノートになります。取り扱いには注意が必要です。`);
         };
 
@@ -891,7 +891,7 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
         //---------------------------------------
         //その他の解釈を配列に格納していく。
         for (let i = 1; i < info_Array.ChordName.length; i++) {
-            let top = `${noteNames[mod(RootNumber + info_Array.iNum[i], Octave)][SOF]}`;
+            let top = `${noteNames[mod(RootNumber + info_Array.iNum[i], OCTAVE)][SOF]}`;
             let bottom = `${noteNames[info_Array.LowestNoteNumber][BassSOF]}`;
             if (info_Array.ChordName[i] === "dim7"
                 || info_Array.ChordName[i] === "aug") {
@@ -923,7 +923,7 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
 
         //---------------------------------------
         // コードネームと読み方と情報を書き込む
-        if (0 === mod(info_Array.LowestNoteNumber - info_Array.iNum[0] - RootNumber, Octave)) {
+        if (0 === mod(info_Array.LowestNoteNumber - info_Array.iNum[0] - RootNumber, OCTAVE)) {
             //コードネームをグローバル変数へ代入する
             CHORD_NAME = `${RootName}${info_Array.ChordName[0]}`;
             //転回形ではない
@@ -945,10 +945,10 @@ function ChordCandidateInfo(onoff, RootNumber = 0) {
                 = `${info_Array.ChordInfo[0]}`;
         };
         //コードネームに合わせて度数表記を描画する関数
-        degree_position_drow(mod(info_Array.iNum[0], Octave));
+        degree_position_drow(mod(info_Array.iNum[0], OCTAVE));
         //---------------------------------------
         //マッチするものが見つかった場合はここでreturn
-        BassNumber = mod(RootNumber + info_Array.iNum[0], Octave);
+        BassNumber = mod(RootNumber + info_Array.iNum[0], OCTAVE);
         return [BassNumber, true];
     };
 
@@ -1010,7 +1010,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
     //全てのスケールの要素を削除
     for (let i = 0; i < scale_Container.length; i++) {
         //ディグリー表記のために13回ループさせる。
-        for (let k = 0; k < Octave + 1; k++) {
+        for (let k = 0; k < OCTAVE + 1; k++) {
             document.getElementById(`Modal_text_${k}_${i}`).innerHTML = "";
         };
     };
@@ -1020,7 +1020,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
 
     //コードが転回形の場合、modal_onoffをルート音に合わせた形ではなく、元に戻す。
     if (BassNumber !== RootNumber) {
-        for (let i = 0; i < mod(RootNumber - BassNumber, Octave); i++) {
+        for (let i = 0; i < mod(RootNumber - BassNumber, OCTAVE); i++) {
             let delete_number = modal_onoff.shift();
             modal_onoff.push(delete_number);
         };
@@ -1035,7 +1035,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
         all_root_number = [0];
     } else {
         //ピッチクラスが存在する場合、配列modal_onoffに1を代入する。
-        for (let i = 0; i < Octave; i++) {
+        for (let i = 0; i < OCTAVE; i++) {
             if (modal_onoff[i] === 1) {
                 all_root_number.push(i)
             };
@@ -1047,7 +1047,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
 
     for (let y = 0; y < all_root_number.length; y++) {
         //ルートナンバーを得る
-        RootNumber = mod(all_root_number[y] + OriginalRoot, Octave);
+        RootNumber = mod(all_root_number[y] + OriginalRoot, OCTAVE);
         //modal_onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
         for (let k = 0; k < all_root_number[y]; k++) {
             let delete_number = modal_onoff.shift();
@@ -1070,40 +1070,40 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
                 && scale_Container[i].ScaleNumBinary[10] >= modal_onoff[10]
                 && scale_Container[i].ScaleNumBinary[11] >= modal_onoff[11]) {
                 // 異名同音を判定
-                let SOF = DetermineKeySignature(mod(RootNumber - scale_Container[i].addNum, Octave));
+                let SOF = DetermineKeySignature(mod(RootNumber - scale_Container[i].addNum, OCTAVE));
                 //スケール構成音のバイナリを配列に格納する。
                 let Configuration = scale_Container[i].ScaleNumBinary
                 //for文でスケールの構成音を生成する。
-                for (let i = 0; i < Octave; i++) {
+                for (let i = 0; i < OCTAVE; i++) {
                     //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
                     if (Configuration[i] === 0) {
                         //取り出さない（何もしない）。
                     } else if (Configuration[i] === 42) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, Octave)][0]);
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, OCTAVE)][0]);
                     } else if (Configuration[i] === 43) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, Octave)][1]);
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, OCTAVE)][1]);
                     } else if (Configuration[i] === 1) {
-                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, Octave)][SOF]);
+                        ConfigurationNotes.push(EIJG2[sigNameNum][mod(RootNumber + i, OCTAVE)][SOF]);
                     } else {
-                        ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][sigNameNum][Number(Configuration[i])]);
+                        ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][sigNameNum][Number(Configuration[i])]);
                     };
                 };
                 //スケールの情報をHTMLに書き込む。
                 if (scale_Container[i].Mode === "") {
-                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, Octave)}_${i}`)
-                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, Octave)]}</font>`;
+                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, OCTAVE)}_${i}`)
+                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}. . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, OCTAVE)]}</font>`;
                 } else {
-                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, Octave)}_${i}`)
-                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, Octave)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i].addNum - scale_Container[i]['Adjustment'], Octave)][SOF]}${scale_Container[i].Mode}</span></font>`;
+                    document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, OCTAVE)}_${i}`)
+                        .innerHTML = `${noteNames[RootNumber][SOF]} ${scale_Container[i][ScaleLanguage]}</span> . . .<span style="color:#dc143c">【${ConfigurationNotes.join('-')}】</span> <font size="-1">${key_signature[mod(RootNumber - scale_Container[i].addNum, OCTAVE)]}　<span style="color:#808080">${noteNames[mod(RootNumber - scale_Container[i].addNum - scale_Container[i]['Adjustment'], OCTAVE)][SOF]}${scale_Container[i].Mode}</span></font>`;
                 };
                 use_scale_count++;
             } else {
                 //含まないスケールは非表示にする
-                document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, Octave)}_${i}`).innerHTML = "";
+                document.getElementById(`Modal_text_${mod(RootNumber - OriginalRoot, OCTAVE)}_${i}`).innerHTML = "";
             };
         };
         //各ルートの場合を想定するため配列をズラした配列を、一旦もとに戻す。
-        for (let k = 0; k < Octave - all_root_number[y]; k++) {
+        for (let k = 0; k < OCTAVE - all_root_number[y]; k++) {
             let delete_number = modal_onoff.shift();
             modal_onoff.push(delete_number);
         };
@@ -1112,7 +1112,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
             denominator = scale_Container.length;
             break;
         } else {
-            denominator = scale_Container.length * Octave;
+            denominator = scale_Container.length * OCTAVE;
         };
     };
     document.querySelector('.use_scale_count').innerHTML = `（${use_scale_count} / ${denominator}）`;
@@ -1130,7 +1130,7 @@ function ModalTextCreate() {
     NegativeHarmony(onoff);
     let count = 0;
     //onoffを各ピッチクラスをルートにした順に並び替える。（各ルートの場合を想定するため、配列をズラす。）
-    for (let i = 0; i < mod(BassNumber - RootNumber, Octave); i++) {
+    for (let i = 0; i < mod(BassNumber - RootNumber, OCTAVE); i++) {
         let delete_number = onoff.shift();
         onoff.push(delete_number);
         count++;
@@ -1203,7 +1203,7 @@ function ScaleLanguageJE() {
 
 //構成音を着色する関数
 function NoteNameColoring(onoff) {
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         if (onoff[i] !== 0) {
             document.getElementById(`chord_${i}`).className = "NoteName NoteOn";
         } else if (onoff[i] === 0) {
@@ -1217,7 +1217,7 @@ function KeyboardColoring(onoff, Root) {
 
     //一旦全ての鍵盤の着色をリセットする
     for (let i = MIDINN_OfTopNote; i >= MIDINN_OfTopNote - NumberOfKeys; i--) {
-        for (let j = 0; j < Octave; j++) {
+        for (let j = 0; j < OCTAVE; j++) {
             document.getElementById(`MIDI_note_number-${i}`).classList.remove(`Selected_keyboard${j}`);
         };
     };
@@ -1225,42 +1225,42 @@ function KeyboardColoring(onoff, Root) {
     //鍵盤が足らない場合は増やす（13テンションを含むEとFがルートのコードの場合）
     if (Root === 4 && DetermineCompoundInterval(9) === true
         || Root === 5 && DetermineCompoundInterval(9) === true) {
-        WriteResponsiveKeyboard(Octave * 3, 89);
+        WriteResponsiveKeyboard(OCTAVE * 3, 89);
     } else {
-        WriteResponsiveKeyboard(Octave * 3 - 5, 84);
+        WriteResponsiveKeyboard(OCTAVE * 3 - 5, 84);
     };
 
     //良い感じに鍵盤の真ん中の方で着色する
     if (CHORD_NAME === undefined && Root <= 8) {
-        Root += Octave;
+        Root += OCTAVE;
     } else if (Root <= 5) {
-        Root += Octave;
+        Root += OCTAVE;
     };
 
     let array = [];
 
     // 配列onoffをMIDIノートナンバーに変換する
-    for (let i = 0; i < Octave; i++) {
+    for (let i = 0; i < OCTAVE; i++) {
         if (onoff[i] >= 1) {
             let CompoundInterval = DetermineCompoundInterval(i);
             if (CompoundInterval === true) {
-                array.push(Root + Octave * 5 + i);
+                array.push(Root + OCTAVE * 5 + i);
             } else {
-                array.push(Root + Octave * 4 + i);
+                array.push(Root + OCTAVE * 4 + i);
             };
         };
     };
 
     //スケールの時はルートの1オクターブ上も着色する
     if (CHORD_NAME === undefined) {
-        array.push(Root + Octave * 5);
+        array.push(Root + OCTAVE * 5);
     };
 
     //度数に基づいて着色する
     for (let i = 0; i < array.length; i++) {
         //鍵盤が描画されている場合のみ処理を実行する
         if (document.getElementById(`MIDI_note_number-${array[i]}`) !== null) {
-            let j = mod(array[i] - Root, Octave);
+            let j = mod(array[i] - Root, OCTAVE);
             document.getElementById(`MIDI_note_number-${array[i]}`).classList.toggle(`Selected_keyboard${j}`);
         };
     };

@@ -45,8 +45,8 @@ function ConvertMIDItoHZ(MIDI_note_number) {
     return freq;
 };
 
-//オクターブは12半音
-const Octave = 12;
+//オクターブを代入したグローバル定数（オクターブは12半音）
+const OCTAVE = 12;
 
 //主なチューニングタイプを格納した連想配列
 const TuningVariation = [
@@ -686,7 +686,7 @@ info_counter();
 
 // MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
 function DetermineBlackKey(n) {
-    n = mod(n, Octave);
+    n = mod(n, OCTAVE);
     if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
         return true;
     };
@@ -712,7 +712,7 @@ function WriteKeyboard() {
     if (document.body.offsetWidth >= 1400) {
         NumberOfKeys = 87;
         MIDINN_OfTopNote = 108;
-    } else if (KeyWidth <= Octave * 2) {
+    } else if (KeyWidth <= OCTAVE * 2) {
         //十分な鍵盤数を描画できない場合
         NumberOfKeys = -1;
         MIDINN_OfTopNote = 0;

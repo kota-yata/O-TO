@@ -370,12 +370,12 @@ function ToneNameCreate(RootNumber, NumberOfStrings, ConfigurationNotes, Dominan
         };
         // フレットの数だけfor文で音名を書き込む
         for (let i = 0; i < FletCount + 1; i++) {
-            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)] === "　") {
+            if (ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), OCTAVE)] === "　") {
                 document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)]}</td>`);
+                    .insertAdjacentHTML('afterbegin', `<td class="DegreeBlack">${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), OCTAVE)]}</td>`);
             } else {
                 document.getElementById(`${st}_string`)
-                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), Octave)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), Octave)]}</Strong></td>`);
+                    .insertAdjacentHTML('afterbegin', `<td class="Degree${mod(TuningNumber - RootNumber - (24 - FletCount), OCTAVE)}"><Strong>${ConfigurationNotes[mod(TuningNumber - RootNumber - (24 - FletCount), OCTAVE)]}</Strong></td>`);
             }
             //利き手による条件分岐
             if (DominantHand === 0) {
@@ -416,25 +416,25 @@ function FletCreate(NumberOfStrings) {
     if (ScaleAndChordsDrowingSwitch === 1) {
         //スケールの場合の処理
         //シャープとフラットの区別をする変数SOFに値を代入。
-        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum].addNum, Octave));
-        for (let i = 0; i < Octave; i++) {
+        SOF = DetermineKeySignature(mod(RootNumber - scale_Container[ScaleNum].addNum, OCTAVE));
+        for (let i = 0; i < OCTAVE; i++) {
             if (onoff[i] >= 1) {
                 Configuration[i] = onoff[i]
             };
         };
         //for文で構成音を生成する。
-        for (let i = 0; i < Octave; i++) {
+        for (let i = 0; i < OCTAVE; i++) {
             //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
             if (Configuration[i] === 42) {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][0]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][0]);
             } else if (Configuration[i] === 43) {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][1]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][1]);
             } else if (Configuration[i] === 1) {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][SOF]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][SOF]);
             } else if (Configuration[i] === "") {
                 ConfigurationNotes.push("　");
             } else {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][Configuration[i]]);
             };
         };
     } else if (ScaleAndChordsDrowingSwitch === 0) {
@@ -445,24 +445,24 @@ function FletCreate(NumberOfStrings) {
         // コードの異名同音をある程度調整するための値を計算する
         let adjustment = AdjustmentEnharmonic(ChordName, onoff[3], onoff[6]);
         //コード・ネームのシャープとフラットを判定するための値を計算する。
-        let SOF = DetermineKeySignature(mod(RootNumber - adjustment, Octave));
+        let SOF = DetermineKeySignature(mod(RootNumber - adjustment, OCTAVE));
         //それぞれの異名同音を判定する
-        for (let i = 0; i < Octave; i++) {
+        for (let i = 0; i < OCTAVE; i++) {
             if (onoff[i] === 1) {
                 Configuration[i] = DetermineBassSignature(SOF, ChordName, i)
                 //異名同音判定が正しいか検証する
-                Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, Octave)][Configuration[i]]);
+                Configuration[i] = EnharmonicRejudgement(Configuration[0], Configuration[i], noteNames[RootNumber][Configuration[0]], noteNames[mod(RootNumber + i, OCTAVE)][Configuration[i]]);
             };
         };
         //for文で構成音を生成する。
-        for (let i = 0; i < Octave; i++) {
+        for (let i = 0; i < OCTAVE; i++) {
             //音名の言語を選択・スケールをトニックから・#か♭か選んで取り出す。
             if (Configuration[i] === 1) {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Configuration[i]]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][Configuration[i]]);
             } else if (Configuration[i] === "") {
                 ConfigurationNotes.push("　");
             } else {
-                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, Octave)][key_signature_names][Number(Configuration[i])]);
+                ConfigurationNotes.push(AllNoteNames[mod(RootNumber + i, OCTAVE)][key_signature_names][Number(Configuration[i])]);
             };
         };
     };
@@ -520,7 +520,7 @@ function FingerboardDataInfo() {
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
             //mod12でチューニングを指定する。
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], Octave);
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], OCTAVE);
         };
     };
 
@@ -550,7 +550,7 @@ function NumberOfStringsManually() {
 
     for (let i = 0; i < NumberOfStrings; i++) {
         if (NumberOfStrings >= i + 1) {
-            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], Octave);
+            document.getElementById(`StringTuning_${i + 1}`).selectedIndex = mod(TuningData[i], OCTAVE);
         };
     };
 

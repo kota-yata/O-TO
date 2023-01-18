@@ -116,16 +116,16 @@ function ChordTextToMIDINoteNumber(chordText) {
         if (BassNoteArray[i] === 0) {
             //(6)F#が一番低くなる
             if (BassNoteArray[i] >= 6) {
-                MIDINoteNumberArray[i].push(BassNoteArray[i] + Octave * 3);
+                MIDINoteNumberArray[i].push(BassNoteArray[i] + OCTAVE * 3);
             } else {
-                MIDINoteNumberArray[i].push(BassNoteArray[i] + Octave * 4);
+                MIDINoteNumberArray[i].push(BassNoteArray[i] + OCTAVE * 4);
             };
         } else {
             //近い方のベース音を選ぶ
-            if (Math.abs(BassNoteArray[i - 1] - (BassNoteArray[i] + Octave * 4)) <= 6) {
-                MIDINoteNumberArray[i].push(BassNoteArray[i] + Octave * 4);
+            if (Math.abs(BassNoteArray[i - 1] - (BassNoteArray[i] + OCTAVE * 4)) <= 6) {
+                MIDINoteNumberArray[i].push(BassNoteArray[i] + OCTAVE * 4);
             } else {
-                MIDINoteNumberArray[i].push(BassNoteArray[i] + Octave * 3);
+                MIDINoteNumberArray[i].push(BassNoteArray[i] + OCTAVE * 3);
             };
         };
 
@@ -140,22 +140,22 @@ function ChordTextToMIDINoteNumber(chordText) {
         };
 
         // コードネームのテキストから構成音を判定してMIDIノートナンバーを配列に追加する。
-        for (let j = 0; j < Octave; j++) {
+        for (let j = 0; j < OCTAVE; j++) {
             if (chord_container[ChordNumArray[i]].ChordBinary[j] === 1) {
                 // ベースに近い順番で並べる。（ベース音のオクターブ上の値÷2より大きい場合-12する）
-                if (RootNoteArray[i] <= ((RootNoteArray[i] + j) + Octave * 6) - 6) {
-                    MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + Octave * 5);
+                if (RootNoteArray[i] <= ((RootNoteArray[i] + j) + OCTAVE * 6) - 6) {
+                    MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + OCTAVE * 5);
                 } else {
-                    MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + Octave * 6);
+                    MIDINoteNumberArray[i].push((RootNoteArray[i] + j) + OCTAVE * 6);
                 };
             };
         };
         //ボイシングを整える
         for (let j = 0; j < MIDINoteNumberArray[i].length; j++) {
-            if (BassNoteArray[i] + (Octave * 6) < MIDINoteNumberArray[i][j]) {
-                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] - Octave;
-            } else if (BassNoteArray[0] + (Octave * 4) > MIDINoteNumberArray[i][j] && j !== 0) {
-                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] + Octave;
+            if (BassNoteArray[i] + (OCTAVE * 6) < MIDINoteNumberArray[i][j]) {
+                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] - OCTAVE;
+            } else if (BassNoteArray[0] + (OCTAVE * 4) > MIDINoteNumberArray[i][j] && j !== 0) {
+                MIDINoteNumberArray[i][j] = MIDINoteNumberArray[i][j] + OCTAVE;
             };
         };
         MIDINoteNumberArray[i].sort();

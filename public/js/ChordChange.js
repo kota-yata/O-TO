@@ -63,18 +63,18 @@ function ToDegreeName(text, Root) {
 
     let RootNumber = Number(Root);
 
-    let c = mod(RootNumber + 0, 12);
-    let cisdes = mod(RootNumber + 1, 12);
-    let d = mod(RootNumber + 2, 12);
-    let dises = mod(RootNumber + 3, 12);
-    let e = mod(RootNumber + 4, 12);
-    let f = mod(RootNumber + 5, 12);
-    let fisges = mod(RootNumber + 6, 12);
-    let g = mod(RootNumber + 7, 12);
-    let gisas = mod(RootNumber + 8, 12);
-    let a = mod(RootNumber + 9, 12);
-    let aisb = mod(RootNumber + 10, 12);
-    let h = mod(RootNumber + 11, 12);
+    let c = mod(RootNumber + 0, OCTAVE);
+    let cisdes = mod(RootNumber + 1, OCTAVE);
+    let d = mod(RootNumber + 2, OCTAVE);
+    let dises = mod(RootNumber + 3, OCTAVE);
+    let e = mod(RootNumber + 4, OCTAVE);
+    let f = mod(RootNumber + 5, OCTAVE);
+    let fisges = mod(RootNumber + 6, OCTAVE);
+    let g = mod(RootNumber + 7, OCTAVE);
+    let gisas = mod(RootNumber + 8, OCTAVE);
+    let a = mod(RootNumber + 9, OCTAVE);
+    let aisb = mod(RootNumber + 10, OCTAVE);
+    let h = mod(RootNumber + 11, OCTAVE);
 
     //音名とディグリーネームを格納した連想配列
     let NotesArray = [
@@ -198,18 +198,18 @@ function DegreeChange(text, Root) {
 
     let RootNumber = Number(Root);
 
-    let c = mod(RootNumber + 0, 12);
-    let cisdes = mod(RootNumber + 1, 12);
-    let d = mod(RootNumber + 2, 12);
-    let dises = mod(RootNumber + 3, 12);
-    let e = mod(RootNumber + 4, 12);
-    let f = mod(RootNumber + 5, 12);
-    let fisges = mod(RootNumber + 6, 12);
-    let g = mod(RootNumber + 7, 12);
-    let gisas = mod(RootNumber + 8, 12);
-    let a = mod(RootNumber + 9, 12);
-    let aisb = mod(RootNumber + 10, 12);
-    let h = mod(RootNumber + 11, 12);
+    let c = mod(RootNumber + 0, OCTAVE);
+    let cisdes = mod(RootNumber + 1, OCTAVE);
+    let d = mod(RootNumber + 2, OCTAVE);
+    let dises = mod(RootNumber + 3, OCTAVE);
+    let e = mod(RootNumber + 4, OCTAVE);
+    let f = mod(RootNumber + 5, OCTAVE);
+    let fisges = mod(RootNumber + 6, OCTAVE);
+    let g = mod(RootNumber + 7, OCTAVE);
+    let gisas = mod(RootNumber + 8, OCTAVE);
+    let a = mod(RootNumber + 9, OCTAVE);
+    let aisb = mod(RootNumber + 10, OCTAVE);
+    let h = mod(RootNumber + 11, OCTAVE);
 
     text = text
         .replace(/#Ⅰ/g, `${noteNames[cisdes][3]}`)
@@ -292,7 +292,7 @@ function ChangeDegreeEasyButton(Point) {
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
     let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
     // ボタンが押されるごとに数値を加減する
-    TRANSPOSE_POINT = mod(BeforeRootNumber + TRANSPOSE_POINT + Point, Octave);
+    TRANSPOSE_POINT = mod(BeforeRootNumber + TRANSPOSE_POINT + Point, OCTAVE);
     AfterRootNumber = TRANSPOSE_POINT;
 
     //指定したキーの音名をディグリーネームへ変換する関数
