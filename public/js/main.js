@@ -175,6 +175,7 @@ const chordProgSix =
     { name: "遂に自由に…", chord: "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", info: "参考曲：Dream Theater - Finally Free", url: "https://youtu.be/tdZKo7hPzmE?t=169" },
     { name: "月光が差す", chord: "Ⅵm-Ⅲ/#Ⅴ-Ⅵ7/Ⅴ-Ⅱm/Ⅳ-Ⅳ7-Ⅲ/#Ⅴ", info: "参考曲：ベートーヴェン - ピアノソナタ第14番嬰ハ短調 作品27-2(月光ソナタ)第3楽章", url: "https://youtu.be/zucBfXpCA6s" },
     { name: "ミステリー小説", chord: "Ⅵm-Ⅳ7-Ⅲ7", info: "怪しく不思議、ちょっとコミカル。", url: "" },
+    { name: "モダン・メタルの住人", chord: "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9", info: "5add9(sus2)は、モダン・メタル界隈のギターフレーズに欠かせない響き。", url: "" },
     { name: "ディストピア", chord: "Ⅵm-Ⅶ-Ⅱm-Ⅲ", info: "不穏な感じを出したいときに。", url: "" },
     { name: "外宇宙への旅", chord: "Ⅵm-♭Ⅲ-Ⅵ-Ⅳm-Ⅵm-♭Ⅶm-Ⅱm-#Ⅳm", info: "暗黒の宇宙空間を想起させる響き。", url: "https://youtu.be/jsRT8ee97eo?t=206" },
     { name: "俺が好き", chord: "Ⅵm-#Ⅳm7(♭5)-Ⅳ△7-Ⅱm7-Ⅲm7", info: "好きなのでたくさん使っちゃう。", url: "https://youtu.be/eNGSdQOG57A?t=66" },
@@ -183,7 +184,7 @@ const chordProgSix =
 const chordProgEight =
     [{ name: "ツーファイブ", chord: "Ⅱm7-Ⅴ7-Ⅰ", info: "最も基本的な和音の流れ。", url: "" },
     { name: "裏コードで代理", chord: "Ⅱm7-♭Ⅱ7-Ⅰ", info: "裏コードは、トライトーンを共有しているドミナント7thコードです。ルート音は五度圏で反対側に位置する。", url: "" },
-    { name: "フュージョン・コードで代理", chord: "Ⅱm7-Ⅳ/Ⅴ-Ⅰ", info: "「♭Ⅶ/Ⅰ」は、ミクソリディアンの系譜のサウンド。「フュージョン・コード」とも呼ばれる。", url: "" },
+    { name: "フュージョン・コードで代理", chord: "Ⅱm7-Ⅳ/Ⅴ-Ⅰ", info: "「♭Ⅶ/Ⅰ」は、ミクソリディアンの系譜のサウンド。「フュージョン・コード」とも呼ばれる。", url: "https://youtu.be/pWL9zveNpqg?t=95" },
     { name: "♭Ⅶm/Ⅰで代理", chord: "Ⅱm7-Ⅳm/Ⅴ-Ⅰ", info: "「♭Ⅶm/Ⅰ」は、フリジアン・ドミナントやミクソリディアン♭2ndの系譜のサウンド。", url: "" },
     { name: "♭Ⅶm(♭5)/Ⅰで代理", chord: "Ⅱm7-Ⅳm(♭5)/Ⅴ-Ⅰ", info: "「♭Ⅶm(♭5)/Ⅰ」は、オルタードやフリジアン♭4thの系譜のサウンド。", url: "" },
     { name: "ブラックアダー・コードで代理", chord: "Ⅱm7-Ⅳaug/Ⅴ-Ⅰ", info: "「♭Ⅶaug/Ⅰ」は、Lydian♭7thの系譜のサウンド。「ブラックアダー・コード」や「イキスギ・コード」とも呼ばれる。", url: "" },
@@ -193,17 +194,17 @@ const chordProgEight =
     { name: "平行短調へのツーファイブ", chord: "Ⅶm7(♭5)-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
     { name: "クラシカル探求者", chord: "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳm(♭5)/Ⅶ-Ⅰ", info: "「ナポリの6度」っぽい響きを使いたい時に。", url: "" },
     { name: "ジャズの基本形", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", info: "ジャズの基本的なコード進行だと思います。", url: "" },
+    { name: "枯葉コード", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅳ△7-Ⅶm7(♭5)-Ⅲ7-Ⅵm7", info: "参考曲：Joseph Kosma - Autumn Leaves", url: "https://youtu.be/OOtUIMrJUyc?t=91" },
     { name: "後悔", chord: "Ⅱm-Ⅵm/Ⅰ-Ⅶm7(♭5)-Ⅲ7", info: "ダークで美しい進行。", url: "https://youtu.be/8dXImxOtjPY?t=331" },
     { name: "助走", chord: "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", info: "サビ前などに有効です。", url: "" },
     { name: "こなれ浮遊感", chord: "Ⅱm7-Ⅰ△7-♭Ⅶ△7-Ⅶm7(♭5)-Ⅲ7", info: "メロディで下属調っぽさを出しすぎないのがポイント。", url: "https://youtu.be/gc0_Acq8dV4?t=53" },
     { name: "大気圏外へ", chord: "Ⅱm7-Ⅲm7-Ⅳm7-Ⅴm7", info: "マイナー7thコードのコンスタント・ストラクチャーでどこまでも行けそう。", url: "https://youtu.be/BOuIwJLw9Y0?t=75" },
+    { name: "ドリアン", chord: "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅱ-Ⅲm/Ⅱ", info: "ドリアン・モードを取り入れたい時に。", url: "" },
     { name: "中継ぎ請負人", chord: "Ⅲm7-Ⅳ-Ⅴ-Ⅵm", info: "Bメロなどをじわじわ盛り上げてくれる。", url: "" },
     { name: "平成J-popバラードの最終兵器", chord: "Ⅲm7-Ⅵm7/Ⅲ-Ⅱm7-Ⅴ7/Ⅱ", info: "ハマればものすごく素敵。", url: "https://youtu.be/aHIR33pOUv0?t=207" },
-    { name: "普通が嫌いなあなたへ", chord: "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7", info: "普通なコード進行に飽きたら、#Ⅳm7(♭5)から始めちゃおう。", url: "" },
-    { name: "モダン・メタルの住人", chord: "Ⅵ5add9-Ⅳ5add9-♭Ⅲ5add9-Ⅰ5add9", info: "5add9(sus2)は、モダン・メタル界隈のギターフレーズに欠かせない響き。", url: "" },
-    { name: "ドリアン", chord: "Ⅱm-Ⅲm/Ⅱ-Ⅳ/Ⅱ-Ⅲm/Ⅱ", info: "ドリアン・モードを取り入れたい時に。", url: "" },
-    { name: "ミクソリディアン", chord: "Ⅴ-Ⅳ-Ⅰ-Ⅴ", info: "ミクソリディアン・モードを取り入れたい時に。", url: "" },
     { name: "スペイン旅行", chord: "Ⅲ-Ⅳ-Ⅴ-Ⅳ", info: "このコード進行の上でⅢスパニッシュ・フリジアンを使えば、「正解」がそこに現れる。", url: "" },
+    { name: "普通が嫌いなあなたへ", chord: "#Ⅳm7(♭5)-Ⅳ△7-Ⅲm7-Ⅵm7", info: "普通なコード進行に飽きたら、#Ⅳm7(♭5)から始めちゃおう。", url: "https://youtu.be/icpc0UVUZgM?t=473" },
+    { name: "ミクソリディアン", chord: "Ⅴ-Ⅳ-Ⅰ", info: "ミクソリディアン・モードを取り入れたい時に。", url: "" },
     ];
 
 //音名の多次元配列
