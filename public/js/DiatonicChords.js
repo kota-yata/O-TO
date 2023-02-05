@@ -294,7 +294,7 @@ function ChordsAndModeChange() {
     document.getElementById("Para_MMin_dia_4").innerHTML
         = `${noteNames[t2][5]} ${scale_Container[17]['diaChord4']}<font size="-2"><br>9:${noteNames[t4][9]}　#11:${noteNames[t8][16]}　13:${noteNames[t11][22]}<br>${noteNames[t2][5]}${scale_Container[17][ScaleLanguage]}</font>`;
     document.getElementById("Para_MMin_dia_5").innerHTML
-        = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<font size="-2"><br>9:${noteNames[t6][13]}　11:${noteNames[t9][18]}　<span class="avoid_note">♭13:${noteNames[tonic][2]}</span><br>${noteNames[t4][9]}${scale_Container[18][ScaleLanguage]}<br>(${noteNames[t4][9]}メロディック・メジャー)</font>`;
+        = `${noteNames[t4][9]} ${scale_Container[18]['diaChord4']}<font size="-2"><br>9:${noteNames[t6][13]}　<span class="avoid_note">11:${noteNames[t9][18]}</span>　<span class="avoid_note">♭13:${noteNames[tonic][2]}</span><br>${noteNames[t4][9]}${scale_Container[18][ScaleLanguage]}<br>(${noteNames[t4][9]}メロディック・メジャー)</font>`;
     document.getElementById("Para_MMin_dia_6").innerHTML
         = `${noteNames[t6][13]} ${scale_Container[19]['diaChord4']}<font size="-2"><br>9:${noteNames[t8][16]}　11:${noteNames[t11][22]}　♭13:${noteNames[t2][5]}<br>${noteNames[t6][13]}${scale_Container[19][ScaleLanguage]}</font>`;
     document.getElementById("Para_MMin_dia_7").innerHTML
