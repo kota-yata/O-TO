@@ -404,6 +404,14 @@ img {
   background-color: gainsboro;
 }
 
+.note_ratio1 {
+  background-color: paleturquoise;
+}
+
+.note_ratio2 {
+  background-color: mistyrose;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* コード検索 */
 .ChordNotFound {

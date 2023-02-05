@@ -381,7 +381,7 @@ function NoteInfo() {
         document.getElementById("note_text").className = "py-0";
     } else if (rhythm_tuplet_type >= 2) {
         document.getElementById("note_text").innerHTML
-            = `${ratio_number_note}が"${ratio}個分"の音価を、"${rhythm_tuplet_type}個"に分割した状態です。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number_note}との比は<b>「${rhythm_tuplet_type}：${ratio}」</b>です。`;
+            = `${ratio_number_note}が<b>"<span class="note_ratio1">${ratio}個分</span>"</b>の音価を、<b>"<span class="note_ratio2">${rhythm_tuplet_type}個</span>"</b>に分割した状態です。<br>よって、この${rhythm_tuplet_type}連符と${ratio_number_note}との比は<b>「<span class="note_ratio2">${rhythm_tuplet_type}</span>：<span class="note_ratio1">${ratio}</span>」</b>です。`;
         document.getElementById("note_text").className = "py-1";
     } else {
         document.getElementById("note_text").innerHTML = "";
@@ -440,46 +440,82 @@ function NoteInfo() {
         document.getElementById("rhythm_info").innerHTML = ""
         document.getElementById("rhythm_info").className = "py-0";
 
-        document.getElementById("same_length_whole_note").innerHTML = "全音符<br><img src='./image/note/wholeNote.svg' alt='全音符' title='全音符' class='note_image'><br>---";
-        document.getElementById("same_length_1dot_half_note").innerHTML = "付点2分<br><img src='./image/note/DHalfNote.svg' alt='付点2分音符' title='付点2分音符' class='note_image'><br>---";
-        document.getElementById("same_length_half_note").innerHTML = "2分音符<br><img src='./image/note/harfNote.svg' alt='2分音符' title='2分音符' class='note_image'><br>---";
-        document.getElementById("same_length_2dot_4th_note").innerHTML = "複付点4分<br><img src='./image/note/DDQuarterNote.svg' alt='複付点4分音符' title='複付点4分音符' class='note_image'><br>---";
-        document.getElementById("same_length_2dot_8th_note").innerHTML = "複付点8分<br><img src='./image/note/DD8thNote.svg' alt='複付点8分音符' title='複付点8分音符' class='note_image'><br>---";
-        document.getElementById("same_length_2dot_16th_note").innerHTML = "複付点16分<br><img src='./image/note/DD16thNote.svg' alt='複付点16分音符' title='複付点16分音符' class='note_image'><br>---";
-        document.getElementById("same_length_half_note_triplet").innerHTML = "4拍3連<br><img src='./image/note/WholeNoteTriplets.svg' alt='4拍3連' title='4拍3連' class='note_image'><br>---";
-        document.getElementById("same_length_1dot_quarter_note").innerHTML = "付点4分<br><img src='./image/note/DQuarterNote.svg' alt='付点4分音符' title='付点4分音符' class='note_image'><br>---";
-        document.getElementById("same_length_quarter_note").innerHTML = "4分音符<br><img src='./image/note/quarterNote.svg' alt='4分音符' title='4分音符' class='note_image'><br>---";
-        document.getElementById("same_length_1dot_8th_note").innerHTML = "付点8分<br><img src='./image/note/D8thNote.svg' alt='付点8分音符' title='付点8分音符' class='note_image'><br>---";
-        document.getElementById("same_length_quarter_note_triplet").innerHTML = "2拍3連<br><img src='./image/note/HarfNoteTriplets.svg' alt='2拍3連' title='2拍3連' class='note_image'><br>---";
-        document.getElementById("same_length_8th_note").innerHTML = "8分音符<br><img src='./image/note/8thNote.svg' alt='8分音符' title='8分音符' class='note_image'><br>---";
-        document.getElementById("same_length_1dot_16th_note").innerHTML = "付点16分<br><img src='./image/note/D16thNote.svg' alt='付点16分音符' title='付点16分音符' class='note_image'><br>---";
-        document.getElementById("same_length_8th_note_tuplet").innerHTML = "1拍3連<br><img src='./image/note/QuarterNoteTriplets.svg' alt='1拍3連' title='1拍3連' class='note_image'><br>---";
-        document.getElementById("same_length_16th_note").innerHTML = "16分音符<br><img src='./image/note/16thNote.svg' alt='16分音符' title='16分音符' class='note_image'><br>---";
-        document.getElementById("same_length_quarter_note_quintuplet").innerHTML = "1拍5連<br><img src='./image/note/QuarterNoteQuintuplet.svg' alt='1拍5連符' title='1拍5連符' class='note_image'><br>---";
-        document.getElementById("same_length_16th_note_tuplet").innerHTML = "1拍6連<br><img src='./image/note/QuarterNoteSextuplet.svg' alt='1拍6連符' title='1拍6連符' class='note_image'><br>---";
-        document.getElementById("same_length_32th_note").innerHTML = "32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>---";
+        document.getElementById("same_length_whole_note").innerHTML
+            = "全音符<br><img src='./image/note/wholeNote.svg' alt='全音符' title='全音符' class='note_image'><br>---";
+        document.getElementById("same_length_1dot_half_note").innerHTML
+            = "付点2分<br><img src='./image/note/DHalfNote.svg' alt='付点2分音符' title='付点2分音符' class='note_image'><br>---";
+        document.getElementById("same_length_half_note").innerHTML
+            = "2分音符<br><img src='./image/note/harfNote.svg' alt='2分音符' title='2分音符' class='note_image'><br>---";
+        document.getElementById("same_length_2dot_4th_note").innerHTML
+            = "複付点4分<br><img src='./image/note/DDQuarterNote.svg' alt='複付点4分音符' title='複付点4分音符' class='note_image'><br>---";
+        document.getElementById("same_length_2dot_8th_note").innerHTML
+            = "複付点8分<br><img src='./image/note/DD8thNote.svg' alt='複付点8分音符' title='複付点8分音符' class='note_image'><br>---";
+        document.getElementById("same_length_2dot_16th_note").innerHTML
+            = "複付点16分<br><img src='./image/note/DD16thNote.svg' alt='複付点16分音符' title='複付点16分音符' class='note_image'><br>---";
+        document.getElementById("same_length_half_note_triplet").innerHTML
+            = "4拍3連<br><img src='./image/note/WholeNoteTriplets.svg' alt='4拍3連' title='4拍3連' class='note_image'><br>---";
+        document.getElementById("same_length_1dot_quarter_note").innerHTML
+            = "付点4分<br><img src='./image/note/DQuarterNote.svg' alt='付点4分音符' title='付点4分音符' class='note_image'><br>---";
+        document.getElementById("same_length_quarter_note").innerHTML
+            = "4分音符<br><img src='./image/note/quarterNote.svg' alt='4分音符' title='4分音符' class='note_image'><br>---";
+        document.getElementById("same_length_1dot_8th_note").innerHTML
+            = "付点8分<br><img src='./image/note/D8thNote.svg' alt='付点8分音符' title='付点8分音符' class='note_image'><br>---";
+        document.getElementById("same_length_quarter_note_triplet").innerHTML
+            = "2拍3連<br><img src='./image/note/HarfNoteTriplets.svg' alt='2拍3連' title='2拍3連' class='note_image'><br>---";
+        document.getElementById("same_length_8th_note").innerHTML
+            = "8分音符<br><img src='./image/note/8thNote.svg' alt='8分音符' title='8分音符' class='note_image'><br>---";
+        document.getElementById("same_length_1dot_16th_note").innerHTML
+            = "付点16分<br><img src='./image/note/D16thNote.svg' alt='付点16分音符' title='付点16分音符' class='note_image'><br>---";
+        document.getElementById("same_length_8th_note_tuplet").innerHTML
+            = "1拍3連<br><img src='./image/note/QuarterNoteTriplets.svg' alt='1拍3連' title='1拍3連' class='note_image'><br>---";
+        document.getElementById("same_length_16th_note").innerHTML
+            = "16分音符<br><img src='./image/note/16thNote.svg' alt='16分音符' title='16分音符' class='note_image'><br>---";
+        document.getElementById("same_length_quarter_note_quintuplet").innerHTML
+            = "1拍5連<br><img src='./image/note/QuarterNoteQuintuplet.svg' alt='1拍5連符' title='1拍5連符' class='note_image'><br>---";
+        document.getElementById("same_length_16th_note_tuplet").innerHTML
+            = "1拍6連<br><img src='./image/note/QuarterNoteSextuplet.svg' alt='1拍6連符' title='1拍6連符' class='note_image'><br>---";
+        document.getElementById("same_length_32th_note").innerHTML
+            = "32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>---";
     } else {
         document.getElementById("rhythm_info").innerHTML
             = `<b>BPM=${roundToThree(rhythm_input_bpm)}</b>の<b>「${rhythm_dot_name}${rhythm_note_name}${note_count_text + rhythm_tuplet_name}」</b>と<b>同じ音価(${roundToThree(note_value * time_type) + time_unit})</b>を持つ主な音符のBPMは、以下の通りです。`;
 
-        document.getElementById("same_length_whole_note").innerHTML = `全音符<br><img src='./image/note/wholeNote.svg' alt='全音符' title='全音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 1) / 4))}`;
-        document.getElementById("same_length_1dot_half_note").innerHTML = `付点2分<br><img src='./image/note/DHalfNote.svg' alt='付点2分音符' title='付点2分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 4 / 3) / 4))}`;
-        document.getElementById("same_length_half_note").innerHTML = `2分音符<br><img src='./image/note/harfNote.svg' alt='2分音符' title='2分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 2) / 4))}`;
-        document.getElementById("same_length_2dot_4th_note").innerHTML = `複付点4分<br><img src='./image/note/DDQuarterNote.svg' alt='複付点4分音符' title='複付点4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16 / 7) / 4))}`;
-        document.getElementById("same_length_2dot_8th_note").innerHTML = `複付点8分<br><img src='./image/note/DD8thNote.svg' alt='複付点8分音符' title='複付点8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32 / 7) / 4))}`;
-        document.getElementById("same_length_2dot_16th_note").innerHTML = `複付点16分<br><img src='./image/note/DD16thNote.svg' alt='複付点16分音符' title='複付点16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 64 / 7) / 4))}`;
-        document.getElementById("same_length_half_note_triplet").innerHTML = `4拍3連<br><img src='./image/note/WholeNoteTriplets.svg' alt='4拍3連' title='4拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 3) / 4))}`;
-        document.getElementById("same_length_1dot_quarter_note").innerHTML = `付点4分<br><img src='./image/note/DQuarterNote.svg' alt='付点4分音符' title='付点4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 8 / 3) / 4))}`;
-        document.getElementById("same_length_quarter_note").innerHTML = `4分音符<br><img src='./image/note/quarterNote.svg' alt='4分音符' title='4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 4) / 4))}`;
-        document.getElementById("same_length_1dot_8th_note").innerHTML = `付点8分<br><img src='./image/note/D8thNote.svg' alt='付点8分音符' title='付点8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16 / 3) / 4))}`;
-        document.getElementById("same_length_quarter_note_triplet").innerHTML = `2拍3連<br><img src='./image/note/HarfNoteTriplets.svg' alt='2拍3連' title='2拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 6) / 4))}`;
-        document.getElementById("same_length_8th_note").innerHTML = `8分音符<br><img src='./image/note/8thNote.svg' alt='8分音符' title='8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 8) / 4))}`;
-        document.getElementById("same_length_1dot_16th_note").innerHTML = `付点16分<br><img src='./image/note/D16thNote.svg' alt='付点16分音符' title='付点16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32 / 3) / 4))}`;
-        document.getElementById("same_length_8th_note_tuplet").innerHTML = `1拍3連<br><img src='./image/note/QuarterNoteTriplets.svg' alt='1拍3連' title='1拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 12) / 4))}`;
-        document.getElementById("same_length_16th_note").innerHTML = `16分音符<br><img src='./image/note/16thNote.svg' alt='16分音符' title='16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16) / 4))}`;
-        document.getElementById("same_length_quarter_note_quintuplet").innerHTML = `1拍5連<br><img src='./image/note/QuarterNoteQuintuplet.svg' alt='1拍5連符' title='1拍5連符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 20) / 4))}`;
-        document.getElementById("same_length_16th_note_tuplet").innerHTML = `1拍6連<br><img src='./image/note/QuarterNoteSextuplet.svg' alt='1拍6連符' title='1拍6連符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 24) / 4))}`;
-        document.getElementById("same_length_32th_note").innerHTML = `32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32) / 4))}`;
+        document.getElementById("same_length_whole_note").innerHTML
+            = `全音符<br><img src='./image/note/wholeNote.svg' alt='全音符' title='全音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 1) / 4))}`;
+        document.getElementById("same_length_1dot_half_note").innerHTML
+            = `付点2分<br><img src='./image/note/DHalfNote.svg' alt='付点2分音符' title='付点2分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 4 / 3) / 4))}`;
+        document.getElementById("same_length_half_note").innerHTML
+            = `2分音符<br><img src='./image/note/harfNote.svg' alt='2分音符' title='2分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 2) / 4))}`;
+        document.getElementById("same_length_2dot_4th_note").innerHTML
+            = `複付点4分<br><img src='./image/note/DDQuarterNote.svg' alt='複付点4分音符' title='複付点4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16 / 7) / 4))}`;
+        document.getElementById("same_length_2dot_8th_note").innerHTML
+            = `複付点8分<br><img src='./image/note/DD8thNote.svg' alt='複付点8分音符' title='複付点8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32 / 7) / 4))}`;
+        document.getElementById("same_length_2dot_16th_note").innerHTML
+            = `複付点16分<br><img src='./image/note/DD16thNote.svg' alt='複付点16分音符' title='複付点16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 64 / 7) / 4))}`;
+        document.getElementById("same_length_half_note_triplet").innerHTML
+            = `4拍3連<br><img src='./image/note/WholeNoteTriplets.svg' alt='4拍3連' title='4拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 3) / 4))}`;
+        document.getElementById("same_length_1dot_quarter_note").innerHTML
+            = `付点4分<br><img src='./image/note/DQuarterNote.svg' alt='付点4分音符' title='付点4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 8 / 3) / 4))}`;
+        document.getElementById("same_length_quarter_note").innerHTML
+            = `4分音符<br><img src='./image/note/quarterNote.svg' alt='4分音符' title='4分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 4) / 4))}`;
+        document.getElementById("same_length_1dot_8th_note").innerHTML
+            = `付点8分<br><img src='./image/note/D8thNote.svg' alt='付点8分音符' title='付点8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16 / 3) / 4))}`;
+        document.getElementById("same_length_quarter_note_triplet").innerHTML
+            = `2拍3連<br><img src='./image/note/HarfNoteTriplets.svg' alt='2拍3連' title='2拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 6) / 4))}`;
+        document.getElementById("same_length_8th_note").innerHTML
+            = `8分音符<br><img src='./image/note/8thNote.svg' alt='8分音符' title='8分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 8) / 4))}`;
+        document.getElementById("same_length_1dot_16th_note").innerHTML
+            = `付点16分<br><img src='./image/note/D16thNote.svg' alt='付点16分音符' title='付点16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32 / 3) / 4))}`;
+        document.getElementById("same_length_8th_note_tuplet").innerHTML
+            = `1拍3連<br><img src='./image/note/QuarterNoteTriplets.svg' alt='1拍3連' title='1拍3連' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 12) / 4))}`;
+        document.getElementById("same_length_16th_note").innerHTML
+            = `16分音符<br><img src='./image/note/16thNote.svg' alt='16分音符' title='16分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 16) / 4))}`;
+        document.getElementById("same_length_quarter_note_quintuplet").innerHTML
+            = `1拍5連<br><img src='./image/note/QuarterNoteQuintuplet.svg' alt='1拍5連符' title='1拍5連符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 20) / 4))}`;
+        document.getElementById("same_length_16th_note_tuplet").innerHTML
+            = `1拍6連<br><img src='./image/note/QuarterNoteSextuplet.svg' alt='1拍6連符' title='1拍6連符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 24) / 4))}`;
+        document.getElementById("same_length_32th_note").innerHTML
+            = `32分音符<br><img src='./image/note/32ndNote.svg' alt='32分音符' title='32分音符' class='note_image'><br>BPM=${roundToThree(one_minutes / ((note_value * 32) / 4))}`;
     };
 
 
