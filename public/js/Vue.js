@@ -830,7 +830,6 @@ Vue.component('link-table', {
         <p class="pb-4">その他、当ウェブアプリに関するご意見 ご感想などもお気軽にご連絡ください。</p>
       </div>
 
-
         <div>
             <h3 class="Larger shadow p-3 rounded mb-4 py-3">便利だと思ったら是非シェアを！</h3>
 
@@ -875,6 +874,27 @@ Vue.component('link-table', {
             </li>
           </ul>
         </div>
+
+
+
+      <div>
+        <h3 class="Larger shadow p-3 rounded mb-4 py-3">
+          投げ銭サポートのお願い
+        </h3>
+
+        <p>継続的なサイト運営、コンテンツ制作のためにサポートをお願いいたします。</p>
+        <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
+            rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
+            target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>から投げ銭を受け付けております。</p>
+        <!-- wp:paragraph {"fontSize":"small"} -->
+        <p class="has-small-font-size">※PayPal.Meの場合は<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
+            target="_blank" rel="noreferrer noopener">以下のリンク</a>へアクセスし、「送信」を選択してください。</p>
+
+        <p class="pb-4">→
+          <a href="https://buy.stripe.com/9AQdTx6y006YbDy001" target="_blank"
+              rel="noreferrer noopener">https://buy.stripe.com/9AQdTx6y006YbDy001</a>（※リンク先へ飛んだだけでは決済は行われません。）
+        </p>
+      </div>
 
         <h3 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h3>
 
@@ -943,7 +963,7 @@ Vue.component('link-table', {
 
 
         <h3 class="Larger shadow p-3 rounded mb-4 py-3">関連ページへのリンク</h3>
-        <p class="pt-2">音楽に関係する情報へのリンク先です。</p>
+        <p class="pt-2">音楽に関係する情報へのリンク先です。どれも音楽制作に役立つはずです。</p>
         <div class="link_table3">
             <div class="card">
                 <div class="card-body">
@@ -998,37 +1018,6 @@ Vue.component('link-table', {
             </div>
         </div>
 
-			<div>
-				<h3 class="Larger shadow p-3 rounded mb-4 py-3">オンラインレッスンのお知らせ</h3>
-
-				<p>現在、音楽理論・作曲・DTMのオンラインレッスンを受け付けております！詳細は、下記のリンク先にまとめてあります。</p>
-
-				<p class="pb-4">→
-					<a href="https://khufrudamonotes.com/online-lesson-description" target="_blank" rel="noreferrer noopener">
-						<strong>音楽理論、作曲、DTM オンラインレッスンのご案内</strong>
-					</a>
-				</p>
-			</div>
-
-      <div>
-        <h3 class="Larger shadow p-3 rounded mb-4 py-3">
-          投げ銭サポートのお願い
-        </h3>
-
-        <p>継続的なサイト運営、コンテンツ制作のためにサポートをお願いいたします。</p>
-        <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
-            rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
-            target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>から投げ銭を受け付けております。</p>
-        <!-- wp:paragraph {"fontSize":"small"} -->
-        <p class="has-small-font-size">※PayPal.Meの場合は<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
-            target="_blank" rel="noreferrer noopener">以下のリンク</a>へアクセスし、「送信」を選択してください。</p>
-
-        <p class="pb-4">→
-          <a href="https://buy.stripe.com/9AQdTx6y006YbDy001" target="_blank"
-              rel="noreferrer noopener">https://buy.stripe.com/9AQdTx6y006YbDy001</a>（※リンク先へ飛んだだけでは決済は行われません。）
-        </p>
-      </div>
-
       <div>
         <h3 class="Larger shadow p-3 rounded mb-5 py-3">
           このアプリを作った経緯
@@ -1051,11 +1040,11 @@ Vue.component('link-table', {
           もちろん、楽曲に一定のクオリティを担保するためには、音楽理論的な視点からの検証は必要だと思います。<br>
           <br>
           しかし…<br>
-          「この部分のコードは転調したらどうなるかな？」<br>
+          「この部分のコードを移調したらどうなるかな？」<br>
           「このスケールの構成音は何だったかな？」
           <br>
           <br>
-          こんな思考に時間をかけたからといって、その分だけ音楽が良くなるわけではないでしょう。<br>
+          こんな思考に時間をかけても、その分だけ音楽が良くなるわけではないでしょう。<br>
           むしろ、瞬時に答えが分かった方が、試行錯誤に多くの時間をかけられます。（この試行錯誤こそ創造的な行為だと思います。）<br>
           <br>
           ———「面倒な単純作業はコンピューターにやらせればいい！」<br>
@@ -1077,12 +1066,12 @@ Vue.component('link-table', {
           <br>
           <br>
           … 一方で、音楽理論を理解する大変さも分かります。<br>
-          なぜなら、僕自身が独学で音楽理論を学習し、苦労したからです。<br>
+          なぜなら、かつて僕自身が独学で音楽理論を学習し、苦労したからです。<br>
           <br>
           だからこそ思うのです。<br>
           <br>
           「もっと音楽理論を簡単に理解し、利用できたなら良いよね。」と。<br>
-          そして、「『音楽理論が不必要』と言う人は、音楽理論が簡単に利用できたとしてもそう感じるのかな？」と。<br>
+          そして、「『音楽理論が不必要』と言う人は、音楽理論が簡単に利用できたとしても そう感じるのかな？」と。<br>
           <br>
           そういった思いから「音楽制作や音楽理論の学習を補助するウェブアプリ」を目指して、この「<span class="MainTextColor">音楽理論ウェブアプリ
             O-TO</span>(Ongaku Tools)」を作りました。<br>
