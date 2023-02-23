@@ -247,7 +247,7 @@ function DegreeChange(text, Root) {
 };
 
 //コードネームを変換して転記する関数
-function ChangeDegreeText() {
+function ChangeDegreeText(BeforeAfter) {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
@@ -280,7 +280,8 @@ function ChangeDegreeText() {
         document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
     };
 
-
+    TRANSPOSE_POINT = 0;
+    TRANSPOSE_POINT = mod(AfterRootNumber - BeforeRootNumber, OCTAVE);
 };
 
 // どれだけ移調するかのデータを格納するグローバル変数
@@ -290,7 +291,7 @@ function ChangeDegreeEasyButton(Point) {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
-    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    let AfterRootNumber = mod(Number(document.getElementById("AfterRootNumber").value), OCTAVE);
     // ボタンが押されるごとに数値を加減する
     TRANSPOSE_POINT = mod(BeforeRootNumber + TRANSPOSE_POINT + Point, OCTAVE);
     AfterRootNumber = TRANSPOSE_POINT;

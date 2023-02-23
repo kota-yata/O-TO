@@ -250,7 +250,7 @@
                 <div class="col-md-6">
                     <label for="BeforeRootNumber">①変換前のキーを設定してください。
                         <select id="BeforeRootNumber" class="form-select my-1" aria-label="Default select example"
-                            onchange="ChangeDegreeText()">
+                            onchange="ChangeDegreeText(0)">
                             <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
                             <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
                             <option value=2>Dメジャー / Bマイナー (#×2)</option>
@@ -285,7 +285,7 @@
 
                     <label for="AfterRootNumber">③変換後のキーを設定してください。
                         <select id="AfterRootNumber" class="form-select my-1" aria-label="Default select example"
-                            onchange="ChangeDegreeText()">
+                            onchange="ChangeDegreeText(1)">
                             <option value=0>Cメジャー / Aマイナー (#・♭×0)</option>
                             <option value=1>D♭メジャー / B♭マイナー (♭×5)</option>
                             <option value=2>Dメジャー / Bマイナー (#×2)</option>
@@ -306,11 +306,11 @@
                     <div class="py-1">
                         <button id="ChangeDegreeEasyButton_minus" class="transpose_button"
                             onclick="ChangeDegreeEasyButton(-1)">
-                            変換前のキーから-1
+                            さらにキーを-1する
                         </button>
                         <button id="ChangeDegreeEasyButton_plus" class="transpose_button"
                             onclick="ChangeDegreeEasyButton(1)">
-                            変換前のキーから+1
+                            さらにキーを+1する
                         </button>
                     </div>
                     <!-- 修正後テキスト -->
@@ -386,13 +386,13 @@
             // イベントリスナーでイベント「input」を登録
             input_name.addEventListener("input", function () {
                 ButtonInvisible();
-                ChangeDegreeText();
+                ChangeDegreeText(0);
             });
 
             // イベントリスナーでイベント「change」を登録
             input_name.addEventListener("change", function () {
                 ButtonInvisible();
-                ChangeDegreeText();
+                ChangeDegreeText(0);
             });
 
         });
