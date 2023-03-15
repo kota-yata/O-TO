@@ -322,22 +322,22 @@ function degree() {
     document.getElementById("Major_dia_7").innerHTML = "Ⅶ m7(♭5)";
 
     document.getElementById("Rel_HMin_dia").innerHTML = "Ⅵ ハーモニック・マイナー";
-    document.getElementById("Rel_HMin_dia_1").innerHTML = "♭Ⅲ augMaj7";
-    document.getElementById("Rel_HMin_dia_2").innerHTML = "Ⅳ m7";
-    document.getElementById("Rel_HMin_dia_3").innerHTML = "Ⅴ 7";
-    document.getElementById("Rel_HMin_dia_4").innerHTML = "♭Ⅵ Maj7";
-    document.getElementById("Rel_HMin_dia_5").innerHTML = "Ⅶ dim7";
-    document.getElementById("Rel_HMin_dia_6").innerHTML = "Ⅰ mMaj7";
-    document.getElementById("Rel_HMin_dia_7").innerHTML = "Ⅱ m7(♭5)";
+    document.getElementById("Rel_HMin_dia_1").innerHTML = "Ⅰ augMaj7";
+    document.getElementById("Rel_HMin_dia_2").innerHTML = "Ⅱ m7";
+    document.getElementById("Rel_HMin_dia_3").innerHTML = "Ⅲ 7";
+    document.getElementById("Rel_HMin_dia_4").innerHTML = "Ⅳ Maj7";
+    document.getElementById("Rel_HMin_dia_5").innerHTML = "#Ⅴ dim7";
+    document.getElementById("Rel_HMin_dia_6").innerHTML = "Ⅵ mMaj7";
+    document.getElementById("Rel_HMin_dia_7").innerHTML = "Ⅶ m7(♭5)";
 
     document.getElementById("Rel_MMin_dia").innerHTML = "Ⅵ メロディック・マイナー";
-    document.getElementById("Rel_MMin_dia_1").innerHTML = "♭Ⅲ augMaj7";
-    document.getElementById("Rel_MMin_dia_2").innerHTML = "Ⅳ 7";
-    document.getElementById("Rel_MMin_dia_3").innerHTML = "Ⅴ 7";
-    document.getElementById("Rel_MMin_dia_4").innerHTML = "Ⅵ m7(♭5)";
-    document.getElementById("Rel_MMin_dia_5").innerHTML = "Ⅶ m7(♭5)";
-    document.getElementById("Rel_MMin_dia_6").innerHTML = "Ⅰ mMaj7";
-    document.getElementById("Rel_MMin_dia_7").innerHTML = "Ⅱ m7";
+    document.getElementById("Rel_MMin_dia_1").innerHTML = "Ⅰ augMaj7";
+    document.getElementById("Rel_MMin_dia_2").innerHTML = "Ⅱ 7";
+    document.getElementById("Rel_MMin_dia_3").innerHTML = "Ⅲ 7";
+    document.getElementById("Rel_MMin_dia_4").innerHTML = "#Ⅳ m7(♭5)";
+    document.getElementById("Rel_MMin_dia_5").innerHTML = "#Ⅴ m7(♭5)";
+    document.getElementById("Rel_MMin_dia_6").innerHTML = "Ⅵ mMaj7";
+    document.getElementById("Rel_MMin_dia_7").innerHTML = "Ⅶ m7";
 
     document.getElementById("Rel_HMaj_dia").innerHTML = "Ⅰ ハーモニック・メジャー";
     document.getElementById("Rel_HMaj_dia_1").innerHTML = "Ⅰ Maj7";
