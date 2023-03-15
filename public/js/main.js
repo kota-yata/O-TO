@@ -591,7 +591,7 @@ const scale_Container = [
 
     //その他のスケール
     { ScaleNumBinary: [2, 4, 0, 8, 9, 12, 0, 15, 17, 0, 21, 0], EnglishName: "Spanish Phrygian", JapaneseName: "スパニッシュ・フリジアン", diaChord4: "7", diaChord3: "", addNum: 4, ForteNumber: "8-26", Info: "スパニッシュな雰囲気が出ます。「スパニッシュ8ノート」とも。", Mode: "", Adjustment: 0 },
-    { ScaleNumBinary: [2, 0, 5, 0, 9, 0, 13, 0, 0, 18, 21, 0], EnglishName: "Prometheus", JapaneseName: "プロメテウス", diaChord4: "", diaChord3: "", addNum: 5, ForteNumber: "6-34", Info: "スクリャービンの交響詩「プロメテウス」の中で使用されているスケール。<br>「ミスティック」とも。<br>構成音を全て使った和音は、「神秘和音」や「プロメテウス和音」と呼ばれます。<br>リディアン・ドミナントからP5th（完全五度）を抜いたスケールとも解釈できます。", Mode: "", Adjustment: 0 },
+    { ScaleNumBinary: [2, 0, 5, 0, 9, 0, 13, 0, 0, 18, 21, 0], EnglishName: "Prometheus", JapaneseName: "プロメテウス", diaChord4: "", diaChord3: "", addNum: 0, ForteNumber: "6-34", Info: "スクリャービンの交響詩「プロメテウス」の中で使用されているスケール。<br>「ミスティック」とも。<br>構成音を全て使った和音は、「神秘和音」や「プロメテウス和音」と呼ばれます。<br>リディアン・ドミナントからP5th（完全五度）を抜いたスケールとも解釈できます。", Mode: "", Adjustment: 0 },
     { ScaleNumBinary: [1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0], EnglishName: "Mixolydian Pentatonic", JapaneseName: "ミクソリディアン・ペンタトニック", diaChord4: "", diaChord3: "", addNum: 7, ForteNumber: "5-29", Info: "", Mode: "", Adjustment: 0 },
 
     //ブルース
@@ -602,12 +602,12 @@ const scale_Container = [
     //特殊なスケール
     { ScaleNumBinary: [2, 4, 0, 0, 9, 0, 13, 0, 16, 0, 19, 22], EnglishName: "Enigmatic", JapaneseName: "エニグマティック", diaChord4: "", diaChord3: "", addNum: 0, ForteNumber: "7-24", Info: "アドルフォ・クレシェンティーニが考案した、メジャーとマイナーと全音階の雰囲気を併せ持つスケール。<br>「謎の音階」とも。", Mode: "", Adjustment: 0 },
 
-    { ScaleNumBinary: [2, 4, 0, 6, 1, 0, 13, 1, 0, 1, 21, 0], EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュト", diaChord4: "7", diaChord3: "", addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ(コンディミ)」とも呼ばれます。", Mode: "", Adjustment: 0 },
+    { ScaleNumBinary: [2, 4, 0, 6, 1, 0, 13, 1, 0, 1, 21, 0], EnglishName: "Half-Whole Diminished", JapaneseName: "ハーフ・ホール・ディミニッシュト", diaChord4: "7", diaChord3: "", addNum: 0, ForteNumber: "8-28", Info: "半音と全音の繰り返しからなるスケール。<br>日本では「コンビネーション・オブ・ディミニッシュ（コンディミ）」とも呼ばれます。", Mode: "", Adjustment: 0 },
     { ScaleNumBinary: [2, 0, 5, 8, 0, 12, 14, 0, 17, 1, 0, 1], EnglishName: "Whole-Half Diminished", JapaneseName: "ホール・ハーフ・ディミニッシュト", diaChord4: "", diaChord3: "", addNum: 0, ForteNumber: "8-28", Info: "全音と半音の繰り返しからなるスケール。<br>ウィレム・ペイペルが使用したことから「Pijper's Scale」などとも呼ばれます。", Mode: "", Adjustment: 0 },
 
     { ScaleNumBinary: [2, 0, 0, 8, 1, 0, 0, 1, 16, 0, 0, 1], EnglishName: "Augmented", JapaneseName: "オーグメンテッド", diaChord4: "", diaChord3: "", addNum: 0, ForteNumber: "6-20", Info: "2つのオーグメンテッド・トライアドを融合したスケールです。<br>「シンメトリック・オーグメンテッド」や「マイナー・サード・ハーフステップ」とも呼ばれます。", Mode: "", Adjustment: 0 },
 
-    { ScaleNumBinary: [2, 4, 0, 6, 1, 0, 13, 0, 17, 0, 21, 0], EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。", Adjustment: -9 },
+    { ScaleNumBinary: [2, 4, 0, 6, 1, 0, 13, 0, 17, 0, 21, 0], EnglishName: "Altered", JapaneseName: "オルタード", diaChord4: "7(omit5)", diaChord3: "(omit5)", addNum: 8, ForteNumber: "7-34", Info: "オルタード・テンションをまとめたスケールです。「スーパー・ロクリアン」と同じ構成音を持ちます。", Mode: "メロディック・マイナーの第7モード。（スーパー・ロクリアンと同じ構成音）", Adjustment: -9 },
 
     { ScaleNumBinary: [2, 0, 5, 0, 9, 0, 13, 0, 16, 0, 19, 0], EnglishName: "Whole Tone", JapaneseName: "ホール・トーン", diaChord4: "7", diaChord3: "", addNum: 0, ForteNumber: "6-35", Info: "「全音音階」とも。オクターブを6等分したスケール。全てが全音で構成されています。", Mode: "", Adjustment: 0 },
 
