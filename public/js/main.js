@@ -121,7 +121,7 @@ const chordProgOne =
     { name: "ヌケ感", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅵm-Ⅳ", info: "シンプルでモダンな雰囲気が出せる。", url: "https://youtu.be/hLQl3WQQoQ0" },
     { name: "ドラマチック", chord: "Ⅰ-Ⅲm/Ⅶ-Ⅴm7/♭Ⅶ-Ⅵ7-Ⅱm-#Ⅰaug-Ⅳ/Ⅰ-Ⅴ7/Ⅶ", info: "Ⅰメジャー始まりにもかかわらず、明るさ控え目。トップノートを半音ずつ下げる流れを取り入れるとさらに\"それ\"っぽくなる。", url: "" },
     { name: "青春", chord: "Ⅰ-Ⅲ-Ⅵm-Ⅴ", info: "溢れ出るノスタルジー。7thやテンションはお好みで。", url: "https://youtu.be/p-RLC9ZgjhY?t=31" },
-    { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅰ6-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/F9TuIVpBi5I?t=30" },
+    { name: "温かみを感じる半音上昇", chord: "Ⅰ-Ⅰaug-Ⅵm/Ⅰ-Ⅰ7", info: "メジャーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/kff_DXor7jc?t=7" },
     { name: "サンボマスターしか勝たん", chord: "Ⅰ-Ⅰaug/#Ⅳ-Ⅳ△7-Ⅴ", info: "サンボマスターっぽいブラックアダーコードの使い方", url: "https://youtu.be/x484_vo7IfM?t=89" },
     { name: "壮大", chord: "Ⅰsus4-Ⅰsus4/♭Ⅱ-Ⅰsus4/♭Ⅲ-Ⅰsus4/Ⅳ-Ⅰsus4/Ⅴ", info: "仰々しくしたいときに。", url: "https://youtu.be/64Ggte_9NPk?t=16" },
     { name: "遊び心", chord: "Ⅰ-Ⅴ/Ⅰ-Ⅳ/Ⅰ-♭Ⅵ/Ⅰ-♭Ⅶ/Ⅰ", info: "ベースを固定しつつちょっと寄り道。", url: "" },
