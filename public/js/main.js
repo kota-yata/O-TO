@@ -193,7 +193,7 @@ const chordProgEight =
     { name: "Ⅵmへのツーファイブ", chord: "Ⅶm7-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "https://youtu.be/NrgmdOz227I?t=8" },
     { name: "平行短調へのツーファイブ", chord: "Ⅶm7(♭5)-Ⅲ7-Ⅵm", info: "Ⅵmへのセカンダリー・ケーデンス", url: "" },
     { name: "クラシカル探求者", chord: "Ⅱm7(♭5)-♭Ⅱ/Ⅳ-Ⅳm(♭5)/Ⅶ-Ⅰ", info: "「ナポリの6度」っぽい響きを使いたい時に。", url: "" },
-    { name: "ジャズの基本形", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", info: "ジャズの基本的なコード進行だと思います。", url: "" },
+    { name: "ジャズの基本形", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅵ7", info: "ジャズの基本的なコード進行だと思います。もちろん、ジャズ以外で使ってもOK", url: "https://youtu.be/cM963tI7Q_k?t=62" },
     { name: "枯葉コード", chord: "Ⅱm7-Ⅴ7-Ⅰ△7-Ⅳ△7-Ⅶm7(♭5)-Ⅲ7-Ⅵm7", info: "参考曲：Joseph Kosma - Autumn Leaves", url: "https://youtu.be/OOtUIMrJUyc?t=91" },
     { name: "後悔", chord: "Ⅱm-Ⅵm/Ⅰ-Ⅶm7(♭5)-Ⅲ7", info: "ダークで美しい進行。", url: "https://youtu.be/8dXImxOtjPY?t=331" },
     { name: "助走", chord: "Ⅱm7-Ⅲm7-Ⅳ△7-Ⅴ", info: "サビ前などに有効です。", url: "" },
