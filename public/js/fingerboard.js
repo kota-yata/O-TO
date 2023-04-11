@@ -104,8 +104,8 @@ function ScaleAndChordsDrowing() {
                         <div id="Scale_name_text"></div>
                         <div id="Scale_Family_text"></div>
                         <div id="keySignatur_text"></div>
-                        <div id="Scale_info_text"></div>
                         <div id="dominant_chord_text"></div>
+                        <div id="Scale_info_text"></div>
                         <div id="Forte_number_text"></div>
                         <div id="Scale_number_text"></div>
                     </div>

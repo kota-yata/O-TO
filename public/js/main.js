@@ -511,12 +511,37 @@ function ChordNumberCheck() {
 const scale_Container = [
     //メジャー・スケールファミリー
     { ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], EnglishName: "Major/Ionian", JapaneseName: "メジャー/アイオニアン", diaChord4: "Maj7", diaChord3: "", addNum: 0, ForteNumber: "7-35", Info: "長音階。最もポピュラーな音階。モーダルな文脈では、「アイオニアン・モード」。", Mode: "", Adjustment: 0 },
-    { ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", addNum: 2, ForteNumber: "7-35", Info: "", Mode: "メジャーの第2モード。", Adjustment: 0 },
-    { ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", addNum: 4, ForteNumber: "7-35", Info: "", Mode: "メジャーの第3モード。", Adjustment: 0 },
-    { ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", addNum: 5, ForteNumber: "7-35", Info: "", Mode: "メジャーの第4モード。", Adjustment: 0 },
-    { ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0], EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", addNum: 7, ForteNumber: "7-35", Info: "", Mode: "メジャーの第5モード。", Adjustment: 0 },
+    {
+        ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+        EnglishName: "Dorian", JapaneseName: "ドリアン", diaChord4: "m7", diaChord3: "m", addNum: 2, ForteNumber: "7-35",
+        Info: "【ドリアン・モードを使った曲の例】<br>・<a href=\"https://www.youtube.com/playlist?list=PLTHnsfzQ5qvRqSIKLvfjaa2YWxuiHIZIe\" target=\"_blank\" rel=\"noopener noreferrer\">YouTubeのプレイリスト</span></a><br>・<a href=\"https://open.spotify.com/playlist/3y9FOjq7fys6uEnSkcmLQN?si=b89829c173784b1f\" target=\"_blank\" rel=\"noopener noreferrer\">Spotifyのプレイリスト</span></a><br>・<a href=\"https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit#gid=1871775870\" target=\"_blank\" rel=\"noopener noreferrer\">楽曲情報共有データベース（Googleスプレッドシート）</span></a>",
+        Mode: "メジャーの第2モード。", Adjustment: 0
+    },
+    {
+        ScaleNumBinary: [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+        EnglishName: "Phrygian", JapaneseName: "フリジアン", diaChord4: "m7", diaChord3: "", addNum: 4, ForteNumber: "7-35",
+        Info: "【フリジアン・モードを使った曲の例】<br>・<a href=\"https://youtube.com/playlist?list=PLTHnsfzQ5qvS5beMC55sySyw4Zi_4-zBT\" target=\"_blank\" rel=\"noopener noreferrer\">YouTubeのプレイリスト</span></a><br>・<a href=\"https://open.spotify.com/playlist/2RgCKY9TdmIILBf7zej9EW?si=687434d9439e49d4\" target=\"_blank\" rel=\"noopener noreferrer\">Spotifyのプレイリスト</span></a><br>・<a href=\"https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit#gid=1871775870\" target=\"_blank\" rel=\"noopener noreferrer\">楽曲情報共有データベース（Googleスプレッドシート）</span></a>",
+        Mode: "メジャーの第3モード。", Adjustment: 0
+    },
+    {
+        ScaleNumBinary: [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+        EnglishName: "Lydian", JapaneseName: "リディアン", diaChord4: "Maj7", diaChord3: "", addNum: 5, ForteNumber: "7-35",
+        Info: "【リディアン・モードを使った曲の例】<br>・<a href=\"https://youtube.com/playlist?list=PLTHnsfzQ5qvQG7Rsu8MdSGSH16U5fXyt1\" target=\"_blank\" rel=\"noopener noreferrer\">YouTubeのプレイリスト</span></a><br>・<a href=\"https://open.spotify.com/playlist/4ASHwZL8i9ZPtiduojp2yN?si=c9214c75fb85406e\" target=\"_blank\" rel=\"noopener noreferrer\">Spotifyのプレイリスト</span></a><br>・<a href=\"https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit#gid=1871775870\" target=\"_blank\" rel=\"noopener noreferrer\">楽曲情報共有データベース（Googleスプレッドシート）</span></a>",
+        Mode: "メジャーの第4モード。", Adjustment: 0
+    },
+    {
+        ScaleNumBinary: [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
+        EnglishName: "Mixolydian", JapaneseName: "ミクソリディアン", diaChord4: "7", diaChord3: "", addNum: 7, ForteNumber: "7-35",
+        Info: "【ミクソリディアン・モードを使った曲の例】<br>・<a href=\"https://youtube.com/playlist?list=PLTHnsfzQ5qvR6caV0BnZHpovOYkUH4Jar\" target=\"_blank\" rel=\"noopener noreferrer\">YouTubeのプレイリスト</span></a><br>・<a href=\"https://open.spotify.com/playlist/3nFpZhfPQZyw1mxKV35Rxt?si=5fef944f558148b6\" target=\"_blank\" rel=\"noopener noreferrer\">Spotifyのプレイリスト</span></a><br>・<a href=\"https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit#gid=1871775870\" target=\"_blank\" rel=\"noopener noreferrer\">楽曲情報共有データベース（Googleスプレッドシート）</span></a>",
+        Mode: "メジャーの第5モード。", Adjustment: 0
+    },
     { ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0], EnglishName: "Natural Minor/Aeolian", JapaneseName: "ナチュラル・マイナー/エオリアン", diaChord4: "m7", diaChord3: "", addNum: 9, ForteNumber: "7-35", Info: "自然的短音階。モーダルな文脈では、「エオリアン・モード」。", Mode: "メジャーの第6モード。", Adjustment: 0 },
-    { ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0], EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", addNum: 11, ForteNumber: "7-35", Info: "", Mode: "メジャーの第7モード。", Adjustment: 0 },
+    {
+        ScaleNumBinary: [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
+        EnglishName: "Locrian", JapaneseName: "ロクリアン", diaChord4: "m7(♭5)", diaChord3: "", addNum: 11, ForteNumber: "7-35",
+        Info: "【ロクリアン・モードを使った曲の例】<br>・<a href=\"https://youtube.com/playlist?list=PLTHnsfzQ5qvSmM0EfjJ0le7vvekXRPWHk\" target=\"_blank\" rel=\"noopener noreferrer\">YouTubeのプレイリスト</span></a><br>・<a href=\"https://open.spotify.com/playlist/2lFkR8xYXWzkjWCQ2eET4E?si=abcffe01c5cd473a\" target=\"_blank\" rel=\"noopener noreferrer\">Spotifyのプレイリスト</span></a><br>・<a href=\"https://docs.google.com/spreadsheets/d/1mo7wY14HYi7PhnRst_a-9c4Sx9cLGNQlkf3ovcwLFF8/edit#gid=1871775870\" target=\"_blank\" rel=\"noopener noreferrer\">楽曲情報共有データベース（Googleスプレッドシート）</span></a>",
+        Mode: "メジャーの第7モード。", Adjustment: 0
+    },
 
     //ハーモニック・マイナースケールファミリー
     { ScaleNumBinary: [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 42], EnglishName: "Harmonic Minor", JapaneseName: "ハーモニック・マイナー", diaChord4: "mMaj7", diaChord3: "m", addNum: 9, ForteNumber: "7-32", Info: "和声的短音階。短調の主和音への終止感を得るためのスケールです。", Mode: "", Adjustment: -9 },

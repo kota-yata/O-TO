@@ -97,14 +97,6 @@ function ScaleInformationDrawing() {
         = `通常、調号は${key_signature[KeySignatureNum]}で記譜されます。<br>
         <img src="./image/${clef_image[KeySignatureNum]}" alt="調号" title="調号" id="clef2">`;
 
-    //スケールの情報を表示
-    if (scale_Container[Num].Info === "") {
-        document.getElementById("Scale_info_text").innerHTML = "";
-    } else {
-        document.getElementById("Scale_info_text").innerHTML
-            = `<br>${scale_Container[Num].Info}`;
-    };
-
     // ドミナントコード上で使えるかを判定する
     if (scale_Container[Num]["diaChord4"] === "7") {
         document.getElementById("dominant_chord_text").innerHTML
@@ -114,6 +106,14 @@ function ScaleInformationDrawing() {
             = `「スーパー・ロクリアン」ではなく「オルタード・スケール」として解釈する場合は、${noteNames[RootNumber][SOF]}7（ドミナント・セブン・コード）上で使用可能です。`;
     } else {
         document.getElementById("dominant_chord_text").innerHTML = "";
+    };
+
+    //スケールの情報を表示
+    if (scale_Container[Num].Info === "") {
+        document.getElementById("Scale_info_text").innerHTML = "";
+    } else {
+        document.getElementById("Scale_info_text").innerHTML
+            = `<br>${scale_Container[Num].Info}`;
     };
 
     //フォルテナンバーを表示
