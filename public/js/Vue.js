@@ -823,7 +823,7 @@ Vue.component('link-table', {
         </h3>
 
         <p>
-        もし、バグや不具合を発見した場合は、お手数をおかけしますが<a href="https://khufrudamonotes.com/contact-english" target="_blank"
+        バグや不具合を発見した場合は、お手数をおかけしますが<a href="https://khufrudamonotes.com/contact-english" target="_blank"
             rel="noreferrer noopener">コンタクトページ</a>から報告していただけるとありがたいです。</p>
         </p>
 
@@ -883,17 +883,25 @@ Vue.component('link-table', {
         </h3>
 
         <p>継続的なサイト運営、コンテンツ制作のためにサポートをお願いいたします。</p>
-        <p><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
+        <p>現在、<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
             rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
             target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>から投げ銭を受け付けております。</p>
         <!-- wp:paragraph {"fontSize":"small"} -->
-        <p class="has-small-font-size">※PayPal.Meの場合は<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
-            target="_blank" rel="noreferrer noopener">以下のリンク</a>へアクセスし、「送信」を選択してください。</p>
 
-        <p class="pb-4">→
+        <p>PayPal.Meを使用する場合は、<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
+            target="_blank" rel="noreferrer noopener">下記のリンク</a>↓へアクセスし、「送信」を選択してください。
+            <br><a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
+            target="_blank" rel="noreferrer noopener">https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY</a>
+            </p>
+
+        <p>stripeを使用する場合は、
           <a href="https://buy.stripe.com/9AQdTx6y006YbDy001" target="_blank"
-              rel="noreferrer noopener">https://buy.stripe.com/9AQdTx6y006YbDy001</a>（※リンク先へ飛んだだけでは決済は行われません。）
+              rel="noreferrer noopener">下記のリンク</a>↓へアクセスし、支払い画面の案内に従ってください。
+            <br><a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
+            target="_blank" rel="noreferrer noopener">https://buy.stripe.com/9AQdTx6y006YbDy001</a>
         </p>
+
+        <p class="pb-4">※どちらもリンク先へ飛んだだけでは決済は行われません。</p>
       </div>
 
         <h3 class="Larger shadow p-3 rounded mb-4 py-3">音楽関係の資料・データ</h3>
