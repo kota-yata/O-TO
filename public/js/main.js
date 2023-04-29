@@ -644,80 +644,48 @@ const scale_Container = [
 //異名同音の#と♭を判定する関数
 function DetermineKeySignature(Num) {
     let SharpOrFlat;
-    if (Num === 2 || Num === 4 || Num === 6 || Num === 7 || Num === 9 || Num === 11 || Num === 42) {
+    if ([2, 4, 6, 7, 9, 11, 42].includes(Num)) {
         SharpOrFlat = 0;
     } else {
         SharpOrFlat = 1;
-    };
+    }
     return SharpOrFlat;
-};
+}
 
 //音名スイッチのオンオフ状態を格納するグローバル配列
 let onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 let chord_prog = Number(chordProgOne.length + chordProgFour.length + chordProgSix.length + chordProgEight.length);
+
 //各配列の情報などの数を書き込む関数
 function info_counter() {
+    // 可変部分を配列にまとめる
+    const targetList = [
+        { selector: '.chord_count', text: `${chord_container.length}種類` },
+        { selector: '.scale_count', text: `${scale_Container.length}種類` },
+        { selector: '.chord_prog_count', text: `${chord_prog}種類` },
+        { selector: '.all_chord_prog_count', text: `${chord_prog * 12}種類` },
+        { selector: '.chord_prog_count12', text: `${chord_prog}×12種類` },
+        { selector: '.one_chord_prog_count', text: `（${chordProgOne.length}種類）` },
+        { selector: '.four_chord_prog_count', text: `（${chordProgFour.length}種類）` },
+        { selector: '.six_chord_prog_count', text: `（${chordProgSix.length}種類）` },
+        { selector: '.eight_chord_prog_count', text: `（${chordProgEight.length}種類）` },
+    ];
 
-    let chord_count = document.querySelectorAll('.chord_count');
-    for (let i = 0; i < chord_count.length; i++) {
-        chord_count[i].innerHTML = `${chord_container.length}種類`;
-    };
-
-    let scale_count = document.querySelectorAll('.scale_count');
-    for (let i = 0; i < scale_count.length; i++) {
-        scale_count[i].innerHTML = `${scale_Container.length}種類`;
-    };
-
-    //-----------------------
-    let chord_prog_count = document.querySelectorAll('.chord_prog_count');
-    for (let i = 0; i < chord_prog_count.length; i++) {
-        chord_prog_count[i].innerHTML = `${chord_prog}種類`;
-    };
-
-    let all_chord_prog_count = document.querySelectorAll('.all_chord_prog_count');
-    for (let i = 0; i < all_chord_prog_count.length; i++) {
-        all_chord_prog_count[i].innerHTML = `${chord_prog * 12}種類`;
-    };
-
-    let chord_prog_count12 = document.querySelectorAll('.chord_prog_count12');
-    for (let i = 0; i < chord_prog_count12.length; i++) {
-        chord_prog_count12[i].innerHTML = `${chord_prog}×12種類`;
-    };
-
-    //-----------------------
-    let one_chord_prog_count = document.querySelectorAll('.one_chord_prog_count');
-    for (let i = 0; i < one_chord_prog_count.length; i++) {
-        one_chord_prog_count[i].innerHTML = `（${chordProgOne.length}種類）`;
-    };
-
-    let four_chord_prog_count = document.querySelectorAll('.four_chord_prog_count');
-    for (let i = 0; i < four_chord_prog_count.length; i++) {
-        four_chord_prog_count[i].innerHTML = `（${chordProgFour.length}種類）`;
-    };
-
-    let six_chord_prog_count = document.querySelectorAll('.six_chord_prog_count');
-    for (let i = 0; i < six_chord_prog_count.length; i++) {
-        six_chord_prog_count[i].innerHTML = `（${chordProgSix.length}種類）`;
-    };
-
-    let eight_chord_prog_count = document.querySelectorAll('.eight_chord_prog_count');
-    for (let i = 0; i < eight_chord_prog_count.length; i++) {
-        eight_chord_prog_count[i].innerHTML = `（${chordProgEight.length}種類）`;
-    };
-
+    // 可変部分をループして処理を短く書く
+    targetList.forEach(target => {
+        const elements = document.querySelectorAll(target.selector);
+        elements.forEach(element => element.innerHTML = target.text);
+    });
 };
+
 //各配列の情報などの数を書き込む関数を実行する。
 info_counter();
 
 // MIDIノートナンバーを渡すと黒鍵かどうか判定する関数
 function DetermineBlackKey(n) {
-    n = mod(n, OCTAVE);
-    if (n === 1 || n === 3 || n === 6 || n === 8 || n === 10) {
-        return true;
-    };
-    return false;
-};
+    return [1, 3, 6, 8, 10].includes(mod(n, OCTAVE));
+}
 
 //鍵盤を画面サイズに合わせて動的に描画するために使うグローバル変数
 let NumberOfKeys;
