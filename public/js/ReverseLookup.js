@@ -264,18 +264,17 @@ let OpenStringsLock = 1;
 
 // 解放弦ロックのON・OFFをする関数
 function OpenStrings_Lock(transpose_direction) {
-    //解放弦のロックボタンが押されたときの処理
-    if (transpose_direction === 0 && OpenStringsLock === 0) {
-        OpenStringsLock = 1;
-        document.getElementById("OpenStringsLock").innerHTML = `<i class="fa-solid fa-lock"></i> 開放弦の移調ロックを解除する`;
+    if (transpose_direction === 0) {
+        if (OpenStringsLock === 0) {
+            OpenStringsLock = 1;
+            document.getElementById("OpenStringsLock").innerHTML = '<i class="fa-solid fa-lock"></i> 開放弦の移調ロックを解除する';
+        } else {
+            OpenStringsLock = 0;
+            document.getElementById("OpenStringsLock").innerHTML = '<i class="fa-solid fa-unlock"></i> 開放弦の移調ロックを解除中';
+        }
         document.getElementById("OpenStringsLock").classList.toggle("LockOff");
         document.getElementById("OpenStringsLock").classList.toggle("LockOn");
-    } else if (transpose_direction === 0 && OpenStringsLock === 1) {
-        OpenStringsLock = 0;
-        document.getElementById("OpenStringsLock").innerHTML = `<i class="fa-solid fa-unlock"></i> 開放弦の移調ロックを解除中`;
-        document.getElementById("OpenStringsLock").classList.toggle("LockOff");
-        document.getElementById("OpenStringsLock").classList.toggle("LockOn");
-    };
+    }
 };
 
 //指板上の音を移調する関数
