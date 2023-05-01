@@ -91,9 +91,11 @@ function KeyAction(str) {
         //配列にMIDIノートナンバーを追加
         if (MIDI_note_number_array.includes(str[1])) {
             //既に含まれている場合は削除する
-            MIDI_note_number_array = MIDI_note_number_array.filter(function (v) {
-                return v !== str[1];
-            });
+            if (isPedalDown === false) {
+                MIDI_note_number_array = MIDI_note_number_array.filter(function (v) {
+                    return v !== str[1];
+                });
+            };
             //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
             MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
                 return mod(num, OCTAVE);
