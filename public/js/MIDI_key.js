@@ -37,7 +37,8 @@ function setInputs(midiAccess) {
 navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
 
 //-----------------------------------------------------
-//MIDIデバイスからメッセージが送られる時に実行
+let isPedalDown = false;
+//MIDIデバイスからメッセージが送られる時に実行される関数
 function onMidiMessage(e) {
     let str = [];
     for (let i = 0; i < e.data.length; i++) {
@@ -48,15 +49,41 @@ function onMidiMessage(e) {
     if (str[0] <= 145) {
         KeyAction(str);
     };
+    //-----------------------------------------------------
+    var data = e.data; // これで、[コマンド/チャンネル、ノート、ベロシティ]のデータが得られる。
+    // ダンパーペダルの情報は通常、コントロールチェンジメッセージに含まれる（コマンド 176）
+    // そしてダンパーペダルは通常、コントロール番号64にマップされる
+    if (data[0] == 176 && data[1] == 64) {
+        DamperPedalControl(data);
+    };
+};
+
+//ダンパーペダルの状態をコントロールする関数
+function DamperPedalControl(data) {
+    // ペダルが踏まれている場合、data[2]は通常64以上になる。
+    // ペダルが離されている場合、data[2]は通常63以下になる。
+    isPedalDown = data[2] >= 64;
+    //ペダルが離されたときのみ実行する
+    if (data[2] <= 63) {
+        MIDI_note_number_array = [];
+        onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        // 選択されている音の情報を描画する関数
+        DrawingInformation();
+        //コード履歴機能
+        WritePastChord();
+    }
+    return isPedalDown;
 };
 
 //-----------------------------------------------------
 let MIDI_note_number_array = [];
+let MIDI_note_number_array2 = [];
 let CurrentBassNumber;
 let BeforeBassNumber = 0;
 let Oscillator;
 let audioSource;
 let CHORD_KEEP = true;
+
 //鍵盤を押した時と、離した時だけ実行される処理
 function KeyAction(str) {
     // キーオン時の設定
@@ -68,7 +95,7 @@ function KeyAction(str) {
                 return v !== str[1];
             });
             //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
-            let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
+            MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
                 return mod(num, OCTAVE);
             });
             //同じピッチクラスの音が無い場合
@@ -95,11 +122,11 @@ function KeyAction(str) {
     };
 
     // キーオフ時の設定
-    if (str[0] === 128 && CHORD_KEEP === false) {
+    if (str[0] === 128 && CHORD_KEEP === false && isPedalDown === false) {
         //配列からMIDIノートナンバーを削除
         MIDI_note_number_array.splice(MIDI_note_number_array.indexOf(str[1]), 1);
         //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
-        let MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
+        MIDI_note_number_array2 = MIDI_note_number_array.map(function (num) {
             return mod(num, OCTAVE);
         });
         //同じピッチクラスの音が無い場合
@@ -139,7 +166,12 @@ function KeyAction(str) {
         //ベース音が変わった時に対応する。
         BeforeBassNumber = CurrentBassNumber;
     };
+    // 選択されている音の情報を描画する関数
+    DrawingInformation()
+};
 
+// 選択されている音の情報を描画する関数
+function DrawingInformation() {
     //選択されている音を書き込む
     let counter = 0;
     for (let i = 0; i < OCTAVE; i++) {
@@ -346,6 +378,7 @@ let BEFORE_CHORD_NAME;
 let CHORD_NAME_ARRAY = [];
 let ALL_CHORD_NAME_ARRAY = [];
 let MAX_CHORD_LOG = 8;
+
 //コード履歴機能
 function WritePastChord() {
     //以前に処理が実行されたときからの差分を求める
