@@ -112,7 +112,7 @@ let sustainPedalIsOn = true; // 初期状態はOn
 document.getElementById('sustainPedalToggleButton').addEventListener('click', function () {
     sustainPedalIsOn = !sustainPedalIsOn; // 状態を反転
     document.getElementById('status').textContent
-        = ` ${sustainPedalIsOn ? 'サスティン・ペダル使用可能' : 'サスティン・ペダル使用不可'}`; // 状態に応じてテキストを更新
+        = ` ${sustainPedalIsOn ? 'サスティン・ペダル入力〇' : 'サスティン・ペダル入力×'}`; // 状態に応じてテキストを更新
     document.getElementById('sustainPedalToggleButton').classList.toggle('OriginalButtonOn');
     console.log(sustainPedalIsOn)
 });

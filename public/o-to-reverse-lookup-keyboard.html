@@ -237,7 +237,7 @@
 
                         <h4 class="pt-3 manual">【サスティン・ペダルについて】</h4>
                         <p class="pt-2">
-                            「サスティン・ペダル使用可能」時は、サスティンペダルを踏んでいる間の入力は鍵盤を離した後も全て保持されます。<br>
+                            「スティン・ペダル入力〇」時は、サスティンペダルを踏んでいる間の入力は鍵盤を離した後も全て保持されます。<br>
                             入力を解除したい場合は、"全ての鍵盤の入力が無い"かつ"サスティン・ペダルを踏んでいない"状態にする必要があります。
                         </p>
 
@@ -396,11 +396,13 @@
                     </select>
                 </label>
 
-                <button id="sustainPedalToggleButton" class="OriginalButton">
-                    <a id="status">サスティン・ペダル使用可能</a>
+                <button id="sustainPedalToggleButton" class="OriginalButton" title='「スティン・ペダル入力〇」時は、サスティンペダルを踏んでいる間の入力は鍵盤を離した後も全て保持されます。入力を解除したい場合は、"
+                    全ての鍵盤の入力が無い"かつ"サスティン・ペダルを踏んでいない"状態にする必要があります。'>
+                    <a id="status">サスティン・ペダル入力〇</a>
                 </button>
 
-                <button id="ChordKeep" class="OriginalButton" onclick="ChordKeep()">
+                <button id="ChordKeep" class="OriginalButton" onclick="ChordKeep()"
+                    title='「入力をキープする」ボタンを押すと、鍵盤を離しても入力が保持されます。'>
                 </button>
 
                 <p class="pt-3">入力されている音が表示されます。<span
