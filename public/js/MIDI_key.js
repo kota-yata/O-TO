@@ -38,6 +38,8 @@ navigator.requestMIDIAccess({ sysex: true }).then(success, failure);
 
 //-----------------------------------------------------
 let isPedalDown = false;
+// ノートのオンの数を追跡するためのカウンタ
+let noteOnCounter = 0;
 //MIDIデバイスからメッセージが送られる時に実行される関数
 function onMidiMessage(e) {
     let str = [];
@@ -49,28 +51,86 @@ function onMidiMessage(e) {
     if (str[0] <= 145) {
         KeyAction(str);
     };
+
     //-----------------------------------------------------
-    var data = e.data; // これで、[コマンド/チャンネル、ノート、ベロシティ]のデータが得られる。
-    // ダンパーペダルの情報は通常、コントロールチェンジメッセージに含まれる（コマンド 176）
-    // そしてダンパーペダルは通常、コントロール番号64にマップされる
-    if (data[0] == 176 && data[1] == 64) {
+    let data = e.data; // これで、[コマンド/チャンネル、ノート、ベロシティ]のデータが得られる。
+
+    //-----------------------------------------------------
+    // サスティン・ペダルの情報は通常、コントロールチェンジメッセージに含まれる（コマンド 176）
+    // そしてサスティン・ペダルは通常、コントロール番号64にマップされる
+    if (data[0] === 176 && data[1] === 64) {
         DamperPedalControl(data);
     };
+    //-----------------------------------------------------
+    let command = data[0] >> 4;
+    let note = data[1];
+
+    // サスティン・ペダル(コントロールナンバー64)の情報は無視
+    if (note === 64) {
+        return;
+    }
+    if (command === 9 && data[2] !== 0) { // note on
+        noteOnCounter++;
+    } else if (command === 8 || (command === 9 && data[2] === 0)) { // note off
+        noteOnCounter--;
+        if (noteOnCounter === 0 && isPedalDown === false && CHORD_KEEP === false) {
+            allNotesOff();
+        }
+    }
 };
 
-//ダンパーペダルの状態をコントロールする関数
+// ノートの状態を追跡するためのオブジェクト
+let noteStates = {};
+// すべてのノートがオフのときにfalseを、それ以外ではtrueを返す関数
+function isAnyNoteOn() {
+    for (let note in noteStates) {
+        if (noteStates.hasOwnProperty(note) && noteStates[note] === true) {
+            return true;
+        }
+    }
+    return false;
+};
+
+// すべてのノートがオフになったときに実行される関数
+function allNotesOff() {
+    //表示を無選択状態にする関数
+    makeUnselected();
+};
+
+//表示を無選択状態にする関数
+function makeUnselected() {
+    MIDI_note_number_array = [];
+    onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    // 選択されている音の情報を描画する関数
+    DrawingInformation();
+    //コード履歴機能
+    WritePastChord();
+};
+
+let sustainPedalIsOn = true; // 初期状態はOn
+
+document.getElementById('sustainPedalToggleButton').addEventListener('click', function () {
+    sustainPedalIsOn = !sustainPedalIsOn; // 状態を反転
+    document.getElementById('status').textContent
+        = ` ${sustainPedalIsOn ? 'サスティン・ペダル使用可能' : 'サスティン・ペダル使用不可'}`; // 状態に応じてテキストを更新
+    document.getElementById('sustainPedalToggleButton').classList.toggle('OriginalButtonOn');
+    console.log(sustainPedalIsOn)
+});
+
+// サスティン・ペダルの情報は通常、コントロールチェンジメッセージに含まれる（コマンド 176）
+// そしてサスティン・ペダルは通常、コントロール番号64にマップされる
+//サスティン・ペダルの状態をコントロールする関数
 function DamperPedalControl(data) {
+    if (sustainPedalIsOn === false) {
+        return;
+    };
     // ペダルが踏まれている場合、data[2]は通常64以上になる。
     // ペダルが離されている場合、data[2]は通常63以下になる。
     isPedalDown = data[2] >= 64;
     //ペダルが離されたときのみ実行する
-    if (data[2] <= 63) {
-        MIDI_note_number_array = [];
-        onoff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        // 選択されている音の情報を描画する関数
-        DrawingInformation();
-        //コード履歴機能
-        WritePastChord();
+    if (data[2] <= 63 && noteOnCounter === 0) {
+        //表示を無選択状態にする関数
+        makeUnselected();
     }
     return isPedalDown;
 };
@@ -169,7 +229,8 @@ function KeyAction(str) {
         BeforeBassNumber = CurrentBassNumber;
     };
     // 選択されている音の情報を描画する関数
-    DrawingInformation()
+    DrawingInformation();
+
 };
 
 // 選択されている音の情報を描画する関数
@@ -186,7 +247,7 @@ function DrawingInformation() {
     };
 
     //入力された音を書き込む（ベース音が変わったときも対応する）
-    ChangeEIJG()
+    ChangeEIJG();
     //スケール名を判定する。
     ModalTextAndNoteCreate(onoff, CurrentBassNumber);
 
@@ -226,7 +287,6 @@ function ChordKeep() {
 
 //指板の要素を描画する関数
 function WriteFingerboard() {
-
     //一度フィンガーボードを空にする
     document.getElementById("Fingerboard").innerHTML = ""
     document.getElementById("Tuning").innerHTML = ""
