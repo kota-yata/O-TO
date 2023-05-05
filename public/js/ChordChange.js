@@ -29,6 +29,8 @@ function ToDegreeName(text, Root) {
         .replace(/N.C./g, "^")
         .replace(/blk/g, "@")
 
+        .replace(/sus/g, "↑")
+
         .replace(/＃/g, "#")
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
@@ -133,6 +135,7 @@ function ToDegreeName(text, Root) {
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))-/g, "$1m")
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(Φ|φ)/g, "$1m7(♭5)")
         .replace(/((Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ))(○|゜|o|O)/g, "$1dim")
+        .replace(/↑/g, "sus")
         .replace(/!/g, "omit")
         .replace(/\^/g, "N.C.")
         .replace(/\@/g, "blk")
