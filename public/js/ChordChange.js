@@ -28,14 +28,19 @@ function ToDegreeName(text, Root) {
     text = text
         .replace(/N.C./g, "^")
         .replace(/blk/g, "@")
+
         .replace(/＃/g, "#")
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
         .replace(/#⃣/g, "#")
+        .replace(/s/g, "#")
+
         .replace(/𝄪/g, "&#119082;")
+        .replace(/x/g, "&#119082;")
 
         .replace(/♭♭/g, "&#119083;")
         .replace(/bb/g, "&#119083;")
+
         .replace(/b/g, "♭")
         .replace(/𝄫/g, "&#119083;")
 
