@@ -111,7 +111,7 @@ function modulation() {
 };
 
 //転調先のキーを書き込む関数
-function modulation_drow(labelText, writingId1, writingId2, answer1, answer2) {
+function modulation_draw(labelText, writingId1, writingId2, answer1, answer2) {
     let SOF = DetermineKeySignature(answer1);
     document.getElementById(`${writingId1}`).innerHTML
         = `【${labelText}】<br>${EIJG2[0][answer2][SOF]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${key_signature[answer1]}`;
@@ -127,17 +127,22 @@ function keychange() {
     let sf_0 = mod((answer1 - 0), OCTAVE);
     let answer2 = note_number - Number(mode_number) + Number(after_mode_number);
 
-    modulation_drow("転調元のキー", "result_origin", "mode", sf_0, note_number);
-    modulation_drow("#+1の転調先", "result_s_1", "after_mode", mod((answer1 - 5), OCTAVE), mod((answer2 + 7), OCTAVE));
-    modulation_drow("♭+1の転調先", "result_f_1", "after_mode", mod((answer1 - 7), OCTAVE), mod((answer2 + 5), OCTAVE));
-    modulation_drow("#+2の転調先", "result_s_2", "after_mode", mod((answer1 - 10), OCTAVE), mod((answer2 + 2), OCTAVE));
-    modulation_drow("♭+2の転調先", "result_f_2", "after_mode", mod((answer1 - 2), OCTAVE), mod((answer2 + 10), OCTAVE));
-    modulation_drow("#+3の転調先", "result_s_3", "after_mode", mod((answer1 - 3), OCTAVE), mod((answer2 + 9), OCTAVE));
-    modulation_drow("♭+3の転調先", "result_f_3", "after_mode", mod((answer1 - 9), OCTAVE), mod((answer2 + 3), OCTAVE));
-    modulation_drow("#+4の転調先", "result_s_4", "after_mode", mod((answer1 - 8), OCTAVE), mod((answer2 + 4), OCTAVE));
-    modulation_drow("♭+4の転調先", "result_f_4", "after_mode", mod((answer1 - 4), OCTAVE), mod((answer2 + 8), OCTAVE));
-    modulation_drow("#+5の転調先", "result_s_5", "after_mode", mod((answer1 - 1), OCTAVE), mod((answer2 + 11), OCTAVE));
-    modulation_drow("♭+5の転調先", "result_f_5", "after_mode", mod((answer1 - 11), OCTAVE), mod((answer2 + 1), OCTAVE));
-    modulation_drow("#・♭+6の転調先", "result_sf_6", "after_mode", mod((answer1 - 6), OCTAVE), mod((answer2 + 6), OCTAVE));
-    modulation_drow("#・♭+0の転調先", "result_sf_0", "after_mode", sf_0, mod((answer2 + 0), OCTAVE));
+    const modulation_pairs = [
+        ["#+1の転調先", "result_s_1", mod((answer1 - 5), OCTAVE), mod((answer2 + 7), OCTAVE)],
+        ["♭+1の転調先", "result_f_1", mod((answer1 - 7), OCTAVE), mod((answer2 + 5), OCTAVE)],
+        ["#+2の転調先", "result_s_2", mod((answer1 - 10), OCTAVE), mod((answer2 + 2), OCTAVE)],
+        ["♭+2の転調先", "result_f_2", mod((answer1 - 2), OCTAVE), mod((answer2 + 10), OCTAVE)],
+        ["#+3の転調先", "result_s_3", mod((answer1 - 3), OCTAVE), mod((answer2 + 9), OCTAVE)],
+        ["♭+3の転調先", "result_f_3", mod((answer1 - 9), OCTAVE), mod((answer2 + 3), OCTAVE)],
+        ["#+4の転調先", "result_s_4", mod((answer1 - 8), OCTAVE), mod((answer2 + 4), OCTAVE)],
+        ["♭+4の転調先", "result_f_4", mod((answer1 - 4), OCTAVE), mod((answer2 + 8), OCTAVE)],
+        ["#+5の転調先", "result_s_5", mod((answer1 - 1), OCTAVE), mod((answer2 + 11), OCTAVE)],
+        ["♭+5の転調先", "result_f_5", mod((answer1 - 11), OCTAVE), mod((answer2 + 1), OCTAVE)],
+        ["#+6 / ♭+6の転調先", "result_sf_6", mod((answer1 - 6), OCTAVE), mod((answer2 + 6), OCTAVE)],
+        ["#・♭+0の転調先", "result_sf_0", sf_0, mod((answer2 + 0), OCTAVE)],
+    ];
+
+    for (let [label, id, answer1, answer2] of modulation_pairs) {
+        modulation_draw(label, id, "after_mode", answer1, answer2);
+    }
 };
