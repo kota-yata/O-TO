@@ -183,8 +183,8 @@ function KeyAction(str) {
         Play(str[1]);
     };
 
-    // キーオフ時の設定
-    if (str[0] === 128 && CHORD_KEEP === false && isPedalDown === false) {
+    // キーオフ時の設定(noteOn velocity=0 を送ることで noteOff の代用をしている機材を想定)
+    if (str[0] === 128 && CHORD_KEEP === false && isPedalDown === false || str[2] === 0 && CHORD_KEEP === false && isPedalDown === false) {
         //配列からMIDIノートナンバーを削除
         MIDI_note_number_array.splice(MIDI_note_number_array.indexOf(str[1]), 1);
         //ほかに同じピッチクラスの音を弾いていないかチェックするための新しい配列を作成
