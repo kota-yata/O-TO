@@ -165,6 +165,7 @@ const chordProgSix =
     { name: "洋楽っぽい", chord: "Ⅵm-Ⅰ-Ⅴ-Ⅳ", info: "シンプルで使いやすい。", url: "https://youtu.be/CX-un4obyU0?t=109" },
     { name: "鉄板のベース半音下降", chord: "Ⅵm-#Ⅴaug-Ⅰ/Ⅴ-#Ⅳm7(♭5)", info: "みんな8億万回は聴いている。クリシェ度の高いクリシェ。", url: "" },
     { name: "Kawaiiコンスタント・ストラクチャー", chord: "Ⅵm7-#Ⅴm7-Ⅴm7-Ⅰ7", info: "m7を半音で下げていくコンスタント・ストラクチャー。サビの折り返しでよく使われる。", url: "https://youtu.be/3nlSDxvt6JU?t=76" },
+    { name: "ハッピー", chord: "Ⅵm7-Ⅱ7-Ⅳ/Ⅴ-Ⅰ", info: "参考曲：Stevie Wonder - Isn't She Lovely", url: "https://youtu.be/7YGc6RMOYF8?t=37" },
     { name: "スタイリッシュ", chord: "Ⅵm9-Ⅱm7-Ⅲm7", info: "研ぎ澄まされた都会的な響き", url: "" },
     { name: "情熱的", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ", info: "力強くいきたい時に。最後にⅤ/Ⅶを追加しても使いやすい。", url: "https://youtu.be/gdZLi9oWNZg?t=24" },
     { name: "お前はタンゴ？", chord: "Ⅵm-Ⅱm-Ⅲ-Ⅵm", info: "タンゴ（tango)とは. 18世紀後半にイベリア半島で発祥したある種のリズムの舞曲。(Wikipediaより引用)", url: "" },
