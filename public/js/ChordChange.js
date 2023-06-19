@@ -31,14 +31,16 @@ function ToDegreeName(text, Root) {
 
         .replace(/sus/g, "↑")
 
+        .replace(/𝄪/g, "&#119082;")
+        .replace(/x/g, "&#119082;")
+        .replace(/ss/g, "&#119082;")
+
         .replace(/＃/g, "#")
         .replace(/♯/g, "#")
         .replace(/♯/g, "#")
         .replace(/#⃣/g, "#")
         .replace(/s/g, "#")
 
-        .replace(/𝄪/g, "&#119082;")
-        .replace(/x/g, "&#119082;")
 
         .replace(/♭♭/g, "&#119083;")
         .replace(/bb/g, "&#119083;")
