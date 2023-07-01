@@ -32,7 +32,7 @@ function modulation() {
 
     //転調前のキーと調号を表示
     document.getElementById("result_b_key").innerHTML
-        = `-転調前-<br>${noteNames[b_note_num][b_SOF]} ${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${b_ConfigurationNotes.join("-")}</font>`;
+        = `-転調前-<br>${noteNames[b_note_num][b_SOF]}${scale_Container[Number(document.getElementById("b_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[b_key_num]}<br><img src="./image/${clef_image[b_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${b_ConfigurationNotes.join("-")}</font>`;
     //転調後のキーの主音の異名同音を判定
     let a_SOF = DetermineKeySignature(a_key_num);
     let a_Configuration = scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['ScaleNumBinary'];
@@ -55,7 +55,7 @@ function modulation() {
 
     //転調後のキーと調号を表示
     document.getElementById("result_a_key").innerHTML
-        = `-転調後-<br>${noteNames[a_note_num][a_SOF]} ${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${a_ConfigurationNotes.join("-")}</font>`;
+        = `-転調後-<br>${noteNames[a_note_num][a_SOF]}${scale_Container[Number(document.getElementById("a_mode").value.split('-')[1])]['JapaneseName']}<br>${key_signature[a_key_num]}<br><img src="./image/${clef_image[a_key_num]}" alt="調号" title="調号" class="clef"><br><font size="-1">${a_ConfigurationNotes.join("-")}</font>`;
     //転調の種類を格納する配列を空で定義
     let result_modulation = [];
     //転調の種類を表示
@@ -114,7 +114,7 @@ function modulation() {
 function modulation_draw(labelText, writingId1, writingId2, answer1, answer2) {
     let SOF = DetermineKeySignature(answer1);
     document.getElementById(`${writingId1}`).innerHTML
-        = `【${labelText}】<br>${EIJG2[0][answer2][SOF]} ${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${key_signature[answer1]}`;
+        = `【${labelText}】<br>${EIJG2[0][answer2][SOF]}${scale_Container[Number(document.getElementById(`${writingId2}`).value.split('-')[1])]['JapaneseName']}${key_signature[answer1]}`;
 };
 
 //転調元から転調先を表示するための関数(転調の間隔)
