@@ -1090,6 +1090,10 @@ Vue.component('link-table', {
           <br>
           このウェブアプリが、あなたがより良い音楽を奏でる一助となれば幸いです。<br>
         </p>
+        <p style="text-align: left" class="py-2  pb-3">
+        開発者：<a href="https://yoshito.khufrudamonotes.com/" target="_blank" rel="noreferrer noopener">Yoshito
+          Kimura</a>
+        </p>
       </div>
 
     </div>
