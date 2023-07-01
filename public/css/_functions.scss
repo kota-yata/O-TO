@@ -15,13 +15,20 @@
 // スケール候補の左側のバー
 @mixin DegreeText($Color,$width:0.3rem){
     border-left: solid $width $Color;
-    padding-left: 0.2rem;
+    padding-left:(1rem - $width);
 }
 
 // 転調の枠の色
 @mixin ModulationBorder($Color) {
     outline: 10px solid $Color;
     outline-offset: -10px;
+}
+
+//アンダーラインの色
+@mixin underLineColor($Color){
+    display: inline-block;
+    border-bottom: 5px ridge $Color;
+    display: block;
 }
 
 @mixin FontSize() {

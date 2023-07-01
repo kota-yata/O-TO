@@ -577,6 +577,79 @@ img {
 }
 
 /* --------------------------------------------------------------------------------------------- */
+.underline0 {
+  display: inline-block;
+  border-bottom: 5px ridge #0588ff;
+  display: block;
+}
+
+.underline1 {
+  display: inline-block;
+  border-bottom: 5px ridge #a4c2f4;
+  display: block;
+}
+
+.underline2 {
+  display: inline-block;
+  border-bottom: 5px ridge #21daff;
+  display: block;
+}
+
+.underline3 {
+  display: inline-block;
+  border-bottom: 5px ridge #66cdaa;
+  display: block;
+}
+
+.underline4 {
+  display: inline-block;
+  border-bottom: 5px ridge #01ff50;
+  display: block;
+}
+
+.underline5 {
+  display: inline-block;
+  border-bottom: 5px ridge #ffccff;
+  display: block;
+}
+
+.underline6 {
+  display: inline-block;
+  border-bottom: 5px ridge #e9967a;
+  display: block;
+}
+
+.underline7 {
+  display: inline-block;
+  border-bottom: 5px ridge #fcfc04;
+  display: block;
+}
+
+.underline8 {
+  display: inline-block;
+  border-bottom: 5px ridge #ff6e01;
+  display: block;
+}
+
+.underline9 {
+  display: inline-block;
+  border-bottom: 5px ridge #ff2121;
+  display: block;
+}
+
+.underline10 {
+  display: inline-block;
+  border-bottom: 5px ridge #ff19bd;
+  display: block;
+}
+
+.underline11 {
+  display: inline-block;
+  border-bottom: 5px ridge #cc99ff;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
   overflow: hidden;
@@ -682,57 +755,57 @@ img {
 
 .DegreeText1 {
   border-left: solid 0.3rem #a4c2f4;
-  padding-left: 0.2rem;
+  padding-left: 0.7rem;
 }
 
 .DegreeText2 {
   border-left: solid 0.5rem #21daff;
-  padding-left: 0.2rem;
+  padding-left: 0.5rem;
 }
 
 .DegreeText3 {
   border-left: solid 0.4rem #66cdaa;
-  padding-left: 0.2rem;
+  padding-left: 0.6rem;
 }
 
 .DegreeText4 {
   border-left: solid 0.4rem #01ff50;
-  padding-left: 0.2rem;
+  padding-left: 0.6rem;
 }
 
 .DegreeText5 {
   border-left: solid 0.5rem #ffccff;
-  padding-left: 0.2rem;
+  padding-left: 0.5rem;
 }
 
 .DegreeText6 {
   border-left: solid 0.3rem #e9967a;
-  padding-left: 0.2rem;
+  padding-left: 0.7rem;
 }
 
 .DegreeText7 {
   border-left: solid 0.7rem #fcfc04;
-  padding-left: 0.2rem;
+  padding-left: 0.3rem;
 }
 
 .DegreeText8 {
   border-left: solid 0.3rem #ff6e01;
-  padding-left: 0.2rem;
+  padding-left: 0.7rem;
 }
 
 .DegreeText9 {
   border-left: solid 0.4rem #ff2121;
-  padding-left: 0.2rem;
+  padding-left: 0.6rem;
 }
 
 .DegreeText10 {
   border-left: solid 0.3rem #ff19bd;
-  padding-left: 0.2rem;
+  padding-left: 0.7rem;
 }
 
 .DegreeText11 {
   border-left: solid 0.3rem #cc99ff;
-  padding-left: 0.2rem;
+  padding-left: 0.7rem;
 }
 
 /* --------------------------------------------------------------------------------------------- */

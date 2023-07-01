@@ -524,6 +524,46 @@ img {
 }
 
 /* --------------------------------------------------------------------------------------------- */
+// 移調の間隔の表示を強調するアンダーライン
+
+.underline0 {
+  @include underLineColor($DegreeColor0);
+}
+.underline1 {
+  @include underLineColor($DegreeColor1);
+}
+.underline2 {
+  @include underLineColor($DegreeColor2);
+}
+.underline3 {
+  @include underLineColor($DegreeColor3);
+}
+.underline4 {
+  @include underLineColor($DegreeColor4);
+}
+.underline5 {
+  @include underLineColor($DegreeColor5);
+}
+.underline6 {
+  @include underLineColor($DegreeColor6);
+}
+.underline7 {
+  @include underLineColor($DegreeColor7);
+}
+.underline8 {
+  @include underLineColor($DegreeColor8);
+}
+.underline9 {
+  @include underLineColor($DegreeColor9);
+}
+.underline10 {
+  @include underLineColor($DegreeColor10);
+}
+.underline11 {
+  @include underLineColor($DegreeColor11);
+}
+
+/* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
   overflow: hidden;

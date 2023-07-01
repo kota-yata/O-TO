@@ -290,9 +290,54 @@ function ChangeDegreeText(BeforeAfter) {
         document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
     };
 
+    //移調後のキーの間隔を表示するための関数
+    degreeChangeResult()
+
     TRANSPOSE_POINT = 0;
     TRANSPOSE_POINT = mod(AfterRootNumber - BeforeRootNumber, OCTAVE);
 };
+
+//移調後のキーの間隔を表示するための関数
+function degreeChangeResult() {
+
+    let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
+    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    let result = [];
+    let modulation_num = mod((AfterRootNumber - BeforeRootNumber), OCTAVE);
+
+    //追加情報
+    if (AfterRootNumber === 12) {
+        document.getElementById("degreeChangeResult").classList = ``;
+        document.getElementById("degreeChangeResult").innerHTML = ``;
+        return;
+    } else if (BeforeRootNumber === AfterRootNumber) {
+        result.push(`±0 / #・♭+0 / 移調なし`);
+    } else if (modulation_num === 1) {
+        result.push(`+1 / -11 / ♭+5 / 半音上`);
+    } else if (modulation_num === 2) {
+        result.push(`+2 / -10 / #+2 / 全音上`);
+    } else if (modulation_num === 3) {
+        result.push(`+3 / -9 / ♭+3 / 短3度上`);
+    } else if (modulation_num === 4) {
+        result.push(`+4 / -8 / #+4 / 長3度上`);
+    } else if (modulation_num === 5) {
+        result.push(`+5 / -7 / ♭+1 / 完全4度上 / 完全5度下`);
+    } else if (modulation_num === 6) {
+        result.push(`±6 / #・♭+6 / 増4度上下`);
+    } else if (modulation_num === 7) {
+        result.push(`-5 / +7 / #+1 / 完全4度下 / 完全5度上`);
+    } else if (modulation_num === 8) {
+        result.push(`-4 / +8 / ♭+4 / 長3度下`);
+    } else if (modulation_num === 9) {
+        result.push(`-3 / +9 / #+3 / 短3度下`);
+    } else if (modulation_num === 10) {
+        result.push(`-2 / +10 / ♭+2 / 全音下`);
+    } else if (modulation_num === 11) {
+        result.push(`-1 / +11 / #+5 / 半音下`);
+    };
+    document.getElementById("degreeChangeResult").classList = `underline${modulation_num}`;
+    document.getElementById("degreeChangeResult").innerHTML = `移調先：${result}`;
+}
 
 // どれだけ移調するかのデータを格納するグローバル変数
 let TRANSPOSE_POINT = 0;
@@ -337,6 +382,10 @@ function ChangeDegreeEasyButton(Point) {
     document.getElementById("AfterRootNumber").options[AfterRootNumber].selected = true;
     //グローバル変数の値を調整する
     TRANSPOSE_POINT = TRANSPOSE_POINT - BeforeRootNumber;
+
+    //移調後のキーの間隔を表示するための関数
+    degreeChangeResult()
+
 };
 
 //サンプルテキストを書き込む関数
