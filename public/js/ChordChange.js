@@ -189,7 +189,7 @@ function Validation(text) {
             document.getElementById("ValidationBox").innerHTML
                 = `<font color="red">【正しく変換できませんでした。】<br>
                 ・「キー設定」や、「異名同音の表記」を誤っている可能性があります。<br>
-                ・"ディグリーネームの変化記号"の位置を確認してください。<br>
+                ・"ディグリーネームの変化記号"の位置を確認します。<br>
                 　※"ディグリーネームの変化記号"は、<b>ローマ数字の左側</b>に書きます。<br>
                 　→例：#Ⅳ<br>
                 <br>
@@ -281,6 +281,9 @@ function ChangeDegreeText(BeforeAfter) {
     //表示ボックスに書き込む
     document.getElementById("box").innerHTML = text;
 
+    //コード移調機能の説明文を書き換える関数
+    updatePlaceholderText(text);
+
     // 調号の画像を変更する
     document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[BeforeRootNumber]}" alt="調号" title="調号" id="clef2">`;
     if (AfterRootNumber === 12) {
@@ -296,6 +299,18 @@ function ChangeDegreeText(BeforeAfter) {
     TRANSPOSE_POINT = 0;
     TRANSPOSE_POINT = mod(AfterRootNumber - BeforeRootNumber, OCTAVE);
 };
+
+//コード移調機能の説明文を書き換える関数
+function updatePlaceholderText(text) {
+    let TextLength = text.replace(/<br \/>/g, '').length;
+    if (TextLength === 0) {
+        document.getElementById("box").innerHTML = '④こちらに変換後のテキストが表示されます。';
+        document.getElementById("textarea").placeholder = '②こちらにコード進行のテキストを入力します。※保存機能はありません。元データを保存した上でお使いください。';
+    } else if (TextLength > 1) {
+        document.getElementById("ExampleTextButton").innerHTML = "②こちら↓にコード進行のテキストを入力します。"
+    };
+}
+
 
 //移調後のキーの間隔を表示するための関数
 function degreeChangeResult() {
@@ -400,17 +415,10 @@ function ExampleTextOne() {
 function ButtonInvisible() {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
-
     //入力されたテキストをサニタイジングする関数
     text = Sanitizing(text);
-
-    let TextLength = text.replace(/<br \/>/g, '').length;
-
-    if (TextLength === 0) {
-        document.getElementById("box").innerHTML = 'こちらに変換後のテキストが表示されます。<br><br><br><br><br><br><br>';
-    } else if (TextLength > 1) {
-        document.getElementById("ExampleTextButton").innerHTML = ""
-    };
+    //コード移調機能の説明文を書き換える関数
+    updatePlaceholderText(text);
 };
 
 //スケールを表示するHTML要素(div)を書き込むための関数
