@@ -76,27 +76,27 @@ function modulation() {
 
     //追加情報
     if (modulation_num === 1 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(+1/半音上)`);
+        result_modulation.push(`半音上<br>+1/-11<br>短2度上/長7度下`);
     } else if (modulation_num === 2 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(+2/全音上)`);
+        result_modulation.push(`全音上<br>+2/-10<br>長2度上/短7度下`);
     } else if (modulation_num === 3 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(+3/短3度上)`);
+        result_modulation.push(`+3/-9<br>短3度上/長6度下`);
     } else if (modulation_num === 4 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(+4/長3度上)`);
+        result_modulation.push(`+4/-8<br>長3度上/短6度下`);
     } else if (modulation_num === 5 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(下属調)`);
+        result_modulation.push(`（下属調）<br>+5/-7<br>完全5度下/完全4度上`);
     } else if (modulation_num === 6 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(±6:増4度上下)`);
+        result_modulation.push(`±6<br>増4度上下`);
     } else if (modulation_num === 7 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(属調)`);
+        result_modulation.push(`（属調）<br>-5/+7<br>完全4度下/完全5度上`);
     } else if (modulation_num === 8 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(-4/長3度下)`);
+        result_modulation.push(`-4/+8<br>長3度下/短6度下`);
     } else if (modulation_num === 9 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(-3/短3度下)`);
+        result_modulation.push(`-3/+9<br>短3度下/長6度上`);
     } else if (modulation_num === 10 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(-2/全音下)`);
+        result_modulation.push(`全音下<br>-2/+10<br>長2度下/短7度上`);
     } else if (modulation_num === 11 && b_mode_num === a_mode_num) {
-        result_modulation.push(`(-1/半音下)`);
+        result_modulation.push(`半音下<br>-1/+11<br>短2度下/長7度上`);
     };
     //転調の種類を格納した配列を結合する
     result_modulation = result_modulation.join("<br>").replace(/,/g, "");

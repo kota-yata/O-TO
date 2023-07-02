@@ -328,13 +328,13 @@ function degreeChangeResult() {
     } else if (BeforeRootNumber === AfterRootNumber) {
         result.push(`±0 / #・♭+0 / 移調なし`);
     } else if (modulation_num === 1) {
-        result.push(`+1 / -11 / ♭+5 / 半音上`);
+        result.push(`+1 / -11 / ♭+5 / 短2度上 / 長7度下 / 半音上`);
     } else if (modulation_num === 2) {
-        result.push(`+2 / -10 / #+2 / 全音上`);
+        result.push(`+2 / -10 / #+2 / 長2度上 / 短7度下 / 全音上`);
     } else if (modulation_num === 3) {
-        result.push(`+3 / -9 / ♭+3 / 短3度上`);
+        result.push(`+3 / -9 / ♭+3 / 短3度上 / 長6度下`);
     } else if (modulation_num === 4) {
-        result.push(`+4 / -8 / #+4 / 長3度上`);
+        result.push(`+4 / -8 / #+4 / 長3度上 / 短6度下`);
     } else if (modulation_num === 5) {
         result.push(`+5 / -7 / ♭+1 / 完全4度上 / 完全5度下`);
     } else if (modulation_num === 6) {
@@ -342,13 +342,13 @@ function degreeChangeResult() {
     } else if (modulation_num === 7) {
         result.push(`-5 / +7 / #+1 / 完全4度下 / 完全5度上`);
     } else if (modulation_num === 8) {
-        result.push(`-4 / +8 / ♭+4 / 長3度下`);
+        result.push(`-4 / +8 / ♭+4 / 長3度下 / 短6度上`);
     } else if (modulation_num === 9) {
-        result.push(`-3 / +9 / #+3 / 短3度下`);
+        result.push(`-3 / +9 / #+3 / 短3度下 / 長6度上`);
     } else if (modulation_num === 10) {
-        result.push(`-2 / +10 / ♭+2 / 全音下`);
+        result.push(`-2 / +10 / ♭+2 / 長2度下 / 短7度上 / 全音下`);
     } else if (modulation_num === 11) {
-        result.push(`-1 / +11 / #+5 / 半音下`);
+        result.push(`-1 / +11 / #+5 / 短2度下 / 長7度上 / 半音下`);
     };
     document.getElementById("degreeChangeResult").classList = `underline${modulation_num}`;
     document.getElementById("degreeChangeResult").innerHTML = `移調先：${result}`;
