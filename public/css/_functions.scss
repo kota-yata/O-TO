@@ -25,7 +25,7 @@
 }
 
 //アンダーラインの色
-@mixin underLineColor($Color){
+@mixin underLineColor($Color:gray){
     display: inline-block;
     border-bottom: 5px ridge $Color;
     display: block;

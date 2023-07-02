@@ -177,6 +177,10 @@
                             <br>新たにキーを選択すると、このボタンの効力はリセットされます。
                         </p>
 
+                        <p class="py-3">
+                            「③変換後のキーを設定します。」のドロップダウンリストから"ディグリーネーム"を選ぶか、「Degree」ボタンを押すと、ディグリーネームへの変換が可能です。
+                        </p>
+
                         <h4 class="pt-3 manual">【想定している用途】</h4>
 
                         <div class="py-2">・<b>コード進行メモを別のキーへ変更する</b></div>
@@ -273,7 +277,7 @@
                     </a>
                     <!-- サンプルボタン -->
                     <div id="ExampleTextButton">
-                        <button class="btn btn-primary box1 col-xxl-6" onclick="ExampleTextOne()"><i
+                        <button class="btn btn-primary box1 col-xxl-6 mt-2" onclick="ExampleTextOne()"><i
                                 class="fa-solid fa-pen"></i> コード進行サンプルを入力する</button>
                     </div>
                     <div class="pt-3">
@@ -302,16 +306,19 @@
                             <option value=9>Aメジャー / F#マイナー (#×3)</option>
                             <option value=10>B♭メジャー / Gマイナー (♭×2)</option>
                             <option value=11>Bメジャー / G#マイナー (#×5)</option>
-                            <option value=12 selected>ディグリーネーム表記</option>
+                            <option value=12 selected>ディグリーネーム</option>
                         </select>
                     </label>
-                    <a id="a_clef_image">
+                    <a id="a_clef_image">　
                     </a>
                     <div id="degreeChangeResult"></div>
                     <div class="py-1">
                         <button id="ChangeDegreeEasyButton_minus" class="transpose_button"
                             onclick="ChangeDegreeEasyButton(-1)">
                             さらにキーを-1する
+                        </button>
+                        <button id="" class="transpose_button" onclick="ChangeDegreeText(true)">
+                            Degree
                         </button>
                         <button id="ChangeDegreeEasyButton_plus" class="transpose_button"
                             onclick="ChangeDegreeEasyButton(1)">

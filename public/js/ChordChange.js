@@ -256,12 +256,22 @@ function DegreeChange(text, Root) {
     return text;
 };
 
+
 //コードネームを変換して転記する関数
-function ChangeDegreeText(BeforeAfter) {
+function ChangeDegreeText(isDegreeName = false) {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
-    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    let AfterRootNumber;
+
+    if (isDegreeName === true) {
+        //ディグリーネームへ変換する場合は12を渡す
+        AfterRootNumber = 12;
+        //セレクトボックスのキー表記を変更する
+        document.getElementById("AfterRootNumber").options[12].selected = true;
+    } else {
+        AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+    };
 
     //指定したキーの音名をディグリーネームへ変換する関数
     text = ToDegreeName(text, BeforeRootNumber);
@@ -322,8 +332,8 @@ function degreeChangeResult() {
 
     //追加情報
     if (AfterRootNumber === 12) {
-        document.getElementById("degreeChangeResult").classList = ``;
-        document.getElementById("degreeChangeResult").innerHTML = ``;
+        document.getElementById("degreeChangeResult").classList = `underline12 mt-1`;
+        document.getElementById("degreeChangeResult").innerHTML = `変換先：ディグリーネーム`;
         return;
     } else if (BeforeRootNumber === AfterRootNumber) {
         result.push(`±0 / #・♭+0 / 移調なし`);

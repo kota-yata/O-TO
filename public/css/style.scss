@@ -562,6 +562,9 @@ img {
 .underline11 {
   @include underLineColor($DegreeColor11);
 }
+.underline12 {
+  @include underLineColor();
+}
 
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */

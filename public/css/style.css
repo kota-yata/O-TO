@@ -649,6 +649,12 @@ img {
   display: block;
 }
 
+.underline12 {
+  display: inline-block;
+  border-bottom: 5px ridge gray;
+  display: block;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* 度数表記 */
 .DegreeBlack {
