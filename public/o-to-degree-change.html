@@ -167,22 +167,24 @@
                         </p>
 
                         <h4 class="pt-3 manual">【使い方】</h4>
-                        <p class="py-1">①入力するコード進行のキーを設定します。</p>
-                        <p class="py-1">②コード進行のテキストを入力するか、貼り付けてください。</p>
-                        <p class="py-1">③変換したいキーを選んでください。</p>
+                        <p class="py-1">①ドロップダウンリストから変換前のコード進行のキーを設定します。</p>
+                        <p class="py-1">②テキストエリアにコード進行のテキストを入力するか、コピー＆ペーストしてください。</p>
+                        <p class="py-1">③ドロップダウンリストから変換先のキーを選んでください。</p>
+                        <p class="py-1">※ドロップダウンリストから"ディグリーネーム"を選ぶと、ディグリーネームへの変換が可能です。</p>
 
-                        <p class="py-3">
-                            「さらにキーを+1する」および「さらにキーを-1する」ボタンを押すと、簡単に半音単位の移調が可能です。
-                            <br>2回押すと全音、3回押すと半音3つ分…といった具合移調されます。
-                            <br>新たにキーを選択すると、このボタンの効力はリセットされます。
+                        <h4 class="pt-3 manual">【便利なボタンの機能】</h4>
+                        <p class="py-1">
+                            「<i class="fa-solid fa-rotate"></i>」ボタンを押すと、ディグリーネーム表示と移調表示をトグル（交互に切り替え）できます。
                         </p>
-
-                        <p class="py-3">
-                            「③変換後のキーを設定します。」のドロップダウンリストから"ディグリーネーム"を選ぶか、「Degree」ボタンを押すと、ディグリーネームへの変換が可能です。
+                        <p class="py-1">
+                            「さらにキーを+1する」および「さらにキーを-1する」ボタンを押すと、簡単に半音単位の移調が可能です。
+                            <br>(2回押すと全音、3回押すと半音3つ分…といった具合に移調されます。)
+                        </p>
+                        <p class="py-1">
+                            ※ドロップダウンリストから新たにキーを選択すると、これらのボタンの効力はリセットされます。
                         </p>
 
                         <h4 class="pt-3 manual">【想定している用途】</h4>
-
                         <div class="py-2">・<b>コード進行メモを別のキーへ変更する</b></div>
                         <p class="py-2">オリジナル曲などのキーを変更したくなったとき、いちいち書き直す必要はありません。<br>テキストを貼り付けてキーを設定するだけでOKです。</p>
                         <div class="py-2">・<b>コード進行のアイデアメモをディグリーネームへ変換する</b></div>
@@ -317,8 +319,8 @@
                             onclick="ChangeDegreeEasyButton(-1)">
                             さらにキーを-1する
                         </button>
-                        <button id="" class="transpose_button" onclick="ChangeDegreeText(true)">
-                            Degree
+                        <button id="DegreeKeyToggle" class="transpose_button" onclick="DegreeTransposeToggle()">
+                            　<i class="fa-solid fa-rotate"></i>　
                         </button>
                         <button id="ChangeDegreeEasyButton_plus" class="transpose_button"
                             onclick="ChangeDegreeEasyButton(1)">

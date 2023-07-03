@@ -256,21 +256,24 @@ function DegreeChange(text, Root) {
     return text;
 };
 
-
-//コードネームを変換して転記する関数
-function ChangeDegreeText(isDegreeName = false) {
+//ディグリーネームか移調かを判定するグローバル変数(trueのときディグリー表記に)
+let IS_DEGREE_NAME = false
+//ディグリーネーム表示と移調表示をトグルする処理をする関数
+function DegreeTransposeToggle() {
     //テキストエリア内のテキストを取得
     let text = document.getElementById("textarea").value;
     let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
     let AfterRootNumber;
 
-    if (isDegreeName === true) {
+    if (IS_DEGREE_NAME === true) {
         //ディグリーネームへ変換する場合は12を渡す
         AfterRootNumber = 12;
         //セレクトボックスのキー表記を変更する
         document.getElementById("AfterRootNumber").options[12].selected = true;
     } else {
-        AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+        //セレクトボックスのキー表記を変更する
+        AfterRootNumber = TRANSPOSE_POINT
+        document.getElementById("AfterRootNumber").options[AfterRootNumber].selected = true;
     };
 
     //指定したキーの音名をディグリーネームへ変換する関数
@@ -306,6 +309,57 @@ function ChangeDegreeText(isDegreeName = false) {
     //移調後のキーの間隔を表示するための関数
     degreeChangeResult()
 
+    //Degreeボタンを押したときはそれまでの移調幅を裏側で保持
+    if (IS_DEGREE_NAME === true) {
+        IS_DEGREE_NAME = false;
+    } else {
+        TRANSPOSE_POINT = 0;
+        TRANSPOSE_POINT = mod(AfterRootNumber - BeforeRootNumber, OCTAVE);
+        IS_DEGREE_NAME = true;
+    };
+};
+
+
+//コードネームを変換して転記する関数
+function ChangeDegreeText() {
+    //テキストエリア内のテキストを取得
+    let text = document.getElementById("textarea").value;
+    let BeforeRootNumber = Number(document.getElementById("BeforeRootNumber").value);
+    let AfterRootNumber = Number(document.getElementById("AfterRootNumber").value);
+
+    //指定したキーの音名をディグリーネームへ変換する関数
+    text = ToDegreeName(text, BeforeRootNumber);
+    //入力されたテキストをサニタイジングする関数
+    text = Sanitizing(text);
+    //正誤判定を行うプログラム
+    Validation(text);
+
+    //ディグリーネーム表記の処理
+    if (AfterRootNumber === 12) {
+        IS_DEGREE_NAME = false;
+    } else {
+        //ディグリーネームから任意のキーのコードネームへ変換する。
+        text = DegreeChange(text, AfterRootNumber);
+        IS_DEGREE_NAME = true;
+    };
+
+    //表示ボックスに書き込む
+    document.getElementById("box").innerHTML = text;
+
+    //コード移調機能の説明文を書き換える関数
+    updatePlaceholderText(text);
+
+    // 調号の画像を変更する
+    document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[BeforeRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    if (AfterRootNumber === 12) {
+        document.getElementById("a_clef_image").innerHTML = "";
+    } else {
+        // 調号の画像を変更する
+        document.getElementById("a_clef_image").innerHTML = `　<img src="./image/${clef_image[AfterRootNumber]}" alt="調号" title="調号" id="clef2">`;
+    };
+
+    //移調後のキーの間隔を表示するための関数
+    degreeChangeResult()
     TRANSPOSE_POINT = 0;
     TRANSPOSE_POINT = mod(AfterRootNumber - BeforeRootNumber, OCTAVE);
 };
@@ -314,12 +368,12 @@ function ChangeDegreeText(isDegreeName = false) {
 function updatePlaceholderText(text) {
     let TextLength = text.replace(/<br \/>/g, '').length;
     if (TextLength === 0) {
-        document.getElementById("box").innerHTML = '④こちらに変換後のテキストが表示されます。';
+        document.getElementById("box").innerHTML = '<font color="gray">④こちらに変換後のテキストが表示されます。<font>';
         document.getElementById("textarea").placeholder = '②こちらにコード進行のテキストを入力します。※保存機能はありません。元データを保存した上でお使いください。';
     } else if (TextLength > 1) {
         document.getElementById("ExampleTextButton").innerHTML = "②こちら↓にコード進行のテキストを入力します。"
     };
-}
+};
 
 
 //移調後のキーの間隔を表示するための関数
@@ -362,7 +416,7 @@ function degreeChangeResult() {
     };
     document.getElementById("degreeChangeResult").classList = `underline${modulation_num}`;
     document.getElementById("degreeChangeResult").innerHTML = `移調先：${result}`;
-}
+};
 
 // どれだけ移調するかのデータを格納するグローバル変数
 let TRANSPOSE_POINT = 0;
@@ -385,14 +439,18 @@ function ChangeDegreeEasyButton(Point) {
 
     //ディグリーネーム表記の処理
     if (AfterRootNumber === 12) {
-        //処理なし
+        IS_DEGREE_NAME = false;
     } else {
         //ディグリーネームから任意のキーのコードネームへ変換する。
         text = DegreeChange(text, TRANSPOSE_POINT);
+        IS_DEGREE_NAME = true;
     };
 
     //表示ボックスに書き込む
     document.getElementById("box").innerHTML = text;
+
+    //移調後のキーの間隔を表示するための関数
+    updatePlaceholderText(text);
 
     // 調号の画像を変更する
     document.getElementById("b_clef_image").innerHTML = `　<img src="./image/${clef_image[BeforeRootNumber]}" alt="調号" title="調号" id="clef2">`;
