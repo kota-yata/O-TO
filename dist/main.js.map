@@ -1,1 +1,0 @@
-{"version":3,"file":"main.js","mappings":";;;;;;AAAa;AACb;AACA;AACA;AACA;AACA;AACA,Q","sources":["webpack://o-to/./src/test.js"],"sourcesContent":["\"use strict\";\r\n\r\nfunction hello() {\r\n    console.log(\"hello\");\r\n};\r\n\r\nhello();"],"names":[],"sourceRoot":""}
