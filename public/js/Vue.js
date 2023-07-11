@@ -886,7 +886,6 @@ Vue.component('link-table', {
         <p>現在、<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY" target="_blank"
             rel="noreferrer noopener"><strong>PayPal.Me</strong></a>及び<a href="https://buy.stripe.com/9AQdTx6y006YbDy001"
             target="_blank" rel="noreferrer noopener"><strong>stripe</strong></a>から投げ銭を受け付けております。</p>
-        <!-- wp:paragraph {"fontSize":"small"} -->
 
         <p>PayPal.Meを使用する場合は、<a href="https://www.paypal.com/paypalme/KHUFRUDAMONOTES/1000JPY"
             target="_blank" rel="noreferrer noopener">下記のリンク</a>↓へアクセスし、「送信」を選択してください。
