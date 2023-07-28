@@ -492,7 +492,7 @@ Vue.component('right-column', {
         <div>
           <ul>
             <li class="py-1 nav-item">
-              <!-- Twitterのシェアボタン -->
+              <!-- Xのシェアボタン -->
               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">
                 Tweet
               </a>
@@ -836,7 +836,7 @@ Vue.component('link-table', {
           <p class="pt-2">SNSなどでシェアしていただくと、アプリ開発の励みになります！</p>
           <ul>
             <li class="py-1 nav-item">
-              <!-- Twitterのシェアボタン -->
+              <!-- Xのシェアボタン -->
               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
                 data-show-count="false">
                 Tweet
