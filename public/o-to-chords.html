@@ -163,7 +163,8 @@
           <!-- タブ1の中身 -->
           <div v-if="isActive == '1'">
             <p class="pt-3 pb-2"><span class="chord_count">100種類以上</span>のコードの構成音や情報を、全てのルート音で調べられるアプリです。<br>
-              同時に、指定したコードの構成音を含む主なスケールと、ネガティヴ・ハーモニー理論に基づく代理コードも表示されます。
+              同時に、指定したコードの構成音を含む主なスケールと、<a
+                href="https://khufrudamonotes.com/negative-harmony-app">ネガティヴ・ハーモニー理論</a>に基づく代理コードも表示されます。
             <p>
             <p class="py-2">※構成音からコード・ネームを検索したい方 → <a href="o-to-modal-interchange.html">③コード/スケール名を逆引き検索</a>をお使いください。
             <p class="py-2">※ギタリスト及び、弦楽器奏者の方 → <a href="o-to-fingerboard.html">⑩弦楽器の指板を可視化する</a>の使用を強くオススメします。
@@ -280,10 +281,12 @@
         　<i class="fa-solid fa-play"></i>　アルペジオ　
       </button>
 
+      <output id="input_volume_value">音量：1</output>
+
       <label for="input_volume" id="input-range" class="input-range pt-1">
-        <output id="input_volume_value">音量：1</output>
         <input id="input_volume" type="range" value="1" min="0" max="10" step="1"
-          oninput="document.getElementById('input_volume_value').value=`音量：${this.value}`" onchange="" />
+          oninput="document.getElementById('input_volume_value').textContent=`音量：${this.value}`"
+          title="Adjust volume" />
       </label>
 
       <div>
