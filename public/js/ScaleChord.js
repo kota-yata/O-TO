@@ -982,7 +982,7 @@ function ModalTextAndNoteCreate(onoff, RootNumber, BassNumber) {
     let use_scale_count = 0;
     // 選択されている全ての構成音のルートのルートナンバーを格納する配列
     let all_root_number = [];
-    //構成音を含む全てのスケールを表示する場合、全てのオンオフとRootNumberを生成する
+    //全ての登録スケールを表示する場合、全てのオンオフとRootNumberを生成する
     if (onlyTonicModeState === 0) {
         all_root_number = [0];
     } else {
@@ -1321,14 +1321,14 @@ function onlyTonicModeSwitch(app_num) {
     document.getElementById("onlyTonicMode").innerHTML = ``
     if (onlyTonicModeState === 0) {
         //ルート音から始まるスケールだけを表示する
-        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-down-left-and-up-right-to-center"></i> 構成音を含む全てのスケールを表示中`
+        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-down-left-and-up-right-to-center"></i> 全ての登録スケールを表示中`
         document.getElementById("onlyTonicMode").classList.remove("btn-success");
         document.getElementById("onlyTonicMode").classList.add("btn-secondary");
         document.getElementById("onlyTonicMode").value = 1;
         onlyTonicModeState = 1;
     } else if (onlyTonicModeState === 1) {
         //全てのスケールを表示する
-        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-up-right-and-down-left-from-center"></i>  構成音を含む全てのスケールを表示する`
+        document.getElementById("onlyTonicMode").innerHTML = `<i class="fa-solid fa-up-right-and-down-left-from-center"></i>  全ての登録スケールを表示する`
         document.getElementById("onlyTonicMode").classList.remove("btn-secondary");
         document.getElementById("onlyTonicMode").classList.add("btn-success");
         document.getElementById("onlyTonicMode").value = 0;
