@@ -262,7 +262,7 @@ Vue.component('link-card', {
                   <img class="link_image pt-3 pb-3" src="image/thumbnail/chord-progression_thumbnail.png" alt="サムネイル">
                 </a>
                 <p class="card-text">
-                  <span class="chord_prog_count">90種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
+                  <span class="chord_prog_count">100種類以上</span>のコード進行をまとめたツールです。表示は全てのキーへ切り替え可能なので、実質<span
                     class="all_chord_prog_count">1000種類以上</span>のコード進行を確認できます。
                 </p>
               </div>
@@ -706,7 +706,7 @@ Vue.component('link-table', {
                       </a>
                   </h4>
                   <p class="card-text">
-                      <span class="chord_prog_count">90種類以上</span>のコード進行（12キー対応なので実質<span
+                      <span class="chord_prog_count">100種類以上</span>のコード進行（12キー対応なので実質<span
                           class="all_chord_prog_count">1000種類以上</span>）をまとめました。<br>ディグリー・ネームで表示もできます。
                   </p>
               </div>
