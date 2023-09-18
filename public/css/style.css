@@ -210,14 +210,18 @@ img {
   border: 1px solid rgb(210, 210, 210);
 }
 
-.CursorPointer {
+.CursorHelp {
+  cursor: help;
+}
+
+.soundButton {
   cursor: pointer;
 }
-.CursorPointer:hover {
+.soundButton:hover {
   font-weight: bold;
   background-color: #faebd7;
 }
-.CursorPointer:active {
+.soundButton:active {
   background-color: crimson;
   color: white;
 }

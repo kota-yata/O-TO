@@ -196,7 +196,11 @@ img {
   }
 }
 
-.CursorPointer{
+.CursorHelp{
+  cursor: help;
+}
+
+.soundButton{
   cursor: pointer;
     &:hover{
       font-weight: bold;

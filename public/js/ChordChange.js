@@ -497,7 +497,7 @@ function WriteChordHTML(f, ChordArray) {
     //配列の数だけHTML要素(div)を書き込む。
     for (let i = 0; i < ChordArray.length; i++) {
         HTML_Info.insertAdjacentHTML('afterbegin',
-            `<tr>
+            `<tr class="CursorHelp">
                 <th scope="row" id="row${f}-${ChordArray.length - i}"></th>
                 <td id="title${f}-${ChordArray.length - i}"></td>
                 <td id="chordProg${f}-${ChordArray.length - i}"></td>
@@ -545,9 +545,9 @@ function WriteChord(f, ChordArray, processing = 0, RootNumber = 0) {
             document.getElementById(`chordProg${f}-${i + 1}`).innerHTML = `${text}`;
             //再生するボタンを追加する
             document.getElementById(`chordProg${f}-${i + 1}`).addEventListener('click', function () { ChordSound(text) }, false);
-            document.getElementById(`chordProg${f}-${i + 1}`).classList.add("CursorPointer");
+            document.getElementById(`chordProg${f}-${i + 1}`).classList.add("soundButton");
             document.getElementById(`row${f}-${i + 1}`).addEventListener('click', function () { ChordSound(text) }, false);
-            document.getElementById(`row${f}-${i + 1}`).classList.add("CursorPointer");
+            document.getElementById(`row${f}-${i + 1}`).classList.add("soundButton");
             //ディグリー表記のツールチップを追加する。
             document.getElementById(`chordProg${f}-${i + 1}`).setAttribute("title", `${ChordArray[i].chord}`);
         };
