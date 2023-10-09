@@ -174,7 +174,7 @@ const chordProgSix =
     { name: "バロックなゼクエンツ", chord: "Ⅵm-Ⅱm-Ⅴ-Ⅰ-Ⅳ-Ⅶm(♭5)-Ⅲ", info: "気分はバロック時代。", url: "https://youtu.be/ZPdk5GaIDjo?t=68" },
     { name: "貴様の形状", chord: "Ⅵm-Ⅱm7-Ⅳ-Ⅴ", info: "参考曲：Ed Sheeran - Shape of You", url: "https://youtu.be/JGwWNGJdvx8?t=5" },
     { name: "穴場スポット", chord: "Ⅵm-Ⅲm-Ⅳ-Ⅰ", info: "意外とよくいそうでいない。", url: "https://youtu.be/DwTinTO0o9I?t=121" },
-    { name: "近未来", chord: "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", info: "ベースを固定しつつ上を動かす形。", url: "https://youtu.be/WSX6ZRX4_-Q?t=24" },
+    { name: "近未来", chord: "Ⅵm-Ⅴ/Ⅵ-Ⅳ/Ⅵ-Ⅲm/Ⅵ", info: "近未来的な雰囲気を感じるペダルポイント（ベースを固定しつつ上を動かす形）", url: "https://youtu.be/WSX6ZRX4_-Q?t=24" },
     { name: "困難を伴う前進", chord: "Ⅵm-Ⅴ/Ⅶ-Ⅰ-Ⅱm-Ⅲsus4-Ⅲ", info: "ベースが段階的に上昇。シリアスな空気感。", url: "https://youtu.be/TqPGIwOmoHk?si=YSQz52LZWh8vrHaO&t=94" },
     { name: "サスペンス半音上昇", chord: "Ⅵm-Ⅳ/Ⅵ-#Ⅳm(♭5)/Ⅵ-Ⅵm7", info: "マイナーコードのトップノートを半音で上昇させるクリシェ。", url: "https://youtu.be/zKBCSBfP9TI?t=14" },
     { name: "遂に自由に…", chord: "Ⅵm-Ⅲ7/#Ⅴ-Ⅳ△7-Ⅱm9-Ⅴsus4-Ⅴ", info: "参考曲：Dream Theater - Finally Free", url: "https://youtu.be/tdZKo7hPzmE?t=169" },
